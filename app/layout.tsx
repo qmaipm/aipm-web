@@ -1,6 +1,10 @@
 import type { Metadata, Viewport } from "next";
 
-// 站点对外地址(用于 OG / canonical 等绝对地址)。构建时按环境注入 SITE_URL,默认生产域名。
+// 运行时渲染:让 metadataBase(OG / canonical 绝对地址)按容器注入的 SITE_URL 取值,
+// 测试站显示测试域名、生产站显示生产域名,单镜像适配两套环境。
+export const dynamic = "force-dynamic";
+
+// 站点对外地址(用于 OG / canonical 等绝对地址)。由容器环境变量注入,默认生产域名。
 const SITE_URL = process.env.SITE_URL || "https://www.aipm.cn";
 
 export const metadata: Metadata = {

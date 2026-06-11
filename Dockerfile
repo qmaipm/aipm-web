@@ -1,8 +1,7 @@
 # syntax=docker/dockerfile:1
 # 启盟科技官网 — Next.js (standalone) 多阶段构建
-# 环境差异通过构建参数注入(测试/生产各构建一个镜像):
-#   docker build --build-arg SITE_ENV=production --build-arg SITE_URL=https://www.aipm.cn      -t aipm-web:prod .
-#   docker build --build-arg SITE_ENV=test       --build-arg SITE_URL=https://t1816-www.aipm.cn -t aipm-web:test .
+# 镜像与环境无关:SITE_ENV / SITE_URL 在运行时由容器环境变量注入(见 docker-compose.yml),
+# 一个镜像同时适配测试/生产。robots / sitemap / layout 已设为 force-dynamic,运行时读取这些值。
 
 FROM node:22-alpine AS base
 WORKDIR /app
@@ -13,13 +12,8 @@ FROM base AS deps
 COPY package.json package-lock.json* ./
 RUN npm ci
 
-# 构建层
+# 构建层(不烤入环境差异;SITE_ENV / SITE_URL 在运行时注入)
 FROM base AS builder
-# 这两个值会被 robots.ts / sitemap.ts / metadataBase 在构建时读取并写入产物
-ARG SITE_ENV=production
-ARG SITE_URL=https://www.aipm.cn
-ENV SITE_ENV=${SITE_ENV}
-ENV SITE_URL=${SITE_URL}
 COPY --from=deps /app/node_modules ./node_modules
 COPY . .
 RUN npm run build

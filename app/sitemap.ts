@@ -1,5 +1,8 @@
 import type { MetadataRoute } from "next";
 
+// 运行时渲染:URL 用容器注入的 SITE_URL,按当前环境输出测试/生产域名。
+export const dynamic = "force-dynamic";
+
 const SITE_URL = process.env.SITE_URL || "https://www.aipm.cn";
 
 // 站点主要可索引路由(与 lib/nav.ts 的页面保持一致)。新增页面时同步补充。
