@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<!--
+  team.html 改动清单（任务 260610 · 提示词 4）
+  新增：
+    - 「投资方背书」区块（蓝驰创投、微光创投，含管理资产规模与代表案例，事实陈述）
+    - 核心团队叙事中以「不具名群体」方式织入：技术合伙人（大众点评 / 百姓网 CTO 背景）、
+      核心成员 500+ 项目落地、四大与投资机构背景的财务负责人
+  修改：
+    - 创始人区块：仅实名「滕一帆 — 创始人 & CEO」一人，履历以 BP 为准
+    - <title> / <meta description> 围绕「启盟科技团队 / 创始人 / FM AI / FDE」重写
+  删除（作废）：
+    - 旧创始人 / 联合创始人两张错误实名卡片（旧姓名一律作废，不再出现在本页）
+    - 全部待确认占位文案与对应 .pending 样式
+  未动：
+    - <header class="nav">、<footer class="ft">、末尾 <script>
+    - site.css（新样式仅追加进本页内嵌 <style> 末尾）
+    - 「到现场的是工程师,不是 PPT 销售 / FDE」克制群体叙事基调（保留并强化）
+    - 顾问委员会「如有,稍后公布」克制处理
+-->
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>团队 · 创始人滕一帆与 FDE 工程师团队 — 启盟科技</title>
+<meta name="description" content="启盟科技由创始人 &amp; CEO 滕一帆带领,到现场的是行业老兵与 AI 工程师组成的 FDE 前线部署工程师团队,不是来讲方案的销售;背后有蓝驰创投、微光创投支持。">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&family=Noto+Sans+SC:wght@300;400;500;700&family=Noto+Serif+SC:wght@400;500;600;700;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="site.css">
+<style>
+  .founders .card{display:flex; flex-direction:column}
+  .avatar{width:72px; height:72px; border-radius:50%; display:grid; place-items:center;
+    font-family:"Noto Serif SC",serif; font-weight:600; font-size:26px; color:#fff; margin-bottom:20px; letter-spacing:.02em}
+  .founders .card h3{font-size:23px; margin-bottom:4px}
+  .founders .role{font-family:"JetBrains Mono"; font-size:12.5px; color:var(--mut); letter-spacing:.04em; margin-bottom:14px}
+  .founders .card p{font-size:15.5px; line-height:1.7}
+  .fde-note{font-family:"JetBrains Mono"; font-size:12.5px; color:var(--mut); letter-spacing:.02em; margin-top:36px}
+
+  /* ===== 任务 260610 新增样式（追加，勿改上方已有规则） ===== */
+  .backers .card h3{font-size:20px; margin-bottom:6px}
+  .backers .card .en{font-family:"JetBrains Mono",ui-monospace,monospace; font-size:11.5px; letter-spacing:.06em;
+    color:var(--mut-2); margin-bottom:12px}
+  .backers .card .aum{font-family:"JetBrains Mono",ui-monospace,monospace; font-size:12.5px; color:var(--mut);
+    letter-spacing:.03em; margin-bottom:12px}
+  .backers .card p{font-size:15px; color:var(--ink-2); line-height:1.7}
+</style>
+</head>
+<body data-nav-solid>
+
+<header class="nav" id="nav">
+  <div class="navrow">
+    <a href="index.html" class="logo"><span class="dots"><i></i><i></i><i></i><i></i><i></i></span>启盟科技</a>
+    <nav class="menu">
+      <div class="item"><a>产品<svg class="car" viewBox="0 0 12 12"><path d="M2 4l4 4 4-4" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg></a>
+        <div class="dropdown">
+          <a class="di" href="product-fmclaw.html">FMClaw™ AI 平台<small>All-in-One · Agentic 架构 · 五大模块</small></a>
+          <a class="di" href="product-collaboration.html">第三方平台 AI 协同<small>钉钉 / 飞书 / 企业微信 · 不替换，只接入</small></a>
+          <a class="di" href="product-iot.html">IoT 物理世界感知系统</a>
+          <a class="di" href="product-robots.html">机器人装备<small>室内清洁 · 四足巡检</small></a>
+        </div>
+      </div>
+      <div class="item"><a>解决方案<svg class="car" viewBox="0 0 12 12"><path d="M2 4l4 4 4-4" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg></a>
+        <div class="dropdown" style="min-width:330px">
+          <div class="dh">按 Agent 职能</div>
+          <a class="di" href="agents.html">四 Agent 闭环总览<small>服务设计 · 运营管理 · 质量评估 · 服务优化</small></a>
+          <a class="di" href="agent-service-design.html">服务设计</a><a class="di" href="agent-operations.html">运营管理</a>
+          <a class="di" href="agent-quality.html">质量评估</a><a class="di" href="agent-optimization.html">服务优化</a>
+          <div class="sep"></div>
+          <div class="dh">按行业痛点</div>
+          <a class="di" href="solution-vendor.html">AI 供应商管理与自动对账</a>
+          <a class="di" href="solutions.html">外包管理与质量考评</a>
+          <a class="di" href="solutions.html">AI 账单</a>
+          <div class="sep"></div>
+          <div class="dh">For…</div>
+          <a class="di" href="index.html#tri">给业主 · 给物业公司 · 给开发者</a>
+        </div>
+      </div>
+      <div class="item"><a href="cases.html">客户案例</a></div>
+      <div class="item"><a href="workshop.html">FMAI 工作坊<svg class="car" viewBox="0 0 12 12"><path d="M2 4l4 4 4-4" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg></a>
+        <div class="dropdown" style="min-width:300px">
+          <a class="di" href="workshop.html">FMAI 工作坊(总览)<small>把你自己的 AI，亲手搭出来</small></a>
+          <div class="dh">适用场景</div>
+          <a class="di" href="scenario-utility-bill.html">水电费审批</a>
+          <a class="di" href="scenario-repair-bot.html">报修智能客服</a>
+          <a class="di" href="scenario-exec-query.html">管理层问询</a>
+          <a class="di" href="scenario-reconciliation.html">AI 对账</a>
+          <a class="di" href="scenario-inspection.html">AI 质检</a>
+          <a class="di" href="scenario-dispatch.html">智能派单</a>
+        </div>
+      </div>
+      <div class="item"><a href="cobuild.html">人工智能产业共建</a></div>
+      <div class="item"><a class="cur">公司<svg class="car" viewBox="0 0 12 12"><path d="M2 4l4 4 4-4" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg></a>
+        <div class="dropdown">
+          <a class="di" href="about.html">关于启盟</a><a class="di" href="team.html">团队</a>
+          <a class="di" href="news.html">新闻动态</a><a class="di" href="insights.html">行业研究</a>
+        </div>
+      </div>
+    </nav>
+    <div class="nav-spacer"></div>
+    <a href="workshop.html" class="nav-cta">预约 <span class="lbl-full">FMAI 工作坊</span> <svg width="13" height="13" viewBox="0 0 16 16"><path d="M3 8h10M9 4l4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+  </div>
+</header>
+
+<!-- HERO（基调保留） -->
+<section class="phero">
+  <div class="hero-mesh"></div>
+  <div class="wrap">
+    <span class="eyebrow reveal">团队</span>
+    <h1 class="reveal" style="margin-top:20px">到现场的,是工程师,<br>不是 PPT 销售。</h1>
+    <p class="lead reveal">和你一起坐下来、打开数据、把 Agent 搭起来的人,自己写代码,也懂这个行业怎么运转。</p>
+  </div>
+</section>
+
+<!-- 创始人（仅实名滕一帆一人） -->
+<section class="band founders">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="eyebrow reveal">创始人</span>
+      <h2 class="reveal">把公司带到这里的人。</h2>
+    </div>
+    <div class="grid c2" style="margin-top:48px">
+      <div class="card reveal">
+        <div class="avatar" style="background:linear-gradient(135deg,var(--blue),var(--purple))">滕</div>
+        <h3>滕一帆</h3>
+        <div class="role">创始人 &amp; CEO</div>
+        <p>算法工程师出身,曾在中科院下属高科技企业从事算法研发。此后是一名连续创业者,也曾在一家 IT 500 强企业担任智慧城市解决方案的区域销售总监。算法、产品与一线市场,他都待过——这让他既清楚技术能做到哪,也清楚客户真正要的是什么。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 核心团队 / FDE（保留并以不具名方式强化分量） -->
+<section class="band alt">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="eyebrow reveal">核心团队 · FDE</span>
+      <h2 class="reveal">和你一起搭东西的那群人。</h2>
+      <p class="sub reveal">FDE,Forward Deployed Engineer,前线部署工程师。</p>
+    </div>
+    <div class="prose reveal" style="margin-top:36px">
+      <p>在启盟,真正到工作坊现场的,是 FDE 团队。他们不是来讲方案的,而是带着自己的电脑,坐在你旁边,打开你的数据,一行一行把 Agent 搭起来的人。</p>
+      <p>这支团队是两种人的组合:一边是行业老兵——在物业与设施管理里待了很多年,知道一张工单背后真实发生了什么;另一边是 AI 工程师——清楚模型能做什么、不能做什么,以及怎么把它接进一套真实流程。</p>
+      <p>分量也藏在这群人里:技术一侧,有曾任大众点评 / 百姓网 CTO 的技术合伙人;交付一侧,有主导过 500+ 个项目落地、服务数十家大客户的核心成员;财务与治理一侧,则由具备四大会计师事务所与投资机构背景的负责人把关。我们更愿意用他们做过的事来介绍他们,而不是先把头衔和名字摆上去。</p>
+      <p>两种人放在同一张桌子上,是有意为之。懂行业的人负责把问题问对,懂工程的人负责把它做出来。中间不隔着一层只会传话的销售。</p>
+    </div>
+    <p class="fde-note reveal">现场只有两件事:你的真问题,和能把它做出来的人。</p>
+  </div>
+</section>
+
+<!-- 投资方背书（新增） -->
+<section class="band backers">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="eyebrow reveal">投资方</span>
+      <h2 class="reveal">站在我们身后的机构。</h2>
+      <p class="sub reveal">只列公开可查的机构背景与代表案例,不做渲染。</p>
+    </div>
+    <div class="grid c2" style="margin-top:48px">
+      <div class="card reveal"><div class="k" style="background:var(--blue)"></div>
+        <h3>蓝驰创投</h3>
+        <div class="en">Lanchi Ventures</div>
+        <div class="aum">管理资产逾 150 亿元</div>
+        <p>代表 AI / 硬科技投资:理想汽车、高仙机器人、Genspark、月之暗面。</p>
+      </div>
+      <div class="card reveal"><div class="k" style="background:var(--green)"></div>
+        <h3>微光创投</h3>
+        <div class="en">WeLight Capital</div>
+        <div class="aum">管理资产逾 30 亿元 · 创始合伙人为腾讯前高管</div>
+        <p>代表 AI / 智能硬件投资:小鹏汽车、奇朵智能、纬钛机器人、鉴智机器人。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 顾问委员会（保留克制处理） -->
+<section class="band">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="eyebrow reveal">顾问委员会</span>
+      <h2 class="reveal">如有,稍后公布。</h2>
+      <p class="sub reveal">我们更愿意在确定之后再说,而不是先把名字摆上去。</p>
+    </div>
+  </div>
+</section>
+
+<section class="endcta"><div class="wrap"><h2 class="reveal">把 AI 接入物业与<br>设施管理的日常运营。</h2><p class="reveal">从你的一个真实业务开始。</p><div class="cta-row reveal"><a href="workshop.html" class="btn btn-primary" style="padding:16px 32px;font-size:16.5px">预约 FMAI 工作坊 →</a></div></div></section>
+
+<footer class="ft">
+  <div class="wrap">
+    <div class="ft-grid">
+      <div>
+        <div class="brand"><span class="dots"><i></i><i></i><i></i><i></i><i></i></span>启盟科技</div>
+        <p class="tagline">物业与设施管理的 AI 操作系统。把 AI 接进每天的运营,从一个真实业务开始。</p>
+      </div>
+      <div><h5>产品</h5><a class="fl" href="product-fmclaw.html">FMClaw™ AI 平台</a><a class="fl" href="product-collaboration.html">第三方平台 AI 协同</a><a class="fl" href="product-iot.html">IoT 物理感知</a><a class="fl" href="product-robots.html">机器人装备</a></div>
+      <div><h5>解决方案</h5><a class="fl" href="agent-service-design.html">服务设计 / 运营管理</a><a class="fl" href="agent-quality.html">质量评估 / 服务优化</a><a class="fl" href="solution-vendor.html">供应商管理与对账</a><a class="fl" href="cases.html">客户案例</a></div>
+      <div><h5>共建与公司</h5><a class="fl" href="workshop.html">FMAI 工作坊</a><a class="fl" href="cobuild.html">人工智能产业共建</a><a class="fl" href="about.html">关于启盟 / 团队</a><a class="fl" href="insights.html">行业研究</a></div>
+      <div><h5>联系</h5><a class="fl" href="contact.html">商务合作</a><a class="fl" href="contact.html">招商 / 国资对接</a><a class="fl" href="contact.html">加入我们</a><a class="fl" href="contact.html">公众号</a></div>
+    </div>
+  </div>
+  <div class="ft-bot"><span>© 2026 启盟科技 · FMClaw™</span><span>aipm.cn · ICP 备案待补充 · 公安备案待补充</span></div>
+</footer>
+
+<div class="totop" id="totop" role="button" tabindex="0" aria-label="回到顶部">
+  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M12 19V5M5 12l7-7 7 7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+</div>
+
+<script>
+(function(){
+  var nav=document.getElementById('nav'), totop=document.getElementById('totop');
+  var lockSolid = document.body.hasAttribute('data-nav-solid');
+  function onScroll(){var y=window.scrollY||0; nav.classList.toggle('solid', lockSolid || y>40); totop.classList.toggle('show', y>700);}
+  window.addEventListener('scroll', onScroll, {passive:true}); onScroll();
+  totop.addEventListener('click', function(){window.scrollTo({top:0,behavior:'smooth'});});
+  totop.addEventListener('keydown', function(e){if(e.key==='Enter'||e.key===' '){e.preventDefault();window.scrollTo({top:0,behavior:'smooth'});}});
+  if('IntersectionObserver' in window){
+    var io=new IntersectionObserver(function(es){es.forEach(function(en){
+      if(en.isIntersecting){en.target.classList.add('in'); io.unobserve(en.target);}});},
+      {rootMargin:'0px 0px -8% 0px', threshold:0.06});
+    document.querySelectorAll('.reveal').forEach(function(el){
+      var sib=el.parentElement.querySelectorAll(':scope > .reveal');
+      el.style.transitionDelay=(Math.min(Array.prototype.indexOf.call(sib,el),5)*60)+'ms';
+      io.observe(el);
+    });
+  } else { document.querySelectorAll('.reveal').forEach(function(el){el.classList.add('in');}); }
+})();
+</script>
+</body>
+</html>

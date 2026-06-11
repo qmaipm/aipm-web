@@ -1,0 +1,21 @@
+# dependencies
+/node_modules
+
+# next.js / build
+/.next
+/out
+/build
+next-env.d.ts
+tsconfig.tsbuildinfo
+
+# env
+.env*
+!.env.example
+
+# os / editor
+.DS_Store
+*.pem
+
+# 非源代码资产(任务文档、归档包)
+/file
+*.zip

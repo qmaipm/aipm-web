@@ -1,0 +1,592 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>启盟科技 · 物业与设施管理的 AI 操作系统 — FMClaw™</title>
+<meta name="description" content="物业与设施管理,正在被 AI 重写。FMClaw™ 把 AI 接入日常运营。带着你的一个真实业务,在 FMAI 工作坊里用 1–3 天把它跑通。">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&family=Noto+Sans+SC:wght@300;400;500;700&family=Noto+Serif+SC:wght@400;500;600;700;900&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ivory:#F6F4EE; --ivory-2:#F0EDE3; --paper:#FBFAF6;
+    --ink:#1A1916; --ink-2:#46443D; --mut:#787469; --mut-2:#9A958A;
+    --line:#E2DDD0; --line-2:#ECE8DC;
+    --dark:#15140F; --dark-2:#1E1C15; --dark-line:#33301F; --dark-mut:#9C968400; --dark-mut-c:#A29C8A;
+    --maxw:1160px; --measure:760px;
+    }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth; scroll-padding-top:84px; -webkit-text-size-adjust:100%}
+  body{margin:0; background:var(--ivory); color:var(--ink);
+    font-family:"Noto Sans SC","Inter",-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+    font-size:17px; line-height:1.75; -webkit-font-smoothing:antialiased; text-rendering:optimizeLegibility}
+  @media (prefers-reduced-motion:reduce){*{animation:none !important; transition:none !important}
+    html{scroll-behavior:auto} .reveal{opacity:1 !important; transform:none !important}}
+  h1,h2,h3{font-family:"Noto Serif SC","Noto Serif",Georgia,serif; font-weight:600;
+    line-height:1.12; letter-spacing:-.01em; margin:0}
+  a{color:inherit; text-decoration:none}
+  p{margin:0}
+  .serif{font-family:"Noto Serif SC","Noto Serif",Georgia,serif}
+  .mono{font-family:"JetBrains Mono",ui-monospace,monospace}
+  .wrap{max-width:var(--maxw); margin:0 auto; padding:0 32px}
+  @media (max-width:600px){.wrap{padding:0 22px}}
+
+  /* reveal */
+  .reveal{opacity:0; transform:translateY(22px); transition:opacity .8s cubic-bezier(.2,.7,.2,1), transform .8s cubic-bezier(.2,.7,.2,1)}
+  .reveal.in{opacity:1; transform:none}
+
+  /* eyebrow / label */
+  .eyebrow{font-family:"JetBrains Mono"; font-size:12px; letter-spacing:.22em; text-transform:uppercase;
+    color:var(--mut); display:inline-flex; align-items:center; gap:10px}
+  .eyebrow::before{content:""; width:22px; height:1px; background:var(--mut-2)}
+
+  /* ---------- NAV ---------- */
+  header.nav{position:fixed; top:0; left:0; right:0; z-index:100; transition:background .3s, border-color .3s, backdrop-filter .3s;
+    border-bottom:1px solid transparent}
+  header.nav.solid{background:rgba(246,244,238,.86); backdrop-filter:blur(14px) saturate(150%);
+    -webkit-backdrop-filter:blur(14px) saturate(150%); border-bottom-color:var(--line)}
+  .navrow{max-width:var(--maxw); margin:0 auto; padding:16px 32px; display:flex; align-items:center; gap:34px}
+  @media (max-width:600px){.navrow{padding:14px 22px}}
+  .logo{display:flex; align-items:center; gap:11px; font-weight:700; font-size:16px; letter-spacing:.01em; flex:none}
+  .logo .dots{display:flex; gap:3px}
+  .logo .dots i{width:7px; height:7px; border-radius:50%; display:block}
+  .logo .dots i:nth-child(1){background:var(--blue)} .logo .dots i:nth-child(2){background:var(--green)}
+  .logo .dots i:nth-child(3){background:var(--gold)} .logo .dots i:nth-child(4){background:var(--purple)}
+  .logo .dots i:nth-child(5){background:var(--pink)}
+  .menu{display:flex; align-items:center; gap:4px; margin-left:6px}
+  .menu > .item{position:relative}
+  .menu > .item > a{display:inline-flex; align-items:center; gap:5px; padding:9px 13px; border-radius:9px;
+    font-size:14.5px; color:var(--ink-2); font-weight:500; cursor:pointer; transition:background .2s,color .2s; white-space:nowrap}
+  .menu > .item > a:hover{background:rgba(26,25,22,.05); color:var(--ink)}
+  .menu .car{width:9px; height:9px; opacity:.55; transition:transform .2s}
+  .menu > .item:hover .car{transform:rotate(180deg)}
+  .dropdown{position:absolute; top:calc(100% + 8px); left:0; min-width:280px; background:var(--paper);
+    border:1px solid var(--line); border-radius:14px; box-shadow:0 16px 44px rgba(26,25,22,.13);
+    padding:10px; opacity:0; visibility:hidden; transform:translateY(6px); transition:all .2s; z-index:50}
+  .menu > .item:hover .dropdown{opacity:1; visibility:visible; transform:none}
+  .dropdown .dh{font-family:"JetBrains Mono"; font-size:10.5px; letter-spacing:.16em; text-transform:uppercase;
+    color:var(--mut-2); padding:9px 12px 5px}
+  .dropdown a.di{display:block; padding:9px 12px; border-radius:9px; font-size:14px; color:var(--ink-2); transition:background .15s,color .15s}
+  .dropdown a.di:hover{background:rgba(26,25,22,.05); color:var(--ink)}
+  .dropdown a.di small{display:block; color:var(--mut-2); font-size:12px; margin-top:1px}
+  .dropdown .sep{height:1px; background:var(--line-2); margin:7px 6px}
+  .nav-spacer{flex:1}
+  .nav-cta{flex:none; display:inline-flex; align-items:center; gap:8px; padding:11px 19px; border-radius:999px;
+    background:var(--ink); color:var(--ivory); font-size:14px; font-weight:600; transition:transform .2s, background .2s; white-space:nowrap}
+  .nav-cta:hover{background:#000; transform:translateY(-1px)}
+  .burger{display:none}
+  @media (max-width:980px){.menu, .nav-cta span.lbl-full{display:none} .nav-spacer{flex:1}
+    .nav-cta{padding:10px 14px}}
+
+  /* ---------- HERO ---------- */
+  .hero{position:relative; overflow:hidden; padding:200px 0 120px}
+  .hero-mesh{position:absolute; inset:0; z-index:0; pointer-events:none}
+  .hero-mesh::before, .hero-mesh::after{content:""; position:absolute; border-radius:50%;
+    filter:blur(82px); opacity:.42; animation:drift 28s ease-in-out infinite}
+  .hero-mesh::before{width:58vw; height:58vw; right:-12vw; top:-16vw;
+    background:radial-gradient(circle at 32% 32%, rgba(0,112,255,.30), transparent 62%),
+               radial-gradient(circle at 70% 62%, rgba(18,185,138,.26), transparent 62%)}
+  .hero-mesh::after{width:44vw; height:44vw; left:-10vw; bottom:-18vw; animation-delay:-14s;
+    background:radial-gradient(circle at 40% 42%, rgba(0,112,255,.16), transparent 62%),
+               radial-gradient(circle at 64% 56%, rgba(18,185,138,.15), transparent 62%)}
+  @keyframes drift{0%,100%{transform:translate(0,0) scale(1)}50%{transform:translate(-3%,4%) scale(1.08)}}
+  .hero .wrap{position:relative; z-index:1}
+  .hero h1{font-size:clamp(44px,8.2vw,104px); font-weight:600; letter-spacing:-.025em; max-width:14ch}
+  .hero h1 .soft{color:var(--ink-2)}
+  .hero .lead{margin-top:34px; font-size:clamp(19px,2.4vw,24px); color:var(--ink-2); max-width:30ch;
+    line-height:1.55; font-weight:400}
+  .hero .lead .q{display:block; color:var(--mut); font-size:.82em; margin-top:10px}
+  .hero .cta-row{margin-top:48px; display:flex; flex-wrap:wrap; gap:14px; align-items:center}
+  .btn{display:inline-flex; align-items:center; gap:9px; border-radius:999px; font-weight:600; font-size:15.5px;
+    padding:14px 26px; cursor:pointer; transition:transform .2s, background .2s, border-color .2s, color .2s}
+  .btn-primary{background:var(--ink); color:var(--ivory)}
+  .btn-primary:hover{background:#000; transform:translateY(-2px)}
+  .btn-ghost{background:transparent; color:var(--ink); border:1px solid var(--line); }
+  .btn-ghost:hover{border-color:var(--ink); transform:translateY(-2px)}
+  .btn .ar{transition:transform .2s} .btn:hover .ar{transform:translateX(3px)}
+  .btn-ghost:hover .ar{transform:translateY(3px)}
+
+  /* ---------- generic section ---------- */
+  section.band{padding:130px 0}
+  @media (max-width:700px){section.band{padding:88px 0}}
+  .sec-head{max-width:var(--measure)}
+  .sec-head h2{font-size:clamp(30px,4.4vw,50px); margin-top:20px; letter-spacing:-.02em}
+  .sec-head p.sub{margin-top:20px; font-size:19px; color:var(--ink-2); line-height:1.6; max-width:46ch}
+
+  /* ---------- audience triage ---------- */
+  .tri{display:grid; grid-template-columns:repeat(4,1fr); gap:0; margin-top:64px; border-top:1px solid var(--line)}
+  @media (max-width:900px){.tri{grid-template-columns:repeat(2,1fr)}}
+  @media (max-width:560px){.tri{grid-template-columns:1fr}}
+  .tri .t{padding:34px 26px 30px; border-bottom:1px solid var(--line); border-right:1px solid var(--line);
+    cursor:pointer; transition:background .25s; position:relative; display:flex; flex-direction:column; min-height:260px}
+  .tri .t:nth-child(4n){border-right:none}
+  @media (max-width:900px){.tri .t:nth-child(2n){border-right:none} .tri .t:nth-child(4n){border-right:1px solid var(--line)}}
+  @media (max-width:560px){.tri .t{border-right:none !important; min-height:0}}
+  .tri .t:hover{background:var(--paper)}
+  .tri .t .who{font-family:"JetBrains Mono"; font-size:12px; letter-spacing:.04em; color:var(--mut); margin-bottom:18px}
+  .tri .t .accent{width:26px; height:3px; border-radius:2px; margin-bottom:18px}
+  .tri .t h3{font-size:21px; font-weight:600; line-height:1.35; margin-bottom:14px}
+  .tri .t p{font-size:15px; color:var(--ink-2); line-height:1.6; flex:1}
+  .tri .t .go{margin-top:20px; font-size:13.5px; font-weight:600; color:var(--ink); display:inline-flex; align-items:center; gap:7px}
+  .tri .t .go .ar{transition:transform .2s}
+  .tri .t:hover .go .ar{transform:translateX(4px)}
+
+  /* ---------- workshop block ---------- */
+  .workshop{background:var(--dark); color:var(--ivory)}
+  .workshop .eyebrow{color:var(--dark-mut-c)} .workshop .eyebrow::before{background:#5b5742}
+  .workshop h2{font-size:clamp(32px,5vw,58px); color:#fff; max-width:18ch; letter-spacing:-.02em}
+  .workshop .premise{margin-top:26px; font-size:19px; color:#D8D3C4; max-width:42ch; line-height:1.6}
+  .workshop .premise b{color:#fff; font-weight:600}
+  .flow{margin-top:60px; display:grid; grid-template-columns:repeat(4,1fr); gap:0;
+    border:1px solid var(--dark-line); border-radius:16px; overflow:hidden}
+  @media (max-width:820px){.flow{grid-template-columns:1fr 1fr}}
+  @media (max-width:520px){.flow{grid-template-columns:1fr}}
+  .flow .step{padding:28px 24px; border-right:1px solid var(--dark-line); position:relative; background:var(--dark-2)}
+  .flow .step:last-child{border-right:none}
+  @media (max-width:820px){.flow .step:nth-child(2n){border-right:none} .flow .step:nth-child(-n+2){border-bottom:1px solid var(--dark-line)}}
+  @media (max-width:520px){.flow .step{border-right:none; border-bottom:1px solid var(--dark-line)} .flow .step:last-child{border-bottom:none}}
+  .flow .step .n{font-family:"JetBrains Mono"; font-size:12px; color:var(--gold); letter-spacing:.1em}
+  .flow .step h4{font-family:"Noto Serif SC",serif; font-size:19px; color:#fff; font-weight:600; margin:14px 0 9px}
+  .flow .step p{font-size:14px; color:#B8B3A4; line-height:1.6}
+  .flow .step .arr{position:absolute; right:-9px; top:34px; width:18px; height:18px; color:#5b5742; z-index:2; background:var(--dark); border-radius:50%}
+  @media (max-width:820px){.flow .step .arr{display:none}}
+  .workshop .ws-cta{margin-top:44px; display:flex; flex-wrap:wrap; gap:14px; align-items:center}
+  .btn-light{background:var(--ivory); color:var(--ink)} .btn-light:hover{background:#fff; transform:translateY(-2px)}
+  .btn-outline-d{background:transparent; color:var(--ivory); border:1px solid var(--dark-line)}
+  .btn-outline-d:hover{border-color:#fff; transform:translateY(-2px)}
+
+  /* ---------- scenario flowchart ---------- */
+  .scenario .tag{display:inline-flex; align-items:center; gap:9px; margin-top:48px; margin-bottom:10px;
+    font-family:"JetBrains Mono"; font-size:13px; color:var(--mut); border:1px solid var(--line);
+    padding:6px 14px; border-radius:999px; background:var(--paper)}
+  .scenario .tag b{color:var(--ink); font-weight:500}
+  .flowchart{margin-top:18px; display:grid; grid-template-columns:1fr 1fr 1fr; gap:18px}
+  @media (max-width:820px){.flowchart{grid-template-columns:1fr}}
+  .fc{border:1px solid var(--line); border-radius:16px; background:var(--paper); padding:28px 26px; position:relative}
+  .fc .lane{font-family:"JetBrains Mono"; font-size:11.5px; letter-spacing:.08em; text-transform:uppercase; color:var(--mut-2); margin-bottom:16px}
+  .fc h4{font-size:18px; font-weight:600; margin-bottom:10px; line-height:1.3}
+  .fc p{font-size:15px; color:var(--ink-2); line-height:1.65}
+  .fc.now{background:#fff; border-color:#DCD6C6}
+  .fc.now h4{color:var(--blue)}
+  .fc.last{background:var(--ink); border-color:var(--ink)}
+  .fc.last .lane{color:#8b8675} .fc.last h4{color:#fff} .fc.last p{color:#D8D3C4}
+  .fc .conn{position:absolute; right:-19px; top:50%; transform:translateY(-50%); width:24px; height:24px; color:var(--mut-2); z-index:3}
+  @media (max-width:820px){.fc .conn{right:auto; left:50%; top:auto; bottom:-22px; transform:translateX(-50%) rotate(90deg)}}
+  .scenario .quote{margin-top:42px; max-width:30ch; font-family:"Noto Serif SC",serif; font-style:italic;
+    font-size:clamp(22px,3.2vw,32px); line-height:1.5; color:var(--ink); position:relative; padding-left:22px}
+  .scenario .quote::before{content:""; position:absolute; left:0; top:6px; bottom:6px; width:3px; border-radius:3px; background:var(--grad5)}
+
+  /* ---------- case wall (Palantir) ---------- */
+  .cases{background:var(--dark); color:var(--ivory)}
+  .cases .eyebrow{color:var(--dark-mut-c)} .cases .eyebrow::before{background:#5b5742}
+  .cases h2{color:#fff; font-size:clamp(30px,4.4vw,50px)}
+  .cases .sub{color:#B8B3A4; margin-top:18px; font-size:18px; max-width:46ch}
+  .wall{margin-top:60px; display:grid; grid-template-columns:repeat(3,1fr); gap:1px; background:var(--dark-line);
+    border:1px solid var(--dark-line); border-radius:16px; overflow:hidden}
+  @media (max-width:820px){.wall{grid-template-columns:1fr}}
+  .case{background:var(--dark-2); padding:34px 30px; display:flex; flex-direction:column; min-height:280px; transition:background .25s}
+  .case:hover{background:#262318}
+  .case .ct{font-family:"JetBrains Mono"; font-size:11.5px; letter-spacing:.06em; color:var(--dark-mut-c); margin-bottom:auto}
+  .case .ct b{color:#E7E2D3; font-weight:500}
+  .case .metric{font-family:"Noto Serif SC",serif; font-size:27px; color:#fff; font-weight:600; line-height:1.25; margin:26px 0 14px}
+  .case .desc{font-size:14.5px; color:#B8B3A4; line-height:1.6}
+  .case .accent{width:30px; height:3px; border-radius:2px; margin-bottom:22px}
+
+  /* ---------- endorsement line ---------- */
+  .endo{padding:60px 0; border-top:1px solid var(--line); border-bottom:1px solid var(--line); background:var(--ivory-2)}
+  .endo .row{display:flex; flex-wrap:wrap; align-items:center; gap:14px 30px; justify-content:center; color:var(--mut)}
+  .endo .row .it{font-size:14px; font-weight:500; letter-spacing:.01em; white-space:nowrap}
+  .endo .row .dot{width:4px; height:4px; border-radius:50%; background:var(--mut-2)}
+
+  /* ---------- bottom CTA ---------- */
+  .endcta{padding:150px 0; text-align:center}
+  @media (max-width:700px){.endcta{padding:100px 0}}
+  .endcta h2{font-size:clamp(34px,6vw,72px); letter-spacing:-.025em; max-width:18ch; margin:0 auto}
+  .endcta p{margin-top:24px; font-size:20px; color:var(--ink-2)}
+  .endcta .cta-row{margin-top:46px; display:flex; flex-direction:column; align-items:center; gap:20px}
+  .endcta .alt{font-size:14px; color:var(--mut)}
+  .endcta .alt a{color:var(--ink); text-decoration:underline; text-underline-offset:3px; text-decoration-color:var(--line)}
+
+  /* ---------- footer ---------- */
+  footer.ft{background:var(--dark); color:var(--dark-mut-c); padding:80px 0 44px}
+  .ft-grid{display:grid; grid-template-columns:1.6fr repeat(4,1fr); gap:40px}
+  @media (max-width:880px){.ft-grid{grid-template-columns:1fr 1fr}}
+  @media (max-width:520px){.ft-grid{grid-template-columns:1fr}}
+  .ft .brand{display:flex; align-items:center; gap:11px; color:#fff; font-weight:700; font-size:17px; margin-bottom:16px}
+  .ft .brand .dots{display:flex; gap:3px} .ft .brand .dots i{width:7px;height:7px;border-radius:50%;display:block}
+  .ft .brand .dots i:nth-child(1){background:var(--blue)} .ft .brand .dots i:nth-child(2){background:var(--green)}
+  .ft .brand .dots i:nth-child(3){background:var(--gold)} .ft .brand .dots i:nth-child(4){background:var(--purple)}
+  .ft .brand .dots i:nth-child(5){background:var(--pink)}
+  .ft .tagline{font-size:14px; color:#8b8675; max-width:34ch; line-height:1.6}
+  .ft h5{font-family:"JetBrains Mono"; font-size:11px; letter-spacing:.14em; text-transform:uppercase; color:#6f6a59; margin:0 0 16px; font-weight:500}
+  .ft a.fl{display:block; color:#C9C3B3; font-size:14px; padding:5px 0; transition:color .15s}
+  .ft a.fl:hover{color:#fff}
+  .ft-bot{max-width:var(--maxw); margin:56px auto 0; padding:24px 32px 0; border-top:1px solid var(--dark-line);
+    display:flex; flex-wrap:wrap; gap:12px 24px; justify-content:space-between; font-size:12.5px; color:#6f6a59}
+  @media (max-width:600px){.ft-bot{padding:24px 22px 0}}
+
+  /* back to top */
+  .totop{position:fixed; right:24px; bottom:24px; width:46px; height:46px; border-radius:50%; z-index:90;
+    background:var(--ink); color:var(--ivory); display:grid; place-items:center; cursor:pointer;
+    opacity:0; pointer-events:none; transition:opacity .3s, transform .3s}
+  .totop.show{opacity:1; pointer-events:auto} .totop:hover{transform:translateY(-3px)}
+
+  /* ===== HERO v2 + 客户 logo 带（Part A，追加，勿改上方已有规则） ===== */
+  .hero2{position:relative; overflow:hidden; padding:200px 0 92px}
+  @media (max-width:600px){.hero2{padding:148px 0 64px}}
+  .hero2 .wrap{position:relative; z-index:1}
+  .hero2-title{font-family:"Noto Serif SC","Noto Serif",Georgia,serif; font-weight:600;
+    font-size:clamp(38px,7vw,90px); line-height:1.18; letter-spacing:-.02em; color:var(--ink); max-width:20ch}
+  .hero2-title .l2{display:block}
+  .hero2-attitude{margin-top:34px; display:flex; flex-wrap:wrap; gap:6px 22px;
+    font-family:"JetBrains Mono",ui-monospace,monospace; font-weight:400;
+    font-size:clamp(15px,2.1vw,21px); letter-spacing:.01em; color:var(--mut-2)}
+  .hero2-attitude .on{color:var(--ink); font-weight:500}
+  .hero2-note{margin-top:20px; font-size:clamp(16px,2vw,19px); color:var(--ink-2); line-height:1.6; max-width:34ch}
+  .hero2-cta{margin-top:44px; display:flex; flex-wrap:wrap; gap:14px; align-items:center}
+
+  .clients{padding:6px 0 8px}
+  .clients-row{display:flex; flex-wrap:wrap; align-items:center; gap:16px 46px}
+  .clients-row .lg{font-family:"Noto Serif SC","Noto Serif",Georgia,serif; font-weight:500;
+    font-size:clamp(17px,2.3vw,23px); letter-spacing:.03em; color:var(--mut);
+    filter:grayscale(1) saturate(0); opacity:.72; white-space:nowrap}
+  .clients-note{margin-top:22px; font-family:"JetBrains Mono",ui-monospace,monospace;
+    font-size:12px; letter-spacing:.05em; color:var(--mut-2)}
+  @media (max-width:600px){.clients-row{gap:14px 26px}}
+
+  /* ===== 数据护城河事实带（Part B，追加，勿改上方已有规则） ===== */
+  .moat{padding:92px 0; background:var(--ivory)}
+  @media (max-width:700px){.moat{padding:68px 0}}
+  .moat-lead{margin-top:22px; font-family:"Noto Serif SC","Noto Serif",Georgia,serif; font-weight:600;
+    font-size:clamp(23px,3.4vw,38px); line-height:1.32; letter-spacing:-.01em; color:var(--ink); max-width:24ch}
+  .moat-stats{margin-top:34px; display:flex; flex-wrap:wrap; align-items:baseline; gap:10px 16px;
+    font-family:"JetBrains Mono",ui-monospace,monospace; font-size:clamp(14px,1.9vw,18px); color:var(--ink-2)}
+  .moat-stats .sep{color:var(--mut-2)}
+  .moat-foot{margin-top:26px; font-size:14px; color:var(--mut)}
+</style>
+</head>
+<body>
+
+<!-- NAV (locked A9) -->
+<header class="nav" id="nav">
+  <div class="navrow">
+    <a href="#top" class="logo"><span class="dots"><i></i><i></i><i></i><i></i><i></i></span>启盟科技</a>
+    <nav class="menu">
+      <div class="item"><a>产品<svg class="car" viewBox="0 0 12 12"><path d="M2 4l4 4 4-4" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg></a>
+        <div class="dropdown">
+          <a class="di" href="product-fmclaw.html">FMClaw™ AI 平台<small>All-in-One · Agentic 架构 · 五大模块</small></a>
+          <a class="di" href="product-collaboration.html">第三方平台 AI 协同<small>钉钉 / 飞书 / 企业微信 · 不替换，只接入</small></a>
+          <a class="di" href="product-iot.html">IoT 物理世界感知系统</a>
+          <a class="di" href="product-robots.html">机器人装备<small>室内清洁 · 四足巡检</small></a>
+        </div>
+      </div>
+      <div class="item"><a>解决方案<svg class="car" viewBox="0 0 12 12"><path d="M2 4l4 4 4-4" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg></a>
+        <div class="dropdown" style="min-width:330px">
+          <div class="dh">按 Agent 职能</div>
+          <a class="di" href="agents.html">四 Agent 闭环总览<small>服务设计 · 运营管理 · 质量评估 · 服务优化</small></a>
+          <a class="di" href="agent-service-design.html">服务设计</a><a class="di" href="agent-operations.html">运营管理</a>
+          <a class="di" href="agent-quality.html">质量评估</a><a class="di" href="agent-optimization.html">服务优化</a>
+          <div class="sep"></div>
+          <div class="dh">按行业痛点</div>
+          <a class="di" href="solution-vendor.html">AI 供应商管理与自动对账</a>
+          <a class="di" href="solutions.html">外包管理与质量考评</a>
+          <a class="di" href="solutions.html">AI 账单</a>
+          <div class="sep"></div>
+          <div class="dh">For…</div>
+          <a class="di" href="#tri">给业主 · 给物业公司 · 给开发者</a>
+        </div>
+      </div>
+      <div class="item"><a href="cases.html">客户案例</a></div>
+      <div class="item"><a href="workshop.html">FMAI 工作坊<svg class="car" viewBox="0 0 12 12"><path d="M2 4l4 4 4-4" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg></a>
+        <div class="dropdown" style="min-width:300px">
+          <a class="di" href="workshop.html">FMAI 工作坊(总览)<small>把你自己的 AI，亲手搭出来</small></a>
+          <div class="dh">适用场景</div>
+          <a class="di" href="scenario-utility-bill.html">水电费审批</a>
+          <a class="di" href="scenario-repair-bot.html">报修智能客服</a>
+          <a class="di" href="scenario-exec-query.html">管理层问询</a>
+          <a class="di" href="scenario-reconciliation.html">AI 对账</a>
+          <a class="di" href="scenario-inspection.html">AI 质检</a>
+          <a class="di" href="scenario-dispatch.html">智能派单</a>
+        </div>
+      </div>
+      <div class="item"><a href="cobuild.html">人工智能产业共建</a></div>
+      <div class="item"><a>公司<svg class="car" viewBox="0 0 12 12"><path d="M2 4l4 4 4-4" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg></a>
+        <div class="dropdown">
+          <a class="di" href="about.html">关于启盟</a><a class="di" href="team.html">团队</a>
+          <a class="di" href="news.html">新闻动态</a><a class="di" href="insights.html">行业研究</a>
+        </div>
+      </div>
+    </nav>
+    <div class="nav-spacer"></div>
+    <a href="workshop.html" class="nav-cta">预约 <span class="lbl-full">FMAI 工作坊</span> <svg width="13" height="13" viewBox="0 0 16 16"><path d="M3 8h10M9 4l4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+  </div>
+</header>
+
+<a id="top"></a>
+
+<!-- HERO (Part A) -->
+<section class="hero2">
+  <div class="hero-mesh"></div>
+  <div class="wrap">
+    <h1 class="hero2-title reveal">一个人，<span class="l2">管起过去 51 个人都管不动的事。</span></h1>
+    <p class="hero2-attitude reveal"><span>Not a demo.</span><span>Not a pilot.</span><span class="on">Deployed.</span></p>
+    <p class="hero2-note reveal">这不是效率提升，是设施管理运行方式的重写。</p>
+    <div class="hero2-cta reveal">
+      <a href="workshop.html" class="btn btn-primary">预约 FMAI 工作坊 <svg class="ar" width="15" height="15" viewBox="0 0 16 16"><path d="M3 8h10M9 4l4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+      <a href="#scenario" class="btn btn-ghost">看它怎么干活 <svg class="ar" width="15" height="15" viewBox="0 0 16 16"><path d="M8 3v10M4 9l4 4 4-4" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+    </div>
+  </div>
+</section>
+
+<!-- CLIENTS LOGO BAND (Part A) -->
+<div class="clients">
+  <div class="wrap">
+    <div class="clients-row reveal">
+      <span class="lg">特斯拉</span>
+      <span class="lg">西门子</span>
+      <span class="lg">腾讯</span>
+      <span class="lg">顺丰速运</span>
+    </div>
+    <p class="clients-note reveal">在真实项目中运行 · Deployed in production</p>
+  </div>
+</div>
+
+<!-- AUDIENCE TRIAGE (A4) -->
+<section class="band" id="tri">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="eyebrow reveal">对号入座</span>
+      <h2 class="reveal">你从哪儿来,先看哪儿。</h2>
+      <p class="sub reveal">四类人来这儿想搞明白的事不一样。挑一个最像你的,往下走。</p>
+    </div>
+    <div class="tri">
+      <div class="t reveal" role="link" tabindex="0">
+        <div class="accent" style="background:var(--blue)"></div>
+        <div class="who">业主 · 行政负责人</div>
+        <h3>我管着一批楼宇或园区</h3>
+        <p>把 AI 接入日常运营里的判断与对账,人只做最后那个决定。</p>
+        <span class="go">设施管理解决方案 <svg class="ar" width="14" height="14" viewBox="0 0 16 16"><path d="M3 8h10M9 4l4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+      </div>
+      <div class="t reveal" role="link" tabindex="0">
+        <div class="accent" style="background:var(--green)"></div>
+        <div class="who">物业 · FM 公司</div>
+        <h3>我经营一家物业 / FM 公司</h3>
+        <p>越来越多的物业服务,正在由 Agent 完成。把它接进你的交付。</p>
+        <span class="go">按职能看解决方案 <svg class="ar" width="14" height="14" viewBox="0 0 16 16"><path d="M3 8h10M9 4l4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+      </div>
+      <div class="t reveal" role="link" tabindex="0">
+        <div class="accent" style="background:var(--gold)"></div>
+        <div class="who">地方政府 · 国企</div>
+        <h3>我在为本地引入人工智能产业</h3>
+        <p>我们带着资金、技术与运营,愿意来本地投资兴业。</p>
+        <span class="go">人工智能产业共建 <svg class="ar" width="14" height="14" viewBox="0 0 16 16"><path d="M3 8h10M9 4l4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+      </div>
+      <div class="t reveal" role="link" tabindex="0">
+        <div class="accent" style="background:var(--purple)"></div>
+        <div class="who">开发者 · 集成商</div>
+        <h3>我做智慧楼宇 / 园区集成</h3>
+        <p>一套已经工具化的 AI 基座,配上去就能交付给你的甲方。</p>
+        <span class="go">FMClaw™ AI 平台 <svg class="ar" width="14" height="14" viewBox="0 0 16 16"><path d="M3 8h10M9 4l4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FMAI WORKSHOP (A8) -->
+<section class="band workshop" id="workshop">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="eyebrow reveal">FMAI 工作坊 · FMAI BOOTCAMP</span>
+      <h2 class="reveal">用 1–3 天,把你自己的 AI 搭出来。</h2>
+      <p class="premise reveal">前提只有一个:<b>带着你的一个真问题,和这个问题的真实数据来。</b><br>没有这两样,就不是 FMAI 工作坊。</p>
+    </div>
+    <div class="flow reveal">
+      <div class="step"><div class="n">01</div><h4>把问题说清楚</h4><p>你带来一个真实业务,我们一起把它说成一句话。</p>
+        <svg class="arr" viewBox="0 0 24 24"><path d="M8 5l7 7-7 7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></div>
+      <div class="step"><div class="n">02</div><h4>接上数据与工具</h4><p>把你的数据接进来,钉钉 / 飞书 / 企微 / ERP 一并打通。</p>
+        <svg class="arr" viewBox="0 0 24 24"><path d="M8 5l7 7-7 7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></div>
+      <div class="step"><div class="n">03</div><h4>现场拼出 Agent</h4><p>当着你的面,把能帮上这件事的 Agent 搭起来。</p>
+        <svg class="arr" viewBox="0 0 24 24"><path d="M8 5l7 7-7 7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></div>
+      <div class="step"><div class="n">04</div><h4>跑通,并留给你</h4><p>用你的真实流程跑一遍,跑通的东西留下来继续用。</p></div>
+    </div>
+    <div class="ws-cta reveal">
+      <a href="workshop.html" class="btn btn-light">了解 FMAI 工作坊 <svg class="ar" width="15" height="15" viewBox="0 0 16 16"><path d="M3 8h10M9 4l4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+      <a href="workshop.html" class="btn btn-outline-d">预约 →</a>
+    </div>
+  </div>
+</section>
+
+<!-- SCENARIO FLOWCHART (A6) -->
+<section class="band scenario" id="scenario">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="eyebrow reveal">看它怎么干活</span>
+      <h2 class="reveal">AI 替你把判断想好了,<br>你只做最后那个决定。</h2>
+      <p class="sub reveal">不是"自动跑完一个流程",而是 AI 替人想清楚了——人只需在最后点一下头。</p>
+    </div>
+
+    <div class="tag reveal mono">场景 · <b>水电费审批</b></div>
+    <div class="flowchart">
+      <div class="fc reveal"><div class="lane">人原来怎么做</div>
+        <h4>翻台账、核表、比往月</h4>
+        <p>把每个表的读数对一遍,跟过去几个月比,算分摊、找异常,几天才签得下一笔。</p>
+        <svg class="conn" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </div>
+      <div class="fc now reveal"><div class="lane">AI 现在帮你想好了什么</div>
+        <h4>核完、比完、标出异常</h4>
+        <p>自动核表、对比历史用量、圈出异常点位,并给出该签 / 不该签的理由。</p>
+        <svg class="conn" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </div>
+      <div class="fc last reveal"><div class="lane">人只需做</div>
+        <h4>看一眼结论,签字。</h4>
+        <p>结论、异常、理由都摆在面前。你做的,只是最后那个决定。</p>
+      </div>
+    </div>
+
+    <p class="quote reveal">老板签字那一刻,AI 已经分析好——该签 / 不该签、异常在哪、为什么。</p>
+    <p class="reveal" style="margin-top:40px"><a href="workshop.html#scenes" style="color:var(--blue);font-weight:600">查看全部适用场景 →</a></p>
+  </div>
+</section>
+
+<!-- CASE WALL (A6 / Palantir) -->
+<section class="band cases" id="cases">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="eyebrow reveal">客户案例</span>
+      <h2 class="reveal">谁在用 · 哪个项目在用。</h2>
+      <p class="sub reveal">不是演示,是已经在运行的项目。</p>
+    </div>
+    <div class="wall">
+      <div class="case reveal">
+        <div class="accent" style="background:var(--blue)"></div>
+        <div class="ct">综合体 · 华南 · 约 <b>6 万㎡</b></div>
+        <div class="metric">一个项目<br>跑成了自治运营</div>
+        <div class="desc">日常运营里的判断交给 Agent,现场只保留执行动作。</div>
+      </div>
+      <div class="case reveal">
+        <div class="accent" style="background:var(--green)"></div>
+        <div class="ct">写字楼 · 华南 · 约 <b>7 万㎡</b> · 5 年合同</div>
+        <div class="metric">缴费、对账、账单<br>由 Agent 跑通</div>
+        <div class="desc">一笔预算覆盖五年,账目全程可追溯。</div>
+      </div>
+      <div class="case reveal">
+        <div class="accent" style="background:var(--gold)"></div>
+        <div class="ct">区级国资平台 · 华东省会</div>
+        <div class="metric">已在一座<br>省会城市落地</div>
+        <div class="desc">国有物业的 AI 化运营,正在沉淀成本地的能力。</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- DATA MOAT 数据护城河事实带 (Part B · 置于 .endo 上方) -->
+<section class="moat">
+  <div class="wrap">
+    <span class="eyebrow reveal">数据护城河</span>
+    <p class="moat-lead reveal">七年自营下场，把真实场景一点点变成可训练的数据。</p>
+    <div class="moat-stats reveal">
+      <span class="n">12 家头部客户</span><span class="sep">·</span>
+      <span class="n">3000 万㎡ 全业态</span><span class="sep">·</span>
+      <span class="n">10 万+ 传感器在线</span><span class="sep">·</span>
+      <span class="n">数亿条数据 / 天</span>
+    </div>
+    <p class="moat-foot reveal">别人能买到模型，买不到我们这七年的现场。</p>
+  </div>
+</section>
+
+<!-- ENDORSEMENT (one line) -->
+<div class="endo">
+  <div class="wrap">
+    <div class="row">
+      <span class="it">蓝驰创投</span><span class="dot"></span>
+      <span class="it">微光创投</span><span class="dot"></span>
+      <span class="it">国家高新技术企业</span><span class="dot"></span>
+      <span class="it">专精特新</span><span class="dot"></span>
+      <span class="it">NVIDIA Inception</span><span class="dot"></span>
+      <span class="it">已接入 GPT-5 · Claude · Gemini · DeepSeek · Qwen</span>
+    </div>
+  </div>
+</div>
+
+<!-- BOTTOM CTA -->
+<section class="endcta">
+  <div class="wrap">
+    <h2 class="reveal">把 AI 接入物业与<br>设施管理的日常运营。</h2>
+    <p class="reveal">从你的一个真实业务开始。</p>
+    <div class="cta-row reveal">
+      <a href="workshop.html" class="btn btn-primary" style="padding:16px 32px; font-size:16.5px">预约 FMAI 工作坊 <svg class="ar" width="16" height="16" viewBox="0 0 16 16"><path d="M3 8h10M9 4l4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+      <span class="alt">或直接联系 <a href="tel:">电话</a> · <a href="mailto:">邮箱</a></span>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="ft">
+  <div class="wrap">
+    <div class="ft-grid">
+      <div>
+        <div class="brand"><span class="dots"><i></i><i></i><i></i><i></i><i></i></span>启盟科技</div>
+        <p class="tagline">物业与设施管理的 AI 操作系统。把 AI 接进每天的运营,从一个真实业务开始。</p>
+      </div>
+      <div>
+        <h5>产品</h5>
+        <a class="fl" href="product-fmclaw.html">FMClaw™ AI 平台</a><a class="fl" href="product-collaboration.html">第三方平台 AI 协同</a>
+        <a class="fl" href="product-iot.html">IoT 物理感知</a>
+        <a class="fl" href="product-robots.html">机器人装备</a>
+      </div>
+      <div>
+        <h5>解决方案</h5>
+        <a class="fl" href="agent-service-design.html">服务设计 / 运营管理</a>
+        <a class="fl" href="agent-quality.html">质量评估 / 服务优化</a>
+        <a class="fl" href="solution-vendor.html">供应商管理与对账</a>
+        <a class="fl" href="cases.html">客户案例</a>
+      </div>
+      <div>
+        <h5>共建与公司</h5>
+        <a class="fl" href="workshop.html">FMAI 工作坊</a>
+        <a class="fl" href="cobuild.html">人工智能产业共建</a>
+        <a class="fl" href="about.html">关于启盟 / 团队</a>
+        <a class="fl" href="insights.html">行业研究</a>
+      </div>
+      <div>
+        <h5>联系</h5>
+        <a class="fl" href="contact.html">商务合作</a>
+        <a class="fl" href="contact.html">招商 / 国资对接</a>
+        <a class="fl" href="contact.html">加入我们</a>
+        <a class="fl" href="contact.html">公众号</a>
+      </div>
+    </div>
+  </div>
+  <div class="ft-bot">
+    <span>© 2026 启盟科技 · FMClaw™</span>
+    <span>aipm.cn · ICP 备案待补充 · 公安备案待补充</span>
+  </div>
+</footer>
+
+<div class="totop" id="totop" role="button" tabindex="0" aria-label="回到顶部">
+  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M12 19V5M5 12l7-7 7 7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+</div>
+
+<script>
+(function(){
+  var nav=document.getElementById('nav'), totop=document.getElementById('totop');
+  function onScroll(){var y=window.scrollY||0; nav.classList.toggle('solid', y>40); totop.classList.toggle('show', y>700);}
+  window.addEventListener('scroll', onScroll, {passive:true}); onScroll();
+  totop.addEventListener('click', function(){window.scrollTo({top:0,behavior:'smooth'});});
+  totop.addEventListener('keydown', function(e){if(e.key==='Enter'||e.key===' '){e.preventDefault();window.scrollTo({top:0,behavior:'smooth'});}});
+
+  if('IntersectionObserver' in window){
+    var io=new IntersectionObserver(function(es){es.forEach(function(en){
+      if(en.isIntersecting){en.target.classList.add('in'); io.unobserve(en.target);}});},
+      {rootMargin:'0px 0px -8% 0px', threshold:0.06});
+    document.querySelectorAll('.reveal').forEach(function(el,i){
+      var sib=el.parentElement.querySelectorAll(':scope > .reveal');
+      el.style.transitionDelay=(Math.min(Array.prototype.indexOf.call(sib,el),5)*60)+'ms';
+      io.observe(el);
+    });
+  } else { document.querySelectorAll('.reveal').forEach(function(el){el.classList.add('in');}); }
+})();
+</script>
+</body>
+</html>

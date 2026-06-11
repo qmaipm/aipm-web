@@ -1,0 +1,21 @@
+node_modules
+.next
+out
+build
+npm-debug.log*
+.git
+.gitignore
+.DS_Store
+.env*
+Dockerfile
+.dockerignore
+docker-compose*.yml
+README*.md
+DEPLOY.md
+# 非应用资产(避免进入构建上下文,显著减小体积)
+docs
+file
+agents-app/.next
+*.zip
+归档.zip
+tsconfig.tsbuildinfo

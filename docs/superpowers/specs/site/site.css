@@ -1,0 +1,291 @@
+/* ===========================================================================
+   启盟科技 · FMClaw™ 官网 v2.0 — 共享设计系统 (site.css)
+   调性: 70% Anthropic 克制留白 + 30% Palantir 机构感
+   所有页面 link 本文件,确保视觉统一。页面专属样式可写在页面内 <style>。
+   =========================================================================== */
+:root{
+  --ivory:#F6F4EE; --ivory-2:#F0EDE3; --paper:#FBFAF6;
+  --ink:#1A1916; --ink-2:#46443D; --mut:#787469; --mut-2:#9A958A;
+  --line:#E2DDD0; --line-2:#ECE8DC;
+  --dark:#15140F; --dark-2:#1E1C15; --dark-line:#33301F; --dark-mut-c:#A29C8A;
+  --blue:#0070FF; --green:#12B98A; --gold:#F59E0B; --purple:#9333EA; --pink:#EC4899;
+  --maxw:1160px; --measure:760px;
+  --grad5:linear-gradient(90deg,var(--blue),var(--green),var(--gold),var(--purple),var(--pink));
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth; scroll-padding-top:84px; -webkit-text-size-adjust:100%}
+body{margin:0; background:var(--ivory); color:var(--ink);
+  font-family:"Noto Sans SC","Inter",-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+  font-size:17px; line-height:1.75; -webkit-font-smoothing:antialiased; text-rendering:optimizeLegibility}
+@media (prefers-reduced-motion:reduce){*{animation:none !important; transition:none !important}
+  html{scroll-behavior:auto} .reveal{opacity:1 !important; transform:none !important}}
+h1,h2,h3{font-family:"Noto Serif SC","Noto Serif",Georgia,serif; font-weight:600;
+  line-height:1.12; letter-spacing:-.01em; margin:0}
+a{color:inherit; text-decoration:none}
+p{margin:0}
+.serif{font-family:"Noto Serif SC","Noto Serif",Georgia,serif}
+.mono{font-family:"JetBrains Mono",ui-monospace,monospace}
+.wrap{max-width:var(--maxw); margin:0 auto; padding:0 32px}
+@media (max-width:600px){.wrap{padding:0 22px}}
+.measure{max-width:var(--measure)}
+
+/* reveal */
+.reveal{opacity:0; transform:translateY(22px); transition:opacity .8s cubic-bezier(.2,.7,.2,1), transform .8s cubic-bezier(.2,.7,.2,1)}
+.reveal.in{opacity:1; transform:none}
+
+/* eyebrow / label */
+.eyebrow{font-family:"JetBrains Mono"; font-size:12px; letter-spacing:.22em; text-transform:uppercase;
+  color:var(--mut); display:inline-flex; align-items:center; gap:10px}
+.eyebrow::before{content:""; width:22px; height:1px; background:var(--mut-2)}
+
+/* ---------- NAV (locked A9) ---------- */
+header.nav{position:fixed; top:0; left:0; right:0; z-index:100; transition:background .3s, border-color .3s, backdrop-filter .3s;
+  border-bottom:1px solid transparent}
+header.nav.solid{background:rgba(246,244,238,.86); backdrop-filter:blur(14px) saturate(150%);
+  -webkit-backdrop-filter:blur(14px) saturate(150%); border-bottom-color:var(--line)}
+/* on light interior pages, keep nav solid by default via .nav.solid on load (pages add class) */
+.navrow{max-width:var(--maxw); margin:0 auto; padding:16px 32px; display:flex; align-items:center; gap:34px}
+@media (max-width:600px){.navrow{padding:14px 22px}}
+.logo{display:flex; align-items:center; gap:11px; font-weight:700; font-size:16px; letter-spacing:.01em; flex:none}
+.logo .dots{display:flex; gap:3px}
+.logo .dots i{width:7px; height:7px; border-radius:50%; display:block}
+.logo .dots i:nth-child(1){background:var(--blue)} .logo .dots i:nth-child(2){background:var(--green)}
+.logo .dots i:nth-child(3){background:var(--gold)} .logo .dots i:nth-child(4){background:var(--purple)}
+.logo .dots i:nth-child(5){background:var(--pink)}
+.menu{display:flex; align-items:center; gap:4px; margin-left:6px}
+.menu > .item{position:relative}
+.menu > .item > a{display:inline-flex; align-items:center; gap:5px; padding:9px 13px; border-radius:9px;
+  font-size:14.5px; color:var(--ink-2); font-weight:500; cursor:pointer; transition:background .2s,color .2s; white-space:nowrap}
+.menu > .item > a:hover{background:rgba(26,25,22,.05); color:var(--ink)}
+.menu > .item > a.cur{color:var(--ink); font-weight:600}
+.menu .car{width:9px; height:9px; opacity:.55; transition:transform .2s}
+.menu > .item:hover .car{transform:rotate(180deg)}
+.dropdown{position:absolute; top:calc(100% + 8px); left:0; min-width:280px; background:var(--paper);
+  border:1px solid var(--line); border-radius:14px; box-shadow:0 16px 44px rgba(26,25,22,.13);
+  padding:10px; opacity:0; visibility:hidden; transform:translateY(6px); transition:all .2s; z-index:50}
+.menu > .item:hover .dropdown{opacity:1; visibility:visible; transform:none}
+.dropdown .dh{font-family:"JetBrains Mono"; font-size:10.5px; letter-spacing:.16em; text-transform:uppercase;
+  color:var(--mut-2); padding:9px 12px 5px}
+.dropdown a.di{display:block; padding:9px 12px; border-radius:9px; font-size:14px; color:var(--ink-2); transition:background .15s,color .15s}
+.dropdown a.di:hover{background:rgba(26,25,22,.05); color:var(--ink)}
+.dropdown a.di small{display:block; color:var(--mut-2); font-size:12px; margin-top:1px}
+.dropdown .sep{height:1px; background:var(--line-2); margin:7px 6px}
+.nav-spacer{flex:1}
+.nav-cta{flex:none; display:inline-flex; align-items:center; gap:8px; padding:11px 19px; border-radius:999px;
+  background:var(--ink); color:var(--ivory); font-size:14px; font-weight:600; transition:transform .2s, background .2s; white-space:nowrap}
+.nav-cta:hover{background:#000; transform:translateY(-1px)}
+@media (max-width:980px){.menu, .nav-cta span.lbl-full{display:none}
+  .nav-spacer{flex:1} .nav-cta{padding:10px 14px}}
+
+/* ---------- buttons ---------- */
+.btn{display:inline-flex; align-items:center; gap:9px; border-radius:999px; font-weight:600; font-size:15.5px;
+  padding:14px 26px; cursor:pointer; transition:transform .2s, background .2s, border-color .2s, color .2s; line-height:1}
+.btn-primary{background:var(--ink); color:var(--ivory)} .btn-primary:hover{background:#000; transform:translateY(-2px)}
+.btn-ghost{background:transparent; color:var(--ink); border:1px solid var(--line)}
+.btn-ghost:hover{border-color:var(--ink); transform:translateY(-2px)}
+.btn-light{background:var(--ivory); color:var(--ink)} .btn-light:hover{background:#fff; transform:translateY(-2px)}
+.btn-outline-d{background:transparent; color:var(--ivory); border:1px solid var(--dark-line)}
+.btn-outline-d:hover{border-color:#fff; transform:translateY(-2px)}
+.btn .ar{transition:transform .2s} .btn:hover .ar{transform:translateX(3px)}
+
+/* ---------- page hero (interior pages) ---------- */
+.phero{padding:160px 0 84px; position:relative; overflow:hidden}
+.phero.dark{background:var(--dark); color:var(--ivory)}
+.phero.dark .eyebrow{color:var(--dark-mut-c)} .phero.dark .eyebrow::before{background:#5b5742}
+.phero .crumb{font-family:"JetBrains Mono"; font-size:12px; color:var(--mut); margin-bottom:22px; letter-spacing:.04em}
+.phero.dark .crumb{color:var(--dark-mut-c)}
+.phero .crumb a:hover{color:var(--ink)} .phero.dark .crumb a:hover{color:#fff}
+.phero h1{font-size:clamp(38px,6.4vw,76px); letter-spacing:-.025em; max-width:18ch}
+.phero.dark h1{color:#fff}
+.phero .lead{margin-top:28px; font-size:clamp(18px,2.2vw,22px); color:var(--ink-2); max-width:46ch; line-height:1.6}
+.phero.dark .lead{color:#D8D3C4}
+.phero .cta-row{margin-top:40px; display:flex; flex-wrap:wrap; gap:14px; align-items:center}
+
+/* soft mesh for hero backgrounds */
+.hero-mesh{position:absolute; inset:0; z-index:0; pointer-events:none}
+.hero-mesh::before, .hero-mesh::after{content:""; position:absolute; border-radius:50%;
+  filter:blur(70px); opacity:.5; animation:drift 26s ease-in-out infinite}
+.hero-mesh::before{width:60vw; height:60vw; right:-12vw; top:-16vw;
+  background:radial-gradient(circle at 30% 30%, rgba(47,102,224,.42), transparent 60%),
+             radial-gradient(circle at 70% 60%, rgba(19,138,90,.34), transparent 60%),
+             radial-gradient(circle at 50% 80%, rgba(201,151,31,.32), transparent 62%)}
+.hero-mesh::after{width:46vw; height:46vw; left:-10vw; bottom:-18vw; animation-delay:-13s;
+  background:radial-gradient(circle at 40% 40%, rgba(117,83,224,.32), transparent 60%),
+             radial-gradient(circle at 65% 55%, rgba(217,85,143,.30), transparent 62%)}
+@keyframes drift{0%,100%{transform:translate(0,0) scale(1)}50%{transform:translate(-3%,4%) scale(1.08)}}
+.phero .wrap{position:relative; z-index:1}
+
+/* ---------- generic section ---------- */
+section.band{padding:120px 0}
+@media (max-width:700px){section.band{padding:84px 0}}
+section.band.alt{background:var(--ivory-2)}
+section.band.dark{background:var(--dark); color:var(--ivory)}
+section.band.dark .eyebrow{color:var(--dark-mut-c)} section.band.dark .eyebrow::before{background:#5b5742}
+section.band.dark h2{color:#fff}
+.sec-head{max-width:var(--measure)}
+.sec-head h2{font-size:clamp(30px,4.4vw,50px); margin-top:20px; letter-spacing:-.02em}
+.sec-head p.sub{margin-top:20px; font-size:19px; color:var(--ink-2); line-height:1.6; max-width:46ch}
+section.band.dark .sec-head p.sub{color:#B8B3A4}
+
+/* ---------- prose (article body / insights) ---------- */
+.prose{max-width:var(--measure); font-size:18px; line-height:1.85; color:var(--ink-2)}
+.prose h2{font-size:30px; margin:48px 0 16px; color:var(--ink)}
+.prose h3{font-size:22px; margin:36px 0 12px; color:var(--ink)}
+.prose p{margin:0 0 20px}
+.prose ul,.prose ol{margin:0 0 20px; padding-left:22px}
+.prose li{margin:6px 0}
+.prose blockquote{margin:28px 0; padding-left:22px; border-left:3px solid; border-image:var(--grad5) 1;
+  font-family:"Noto Serif SC",serif; font-style:italic; font-size:22px; color:var(--ink); line-height:1.5}
+.prose code{font-family:"JetBrains Mono"; font-size:.88em; background:var(--ivory-2); padding:2px 7px; border-radius:6px}
+.prose a{color:var(--blue); text-decoration:underline; text-underline-offset:3px}
+
+/* ---------- card grids ---------- */
+.grid{display:grid; gap:18px}
+.grid.c2{grid-template-columns:repeat(2,1fr)}
+.grid.c3{grid-template-columns:repeat(3,1fr)}
+.grid.c4{grid-template-columns:repeat(4,1fr)}
+@media (max-width:900px){.grid.c3,.grid.c4{grid-template-columns:repeat(2,1fr)}}
+@media (max-width:600px){.grid.c2,.grid.c3,.grid.c4{grid-template-columns:1fr}}
+.card{background:var(--paper); border:1px solid var(--line); border-radius:16px; padding:30px 28px; transition:transform .25s, box-shadow .25s}
+.card.hover:hover{transform:translateY(-4px); box-shadow:0 14px 40px rgba(26,25,22,.08)}
+.card .k{width:28px; height:3px; border-radius:2px; margin-bottom:18px}
+.card h3{font-size:20px; font-weight:600; margin-bottom:10px; line-height:1.3}
+.card p{font-size:15px; color:var(--ink-2); line-height:1.65}
+.card .meta{font-family:"JetBrains Mono"; font-size:12px; color:var(--mut); letter-spacing:.04em; margin-bottom:14px}
+
+/* ---------- flow steps (workshop / module pipeline) ---------- */
+.flow{display:grid; grid-template-columns:repeat(4,1fr); gap:0; border:1px solid var(--line); border-radius:16px; overflow:hidden; background:var(--paper)}
+.flow.dark{border-color:var(--dark-line); background:transparent}
+@media (max-width:820px){.flow{grid-template-columns:1fr 1fr}}
+@media (max-width:520px){.flow{grid-template-columns:1fr}}
+.flow .step{padding:28px 24px; border-right:1px solid var(--line); position:relative}
+.flow.dark .step{border-right-color:var(--dark-line); background:var(--dark-2)}
+.flow .step:last-child{border-right:none}
+@media (max-width:820px){.flow .step:nth-child(2n){border-right:none} .flow .step:nth-child(-n+2){border-bottom:1px solid var(--line)}
+  .flow.dark .step:nth-child(-n+2){border-bottom-color:var(--dark-line)}}
+@media (max-width:520px){.flow .step{border-right:none; border-bottom:1px solid var(--line)} .flow.dark .step{border-bottom-color:var(--dark-line)} .flow .step:last-child{border-bottom:none}}
+.flow .step .n{font-family:"JetBrains Mono"; font-size:12px; color:var(--gold); letter-spacing:.1em}
+.flow .step h4{font-family:"Noto Serif SC",serif; font-size:19px; font-weight:600; margin:14px 0 9px}
+.flow.dark .step h4{color:#fff}
+.flow .step p{font-size:14px; color:var(--ink-2); line-height:1.6}
+.flow.dark .step p{color:#B8B3A4}
+.flow .step .arr{position:absolute; right:-9px; top:34px; width:18px; height:18px; color:var(--mut-2); z-index:2; background:var(--ivory); border-radius:50%}
+.flow.dark .step .arr{color:#5b5742; background:var(--dark)}
+@media (max-width:820px){.flow .step .arr{display:none}}
+
+/* ---------- scenario flowchart (3 lanes: 人原来 / AI帮你想好 / 人只做) ---------- */
+.flowchart{display:grid; grid-template-columns:1fr 1fr 1fr; gap:18px}
+@media (max-width:820px){.flowchart{grid-template-columns:1fr}}
+.fc{border:1px solid var(--line); border-radius:16px; background:var(--paper); padding:28px 26px; position:relative}
+.fc .lane{font-family:"JetBrains Mono"; font-size:11.5px; letter-spacing:.08em; text-transform:uppercase; color:var(--mut-2); margin-bottom:16px}
+.fc h4{font-size:18px; font-weight:600; margin-bottom:10px; line-height:1.3}
+.fc p{font-size:15px; color:var(--ink-2); line-height:1.65}
+.fc.now{background:#fff; border-color:#DCD6C6} .fc.now h4{color:var(--blue)}
+.fc.last{background:var(--ink); border-color:var(--ink)}
+.fc.last .lane{color:#8b8675} .fc.last h4{color:#fff} .fc.last p{color:#D8D3C4}
+.fc .conn{position:absolute; right:-19px; top:50%; transform:translateY(-50%); width:24px; height:24px; color:var(--mut-2); z-index:3}
+@media (max-width:820px){.fc .conn{right:auto; left:50%; top:auto; bottom:-22px; transform:translateX(-50%) rotate(90deg)}}
+.scenario-quote{margin-top:42px; max-width:32ch; font-family:"Noto Serif SC",serif; font-style:italic;
+  font-size:clamp(22px,3.2vw,32px); line-height:1.5; color:var(--ink); position:relative; padding-left:22px}
+.scenario-quote::before{content:""; position:absolute; left:0; top:6px; bottom:6px; width:3px; border-radius:3px; background:var(--grad5)}
+section.band.dark .scenario-quote{color:#fff}
+
+/* ---------- case wall (Palantir) ---------- */
+.wall{display:grid; grid-template-columns:repeat(3,1fr); gap:1px; background:var(--dark-line);
+  border:1px solid var(--dark-line); border-radius:16px; overflow:hidden}
+@media (max-width:820px){.wall{grid-template-columns:1fr}}
+.case{background:var(--dark-2); padding:34px 30px; display:flex; flex-direction:column; min-height:280px; transition:background .25s; color:var(--ivory)}
+.case:hover{background:#262318}
+.case .accent{width:30px; height:3px; border-radius:2px; margin-bottom:22px}
+.case .ct{font-family:"JetBrains Mono"; font-size:11.5px; letter-spacing:.06em; color:var(--dark-mut-c); margin-bottom:auto}
+.case .ct b{color:#E7E2D3; font-weight:500}
+.case .metric{font-family:"Noto Serif SC",serif; font-size:27px; color:#fff; font-weight:600; line-height:1.25; margin:26px 0 14px}
+.case .desc{font-size:14.5px; color:#B8B3A4; line-height:1.6}
+
+/* light case grid (cases list page) */
+.casegrid{display:grid; grid-template-columns:repeat(3,1fr); gap:18px}
+@media (max-width:900px){.casegrid{grid-template-columns:repeat(2,1fr)}}
+@media (max-width:600px){.casegrid{grid-template-columns:1fr}}
+.case-card{background:var(--paper); border:1px solid var(--line); border-radius:16px; overflow:hidden; transition:transform .25s, box-shadow .25s; display:flex; flex-direction:column}
+.case-card:hover{transform:translateY(-4px); box-shadow:0 14px 40px rgba(26,25,22,.08)}
+.case-card .cover{height:150px; background:var(--ivory-2); position:relative}
+.case-card .cover .bar{position:absolute; left:0; top:0; bottom:0; width:5px}
+.case-card .body{padding:24px 24px 26px}
+.case-card .tag{font-family:"JetBrains Mono"; font-size:11.5px; color:var(--mut); letter-spacing:.05em; margin-bottom:12px}
+.case-card .metric{font-family:"Noto Serif SC",serif; font-size:22px; font-weight:600; color:var(--ink); line-height:1.3; margin-bottom:10px}
+.case-card p{font-size:14.5px; color:var(--ink-2); line-height:1.6}
+
+/* ---------- filter tabs ---------- */
+.tabs{display:flex; flex-wrap:wrap; gap:10px; margin-bottom:40px}
+.tab{font-size:14px; padding:8px 16px; border-radius:999px; border:1px solid var(--line); color:var(--ink-2); cursor:pointer; transition:all .2s; background:var(--paper)}
+.tab:hover{border-color:var(--ink)}
+.tab.on{background:var(--ink); color:var(--ivory); border-color:var(--ink)}
+
+/* ---------- definition list / specs (used sparingly) ---------- */
+.deflist{border-top:1px solid var(--line)}
+.deflist .row{display:grid; grid-template-columns:200px 1fr; gap:24px; padding:20px 0; border-bottom:1px solid var(--line-2)}
+.deflist .row .k{font-weight:600; color:var(--ink)}
+.deflist .row .v{color:var(--ink-2); font-size:15.5px}
+@media (max-width:560px){.deflist .row{grid-template-columns:1fr; gap:4px}}
+
+/* ---------- FAQ accordion ---------- */
+.faq{max-width:var(--measure); border-top:1px solid var(--line)}
+.faq details{border-bottom:1px solid var(--line)}
+.faq summary{list-style:none; cursor:pointer; padding:22px 0; display:flex; justify-content:space-between; align-items:center; gap:20px;
+  font-size:18px; font-weight:500; color:var(--ink); font-family:"Noto Serif SC",serif}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary .ic{flex:none; width:22px; height:22px; transition:transform .25s; color:var(--mut)}
+.faq details[open] summary .ic{transform:rotate(45deg)}
+.faq .ans{padding:0 0 24px; color:var(--ink-2); font-size:16px; line-height:1.75; max-width:60ch}
+
+/* ---------- form ---------- */
+.form{max-width:680px}
+.field{margin-bottom:22px}
+.field label{display:block; font-size:14px; font-weight:600; color:var(--ink); margin-bottom:8px}
+.field label .req{color:var(--pink); margin-left:3px}
+.field input, .field textarea, .field select{width:100%; font:inherit; font-size:15px; color:var(--ink); background:var(--paper);
+  border:1px solid var(--line); border-radius:11px; padding:13px 15px; transition:border-color .2s, box-shadow .2s}
+.field input:focus, .field textarea:focus, .field select:focus{outline:none; border-color:var(--ink); box-shadow:0 0 0 3px rgba(26,25,22,.06)}
+.field textarea{resize:vertical; min-height:120px}
+.field .hint{font-size:12.5px; color:var(--mut); margin-top:6px}
+.field-row{display:grid; grid-template-columns:1fr 1fr; gap:18px}
+@media (max-width:560px){.field-row{grid-template-columns:1fr}}
+
+/* ---------- endorsement line ---------- */
+.endo{padding:60px 0; border-top:1px solid var(--line); border-bottom:1px solid var(--line); background:var(--ivory-2)}
+.endo .row{display:flex; flex-wrap:wrap; align-items:center; gap:14px 30px; justify-content:center; color:var(--mut)}
+.endo .row .it{font-size:14px; font-weight:500; letter-spacing:.01em; white-space:nowrap}
+.endo .row .dot{width:4px; height:4px; border-radius:50%; background:var(--mut-2)}
+
+/* ---------- bottom CTA ---------- */
+.endcta{padding:140px 0; text-align:center}
+@media (max-width:700px){.endcta{padding:96px 0}}
+.endcta h2{font-size:clamp(34px,6vw,68px); letter-spacing:-.025em; max-width:18ch; margin:0 auto}
+.endcta p{margin-top:24px; font-size:20px; color:var(--ink-2)}
+.endcta .cta-row{margin-top:46px; display:flex; flex-direction:column; align-items:center; gap:20px}
+.endcta .alt{font-size:14px; color:var(--mut)}
+.endcta .alt a{color:var(--ink); text-decoration:underline; text-underline-offset:3px; text-decoration-color:var(--line)}
+
+/* ---------- footer ---------- */
+footer.ft{background:var(--dark); color:var(--dark-mut-c); padding:80px 0 44px}
+.ft-grid{display:grid; grid-template-columns:1.6fr repeat(4,1fr); gap:40px}
+@media (max-width:880px){.ft-grid{grid-template-columns:1fr 1fr}}
+@media (max-width:520px){.ft-grid{grid-template-columns:1fr}}
+.ft .brand{display:flex; align-items:center; gap:11px; color:#fff; font-weight:700; font-size:17px; margin-bottom:16px}
+.ft .brand .dots{display:flex; gap:3px} .ft .brand .dots i{width:7px;height:7px;border-radius:50%;display:block}
+.ft .brand .dots i:nth-child(1){background:var(--blue)} .ft .brand .dots i:nth-child(2){background:var(--green)}
+.ft .brand .dots i:nth-child(3){background:var(--gold)} .ft .brand .dots i:nth-child(4){background:var(--purple)}
+.ft .brand .dots i:nth-child(5){background:var(--pink)}
+.ft .tagline{font-size:14px; color:#8b8675; max-width:34ch; line-height:1.6}
+.ft h5{font-family:"JetBrains Mono"; font-size:11px; letter-spacing:.14em; text-transform:uppercase; color:#6f6a59; margin:0 0 16px; font-weight:500}
+.ft a.fl{display:block; color:#C9C3B3; font-size:14px; padding:5px 0; transition:color .15s}
+.ft a.fl:hover{color:#fff}
+.ft-bot{max-width:var(--maxw); margin:56px auto 0; padding:24px 32px 0; border-top:1px solid var(--dark-line);
+  display:flex; flex-wrap:wrap; gap:12px 24px; justify-content:space-between; font-size:12.5px; color:#6f6a59}
+@media (max-width:600px){.ft-bot{padding:24px 22px 0}}
+
+/* back to top */
+.totop{position:fixed; right:24px; bottom:24px; width:46px; height:46px; border-radius:50%; z-index:90;
+  background:var(--ink); color:var(--ivory); display:grid; place-items:center; cursor:pointer;
+  opacity:0; pointer-events:none; transition:opacity .3s, transform .3s}
+.totop.show{opacity:1; pointer-events:auto} .totop:hover{transform:translateY(-3px)}

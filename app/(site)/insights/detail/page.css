@@ -1,0 +1,17 @@
+/* Page-specific styles for /insights/detail — net-new rules from the
+   prototype's inline <style>. Globals (.prose/.card/.grid/.endcta/.crumb)
+   live in the shared site design system and are NOT re-declared here.
+   The base .subform rules are included because the prototype relied on the
+   /insights page's inline styles for them; kept identical to that source. */
+
+.artmeta{font-family:"JetBrains Mono"; font-size:13px; color:var(--mut); letter-spacing:.02em; margin-top:28px}
+.prose .lede{font-size:21px; line-height:1.7; color:var(--ink); font-family:"Noto Serif SC",serif; margin-bottom:32px}
+.rec .card h3{font-size:18px; line-height:1.35}
+.rec .card .tag{font-family:"JetBrains Mono"; font-size:11px; color:var(--mut); letter-spacing:.05em; margin-bottom:12px}
+
+.subform{display:flex; gap:10px; max-width:440px; margin-top:8px}
+.subform input{flex:1; font:inherit; font-size:15px; color:var(--ink); background:var(--paper);
+  border:1px solid var(--line); border-radius:11px; padding:13px 15px}
+.subform input:focus{outline:none; border-color:var(--ink); box-shadow:0 0 0 3px rgba(26,25,22,.06)}
+@media (max-width:520px){.subform{flex-direction:column}}
+.endcta .subform{justify-content:center; margin:0 auto 6px}

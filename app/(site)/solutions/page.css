@@ -1,0 +1,45 @@
+/* Page-specific styles for /solutions (from prototype inline <style>). */
+.tagm {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  font-family: "JetBrains Mono";
+  font-size: 11px;
+  letter-spacing: .08em;
+  color: var(--mut);
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  padding: 3px 10px;
+  margin-top: 14px;
+}
+.tagm i {
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: var(--gold);
+  display: block;
+}
+.calmline {
+  margin-top: 40px;
+  font-size: 17px;
+  color: var(--ink-2);
+  line-height: 1.7;
+  max-width: 50ch;
+}
+.calmline a {
+  color: var(--ink);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  text-decoration-color: var(--line);
+}
+.card.lk {
+  display: block;
+}
+.card.lk h3 .ar {
+  transition: transform .2s;
+  vertical-align: middle;
+  margin-left: 4px;
+}
+.card.lk:hover h3 .ar {
+  transform: translateX(3px);
+}

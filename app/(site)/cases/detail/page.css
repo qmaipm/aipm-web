@@ -1,0 +1,16 @@
+/* Page-specific styles for /cases/detail. */
+.montag{font-family:"JetBrains Mono"; font-size:13px; letter-spacing:.06em; color:var(--dark-mut-c); margin-bottom:22px}
+.compare{border-top:1px solid var(--line)}
+.compare .row{display:grid; grid-template-columns:200px 1fr 1fr; gap:24px; padding:20px 0; border-bottom:1px solid var(--line-2); align-items:baseline}
+.compare .row .k{font-weight:600; color:var(--ink)}
+.compare .row .before{color:var(--mut); font-size:15.5px}
+.compare .row .after{color:var(--ink); font-size:15.5px; font-weight:500}
+.compare .head{display:grid; grid-template-columns:200px 1fr 1fr; gap:24px; padding:0 0 14px; border-bottom:1px solid var(--line)}
+.compare .head span{font-family:"JetBrains Mono"; font-size:11.5px; letter-spacing:.08em; text-transform:uppercase; color:var(--mut-2)}
+@media (max-width:620px){.compare .row,.compare .head{grid-template-columns:1fr; gap:6px} .compare .head span:first-child{display:none}}
+.painlist{list-style:none; padding:0; margin:32px 0 0; max-width:var(--measure)}
+.painlist li{position:relative; padding:10px 0 10px 26px; color:var(--ink-2); font-size:16px; border-bottom:1px solid var(--line-2)}
+.painlist li::before{content:""; position:absolute; left:0; top:19px; width:7px; height:7px; border-radius:50%; background:var(--blue)}
+.voice{max-width:34ch; font-family:"Noto Serif SC",serif; font-style:italic; font-size:clamp(22px,3.4vw,30px); line-height:1.5; color:#fff; position:relative; padding-left:24px}
+.voice::before{content:""; position:absolute; left:0; top:6px; bottom:6px; width:3px; border-radius:3px; background:var(--grad5)}
+.voice-by{margin-top:22px; font-family:"JetBrains Mono"; font-size:12.5px; letter-spacing:.06em; color:var(--dark-mut-c)}

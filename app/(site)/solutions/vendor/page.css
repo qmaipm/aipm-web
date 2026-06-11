@@ -1,0 +1,6 @@
+.statement{max-width:var(--measure); font-family:"Noto Sans SC",serif; font-size:clamp(22px,3vw,28px);
+  line-height:1.5; color:var(--ink); margin-top:8px}
+.tag.mono{display:inline-block; font-family:"JetBrains Mono"; font-size:12px; color:var(--mut);
+  letter-spacing:.06em; margin:48px 0 18px}
+.tag.mono b{color:var(--ink)}
+.card.lk{display:block} .card.lk:hover h3{color:var(--blue)}

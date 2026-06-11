@@ -1,0 +1,27 @@
+  .premise-2{display:grid; grid-template-columns:1fr 1fr; gap:18px; margin-top:40px}
+  @media (max-width:680px){.premise-2{grid-template-columns:1fr}}
+  .premise-2 .card .big{font-family:"Noto Sans SC",serif; font-size:24px; font-weight:600; color:var(--ink); margin-bottom:10px}
+  .takeaway .card{background:transparent}
+  .why-list{display:grid; grid-template-columns:repeat(3,1fr); gap:0; border-top:1px solid var(--line)}
+  @media (max-width:780px){.why-list{grid-template-columns:1fr 1fr}}
+  @media (max-width:480px){.why-list{grid-template-columns:1fr}}
+  .why-list .w{padding:26px 24px 24px; border-bottom:1px solid var(--line); border-right:1px solid var(--line)}
+  .why-list .w:nth-child(3n){border-right:none}
+  @media (max-width:780px){.why-list .w:nth-child(3n){border-right:1px solid var(--line)} .why-list .w:nth-child(2n){border-right:none}}
+  @media (max-width:480px){.why-list .w{border-right:none !important}}
+  .why-list .w h4{font-family:"Noto Sans SC",serif; font-size:19px; font-weight:600; margin:0 0 8px}
+  .why-list .w p{font-size:14.5px; color:var(--ink-2); line-height:1.6; margin:0}
+  .who4 .card{min-height:150px}
+  .who4 .card .role{font-family:"JetBrains Mono"; font-size:12px; color:var(--mut); margin-bottom:12px}
+  .fee{max-width:var(--measure); font-size:18px; color:var(--ink-2); line-height:1.8}
+  /* 适用场景 */
+  .scenes{display:grid; grid-template-columns:repeat(3,1fr); gap:18px; margin-top:44px}
+  @media (max-width:900px){.scenes{grid-template-columns:repeat(2,1fr)}}
+  @media (max-width:560px){.scenes{grid-template-columns:1fr}}
+  .scene-c{display:block; border:1px solid var(--line); border-radius:16px; background:var(--paper); padding:24px 22px; transition:transform .25s, box-shadow .25s, border-color .25s}
+  .scene-c:hover{transform:translateY(-4px); box-shadow:0 14px 40px rgba(26,25,22,.08); border-color:var(--ink)}
+  .scene-c .ic{width:38px; height:38px; border-radius:10px; display:grid; place-items:center; color:#fff; margin-bottom:14px}
+  .scene-c h4{font-size:18px; font-weight:600; margin-bottom:8px}
+  .scene-c p{font-size:14px; color:var(--ink-2); line-height:1.6}
+  .scene-c .go{display:inline-flex; align-items:center; gap:5px; margin-top:14px; font-size:13px; font-weight:600; color:var(--ink)}
+  .scene-c:hover .go{color:var(--blue)}

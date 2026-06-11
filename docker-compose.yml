@@ -1,0 +1,29 @@
+# 启盟科技官网 — 测试 / 生产 两套容器
+# 通常两者跑在不同服务器;此文件便于本地或单机同时起两套。
+# 用法:
+#   docker compose build web-prod   &&  docker compose up -d web-prod   # 生产 -> 宿主 :3000
+#   docker compose build web-test   &&  docker compose up -d web-test   # 测试 -> 宿主 :3001
+# 再由 nginx 把 www.aipm.cn -> :3000, t1816-www.aipm.cn -> :3001
+
+services:
+  web-prod:
+    build:
+      context: .
+      args:
+        SITE_ENV: production
+        SITE_URL: https://www.aipm.cn
+    image: aipm-web:prod
+    restart: unless-stopped
+    ports:
+      - "3000:3000"
+
+  web-test:
+    build:
+      context: .
+      args:
+        SITE_ENV: test
+        SITE_URL: https://t1816-www.aipm.cn
+    image: aipm-web:test
+    restart: unless-stopped
+    ports:
+      - "3001:3000"

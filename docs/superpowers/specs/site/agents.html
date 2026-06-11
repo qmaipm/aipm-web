@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>按 Agent 职能 · 四个 Agent 如何构成一个闭环 — 启盟科技</title>
+<meta name="description" content="服务设计、运营管理、质量评估、服务优化，四个 Agent 各管一段、首尾相接：服务优化把数据回灌服务设计，服务标准持续进化。这是一张可以一眼看懂的闭环图。">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&family=Noto+Sans+SC:wght@300;400;500;700&family=Noto+Serif+SC:wght@400;500;600;700;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="site.css">
+<style>
+  /* ===== VI v10.0 官方品牌令牌覆盖（蓝→绿主导，金/紫/品红仅作点缀） ===== */
+  :root{
+    --vi-grad:linear-gradient(135deg,#0070FF,#12B98A);
+  }
+  /* 饱满五色 hero 光晕（官方 VI v10.0） */
+  .phero .hero-mesh::before{
+    background:radial-gradient(circle at 28% 30%, rgba(0,112,255,.42), transparent 60%),
+               radial-gradient(circle at 68% 58%, rgba(18,185,138,.36), transparent 60%),
+               radial-gradient(circle at 50% 84%, rgba(245,158,11,.30), transparent 62%)}
+  .phero .hero-mesh::after{opacity:.55;
+    background:radial-gradient(circle at 38% 42%, rgba(147,51,234,.34), transparent 60%),
+               radial-gradient(circle at 66% 56%, rgba(236,72,153,.30), transparent 62%)}
+
+  /* ===== 四 Agent 环形闭环图 ===== */
+  .loopwrap{margin-top:8px}
+  .loop{position:relative; width:min(620px,94vw); aspect-ratio:1/1; margin:0 auto}
+  .loop .ring{position:absolute; inset:0; width:100%; height:100%; overflow:visible; z-index:1}
+  .loop .core{position:absolute; left:50%; top:50%; transform:translate(-50%,-50%); z-index:2;
+    width:33%; text-align:center}
+  .loop .core .cl{font-family:"JetBrains Mono"; font-size:11px; letter-spacing:.18em; text-transform:uppercase; color:var(--mut-2)}
+  .loop .core h3{font-family:"Noto Serif SC",serif; font-size:clamp(17px,2.4vw,21px); margin:8px 0 6px; line-height:1.25;
+    background:var(--grad5); -webkit-background-clip:text; background-clip:text; color:transparent}
+  .loop .core p{font-size:12.5px; color:var(--mut); line-height:1.55}
+  .loop a.node{position:absolute; width:38%; background:var(--paper); border:1px solid var(--line);
+    border-radius:16px; padding:18px 18px 16px; z-index:3; transition:transform .25s, box-shadow .25s, border-color .25s;
+    box-shadow:0 4px 18px rgba(26,25,22,.05)}
+  .loop a.node:hover{transform:translateY(-3px); box-shadow:0 16px 40px rgba(26,25,22,.10); border-color:var(--ink)}
+  .loop a.node .nh{display:flex; align-items:center; gap:9px; margin-bottom:8px}
+  .loop a.node .dot{width:11px; height:11px; border-radius:50%; flex:none}
+  .loop a.node .step{font-family:"JetBrains Mono"; font-size:10.5px; letter-spacing:.1em; color:var(--mut-2); margin-left:auto}
+  .loop a.node h4{font-size:17px; font-weight:600; line-height:1.2}
+  .loop a.node p{font-size:12.8px; color:var(--ink-2); line-height:1.55; margin-top:2px}
+  .loop a.node .go{display:inline-flex; align-items:center; gap:5px; margin-top:11px; font-size:12.5px; font-weight:600; color:var(--ink)}
+  .loop a.node:hover .go{color:var(--blue)}
+  .loop a.n1{left:0; top:4%}      /* 服务设计 */
+  .loop a.n2{right:0; top:4%}     /* 运营管理 */
+  .loop a.n3{right:0; bottom:4%}  /* 质量评估 */
+  .loop a.n4{left:0; bottom:4%}   /* 服务优化 */
+  .loop .lbl{position:absolute; font-family:"JetBrains Mono"; font-size:10.5px; letter-spacing:.06em;
+    color:var(--mut); background:var(--ivory); padding:2px 7px; border-radius:999px; z-index:2; white-space:nowrap}
+  .loop .lbl.t{top:calc(4% + 12px); left:50%; transform:translate(-50%,-50%)}
+  .loop .lbl.r{top:50%; right:5px; transform:translate(50%,-50%)}
+  .loop .lbl.b{bottom:calc(4% + 12px); left:50%; transform:translate(-50%,-50%)}
+  .loop .lbl.l{top:50%; left:5px; transform:translate(-50%,-50%); color:var(--purple); font-weight:600}
+  @media (max-width:680px){
+    .loop{width:100%; aspect-ratio:auto; display:flex; flex-direction:column; gap:14px}
+    .loop .ring,.loop .core,.loop .lbl{display:none}
+    .loop a.node{position:static; width:100%}
+    .loop a.node::after{content:"↓"; display:block; text-align:center; color:var(--mut-2); margin:-2px 0 -10px; font-size:18px}
+    .loop a.node.n4::after{content:"↻ 回灌服务设计，闭环进化"; font-size:12px; letter-spacing:.04em; color:var(--green); margin-top:6px}
+  }
+
+  /* 闭环说明卡 */
+  .loopnote{display:grid; grid-template-columns:1fr 1fr; gap:18px; margin-top:8px}
+  @media (max-width:760px){.loopnote{grid-template-columns:1fr}}
+</style>
+</head>
+<body data-nav-solid>
+
+<header class="nav" id="nav">
+  <div class="navrow">
+    <a href="index.html" class="logo"><span class="dots"><i></i><i></i><i></i><i></i><i></i></span>启盟科技</a>
+    <nav class="menu">
+      <div class="item"><a>产品<svg class="car" viewBox="0 0 12 12"><path d="M2 4l4 4 4-4" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg></a>
+        <div class="dropdown">
+          <a class="di" href="product-fmclaw.html">FMClaw™ AI 平台<small>All-in-One · Agentic 架构 · 五大模块</small></a>
+          <a class="di" href="product-collaboration.html">第三方平台 AI 协同<small>钉钉 / 飞书 / 企业微信 · 不替换，只接入</small></a>
+          <a class="di" href="product-iot.html">IoT 物理世界感知系统</a>
+          <a class="di" href="product-robots.html">机器人装备<small>室内清洁 · 四足巡检</small></a>
+        </div>
+      </div>
+      <div class="item"><a class="cur">解决方案<svg class="car" viewBox="0 0 12 12"><path d="M2 4l4 4 4-4" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg></a>
+        <div class="dropdown" style="min-width:340px">
+          <div class="dh">按 Agent 职能</div>
+          <a class="di" href="agents.html">四 Agent 闭环总览<small>服务设计 · 运营管理 · 质量评估 · 服务优化</small></a>
+          <a class="di" href="agent-service-design.html">服务设计</a><a class="di" href="agent-operations.html">运营管理</a>
+          <a class="di" href="agent-quality.html">质量评估</a><a class="di" href="agent-optimization.html">服务优化</a>
+          <div class="sep"></div>
+          <div class="dh">按行业痛点</div>
+          <a class="di" href="solution-vendor.html">AI 供应商管理与自动对账</a>
+          <a class="di" href="solutions.html">外包管理与质量考评</a>
+          <a class="di" href="solutions.html">AI 账单</a>
+          <div class="sep"></div>
+          <div class="dh">For…</div>
+          <a class="di" href="index.html#tri">给业主 · 给物业公司 · 给开发者</a>
+        </div>
+      </div>
+      <div class="item"><a href="cases.html">客户案例</a></div>
+      <div class="item"><a href="workshop.html">FMAI 工作坊<svg class="car" viewBox="0 0 12 12"><path d="M2 4l4 4 4-4" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg></a>
+        <div class="dropdown" style="min-width:300px">
+          <a class="di" href="workshop.html">FMAI 工作坊(总览)<small>把你自己的 AI，亲手搭出来</small></a>
+          <div class="dh">适用场景</div>
+          <a class="di" href="scenario-utility-bill.html">水电费审批</a>
+          <a class="di" href="scenario-repair-bot.html">报修智能客服</a>
+          <a class="di" href="scenario-exec-query.html">管理层问询</a>
+          <a class="di" href="scenario-reconciliation.html">AI 对账</a>
+          <a class="di" href="scenario-inspection.html">AI 质检</a>
+          <a class="di" href="scenario-dispatch.html">智能派单</a>
+        </div>
+      </div>
+      <div class="item"><a href="cobuild.html">人工智能产业共建</a></div>
+      <div class="item"><a>公司<svg class="car" viewBox="0 0 12 12"><path d="M2 4l4 4 4-4" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg></a>
+        <div class="dropdown">
+          <a class="di" href="about.html">关于启盟</a><a class="di" href="team.html">团队</a>
+          <a class="di" href="news.html">新闻动态</a><a class="di" href="insights.html">行业研究</a>
+        </div>
+      </div>
+    </nav>
+    <div class="nav-spacer"></div>
+    <a href="workshop.html" class="nav-cta">预约 <span class="lbl-full">FMAI 工作坊</span> <svg width="13" height="13" viewBox="0 0 16 16"><path d="M3 8h10M9 4l4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="phero">
+  <div class="hero-mesh"></div>
+  <div class="wrap">
+    <div class="crumb reveal"><a href="solutions.html">解决方案</a> / 按 Agent 职能</div>
+    <span class="eyebrow reveal">按 Agent 职能</span>
+    <h1 class="reveal" style="margin-top:20px">四个 Agent，<br>各管一段，首尾相接。</h1>
+    <p class="lead reveal">服务设计、运营管理、质量评估、服务优化，分别接住物业运营的一个环节。服务优化把数据回灌服务设计，标准在运行中持续进化。</p>
+  </div>
+</section>
+
+<!-- 核心视觉：四 Agent 闭环图 -->
+<section class="band alt">
+  <div class="wrap">
+    <div class="sec-head" style="margin:0 auto; text-align:center">
+      <span class="eyebrow reveal" style="justify-content:center">一张图看懂闭环</span>
+      <h2 class="reveal" style="margin-left:auto;margin-right:auto">从设计到运营，从评估再回到设计。</h2>
+      <p class="sub reveal" style="margin-left:auto;margin-right:auto">四个 Agent 顺时针接力，最后一段（服务优化 → 服务设计）把复盘结论写回标准，闭环就此成立。</p>
+    </div>
+
+    <div class="loopwrap reveal" style="margin-top:54px">
+      <div class="loop">
+        <!-- 环线 + 流动光点 -->
+        <svg class="ring" viewBox="0 0 100 100" aria-hidden="true">
+          <defs>
+            <linearGradient id="ringg" x1="0" y1="0" x2="1" y2="1">
+              <stop offset="0" stop-color="#0070FF"/>
+              <stop offset=".27" stop-color="#12B98A"/>
+              <stop offset=".54" stop-color="#F59E0B"/>
+              <stop offset=".79" stop-color="#9333EA"/>
+              <stop offset="1" stop-color="#EC4899"/>
+            </linearGradient>
+          </defs>
+          <!-- 主环（顺时针：上→右→下→左回灌） -->
+          <path d="M32 18 L68 18 A14 14 0 0 1 82 32 L82 68 A14 14 0 0 1 68 82 L32 82 A14 14 0 0 1 18 68 L18 32 A14 14 0 0 1 32 18 Z"
+                fill="none" stroke="url(#ringg)" stroke-width="1.7" opacity=".88"/>
+          <!-- 左侧“回灌”段高亮虚线 -->
+          <path d="M18 68 L18 32" fill="none" stroke="#9333EA" stroke-width="1.8" stroke-dasharray="3 2.4" opacity=".9"/>
+          <!-- 流动光点 -->
+          <path d="M32 18 L68 18 A14 14 0 0 1 82 32 L82 68 A14 14 0 0 1 68 82 L32 82 A14 14 0 0 1 18 68 L18 32 A14 14 0 0 1 32 18 Z"
+                pathLength="300" fill="none" stroke="#fff" stroke-width="2.2" stroke-linecap="round"
+                stroke-dasharray="9 291" opacity=".95">
+            <animate attributeName="stroke-dashoffset" from="300" to="0" dur="7s" repeatCount="indefinite"/>
+          </path>
+          <!-- 顺时针箭头 -->
+          <path d="M48 16.4 L52 18 L48 19.6 Z" fill="#0070FF"/>            <!-- top → -->
+          <path d="M80.4 48 L82 52 L83.6 48 Z" fill="#12B98A"/>            <!-- right ↓ -->
+          <path d="M52 80.4 L48 82 L52 83.6 Z" fill="#F59E0B"/>            <!-- bottom ← -->
+          <path d="M19.6 52 L18 48 L16.4 52 Z" fill="#9333EA"/>            <!-- left ↑ (回灌) -->
+        </svg>
+
+        <!-- 中心 -->
+        <div class="core">
+          <div class="cl">自动进化闭环</div>
+          <h3>越跑越准</h3>
+          <p>服务优化回灌服务设计，<br>服务标准在运行中迭代。</p>
+        </div>
+
+        <!-- 方向标签 -->
+        <span class="lbl t">设计 → 运营</span>
+        <span class="lbl r">运营 → 评估</span>
+        <span class="lbl b">评估 → 优化</span>
+        <span class="lbl l">↻ 回灌</span>
+
+        <!-- 四个节点 -->
+        <a class="node n1" href="agent-service-design.html">
+          <div class="nh"><span class="dot" style="background:var(--blue)"></span><span class="step">01</span></div>
+          <h4>服务设计</h4>
+          <p>录入项目信息，自动生成一套可执行的服务方案。</p>
+          <span class="go">进入 <svg width="12" height="12" viewBox="0 0 16 16"><path d="M3 8h10M9 4l4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+        </a>
+        <a class="node n2" href="agent-operations.html">
+          <div class="nh"><span class="dot" style="background:var(--green)"></span><span class="step">02</span></div>
+          <h4>运营管理</h4>
+          <p>把每天的调度、派单、异常响应，变成可审批、可追溯的实时运营。</p>
+          <span class="go">进入 <svg width="12" height="12" viewBox="0 0 16 16"><path d="M3 8h10M9 4l4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+        </a>
+        <a class="node n3" href="agent-quality.html">
+          <div class="nh"><span class="dot" style="background:var(--gold)"></span><span class="step">03</span></div>
+          <h4>质量评估</h4>
+          <p>用 AI 视觉 + IoT 数据，按统一标准独立评估每一次服务。</p>
+          <span class="go">进入 <svg width="12" height="12" viewBox="0 0 16 16"><path d="M3 8h10M9 4l4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+        </a>
+        <a class="node n4" href="agent-optimization.html">
+          <div class="nh"><span class="dot" style="background:var(--purple)"></span><span class="step">04</span></div>
+          <h4>服务优化</h4>
+          <p>汇总质检与运营数据，找出反复出现的问题，把改进写回服务标准。</p>
+          <span class="go">进入 <svg width="12" height="12" viewBox="0 0 16 16"><path d="M3 8h10M9 4l4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 闭环怎么成立 -->
+<section class="band">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="eyebrow reveal">闭环怎么成立</span>
+      <h2 class="reveal">每一段都给下一段交付一份明确的东西。</h2>
+    </div>
+    <div class="loopnote" style="margin-top:46px">
+      <div class="card reveal"><div class="k" style="background:var(--blue)"></div>
+        <h3>设计 → 运营</h3><p>服务设计输出服务标准、人员编制与预算，成为运营管理每日可执行的工作流来源。</p></div>
+      <div class="card reveal"><div class="k" style="background:var(--green)"></div>
+        <h3>运营 → 评估</h3><p>运营过程中产生的工单、照片与 IoT 数据，成为质量评估独立打分的原始证据。</p></div>
+      <div class="card reveal"><div class="k" style="background:var(--gold)"></div>
+        <h3>评估 → 优化</h3><p>质量评估的结构化标签与评分，汇入服务优化做聚类分析，定位反复出现的问题。</p></div>
+      <div class="card reveal"><div class="k" style="background:var(--purple)"></div>
+        <h3>优化 → 设计（回灌）</h3><p>服务优化把验证过的改进写回服务标准，下一轮服务设计就从更好的基线开始。</p></div>
+    </div>
+    <p class="scenario-quote reveal">四个 Agent 不是四个工具，而是一条会自己变好的流水线。</p>
+  </div>
+</section>
+
+<!-- END CTA -->
+<section class="endcta"><div class="wrap"><h2 class="reveal">从一个真实环节,<br>把闭环跑起来。</h2><p class="reveal">带上你的真实数据，在一次工作坊里看它怎么接力。</p><div class="cta-row reveal"><a href="workshop.html" class="btn btn-primary" style="padding:16px 32px;font-size:16.5px">预约 FMAI 工作坊 →</a></div></div></section>
+
+<footer class="ft">
+  <div class="wrap">
+    <div class="ft-grid">
+      <div>
+        <div class="brand"><span class="dots"><i></i><i></i><i></i><i></i><i></i></span>启盟科技</div>
+        <p class="tagline">物业与设施管理的 AI 操作系统。把 AI 接进每天的运营,从一个真实业务开始。</p>
+      </div>
+      <div><h5>产品</h5><a class="fl" href="product-fmclaw.html">FMClaw™ AI 平台</a><a class="fl" href="product-collaboration.html">第三方平台 AI 协同</a><a class="fl" href="product-iot.html">IoT 物理感知</a><a class="fl" href="product-robots.html">机器人装备</a></div>
+      <div><h5>解决方案</h5><a class="fl" href="agents.html">四 Agent 闭环总览</a><a class="fl" href="agent-service-design.html">服务设计 / 运营管理</a><a class="fl" href="agent-quality.html">质量评估 / 服务优化</a><a class="fl" href="solution-vendor.html">供应商管理与对账</a></div>
+      <div><h5>共建与公司</h5><a class="fl" href="workshop.html">FMAI 工作坊</a><a class="fl" href="cobuild.html">人工智能产业共建</a><a class="fl" href="about.html">关于启盟 / 团队</a><a class="fl" href="insights.html">行业研究</a></div>
+      <div><h5>联系</h5><a class="fl" href="contact.html">商务合作</a><a class="fl" href="contact.html">招商 / 国资对接</a><a class="fl" href="contact.html">加入我们</a><a class="fl" href="contact.html">公众号</a></div>
+    </div>
+  </div>
+  <div class="ft-bot"><span>© 2026 启盟科技 · FMClaw™</span><span>aipm.cn · ICP 备案待补充 · 公安备案待补充</span></div>
+</footer>
+
+<div class="totop" id="totop" role="button" tabindex="0" aria-label="回到顶部">
+  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M12 19V5M5 12l7-7 7 7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+</div>
+
+<script>
+(function(){
+  var nav=document.getElementById('nav'), totop=document.getElementById('totop');
+  var lockSolid = document.body.hasAttribute('data-nav-solid');
+  function onScroll(){var y=window.scrollY||0; nav.classList.toggle('solid', lockSolid || y>40); totop.classList.toggle('show', y>700);}
+  window.addEventListener('scroll', onScroll, {passive:true}); onScroll();
+  totop.addEventListener('click', function(){window.scrollTo({top:0,behavior:'smooth'});});
+  totop.addEventListener('keydown', function(e){if(e.key==='Enter'||e.key===' '){e.preventDefault();window.scrollTo({top:0,behavior:'smooth'});}});
+  if('IntersectionObserver' in window){
+    var io=new IntersectionObserver(function(es){es.forEach(function(en){
+      if(en.isIntersecting){en.target.classList.add('in'); io.unobserve(en.target);}});},
+      {rootMargin:'0px 0px -8% 0px', threshold:0.06});
+    document.querySelectorAll('.reveal').forEach(function(el){
+      var sib=el.parentElement.querySelectorAll(':scope > .reveal');
+      el.style.transitionDelay=(Math.min(Array.prototype.indexOf.call(sib,el),5)*60)+'ms';
+      io.observe(el);
+    });
+  } else { document.querySelectorAll('.reveal').forEach(function(el){el.classList.add('in');}); }
+})();
+</script>
+</body>
+</html>

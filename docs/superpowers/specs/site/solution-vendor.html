@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI 供应商管理与自动对账 · 这件事可以不靠人盯 — 启盟科技</title>
+<meta name="description" content="对账周期长、口径不一、合同条款散落、容易出错。AI 供应商管理与自动对账把质量考评、工作量考评、自动出账、合同校验拼成一套现成方案，人只看结论，确认或驳回。">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&family=Noto+Sans+SC:wght@300;400;500;700&family=Noto+Serif+SC:wght@400;500;600;700;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="site.css">
+<style>
+  .statement{max-width:var(--measure); font-family:"Noto Serif SC",serif; font-size:clamp(22px,3vw,28px);
+    line-height:1.5; color:var(--ink); margin-top:8px}
+  .tag.mono{display:inline-block; font-family:"JetBrains Mono"; font-size:12px; color:var(--mut);
+    letter-spacing:.06em; margin:48px 0 18px}
+  .tag.mono b{color:var(--ink)}
+  .card.lk{display:block} .card.lk:hover h3{color:var(--blue)}
+</style>
+</head>
+<body data-nav-solid>
+
+<header class="nav" id="nav">
+  <div class="navrow">
+    <a href="index.html" class="logo"><span class="dots"><i></i><i></i><i></i><i></i><i></i></span>启盟科技</a>
+    <nav class="menu">
+      <div class="item"><a>产品<svg class="car" viewBox="0 0 12 12"><path d="M2 4l4 4 4-4" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg></a>
+        <div class="dropdown">
+          <a class="di" href="product-fmclaw.html">FMClaw™ AI 平台<small>All-in-One · Agentic 架构 · 五大模块</small></a>
+          <a class="di" href="product-collaboration.html">第三方平台 AI 协同<small>钉钉 / 飞书 / 企业微信 · 不替换，只接入</small></a>
+          <a class="di" href="product-iot.html">IoT 物理世界感知系统</a>
+          <a class="di" href="product-robots.html">机器人装备<small>室内清洁 · 四足巡检</small></a>
+        </div>
+      </div>
+      <div class="item"><a class="cur">解决方案<svg class="car" viewBox="0 0 12 12"><path d="M2 4l4 4 4-4" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg></a>
+        <div class="dropdown" style="min-width:330px">
+          <div class="dh">按 Agent 职能</div>
+          <a class="di" href="agents.html">四 Agent 闭环总览<small>服务设计 · 运营管理 · 质量评估 · 服务优化</small></a>
+          <a class="di" href="agent-service-design.html">服务设计</a><a class="di" href="agent-operations.html">运营管理</a>
+          <a class="di" href="agent-quality.html">质量评估</a><a class="di" href="agent-optimization.html">服务优化</a>
+          <div class="sep"></div>
+          <div class="dh">按行业痛点</div>
+          <a class="di" href="solution-vendor.html">AI 供应商管理与自动对账</a>
+          <a class="di" href="solutions.html">外包管理与质量考评</a>
+          <a class="di" href="solutions.html">AI 账单</a>
+          <div class="sep"></div>
+          <div class="dh">For…</div>
+          <a class="di" href="index.html#tri">给业主 · 给物业公司 · 给开发者</a>
+        </div>
+      </div>
+      <div class="item"><a href="cases.html">客户案例</a></div>
+      <div class="item"><a href="workshop.html">FMAI 工作坊<svg class="car" viewBox="0 0 12 12"><path d="M2 4l4 4 4-4" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg></a>
+        <div class="dropdown" style="min-width:300px">
+          <a class="di" href="workshop.html">FMAI 工作坊(总览)<small>把你自己的 AI，亲手搭出来</small></a>
+          <div class="dh">适用场景</div>
+          <a class="di" href="scenario-utility-bill.html">水电费审批</a>
+          <a class="di" href="scenario-repair-bot.html">报修智能客服</a>
+          <a class="di" href="scenario-exec-query.html">管理层问询</a>
+          <a class="di" href="scenario-reconciliation.html">AI 对账</a>
+          <a class="di" href="scenario-inspection.html">AI 质检</a>
+          <a class="di" href="scenario-dispatch.html">智能派单</a>
+        </div>
+      </div>
+      <div class="item"><a href="cobuild.html">人工智能产业共建</a></div>
+      <div class="item"><a>公司<svg class="car" viewBox="0 0 12 12"><path d="M2 4l4 4 4-4" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg></a>
+        <div class="dropdown">
+          <a class="di" href="about.html">关于启盟</a><a class="di" href="team.html">团队</a>
+          <a class="di" href="news.html">新闻动态</a><a class="di" href="insights.html">行业研究</a>
+        </div>
+      </div>
+    </nav>
+    <div class="nav-spacer"></div>
+    <a href="workshop.html" class="nav-cta">预约 <span class="lbl-full">FMAI 工作坊</span> <svg width="13" height="13" viewBox="0 0 16 16"><path d="M3 8h10M9 4l4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="phero">
+  <div class="hero-mesh"></div>
+  <div class="wrap">
+    <div class="crumb reveal"><a href="solutions.html">解决方案</a> / AI 供应商管理与自动对账</div>
+    <span class="eyebrow reveal">解决方案 · AI 供应商管理与自动对账</span>
+    <h1 class="reveal" style="margin-top:20px">供应商对账,<br>这件事可以不靠人盯。</h1>
+    <p class="lead reveal">合同、工作量、价格，本来要一笔笔翻一笔笔核。让 Agent 先核完，你只看结论。</p>
+  </div>
+</section>
+
+<!-- WHAT PROBLEM -->
+<section class="band">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="eyebrow reveal">这是什么问题</span>
+    </div>
+    <p class="statement reveal">对账周期长、口径不一、合同条款散落、容易出错——甲方与物业公司都在这件事上耗人。</p>
+  </div>
+</section>
+
+<!-- HOW WE SOLVE -->
+<section class="band alt">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="eyebrow reveal">我们怎么解</span>
+      <h2 class="reveal">把每一笔该不该付,先说清楚。</h2>
+      <p class="sub reveal">把几项能力拼在一起，让对账有据、出账有理。</p>
+    </div>
+    <div class="grid c3" style="margin-top:48px">
+      <div class="card reveal"><div class="k" style="background:var(--blue)"></div>
+        <h3>质量考评</h3><p>服务做得好不好，按统一标准给出评价，作为该不该付的依据之一。</p></div>
+      <div class="card reveal"><div class="k" style="background:var(--green)"></div>
+        <h3>工作量考评</h3><p>到底干了多少，按记录与口径自动核出来，不靠人估。</p></div>
+      <div class="card reveal"><div class="k" style="background:var(--gold)"></div>
+        <h3>自动出账单</h3><p>核完之后直接生成账单草稿，每一笔都附上算法和理由。</p></div>
+      <div class="card reveal"><div class="k" style="background:var(--purple)"></div>
+        <h3>合同约束校验</h3><p>对照合同条款逐项校验，单价、范围、上限是否相符，一眼看清。</p></div>
+    </div>
+
+    <div class="tag mono reveal">场景 · <b>对账</b></div>
+    <div class="reveal" style="border:1px solid var(--line); border-left:3px solid var(--gold); border-radius:0 14px 14px 0; background:var(--paper); padding:22px 26px; max-width:var(--measure); display:flex; flex-wrap:wrap; gap:12px 22px; align-items:center; justify-content:space-between">
+      <p style="font-size:15.5px; color:var(--ink-2); line-height:1.6; max-width:44ch">按合同自动核量、对比历史与市场、圈出异常、生成账单草稿，人只需确认或驳回。</p>
+      <span style="display:flex; gap:18px; flex:none; font-size:14px; font-weight:600; white-space:nowrap"><a href="scenario-reconciliation.html" style="color:var(--gold)">看完整场景 →</a><a href="workshop.html" style="color:var(--ink)">来工作坊跑通它 →</a></span>
+    </div>
+  </div>
+</section>
+
+<!-- WHO SOLVED IT -->
+<section class="band">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="eyebrow reveal">谁用它解过</span>
+      <h2 class="reveal">已经在运行的项目。</h2>
+    </div>
+    <div class="grid c2" style="margin-top:48px">
+      <a class="card lk hover reveal" href="cases.html"><div class="k" style="background:var(--blue)"></div>
+        <div class="meta">甲方 · 多供应商</div>
+        <h3>把几天一版的对账，变成看一眼就能确认</h3>
+        <p>按合同自动核量、圈出异常、生成账单草稿，对账有了一致口径。<span style="color:var(--blue)"> 看这个项目 →</span></p></a>
+      <a class="card lk hover reveal" href="cases.html"><div class="k" style="background:var(--green)"></div>
+        <div class="meta">物业公司 · 结算</div>
+        <h3>让每一笔该不该付，都说得出理由</h3>
+        <p>合同校验接上结算流程，确认或驳回都有据可循。<span style="color:var(--green)"> 看这个项目 →</span></p></a>
+    </div>
+  </div>
+</section>
+
+<!-- END CTA -->
+<section class="endcta"><div class="wrap"><h2 class="reveal">把这件事,<br>用一次工作坊跑通。</h2><p class="reveal">带上你的真实数据来。</p><div class="cta-row reveal"><a href="workshop.html" class="btn btn-primary" style="padding:16px 32px;font-size:16.5px">预约 FMAI 工作坊 →</a></div></div></section>
+
+<footer class="ft">
+  <div class="wrap">
+    <div class="ft-grid">
+      <div>
+        <div class="brand"><span class="dots"><i></i><i></i><i></i><i></i><i></i></span>启盟科技</div>
+        <p class="tagline">物业与设施管理的 AI 操作系统。把 AI 接进每天的运营,从一个真实业务开始。</p>
+      </div>
+      <div><h5>产品</h5><a class="fl" href="product-fmclaw.html">FMClaw™ AI 平台</a><a class="fl" href="product-collaboration.html">第三方平台 AI 协同</a><a class="fl" href="product-iot.html">IoT 物理感知</a><a class="fl" href="product-robots.html">机器人装备</a></div>
+      <div><h5>解决方案</h5><a class="fl" href="agent-service-design.html">服务设计 / 运营管理</a><a class="fl" href="agent-quality.html">质量评估 / 服务优化</a><a class="fl" href="solution-vendor.html">供应商管理与对账</a><a class="fl" href="cases.html">客户案例</a></div>
+      <div><h5>共建与公司</h5><a class="fl" href="workshop.html">FMAI 工作坊</a><a class="fl" href="cobuild.html">人工智能产业共建</a><a class="fl" href="about.html">关于启盟 / 团队</a><a class="fl" href="insights.html">行业研究</a></div>
+      <div><h5>联系</h5><a class="fl" href="contact.html">商务合作</a><a class="fl" href="contact.html">招商 / 国资对接</a><a class="fl" href="contact.html">加入我们</a><a class="fl" href="contact.html">公众号</a></div>
+    </div>
+  </div>
+  <div class="ft-bot"><span>© 2026 启盟科技 · FMClaw™</span><span>aipm.cn · ICP 备案待补充 · 公安备案待补充</span></div>
+</footer>
+
+<div class="totop" id="totop" role="button" tabindex="0" aria-label="回到顶部">
+  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M12 19V5M5 12l7-7 7 7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+</div>
+
+<script>
+(function(){
+  var nav=document.getElementById('nav'), totop=document.getElementById('totop');
+  var lockSolid = document.body.hasAttribute('data-nav-solid');
+  function onScroll(){var y=window.scrollY||0; nav.classList.toggle('solid', lockSolid || y>40); totop.classList.toggle('show', y>700);}
+  window.addEventListener('scroll', onScroll, {passive:true}); onScroll();
+  totop.addEventListener('click', function(){window.scrollTo({top:0,behavior:'smooth'});});
+  totop.addEventListener('keydown', function(e){if(e.key==='Enter'||e.key===' '){e.preventDefault();window.scrollTo({top:0,behavior:'smooth'});}});
+  if('IntersectionObserver' in window){
+    var io=new IntersectionObserver(function(es){es.forEach(function(en){
+      if(en.isIntersecting){en.target.classList.add('in'); io.unobserve(en.target);}});},
+      {rootMargin:'0px 0px -8% 0px', threshold:0.06});
+    document.querySelectorAll('.reveal').forEach(function(el){
+      var sib=el.parentElement.querySelectorAll(':scope > .reveal');
+      el.style.transitionDelay=(Math.min(Array.prototype.indexOf.call(sib,el),5)*60)+'ms';
+      io.observe(el);
+    });
+  } else { document.querySelectorAll('.reveal').forEach(function(el){el.classList.add('in');}); }
+})();
+</script>
+</body>
+</html>

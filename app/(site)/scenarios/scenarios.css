@@ -1,0 +1,18 @@
+/* ---------- scenario pages (shared net-new rules) ---------- */
+.scenario-page .phero{padding:150px 0 70px}
+.scenario-page .flowchart .fc.now h4{color:var(--accent)}
+.scenario-page .note{max-width:var(--measure);font-size:17px;color:var(--ink-2);line-height:1.85;margin-top:18px}
+
+/* per-scenario accent + hero mesh */
+.sc-amber{--accent:#F59E0B}
+.sc-blue{--accent:#0070FF}
+.sc-green{--accent:#12B98A}
+
+.sc-amber .phero .hero-mesh::before{background:radial-gradient(circle at 28% 30%, rgba(245,158,11,.40), transparent 60%),radial-gradient(circle at 68% 58%, rgba(18,185,138,.30), transparent 60%),radial-gradient(circle at 50% 84%, rgba(147,51,234,.22), transparent 62%)}
+.sc-amber .phero .hero-mesh::after{opacity:.5;background:radial-gradient(circle at 40% 44%, rgba(245,158,11,.26), transparent 60%),radial-gradient(circle at 66% 56%, rgba(236,72,153,.22), transparent 62%)}
+
+.sc-blue .phero .hero-mesh::before{background:radial-gradient(circle at 28% 30%, rgba(0,112,255,.40), transparent 60%),radial-gradient(circle at 68% 58%, rgba(18,185,138,.30), transparent 60%),radial-gradient(circle at 50% 84%, rgba(147,51,234,.22), transparent 62%)}
+.sc-blue .phero .hero-mesh::after{opacity:.5;background:radial-gradient(circle at 40% 44%, rgba(0,112,255,.26), transparent 60%),radial-gradient(circle at 66% 56%, rgba(236,72,153,.22), transparent 62%)}
+
+.sc-green .phero .hero-mesh::before{background:radial-gradient(circle at 28% 30%, rgba(18,185,138,.40), transparent 60%),radial-gradient(circle at 68% 58%, rgba(18,185,138,.30), transparent 60%),radial-gradient(circle at 50% 84%, rgba(147,51,234,.22), transparent 62%)}
+.sc-green .phero .hero-mesh::after{opacity:.5;background:radial-gradient(circle at 40% 44%, rgba(18,185,138,.26), transparent 60%),radial-gradient(circle at 66% 56%, rgba(236,72,153,.22), transparent 62%)}
