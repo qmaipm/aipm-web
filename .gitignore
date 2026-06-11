@@ -19,3 +19,8 @@ tsconfig.tsbuildinfo
 # 非源代码资产(任务文档、归档包)
 /file
 *.zip
+
+# 设计稿 / 规格文档(不参与构建)
+/docs/superpowers
+# Word 临时锁文件
+~$*
