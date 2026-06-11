@@ -1,29 +1,19 @@
-# 启盟科技官网 — 测试 / 生产 两套容器
-# 通常两者跑在不同服务器;此文件便于本地或单机同时起两套。
-# 用法:
-#   docker compose build web-prod   &&  docker compose up -d web-prod   # 生产 -> 宿主 :3000
-#   docker compose build web-test   &&  docker compose up -d web-test   # 测试 -> 宿主 :3001
-# 再由 nginx 把 www.aipm.cn -> :3000, t1816-www.aipm.cn -> :3001
+# 启盟科技官网 — Next.js (standalone) 单服务
+# 镜像与环境无关;环境差异由 .env 注入(SITE_ENV / SITE_URL / AIPM_WEB_HOST_PORT)。
+# 配合 qm-scripts 发布脚本(type=docker):pk/pb 会自动生成 .env 并 build/up。
+# 本地手动用法:
+#   echo -e "SITE_ENV=production\nSITE_URL=https://www.aipm.cn\nAIPM_WEB_HOST_PORT=3100" > .env
+#   docker compose build && docker compose up -d
+# 再由 nginx 把 www.aipm.cn(或 t1816-www.aipm.cn) 反代到 127.0.0.1:${AIPM_WEB_HOST_PORT}
 
 services:
-  web-prod:
+  web:
     build:
       context: .
-      args:
-        SITE_ENV: production
-        SITE_URL: https://www.aipm.cn
-    image: aipm-web:prod
+    image: aipm-web:latest
     restart: unless-stopped
+    environment:
+      SITE_ENV: ${SITE_ENV}
+      SITE_URL: ${SITE_URL}
     ports:
-      - "3000:3000"
-
-  web-test:
-    build:
-      context: .
-      args:
-        SITE_ENV: test
-        SITE_URL: https://t1816-www.aipm.cn
-    image: aipm-web:test
-    restart: unless-stopped
-    ports:
-      - "3001:3000"
+      - "${AIPM_WEB_HOST_PORT}:3000"
