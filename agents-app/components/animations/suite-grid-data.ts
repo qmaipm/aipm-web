@@ -30,7 +30,7 @@
  * - 服务设计：蓝→绿 (#0070FF → #12B98A) gradient-blue-green
  * - 运营管理：绿→金 (#12B98A → #F59E0B) gradient-green-gold
  * - 质量评估：紫→粉 (#9333EA → #EC4899) gradient-purple-pink
- * - 复盘优化：蓝→紫 (#0070FF → #9333EA) gradient-blue-purple
+ * - 服务优化：蓝→紫 (#0070FF → #9333EA) gradient-blue-purple
  * 
  * 【图标视觉规格】
  * - 激活状态：白色背景 + 1px #e5e7eb 边框 + 上浮4px + 阴影
@@ -52,7 +52,7 @@
  * - suite1 服务设计：A1 → P1_space, P2_config, P0_api
  * - suite2 运营管理：A2 → P3_ssr, P4_ticket, P5_collab
  * - suite3 质量评估：A3 → P7_inspect（仅1个）
- * - suite4 复盘优化：A4 → P9_salary, P10_dashboard, API
+ * - suite4 服务优化：A4 → P9_salary, P10_dashboard, API
  * 
  * @version 6.1
  * @author AI Assistant
@@ -282,7 +282,7 @@ export const ANIMATION_CONFIG = {
  * - (4, 3) - P6_device 设备管理系统
  * - (5, 1) - P7_inspect 多模态质检系统
  * - (1, 1) - P8_assistant 小智帮手
- * - (2, 5) - A4 复盘优化Agent
+ * - (2, 5) - A4 服务优化Agent
  * - (2, 3) - P9_salary 计薪系统
  * - (4, 5) - P10_dashboard 数据大屏系统
  * 
@@ -413,7 +413,7 @@ export const SUITE_ICON_POSITIONS: Record<string, SuiteIconPosition> = {
   },
   
   // ========================================
-  // Agent 4：复盘优化套件
+  // Agent 4：服务优化套件
   // A4 (2, 5), P9_salary (2, 3), P10_dashboard (4, 5)
   // 路径: A4.L→API.B, A4.T→P9.B, A4.R→P10.L
   // ========================================
@@ -421,7 +421,7 @@ export const SUITE_ICON_POSITIONS: Record<string, SuiteIconPosition> = {
     id: 'A4', 
     x: GRID.colCenter(2),     // 列2
     y: GRID.rowCenter(5),     // 行5
-    name: '复盘优化Agent', 
+    name: '服务优化Agent', 
     type: 'agent', 
     icon: 'agentReview',
     color: '#F59E0B',
@@ -483,7 +483,7 @@ export const SUITE_CONNECTIONS: SuiteConnection[] = [
   },
   {
     id: 'suite4',
-    name: '复盘优化套件',
+    name: '服务优化套件',
     agentId: 'A4',
     productIds: ['P9_salary', 'P10_dashboard', 'API'],  // 包含 API 开放平台
     color: { start: '#0070FF', end: '#9333EA' },  // 蓝→紫 (blue-purple)
@@ -528,7 +528,7 @@ export const CONNECTION_ROUTES: ConnectionRoute[] = [
   { from: 'A3', fromPort: 'top', to: 'P7_inspect', toPort: 'left' },
   // 注意: P6_device 和 P8_assistant 不连线
   
-  // === Suite 4: 复盘优化套件 ===
+  // === Suite 4: 服务优化套件 ===
   // A4 (2,5) → API (1,3): A4.L → API.B
   { from: 'A4', fromPort: 'left', to: 'API', toPort: 'bottom' },
   // A4 (2,5) → P9_salary (2,3): A4.T → P9.B

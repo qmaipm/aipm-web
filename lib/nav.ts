@@ -30,7 +30,7 @@ export const MENU: MenuItem[] = [
       {
         heading: "按 Agent 职能",
         items: [
-          { label: "四 Agent 闭环总览", href: "/agents", small: "服务设计 · 运营管理 · 质量评估 · 服务优化" },
+          { label: "Agentic 产品套件", href: "/agents", small: "服务设计 · 运营管理 · 质量评估 · 服务优化" },
           { label: "服务设计", href: "/solutions/service-design" },
           { label: "运营管理", href: "/solutions/operations" },
           { label: "质量评估", href: "/solutions/quality" },
@@ -53,13 +53,13 @@ export const MENU: MenuItem[] = [
   },
   { label: "客户案例", href: "/cases" },
   {
-    label: "FMAI 工作坊",
+    label: "FMClaw™ 加速营",
     href: "/workshop",
     minWidth: 300,
     groups: [
       {
         items: [
-          { label: "FMAI 工作坊(总览)", href: "/workshop", small: "把你自己的 AI，亲手搭出来" },
+          { label: "FMClaw™ 加速营(总览)", href: "/workshop", small: "把你自己的 AI，亲手搭出来" },
         ],
       },
       {
@@ -113,7 +113,7 @@ export const FOOTER_COLS: { title: string; links: DropItem[] }[] = [
   {
     title: "共建与公司",
     links: [
-      { label: "FMAI 工作坊", href: "/workshop" },
+      { label: "FMClaw™ 加速营", href: "/workshop" },
       { label: "人工智能产业共建", href: "/cobuild" },
       { label: "关于启盟 / 团队", href: "/company" },
       { label: "行业研究", href: "/insights" },

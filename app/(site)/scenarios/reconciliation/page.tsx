@@ -2,7 +2,7 @@ import Link from "next/link";
 import "../scenarios.css";
 
 export const metadata = {
-  title: "物业 AI 对账 · 供应商自动核量对账 — FMAI 工作坊场景",
+  title: "物业 AI 对账 · 供应商自动核量对账 — FMClaw™ 加速营场景",
   description:
     "供应商对账：AI 按合同自动核量、对比历史与市场行情、圈出异常、生成账单草稿，人只做确认或驳回。",
 };
@@ -14,7 +14,7 @@ export default function Page() {
       <section className="phero">
         <div className="hero-mesh"></div>
         <div className="wrap">
-          <div className="crumb reveal"><Link href="/workshop">FMAI 工作坊</Link> / 适用场景 / AI 对账</div>
+          <div className="crumb reveal"><Link href="/workshop">FMClaw™ 加速营</Link> / 适用场景 / AI 对账</div>
           <span className="eyebrow reveal">适用场景</span>
           <h1 className="reveal" style={{ marginTop: "18px" }}>AI 对账</h1>
           <p className="lead reveal">按合同自动核量、对比历史与市场、圈出异常、生成账单草稿，人只需确认或驳回。</p>
@@ -52,8 +52,8 @@ export default function Page() {
       <section className="endcta">
         <div className="wrap">
           <h2 className="reveal">想在你自己的数据上,<br />跑通这个场景?</h2>
-          <p className="reveal">带上你的真实数据，来一次 FMAI 工作坊，当场把它跑通。</p>
-          <div className="cta-row reveal"><Link href="/workshop" className="btn btn-primary" style={{ padding: "16px 32px", fontSize: "16.5px" }}>预约 FMAI 工作坊 →</Link></div>
+          <p className="reveal">带上你的真实数据，来一次 FMClaw™ 加速营，当场把它跑通。</p>
+          <div className="cta-row reveal"><Link href="/workshop" className="btn btn-primary" style={{ padding: "16px 32px", fontSize: "16.5px" }}>预约 FMClaw™ 加速营 →</Link></div>
         </div>
       </section>
     </main>

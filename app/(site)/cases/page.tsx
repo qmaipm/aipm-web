@@ -67,7 +67,7 @@ export default function Page() {
           <h2 className="reveal">带你的难题来,<br />带一个 Agent 走。</h2>
           <p className="reveal">从你的一个真实业务开始。</p>
           <div className="cta-row reveal">
-            <Link href="/workshop" className="btn btn-primary">预约 FMAI 工作坊 →</Link>
+            <Link href="/workshop" className="btn btn-primary">预约 FMClaw™ 加速营 →</Link>
           </div>
         </div>
       </section>

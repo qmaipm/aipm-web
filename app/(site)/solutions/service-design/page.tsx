@@ -209,7 +209,7 @@ export default function ServiceDesignPage() {
               className="btn btn-primary"
 
             >
-              预约 FMAI 工作坊 →
+              预约 FMClaw™ 加速营 →
             </Link>
           </div>
         </div>

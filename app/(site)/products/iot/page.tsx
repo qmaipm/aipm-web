@@ -14,7 +14,7 @@ export default function Page() {
           <p className="lead reveal">通用 Agent(如 Genspark、Manus)擅长语言与数据;但物业与设施管理,发生在真实的物理世界。FMClaw 多了一层能力——把楼宇、设备、环境、人车都"看见"。</p>
           <p className="reveal" style={{ marginTop: "18px", color: "var(--mut)", maxWidth: "var(--measure)" }}>越靠近物理世界越难做,而这正是行业级平台的护城河。</p>
           <div className="cta-row reveal">
-            <Link href="/workshop" className="btn btn-primary">预约 FMAI 工作坊 <svg className="ar" width="15" height="15" viewBox="0 0 16 16"><path d="M3 8h10M9 4l4 4-4 4" fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round" /></svg></Link>
+            <Link href="/workshop" className="btn btn-primary">预约 FMClaw™ 加速营 <svg className="ar" width="15" height="15" viewBox="0 0 16 16"><path d="M3 8h10M9 4l4 4-4 4" fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round" /></svg></Link>
             <Link href="/products/fmclaw" className="btn btn-ghost">看它怎么接进平台 <svg className="ar" width="15" height="15" viewBox="0 0 16 16"><path d="M3 8h10M9 4l4 4-4 4" fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round" /></svg></Link>
           </div>
         </div>
@@ -200,7 +200,7 @@ export default function Page() {
           <h2 className="reveal">把 AI 接入物业与<br />设施管理的日常运营。</h2>
           <p className="reveal">从你的一个真实业务开始。</p>
           <div className="cta-row reveal">
-            <Link href="/workshop" className="btn btn-primary">预约 FMAI 工作坊 →</Link>
+            <Link href="/workshop" className="btn btn-primary">预约 FMClaw™ 加速营 →</Link>
           </div>
         </div>
       </section>

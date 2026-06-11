@@ -9,7 +9,7 @@ export default function Review() {
         <div className="feature-layout reverse">
           <div className="feature-content">
             <div className="feature-badge pink-gold">
-              <span>📊</span> 复盘优化 Agent
+              <span>📊</span> 服务优化 Agent
             </div>
             <h2 className="feature-title">
               业务自动化核算，<br/>数据驱动持续优化

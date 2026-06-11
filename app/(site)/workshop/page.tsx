@@ -8,11 +8,11 @@ export default function Page() {
       <section className="phero">
         <div className="hero-mesh"></div>
         <div className="wrap">
-          <span className="eyebrow reveal">FMAI 工作坊 · FMAI BOOTCAMP</span>
+          <span className="eyebrow reveal">FMClaw™ 加速营 · FMClaw™ Bootcamp</span>
           <h1 className="reveal" style={{ marginTop: "20px" }}>把你自己的 AI,<br />亲手搭出来</h1>
           <p className="lead reveal">用 1–3 天,带着你的一个真问题来。我们一起把它跑通——跑通的东西,留给你。</p>
           <div className="cta-row reveal">
-            <a href="#signup" className="btn btn-primary">预约 FMAI 工作坊 <svg className="ar" width="15" height="15" viewBox="0 0 16 16"><path d="M3 8h10M9 4l4 4-4 4" fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round" /></svg></a>
+            <a href="#signup" className="btn btn-primary">预约 FMClaw™ 加速营 <svg className="ar" width="15" height="15" viewBox="0 0 16 16"><path d="M3 8h10M9 4l4 4-4 4" fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round" /></svg></a>
             <a href="#how" className="btn btn-ghost">看四步怎么走 <svg className="ar" width="15" height="15" viewBox="0 0 16 16"><path d="M8 3v10M4 9l4 4 4-4" fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round" /></svg></a>
           </div>
         </div>
@@ -33,7 +33,7 @@ export default function Page() {
               <div className="big">这个问题的真实数据</div>
               <p>表格、PDF、IoT、聊天记录都行。有数据,AI 才有得想。</p></div>
           </div>
-          <p className="reveal" style={{ marginTop: "30px", fontFamily: "'Noto Sans SC',serif", fontSize: "22px", color: "var(--ink)", fontStyle: "italic" }}>没有这两样,就不是 FMAI 工作坊。</p>
+          <p className="reveal" style={{ marginTop: "30px", fontFamily: "'Noto Sans SC',serif", fontSize: "22px", color: "var(--ink)", fontStyle: "italic" }}>没有这两样,就不是 FMClaw™ 加速营。</p>
         </div>
       </section>
 
@@ -161,7 +161,7 @@ export default function Page() {
           <div className="sec-head">
             <span className="eyebrow reveal">预约</span>
             <h2 className="reveal">把你的问题先告诉我们。</h2>
-            <p className="sub reveal">我们会先看一眼这个问题适不适合做工作坊,再和你约时间。</p>
+            <p className="sub reveal">我们会先看一眼这个问题适不适合做加速营,再和你约时间。</p>
           </div>
           <form className="form reveal" style={{ marginTop: "44px" }}>
             <div className="field-row">
@@ -191,7 +191,7 @@ export default function Page() {
       <section className="band alt">
         <div className="wrap">
           <div className="sec-head"><span className="eyebrow reveal">关于时间与费用</span></div>
-          <p className="fee reveal" style={{ marginTop: "24px" }}>工作坊为期 1–3 天,费用提前收取。如果之后进入正式合作,这笔费用可按比例抵扣。我们更在意的是,这几天里你是否真的带走了能用的东西。</p>
+          <p className="fee reveal" style={{ marginTop: "24px" }}>加速营为期 1–3 天,费用提前收取。如果之后进入正式合作,这笔费用可按比例抵扣。我们更在意的是,这几天里你是否真的带走了能用的东西。</p>
         </div>
       </section>
 
@@ -200,7 +200,7 @@ export default function Page() {
         <div className="wrap">
           <div className="sec-head"><span className="eyebrow reveal">常见疑问</span><h2 className="reveal">来之前,你可能想问的。</h2></div>
           <div className="faq reveal" style={{ marginTop: "40px" }}>
-            <details><summary>我的数据不干净、不齐整,还能来吗?<svg className="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M12 5v14M5 12h14" strokeLinecap="round" /></svg></summary><div className="ans">能。真实数据本来就不干净。把它原样带来,整理是工作坊的一部分。</div></details>
+            <details><summary>我的数据不干净、不齐整,还能来吗?<svg className="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M12 5v14M5 12h14" strokeLinecap="round" /></svg></summary><div className="ans">能。真实数据本来就不干净。把它原样带来,整理是加速营的一部分。</div></details>
             <details><summary>一定要带能拍板的人吗?<svg className="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M12 5v14M5 12h14" strokeLinecap="round" /></svg></summary><div className="ans">最好。能拍板的人和真正在一线干活的人都在场,结论才落得下去。</div></details>
             <details><summary>这跟看一场 PPT、听一次案例分享有什么不同?<svg className="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M12 5v14M5 12h14" strokeLinecap="round" /></svg></summary><div className="ans">不一样。这里不讲产品参数,只用你的数据跑你的问题。离开时你带走的是一个还在运行的 Agent,不是一份材料。</div></details>
             <details><summary>结束之后,搭出来的东西归谁?<svg className="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M12 5v14M5 12h14" strokeLinecap="round" /></svg></summary><div className="ans">归你。跑通的工作流和你自己的数据都留在你这边。</div></details>

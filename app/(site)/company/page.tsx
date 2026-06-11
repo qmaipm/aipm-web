@@ -23,6 +23,14 @@ export default function Page() {
         </div>
       </section>
 
+      {/* MISSION 公司使命(逐字使用,克制呈现) */}
+      <section className="mission">
+        <div className="wrap">
+          <p className="mission-en reveal">Make intelligence ambient in the physical world.</p>
+          <p className="mission-zh reveal">让智能，走进物理世界。</p>
+        </div>
+      </section>
+
       {/* 公司故事 */}
       <section className="band">
         <div className="wrap">
@@ -155,7 +163,7 @@ export default function Page() {
           <h2 className="reveal">把 AI 接入物业与<br />设施管理的日常运营。</h2>
           <p className="reveal">从你的一个真实业务开始。</p>
           <div className="cta-row reveal">
-            <Link href="/workshop" className="btn btn-primary" style={{ padding: "16px 32px", fontSize: 16.5 }}>预约 FMAI 工作坊 →</Link>
+            <Link href="/workshop" className="btn btn-primary" style={{ padding: "16px 32px", fontSize: 16.5 }}>预约 FMClaw™ 加速营 →</Link>
           </div>
         </div>
       </section>

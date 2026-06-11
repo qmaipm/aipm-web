@@ -1,7 +1,7 @@
 'use client';
 
 /**
- * 复盘优化 Agent 动画组件
+ * 服务优化 Agent 动画组件
  * 
  * 特性：
  * 1. 横向布局 - 图标在上下两排
@@ -15,7 +15,7 @@
  * - 标签在图标上方，避免射线穿过
  * 
  * 图标顺序：
- * 1. 复盘优化Agent（左上，触发主图标）
+ * 1. 服务优化Agent（左上，触发主图标）
  * 2. 计薪系统（右上）
  * 3. 数据大屏（左下）
  * 4. API开放平台（右下）
@@ -849,7 +849,7 @@ const PayrollCard = () => {
 };
 
 // ==========================================
-// 卡片3 - 复盘优化报告（文字为主，图+结论模式）
+// 卡片3 - 服务优化报告（文字为主，图+结论模式）
 // ==========================================
 
 const ReviewReportCard = () => {
@@ -883,7 +883,7 @@ const ReviewReportCard = () => {
             <span style={{ fontSize: '12px' }}>📋</span>
           </div>
           <div>
-            <div style={{ fontSize: '13px', fontWeight: 700, color: '#1E293B' }}>复盘优化报告</div>
+            <div style={{ fontSize: '13px', fontWeight: 700, color: '#1E293B' }}>服务优化报告</div>
             <div style={{ fontSize: '8px', color: '#64748B' }}>2025年1月 · AI智能分析</div>
           </div>
         </div>
@@ -1051,7 +1051,7 @@ const ReviewReportCard = () => {
 // ==========================================
 
 const IconsSVG = {
-  // 复盘优化Agent - 循环箭头+图表（数据分析优化）
+  // 服务优化Agent - 循环箭头+图表（数据分析优化）
   review: (
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
       <path d="M4 12a8 8 0 0 1 8-8" strokeLinecap="round" />
@@ -1111,7 +1111,7 @@ const IconsSVG = {
 
 // 图标配置
 // 射线触发对应关系：
-// - 复盘优化Agent（index=0）→ 触发复盘报告卡片
+// - 服务优化Agent（index=0）→ 触发复盘报告卡片
 // - 计薪系统（index=1）→ 触发员工薪资卡片
 // - 数据大屏（index=2）→ 触发数据大屏卡片
 // - API开放平台（index=3）→ 不触发任何切换（静态展示）
@@ -1120,7 +1120,7 @@ const ICONS: IconConfig[] = [
   {
     id: 'review',
     icon: IconsSVG.review,
-    name: '复盘优化Agent',
+    name: '服务优化Agent',
     side: 'top-left',
     lineStart: 'right',
     // 主触发器 - 蓝绿渐变 (gradient-blue-green)
@@ -1427,7 +1427,7 @@ export default function ReviewAnimation({
         setEntryLineFadeOut((elapsed - phase6End) / durations.lineFadeOut);
       } else {
         // 入场完成，从数据大屏(index=2)开始轮播
-        // 因为入场时复盘优化Agent射线已经触发，所以复盘报告已显示
+        // 因为入场时服务优化Agent射线已经触发，所以复盘报告已显示
         // 下一个轮播应该是数据大屏
         setEntryPhase('complete');
         setCurrentIconIndex(2);  // 从数据大屏开始
@@ -1447,10 +1447,10 @@ export default function ReviewAnimation({
 
   // 轮播动画（图标+卡片）
   // 重要规则：
-  // 1. 只有3个图标参与轮播：复盘优化Agent(0) → 计薪系统(1) → 数据大屏(2) → 循环
+  // 1. 只有3个图标参与轮播：服务优化Agent(0) → 计薪系统(1) → 数据大屏(2) → 循环
   // 2. API开放平台(3) 不参与轮播，只静态展示
   // 3. 射线触发对应关系：
-  //    - 复盘优化Agent 射线 → 复盘报告卡片滑到最前
+  //    - 服务优化Agent 射线 → 复盘报告卡片滑到最前
   //    - 计薪系统 射线 → 员工薪资卡片滑到最前
   //    - 数据大屏 射线 → 数据大屏卡片滑到最前
   // 4. 卡片顺序: dashboard(0) → payroll(1) → report(2)
@@ -1460,7 +1460,7 @@ export default function ReviewAnimation({
 
     const { iconDuration } = ANIMATION_CONFIG;
     // 轮播图标：只有前3个参与（index 0, 1, 2）- API开放平台(3)不参与
-    const carouselIconIndices = [0, 1, 2];  // 复盘优化Agent, 计薪系统, 数据大屏
+    const carouselIconIndices = [0, 1, 2];  // 服务优化Agent, 计薪系统, 数据大屏
     const carouselLength = carouselIconIndices.length;  // 3
 
     const animate = (timestamp: number) => {
@@ -1483,7 +1483,7 @@ export default function ReviewAnimation({
       // 射线到达边框的时机是 lineDrawing 阶段结束（progress = 0.20）
       // 
       // 射线触发对应关系：
-      // - carouselIndex=0 (复盘优化Agent) → 复盘报告卡片(2)滑到最前
+      // - carouselIndex=0 (服务优化Agent) → 复盘报告卡片(2)滑到最前
       // - carouselIndex=1 (计薪系统) → 员工薪资卡片(1)滑到最前
       // - carouselIndex=2 (数据大屏) → 数据大屏卡片(0)滑到最前
       //
@@ -1493,7 +1493,7 @@ export default function ReviewAnimation({
       // 时序：
       // - 数据大屏射线触发时，dashboard已在最前，不需要切换
       // - 计薪系统射线触发时，切换到payroll
-      // - 复盘优化Agent射线触发时，切换到report
+      // - 服务优化Agent射线触发时，切换到report
       // - 然后回到数据大屏射线，切换回dashboard
       
       const lineDrawingEnd = ANIMATION_CONFIG.phases.lineDrawing.end;  // 0.20
@@ -1504,7 +1504,7 @@ export default function ReviewAnimation({
       const lineReached = newIconProgress >= lineDrawingEnd;
       
       // 卡片目标状态：根据当前图标决定要显示哪张卡片
-      // carouselIndex=0(复盘优化Agent) → targetCard=2(report)
+      // carouselIndex=0(服务优化Agent) → targetCard=2(report)
       // carouselIndex=1(计薪系统) → targetCard=1(payroll)  
       // carouselIndex=2(数据大屏) → targetCard=0(dashboard)
       const iconToCardMap = [2, 1, 0];  // 图标索引 → 卡片索引
@@ -1562,7 +1562,7 @@ export default function ReviewAnimation({
     };
   }, [dynamicPcLeft, dynamicPcTop, pcWidth]);
 
-  // 卡片样式函数已移除 - 复盘优化 Agent 暂时不使用卡片
+  // 卡片样式函数已移除 - 服务优化 Agent 暂时不使用卡片
 
   // 渲染
   const showPC = ['phone-appear', 'content-fade-in', 'display', 'line-fade-out', 'complete'].includes(entryPhase);
@@ -1602,7 +1602,7 @@ export default function ReviewAnimation({
         const pos = getDynamicIconPosition(iconConfig.side);
         
         // 轮播阶段：前3个图标参与(0,1,2)，API开放平台(3)不参与
-        // 入场阶段：只有复盘优化Agent（index=0）激活
+        // 入场阶段：只有服务优化Agent（index=0）激活
         let isCurrentIcon: boolean;
         if (entryPhase === 'complete') {
           // 轮播阶段：index=3(API开放平台) 不参与，前3个参与
@@ -1734,7 +1734,7 @@ export default function ReviewAnimation({
 
           {ICONS.map((iconConfig, index) => {
             // 轮播阶段：前3个图标参与(0,1,2)，API开放平台(3)不参与
-            // 入场阶段：只有复盘优化Agent（index=0）显示射线
+            // 入场阶段：只有服务优化Agent（index=0）显示射线
             const isCurrentIcon = entryPhase === 'complete' ? index === currentIconIndex : index === 0;
             
             // 入场阶段只显示第一个图标的射线

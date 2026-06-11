@@ -12,7 +12,7 @@ export default function Page() {
           <h1 className="reveal" style={{ marginTop: "20px" }}>模型、数据、工具,<br />在同一个基座里,且都可配置</h1>
           <p className="lead reveal">客户带来自己的数据与场景，其余交给平台。下面这张图，就是 FMClaw 的全貌——一眼看懂它怎么把一件业务跑下去。</p>
           <div className="cta-row reveal">
-            <Link href="/workshop" className="btn btn-primary">预约 FMAI 工作坊 <svg className="ar" width="15" height="15" viewBox="0 0 16 16"><path d="M3 8h10M9 4l4 4-4 4" fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round" /></svg></Link>
+            <Link href="/workshop" className="btn btn-primary">预约 FMClaw™ 加速营 <svg className="ar" width="15" height="15" viewBox="0 0 16 16"><path d="M3 8h10M9 4l4 4-4 4" fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round" /></svg></Link>
             <a href="#arch" className="btn btn-ghost">看总架构图 <svg className="ar" width="15" height="15" viewBox="0 0 16 16"><path d="M3 8h10M9 4l4 4-4 4" fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round" /></svg></a>
           </div>
         </div>
@@ -167,7 +167,7 @@ export default function Page() {
           <h2 className="reveal">把 AI 接入物业与<br />设施管理的日常运营。</h2>
           <p className="reveal">从你的一个真实业务开始。</p>
           <div className="cta-row reveal">
-            <Link href="/workshop" className="btn btn-primary">预约 FMAI 工作坊 →</Link>
+            <Link href="/workshop" className="btn btn-primary">预约 FMClaw™ 加速营 →</Link>
           </div>
         </div>
       </section>

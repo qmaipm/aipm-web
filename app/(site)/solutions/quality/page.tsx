@@ -196,7 +196,7 @@ export default function QualityPage() {
           <p className="reveal">带上你的现场影像来，看 AI 怎么打分留痕。</p>
           <div className="cta-row reveal">
             <Link href="/workshop" className="btn btn-primary">
-              预约 FMAI 工作坊 →
+              预约 FMClaw™ 加速营 →
             </Link>
           </div>
         </div>

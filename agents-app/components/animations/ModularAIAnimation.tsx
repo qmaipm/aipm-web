@@ -140,7 +140,7 @@ const gridItems: GridItem[] = [
   // 第三行：产品 + Agent  
   { id: 'assistant', name: '小智助手', icon: 'assistant', color: '#8B5CF6', col: 0, row: 2, isAgent: false },
   { id: 'quality', name: '质量评估', icon: 'quality', color: '#8B5CF6', col: 1, row: 2, isAgent: true },
-  { id: 'review', name: '复盘优化', icon: 'review', color: '#F59E0B', col: 2, row: 2, isAgent: true },
+  { id: 'review', name: '服务优化', icon: 'review', color: '#F59E0B', col: 2, row: 2, isAgent: true },
   { id: 'salary', name: '计薪系统', icon: 'salary', color: '#F59E0B', col: 3, row: 2, isAgent: false },
   
   // 第四行：产品
@@ -167,7 +167,7 @@ const connections: Connection[] = [
   { agentId: 'quality', productId: 'device' },
   { agentId: 'quality', productId: 'inspect' },
   { agentId: 'quality', productId: 'assistant' },
-  // 复盘优化Agent（橙色）
+  // 服务优化Agent（橙色）
   { agentId: 'review', productId: 'salary' },
   { agentId: 'review', productId: 'dashboard' },
 ];

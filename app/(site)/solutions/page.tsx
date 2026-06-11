@@ -91,7 +91,7 @@ export default function Page() {
           <h2 className="reveal">把这件事,<br />用一次工作坊跑通。</h2>
           <p className="reveal">带上你的真实数据来。</p>
           <div className="cta-row reveal">
-            <Link href="/workshop" className="btn btn-primary" style={{ padding: "16px 32px", fontSize: "16.5px" }}>预约 FMAI 工作坊 →</Link>
+            <Link href="/workshop" className="btn btn-primary" style={{ padding: "16px 32px", fontSize: "16.5px" }}>预约 FMClaw™ 加速营 →</Link>
           </div>
         </div>
       </section>

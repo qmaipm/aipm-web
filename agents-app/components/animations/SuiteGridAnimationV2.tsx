@@ -8,7 +8,7 @@
  * 【里程碑】模块化AI解决方案动画 - 2024年完成
  * 
  * 【功能特性】
- * 1. 4个套件循环轮播动画（服务设计/运营管理/质量评估/复盘优化）
+ * 1. 4个套件循环轮播动画（服务设计/运营管理/质量评估/服务优化）
  * 2. 三段式脉冲效果：起点色线绘制 → 终点色脉冲 → 起点色追终点色 → 熄灭
  * 3. 图标点亮效果：上浮4px + 底部阴影 + 白色背景（无彩色边框）
  * 4. 线条光泽效果：光晕层(4px/6px) + 主线层(2px/2.5px)，模糊3px
@@ -116,7 +116,7 @@ const SuiteIcons: Record<string, ReactElement> = {
       <path d="M24 4l6.18 12.52L44 18.54l-10 9.74 2.36 13.76L24 35.54l-12.36 6.5L14 28.28 4 18.54l13.82-2.02L24 4z"/>
     </svg>
   ),
-  // 复盘优化 Agent - 柱状图/数据
+  // 服务优化 Agent - 柱状图/数据
   agentReview: (
     <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" strokeWidth="2">
       <line x1="36" y1="40" x2="36" y2="20"/>
@@ -217,7 +217,7 @@ const SUITE_COLORS: Record<string, string> = {
   A1: '#0070FF',  // 服务设计 - 蓝色
   A2: '#12B98A',  // 运营管理 - 绿色
   A3: '#9333EA',  // 质量评估 - 紫色
-  A4: '#0070FF',  // 复盘优化 - 蓝色
+  A4: '#0070FF',  // 服务优化 - 蓝色
   // Product 颜色（与 Agent 对应）
   P1_space: '#0070FF',
   P2_config: '#0070FF',
@@ -229,7 +229,7 @@ const SUITE_COLORS: Record<string, string> = {
   P8_assistant: '#9333EA',
   P9_salary: '#0070FF',
   P10_dashboard: '#0070FF',
-  API: '#0070FF',  // 复盘优化套件 - 蓝色（与A4同色）
+  API: '#0070FF',  // 服务优化套件 - 蓝色（与A4同色）
 };
 
 // ==========================================

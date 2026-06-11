@@ -394,3 +394,15 @@ footer.ft{background:var(--dark); color:var(--dark-mut-c); padding:80px 0 44px}
   font-family:"JetBrains Mono",ui-monospace,monospace; font-size:clamp(14px,1.9vw,18px); color:var(--ink-2)}
 .moat-stats .sep{color:var(--mut-2)}
 .moat-foot{margin-top:26px; font-size:14px; color:var(--mut)}
+
+/* ===== 使命句（钩子背后的"为什么"，克制呈现） ===== */
+.mission{padding:128px 0; background:var(--ivory); text-align:center}
+.mission .mission-en{margin:0 0 18px; font-family:"Noto Serif",Georgia,serif; font-style:italic;
+  font-size:20px; letter-spacing:.01em; color:var(--mut)}
+.mission .mission-zh{margin:0; font-family:"Noto Sans SC",serif; font-weight:600;
+  font-size:30px; line-height:1.4; letter-spacing:.02em; color:var(--ink)}
+@media (max-width:600px){
+  .mission{padding:84px 0}
+  .mission .mission-en{margin-bottom:14px; font-size:16px}
+  .mission .mission-zh{font-size:23px}
+}
