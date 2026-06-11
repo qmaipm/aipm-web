@@ -2,7 +2,7 @@
 # 镜像与环境无关;环境差异由 .env 注入(SITE_ENV / SITE_URL / AIPM_WEB_HOST_PORT)。
 # 配合 qm-scripts 发布脚本(type=docker):pk/pb 会自动生成 .env 并 build/up。
 # 本地手动用法:
-#   echo -e "SITE_ENV=production\nSITE_URL=https://www.aipm.cn\nAIPM_WEB_HOST_PORT=3100" > .env
+#   echo -e "SITE_ENV=production\nSITE_URL=https://www.aipm.cn\nAIPM_WEB_HOST_PORT=3120" > .env
 #   docker compose build && docker compose up -d
 # 再由 nginx 把 www.aipm.cn(或 t1816-www.aipm.cn) 反代到 127.0.0.1:${AIPM_WEB_HOST_PORT}
 
