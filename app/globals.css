@@ -491,9 +491,9 @@ a:focus-visible, button:focus-visible, .btn:focus-visible, .t:focus-visible,
 .mission-dark .mission-en{color:var(--dark-mut-c)}
 .mission-dark .mission-zh{color:#fff; text-shadow:0 1px 30px rgba(0,112,255,.18)}
 
-/* 使命签名时刻 · 克制版(留白充足但不喧宾,文字适度放大) */
-.mission-dark{min-height:62vh; display:flex; align-items:center; padding:128px 0}
+/* 使命签名时刻 · 放大为沉浸式整屏 */
+.mission-dark{min-height:90vh; display:flex; align-items:center; padding:120px 0}
 .mission-dark .wrap{width:100%}
-.mission-dark .mission-en{font-size:clamp(16px,2vw,22px); margin-bottom:24px; letter-spacing:.02em; color:var(--dark-mut-c)}
-.mission-dark .mission-zh{font-size:clamp(34px,5.4vw,58px); font-weight:700; line-height:1.2; letter-spacing:.01em; text-shadow:0 1px 36px rgba(0,112,255,.16)}
-@media (max-width:600px){.mission-dark{min-height:auto; padding:100px 0} .mission-dark .mission-zh{font-size:clamp(32px,9vw,46px)}}
+.mission-dark .mission-en{font-size:clamp(17px,2.3vw,27px); margin-bottom:28px; letter-spacing:.02em; color:var(--dark-mut-c)}
+.mission-dark .mission-zh{font-size:clamp(38px,7.8vw,88px); font-weight:700; line-height:1.16; letter-spacing:.01em; text-shadow:0 2px 70px rgba(0,112,255,.30)}
+@media (max-width:600px){.mission-dark{min-height:auto; padding:100px 0} .mission-dark .mission-zh{font-size:clamp(34px,11vw,52px)}}
