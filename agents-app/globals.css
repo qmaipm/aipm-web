@@ -3307,19 +3307,17 @@ button {
     box-shadow: var(--shadow-md);
 }
 
-/* Logo 图片 - 灰度 + 悬停彩色 */
+/* Logo 图片 - 彩色，统一高度(各 logo 同高、视觉一致) */
 .client-logo-img-stripe {
+    height: clamp(26px, 3.4vw, 36px);
+    width: auto;
     max-width: 100%;
-    max-height: 100%;
     object-fit: contain;
-    filter: grayscale(100%);
-    opacity: 0.6;
-    transition: all var(--transition-base);
+    transition: transform var(--transition-base);
 }
 
 .client-logo-stripe:hover .client-logo-img-stripe {
-    filter: grayscale(0%);
-    opacity: 1;
+    transform: scale(1.04);
 }
 
 /* 占位符样式 */
@@ -3340,6 +3338,22 @@ button {
 .client-logo-placeholder-stripe span {
     font-size: 11px;
     font-weight: 500;
+}
+
+/* 文字 Logo - 灰度克制，悬停加深（无图片资源时使用） */
+.client-logo-text-stripe {
+    font-size: clamp(14px, 1.5vw, 18px);
+    font-weight: 600;
+    letter-spacing: .01em;
+    color: #5b6573;
+    opacity: .7;
+    text-align: center;
+    line-height: 1.25;
+    transition: all var(--transition-base);
+}
+.client-logo-stripe:hover .client-logo-text-stripe {
+    color: #1f2733;
+    opacity: 1;
 }
 
 /* Stripe Logo 墙响应式 */

@@ -129,7 +129,7 @@ export default function VendorPage() {
           <p className="reveal">带上你的真实数据来。</p>
           <div className="cta-row reveal">
             <Link href="/workshop" className="btn btn-primary">
-              预约 FMAI 工作坊 →
+              预约 FMClaw™ 加速营 →
             </Link>
           </div>
         </div>

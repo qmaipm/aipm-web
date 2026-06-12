@@ -21,16 +21,9 @@ export default function Page() {
             <span className="tab on">全部</span>
             <span className="tab">写字楼</span>
             <span className="tab">综合体</span>
-            <span className="tab">产业园</span>
-            <span className="tab">政府国资</span>
-          </div>
-          <div className="tabs reveal">
-            <span className="tab on">技术成立</span>
-            <span className="tab">商业模式成立</span>
-            <span className="tab">产业路径成立</span>
           </div>
 
-          <div className="casegrid">
+          <div className="casegrid cases-2">
             <Link className="case-card reveal" href="/cases/detail">
               <div className="cover" style={{ backgroundImage: "linear-gradient(180deg,rgba(21,20,15,.12),rgba(21,20,15,.34)), url('https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=900&q=70&auto=format&fit=crop')", backgroundSize: "cover", backgroundPosition: "center" }}><div className="bar" style={{ background: "var(--blue)" }}></div></div>
               <div className="body">
@@ -48,15 +41,6 @@ export default function Page() {
                 <p>一笔预算覆盖五年,账目全程可追溯。</p>
               </div>
             </Link>
-
-            <Link className="case-card reveal" href="/cases/detail">
-              <div className="cover" style={{ backgroundImage: "linear-gradient(180deg,rgba(21,20,15,.12),rgba(21,20,15,.34)), url('https://images.unsplash.com/photo-1518005020951-eccb494ad742?w=900&q=70&auto=format&fit=crop')", backgroundSize: "cover", backgroundPosition: "center" }}><div className="bar" style={{ background: "var(--gold)" }}></div></div>
-              <div className="body">
-                <div className="tag">区级国资平台 · 华东省会</div>
-                <div className="metric">已在一座省会城市落地</div>
-                <p>国有物业的 AI 化运营,正在沉淀成本地能力。</p>
-              </div>
-            </Link>
           </div>
         </div>
       </section>
@@ -67,7 +51,7 @@ export default function Page() {
           <h2 className="reveal">带你的难题来,<br />带一个 Agent 走。</h2>
           <p className="reveal">从你的一个真实业务开始。</p>
           <div className="cta-row reveal">
-            <Link href="/workshop" className="btn btn-primary">预约 FMAI 工作坊 →</Link>
+            <Link href="/workshop" className="btn btn-primary">预约 FMClaw™ 加速营 →</Link>
           </div>
         </div>
       </section>

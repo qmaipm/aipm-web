@@ -31,7 +31,7 @@ export default function Home() {
           </p>
           <p className="note reveal">这不是效率提升，是设施管理运行方式的重写。</p>
           <div className="cta-row reveal">
-            <Link href="/workshop" className="btn btn-primary">预约 FMAI 工作坊 <ArrowR /></Link>
+            <Link href="/workshop" className="btn btn-primary">预约 FMClaw™ 加速营 <ArrowR /></Link>
             <Link href="/#scenario" className="btn btn-ghost">看它怎么干活 <ArrowD /></Link>
           </div>
         </div>
@@ -43,16 +43,20 @@ export default function Home() {
           <div className="clients-wall reveal">
             <div className="cell"><img src="/images/clients/tesla.svg" alt="特斯拉 Tesla" /></div>
             <div className="cell"><img src="/images/clients/siemens.svg" alt="西门子 Siemens" /></div>
-            <div className="cell"><img src="/images/clients/bytedance.svg" alt="字节跳动 ByteDance" /></div>
-            <div className="cell"><img src="/images/clients/zte.svg" alt="中兴 ZTE" /></div>
             <div className="cell"><img src="/images/clients/tencent.svg" alt="腾讯 Tencent" /></div>
             <div className="cell"><img src="/images/clients/sf.svg" alt="顺丰速运 SF Express" /></div>
-            <div className="cell"><span className="txt" style={{ color: "#00A06C" }}>雅生活</span></div>
-            <div className="cell"><span className="txt" style={{ color: "#1F5FD0" }}>佳都科技</span></div>
           </div>
           <p className="clients-note reveal">在真实项目中运行 · Deployed in production</p>
         </div>
       </div>
+
+      {/* MISSION 使命句(钩子背后的"为什么",克制呈现,不与 HERO 争第一视觉) */}
+      <section className="mission">
+        <div className="wrap">
+          <p className="mission-en reveal">Make intelligence ambient in the physical world.</p>
+          <p className="mission-zh reveal">让智能，走进物理世界。</p>
+        </div>
+      </section>
 
       {/* AUDIENCE TRIAGE */}
       <section className="band" id="tri">
@@ -95,15 +99,15 @@ export default function Home() {
         </div>
       </section>
 
-      {/* FMAI WORKSHOP */}
+      {/* FMClaw™ Bootcamp */}
       <section className="band dark workshop" id="workshop">
         <div className="wrap">
           <div className="sec-head">
-            <span className="eyebrow reveal">FMAI 工作坊 · FMAI BOOTCAMP</span>
+            <span className="eyebrow reveal">FMClaw™ 加速营 · FMClaw™ Bootcamp</span>
             <h2 className="reveal">用 1–3 天,把你自己的 AI 搭出来。</h2>
             <p className="premise reveal">
               前提只有一个:<b>带着你的一个真问题,和这个问题的真实数据来。</b>
-              <br />没有这两样,就不是 FMAI 工作坊。
+              <br />没有这两样,就不是 FMClaw™ 加速营。
             </p>
           </div>
           <div className="flow dark reveal">
@@ -116,7 +120,7 @@ export default function Home() {
             <div className="step"><div className="n">04</div><h4>跑通,并留给你</h4><p>用你的真实流程跑一遍,跑通的东西留下来继续用。</p></div>
           </div>
           <div className="ws-cta reveal">
-            <Link href="/workshop" className="btn btn-light">了解 FMAI 工作坊 <ArrowR /></Link>
+            <Link href="/workshop" className="btn btn-light">了解 FMClaw™ 加速营 <ArrowR /></Link>
             <Link href="/workshop" className="btn btn-outline-d">预约 →</Link>
           </div>
         </div>
@@ -162,7 +166,7 @@ export default function Home() {
             <h2 className="reveal">谁在用 · 哪个项目在用。</h2>
             <p className="sub reveal">不是演示,是已经在运行的项目。</p>
           </div>
-          <div className="wall">
+          <div className="wall wall-2">
             <div className="case reveal">
               <div className="accent" style={{ background: "var(--blue)" }} />
               <div className="ct">综合体 · 华南 · 约 <b>6 万㎡</b></div>
@@ -174,12 +178,6 @@ export default function Home() {
               <div className="ct">写字楼 · 华南 · 约 <b>7 万㎡</b> · 5 年合同</div>
               <div className="metric">缴费、对账、账单<br />由 Agent 跑通</div>
               <div className="desc">一笔预算覆盖五年,账目全程可追溯。</div>
-            </div>
-            <div className="case reveal">
-              <div className="accent" style={{ background: "var(--gold)" }} />
-              <div className="ct">区级国资平台 · 华东省会</div>
-              <div className="metric">已在一座<br />省会城市落地</div>
-              <div className="desc">国有物业的 AI 化运营,正在沉淀成本地的能力。</div>
             </div>
           </div>
         </div>
@@ -221,7 +219,7 @@ export default function Home() {
           <p className="reveal">从你的一个真实业务开始。</p>
           <div className="cta-row reveal">
             <Link href="/workshop" className="btn btn-primary">
-              预约 FMAI 工作坊 <ArrowR s={16} />
+              预约 FMClaw™ 加速营 <ArrowR s={16} />
             </Link>
             <span className="alt">或直接联系 <Link href="/contact">商务合作</Link></span>
           </div>

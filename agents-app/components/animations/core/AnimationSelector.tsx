@@ -234,7 +234,7 @@ export function QualityAgentAnimation(props: Omit<AnimationSelectorProps, 'modul
 }
 
 /**
- * 复盘优化 Agent 动画
+ * 服务优化 Agent 动画
  */
 export function ReviewAgentAnimation(props: Omit<AnimationSelectorProps, 'moduleId'>) {
   return <AnimationSelector moduleId={MODULE_IDS.REVIEW} {...props} />;

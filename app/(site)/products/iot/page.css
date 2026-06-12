@@ -61,10 +61,21 @@
 .sframe{margin-top:4px; background:var(--ivory-2); border:1px solid var(--line); border-radius:12px; height:240px; display:flex; align-items:center; justify-content:center; padding:18px; overflow:hidden}
 .sensor-img{max-height:100%; width:auto; max-width:100%; object-fit:contain; border-radius:6px}
 
-/* 设备感知:各类机电场景配图 */
-.devshots{display:grid; grid-template-columns:repeat(3,1fr); gap:16px; margin-top:34px; max-width:var(--measure)}
-@media(max-width:760px){.devshots{grid-template-columns:1fr}}
-.devshot{border:1px solid var(--line); border-radius:14px; overflow:hidden; background:var(--paper); margin:0}
-.devshot .ph-img{height:168px}
-.devshot .cap{padding:13px 15px; font-size:12.5px; color:var(--mut); line-height:1.5}
-.devshot .cap b{display:block; font-size:14px; color:var(--ink); margin-bottom:3px; font-weight:600}
+/* 线性 SVG 插图卡(设备 / 视觉感知统一风格,无外部图片) */
+.illus{display:grid; grid-template-columns:repeat(3,1fr); gap:16px; margin-top:34px; max-width:var(--measure)}
+@media(max-width:760px){.illus{grid-template-columns:1fr}}
+.illus-card{border:1px solid var(--line); border-radius:14px; background:var(--paper); padding:24px 20px; text-align:center}
+.illus-card .illus-svg{height:88px; display:flex; align-items:center; justify-content:center; color:var(--blue)}
+.illus-card .illus-svg svg{width:50px; height:50px; stroke-width:1.5}
+.illus-card .cap{margin-top:12px}
+.illus-card .cap b{display:block; font-size:14.5px; color:var(--ink); font-weight:600; margin-bottom:4px}
+.illus-card .cap span{font-size:12.5px; color:var(--mut); line-height:1.5}
+
+/* 环境感知:温度/湿度/空气质量/停车/门禁 图标网格 */
+.env-grid{display:grid; grid-template-columns:repeat(5,1fr); gap:12px; margin-top:30px; max-width:var(--measure)}
+@media(max-width:760px){.env-grid{grid-template-columns:repeat(3,1fr)}}
+@media(max-width:460px){.env-grid{grid-template-columns:repeat(2,1fr)}}
+.env-item{border:1px solid var(--line); border-radius:12px; background:var(--paper); padding:18px 12px; text-align:center}
+.env-item .ei-svg{height:36px; display:flex; align-items:center; justify-content:center; color:var(--green)}
+.env-item .ei-svg svg{width:30px; height:30px; stroke-width:1.6}
+.env-item .ei-name{margin-top:10px; font-size:13px; color:var(--ink-2); font-weight:500}

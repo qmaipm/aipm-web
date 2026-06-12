@@ -61,12 +61,12 @@ export default function Hero() {
         <div className="hero-content">
           {/* 标题 - 简洁两行 */}
           <h1 className="hero-title-dark">
-            用 <span className="text-highlight">Agentic AI</span><br/>重构物业管理价值链
+            一体化物业管理<br/><span className="text-highlight">AI 产品套件</span>
           </h1>
-          
+
           {/* 描述文字 - 深色简洁 */}
           <p className="hero-desc hero-desc-dark">
-            部署专业分工、协同作业的 AI Agent 矩阵，实现从规划、执行到复盘的人机协同闭环，
+            部署专业分工、协同作业的 AI Agent 矩阵，实现从规划、执行、评估到优化的人机协同闭环，
             实现服务质量和成本的全链路优化。
           </p>
           

@@ -63,7 +63,7 @@ const products = [
   },
   {
     icon: 'agentReview',
-    title: '复盘优化 Agent',
+    title: '服务优化 Agent',
     desc: '业务自动化核算，数据驱动持续优化',
     href: '#agent-showcase',
     glowClass: 'pink-gold',

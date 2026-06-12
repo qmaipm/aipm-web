@@ -54,3 +54,29 @@
 .facts b{color:var(--green);font-weight:600}
 .card.lk{display:block} .card.lk:hover h3{color:var(--accent)}
 .moat{margin-top:40px;font-family:"JetBrains Mono";font-size:12.5px;letter-spacing:.03em;color:var(--dark-mut-c)}
+
+/* ===== 第一能力:工作流 × 岗位 矩阵 ===== */
+.wf{margin-top:46px;display:flex;flex-direction:column;gap:12px}
+.wfrow{display:grid;grid-template-columns:128px 1fr;gap:20px;align-items:start;
+  border:1px solid var(--line);border-radius:14px;background:var(--paper);padding:16px 20px}
+@media(max-width:600px){.wfrow{grid-template-columns:1fr;gap:10px;padding:14px 16px}}
+.wfrow .pos{font-family:"JetBrains Mono";font-size:12px;letter-spacing:.04em;color:var(--accent);font-weight:600;padding-top:5px}
+.wfrow .chips{display:flex;flex-wrap:wrap;gap:8px}
+.wfrow .chip{font-size:13px;color:var(--ink-2);background:var(--ivory-2);border:1px solid var(--line);border-radius:999px;padding:6px 13px}
+.wf-foot{margin-top:22px;max-width:var(--measure);font-size:14px;line-height:1.7;color:var(--mut)}
+
+/* ===== 第二能力:A2A 接力 ===== */
+.relay{display:flex;flex-wrap:wrap;align-items:center;gap:10px;margin-top:46px}
+.relay .ra{font-size:14px;font-weight:600;color:var(--ink);background:var(--paper);border:1px solid var(--line);border-radius:12px;padding:12px 18px}
+.relay .rar{color:var(--mut-2);font-weight:700;font-size:18px}
+@media(max-width:600px){.relay{flex-direction:column;align-items:stretch}.relay .ra{text-align:center}.relay .rar{transform:rotate(90deg);align-self:center}}
+
+/* ===== 为什么别人做不到:散文 ===== */
+.why{max-width:var(--measure);margin-top:34px;display:flex;flex-direction:column;gap:20px}
+.why p{font-size:16.5px;line-height:1.75;color:var(--ink-2)}
+.why .last{color:var(--ink);font-weight:600}
+
+/* ===== 收尾:呼应使命 ===== */
+.mecho{max-width:var(--measure)}
+.mecho .zh{margin:0 0 14px;font-family:"Noto Sans SC",serif;font-size:26px;font-weight:600;color:var(--ink);letter-spacing:.02em}
+.mecho p{font-size:15.5px;line-height:1.75;color:var(--mut)}

@@ -19,7 +19,7 @@ export default function Placeholder({
           <p className="lead reveal">{lead}</p>
           <div className="reveal"><span className="soon">本页正在开发中 · 稍后上线</span></div>
           <div className="cta-row reveal" style={{ marginTop: 40, display: "flex", gap: 14 }}>
-            <Link href="/workshop" className="btn btn-primary">预约 FMAI 工作坊</Link>
+            <Link href="/workshop" className="btn btn-primary">预约 FMClaw™ 加速营</Link>
             <Link href="/" className="btn btn-ghost">返回首页</Link>
           </div>
         </div>

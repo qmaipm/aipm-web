@@ -11,7 +11,7 @@ export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
   title: "启盟科技 · 物业与设施管理的 AI 操作系统 — FMClaw™",
   description:
-    "物业与设施管理,正在被 AI 重写。FMClaw™ 把 AI 接入日常运营。带着你的一个真实业务,在 FMAI 工作坊里用 1–3 天把它跑通。",
+    "物业与设施管理,正在被 AI 重写。FMClaw™ 把 AI 接入日常运营。带着你的一个真实业务,在 FMClaw™ 加速营里用 1–3 天把它跑通。",
 };
 
 export const viewport: Viewport = {

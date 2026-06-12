@@ -1,71 +1,33 @@
-'use client';
+// 客户 Logo 墙：8 家真实客户，4-4 两行布局，灰度呈现、悬停彩色。
+// 有 logo 文件的用图片；暂缺 logo 文件的(佳都/wework/雅生活)先用文字 logo 兜底，
+// 待补齐 public/images/clients/ 下对应 SVG 后替换。
+type Client = { name: string; img?: string };
 
-import { useEffect, useState } from 'react';
-
-// Logo 数据类型
-interface LogoData {
-  slot: number;
-  url: string;
-  name: string;
-}
-
-// Stripe 风格 Logo 墙配置
-// 8 个 Logo，采用 4-4 两行布局，与 4 列栅格对齐
-const LOGO_COUNT = 8;
+const CLIENTS: Client[] = [
+  { name: '特斯拉', img: '/images/clients/tesla.svg' },
+  { name: '西门子医疗', img: '/images/clients/siemens.svg' },
+  { name: '腾讯', img: '/images/clients/tencent.svg' },
+  { name: '字节跳动', img: '/images/clients/bytedance.svg' },
+  { name: '顺丰', img: '/images/clients/sf.svg' },
+  { name: 'PCI 佳都科技' },
+  { name: 'wework', img: '/images/clients/wework.svg' },
+  { name: '雅生活' },
+];
 
 export default function Clients() {
-  const [logos, setLogos] = useState<LogoData[]>([]);
-  
-  // 从 localStorage 读取已上传的 Logo
-  useEffect(() => {
-    const savedLogos = localStorage.getItem('clientLogos');
-    if (savedLogos) {
-      try {
-        setLogos(JSON.parse(savedLogos));
-      } catch (e) {
-        console.error('Error parsing saved logos:', e);
-      }
-    }
-  }, []);
-  
-  // 获取指定槽位的 Logo
-  const getLogoForSlot = (slot: number): LogoData | undefined => {
-    return logos.find(logo => logo.slot === slot);
-  };
-
   return (
     <section className="clients clients-stripe">
       <div className="clients-container">
-        {/* Logo 墙：8 个 Logo，4-4 两行布局
-            已删除"受到行业领先企业信赖"标语
-            Logo 区域在 5 条参照线内居中
-        */}
-        <div className="clients-grid-stripe" id="clientLogos">
-          {Array.from({ length: LOGO_COUNT }, (_, i) => {
-            const slot = i + 1;
-            const logoData = getLogoForSlot(slot);
-            
-            return (
-              <div key={slot} className="client-logo-stripe" data-slot={slot}>
-                {logoData?.url ? (
-                  <img 
-                    src={logoData.url} 
-                    alt={logoData.name || `Logo ${slot}`}
-                    className="client-logo-img-stripe"
-                  />
-                ) : (
-                  <div className="client-logo-placeholder-stripe">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
-                      <rect x="3" y="3" width="18" height="18" rx="2"/>
-                      <circle cx="8.5" cy="8.5" r="1.5"/>
-                      <path d="M21 15l-5-5L5 21"/>
-                    </svg>
-                    <span>Logo {slot}</span>
-                  </div>
-                )}
-              </div>
-            );
-          })}
+        <div className="clients-grid-stripe">
+          {CLIENTS.map((c) => (
+            <div key={c.name} className="client-logo-stripe">
+              {c.img ? (
+                <img src={c.img} alt={c.name} className="client-logo-img-stripe" />
+              ) : (
+                <span className="client-logo-text-stripe">{c.name}</span>
+              )}
+            </div>
+          ))}
         </div>
       </div>
     </section>

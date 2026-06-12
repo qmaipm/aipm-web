@@ -94,7 +94,7 @@ export default function Page() {
               <input type="email" placeholder="留个邮箱,继续收到新文章" aria-label="邮箱" />
               <button className="btn btn-ghost" type="submit">订阅</button>
             </form>
-            <Link href="/workshop" className="btn btn-primary" style={{ padding: "16px 32px", fontSize: "16.5px" }}>预约 FMAI 工作坊 →</Link>
+            <Link href="/workshop" className="btn btn-primary" style={{ padding: "16px 32px", fontSize: "16.5px" }}>预约 FMClaw™ 加速营 →</Link>
           </div>
         </div>
       </section>

@@ -262,7 +262,7 @@ const coreAgents = [
   },
   {
     id: 'review',
-    name: '复盘优化Agent',
+    name: '服务优化Agent',
     desc: '智能分析洞察',
     icon: 'agentReview' as keyof typeof Icons,
     color: '#F59E0B',

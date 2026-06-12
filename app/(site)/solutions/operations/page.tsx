@@ -155,7 +155,7 @@ export default function OperationsPage() {
           <p className="reveal">带上你的运营场景来，看 Agent 怎么调度。</p>
           <div className="cta-row reveal">
             <Link href="/workshop" className="btn btn-primary">
-              预约 FMAI 工作坊 →
+              预约 FMClaw™ 加速营 →
             </Link>
           </div>
         </div>

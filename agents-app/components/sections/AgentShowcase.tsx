@@ -157,15 +157,15 @@ const productModules = [
     },
     isHero: false,
   },
-  // 第五个模块：复盘优化 Agent
+  // 第五个模块：服务优化 Agent
   {
     id: 'review',
-    name: '复盘优化 Agent',
+    name: '服务优化 Agent',
     icon: 'agentReview',
     color: '#F59E0B',
     headline: '业务自动化核算，数据驱动持续优化',
     description: 'AI 自动完成工资、KPI、账单核算，深度分析运营数据生成洞察报告，优化服务标准与成本，展示卓越能力。',
-    cta: '开始使用复盘优化 Agent',
+    cta: '开始使用服务优化 Agent',
     ctaLink: '#contact',
     relatedProducts: [
       { name: '计薪系统', desc: '薪酬与KPI自动化核算', href: '/products/salary' },

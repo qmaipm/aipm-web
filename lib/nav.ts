@@ -24,42 +24,39 @@ export const MENU: MenuItem[] = [
     ],
   },
   {
-    label: "解决方案",
-    minWidth: 330,
+    label: "智能体解决方案",
+    href: "/solutions",
+    minWidth: 300,
     groups: [
       {
-        heading: "按 Agent 职能",
+        heading: "产品套件",
         items: [
-          { label: "四 Agent 闭环总览", href: "/agents", small: "服务设计 · 运营管理 · 质量评估 · 服务优化" },
-          { label: "服务设计", href: "/solutions/service-design" },
-          { label: "运营管理", href: "/solutions/operations" },
-          { label: "质量评估", href: "/solutions/quality" },
-          { label: "服务优化", href: "/solutions/optimization" },
+          { label: "Agentic 产品套件", href: "/agents", small: "服务设计 · 运营管理 · 质量评估 · 服务优化" },
         ],
       },
       {
-        heading: "按行业痛点",
+        heading: "解决方案",
         items: [
-          { label: "AI 供应商管理与自动对账", href: "/solutions/vendor" },
-          { label: "外包管理与质量考评", href: "/solutions" },
-          { label: "AI 账单", href: "/solutions" },
+          { label: "人员成本优化", href: "/solutions/cost" },
+          { label: "服务质量管理", href: "/solutions/quality" },
+          { label: "客户服务", href: "/solutions/customer" },
+          { label: "服务分包管理", href: "/solutions/subcontract" },
+          { label: "设备巡检管理", href: "/solutions/inspection" },
+          { label: "人员薪酬管理", href: "/solutions/payroll" },
+          { label: "采购管理", href: "/solutions/procurement" },
         ],
-      },
-      {
-        heading: "For…",
-        items: [{ label: "给业主 · 给物业公司 · 给开发者", href: "/#tri" }],
       },
     ],
   },
   { label: "客户案例", href: "/cases" },
   {
-    label: "FMAI 工作坊",
+    label: "FMClaw™ 加速营",
     href: "/workshop",
     minWidth: 300,
     groups: [
       {
         items: [
-          { label: "FMAI 工作坊(总览)", href: "/workshop", small: "把你自己的 AI，亲手搭出来" },
+          { label: "FMClaw™ 加速营(总览)", href: "/workshop", small: "把你自己的 AI，亲手搭出来" },
         ],
       },
       {
@@ -102,18 +99,19 @@ export const FOOTER_COLS: { title: string; links: DropItem[] }[] = [
     ],
   },
   {
-    title: "解决方案",
+    title: "智能体解决方案",
     links: [
-      { label: "服务设计 / 运营管理", href: "/solutions/service-design" },
-      { label: "质量评估 / 服务优化", href: "/solutions/quality" },
-      { label: "供应商管理与对账", href: "/solutions/vendor" },
+      { label: "Agentic 产品套件", href: "/agents" },
+      { label: "人员成本优化", href: "/solutions/cost" },
+      { label: "服务质量管理", href: "/solutions/quality" },
+      { label: "服务分包管理", href: "/solutions/subcontract" },
       { label: "客户案例", href: "/cases" },
     ],
   },
   {
     title: "共建与公司",
     links: [
-      { label: "FMAI 工作坊", href: "/workshop" },
+      { label: "FMClaw™ 加速营", href: "/workshop" },
       { label: "人工智能产业共建", href: "/cobuild" },
       { label: "关于启盟 / 团队", href: "/company" },
       { label: "行业研究", href: "/insights" },

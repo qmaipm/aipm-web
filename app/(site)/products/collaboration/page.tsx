@@ -117,7 +117,7 @@ export default function Page() {
       </section>
 
       {/* CTA */}
-      <section className="endcta"><div className="wrap"><h2 className="reveal">在你现在用的平台上,<br />接一段试试。</h2><p className="reveal">带上你的钉钉 / 飞书 / 企业微信场景来，一次工作坊里接通它。</p><div className="cta-row reveal"><Link href="/workshop" className="btn btn-primary">预约 FMAI 工作坊 →</Link></div></div></section>
+      <section className="endcta"><div className="wrap"><h2 className="reveal">在你现在用的平台上,<br />接一段试试。</h2><p className="reveal">带上你的钉钉 / 飞书 / 企业微信场景来，一次工作坊里接通它。</p><div className="cta-row reveal"><Link href="/workshop" className="btn btn-primary">预约 FMClaw™ 加速营 →</Link></div></div></section>
     </main>
   );
 }

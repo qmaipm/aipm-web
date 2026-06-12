@@ -39,7 +39,7 @@ const productLinks = [
   { name: '服务设计Agent', href: '#service-design' },
   { name: '运营管理Agent', href: '#operations' },
   { name: '质量评估Agent', href: '#quality' },
-  { name: '复盘优化Agent', href: '#review' },
+  { name: '服务优化Agent', href: '#review' },
   { name: '智能计薪系统', href: '#' },
   { name: '人员管理系统', href: '#' },
 ];

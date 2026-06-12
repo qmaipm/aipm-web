@@ -154,7 +154,7 @@ export default function OptimizationPage() {
           <p className="reveal">带上你的质检数据来，看 AI 怎么找出高频问题。</p>
           <div className="cta-row reveal">
             <Link href="/workshop" className="btn btn-primary">
-              预约 FMAI 工作坊 →
+              预约 FMClaw™ 加速营 →
             </Link>
           </div>
         </div>

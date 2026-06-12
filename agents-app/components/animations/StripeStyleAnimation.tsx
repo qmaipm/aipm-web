@@ -605,7 +605,7 @@ function ModularAIContent({ activeIndex, accentColor }: { activeIndex: number; a
     { id: 'design', name: '服务设计', color: '#0070FF', desc: '智能生成服务标准' },
     { id: 'ops', name: '运营管理', color: '#10B981', desc: '实时调度与协同' },
     { id: 'quality', name: '质量评估', color: '#8B5CF6', desc: 'AI审图与评分' },
-    { id: 'review', name: '复盘优化', color: '#F59E0B', desc: '数据驱动决策' },
+    { id: 'review', name: '服务优化', color: '#F59E0B', desc: '数据驱动决策' },
   ];
 
   return (
