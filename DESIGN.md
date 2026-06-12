@@ -61,11 +61,13 @@ body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Noto Sans S
 ## 6. Depth & Elevation
 - 极轻阴影体系：卡片 hover `0 16px 44px rgba(26,25,22,.10)`；浮层 dropdown `0 16px 44px rgba(26,25,22,.13)`。纸感为主，不做强投影、不做拟物。
 
-## 7. Animation & Interaction — 档位 **L2（克制）**
+## 7. Animation & Interaction — 档位 **L2（克制）+ 1 个签名时刻**
 - 入场：`.reveal` fadeInUp（opacity+translateY 22px，.8s cubic-bezier(.2,.7,.2,1)），IntersectionObserver 触发；**首屏错峰**（H1→态度句→注解→CTA 逐级 +80ms）。
 - 氛围：Hero `hero-mesh` 柔和渐变漂移（drift 26s），blur≤70px 仅作背景、不在滚动区移动。
+- **签名时刻 · 使命段（唯一爆点，主题化）**：深色段 `.mission-dark` 背后一层 `MissionBackdrop` canvas——点阵代表「物理世界」，智能像光波一圈圈扩散、把途经的点点亮（蓝/绿 accent）。呼应 "make intelligence ambient in the physical world"。
+  - 性能护栏（硬性）：rAF 驱动；`IntersectionObserver` 离屏暂停；DPR ≤2；点距 30px；移动元素不加 `filter:blur`（景深用 alpha+半径）；`prefers-reduced-motion` 降级为**静态点阵**（不动）。单页仅此 1 处重背景，非 WebGL（2D canvas）。
 - 悬停：按钮上浮 + 箭头位移；卡片上浮 + 轻投影；logo 轻微放大 1.04。
-- **禁用**：滚动劫持 / WebGL / 自定义光标 / 大动效。`prefers-reduced-motion` 全量降级（已实现）。
+- **禁用**：滚动劫持 / WebGL / 自定义光标 / 多处重动效。`prefers-reduced-motion` 全量降级（已实现）。
 
 ## 8. Do's and Don'ts
 **Do**

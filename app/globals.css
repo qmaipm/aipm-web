@@ -479,3 +479,14 @@ a:focus-visible, button:focus-visible, .btn:focus-visible, .t:focus-visible,
   height:.09em; border-radius:2px; background:var(--blue); opacity:.85}
 /* 数据护城河：关键数字更可读 */
 .moat-stats .n{color:var(--ink)}
+
+/* ===== 使命句 · 深色"时刻"(点阵物理世界 + 智能光波) ===== */
+.mission-dark{position:relative; overflow:hidden; background:var(--dark); padding:150px 0}
+@media (max-width:600px){.mission-dark{padding:104px 0}}
+.mission-dark .mission-canvas{position:absolute; inset:0; width:100%; height:100%; display:block; z-index:0}
+/* 暗角:让点阵向边缘淡出,中心文字更聚焦,并与相邻浅色段过渡自然 */
+.mission-dark::before{content:""; position:absolute; inset:0; z-index:1; pointer-events:none;
+  background:radial-gradient(ellipse 70% 80% at 50% 50%, transparent 28%, rgba(21,20,15,.78) 100%)}
+.mission-dark .wrap{position:relative; z-index:2}
+.mission-dark .mission-en{color:var(--dark-mut-c)}
+.mission-dark .mission-zh{color:#fff; text-shadow:0 1px 30px rgba(0,112,255,.18)}

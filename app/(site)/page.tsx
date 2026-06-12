@@ -1,4 +1,5 @@
 import Link from "next/link";
+import MissionBackdrop from "./MissionBackdrop";
 
 const ArrowR = ({ s = 15 }: { s?: number }) => (
   <svg className="ar" width={s} height={s} viewBox="0 0 16 16">
@@ -50,8 +51,9 @@ export default function Home() {
         </div>
       </div>
 
-      {/* MISSION 使命句(钩子背后的"为什么",克制呈现,不与 HERO 争第一视觉) */}
-      <section className="mission">
+      {/* MISSION 使命句 · 深色"时刻":点阵物理世界 + 智能光波扩散 */}
+      <section className="mission mission-dark">
+        <MissionBackdrop />
         <div className="wrap">
           <p className="mission-en reveal">Make intelligence ambient in the physical world.</p>
           <p className="mission-zh reveal">让智能，走进物理世界。</p>
