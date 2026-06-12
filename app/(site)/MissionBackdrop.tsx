@@ -3,9 +3,9 @@
 import { useEffect, useRef } from "react";
 
 /**
- * 使命句背景:点阵的物理世界 + 智能光波扩散。
- * 一张代表"物理世界"的点阵,智能像光波一圈圈漫过、把点点亮 —— 呼应 ambient intelligence。
- * 性能:rAF 驱动、离屏自动暂停(IntersectionObserver)、prefers-reduced-motion 降级为静态点阵。
+ * 使命句沉浸式背景:点阵物理世界 + 智能光波扩散 + 网络连线 + 鼠标涟漪。
+ * 智能像光波一圈圈漫过点阵,途经的点被点亮并彼此结网 —— 呼应 ambient intelligence。
+ * 性能护栏:rAF + IntersectionObserver 离屏暂停 + DPR≤2 + 不对移动元素加 blur + reduced-motion 降级静态。
  */
 export default function MissionBackdrop() {
   const ref = useRef<HTMLCanvasElement>(null);
@@ -17,16 +17,19 @@ export default function MissionBackdrop() {
     if (!ctx) return;
 
     const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    const hover = window.matchMedia("(hover: hover)").matches;
     const SPACING = 30;
-    const BAND = 46;
+    const BAND = 50;
     const GLOW = [
-      [0, 112, 255], // blue
-      [18, 185, 138], // green
+      [40, 130, 255], // blue
+      [30, 200, 150], // green
     ];
 
     let w = 0;
     let h = 0;
-    let dots: { x: number; y: number; c: number[] }[] = [];
+    let cols = 0;
+    let rows = 0;
+    let dots: { x: number; y: number; c: number[]; lit: number }[] = [];
 
     const build = () => {
       const rect = canvas.getBoundingClientRect();
@@ -36,14 +39,14 @@ export default function MissionBackdrop() {
       canvas.width = Math.floor(w * dpr);
       canvas.height = Math.floor(h * dpr);
       ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+      cols = Math.ceil(w / SPACING) + 1;
+      rows = Math.ceil(h / SPACING) + 1;
       dots = [];
-      const cols = Math.ceil(w / SPACING) + 1;
-      const rows = Math.ceil(h / SPACING) + 1;
       for (let r = 0; r < rows; r++) {
         for (let c = 0; c < cols; c++) {
-          const jx = ((Math.sin(r * 12.9 + c * 4.1) + 1) / 2 - 0.5) * 7;
-          const jy = ((Math.sin(r * 6.3 + c * 9.7) + 1) / 2 - 0.5) * 7;
-          dots.push({ x: c * SPACING + jx, y: r * SPACING + jy, c: GLOW[(r + c) % 2] });
+          const jx = ((Math.sin(r * 12.9 + c * 4.1) + 1) / 2 - 0.5) * 6;
+          const jy = ((Math.sin(r * 6.3 + c * 9.7) + 1) / 2 - 0.5) * 6;
+          dots.push({ x: c * SPACING + jx, y: r * SPACING + jy, c: GLOW[(r + c) % 2], lit: 0 });
         }
       }
     };
@@ -53,21 +56,34 @@ export default function MissionBackdrop() {
     const spawn = (startR = 0): Wave => {
       seed += 1;
       return {
-        x: w * (0.2 + ((Math.sin(seed * 2.3) + 1) / 2) * 0.6),
-        y: h * (0.25 + ((Math.sin(seed * 3.7) + 1) / 2) * 0.5),
+        x: w * (0.15 + ((Math.sin(seed * 2.3) + 1) / 2) * 0.7),
+        y: h * (0.2 + ((Math.sin(seed * 3.7) + 1) / 2) * 0.6),
         r: startR,
-        speed: 26 + ((Math.sin(seed) + 1) / 2) * 14,
-        max: Math.hypot(w, h) * 0.85 || 1,
+        speed: 34 + ((Math.sin(seed) + 1) / 2) * 22,
+        max: Math.hypot(w, h) * 0.9 || 1,
       };
     };
     let waves: Wave[] = [];
+
+    // 鼠标涟漪
+    let mx = -9999;
+    let my = -9999;
+    const onMove = (e: PointerEvent) => {
+      const rect = canvas.getBoundingClientRect();
+      mx = e.clientX - rect.left;
+      my = e.clientY - rect.top;
+    };
+    const onLeave = () => {
+      mx = -9999;
+      my = -9999;
+    };
 
     const drawStatic = () => {
       ctx.clearRect(0, 0, w, h);
       for (const d of dots) {
         ctx.beginPath();
         ctx.arc(d.x, d.y, 1, 0, Math.PI * 2);
-        ctx.fillStyle = "rgba(255,255,255,0.07)";
+        ctx.fillStyle = "rgba(255,255,255,0.08)";
         ctx.fill();
       }
     };
@@ -75,6 +91,7 @@ export default function MissionBackdrop() {
     let raf = 0;
     let last = 0;
     let running = false;
+    const MR = 150; // 鼠标影响半径
 
     const frame = (now: number) => {
       if (!running) return;
@@ -85,34 +102,62 @@ export default function MissionBackdrop() {
       waves = waves.map((wave) => (wave.r > wave.max ? spawn() : wave));
 
       ctx.clearRect(0, 0, w, h);
+
+      // 1) 计算每个点的点亮强度
       for (const d of dots) {
         let lit = 0;
         for (const wave of waves) {
-          const dist = Math.hypot(d.x - wave.x, d.y - wave.y);
-          const off = Math.abs(dist - wave.r);
+          const off = Math.abs(Math.hypot(d.x - wave.x, d.y - wave.y) - wave.r);
           if (off < BAND) {
             const fall = Math.exp(-(off * off) / (2 * (BAND / 2.4) * (BAND / 2.4)));
-            const life = 1 - wave.r / wave.max;
-            lit = Math.max(lit, fall * life);
+            lit = Math.max(lit, fall * (1 - wave.r / wave.max));
           }
         }
-        const baseA = 0.07;
+        if (mx > -9999) {
+          const md = Math.hypot(d.x - mx, d.y - my);
+          if (md < MR) lit = Math.max(lit, (1 - md / MR) * 0.9);
+        }
+        d.lit = lit;
+      }
+
+      // 2) 连线:相邻被点亮的点之间拉丝线(右 / 下邻居)
+      ctx.lineWidth = 1;
+      for (let i = 0; i < dots.length; i++) {
+        const d = dots[i];
+        if (d.lit < 0.22) continue;
+        const col = i % cols;
+        const neighbors = [];
+        if (col < cols - 1) neighbors.push(dots[i + 1]);
+        if (i + cols < dots.length) neighbors.push(dots[i + cols]);
+        for (const n of neighbors) {
+          const m = Math.min(d.lit, n.lit);
+          if (m < 0.22) continue;
+          ctx.beginPath();
+          ctx.moveTo(d.x, d.y);
+          ctx.lineTo(n.x, n.y);
+          ctx.strokeStyle = `rgba(${d.c[0]},${d.c[1]},${d.c[2]},${(m - 0.18) * 0.5})`;
+          ctx.stroke();
+        }
+      }
+
+      // 3) 画点
+      for (const d of dots) {
+        const lit = d.lit;
         if (lit < 0.02) {
           ctx.beginPath();
           ctx.arc(d.x, d.y, 1, 0, Math.PI * 2);
-          ctx.fillStyle = `rgba(255,255,255,${baseA})`;
+          ctx.fillStyle = "rgba(255,255,255,0.08)";
           ctx.fill();
         } else {
-          const a = baseA + lit * 0.78;
-          const rad = 1 + lit * 1.8;
+          const rad = 1.2 + lit * 2.6;
           ctx.beginPath();
           ctx.arc(d.x, d.y, rad, 0, Math.PI * 2);
-          ctx.fillStyle = `rgba(${d.c[0]},${d.c[1]},${d.c[2]},${a})`;
+          ctx.fillStyle = `rgba(${d.c[0]},${d.c[1]},${d.c[2]},${0.08 + lit * 0.9})`;
           ctx.fill();
-          if (lit > 0.5) {
+          if (lit > 0.4) {
             ctx.beginPath();
-            ctx.arc(d.x, d.y, rad * 2.6, 0, Math.PI * 2);
-            ctx.fillStyle = `rgba(${d.c[0]},${d.c[1]},${d.c[2]},${(lit - 0.5) * 0.12})`;
+            ctx.arc(d.x, d.y, rad * 3, 0, Math.PI * 2);
+            ctx.fillStyle = `rgba(${d.c[0]},${d.c[1]},${d.c[2]},${(lit - 0.4) * 0.16})`;
             ctx.fill();
           }
         }
@@ -143,21 +188,27 @@ export default function MissionBackdrop() {
       return () => window.removeEventListener("resize", onResizeStatic);
     }
 
-    waves = [spawn(140), spawn(280), spawn(60)];
+    waves = [spawn(160), spawn(320), spawn(80), spawn(480), spawn(0)];
 
     const io = new IntersectionObserver(
       (entries) => (entries[0].isIntersecting ? start() : stop()),
-      { threshold: 0.05 }
+      { threshold: 0.02 }
     );
     io.observe(canvas);
 
     const onResize = () => build();
     window.addEventListener("resize", onResize);
+    if (hover) {
+      window.addEventListener("pointermove", onMove);
+      window.addEventListener("pointerleave", onLeave);
+    }
 
     return () => {
       stop();
       io.disconnect();
       window.removeEventListener("resize", onResize);
+      window.removeEventListener("pointermove", onMove);
+      window.removeEventListener("pointerleave", onLeave);
     };
   }, []);
 
