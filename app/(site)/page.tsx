@@ -166,7 +166,7 @@ export default function Home() {
             <h2 className="reveal">谁在用 · 哪个项目在用。</h2>
             <p className="sub reveal">不是演示,是已经在运行的项目。</p>
           </div>
-          <div className="wall">
+          <div className="wall wall-2">
             <div className="case reveal">
               <div className="accent" style={{ background: "var(--blue)" }} />
               <div className="ct">综合体 · 华南 · 约 <b>6 万㎡</b></div>
@@ -178,12 +178,6 @@ export default function Home() {
               <div className="ct">写字楼 · 华南 · 约 <b>7 万㎡</b> · 5 年合同</div>
               <div className="metric">缴费、对账、账单<br />由 Agent 跑通</div>
               <div className="desc">一笔预算覆盖五年,账目全程可追溯。</div>
-            </div>
-            <div className="case reveal">
-              <div className="accent" style={{ background: "var(--gold)" }} />
-              <div className="ct">区级国资平台 · 华东省会</div>
-              <div className="metric">已在一座<br />省会城市落地</div>
-              <div className="desc">国有物业的 AI 化运营,正在沉淀成本地的能力。</div>
             </div>
           </div>
         </div>
