@@ -22,10 +22,20 @@ export default function Page() {
       <section className="band">
         <div className="wrap">
           <div className="sec-head"><span className="eyebrow reveal">服务分包管理</span></div>
-          <div className="prose reveal" style={{ marginTop: 32 }}>
+
+          <div className="sol-chain reveal">
+            <span className="node">派工</span><span className="ar" aria-hidden="true">→</span>
+            <span className="node">出勤</span><span className="ar" aria-hidden="true">→</span>
+            <span className="node">工时</span><span className="ar" aria-hidden="true">→</span>
+            <span className="node">达标</span><span className="ar" aria-hidden="true">→</span>
+            <span className="node">多方确认</span>
+          </div>
+
+          <div className="sol-body reveal">
             <p>物业公司常把保洁、保安、绿化等服务再分包出去。这类结算依据的是月度的工作量与考核——派了多少人、出了多少勤、达没达标，再据此核定服务费与扣减，需要经过现场核实与多方确认。</p>
             <p>我们用同一套服务感知数据，把派工、出勤、工时与达标情况实时记录下来。结算与考核都指向同一份可核验的事实，对账有据可依。</p>
           </div>
+
           <p className="sol-link reveal">这份数据，也是 <Link href="/solutions/quality">服务质量管理</Link> 与 <Link href="/solutions/payroll">人员薪酬管理</Link> 共用的同一口井。</p>
         </div>
       </section>

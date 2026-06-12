@@ -22,10 +22,16 @@ export default function Page() {
       <section className="band">
         <div className="wrap">
           <div className="sec-head"><span className="eyebrow reveal">设备巡检管理</span></div>
-          <div className="prose reveal" style={{ marginTop: 32 }}>
+
+          <div className="sol-chips reveal">
+            <span className="c">巡到</span><span className="c">巡实</span><span className="c">留下真数据</span>
+          </div>
+
+          <div className="sol-body reveal">
             <p>设备设施的巡检，关键在于巡到、巡实、留下真数据——这恰恰是人工巡检最难保证的地方，漏检和补录会让后续的预测性维护失去基础。</p>
             <p>我们自动生成点位与巡检表、派发任务，并要求人确实到达感知范围内才能填写；现场支持拍照评估环境、自动抄读仪表。每一条巡检记录都是真实发生的，为预测性维护提供可信的底座。</p>
           </div>
+
           <p className="sol-emph reveal">百分之百的真实数据，是一切预防的前提。</p>
         </div>
       </section>

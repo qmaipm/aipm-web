@@ -25,12 +25,32 @@ export default function Page() {
       <section className="band">
         <div className="wrap">
           <div className="sec-head"><span className="eyebrow reveal">服务质量管理</span></div>
-          <div className="prose reveal" style={{ marginTop: 32 }}>
-            <p>服务质量不是靠事后打分打出来的，而是从源头到过程、再到长期，环环保障出来的。我们把它拆成三件事。</p>
-            <p>源头上，先保证人要到。该到岗的人、该到的时段、该到的点位，都对照现场的真实情况来核验，而不是看排班表。</p>
-            <p>过程中，保证每一次交付都达标。每一次服务都留下可核验的记录，覆盖到全员、全程，而不是抽样里碰运气。</p>
-            <p>评估上，保证抽查公平公正。采样跟着现场数据的变化做智能调度，谁该被查、什么时候查，由事实决定，避免人为的松紧。</p>
+          <p className="sol-lead reveal">服务质量不是靠事后打分打出来的，而是<span className="em">从源头到过程、再到长期</span>，环环保障出来的。我们把它拆成三件事。</p>
+
+          <div className="sol-grid">
+            <div className="sol-pt reveal">
+              <div className="top"><span className="n">01 源头</span>
+                <svg className="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round"><path d="M12 21s7-6.5 7-12a7 7 0 1 0-14 0c0 5.5 7 12 7 12Z" /><circle cx="12" cy="9" r="2.5" /></svg>
+              </div>
+              <div className="lab">先保证人要到</div>
+              <p>源头上，先保证人要到。该到岗的人、该到的时段、该到的点位，都对照现场的真实情况来核验，而不是看排班表。</p>
+            </div>
+            <div className="sol-pt reveal">
+              <div className="top"><span className="n">02 过程</span>
+                <svg className="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round"><rect x="5" y="3" width="14" height="18" rx="2" /><path d="M9 12l2 2 4-4" /></svg>
+              </div>
+              <div className="lab">每一次交付都达标</div>
+              <p>过程中，保证每一次交付都达标。每一次服务都留下可核验的记录，覆盖到全员、全程，而不是抽样里碰运气。</p>
+            </div>
+            <div className="sol-pt reveal">
+              <div className="top"><span className="n">03 评估</span>
+                <svg className="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round"><path d="M12 4v16M6 8h12" /><path d="M6 8l-2.5 5a3 3 0 0 0 5 0L6 8ZM18 8l-2.5 5a3 3 0 0 0 5 0L18 8Z" /></svg>
+              </div>
+              <div className="lab">抽查公平公正</div>
+              <p>评估上，保证抽查公平公正。采样跟着现场数据的变化做智能调度，谁该被查、什么时候查，由事实决定，避免人为的松紧。</p>
+            </div>
           </div>
+
           <p className="sol-emph reveal">三件事合起来，才是全方位的质量保障。</p>
           <p className="sol-link reveal">这套数据也支撑 <Link href="/solutions/subcontract">服务分包管理</Link> 与 <Link href="/solutions/payroll">人员薪酬管理</Link>。</p>
         </div>

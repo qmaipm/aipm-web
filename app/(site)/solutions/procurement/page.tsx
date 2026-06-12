@@ -22,7 +22,17 @@ export default function Page() {
       <section className="band">
         <div className="wrap">
           <div className="sec-head"><span className="eyebrow reveal">采购管理</span></div>
-          <div className="prose reveal" style={{ marginTop: 32 }}>
+
+          <div className="sol-chain reveal">
+            <span className="node">盘点</span><span className="ar" aria-hidden="true">→</span>
+            <span className="node">判断补货</span><span className="ar" aria-hidden="true">→</span>
+            <span className="node">审批</span><span className="ar" aria-hidden="true">→</span>
+            <span className="node">比价</span><span className="ar" aria-hidden="true">→</span>
+            <span className="node">下单</span><span className="ar" aria-hidden="true">→</span>
+            <span className="node human">付款 · 人工把关</span>
+          </div>
+
+          <div className="sol-body reveal">
             <p>物料什么时候该补、补多少、从哪里买更划算，过去依赖各点位上报和人工比价。</p>
             <p>我们让系统主动盘点库存、判断是否需要补货、走完审批，并在 1688、京东等渠道比对物料价格，生成采购申请直至下单。付款这一步，仍然留给人。</p>
           </div>

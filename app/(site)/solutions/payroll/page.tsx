@@ -22,10 +22,16 @@ export default function Page() {
       <section className="band">
         <div className="wrap">
           <div className="sec-head"><span className="eyebrow reveal">人员薪酬管理</span></div>
-          <div className="prose reveal" style={{ marginTop: 32 }}>
+
+          <div className="sol-chips reveal">
+            <span className="c">考勤</span><span className="c">工时</span><span className="c">请假</span><span className="c">达标</span>
+          </div>
+
+          <div className="sol-body reveal">
             <p>一线员工的薪酬，建立在考勤、工时、请假与达标数据之上。这些数据来自不同的人和环节，汇总、核对、计算是每个月都要重做一遍的工作。</p>
             <p>我们让这些数据在服务过程中自然产生并实时归集，薪酬成为它的直接结果，而不是月底重新拼凑的一笔账。</p>
           </div>
+
           <p className="sol-link reveal">它与 <Link href="/solutions/subcontract">服务分包管理</Link>，本就源自同一套记录。</p>
         </div>
       </section>

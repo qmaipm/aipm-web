@@ -22,10 +22,16 @@ export default function Page() {
       <section className="band">
         <div className="wrap">
           <div className="sec-head"><span className="eyebrow reveal">客户服务</span></div>
-          <div className="prose reveal" style={{ marginTop: 32 }}>
-            <p>业主和租户的诉求，往往散落在各个微信群里——一句话的报修、一个账单的疑问、一次催办的提醒。</p>
+          <p className="sol-lead reveal">业主和租户的诉求，往往<span className="em">散落在各个微信群里</span>——一句话的报修、一个账单的疑问、一次催办的提醒。</p>
+
+          <div className="sol-body reveal">
             <p>我们在群里配一个随时应答的助手，为每位用户保留各自的服务上下文。它能即时答复，也能直接发起工单、报修、查账、派保养，把对话变成动作，把反馈沉淀成数据。</p>
           </div>
+
+          <div className="sol-chips reveal">
+            <span className="c">发起工单</span><span className="c">报修</span><span className="c">查账</span><span className="c">派保养</span>
+          </div>
+
           <p className="sol-emph reveal">每位用户，都有一个属于自己的服务入口。</p>
         </div>
       </section>
