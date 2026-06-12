@@ -3,9 +3,9 @@ import Link from "next/link";
 import "./page.css";
 
 export const metadata: Metadata = {
-  title: "关于启盟 · 七年自营、数据驱动的 FM 行业 AI — 启盟科技",
+  title: "关于启盟 · 使命与八年自营 — 启盟科技",
   description:
-    "启盟科技创立于 2017 年,自营设施管理七年下场,在真实运营中采集数据、训练 FM 行业 AI 基座 FMClaw™。这里讲清我们从一张工单走到一套 AI 基座的过程,以及它为什么难以复制。",
+    "启盟科技创立于 2017 年,八年自营物业与设施管理,在真实运营中积累数据与工作流。我们的使命:让智能,走进物理世界。物业是这件事最大、也最现实的入口。",
 };
 
 export default function Page() {
@@ -36,13 +36,10 @@ export default function Page() {
         <div className="wrap">
           <div className="sec-head">
             <span className="eyebrow reveal">公司故事</span>
-            <h2 className="reveal">从一张工单,走到一套基座。</h2>
+            <h2 className="reveal">八年,做同一件事。</h2>
           </div>
           <div className="prose story reveal" style={{ marginTop: 40 }}>
-            <p>启盟科技创立于 2017 年。最初的几年,我们做的是物业与设施管理的数字化——把巡检、报修、能耗、外包结算这些每天都在发生的事,一点点搬进系统。</p>
-            <p>这件事并不性感。但正是在一个又一个项目里,我们慢慢看清了一件事:行业真正缺的,不是又一个更漂亮的后台,而是能在真实业务里替人做事的能力。表单填得再顺,人还是得自己想、自己判断、自己跟进。</p>
-            <p>于是我们把方向往下落了一层。从应用,走到平台;从记录数据,走到让数据能被理解、被调用、被一个 Agent 接着往下做。我们开始搭自己的 AI 基座,把这些年攒下的行业理解,沉淀成软件能用的能力。</p>
-            <p>到今天,我们做的事可以用一句话说清:让物业与设施管理里那些重复、琐碎、却又离不开人的工作,先交给软件;把人留给真正需要判断的地方。</p>
+            <p>2017 年到今天,启盟只做了一件事:让智能走进物业与设施管理的真实运营。下面是这八年里发生的事——每一年,只讲做了什么。</p>
           </div>
         </div>
       </section>
@@ -53,13 +50,17 @@ export default function Page() {
           <div className="sec-head">
             <span className="eyebrow reveal">公司演进</span>
             <h2 className="reveal">一步一步,走到今天。</h2>
-            <p className="sub reveal">不是一蹴而就,是七年里一层层往下落。</p>
           </div>
           <div className="deflist timeline reveal">
-            <div className="row"><div className="k">2017</div><div className="v">公司成立,聚焦非住宅设施管理领域。</div></div>
-            <div className="row"><div className="k">2019</div><div className="v">自营 FM 公司亲自下场,开始在真实运营中采集场景数据。</div></div>
-            <div className="row"><div className="k">2023</div><div className="v">构建 AI 物业经理智能体 FMClaw™。</div></div>
-            <div className="row"><div className="k">2025</div><div className="v">设立国有物业人工智能发展基金。</div></div>
+            <div className="row"><div className="k">2017</div><div className="v">三个做技术的人,认定物业与设施管理是 AI 最天然的落地场景。公司成立,聚焦非住宅 FM。第一件事是数据采集——去感知一次服务到底有没有做、做了多久。</div></div>
+            <div className="row"><div className="k">2019</div><div className="v">为了拿到真实数据,自己开了一家物业公司,自己接单、自己跑数据。</div></div>
+            <div className="row"><div className="k">2021</div><div className="v">还在埋头做数据采集这种又脏又累的活时,得到蓝驰创投、微光创投的投资。</div></div>
+            <div className="row"><div className="k">2023</div><div className="v">大模型出现,世界开始相信 AI。基于它,构建了第一代产品(当时名为 AI 物业经理)。</div></div>
+            <div className="row"><div className="k">2025</div><div className="v">智能体走向成熟。</div></div>
+            <div className="row"><div className="k">2026</div><div className="v">基于智能体架构,FMClaw 让智能体真正能在物业场景里干活。</div></div>
+          </div>
+          <div className="prose reveal" style={{ marginTop: 32 }}>
+            <p>八年里每一步,都在验证同一个判断——让智能走进物理世界,物业是这件事最大、也最现实的入口。</p>
           </div>
         </div>
       </section>
@@ -72,9 +73,8 @@ export default function Page() {
             <h2 className="reveal">真正难复制的,不是模型。</h2>
           </div>
           <div className="prose reveal" style={{ marginTop: 40 }}>
-            <p>我们能做这件事,靠的不是某个模型本身——模型大家都能调用。真正难复制的,是模型背后的东西。</p>
-            <p>七年前,我们没有停在做软件,而是自己下场做自营的设施管理。一线的巡检、报修、能耗、对账,每天都在真实地发生;我们就在这些场景里,把它们一点点变成可以被理解、被标注、被训练的数据。到今天,这覆盖约 3000 万㎡ 的全业态真实场景、约 20 万 G 已标注训练数据、10 万+ 传感器实时在线,每天持续产生大量结构化数据。</p>
-            <p>这些数据拿去训练 AI,AI 在真实运营里越用越准;用得越准,又带回更贴近现场的数据。这是一条自己转起来的循环,也是别人很难从外部买到、或在短时间内追上的部分。</p>
+            <p>真正难复制的,不是模型,也不是某个产品;是比通用智能体架构更复杂的东西——在物业的每一件工作里,都藏着数据、Skill 与工具的特定组合。</p>
+            <p>把这些一件件梳理成又宽又深的工作流,需要的是七八年在真实现场里一点点跑出来的积累。这部分,只能跑出来,买不到。</p>
           </div>
         </div>
       </section>
@@ -152,7 +152,7 @@ export default function Page() {
               <p>FMClaw 里的 Claw,是我们产品的那只"龙虾爪"。FM 是 Facility Management,Claw 是它伸出去、替你把活儿接住的那只手。这个 IP 一直陪着我们,也提醒我们:工具是用来干活的。</p></div>
             <div className="card reveal"><div className="k" style={{ background: "var(--purple)" }} />
               <div className="big">我们想去的地方</div>
-              <p>让 AI 真正进入物业与设施管理的日常运营,成为这个行业理所当然的一部分。我们不急,但方向很清楚。</p></div>
+              <p>物业,是我们开始的地方,不是终点。终局是让智能走进物理世界——让无数智能体与具身机器人,在真实世界里运转。我们不急,但方向很清楚。</p></div>
           </div>
         </div>
       </section>
