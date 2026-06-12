@@ -3342,6 +3342,22 @@ button {
     font-weight: 500;
 }
 
+/* 文字 Logo - 灰度克制，悬停加深（无图片资源时使用） */
+.client-logo-text-stripe {
+    font-size: clamp(14px, 1.5vw, 18px);
+    font-weight: 600;
+    letter-spacing: .01em;
+    color: #5b6573;
+    opacity: .7;
+    text-align: center;
+    line-height: 1.25;
+    transition: all var(--transition-base);
+}
+.client-logo-stripe:hover .client-logo-text-stripe {
+    color: #1f2733;
+    opacity: 1;
+}
+
 /* Stripe Logo 墙响应式 */
 @media (max-width: 1024px) {
     .clients-grid-stripe {
