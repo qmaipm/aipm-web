@@ -18,11 +18,11 @@ export default function MissionBackdrop() {
 
     const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
     const hover = window.matchMedia("(hover: hover)").matches;
-    const SPACING = 30;
-    const BAND = 50;
+    const SPACING = 32;
+    const BAND = 46;
     const GLOW = [
-      [40, 130, 255], // blue
-      [30, 200, 150], // green
+      [40, 125, 245], // blue
+      [28, 185, 145], // green
     ];
 
     let w = 0;
@@ -59,7 +59,7 @@ export default function MissionBackdrop() {
         x: w * (0.15 + ((Math.sin(seed * 2.3) + 1) / 2) * 0.7),
         y: h * (0.2 + ((Math.sin(seed * 3.7) + 1) / 2) * 0.6),
         r: startR,
-        speed: 34 + ((Math.sin(seed) + 1) / 2) * 22,
+        speed: 22 + ((Math.sin(seed) + 1) / 2) * 13,
         max: Math.hypot(w, h) * 0.9 || 1,
       };
     };
@@ -91,7 +91,7 @@ export default function MissionBackdrop() {
     let raf = 0;
     let last = 0;
     let running = false;
-    const MR = 150; // 鼠标影响半径
+    const MR = 122; // 鼠标影响半径
 
     const frame = (now: number) => {
       if (!running) return;
@@ -115,7 +115,7 @@ export default function MissionBackdrop() {
         }
         if (mx > -9999) {
           const md = Math.hypot(d.x - mx, d.y - my);
-          if (md < MR) lit = Math.max(lit, (1 - md / MR) * 0.9);
+          if (md < MR) lit = Math.max(lit, (1 - md / MR) * 0.62);
         }
         d.lit = lit;
       }
@@ -124,18 +124,18 @@ export default function MissionBackdrop() {
       ctx.lineWidth = 1;
       for (let i = 0; i < dots.length; i++) {
         const d = dots[i];
-        if (d.lit < 0.22) continue;
+        if (d.lit < 0.32) continue;
         const col = i % cols;
         const neighbors = [];
         if (col < cols - 1) neighbors.push(dots[i + 1]);
         if (i + cols < dots.length) neighbors.push(dots[i + cols]);
         for (const n of neighbors) {
           const m = Math.min(d.lit, n.lit);
-          if (m < 0.22) continue;
+          if (m < 0.32) continue;
           ctx.beginPath();
           ctx.moveTo(d.x, d.y);
           ctx.lineTo(n.x, n.y);
-          ctx.strokeStyle = `rgba(${d.c[0]},${d.c[1]},${d.c[2]},${(m - 0.18) * 0.5})`;
+          ctx.strokeStyle = `rgba(${d.c[0]},${d.c[1]},${d.c[2]},${(m - 0.28) * 0.3})`;
           ctx.stroke();
         }
       }
@@ -146,18 +146,18 @@ export default function MissionBackdrop() {
         if (lit < 0.02) {
           ctx.beginPath();
           ctx.arc(d.x, d.y, 1, 0, Math.PI * 2);
-          ctx.fillStyle = "rgba(255,255,255,0.08)";
+          ctx.fillStyle = "rgba(255,255,255,0.05)";
           ctx.fill();
         } else {
-          const rad = 1.2 + lit * 2.6;
+          const rad = 1 + lit * 1.7;
           ctx.beginPath();
           ctx.arc(d.x, d.y, rad, 0, Math.PI * 2);
-          ctx.fillStyle = `rgba(${d.c[0]},${d.c[1]},${d.c[2]},${0.08 + lit * 0.9})`;
+          ctx.fillStyle = `rgba(${d.c[0]},${d.c[1]},${d.c[2]},${0.06 + lit * 0.55})`;
           ctx.fill();
-          if (lit > 0.4) {
+          if (lit > 0.5) {
             ctx.beginPath();
-            ctx.arc(d.x, d.y, rad * 3, 0, Math.PI * 2);
-            ctx.fillStyle = `rgba(${d.c[0]},${d.c[1]},${d.c[2]},${(lit - 0.4) * 0.16})`;
+            ctx.arc(d.x, d.y, rad * 2.6, 0, Math.PI * 2);
+            ctx.fillStyle = `rgba(${d.c[0]},${d.c[1]},${d.c[2]},${(lit - 0.5) * 0.1})`;
             ctx.fill();
           }
         }
@@ -188,7 +188,7 @@ export default function MissionBackdrop() {
       return () => window.removeEventListener("resize", onResizeStatic);
     }
 
-    waves = [spawn(160), spawn(320), spawn(80), spawn(480), spawn(0)];
+    waves = [spawn(200), spawn(420), spawn(60)];
 
     const io = new IntersectionObserver(
       (entries) => (entries[0].isIntersecting ? start() : stop()),
