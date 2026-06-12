@@ -10,7 +10,7 @@ const CLIENTS: Client[] = [
   { name: '字节跳动', img: '/images/clients/bytedance.svg' },
   { name: '顺丰', img: '/images/clients/sf.svg' },
   { name: 'PCI 佳都科技' },
-  { name: 'wework' },
+  { name: 'wework', img: '/images/clients/wework.svg' },
   { name: '雅生活' },
 ];
 
