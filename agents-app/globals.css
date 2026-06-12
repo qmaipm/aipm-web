@@ -3307,19 +3307,17 @@ button {
     box-shadow: var(--shadow-md);
 }
 
-/* Logo 图片 - 灰度 + 悬停彩色 */
+/* Logo 图片 - 彩色，统一高度(各 logo 同高、视觉一致) */
 .client-logo-img-stripe {
+    height: clamp(22px, 2.8vw, 30px);
+    width: auto;
     max-width: 100%;
-    max-height: 100%;
     object-fit: contain;
-    filter: grayscale(100%);
-    opacity: 0.6;
-    transition: all var(--transition-base);
+    transition: transform var(--transition-base);
 }
 
 .client-logo-stripe:hover .client-logo-img-stripe {
-    filter: grayscale(0%);
-    opacity: 1;
+    transform: scale(1.04);
 }
 
 /* 占位符样式 */
