@@ -1,4 +1,5 @@
 import Link from "next/link";
+import BeforeAfter from "../BeforeAfter";
 import "../scenarios.css";
 
 export const metadata = {
@@ -21,23 +22,26 @@ export default function Page() {
         </div>
       </section>
 
-      {/* 流程图 */}
-      <section className="band">
-        <div className="wrap">
-          <div className="sec-head"><span className="eyebrow reveal">这件事，AI 接了哪一步</span></div>
-          <div className="flowchart" style={{ marginTop: "46px" }}>
-            <div className="fc reveal"><div className="lane">人原来怎么做</div>
-              <h4>找人、凭经验派、打电话催</h4><p>接到工单先找人，凭经验决定派给谁，再电话催，超时了才发现。</p><svg className="conn" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" /></svg>
-            </div>
-            <div className="fc now reveal"><div className="lane">AI 现在帮你想好了什么</div>
-              <h4>定位、定级、按负载派单</h4><p>自动定位与定级，按技能和负载派给合适的人，超时自动升级。</p><svg className="conn" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" /></svg>
-            </div>
-            <div className="fc last reveal"><div className="lane">人只需做最后那个决定</div>
-              <h4>确认，或改派。</h4><p>派给谁、为什么、超时怎么办都摆好了，人只做确认或改派。</p>
-            </div>
-          </div>
-        </div>
-      </section>
+      {/* 使用前 / 使用后 */}
+      <BeforeAfter
+        metricBefore="凭经验派 · 电话催"
+        metricAfter="规则自动派 · 超时升级"
+        before={[
+          { st: "找人", h: "接单先找谁派", p: "在脑子里想派给谁。", tag: "凭经验" },
+          { st: "派单", h: "打电话分活", p: "忙闲不均、容易漏派。", tag: "慢 · 漏派" },
+          { st: "跟踪", h: "靠人催", p: "超时了才发现。", tag: "没反馈" },
+        ]}
+        after={[
+          { st: "定位定级", h: "自动定位、定级", p: "工单进来即判等级与位置。", tag: "即时" },
+          { st: "派单", h: "按技能与负载派", p: "派给合适的人。", tag: "均衡" },
+          { st: "通知跟踪", h: "双向通知 + 超时升级", p: "派给谁、为什么、超时怎么办都摆好。", tag: "闭环" },
+        ]}
+        gains={[
+          { k: "更快", b: "找人、打电话，慢", a: "工单进来即定级派出" },
+          { k: "更均衡", b: "凭经验，忙闲不均", a: "按技能与负载分配" },
+          { k: "闭环", b: "超时才发现，没反馈", a: "双向通知，超时自动升级" },
+        ]}
+      />
 
       {/* 简短说明 */}
       <section className="band alt">

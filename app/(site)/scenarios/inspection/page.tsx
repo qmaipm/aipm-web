@@ -1,4 +1,5 @@
 import Link from "next/link";
+import BeforeAfter from "../BeforeAfter";
 import "../scenarios.css";
 
 export const metadata = {
@@ -21,23 +22,26 @@ export default function Page() {
         </div>
       </section>
 
-      {/* 流程图 */}
-      <section className="band">
-        <div className="wrap">
-          <div className="sec-head"><span className="eyebrow reveal">这件事，AI 接了哪一步</span></div>
-          <div className="flowchart" style={{ marginTop: "46px" }}>
-            <div className="fc reveal"><div className="lane">人原来怎么做</div>
-              <h4>人工抽检、口径不一</h4><p>人工抽检覆盖有限、口径因人而异，事后难以还原是怎么判的。</p><svg className="conn" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" /></svg>
-            </div>
-            <div className="fc now reveal"><div className="lane">AI 现在帮你想好了什么</div>
-              <h4>全量采集、统一评分打标</h4><p>自动采集照片 / 视频，按统一标准评分打标，结构化留痕，形成可回溯证据链。</p><svg className="conn" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" /></svg>
-            </div>
-            <div className="fc last reveal"><div className="lane">人只需做最后那个决定</div>
-              <h4>只看被标出的异常。</h4><p>全量看一遍由 AI 做，人把精力放在异常上。</p>
-            </div>
-          </div>
-        </div>
-      </section>
+      {/* 使用前 / 使用后 */}
+      <BeforeAfter
+        metricBefore="人工抽检 · 覆盖有限"
+        metricAfter="全员全程 · 全量留痕"
+        before={[
+          { st: "抽检", h: "人工抽一部分", p: "靠人挑着看几单。", tag: "覆盖有限" },
+          { st: "打分", h: "凭印象判", p: "口径因人而异。", tag: "不一致" },
+          { st: "追溯", h: "事后难还原", p: "说不清当时是怎么判的。", tag: "没证据" },
+        ]}
+        after={[
+          { st: "采集", h: "照片 / 视频自动采集", p: "每一次服务都进来。", tag: "全量" },
+          { st: "评分", h: "AI 视觉按统一标准评分打标", p: "采样跟着现场数据智能调度。", tag: "一把尺子" },
+          { st: "留痕", h: "结构化标签 + 评分成证据链", p: "每一分都挂着可回看的照片。", tag: "可回溯" },
+        ]}
+        gains={[
+          { k: "全量", b: "抽样里碰运气", a: "覆盖全员、全程，每一次都看" },
+          { k: "公平", b: "松紧因人而异", a: "同一把尺子，由事实决定抽查" },
+          { k: "可追溯", b: "结论后面没有依据", a: "评分背后都挂着证据链" },
+        ]}
+      />
 
       {/* 简短说明 */}
       <section className="band alt">

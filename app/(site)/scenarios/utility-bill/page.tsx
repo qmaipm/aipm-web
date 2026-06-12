@@ -1,4 +1,5 @@
 import Link from "next/link";
+import BeforeAfter from "../BeforeAfter";
 import "../scenarios.css";
 
 export const metadata = {
@@ -21,23 +22,26 @@ export default function Page() {
         </div>
       </section>
 
-      {/* 流程图 */}
-      <section className="band">
-        <div className="wrap">
-          <div className="sec-head"><span className="eyebrow reveal">这件事，AI 接了哪一步</span></div>
-          <div className="flowchart" style={{ marginTop: "46px" }}>
-            <div className="fc reveal"><div className="lane">人原来怎么做</div>
-              <h4>4 个岗位、5–7 天</h4><p>抄表、核对、测算、审批在多个岗位之间流转，签字时多凭经验，前后口径常对不上。</p><svg className="conn" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" /></svg>
-            </div>
-            <div className="fc now reveal"><div className="lane">AI 现在帮你想好了什么</div>
-              <h4>核表、比对、标异常、给依据</h4><p>AI 自动核表，做环比同比，标出异常，并给出该签 / 不该签的依据。</p><svg className="conn" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" /></svg>
-            </div>
-            <div className="fc last reveal"><div className="lane">人只需做最后那个决定</div>
-              <h4>看依据，确认或驳回。</h4><p>签不签由人定，AI 只把判断需要的东西提前备齐。</p>
-            </div>
-          </div>
-        </div>
-      </section>
+      {/* 使用前 / 使用后 */}
+      <BeforeAfter
+        metricBefore="4 个岗位 · 5–7 天"
+        metricAfter="半小时审批"
+        before={[
+          { st: "抄表", h: "工程人员手工抄", p: "本子、手机、IoT 表各自记。", tag: "拖拉 · 漏抄 · 错抄" },
+          { st: "汇总", h: "工程经理手工整理", p: "逐项拼成审批表。", tag: "能力参差 · 格式不一" },
+          { st: "审批", h: "项目→区域→总监逐级签", p: "对着表凭经验签。", tag: "没依据 · 不知该签否" },
+        ]}
+        after={[
+          { st: "抄表", h: "IoT 自动上报 + AI 识表", p: "手机 AI 识别仪表读数。", tag: "即时 · 准确" },
+          { st: "汇总", h: "Agent 自动整理", p: "模型识别空置户与异常读数。", tag: "即时 · 已标注" },
+          { st: "审批", h: "调「月度水电费核算」Skill", p: "环比同比、标异常，给出审批包。", tag: "有据可签" },
+        ]}
+        gains={[
+          { k: "更轻松", b: "天天抄表、天天做表，领导对着空白表挠头", a: "抄表汇总全自动，只决定点不点发送" },
+          { k: "更及时", b: "两三月一次汇总，租户欠费才发现", a: "IoT 即时上报，异常即时告警" },
+          { k: "更高质量", b: "错签、漏签、被动签", a: "历史对照 + 异常标注，每个签字有依据" },
+        ]}
+      />
 
       {/* 简短说明 */}
       <section className="band alt">

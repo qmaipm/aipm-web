@@ -1,4 +1,5 @@
 import Link from "next/link";
+import BeforeAfter from "../BeforeAfter";
 import "../scenarios.css";
 
 export const metadata = {
@@ -21,23 +22,26 @@ export default function Page() {
         </div>
       </section>
 
-      {/* 流程图 */}
-      <section className="band">
-        <div className="wrap">
-          <div className="sec-head"><span className="eyebrow reveal">这件事，AI 接了哪一步</span></div>
-          <div className="flowchart" style={{ marginTop: "46px" }}>
-            <div className="fc reveal"><div className="lane">人原来怎么做</div>
-              <h4>盯群、记录、打电话派人</h4><p>报修散在群里，靠人盯消息、手工记录，再一个个电话找人，容易漏单。</p><svg className="conn" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" /></svg>
-            </div>
-            <div className="fc now reveal"><div className="lane">AI 现在帮你想好了什么</div>
-              <h4>守群采集、自动派单、双向通知</h4><p>平台 Bot 7×24 守群不漏单，FMClaw 自动定位与派单（不到 1 分钟），下单人与接单人双向通知。</p><svg className="conn" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" /></svg>
-            </div>
-            <div className="fc last reveal"><div className="lane">人只需做最后那个决定</div>
-              <h4>异常时介入。</h4><p>平时只看闭环结果，派错或卡住时再出手。</p>
-            </div>
-          </div>
-        </div>
-      </section>
+      {/* 使用前 / 使用后 */}
+      <BeforeAfter
+        metricBefore="几十个群 · 人工守候"
+        metricAfter="派单 < 1 分钟"
+        before={[
+          { st: "守群", h: "客服盯几十个群", p: "报修散在钉钉 / 飞书 / 企微群。", tag: "分身乏术 · 遗漏" },
+          { st: "记单", h: "手工整理对话录入", p: "把对话抄成工单。", tag: "慢 · 错单 · 字段不齐" },
+          { st: "派单跟踪", h: "打电话找工程", p: "做完再人工通知业主。", tag: "链路长 · 没反馈 · 投诉" },
+        ]}
+        after={[
+          { st: "守群", h: "平台 Bot 7×24 守群", p: "自动识别报修意图写入多维表。", tag: "不遗漏 · 不睡觉" },
+          { st: "读表", h: "FMClaw 拉多维表", p: "生成标准化工单 + 现场照片。", tag: "即时 · 准确" },
+          { st: "派单通知", h: "Skill 派单 + 工具双向通知", p: "派单规则匹配，下单接单双向回执。", tag: "派单 < 1 分钟 · 闭环" },
+        ]}
+        gains={[
+          { k: "不遗漏", b: "客服守不住几十个群，漏单", a: "平台 Bot 7×24 守群，一条不漏" },
+          { k: "不延迟", b: "记单、派单、跟踪，链路长", a: "派单 < 1 分钟，自动通知" },
+          { k: "有反馈", b: "客户无反馈，投诉升级", a: "下单人 + 接单人双向通知，闭环" },
+        ]}
+      />
 
       {/* 简短说明 */}
       <section className="band alt">

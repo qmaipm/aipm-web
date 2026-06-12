@@ -1,4 +1,5 @@
 import Link from "next/link";
+import BeforeAfter from "../BeforeAfter";
 import "../scenarios.css";
 
 export const metadata = {
@@ -21,23 +22,26 @@ export default function Page() {
         </div>
       </section>
 
-      {/* 流程图 */}
-      <section className="band">
-        <div className="wrap">
-          <div className="sec-head"><span className="eyebrow reveal">这件事，AI 接了哪一步</span></div>
-          <div className="flowchart" style={{ marginTop: "46px" }}>
-            <div className="fc reveal"><div className="lane">人原来怎么做</div>
-              <h4>一笔笔核量、翻合同、比价</h4><p>月度对账要好几天，逐笔核量、翻合同、比价格，前后口径常对不上。</p><svg className="conn" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" /></svg>
-            </div>
-            <div className="fc now reveal"><div className="lane">AI 现在帮你想好了什么</div>
-              <h4>核量、比对、圈异常、起草</h4><p>按合同自动核量，对比历史与市场，圈出异常，生成账单草稿。</p><svg className="conn" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" /></svg>
-            </div>
-            <div className="fc last reveal"><div className="lane">人只需做最后那个决定</div>
-              <h4>对草稿，确认或驳回。</h4><p>账单最终拍板在人，AI 把草稿和异常都摆好。</p>
-            </div>
-          </div>
-        </div>
-      </section>
+      {/* 使用前 / 使用后 */}
+      <BeforeAfter
+        metricBefore="逐笔核对 · 好几天"
+        metricAfter="当天对完 · 异常自动标"
+        before={[
+          { st: "归集", h: "多源账单分散", p: "供应商、系统、台账各一份。", tag: "口径不一" },
+          { st: "核量比价", h: "逐笔翻合同、比价", p: "对照历史与市场行情。", tag: "慢 · 易错" },
+          { st: "找异常", h: "靠人翻", p: "月底汇总才发现问题。", tag: "漏检" },
+        ]}
+        after={[
+          { st: "归集", h: "数据自动进数据集市", p: "多源账单统一归集。", tag: "统一可查" },
+          { st: "核对", h: "调账单核算 Skill", p: "按合同自动核量、比对历史与市场。", tag: "即时" },
+          { st: "异常归因", h: "自动圈异常并起草", p: "标注异常、生成账单草稿。", tag: "有据可依" },
+        ]}
+        gains={[
+          { k: "更快", b: "月度对账要好几天", a: "数据归集即对，当天对完" },
+          { k: "更准", b: "逐笔人工，口径常对不上", a: "同一份事实核对，圈出异常" },
+          { k: "可追溯", b: "结论难还原依据", a: "草稿与异常都摆好，对账有据可依" },
+        ]}
+      />
 
       {/* 简短说明 */}
       <section className="band alt">
