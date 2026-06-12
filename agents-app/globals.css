@@ -3309,7 +3309,7 @@ button {
 
 /* Logo 图片 - 彩色，统一高度(各 logo 同高、视觉一致) */
 .client-logo-img-stripe {
-    height: clamp(22px, 2.8vw, 30px);
+    height: clamp(26px, 3.4vw, 36px);
     width: auto;
     max-width: 100%;
     object-fit: contain;
