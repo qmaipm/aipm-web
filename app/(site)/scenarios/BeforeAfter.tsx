@@ -1,64 +1,56 @@
-import { Fragment } from "react";
-
-export type Step = { st: string; h: string; p: string; tag: string };
+export type Step = { name: string; before: string; after: string; tag: string };
 export type Gain = { k: string; b: string; a: string };
-
-function Row({ label, kind, steps }: { label: string; kind: "before" | "after"; steps: Step[] }) {
-  return (
-    <div className={`ba-row ${kind} reveal`}>
-      <div className="ba-rowlab"><span className="dot" />{label}</div>
-      <div className="ba-steps">
-        {steps.map((s, i) => (
-          <Fragment key={i}>
-            {i > 0 && <div className="ba-ar" aria-hidden="true">→</div>}
-            <div className="ba-step">
-              <span className="st">{s.st}</span>
-              <h5>{s.h}</h5>
-              <p>{s.p}</p>
-              <span className="tag">{s.tag}</span>
-            </div>
-          </Fragment>
-        ))}
-      </div>
-    </div>
-  );
-}
 
 export default function BeforeAfter({
   metricBefore,
   metricAfter,
-  before,
-  after,
+  steps,
   gains,
 }: {
   metricBefore: string;
   metricAfter: string;
-  before: Step[];
-  after: Step[];
+  steps: Step[];
   gains: Gain[];
 }) {
   return (
     <section className="band">
       <div className="wrap">
-        <div className="sec-head"><span className="eyebrow reveal">使用前 / 使用后</span></div>
+        <div className="sec-head"><span className="eyebrow reveal">效率提升</span></div>
 
-        <div className="ba-metric reveal">
-          <span className="b">{metricBefore}</span>
-          <span className="ar" aria-hidden="true">→</span>
-          <span className="a">{metricAfter}</span>
+        <p className="ba-headline reveal">
+          原来 <span className="old">{metricBefore}</span>，现在 <span className="new">{metricAfter}</span>。
+        </p>
+
+        <div className="ba-steps2 reveal">
+          {steps.map((s, i) => (
+            <div className="ba-srow" key={i}>
+              <div className="ba-sidx">
+                <span className="num">{String(i + 1).padStart(2, "0")}</span>
+                <span className="name">{s.name}</span>
+              </div>
+              <div className="ba-scompare">
+                <div className="ba-line was">
+                  <span className="lbl">过去</span>
+                  <span>{s.before}</span>
+                </div>
+                <div className="ba-line now">
+                  <span className="lbl">现在</span>
+                  <span>{s.after}<em className="tag">{s.tag}</em></span>
+                </div>
+              </div>
+            </div>
+          ))}
         </div>
 
-        <div className="ba-flow">
-          <Row label="使用前 · 传统做法" kind="before" steps={before} />
-          <Row label="使用后 · FMClaw" kind="after" steps={after} />
-        </div>
-
-        <div className="ba-gains reveal">
+        <div className="ba-gains2 reveal">
           {gains.map((g) => (
-            <div className="ba-gain" key={g.k}>
-              <div className="gk">{g.k}</div>
-              <div className="gb">使用前：{g.b}</div>
-              <div className="ga">使用后：{g.a}</div>
+            <div className="ba-g2" key={g.k}>
+              <div className="g2k">{g.k}</div>
+              <p>
+                <span className="was">{g.b}</span>
+                <span className="ar" aria-hidden="true">→</span>
+                {g.a}
+              </p>
             </div>
           ))}
         </div>
