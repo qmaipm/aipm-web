@@ -151,7 +151,7 @@ export default function Page() {
           <div className="sec-head"><span className="eyebrow reveal">相关案例</span></div>
           <div className="grid c2 reveal" style={{ marginTop: "40px" }}>
             <Link className="card hover" href="/cases"><div className="meta">写字楼 · 华南 · 约 7 万㎡</div><h3>缴费、对账、账单由 Agent 跑通</h3><p>一笔预算覆盖五年,账目全程可追溯。</p></Link>
-            <Link className="card hover" href="/cases"><div className="meta">区级国资平台 · 华东省会</div><h3>已在一座省会城市落地</h3><p>国有物业的 AI 化运营,正在沉淀成本地能力。</p></Link>
+            <Link className="card hover" href="/cases"><div className="meta">综合体 · 华南 · 约 6 万㎡</div><h3>一个项目跑成了自治运营</h3><p>日常运营里的判断交给 Agent,现场只保留执行。</p></Link>
           </div>
         </div>
       </section>
