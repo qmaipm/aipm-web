@@ -23,7 +23,7 @@ export default function Home() {
       <section className="home-hero">
         <div className="hero-mesh" />
         <div className="wrap">
-          <h1 className="reveal">一个人，<br />管起过去 51 个人都管不动的事</h1>
+          <h1 className="reveal">一个人，<br />管起过去 <span className="hl">51</span> 个人都管不动的事</h1>
           <p className="attitude reveal">
             <span>Not a demo.</span>
             <span>Not a pilot.</span>
