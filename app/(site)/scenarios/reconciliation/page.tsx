@@ -10,14 +10,14 @@ export const metadata = {
 
 export default function Page() {
   return (
-    <main className="scenario-page sc-amber">
+    <main className="scenario-page scx">
       {/* HERO */}
       <section className="phero">
         <div className="hero-mesh"></div>
         <div className="wrap">
           <div className="crumb reveal"><Link href="/workshop">FMClaw™ 加速营</Link> / 适用场景 / AI 对账</div>
           <span className="eyebrow reveal">适用场景</span>
-          <h1 className="reveal" style={{ marginTop: "18px" }}>AI 对账</h1>
+          <h1 className="reveal">AI 对账</h1>
           <p className="lead reveal">按合同自动核量、对比历史与市场、圈出异常、生成账单草稿，人只需确认或驳回。</p>
         </div>
       </section>
@@ -36,23 +36,16 @@ export default function Page() {
           { k: "更准", b: "逐笔人工，口径常对不上", a: "同一份事实核对，圈出异常" },
           { k: "可追溯", b: "结论难还原依据", a: "草稿与异常都摆好，对账有据可依" },
         ]}
+        note={`AI 接了核量、比对、找异常、起草这几步；人保留对账单的最终确认。它不替换财务流程，只把一份能直接看的草稿和被圈出的异常提前备好。`}
+        solutionHref="/solutions/vendor"
       />
-
-      {/* 简短说明 */}
-      <section className="band alt">
-        <div className="wrap">
-          <div className="sec-head"><span className="eyebrow reveal">谁接了哪一步</span></div>
-          <p className="note reveal">AI 接了核量、比对、找异常、起草这几步；人保留对账单的最终确认。它不替换财务流程，只把一份能直接看的草稿和被圈出的异常提前备好。</p>
-          <p className="reveal" style={{ marginTop: "22px" }}><Link href="/solutions/vendor" style={{ color: "var(--accent)", fontWeight: 600 }}>看完整解决方案 →</Link></p>
-        </div>
-      </section>
 
       {/* 收口 CTA */}
       <section className="endcta">
         <div className="wrap">
-          <h2 className="reveal">想在你自己的数据上,<br />跑通这个场景?</h2>
+          <h2 className="reveal">想在你自己的数据上,跑通这个场景?</h2>
           <p className="reveal">带上你的真实数据，来一次 FMClaw™ 加速营，当场把它跑通。</p>
-          <div className="cta-row reveal"><Link href="/workshop" className="btn btn-primary" style={{ padding: "16px 32px", fontSize: "16.5px" }}>预约 FMClaw™ 加速营 →</Link></div>
+          <div className="cta-row reveal"><Link href="/workshop" className="btn btn-primary">预约 FMClaw™ 加速营 →</Link></div>
         </div>
       </section>
     </main>

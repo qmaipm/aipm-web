@@ -10,13 +10,13 @@ export const metadata: Metadata = {
 
 export default function Page() {
   return (
-    <main>
+    <main className="team">
       {/* HERO（基调保留） */}
       <section className="phero">
         <div className="hero-mesh" />
         <div className="wrap">
           <span className="eyebrow reveal">团队</span>
-          <h1 className="reveal" style={{ marginTop: 20 }}>到现场的,是工程师,<br />不是 PPT 销售</h1>
+          <h1 className="reveal" style={{ marginTop: 20 }}>到现场的是工程师,不是 PPT 销售</h1>
           <p className="lead reveal">
             和你一起坐下来、打开数据、把 Agent 搭起来的人,自己写代码,也懂这个行业怎么运转。
           </p>
@@ -24,29 +24,32 @@ export default function Page() {
       </section>
 
       {/* 创始人（仅实名滕一帆一人） */}
-      <section className="band founders">
+      <section className="tm-band founders">
         <div className="wrap">
           <div className="sec-head">
             <span className="eyebrow reveal">创始人</span>
-            <h2 className="reveal">把公司带到这里的人。</h2>
+            <h2 className="tm-h2 reveal">把公司带到这里的人</h2>
           </div>
-          <div className="grid c2" style={{ marginTop: 48 }}>
-            <div className="card reveal">
-              <div className="avatar" style={{ background: "linear-gradient(135deg,var(--blue),var(--purple))" }}>滕</div>
+          <div className="founder-block reveal">
+            <div className="founder-id">
+              <div className="avatar">滕</div>
               <h3>滕一帆</h3>
               <div className="role">创始人 &amp; CEO</div>
-              <p>算法工程师出身,曾在中科院下属高科技企业从事算法研发。此后是一名连续创业者,也曾在一家 IT 500 强企业担任智慧城市解决方案的区域销售总监。算法、产品与一线市场,他都待过——这让他既清楚技术能做到哪,也清楚客户真正要的是什么。</p>
+            </div>
+            <div className="founder-bio">
+              <p>算法工程师出身,曾在中科院下属高科技企业从事算法研发。此后是一名连续创业者,也曾在一家 IT 500 强企业担任智慧城市解决方案的区域销售总监。</p>
+              <p>算法、产品与一线市场,他都待过——这让他既清楚技术能做到哪,也清楚客户真正要的是什么。启盟「到现场的是工程师」这件事,正是从他自己的路径里长出来的。</p>
             </div>
           </div>
         </div>
       </section>
 
       {/* 核心团队 / FDE（不具名群体叙事） */}
-      <section className="band alt">
+      <section className="tm-band alt">
         <div className="wrap">
           <div className="sec-head">
             <span className="eyebrow reveal">核心团队 · FDE</span>
-            <h2 className="reveal">和你一起搭东西的那群人。</h2>
+            <h2 className="tm-h2 reveal">和你一起搭东西的那群人</h2>
             <p className="sub reveal">FDE,Forward Deployed Engineer,前线部署工程师。</p>
           </div>
           <div className="prose reveal" style={{ marginTop: 36 }}>
@@ -60,48 +63,41 @@ export default function Page() {
       </section>
 
       {/* 投资方背书 */}
-      <section className="band backers">
+      <section className="tm-band backers">
         <div className="wrap">
           <div className="sec-head">
             <span className="eyebrow reveal">投资方</span>
-            <h2 className="reveal">站在我们身后的机构。</h2>
+            <h2 className="tm-h2 reveal">站在我们身后的机构</h2>
             <p className="sub reveal">只列公开可查的机构背景与代表案例,不做渲染。</p>
           </div>
           <div className="grid c2" style={{ marginTop: 48 }}>
-            <div className="card reveal"><div className="k" style={{ background: "var(--blue)" }} />
+            <div className="card reveal"><div className="k" />
               <h3>蓝驰创投</h3>
               <div className="en">Lanchi Ventures</div>
               <div className="aum">管理资产逾 150 亿元</div>
               <p>代表 AI / 硬科技投资:理想汽车、高仙机器人、Genspark、月之暗面。</p>
             </div>
-            <div className="card reveal"><div className="k" style={{ background: "var(--green)" }} />
+            <div className="card reveal"><div className="k" />
               <h3>微光创投</h3>
               <div className="en">WeLight Capital</div>
               <div className="aum">管理资产逾 30 亿元 · 创始合伙人为腾讯前高管</div>
               <p>代表 AI / 智能硬件投资:小鹏汽车、奇朵智能、纬钛机器人、鉴智机器人。</p>
             </div>
           </div>
-        </div>
-      </section>
-
-      {/* 顾问委员会（保留克制处理） */}
-      <section className="band">
-        <div className="wrap">
-          <div className="sec-head">
-            <span className="eyebrow reveal">顾问委员会</span>
-            <h2 className="reveal">如有,稍后公布。</h2>
-            <p className="sub reveal">我们更愿意在确定之后再说,而不是先把名字摆上去。</p>
-          </div>
+          <p className="advisor-note reveal">
+            <span className="adv-lab">顾问委员会</span>
+            如有,我们会在确定之后再公布,而不是先把名字摆上去。
+          </p>
         </div>
       </section>
 
       {/* BOTTOM CTA */}
       <section className="endcta">
         <div className="wrap">
-          <h2 className="reveal">把 AI 接入物业与<br />设施管理的日常运营。</h2>
+          <h2 className="reveal">把 AI 接入物业与设施管理的日常运营</h2>
           <p className="reveal">从你的一个真实业务开始。</p>
           <div className="cta-row reveal">
-            <Link href="/workshop" className="btn btn-primary" style={{ padding: "16px 32px", fontSize: 16.5 }}>预约 FMClaw™ 加速营 →</Link>
+            <Link href="/workshop" className="btn btn-primary">预约 FMClaw™ 加速营 →</Link>
           </div>
         </div>
       </section>

@@ -1,0 +1,83 @@
+/* ============================================================
+   服务分包管理 — 重设计(参考 /products/fmclaw 冷调平台手法)
+   结构:蓝图网格 hero → 结算链路(派工→…→多方确认)→ them vs us + 判词 → CTA
+   全部规则收在 .solsc 作用域内,不泄漏全站。单一字族,蓝绿 VI。
+   ============================================================ */
+.solsc{
+  --s-ink:#14201C; --s-ink-2:#46524D; --s-mut:#7C857F; --s-faint:#A7AFAB;
+  --s-line:#E6EAE8; --s-mist:#ECF3F1; --s-paper:#FFFFFF;
+  --s-blue:#0070FF; --s-green:#12B98A; --s-grad:linear-gradient(115deg,#0070FF,#12B98A);
+  --s-vi-line:rgba(12,139,130,.16);
+  background:var(--s-paper); color:var(--s-ink);
+}
+.solsc .wrap{max-width:1160px;margin:0 auto;padding:0 32px}
+@media(max-width:600px){.solsc .wrap{padding:0 22px}}
+.solsc .grad{background:var(--s-grad);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+@supports not ((-webkit-background-clip:text) or (background-clip:text)){.solsc .grad{color:var(--s-green);-webkit-text-fill-color:currentColor}}
+
+/* 蓝图网格 */
+.sc-grid{position:absolute;inset:0;z-index:0;pointer-events:none;
+  background-image:linear-gradient(to right,var(--s-vi-line) 1px,transparent 1px),
+                   linear-gradient(to bottom,var(--s-vi-line) 1px,transparent 1px);
+  background-size:54px 54px;
+  -webkit-mask-image:radial-gradient(125% 90% at 80% 0%,#000 0%,transparent 62%);
+          mask-image:radial-gradient(125% 90% at 80% 0%,#000 0%,transparent 62%)}
+
+/* HERO */
+.sc-hero{position:relative;overflow:hidden;padding:150px 0 96px;background:var(--s-paper)}
+.sc-hero-top{position:relative;z-index:2}
+.sc-kicker{display:inline-flex;align-items:center;flex-wrap:wrap;font-size:12px;font-weight:600;letter-spacing:.14em;
+  text-transform:uppercase;color:var(--s-mut)}
+.sc-kicker a{color:var(--s-mut)}.sc-kicker a:hover{color:var(--s-green)}
+.sc-kicker i{color:var(--s-green);font-style:normal;margin:0 9px;font-weight:700}
+.sc-h1{margin:22px 0 0;font-weight:800;font-size:clamp(38px,6vw,72px);line-height:1.06;letter-spacing:-.035em;color:var(--s-ink);max-width:18ch}
+.sc-lead{margin:26px 0 0;font-size:clamp(16px,1.8vw,19px);line-height:1.6;color:var(--s-ink-2);max-width:none;font-weight:400}
+.sc-lead b{color:var(--s-ink);font-weight:600}
+.sc-cta{margin-top:38px;display:flex;flex-wrap:wrap;gap:14px;align-items:center}
+
+/* band */
+.sc-band{position:relative;padding:104px 0;background:var(--s-paper)}
+.sc-band.mist{background:var(--s-mist)}
+@media(max-width:700px){.sc-band{padding:76px 0}}
+.sc-eyebrow{display:inline-flex;align-items:center;gap:10px;font-size:12px;font-weight:600;letter-spacing:.2em;
+  text-transform:uppercase;color:var(--s-green)}
+.sc-eyebrow::before{content:"";width:22px;height:2px;border-radius:2px;background:var(--s-grad)}
+.sc-h2{margin:18px 0 0;font-weight:800;font-size:clamp(27px,3.5vw,40px);line-height:1.18;letter-spacing:-.03em;color:var(--s-ink);max-width:none;white-space:nowrap}
+.sc-sub{margin:18px 0 0;font-size:clamp(15px,1.65vw,17px);line-height:1.6;color:var(--s-ink-2);max-width:none}
+.sc-sub b{color:var(--s-ink);font-weight:600}
+@media(max-width:880px){.sc-h2{white-space:normal}}
+
+/* 链路 */
+.sc-chain{margin-top:46px;display:flex;flex-wrap:wrap;align-items:center;gap:12px 10px}
+.sc-node-wrap{display:inline-flex;align-items:center;gap:10px}
+.sc-node{font-size:clamp(15px,1.9vw,18px);font-weight:600;color:var(--s-ink);background:var(--s-paper);
+  border:1px solid var(--s-line);border-radius:13px;padding:13px 22px}
+.sc-node-wrap:last-child .sc-node{color:#fff;border-color:transparent;background:var(--s-grad);box-shadow:0 10px 26px rgba(12,139,130,.22)}
+.sc-arr{font-style:normal;font-weight:700;font-size:18px;color:var(--s-faint)}
+@media(max-width:600px){.sc-chain{gap:9px}.sc-node{padding:11px 16px;font-size:14px}}
+
+/* them vs us */
+.sc-versus{display:grid;grid-template-columns:1fr 56px 1fr;align-items:stretch;margin-top:48px}
+@media(max-width:760px){.sc-versus{grid-template-columns:1fr;gap:14px}}
+.sc-vs{padding:34px 32px;display:flex;flex-direction:column;gap:10px;border-radius:16px;border:1px solid var(--s-line);background:var(--s-paper)}
+.sc-vs.us{background:linear-gradient(180deg,rgba(18,185,138,.08),var(--s-paper));border-color:rgba(18,185,138,.32)}
+.sc-vs-tag{font-size:12px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--s-mut)}
+.sc-vs.us .sc-vs-tag{color:var(--s-green)}
+.sc-vs-line{margin:4px 0 0;font-size:clamp(20px,2.5vw,26px);font-weight:700;letter-spacing:-.02em;color:var(--s-ink);line-height:1.25}
+.sc-vs-sub{font-size:15px;line-height:1.65;color:var(--s-ink-2)}
+.sc-vs-mid{display:grid;place-items:center}
+.sc-vs-mid span{font-size:12px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--s-faint);
+  border:1px solid var(--s-line);border-radius:999px;width:44px;height:44px;display:grid;place-items:center;
+  background:var(--s-paper);box-shadow:0 5px 16px rgba(20,32,28,.07)}
+@media(max-width:760px){.sc-vs-mid span{transform:rotate(90deg)}}
+
+/* 判词 */
+.sc-verdict{position:relative;margin-top:44px;max-width:none;padding-left:22px;
+  font-size:clamp(17px,2vw,22px);font-weight:700;line-height:1.45;letter-spacing:-.015em;color:var(--s-ink)}
+.sc-verdict::before{content:"";position:absolute;left:0;top:6px;bottom:6px;width:3px;border-radius:3px;background:var(--s-grad)}
+.sc-verdict a{color:var(--s-green)}
+.sc-verdict a:hover{text-decoration:underline;text-underline-offset:3px}
+
+/* 可访问性 */
+.solsc a:focus-visible,.solsc .btn:focus-visible{outline:2px solid var(--s-green);outline-offset:3px;border-radius:10px}
+@media(prefers-reduced-motion:reduce){.solsc *{transition:none!important}}

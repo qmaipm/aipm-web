@@ -1,0 +1,75 @@
+/* ============================================================
+   设备巡检管理 — 重设计(参考 /products/fmclaw 冷调平台手法)
+   结构:蓝图网格 hero → 能力梯(巡到/巡实/真数据)→ 暗场签名判词 → CTA
+   全部规则收在 .solin 作用域内,不泄漏全站。单一字族,蓝绿 VI。
+   ============================================================ */
+.solin{
+  --i-ink:#14201C; --i-ink-2:#46524D; --i-mut:#7C857F; --i-faint:#A7AFAB;
+  --i-line:#E6EAE8; --i-mist:#ECF3F1; --i-paper:#FFFFFF; --i-core:#0B1714;
+  --i-blue:#0070FF; --i-green:#12B98A; --i-grad:linear-gradient(115deg,#0070FF,#12B98A);
+  --i-vi-line:rgba(12,139,130,.16);
+  background:var(--i-paper); color:var(--i-ink);
+}
+.solin .wrap{max-width:1160px;margin:0 auto;padding:0 32px}
+@media(max-width:600px){.solin .wrap{padding:0 22px}}
+.solin .grad{background:var(--i-grad);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+@supports not ((-webkit-background-clip:text) or (background-clip:text)){.solin .grad{color:var(--i-green);-webkit-text-fill-color:currentColor}}
+
+/* 蓝图网格 */
+.in-grid{position:absolute;inset:0;z-index:0;pointer-events:none;
+  background-image:linear-gradient(to right,var(--i-vi-line) 1px,transparent 1px),
+                   linear-gradient(to bottom,var(--i-vi-line) 1px,transparent 1px);
+  background-size:54px 54px;
+  -webkit-mask-image:radial-gradient(125% 90% at 80% 0%,#000 0%,transparent 62%);
+          mask-image:radial-gradient(125% 90% at 80% 0%,#000 0%,transparent 62%)}
+.in-grid.dark{background-image:linear-gradient(to right,rgba(63,217,184,.10) 1px,transparent 1px),
+                   linear-gradient(to bottom,rgba(63,217,184,.10) 1px,transparent 1px)}
+
+/* HERO */
+.in-hero{position:relative;overflow:hidden;padding:150px 0 96px;background:var(--i-paper)}
+.in-hero-top{position:relative;z-index:2}
+.in-kicker{display:inline-flex;align-items:center;flex-wrap:wrap;font-size:12px;font-weight:600;letter-spacing:.14em;
+  text-transform:uppercase;color:var(--i-mut)}
+.in-kicker a{color:var(--i-mut)}.in-kicker a:hover{color:var(--i-green)}
+.in-kicker i{color:var(--i-green);font-style:normal;margin:0 9px;font-weight:700}
+.in-h1{margin:22px 0 0;font-weight:800;font-size:clamp(38px,6vw,72px);line-height:1.06;letter-spacing:-.035em;color:var(--i-ink);max-width:18ch}
+.in-lead{margin:26px 0 0;font-size:clamp(16px,1.8vw,19px);line-height:1.6;color:var(--i-ink-2);max-width:none;font-weight:400}
+.in-lead b{color:var(--i-ink);font-weight:600}
+.in-cta{margin-top:38px;display:flex;flex-wrap:wrap;gap:14px;align-items:center}
+
+/* band */
+.in-band{position:relative;padding:104px 0;background:var(--i-paper)}
+.in-band.mist{background:var(--i-mist)}
+@media(max-width:700px){.in-band{padding:76px 0}}
+.in-eyebrow{display:inline-flex;align-items:center;gap:10px;font-size:12px;font-weight:600;letter-spacing:.2em;
+  text-transform:uppercase;color:var(--i-green)}
+.in-eyebrow::before{content:"";width:22px;height:2px;border-radius:2px;background:var(--i-grad)}
+.in-h2{margin:18px 0 0;font-weight:800;font-size:clamp(27px,3.5vw,40px);line-height:1.18;letter-spacing:-.03em;color:var(--i-ink);max-width:none;white-space:nowrap}
+.in-sub{margin:18px 0 0;font-size:clamp(15px,1.65vw,17px);line-height:1.6;color:var(--i-ink-2);max-width:none}
+.in-sub b{color:var(--i-ink);font-weight:600}
+@media(max-width:880px){.in-h2{white-space:normal}}
+
+/* 能力梯 */
+.in-ladder{margin-top:46px;display:flex;flex-direction:column;border-top:1px solid var(--i-line)}
+.in-step{display:grid;grid-template-columns:160px 1fr;gap:26px;align-items:start;padding:30px 0;border-bottom:1px solid var(--i-line)}
+@media(max-width:680px){.in-step{grid-template-columns:1fr;gap:12px;padding:26px 0}}
+.in-step-k{display:flex;align-items:baseline;gap:14px}
+.in-no{font-size:clamp(34px,4.4vw,50px);font-weight:800;line-height:.9;letter-spacing:-.03em;font-variant-numeric:tabular-nums}
+.in-step-tag{font-size:13px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--i-green)}
+.in-step-c h3{margin:0 0 10px;font-size:clamp(19px,2.2vw,23px);font-weight:700;letter-spacing:-.015em;color:var(--i-ink);line-height:1.25}
+.in-step-c p{margin:0;font-size:clamp(13.5px,1.5vw,15px);line-height:1.65;color:var(--i-ink-2);max-width:none}
+
+/* 暗场签名 */
+.in-core{position:relative;overflow:hidden;background:var(--i-core);color:#E8EFEC;padding:120px 0}
+@media(max-width:700px){.in-core{padding:84px 0}}
+.in-core .wrap{position:relative;z-index:1}
+.in-eyebrow.on-dark{color:#3fd9b8}
+.in-h2.on-dark{color:#fff}
+.in-core-lead{margin:20px 0 0;font-size:clamp(15px,1.7vw,17px);line-height:1.65;color:#AEBAB5;max-width:none}
+.in-verdict{position:relative;margin-top:38px;max-width:none;padding-left:22px;
+  font-size:clamp(19px,2.4vw,28px);font-weight:800;line-height:1.35;letter-spacing:-.02em;color:#fff}
+.in-verdict::before{content:"";position:absolute;left:0;top:6px;bottom:6px;width:3px;border-radius:3px;background:var(--i-grad)}
+
+/* 可访问性 */
+.solin a:focus-visible,.solin .btn:focus-visible{outline:2px solid var(--i-green);outline-offset:3px;border-radius:10px}
+@media(prefers-reduced-motion:reduce){.solin *{transition:none!important}}

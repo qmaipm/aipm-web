@@ -12,8 +12,18 @@ services:
       context: .
     image: aipm-web:latest
     restart: unless-stopped
+    # 运行时变量经 pb 生成的 .env 做 ${} 插值后,在此显式注入容器(服务端 env,不下发浏览器)。
+    # 非密钥(SITE_*/SMTP_HOST/PORT/MAIL_*)来自 conf;密钥(SMTP_USER/PASS/WECHAT_*)来自部署机 secrets 文件。
     environment:
-      SITE_ENV: ${SITE_ENV}
-      SITE_URL: ${SITE_URL}
+      SITE_ENV: "${SITE_ENV}"
+      SITE_URL: "${SITE_URL}"
+      SMTP_HOST: "${SMTP_HOST:-smtp.qiye.aliyun.com}"
+      SMTP_PORT: "${SMTP_PORT:-465}"
+      SMTP_USER: "${SMTP_USER:-}"
+      SMTP_PASS: "${SMTP_PASS:-}"
+      MAIL_TO: "${MAIL_TO:-}"
+      MAIL_CC: "${MAIL_CC:-}"
+      WECHAT_APPID: "${WECHAT_APPID:-}"
+      WECHAT_APPSECRET: "${WECHAT_APPSECRET:-}"
     ports:
       - "${AIPM_WEB_HOST_PORT}:3000"

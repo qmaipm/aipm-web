@@ -21,8 +21,9 @@ export default function MissionBackdrop() {
     const SPACING = 30;
     const BAND = 50;
     const GLOW = [
-      [40, 130, 255], // blue
-      [30, 200, 150], // green
+      [0, 112, 255],  // VI blue — 智能体/在线
+      [18, 185, 138], // VI green — 蓝绿 VI 第二主色
+      [206, 150, 86], // human — 人的最后一个决定(稀疏点缀)
     ];
 
     let w = 0;
@@ -46,7 +47,11 @@ export default function MissionBackdrop() {
         for (let c = 0; c < cols; c++) {
           const jx = ((Math.sin(r * 12.9 + c * 4.1) + 1) / 2 - 0.5) * 6;
           const jy = ((Math.sin(r * 6.3 + c * 9.7) + 1) / 2 - 0.5) * 6;
-          dots.push({ x: c * SPACING + jx, y: r * SPACING + jy, c: GLOW[(r + c) % 2], lit: 0 });
+          // 蓝绿 VI 双色为主(蓝多绿少);每隔若干点散布一颗 human 琥珀,呼应「人只做最后那个决定」
+          const human = (r * 7 + c * 3) % 17 === 0;
+          const green = !human && (r * 3 + c * 5) % 4 === 0;
+          const col = human ? GLOW[2] : green ? GLOW[1] : GLOW[0];
+          dots.push({ x: c * SPACING + jx, y: r * SPACING + jy, c: col, lit: 0 });
         }
       }
     };

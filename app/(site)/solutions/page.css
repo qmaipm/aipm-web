@@ -1,89 +1,93 @@
-/* Page-specific styles for /solutions (from prototype inline <style>). */
-.tagm {
-  display: inline-flex;
-  align-items: center;
-  gap: 7px;
-  font-family: "JetBrains Mono";
-  font-size: 11px;
-  letter-spacing: .08em;
-  color: var(--mut);
-  border: 1px solid var(--line);
-  border-radius: 999px;
-  padding: 3px 10px;
-  margin-top: 14px;
+/* ============================================================
+   /solutions —— 解决方案 hub 重构(参考 /products/fmclaw 冷调平台手法)
+   方向:上层引擎(四 Agent 接力)→ 下层方案(共用同一套服务感知数据)。
+   结构:蓝图网格 hero → 白/雾灰斑马纹 band + 方案卡。
+   全部规则收在 .solhub 作用域内,不泄漏全站。单一字族,蓝绿 VI。
+   ============================================================ */
+.solhub{
+  --h-ink:#14201C; --h-ink-2:#46524D; --h-mut:#7C857F; --h-faint:#A7AFAB;
+  --h-line:#E6EAE8; --h-mist:#ECF3F1; --h-paper:#FFFFFF;
+  --h-blue:#0070FF; --h-green:#12B98A; --h-grad:linear-gradient(115deg,#0070FF,#12B98A);
+  --h-vi-line:rgba(12,139,130,.16);
+  background:var(--h-paper); color:var(--h-ink);
 }
-.tagm i {
-  width: 5px;
-  height: 5px;
-  border-radius: 50%;
-  background: var(--gold);
-  display: block;
-}
-.calmline {
-  margin-top: 40px;
-  font-size: 17px;
-  color: var(--ink-2);
-  line-height: 1.7;
-  max-width: 50ch;
-}
-.calmline a {
-  color: var(--ink);
-  text-decoration: underline;
-  text-underline-offset: 3px;
-  text-decoration-color: var(--line);
-}
-.card.lk {
-  display: block;
-}
-.card.lk h3 .ar {
-  transition: transform .2s;
-  vertical-align: middle;
-  margin-left: 4px;
-}
-.card.lk:hover h3 .ar {
-  transform: translateX(3px);
-}
+.solhub .wrap{max-width:1160px;margin:0 auto;padding:0 32px}
+@media(max-width:600px){.solhub .wrap{padding:0 22px}}
+.solhub .grad{background:var(--h-grad);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+@supports not ((-webkit-background-clip:text) or (background-clip:text)){.solhub .grad{color:var(--h-green);-webkit-text-fill-color:currentColor}}
 
-/* 产品套件高亮卡(上层引擎) */
-.sol-suite {
-  display: block;
-  max-width: var(--measure);
-  margin-top: 8px;
-  padding: 36px 38px;
-  border: 1px solid #cfe7dc;
-  border-radius: 18px;
-  background: linear-gradient(180deg, rgba(18, 185, 138, .07), var(--paper));
-  transition: box-shadow .2s, transform .2s;
-}
-.sol-suite:hover {
-  box-shadow: 0 14px 44px rgba(26, 25, 22, .08);
-}
-.sol-suite .meta {
-  font-family: "JetBrains Mono";
-  font-size: 11.5px;
-  letter-spacing: .12em;
-  text-transform: uppercase;
-  color: var(--green);
-}
-.sol-suite h2 {
-  font-size: clamp(24px, 3vw, 32px);
-  margin: 12px 0 14px;
-  color: var(--ink);
-}
-.sol-suite p {
-  margin: 0;
-  max-width: 54ch;
-  font-size: 16px;
-  line-height: 1.7;
-  color: var(--ink-2);
-}
-.sol-suite .go {
-  display: inline-block;
-  margin-top: 18px;
-  color: var(--green);
-  font-weight: 600;
-  font-size: 15px;
-}
-@media (max-width: 600px) {
-  .sol-suite { padding: 28px 24px; }
-}
+/* 蓝图网格 */
+.sh-grid{position:absolute;inset:0;z-index:0;pointer-events:none;
+  background-image:linear-gradient(to right,var(--h-vi-line) 1px,transparent 1px),
+                   linear-gradient(to bottom,var(--h-vi-line) 1px,transparent 1px);
+  background-size:54px 54px;
+  -webkit-mask-image:radial-gradient(125% 90% at 80% 0%,#000 0%,transparent 62%);
+          mask-image:radial-gradient(125% 90% at 80% 0%,#000 0%,transparent 62%)}
+
+/* HERO */
+.sh-hero{position:relative;overflow:hidden;padding:150px 0 92px;background:var(--h-paper)}
+@media(max-width:700px){.sh-hero{padding:124px 0 72px}}
+.sh-hero-top{position:relative;z-index:1}
+.sh-h1{margin:22px 0 0;font-weight:800;font-size:clamp(38px,6vw,68px);line-height:1.08;letter-spacing:-.03em;color:var(--h-ink);max-width:18ch}
+.sh-lead{margin:26px 0 0;font-size:clamp(17px,2vw,21px);line-height:1.6;color:var(--h-ink-2);max-width:none}
+
+/* band(斑马纹:白 / 雾灰 交替) */
+.sh-band{position:relative;padding:104px 0;background:var(--h-paper)}
+.sh-band.mist{background:var(--h-mist)}
+@media(max-width:700px){.sh-band{padding:76px 0}}
+.sh-eyebrow{display:inline-flex;align-items:center;gap:10px;font-size:12px;font-weight:600;letter-spacing:.2em;
+  text-transform:uppercase;color:var(--h-green)}
+.sh-eyebrow::before{content:"";width:22px;height:2px;border-radius:2px;background:var(--h-grad)}
+.sh-h2{margin:16px 0 0;font-weight:800;font-size:clamp(27px,3.5vw,40px);line-height:1.18;letter-spacing:-.03em;color:var(--h-ink);max-width:none;white-space:nowrap}
+@media(max-width:880px){.sh-h2{white-space:normal}}
+.sh-sub{margin:18px 0 0;font-size:clamp(15px,1.65vw,17px);line-height:1.65;color:var(--h-ink-2);max-width:none}
+
+/* 引擎 · 四 Agent 接力 */
+.sh-relay{margin:42px 0 0;display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+@media(max-width:760px){.sh-relay{grid-template-columns:1fr 1fr}}
+@media(max-width:440px){.sh-relay{grid-template-columns:1fr}}
+.sh-relay-step{position:relative;border:1px solid var(--h-line);border-radius:13px;background:var(--h-paper);padding:24px 20px 22px;display:flex;flex-direction:column;gap:7px}
+.sh-relay-step::before{content:"";position:absolute;left:-1px;right:-1px;top:-1px;height:3px;border-radius:13px 13px 0 0;background:var(--h-grad)}
+.sh-relay-i{font-size:12px;font-weight:700;letter-spacing:.1em;color:var(--h-green)}
+.sh-relay-n{font-size:18px;font-weight:700;letter-spacing:-.01em;color:var(--h-ink)}
+.sh-relay-d{font-size:13.5px;color:var(--h-mut)}
+.sh-relay-arr{position:absolute;right:-11px;top:50%;transform:translateY(-50%);z-index:2;width:22px;height:22px;
+  display:grid;place-items:center;font-weight:800;color:var(--h-green);background:var(--h-paper);border-radius:50%}
+.sh-band.mist .sh-relay-arr{background:var(--h-mist)}
+@media(max-width:760px){.sh-relay-arr{display:none}}
+
+/* 链接 */
+.sh-link{margin-top:26px;display:inline-flex;align-items:center;gap:8px;color:var(--h-green);font-weight:600;font-size:15.5px}
+.sh-link:hover .ar{transform:translateX(3px)}
+.solhub .ar{transition:transform .2s}
+
+/* 数据之井 · 判词 */
+.sh-well{position:relative;margin:22px 0 0;padding-left:20px;max-width:none;
+  font-size:clamp(18px,2.2vw,24px);font-weight:700;line-height:1.42;letter-spacing:-.015em;color:var(--h-ink)}
+.sh-well::before{content:"";position:absolute;left:0;top:6px;bottom:6px;width:3px;border-radius:3px;background:var(--h-grad)}
+
+/* 方案卡 */
+.sh-cards{margin-top:40px;display:grid;gap:16px}
+.sh-cards.c4{grid-template-columns:repeat(4,1fr)}
+.sh-cards.c3{grid-template-columns:repeat(3,1fr)}
+@media(max-width:900px){.sh-cards.c4{grid-template-columns:1fr 1fr}}
+@media(max-width:760px){.sh-cards.c3{grid-template-columns:1fr}}
+@media(max-width:560px){.sh-cards.c4{grid-template-columns:1fr}}
+.sh-card{position:relative;display:flex;flex-direction:column;gap:9px;border:1px solid var(--h-line);border-radius:16px;
+  background:var(--h-paper);padding:25px 22px 26px;transition:transform .2s,box-shadow .2s,border-color .2s}
+.sh-card::before{content:"";position:absolute;left:-1px;right:-1px;top:-1px;height:3px;border-radius:16px 16px 0 0;background:var(--h-grad);opacity:.9}
+.sh-card:hover{transform:translateY(-3px);box-shadow:0 16px 38px rgba(12,139,130,.10);border-color:rgba(12,139,130,.30)}
+.sh-card-tag{font-size:11.5px;font-weight:700;letter-spacing:.12em;color:var(--h-green)}
+.sh-card h3{margin:2px 0 0;font-size:19px;font-weight:700;letter-spacing:-.01em;color:var(--h-ink);display:flex;align-items:center;gap:6px}
+.sh-card h3 .ar{color:var(--h-green)}
+.sh-card:hover h3 .ar{transform:translateX(3px)}
+.sh-card p{margin:0;font-size:14px;line-height:1.6;color:var(--h-ink-2)}
+
+/* calmline */
+.sh-calm{margin-top:42px;font-size:16px;line-height:1.7;color:var(--h-ink-2);max-width:none}
+.sh-calm a{color:var(--h-green);font-weight:600;display:inline-flex;align-items:center;gap:6px}
+.sh-calm a:hover .ar{transform:translateX(3px)}
+
+/* 可访问性 / 动效降级 */
+.solhub a:focus-visible,.solhub .btn:focus-visible{outline:2px solid var(--h-green);outline-offset:3px;border-radius:10px}
+@media(prefers-reduced-motion:reduce){.solhub *{transition:none!important}}

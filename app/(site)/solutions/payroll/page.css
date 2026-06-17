@@ -1,0 +1,73 @@
+/* ============================================================
+   人员薪酬管理 — 重设计(参考 /products/fmclaw 冷调平台手法)
+   结构:蓝图网格 hero → them vs us(月底拼账/过程即结果)+ 判词 → CTA
+   全部规则收在 .solpay 作用域内,不泄漏全站。单一字族,蓝绿 VI。
+   ============================================================ */
+.solpay{
+  --p-ink:#14201C; --p-ink-2:#46524D; --p-mut:#7C857F; --p-faint:#A7AFAB;
+  --p-line:#E6EAE8; --p-mist:#ECF3F1; --p-paper:#FFFFFF;
+  --p-blue:#0070FF; --p-green:#12B98A; --p-grad:linear-gradient(115deg,#0070FF,#12B98A);
+  --p-vi-line:rgba(12,139,130,.16);
+  background:var(--p-paper); color:var(--p-ink);
+}
+.solpay .wrap{max-width:1160px;margin:0 auto;padding:0 32px}
+@media(max-width:600px){.solpay .wrap{padding:0 22px}}
+.solpay .grad{background:var(--p-grad);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+@supports not ((-webkit-background-clip:text) or (background-clip:text)){.solpay .grad{color:var(--p-green);-webkit-text-fill-color:currentColor}}
+
+/* 蓝图网格 */
+.pay-grid{position:absolute;inset:0;z-index:0;pointer-events:none;
+  background-image:linear-gradient(to right,var(--p-vi-line) 1px,transparent 1px),
+                   linear-gradient(to bottom,var(--p-vi-line) 1px,transparent 1px);
+  background-size:54px 54px;
+  -webkit-mask-image:radial-gradient(125% 90% at 80% 0%,#000 0%,transparent 62%);
+          mask-image:radial-gradient(125% 90% at 80% 0%,#000 0%,transparent 62%)}
+
+/* HERO */
+.pay-hero{position:relative;overflow:hidden;padding:150px 0 96px;background:var(--p-paper)}
+.pay-hero-top{position:relative;z-index:2}
+.pay-kicker{display:inline-flex;align-items:center;flex-wrap:wrap;font-size:12px;font-weight:600;letter-spacing:.14em;
+  text-transform:uppercase;color:var(--p-mut)}
+.pay-kicker a{color:var(--p-mut)}.pay-kicker a:hover{color:var(--p-green)}
+.pay-kicker i{color:var(--p-green);font-style:normal;margin:0 9px;font-weight:700}
+.pay-h1{margin:22px 0 0;font-weight:800;font-size:clamp(38px,6vw,72px);line-height:1.06;letter-spacing:-.035em;color:var(--p-ink);max-width:18ch}
+.pay-lead{margin:26px 0 0;font-size:clamp(16px,1.8vw,19px);line-height:1.6;color:var(--p-ink-2);max-width:none;font-weight:400}
+.pay-lead b{color:var(--p-ink);font-weight:600}
+.pay-cta{margin-top:38px;display:flex;flex-wrap:wrap;gap:14px;align-items:center}
+
+/* band */
+.pay-band{position:relative;padding:104px 0;background:var(--p-paper)}
+.pay-band.mist{background:var(--p-mist)}
+@media(max-width:700px){.pay-band{padding:76px 0}}
+.pay-eyebrow{display:inline-flex;align-items:center;gap:10px;font-size:12px;font-weight:600;letter-spacing:.2em;
+  text-transform:uppercase;color:var(--p-green)}
+.pay-eyebrow::before{content:"";width:22px;height:2px;border-radius:2px;background:var(--p-grad)}
+.pay-h2{margin:18px 0 0;font-weight:800;font-size:clamp(27px,3.5vw,40px);line-height:1.18;letter-spacing:-.03em;color:var(--p-ink);max-width:none;white-space:nowrap}
+@media(max-width:880px){.pay-h2{white-space:normal}}
+
+/* them vs us */
+.pay-versus{display:grid;grid-template-columns:1fr 56px 1fr;align-items:stretch;margin-top:48px}
+@media(max-width:760px){.pay-versus{grid-template-columns:1fr;gap:14px}}
+.pay-vs{padding:34px 32px;display:flex;flex-direction:column;gap:10px;border-radius:16px;border:1px solid var(--p-line);background:var(--p-paper)}
+.pay-vs.us{background:linear-gradient(180deg,rgba(18,185,138,.08),var(--p-paper));border-color:rgba(18,185,138,.32)}
+.pay-vs-tag{font-size:12px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--p-mut)}
+.pay-vs.us .pay-vs-tag{color:var(--p-green)}
+.pay-vs-line{margin:4px 0 0;font-size:clamp(20px,2.5vw,26px);font-weight:700;letter-spacing:-.02em;color:var(--p-ink);line-height:1.25}
+.pay-vs-sub{font-size:15px;line-height:1.65;color:var(--p-ink-2)}
+.pay-vs-mid{display:grid;place-items:center}
+.pay-vs-mid span{font-size:12px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--p-faint);
+  border:1px solid var(--p-line);border-radius:999px;width:44px;height:44px;display:grid;place-items:center;
+  background:var(--p-mist);box-shadow:0 5px 16px rgba(20,32,28,.07)}
+@media(max-width:760px){.pay-vs-mid span{transform:rotate(90deg)}}
+
+/* 判词 + 链接 */
+.pay-verdict{position:relative;margin-top:44px;max-width:none;padding-left:22px;
+  font-size:clamp(17px,2vw,22px);font-weight:700;line-height:1.45;letter-spacing:-.015em;color:var(--p-ink)}
+.pay-verdict::before{content:"";position:absolute;left:0;top:6px;bottom:6px;width:3px;border-radius:3px;background:var(--p-grad)}
+.pay-link{margin-top:18px;font-size:15px;line-height:1.7;color:var(--p-mut)}
+.pay-link a{color:var(--p-green);font-weight:600}
+.pay-link a:hover{text-decoration:underline;text-underline-offset:3px}
+
+/* 可访问性 */
+.solpay a:focus-visible,.solpay .btn:focus-visible{outline:2px solid var(--p-green);outline-offset:3px;border-radius:10px}
+@media(prefers-reduced-motion:reduce){.solpay *{transition:none!important}}

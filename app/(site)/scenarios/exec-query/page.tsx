@@ -10,14 +10,14 @@ export const metadata = {
 
 export default function Page() {
   return (
-    <main className="scenario-page sc-green">
+    <main className="scenario-page scx">
       {/* HERO */}
       <section className="phero">
         <div className="hero-mesh"></div>
         <div className="wrap">
           <div className="crumb reveal"><Link href="/workshop">FMClaw™ 加速营</Link> / 适用场景 / 管理层问询</div>
           <span className="eyebrow reveal">适用场景</span>
-          <h1 className="reveal" style={{ marginTop: "18px" }}>管理层问询</h1>
+          <h1 className="reveal">管理层问询</h1>
           <p className="lead reveal">领导在钉钉里 @ 一句"A 楼上月能耗为什么超标"，AI 做能耗归因，秒级给出带原因的回答与简报。</p>
         </div>
       </section>
@@ -36,22 +36,15 @@ export default function Page() {
           { k: "不只是查询", b: "拿到一张还要自己解读的表", a: "带原因的结论，还能直接发起动作" },
           { k: "权限沿用", b: "数据谁能看靠人把关", a: "按钉钉 / 飞书的组织架构与 IAM" },
         ]}
+        note={`问询入口仍是钉钉对话框，用户不换工具；AI 在底层把能耗归因做完。人拿到的是带原因的结论与简报，省掉了中间翻数据、做分析那几天。`}
       />
-
-      {/* 简短说明 */}
-      <section className="band alt">
-        <div className="wrap">
-          <div className="sec-head"><span className="eyebrow reveal">谁接了哪一步</span></div>
-          <p className="note reveal">问询入口仍是钉钉对话框，用户不换工具；AI 在底层把能耗归因做完。人拿到的是带原因的结论与简报，省掉了中间翻数据、做分析那几天。</p>
-        </div>
-      </section>
 
       {/* 收口 CTA */}
       <section className="endcta">
         <div className="wrap">
-          <h2 className="reveal">想在你自己的数据上,<br />跑通这个场景?</h2>
+          <h2 className="reveal">想在你自己的数据上,跑通这个场景?</h2>
           <p className="reveal">带上你的真实数据，来一次 FMClaw™ 加速营，当场把它跑通。</p>
-          <div className="cta-row reveal"><Link href="/workshop" className="btn btn-primary" style={{ padding: "16px 32px", fontSize: "16.5px" }}>预约 FMClaw™ 加速营 →</Link></div>
+          <div className="cta-row reveal"><Link href="/workshop" className="btn btn-primary">预约 FMClaw™ 加速营 →</Link></div>
         </div>
       </section>
     </main>

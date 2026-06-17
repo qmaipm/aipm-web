@@ -1,28 +1,78 @@
-/* 机器人展示区块 */
-.rgrid{display:grid; grid-template-columns:1.04fr .96fr; gap:50px; align-items:center; margin-top:40px}
-@media(max-width:880px){.rgrid{grid-template-columns:1fr; gap:30px}}
-.rgrid.rev .rphoto{order:2}
-@media(max-width:880px){.rgrid.rev .rphoto{order:0}}
+/* ============================================================
+   机器人装备 — 重设计
+   方向:冷调「操作底座」,与 FMClaw 产品页同族(sibling)。
+   签名 = 实拍装备 + 蓝绿渐变规格数(spec table 是这一页的特征材料)。
+   全站单一字族,靠尺度/字重/字距出性格。规则全收在 .robx 作用域内。
+   ============================================================ */
+.robx{
+  --ro-ink:#14201C; --ro-ink-2:#46524D; --ro-mut:#7C857F; --ro-faint:#A7AFAB;
+  --ro-line:#E6EAE8; --ro-line-2:#EEF2F0; --ro-mist:#ECF3F1; --ro-paper:#FFFFFF;
+  --ro-blue:#0070FF; --ro-green:#12B98A; --ro-grad:linear-gradient(115deg,#0070FF,#12B98A);
+  --ro-vi-line:rgba(12,139,130,.16);
+  background:var(--ro-paper); color:var(--ro-ink);
+}
+.robx .wrap{max-width:1160px;margin:0 auto;padding:0 32px}
+@media(max-width:600px){.robx .wrap{padding:0 22px}}
+.robx .grad{background:var(--ro-grad);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+@supports not ((-webkit-background-clip:text) or (background-clip:text)){.robx .grad{color:var(--ro-green);-webkit-text-fill-color:currentColor}}
 
-.rphoto{position:relative; border:1px solid var(--line); border-radius:18px; overflow:hidden; background:var(--ivory-2); aspect-ratio:4/3}
-.rphoto .ph{position:absolute; inset:0; z-index:0; display:grid; place-items:center; align-content:center; text-align:center; gap:10px;
-  color:var(--mut); font-family:"JetBrains Mono"; font-size:12px; letter-spacing:.05em; padding:24px; line-height:1.5}
-.rphoto .ph svg{width:36px; height:36px; color:var(--mut-2)}
-.rphoto .ph small{color:var(--mut-2); font-size:10.5px; letter-spacing:.02em}
-.rphoto img{position:relative; z-index:1; width:100%; height:100%; object-fit:cover; display:block}
+/* 蓝图网格 */
+.rob-grid{position:absolute;inset:0;z-index:0;pointer-events:none;
+  background-image:linear-gradient(to right,var(--ro-vi-line) 1px,transparent 1px),
+                   linear-gradient(to bottom,var(--ro-vi-line) 1px,transparent 1px);
+  background-size:54px 54px;
+  -webkit-mask-image:radial-gradient(125% 90% at 80% 0%,#000 0%,transparent 62%);
+          mask-image:radial-gradient(125% 90% at 80% 0%,#000 0%,transparent 62%)}
 
-.hl{display:inline-flex; align-items:center; gap:6px; font-family:"JetBrains Mono"; font-size:11px; letter-spacing:.06em;
-  color:var(--gold); background:rgba(245,158,11,.12); border:1px solid rgba(245,158,11,.32); border-radius:100px; padding:4px 11px}
-.rlead{font-size:15.5px; color:var(--ink-2); line-height:1.74; margin-top:16px; max-width:46ch}
-.rdesc{font-size:15px; color:var(--mut); line-height:1.72; margin-top:14px; max-width:46ch}
+/* ---------- HERO ---------- */
+.rob-hero{position:relative;overflow:hidden;padding:150px 0 96px;background:var(--ro-paper)}
+.rob-hero-top{position:relative;z-index:2}
+.rob-kicker{display:inline-flex;align-items:center;flex-wrap:wrap;font-size:12px;font-weight:600;letter-spacing:.14em;
+  text-transform:uppercase;color:var(--ro-mut)}
+.rob-kicker i{color:var(--ro-green);font-style:normal;margin:0 9px;font-weight:700}
+.rob-h1{margin:22px 0 0;font-weight:800;font-size:clamp(38px,6vw,72px);line-height:1.06;letter-spacing:-.035em;color:var(--ro-ink)}
+.rob-lead{margin:26px 0 0;font-size:clamp(16px,1.8vw,19px);line-height:1.6;color:var(--ro-ink-2);max-width:none;font-weight:400}
+.rob-cta{margin-top:38px;display:flex;flex-wrap:wrap;gap:14px;align-items:center}
 
-.feat{display:grid; grid-template-columns:1fr 1fr; gap:16px 20px; margin-top:26px}
-@media(max-width:520px){.feat{grid-template-columns:1fr}}
-.fi .ft{font-size:14.5px; font-weight:600; color:var(--ink); display:flex; align-items:center; gap:8px}
-.fi .ft::before{content:""; width:7px; height:7px; border-radius:50%; background:var(--mc); flex:none}
-.fi p{font-size:13px; color:var(--mut); line-height:1.6; margin-top:6px; padding-left:15px}
+/* ---------- 通用 band ---------- */
+.rob-band{position:relative;padding:104px 0;background:var(--ro-paper)}
+.rob-band.mist{background:var(--ro-mist)}
+@media(max-width:700px){.rob-band{padding:76px 0}}
+.rob-head{max-width:none}
+.rob-eyebrow{display:inline-flex;align-items:center;gap:10px;font-size:12px;font-weight:600;letter-spacing:.2em;
+  text-transform:uppercase;color:var(--ro-green)}
+.rob-eyebrow::before{content:"";width:22px;height:2px;border-radius:2px;background:var(--ro-grad)}
+.rob-h2{margin:18px 0 0;font-weight:800;font-size:clamp(27px,3.5vw,40px);line-height:1.18;letter-spacing:-.03em;
+  color:var(--ro-ink);max-width:none;white-space:nowrap;display:flex;align-items:center;gap:14px;flex-wrap:wrap}
+@media(max-width:880px){.rob-h2{white-space:normal}}
+.rob-hl{display:inline-flex;align-items:center;font-size:11px;font-weight:700;letter-spacing:.06em;text-transform:none;
+  color:var(--ro-green);background:rgba(18,185,138,.1);border:1px solid rgba(18,185,138,.32);border-radius:100px;padding:4px 12px}
 
-.params{display:flex; flex-wrap:wrap; margin-top:40px; border:1px solid var(--line); border-radius:14px; background:var(--paper); overflow:hidden; max-width:var(--measure)}
-.pv{flex:1; min-width:140px; padding:18px 22px; border-right:1px solid var(--line-2); border-bottom:1px solid var(--line-2)}
-.pv .n{font-family:"JetBrains Mono"; font-size:17px; color:var(--ink); font-weight:500; line-height:1.2}
-.pv .l{font-size:12px; color:var(--mut); margin-top:6px}
+/* ---------- 装备展示:图 + 信息 ---------- */
+.rob-grid2{display:grid;grid-template-columns:1.04fr .96fr;gap:50px;align-items:center;margin-top:44px}
+@media(max-width:880px){.rob-grid2{grid-template-columns:1fr;gap:30px}}
+.rob-grid2.rev .rob-photo{order:2}
+@media(max-width:880px){.rob-grid2.rev .rob-photo{order:0}}
+.rob-photo{position:relative;border:1px solid var(--ro-line);border-radius:18px;overflow:hidden;background:var(--ro-mist);aspect-ratio:4/3;margin:0}
+.rob-photo img{width:100%;height:100%;object-fit:cover;display:block}
+/* 完整展示(不裁切):图片整体缩放进框内,白底与产品图背景一致 */
+.rob-photo.contain{background:var(--ro-paper);padding:18px}
+.rob-photo.contain img{object-fit:contain}
+.rob-rlead{font-size:15.5px;color:var(--ro-ink-2);line-height:1.74;margin:0;max-width:none}
+.rob-rdesc{font-size:15px;color:var(--ro-mut);line-height:1.72;margin-top:14px;max-width:none}
+.rob-feat{display:grid;grid-template-columns:1fr 1fr;gap:16px 20px;margin-top:26px}
+@media(max-width:520px){.rob-feat{grid-template-columns:1fr}}
+.rob-ft{font-size:14.5px;font-weight:700;color:var(--ro-ink);display:flex;align-items:center;gap:8px}
+.rob-ft::before{content:"";width:7px;height:7px;border-radius:50%;background:var(--ro-green);flex:none}
+.rob-fi p{font-size:13px;color:var(--ro-mut);line-height:1.6;margin-top:6px;padding-left:15px}
+
+/* ---------- 规格表(签名:蓝绿渐变大数字) ---------- */
+.rob-params{display:flex;flex-wrap:wrap;margin-top:42px;border:1px solid var(--ro-line);border-radius:14px;
+  background:var(--ro-paper);overflow:hidden}
+.rob-pv{flex:1;min-width:150px;padding:22px 24px;border-right:1px solid var(--ro-line-2);border-bottom:1px solid var(--ro-line-2)}
+.rob-n{font-size:clamp(18px,2vw,22px);font-weight:800;line-height:1.15;letter-spacing:-.02em;
+  font-variant-numeric:tabular-nums}
+.rob-l{font-size:12px;color:var(--ro-mut);margin-top:8px;letter-spacing:.02em}
+
+/* ---------- 可访问性 / 动效降级 ---------- */
+.robx a:focus-visible,.robx .btn:focus-visible{outline:2px solid var(--ro-green);outline-offset:3px;border-radius:10px}

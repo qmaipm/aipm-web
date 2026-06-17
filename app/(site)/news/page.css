@@ -1,14 +1,41 @@
-.newslist{border-top:1px solid var(--line)}
-.news-item{display:grid; grid-template-columns:160px 1fr auto; gap:30px; align-items:baseline;
-  padding:30px 0; border-bottom:1px solid var(--line); transition:background .2s}
-.news-item:hover{background:rgba(26,25,22,.02)}
-.news-item .date{font-family:"JetBrains Mono"; font-size:13px; color:var(--mut); letter-spacing:.03em}
-.news-item .tag{display:inline-block; font-family:"JetBrains Mono"; font-size:11px; letter-spacing:.06em;
-  color:var(--ink-2); border:1px solid var(--line); border-radius:999px; padding:3px 11px; margin-bottom:10px}
-.news-item h3{font-size:21px; font-weight:600; line-height:1.35; margin-bottom:8px}
-.news-item p{font-size:15px; color:var(--ink-2); line-height:1.6}
-.news-item .arr{color:var(--mut-2); flex:none; transition:transform .2s}
-.news-item:hover .arr{transform:translateX(3px); color:var(--ink)}
-@media (max-width:720px){.news-item{grid-template-columns:1fr; gap:8px} .news-item .arr{display:none}}
-.sub-line{font-family:"JetBrains Mono"; font-size:13px; color:var(--mut); letter-spacing:.02em; text-align:center}
-.sub-line a{color:var(--ink); text-decoration:underline; text-underline-offset:3px; text-decoration-color:var(--line)}
+/* ============================================================
+   /news — 新闻动态
+   时间线式条目:日期 + 标签 + 标题 + 摘要,hover 点亮左侧蓝绿条。
+   暖纸底 + 斑马纹(hero 白 → 列表 ivory-2),蓝绿 VI 强调。
+   规则收在 .news-page 作用域内。
+   ============================================================ */
+
+.news-page .newslist{border-top:1px solid var(--line)}
+.news-page .news-item{position:relative; display:grid; grid-template-columns:160px 1fr auto; gap:30px; align-items:baseline;
+  padding:30px 0 30px 22px; border-bottom:1px solid var(--line); transition:background .2s}
+/* 左侧 VI 强调条:hover 时点亮,像可点的时间线条目 */
+.news-page .news-item::before{content:""; position:absolute; left:0; top:30px; bottom:30px; width:3px; border-radius:3px;
+  background:var(--vi-grad); opacity:0; transition:opacity .2s}
+.news-page .news-item:hover{background:rgba(12,139,130,.04)}
+.news-page .news-item:hover::before{opacity:1}
+.news-page .news-item .date{font-size:13px; color:var(--mut); letter-spacing:.03em}
+.news-page .news-item .tag{display:inline-block; font-size:11px; letter-spacing:.06em;
+  color:var(--teal-ink); background:var(--vi-soft); border-radius:999px; padding:3px 11px; margin-bottom:10px}
+.news-page .news-item h3{font-size:21px; font-weight:600; line-height:1.35; margin-bottom:8px; transition:color .2s}
+.news-page .news-item:hover h3{color:var(--teal-ink)}
+.news-page .news-item p{font-size:15px; color:var(--ink-2); line-height:1.6; max-width:60ch}
+.news-page .news-item .arr{color:var(--mut-2); flex:none; transition:transform .2s, color .2s}
+.news-page .news-item:hover .arr{transform:translateX(3px); color:var(--teal)}
+/* 带公众号封面缩略图的条目:日期 | 封面 | 正文 | 箭头 */
+.news-page .news-item.has-cover{grid-template-columns:130px 132px 1fr auto; align-items:center}
+.news-page .news-cover{width:132px; height:84px; object-fit:cover; border-radius:10px;
+  border:1px solid var(--line); background:var(--ivory-2); display:block}
+@media (max-width:720px){
+  .news-page .news-item{grid-template-columns:1fr; gap:8px}
+  .news-page .news-item.has-cover{grid-template-columns:1fr; gap:12px}
+  .news-page .news-cover{width:100%; height:auto; aspect-ratio:16/9}
+  .news-page .news-item .arr{display:none}
+}
+
+.news-page .sub-line{font-size:13px; color:var(--mut); letter-spacing:.02em; text-align:center}
+.news-page .sub-line a{color:var(--teal-ink); text-decoration:underline; text-underline-offset:3px; text-decoration-color:var(--vi-line)}
+.news-page .sub-line a:hover{color:var(--teal)}
+
+/* 可访问性 / 动效降级 */
+.news-page a:focus-visible{outline:2px solid var(--teal); outline-offset:3px; border-radius:8px}
+@media (prefers-reduced-motion:reduce){.news-page .news-item,.news-page .news-item .arr{transition:none}}

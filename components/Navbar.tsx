@@ -17,7 +17,6 @@ export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
   const pathname = usePathname();
-  const interior = pathname !== "/";
   useEffect(() => {
     const onScroll = () => setScrolled((window.scrollY || 0) > 40);
     window.addEventListener("scroll", onScroll, { passive: true });
@@ -27,7 +26,7 @@ export default function Navbar() {
   useEffect(() => {
     setOpen(false);
   }, [pathname]);
-  const solid = scrolled || interior || open;
+  const solid = scrolled || open;
 
   return (
     <header className={`nav${solid ? " solid" : ""}`} id="nav">

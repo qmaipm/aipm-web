@@ -94,7 +94,7 @@ const productModules = [
     headline: '智能生成服务标准，重构服务设计流程',
     description: 'AI 智能生成服务标准、人员编制和预算方案，用远低于现在的成本，获得更加快速、精准的数字化服务设计能力。',
     cta: '开始使用服务设计 Agent',
-    ctaLink: '#contact',
+    ctaLink: '/solutions/service-design',
     relatedProducts: [
       { name: '空间管理系统', desc: '空间配置与标准生成', href: '/products/space' },
       { name: '服务配置系统', desc: '服务流程与标准设计', href: '/products/service-config' },
@@ -118,7 +118,7 @@ const productModules = [
     headline: 'AI 驱动运营调度，实现人机协同闭环',
     description: '7×24 实时感知全域服务状态，确保执行与巡检到位，数据驱动管理决策，让团队专注更具价值的事务。',
     cta: '开始使用运营管理 Agent',
-    ctaLink: '#contact',
+    ctaLink: '/solutions/operations',
     relatedProducts: [
       { name: 'SSR 服务记录', desc: '无感记录服务全过程', href: '/products/ssr' },
       { name: '工单调度系统', desc: '数据驱动的任务分配', href: '/products/ticket' },
@@ -142,7 +142,7 @@ const productModules = [
     headline: 'AI 自动审图质检，让质量管理更轻松',
     description: 'AI 替代人工审图，大幅降低审图成本，客观评分消除甲乙方质量评价分歧，留存数据标签助力复盘。',
     cta: '开始使用质量评估 Agent',
-    ctaLink: '#contact',
+    ctaLink: '/solutions/quality',
     relatedProducts: [
       { name: '设备管理系统', desc: '人单合一的拍照抄表', href: '/products/device' },
       { name: '多模态巡检', desc: 'AI视觉 + IoT联合巡检', href: '/products/inspect' },
@@ -166,7 +166,7 @@ const productModules = [
     headline: '业务自动化核算，数据驱动持续优化',
     description: 'AI 自动完成工资、KPI、账单核算，深度分析运营数据生成洞察报告，优化服务标准与成本，展示卓越能力。',
     cta: '开始使用服务优化 Agent',
-    ctaLink: '#contact',
+    ctaLink: '/solutions/optimization',
     relatedProducts: [
       { name: '计薪系统', desc: '薪酬与KPI自动化核算', href: '/products/salary' },
       { name: '数据大屏', desc: '展示卓越服务能力', href: '/products/dashboard' },

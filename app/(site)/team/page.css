@@ -1,15 +1,48 @@
-/* 团队页 · 任务 260610（提示词 4） */
-.founders .card{display:flex; flex-direction:column}
-.avatar{width:72px; height:72px; border-radius:50%; display:grid; place-items:center;
-  font-weight:600; font-size:26px; color:#fff; margin-bottom:20px; letter-spacing:.02em}
-.founders .card h3{font-size:23px; margin-bottom:4px}
-.founders .role{font-family:"JetBrains Mono"; font-size:12.5px; color:var(--mut); letter-spacing:.04em; margin-bottom:14px}
-.founders .card p{font-size:15.5px; line-height:1.7}
-.fde-note{font-family:"JetBrains Mono"; font-size:12.5px; color:var(--mut); letter-spacing:.02em; margin-top:36px}
+/* ============================================================
+   团队页 · 重设计(暖纸底 + 蓝绿 VI,斑马纹明暗交替)
+   全部规则收在 .team 作用域内。单一字族;强调只蓝绿;
+   标题无句号;h2 一行(窄屏兜底);副标题去 max-width。
+   ============================================================ */
+.team{--tm-grad:linear-gradient(115deg,#0070FF,#12B98A)}
 
-.backers .card h3{font-size:20px; margin-bottom:6px}
-.backers .card .en{font-family:"JetBrains Mono",ui-monospace,monospace; font-size:11.5px; letter-spacing:.06em;
-  color:var(--mut-2); margin-bottom:12px}
-.backers .card .aum{font-family:"JetBrains Mono",ui-monospace,monospace; font-size:12.5px; color:var(--mut);
-  letter-spacing:.03em; margin-bottom:12px}
-.backers .card p{font-size:15px; color:var(--ink-2); line-height:1.7}
+/* ---------- 斑马纹段 ---------- */
+.team .tm-band{padding:118px 0;background:var(--ivory)}
+.team .tm-band.alt{background:var(--ivory-2)}
+@media (max-width:700px){.team .tm-band{padding:84px 0}}
+
+/* h2 一行(窄屏兜底换行);副标题放开宽度 */
+.team .tm-h2{font-size:clamp(30px,4.4vw,50px);margin-top:20px;letter-spacing:-.02em;max-width:none;white-space:nowrap}
+@media (max-width:880px){.team .tm-h2{white-space:normal}}
+.team .sec-head p.sub{max-width:none}
+
+/* ---------- 创始人 · 左侧名片 + 右侧叙述(非对称) ---------- */
+.team .founder-block{display:grid;grid-template-columns:260px 1fr;gap:56px;margin-top:48px;align-items:start}
+@media(max-width:760px){.team .founder-block{grid-template-columns:1fr;gap:28px}}
+.team .founder-id{position:sticky;top:100px}
+@media(max-width:760px){.team .founder-id{position:static}}
+.team .avatar{width:84px;height:84px;border-radius:20px;display:grid;place-items:center;
+  font-weight:600;font-size:30px;color:#fff;margin-bottom:22px;letter-spacing:.02em;background:var(--tm-grad)}
+.team .founder-id h3{font-size:26px;margin:0 0 6px;color:var(--ink)}
+.team .founder-id .role{font-size:12.5px;color:var(--mut);letter-spacing:.06em;text-transform:uppercase}
+.team .founder-bio{max-width:none;padding-top:4px}
+.team .founder-bio p{font-size:17px;line-height:1.85;color:var(--ink-2);margin:0 0 20px}
+.team .founder-bio p:last-child{margin-bottom:0}
+
+/* FDE 群体叙事收束句 */
+.team .fde-note{font-size:13px;color:var(--mut);letter-spacing:.02em;margin-top:36px}
+
+/* ---------- 投资机构卡(顶部蓝绿强调条) ---------- */
+.team .card .k{width:28px;height:3px;border-radius:2px;margin-bottom:18px;background:var(--tm-grad)}
+.team .backers .card h3{font-size:20px;margin-bottom:6px}
+.team .backers .card .en{font-size:11.5px;letter-spacing:.06em;color:var(--mut-2);margin-bottom:12px}
+.team .backers .card .aum{font-size:12.5px;color:var(--mut);letter-spacing:.03em;margin-bottom:12px}
+.team .backers .card p{font-size:15px;color:var(--ink-2);line-height:1.7}
+
+/* 顾问委员会 · 编辑式注脚 */
+.team .advisor-note{margin-top:40px;padding-top:22px;border-top:1px solid var(--line);
+  font-size:15px;color:var(--mut);line-height:1.7;max-width:var(--measure)}
+.team .advisor-note .adv-lab{display:inline-block;font-size:11.5px;letter-spacing:.12em;text-transform:uppercase;
+  color:var(--teal-ink);font-weight:600;margin-right:12px}
+
+/* ---------- 可访问性 / 动效降级 ---------- */
+.team a:focus-visible,.team .btn:focus-visible{outline:2px solid var(--teal);outline-offset:3px;border-radius:10px}

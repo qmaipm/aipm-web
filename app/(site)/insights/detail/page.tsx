@@ -1,5 +1,6 @@
 import Link from "next/link";
 import "./page.css";
+import SubscribeForm from "../../_components/SubscribeForm";
 
 export const metadata = {
   title: "自建 Agent 平台的四道墙 · 行业研究 — 启盟科技",
@@ -9,7 +10,7 @@ export const metadata = {
 
 export default function Page() {
   return (
-    <main>
+    <main className="insight-detail">
       {/* HERO */}
       <section className="phero">
         <div className="hero-mesh"></div>
@@ -59,23 +60,23 @@ export default function Page() {
         <div className="wrap">
           <div className="sec-head">
             <span className="eyebrow reveal">推荐阅读</span>
-            <h2 className="reveal">接着读这几篇。</h2>
+            <h2 className="reveal">接着读这几篇</h2>
           </div>
           <div className="grid c3" style={{ marginTop: "44px" }}>
             <Link className="card hover reveal" href="/insights/detail">
-              <div className="k" style={{ background: "var(--gold)" }}></div>
+              <span className="k vi-bar"></span>
               <div className="tag">原理与架构</div>
               <h3>行业级 Agent 平台的三层本质</h3>
               <p>为什么时间是唯一入场费。</p>
             </Link>
             <Link className="card hover reveal" href="/insights/detail">
-              <div className="k" style={{ background: "var(--blue)" }}></div>
+              <span className="k vi-bar"></span>
               <div className="tag">原理与架构</div>
               <h3>Agent 的四层架构 · 模型 / 工具 / 记忆 / 规划</h3>
               <p>一个能干活的 Agent,从来不只是一个模型。</p>
             </Link>
             <Link className="card hover reveal" href="/insights/detail">
-              <div className="k" style={{ background: "var(--green)" }}></div>
+              <span className="k vi-bar"></span>
               <div className="tag">技术工程</div>
               <h3>Skill 是能力的最小积累单位</h3>
               <p>真正沉淀下来的,不是代码,而是 Skill。</p>
@@ -87,13 +88,10 @@ export default function Page() {
       {/* 文末 CTA */}
       <section className="endcta">
         <div className="wrap">
-          <h2 className="reveal">与其翻四道墙,<br />不如先跑通一件事。</h2>
+          <h2 className="reveal">与其翻四道墙，不如先跑通一件事</h2>
           <p className="reveal">读完了,也可以来现场试试。从你的一个真实业务开始。</p>
           <div className="cta-row reveal">
-            <form className="subform">
-              <input type="email" placeholder="留个邮箱,继续收到新文章" aria-label="邮箱" />
-              <button className="btn btn-ghost" type="submit">订阅</button>
-            </form>
+            <SubscribeForm label="订阅" btnVariant="btn-ghost" placeholder="留个邮箱,继续收到新文章" />
             <Link href="/workshop" className="btn btn-primary" style={{ padding: "16px 32px", fontSize: "16.5px" }}>预约 FMClaw™ 加速营 →</Link>
           </div>
         </div>

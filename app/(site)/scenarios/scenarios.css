@@ -1,49 +1,142 @@
-/* ---------- scenario pages (shared net-new rules) ---------- */
-.scenario-page .phero{padding:150px 0 70px}
-.scenario-page .flowchart .fc.now h4{color:var(--accent)}
-.scenario-page .note{max-width:var(--measure);font-size:17px;color:var(--ink-2);line-height:1.85;margin-top:18px}
+/* ============================================================
+   适用场景页 — 共享重设计（6 个场景页 + BeforeAfter 组件共用）
+   方向:暖纸底 + 蓝绿 VI 强调，「过去 → 现在」对比账本。
+   单一字族（靠尺度/字重/字距出性格，无 font-family 声明）。
+   所有规则收在 .scx 作用域内，避免泄漏。统一蓝绿，无暖色分叉。
+   ============================================================ */
+.scx{
+  --sc-grad:linear-gradient(115deg,#0070FF,#12B98A);
+  --sc-blue:#0070FF; --sc-green:#12B98A; --sc-teal:#0C8B82; --sc-teal-ink:#096B73;
+  --sc-soft:rgba(18,185,138,.10);
+}
 
-/* per-scenario accent + hero mesh */
-.sc-amber{--accent:#F59E0B}
-.sc-blue{--accent:#0070FF}
-.sc-green{--accent:#12B98A}
+/* 蓝绿渐变文字（带回退） */
+.scx .grad{background:var(--sc-grad);-webkit-background-clip:text;background-clip:text;
+  -webkit-text-fill-color:transparent}
+@supports not ((-webkit-background-clip:text) or (background-clip:text)){
+  .scx .grad{color:var(--sc-teal);-webkit-text-fill-color:currentColor}}
 
-.sc-amber .phero .hero-mesh::before{background:radial-gradient(circle at 28% 30%, rgba(245,158,11,.40), transparent 60%),radial-gradient(circle at 68% 58%, rgba(18,185,138,.30), transparent 60%),radial-gradient(circle at 50% 84%, rgba(147,51,234,.22), transparent 62%)}
-.sc-amber .phero .hero-mesh::after{opacity:.5;background:radial-gradient(circle at 40% 44%, rgba(245,158,11,.26), transparent 60%),radial-gradient(circle at 66% 56%, rgba(236,72,153,.22), transparent 62%)}
+/* ---------- HERO ---------- */
+.scx .phero{padding:150px 0 76px}
+.scx .phero .crumb a{color:var(--sc-teal-ink)}
+.scx .phero h1{margin-top:18px;font-weight:800;letter-spacing:-.03em;
+  font-size:clamp(36px,5vw,62px);line-height:1.08;max-width:none}
+.scx .phero .lead{max-width:none;font-size:clamp(17px,2vw,21px)}
+/* hero 辉光统一蓝绿（不再按场景分叉） */
+.scx .phero .hero-mesh::after{background:
+  radial-gradient(circle at 38% 38%, rgba(0,112,255,.30), transparent 60%),
+  radial-gradient(circle at 70% 62%, rgba(18,185,138,.26), transparent 62%)}
 
-.sc-blue .phero .hero-mesh::before{background:radial-gradient(circle at 28% 30%, rgba(0,112,255,.40), transparent 60%),radial-gradient(circle at 68% 58%, rgba(18,185,138,.30), transparent 60%),radial-gradient(circle at 50% 84%, rgba(147,51,234,.22), transparent 62%)}
-.sc-blue .phero .hero-mesh::after{opacity:.5;background:radial-gradient(circle at 40% 44%, rgba(0,112,255,.26), transparent 60%),radial-gradient(circle at 66% 56%, rgba(236,72,153,.22), transparent 62%)}
+/* ---------- 结论：AI 替代了什么、解决了什么（并入对比段尾） ---------- */
+.scx .ba-concl{position:relative;margin-top:52px;background:var(--paper);border:1px solid var(--line);
+  border-radius:14px;padding:26px 30px 24px;overflow:hidden}
+.scx .ba-concl::before{content:"";position:absolute;left:0;top:0;bottom:0;width:3px;background:var(--sc-grad)}
+.scx .ba-concl-lbl{display:inline-flex;align-items:center;font-size:11px;font-weight:800;letter-spacing:.16em;
+  text-transform:uppercase;color:var(--sc-teal-ink)}
+.scx .ba-concl-txt{max-width:none;margin:13px 0 0;font-size:clamp(16px,1.8vw,18px);line-height:1.78;color:var(--ink)}
+@media(max-width:600px){.scx .ba-concl{padding:22px 22px 20px}}
+.scx .note-link{display:inline-flex;align-items:center;gap:7px;margin-top:16px;
+  font-size:15px;font-weight:600;color:var(--sc-teal-ink)}
+.scx .note-link .ar{transition:transform .2s}
+.scx .note-link:hover .ar{transform:translateX(3px)}
 
-.sc-green .phero .hero-mesh::before{background:radial-gradient(circle at 28% 30%, rgba(18,185,138,.40), transparent 60%),radial-gradient(circle at 68% 58%, rgba(18,185,138,.30), transparent 60%),radial-gradient(circle at 50% 84%, rgba(147,51,234,.22), transparent 62%)}
-.sc-green .phero .hero-mesh::after{opacity:.5;background:radial-gradient(circle at 40% 44%, rgba(18,185,138,.26), transparent 60%),radial-gradient(circle at 66% 56%, rgba(236,72,153,.22), transparent 62%)}
+/* ============================================================
+   BeforeAfter —— 左右对比：人工旧流程 →(AI)→ 新流程
+   左列=旧流程(before) · 中=AI 桥接节点+箭头 · 右列=新流程(after+tag)
+   ============================================================ */
 
-/* ===== 使用前 / 使用后 对比（编辑式官网风格） ===== */
-.ba-headline{max-width:22ch;margin-top:4px;font-family:"Noto Sans SC",serif;font-weight:600;
-  font-size:clamp(27px,4.6vw,46px);line-height:1.3;letter-spacing:-.02em;color:var(--ink)}
-.ba-headline .old{color:var(--mut);font-weight:400;font-size:.6em;
-  text-decoration:line-through;text-decoration-color:var(--line);text-decoration-thickness:1.5px}
-.ba-headline .new{color:var(--accent)}
+/* 指标头：人工旧流程，经 AI 改写成新流程 */
+.scx .ba-eyebrow .eyebrow{color:var(--sc-teal-ink)}
+.scx .ba-eyebrow .eyebrow::before{background:var(--sc-grad)}
+.scx .ba-headline{max-width:none;margin-top:14px;font-weight:800;letter-spacing:-.025em;
+  font-size:clamp(28px,4.4vw,46px);line-height:1.22;color:var(--ink)}
+.scx .ba-headline .new{background:var(--sc-grad);-webkit-background-clip:text;background-clip:text;
+  -webkit-text-fill-color:transparent}
+@supports not ((-webkit-background-clip:text) or (background-clip:text)){
+  .scx .ba-headline .new{color:var(--sc-teal);-webkit-text-fill-color:currentColor}}
 
-/* 逐步对比 —— 大留白 + 发丝分隔，不做卡片 */
-.ba-steps2{margin-top:56px;border-top:1px solid var(--line)}
-.ba-srow{display:grid;grid-template-columns:210px 1fr;gap:36px;padding:30px 4px;border-bottom:1px solid var(--line)}
-@media(max-width:720px){.ba-srow{grid-template-columns:1fr;gap:16px;padding:26px 0}}
-.ba-sidx{display:flex;align-items:baseline;gap:13px}
-.ba-sidx .num{font-family:"JetBrains Mono";font-size:13px;letter-spacing:.06em;color:var(--accent)}
-.ba-sidx .name{font-family:"Noto Sans SC",serif;font-size:20px;font-weight:600;color:var(--ink)}
-.ba-scompare{display:flex;flex-direction:column;gap:14px;max-width:62ch}
-.ba-line{display:flex;gap:14px;align-items:baseline;font-size:15.5px;line-height:1.62}
-.ba-line .lbl{flex:none;width:30px;font-family:"JetBrains Mono";font-size:11px;letter-spacing:.04em}
-.ba-line.was{color:var(--mut)} .ba-line.was .lbl{color:var(--mut-2)}
-.ba-line.now{color:var(--ink)} .ba-line.now .lbl{color:var(--accent)}
-.ba-line .tag{margin-left:10px;font-style:normal;font-family:"JetBrains Mono";font-size:11.5px;
-  letter-spacing:.03em;color:var(--accent);white-space:nowrap}
+/* 三栏网格：旧 / 中轴 / 新。列头与步骤行共用同一组列。 */
+.scx .ba-grid{margin-top:48px;display:grid;grid-template-columns:1fr 64px 1fr;
+  column-gap:0;row-gap:18px}
+@media(max-width:760px){.scx .ba-grid{grid-template-columns:1fr;row-gap:0}}
 
-/* 三件事改善 —— accent 顶线栏目，不堆卡片 */
-.ba-gains2{margin-top:52px;display:grid;grid-template-columns:repeat(3,1fr);gap:32px}
-@media(max-width:720px){.ba-gains2{grid-template-columns:1fr;gap:24px}}
-.ba-g2{border-top:2px solid var(--accent);padding-top:16px}
-.ba-g2 .g2k{font-family:"Noto Sans SC",serif;font-size:18px;font-weight:600;color:var(--ink);margin-bottom:9px}
-.ba-g2 p{margin:0;font-size:14px;line-height:1.62;color:var(--ink)}
-.ba-g2 .was{color:var(--mut)}
-.ba-g2 .ar{color:var(--mut-2);margin:0 7px}
+/* ---- 列头 ---- */
+.scx .ba-head{padding-bottom:14px;border-bottom:1px solid var(--line)}
+.scx .ba-head-mid{display:grid;place-items:center;border-bottom:none}
+.scx .ba-head-ai{font-size:11px;font-weight:800;letter-spacing:.14em;color:var(--sc-teal-ink)}
+.scx .ba-side-lbl{display:block;font-size:11px;font-weight:700;letter-spacing:.16em;
+  text-transform:uppercase;margin-bottom:6px}
+.scx .ba-head-old .ba-side-lbl{color:var(--mut-2)}
+.scx .ba-head-new .ba-side-lbl{color:var(--sc-teal-ink)}
+.scx .ba-side-metric{font-size:clamp(17px,2vw,21px);font-weight:700;letter-spacing:-.015em;
+  line-height:1.3;color:var(--ink)}
+.scx .ba-head-old .ba-side-metric{color:var(--mut);font-weight:500;
+  text-decoration:line-through;text-decoration-color:var(--mut-2);text-decoration-thickness:1.5px}
+@media(max-width:760px){
+  .scx .ba-head-mid{display:none}
+  .scx .ba-head{padding:24px 0 12px;border-bottom:none}
+  .scx .ba-head-new{padding-top:6px}
+}
+
+/* ---- 步骤行：占满三列，自身再做 grid 对齐到中轴 ---- */
+.scx .ba-row{grid-column:1 / -1;display:grid;grid-template-columns:subgrid;align-items:stretch}
+@supports not (grid-template-columns:subgrid){
+  .scx .ba-row{grid-template-columns:1fr 64px 1fr}}
+@media(max-width:760px){.scx .ba-row{grid-template-columns:1fr;row-gap:0}}
+
+.scx .ba-cell{position:relative;padding:22px 24px;border:1px solid var(--line);
+  background:var(--paper);display:flex;flex-direction:column;gap:10px;transition:border-color .2s,box-shadow .2s,transform .2s}
+.scx .ba-old{border-radius:14px 0 0 14px;color:var(--mut)}
+.scx .ba-new{border-radius:0 14px 14px 0;
+  background:linear-gradient(180deg,rgba(18,185,138,.07),var(--paper));border-color:rgba(18,185,138,.30)}
+@media(max-width:760px){.scx .ba-old,.scx .ba-new{border-radius:14px}}
+.scx .ba-row:hover .ba-new{border-color:rgba(18,185,138,.5);box-shadow:0 14px 32px rgba(12,139,130,.10);transform:translateY(-2px)}
+
+.scx .ba-step{display:flex;align-items:baseline;gap:10px}
+.scx .ba-num{font-weight:800;font-size:18px;line-height:1;letter-spacing:-.03em;
+  font-variant-numeric:tabular-nums}
+.scx .ba-old .ba-num{color:var(--mut-2)}
+.scx .ba-new .ba-num{background:var(--sc-grad);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+@supports not ((-webkit-background-clip:text) or (background-clip:text)){
+  .scx .ba-new .ba-num{color:var(--sc-teal);-webkit-text-fill-color:currentColor}}
+.scx .ba-name{font-size:16px;font-weight:700;letter-spacing:-.01em}
+.scx .ba-old .ba-name{color:var(--mut)}
+.scx .ba-new .ba-name{color:var(--ink)}
+.scx .ba-txt{margin:0;font-size:15px;line-height:1.62}
+.scx .ba-old .ba-txt{color:var(--mut)}
+.scx .ba-new .ba-txt{color:var(--ink);font-weight:500}
+.scx .ba-tag{margin-top:auto;align-self:flex-start;font-style:normal;font-size:11.5px;font-weight:600;
+  letter-spacing:.02em;color:var(--sc-teal-ink);background:var(--sc-soft);
+  border-radius:999px;padding:3px 11px;white-space:nowrap}
+
+/* ---- 中轴：AI 节点 + 箭头（桥接旧→新） ---- */
+.scx .ba-mid{position:relative;display:grid;place-items:center;align-self:center}
+.scx .ba-node{position:relative;z-index:2;width:44px;height:44px;border-radius:50%;
+  display:grid;place-items:center;font-size:12px;font-weight:800;letter-spacing:.06em;color:#fff;
+  background:var(--sc-grad);box-shadow:0 8px 20px rgba(12,139,130,.30)}
+.scx .ba-arrow{position:absolute;z-index:1;right:-9px;top:50%;transform:translateY(-50%);
+  font-size:16px;font-weight:800;line-height:1;color:var(--sc-teal)}
+@media(max-width:760px){
+  .scx .ba-mid{flex-direction:column;gap:8px;padding:14px 0;grid-auto-flow:row}
+  /* 中轴箭头转向下，连接上方旧卡 → 下方新卡 */
+  .scx .ba-arrow{position:static;transform:rotate(90deg);font-size:18px;line-height:1}
+}
+
+/* 三件事改善 —— 蓝绿顶条栏目，轻 hover */
+.scx .ba-gains{margin-top:56px;display:grid;grid-template-columns:repeat(3,1fr);gap:30px}
+@media(max-width:780px){.scx .ba-gains{grid-template-columns:1fr;gap:24px}}
+.scx .ba-g{position:relative;padding-top:18px;transition:transform .22s}
+.scx .ba-g::before{content:"";position:absolute;left:0;top:0;width:34px;height:3px;border-radius:3px;
+  background:var(--sc-grad)}
+.scx .ba-g:hover{transform:translateY(-3px)}
+.scx .ba-g .gk{font-size:18px;font-weight:700;letter-spacing:-.01em;color:var(--ink);margin-bottom:9px}
+.scx .ba-g p{margin:0;font-size:14px;line-height:1.62;color:var(--ink-2)}
+.scx .ba-g .was{color:var(--mut)}
+.scx .ba-g .ar{color:var(--sc-teal-ink);margin:0 7px;font-weight:700}
+
+/* ---------- 可访问性 / 动效降级 ---------- */
+.scx a:focus-visible,.scx .btn:focus-visible{outline:2px solid var(--sc-green);outline-offset:3px;border-radius:10px}
+@media(prefers-reduced-motion:reduce){
+  .scx .ba-cell,.scx .ba-g,.scx .note-link .ar{transition:none}
+  .scx .ba-row:hover .ba-new,.scx .ba-g:hover{transform:none;box-shadow:none}
+}

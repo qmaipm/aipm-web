@@ -1,6 +1,81 @@
-.qr{width:170px; height:170px; border:1px solid var(--line); border-radius:14px; background:var(--paper);
-  display:grid; place-items:center; color:var(--mut-2); font-family:"JetBrains Mono"; font-size:12px; letter-spacing:.04em}
+/* ============================================================
+   联系页 — 重设计
+   左表单 + 右信息侧栏的正经网页布局,左对齐,非居中幻灯。
+   暖纸底 + 蓝绿 VI 强调(只此一种强调色),单一字族,全部 scoped 于 .contactx。
+   ============================================================ */
+.contactx{
+  --cx-grad:linear-gradient(135deg,#0070FF,#12B98A);
+  --cx-teal:#0C8B82; --cx-teal-ink:#096B73;
+}
+.contactx .cx-grad-text{background:var(--cx-grad);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+@supports not ((-webkit-background-clip:text) or (background-clip:text)){.contactx .cx-grad-text{color:var(--cx-teal);-webkit-text-fill-color:currentColor}}
+
+/* 标题:一行,无句号;副标尽量一行 */
+.contactx .cx-h1{margin-top:20px}
+.contactx .cx-lead{max-width:none}
+
+/* 表单标签 */
+.cx-eyebrow{display:inline-flex;align-items:center;gap:10px;font-size:12px;font-weight:600;
+  letter-spacing:.2em;text-transform:uppercase;color:var(--cx-teal-ink)}
+.cx-eyebrow::before{content:"";width:22px;height:2px;border-radius:2px;background:var(--cx-grad)}
+
+/* 联系页:正经网页表单布局 — 左表单 + 右信息侧栏 */
+.contact-layout{display:grid; grid-template-columns:1fr 320px; gap:60px; align-items:start}
+@media (max-width:880px){.contact-layout{grid-template-columns:1fr; gap:48px}}
+
+.cf-title{margin-top:14px;font-size:clamp(26px,3.4vw,38px); font-weight:800; letter-spacing:-.03em; line-height:1.15; color:var(--ink)}
+.cf-sub{margin-top:12px; font-size:15px; color:var(--mut)}
+.cf-note{margin-top:18px; font-size:12.5px; color:var(--mut); line-height:1.6; max-width:none}
+
+/* 必填星号:VI 蓝绿(不用全站粉色) */
+.contactx .field label .req,.contactx .cf-sub .req{color:var(--cx-teal-ink)}
+
+/* 表单顶部细 VI 强调条 */
+.contactx .cx-form{position:relative; margin-top:28px; padding-top:30px}
+.contactx .cx-form::before{content:""; position:absolute; left:0; top:0; width:56px; height:2px; border-radius:2px; background:var(--cx-grad)}
+
+/* 输入态:聚焦时蓝绿描边(覆盖全站近黑描边,贴合 VI) */
+.contactx .field input:focus,.contactx .field textarea:focus,.contactx .field select:focus{
+  border-color:var(--cx-teal); box-shadow:0 0 0 3px var(--teal-soft)}
+
+.contactx .cx-submit{margin-top:6px; min-height:50px}
+.contactx .cx-submit:hover .ar{transform:translateX(3px)}
+.contactx .cx-submit .ar{transition:transform .2s}
+
+/* 右侧信息侧栏:卡片化,蓝绿顶条 */
+.contact-aside{display:flex; flex-direction:column; gap:18px}
+.ca-block{background:var(--paper); border:1px solid var(--line); border-radius:16px; padding:24px 26px; position:relative; overflow:hidden}
+.ca-block::before{content:""; position:absolute; left:0; right:0; top:0; height:3px; background:var(--cx-grad)}
+.ca-h{font-size:11px; letter-spacing:.14em; text-transform:uppercase; color:var(--cx-teal-ink); margin-bottom:16px; font-weight:600}
+
+.ca-list{margin:0; display:flex; flex-direction:column; gap:14px}
+.ca-list > div{display:flex; flex-direction:column; gap:3px}
+.ca-list dt{font-size:12.5px; color:var(--mut)}
+.ca-list dd{margin:0; font-size:15px; color:var(--ink); font-weight:500; line-height:1.5}
+.ca-list dd a{color:var(--ink); text-decoration:none}
+.ca-list dd a:hover{color:var(--cx-teal-ink); text-decoration:underline; text-underline-offset:3px}
+
+.social{display:flex; flex-wrap:wrap; gap:8px 22px}
+.social a{font-size:15px; color:var(--ink); text-decoration:underline; text-underline-offset:3px; text-decoration-color:var(--line); min-height:44px; display:inline-flex; align-items:center}
+.social a:hover{text-decoration-color:var(--cx-teal); color:var(--cx-teal-ink)}
+.contactx a:focus-visible,.contactx .btn:focus-visible{outline:2px solid var(--cx-teal); outline-offset:3px; border-radius:10px}
+
+.ca-qr .qr{width:148px; height:148px; border:1px solid var(--line); border-radius:14px; background:#fff;
+  display:grid; place-items:center; overflow:hidden}
+.ca-qr .qr img{width:100%; height:100%; object-fit:contain; display:block}
 .qr-cap{font-size:13px; color:var(--mut); margin-top:12px}
-.social{display:flex; flex-wrap:wrap; gap:8px 22px; margin-top:18px}
-.social a{font-size:15px; color:var(--ink); text-decoration:underline; text-underline-offset:3px; text-decoration-color:var(--line)}
-.social a:hover{text-decoration-color:var(--ink)}
+
+@media (prefers-reduced-motion:reduce){
+  .contactx .cx-submit:hover .ar{transform:none}
+}
+
+/* 校验错误提示 / 提交反馈(蓝绿 VI,贴合本页) */
+.contactx .form-err{margin:-6px 0 14px; font-size:13.5px; color:var(--cx-teal-ink); line-height:1.55}
+.contactx .btn[disabled]{opacity:.6; cursor:not-allowed; transform:none}
+.contactx .form-done{position:relative; padding:34px 30px; border:1px solid var(--line); border-radius:16px;
+  background:var(--paper); overflow:hidden}
+.contactx .form-done::before{content:""; position:absolute; left:0; right:0; top:0; height:3px; background:var(--cx-grad)}
+.contactx .form-done-mark{width:48px; height:48px; border-radius:50%; display:grid; place-items:center;
+  color:#fff; background:var(--cx-grad); margin-bottom:18px}
+.contactx .form-done-h{margin:0 0 10px; font-size:22px; font-weight:800; letter-spacing:-.02em; color:var(--ink)}
+.contactx .form-done-p{margin:0; font-size:15.5px; line-height:1.7; color:var(--ink-2); max-width:46ch}

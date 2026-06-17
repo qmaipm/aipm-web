@@ -1,0 +1,77 @@
+/* ============================================================
+   人员成本优化 — 重设计(参考 /products/fmclaw 冷调平台手法)
+   结构:蓝图网格 hero + proof/lead → 能力梯(源头/过程/持续)+ 蓝绿判词 + 关联链接 → CTA
+   全部规则收在 .solco 作用域内,不泄漏全站。单一字族,蓝绿 VI。
+   ============================================================ */
+.solco{
+  --co-ink:#14201C; --co-ink-2:#46524D; --co-mut:#7C857F; --co-faint:#A7AFAB;
+  --co-line:#E6EAE8; --co-mist:#ECF3F1; --co-paper:#FFFFFF;
+  --co-blue:#0070FF; --co-green:#12B98A; --co-grad:linear-gradient(115deg,#0070FF,#12B98A);
+  --co-vi-line:rgba(12,139,130,.16);
+  background:var(--co-paper); color:var(--co-ink);
+}
+.solco .wrap{max-width:1160px;margin:0 auto;padding:0 32px}
+@media(max-width:600px){.solco .wrap{padding:0 22px}}
+.solco .grad{background:var(--co-grad);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+@supports not ((-webkit-background-clip:text) or (background-clip:text)){.solco .grad{color:var(--co-green);-webkit-text-fill-color:currentColor}}
+
+/* 蓝图网格 */
+.co-grid{position:absolute;inset:0;z-index:0;pointer-events:none;
+  background-image:linear-gradient(to right,var(--co-vi-line) 1px,transparent 1px),
+                   linear-gradient(to bottom,var(--co-vi-line) 1px,transparent 1px);
+  background-size:54px 54px;
+  -webkit-mask-image:radial-gradient(125% 90% at 80% 0%,#000 0%,transparent 62%);
+          mask-image:radial-gradient(125% 90% at 80% 0%,#000 0%,transparent 62%)}
+
+/* HERO */
+.co-hero{position:relative;overflow:hidden;padding:150px 0 64px;background:var(--co-paper)}
+.co-hero-top{position:relative;z-index:2}
+.co-kicker{display:inline-flex;align-items:center;flex-wrap:wrap;font-size:12px;font-weight:600;letter-spacing:.14em;
+  text-transform:uppercase;color:var(--co-mut)}
+.co-kicker a{color:var(--co-mut)}.co-kicker a:hover{color:var(--co-green)}
+.co-kicker i{color:var(--co-green);font-style:normal;margin:0 9px;font-weight:700}
+.co-h1{margin:22px 0 0;font-weight:800;font-size:clamp(38px,6vw,72px);line-height:1.06;letter-spacing:-.035em;color:var(--co-ink);max-width:18ch}
+.co-lead{margin:26px 0 0;font-size:clamp(16px,1.8vw,19px);line-height:1.6;color:var(--co-ink-2);max-width:none;font-weight:400}
+.co-lead b{color:var(--co-ink);font-weight:600}
+.co-cta{margin-top:38px;display:flex;flex-wrap:wrap;gap:14px;align-items:center}
+.co-proof{position:relative;z-index:2;margin-top:52px;display:flex;flex-wrap:wrap;align-items:center;gap:12px 22px;
+  font-size:clamp(15px,1.9vw,18px);color:var(--co-mut)}
+.co-proof b{color:var(--co-ink);font-weight:600}
+.co-proof b.grad{font-weight:800;font-size:1.3em;letter-spacing:-.02em}
+.co-proof .sep{width:5px;height:5px;border-radius:50%;background:var(--co-faint)}
+
+/* band */
+.co-band{position:relative;padding:104px 0;background:var(--co-paper)}
+.co-band.mist{background:var(--co-mist)}
+@media(max-width:700px){.co-band{padding:76px 0}}
+.co-eyebrow{display:inline-flex;align-items:center;gap:10px;font-size:12px;font-weight:600;letter-spacing:.2em;
+  text-transform:uppercase;color:var(--co-green)}
+.co-eyebrow::before{content:"";width:22px;height:2px;border-radius:2px;background:var(--co-grad)}
+.co-h2{margin:18px 0 0;font-weight:800;font-size:clamp(27px,3.5vw,40px);line-height:1.18;letter-spacing:-.03em;color:var(--co-ink);max-width:none;white-space:nowrap}
+.co-sub{margin:18px 0 0;font-size:clamp(15px,1.65vw,17px);line-height:1.6;color:var(--co-ink-2);max-width:none}
+.co-sub b{color:var(--co-ink);font-weight:600}
+@media(max-width:880px){.co-h2{white-space:normal}}
+
+/* 能力梯 */
+.co-ladder{margin-top:46px;display:flex;flex-direction:column;border-top:1px solid var(--co-line)}
+.co-step{display:grid;grid-template-columns:200px 1fr;gap:26px;align-items:start;padding:30px 0;border-bottom:1px solid var(--co-line)}
+@media(max-width:680px){.co-step{grid-template-columns:1fr;gap:12px;padding:26px 0}}
+.co-step-k{display:flex;align-items:baseline;gap:14px}
+.co-no{font-size:clamp(34px,4.4vw,50px);font-weight:800;line-height:.9;letter-spacing:-.03em;font-variant-numeric:tabular-nums}
+.co-step-tag{font-size:13px;font-weight:700;letter-spacing:.08em;color:var(--co-green)}
+.co-step-c h3{margin:0 0 10px;font-size:clamp(19px,2.2vw,23px);font-weight:700;letter-spacing:-.015em;color:var(--co-ink);line-height:1.25}
+.co-step-c p{margin:0;font-size:clamp(13.5px,1.5vw,15px);line-height:1.65;color:var(--co-ink-2);max-width:none}
+
+/* 判词 */
+.co-verdict{position:relative;margin-top:44px;max-width:none;padding-left:22px;
+  font-size:clamp(17px,2vw,22px);font-weight:700;line-height:1.4;letter-spacing:-.015em;color:var(--co-ink)}
+.co-verdict::before{content:"";position:absolute;left:0;top:6px;bottom:6px;width:3px;border-radius:3px;background:var(--co-grad)}
+
+/* 关联链接 */
+.co-link{margin-top:28px;font-size:15px;color:var(--co-mut);max-width:none;line-height:1.7}
+.co-link a{color:var(--co-green);font-weight:600;text-underline-offset:3px;text-decoration:underline;text-decoration-color:rgba(12,139,130,.35)}
+.co-link a:hover{text-decoration-color:var(--co-green)}
+
+/* 可访问性 */
+.solco a:focus-visible,.solco .btn:focus-visible{outline:2px solid var(--co-green);outline-offset:3px;border-radius:10px}
+@media(prefers-reduced-motion:reduce){.solco *{transition:none!important}}

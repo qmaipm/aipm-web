@@ -1,27 +1,92 @@
-  .premise-2{display:grid; grid-template-columns:1fr 1fr; gap:18px; margin-top:40px}
-  @media (max-width:680px){.premise-2{grid-template-columns:1fr}}
-  .premise-2 .card .big{font-family:"Noto Sans SC",serif; font-size:24px; font-weight:600; color:var(--ink); margin-bottom:10px}
-  .takeaway .card{background:transparent}
-  .why-list{display:grid; grid-template-columns:repeat(3,1fr); gap:0; border-top:1px solid var(--line)}
-  @media (max-width:780px){.why-list{grid-template-columns:1fr 1fr}}
-  @media (max-width:480px){.why-list{grid-template-columns:1fr}}
-  .why-list .w{padding:26px 24px 24px; border-bottom:1px solid var(--line); border-right:1px solid var(--line)}
-  .why-list .w:nth-child(3n){border-right:none}
-  @media (max-width:780px){.why-list .w:nth-child(3n){border-right:1px solid var(--line)} .why-list .w:nth-child(2n){border-right:none}}
-  @media (max-width:480px){.why-list .w{border-right:none !important}}
-  .why-list .w h4{font-family:"Noto Sans SC",serif; font-size:19px; font-weight:600; margin:0 0 8px}
-  .why-list .w p{font-size:14.5px; color:var(--ink-2); line-height:1.6; margin:0}
-  .who4 .card{min-height:150px}
-  .who4 .card .role{font-family:"JetBrains Mono"; font-size:12px; color:var(--mut); margin-bottom:12px}
-  .fee{max-width:var(--measure); font-size:18px; color:var(--ink-2); line-height:1.8}
-  /* 适用场景 */
-  .scenes{display:grid; grid-template-columns:repeat(3,1fr); gap:18px; margin-top:44px}
-  @media (max-width:900px){.scenes{grid-template-columns:repeat(2,1fr)}}
-  @media (max-width:560px){.scenes{grid-template-columns:1fr}}
-  .scene-c{display:block; border:1px solid var(--line); border-radius:16px; background:var(--paper); padding:24px 22px; transition:transform .25s, box-shadow .25s, border-color .25s}
-  .scene-c:hover{transform:translateY(-4px); box-shadow:0 14px 40px rgba(26,25,22,.08); border-color:var(--ink)}
-  .scene-c .ic{width:38px; height:38px; border-radius:10px; display:grid; place-items:center; color:#fff; margin-bottom:14px}
-  .scene-c h4{font-size:18px; font-weight:600; margin-bottom:8px}
-  .scene-c p{font-size:14px; color:var(--ink-2); line-height:1.6}
-  .scene-c .go{display:inline-flex; align-items:center; gap:5px; margin-top:14px; font-size:13px; font-weight:600; color:var(--ink)}
-  .scene-c:hover .go{color:var(--blue)}
+/* ============================================================
+   FMClaw™ 加速营页 · 重设计(暖纸底 + 蓝绿 VI,斑马纹明暗交替)
+   全部规则收在 .workshop-pg 作用域内。单一字族;强调只蓝绿;
+   标题无句号;h2 一行(窄屏兜底);副标题去 max-width;全页一处暗场(四步)。
+   ============================================================ */
+.workshop-pg{--ws-grad:linear-gradient(115deg,#0070FF,#12B98A)}
+
+/* ---------- 斑马纹段 ---------- */
+.workshop-pg .ws-band{padding:118px 0;background:var(--ivory)}
+.workshop-pg .ws-band.alt{background:var(--ivory-2)}
+@media (max-width:700px){.workshop-pg .ws-band{padding:84px 0}}
+
+/* h2 一行(窄屏兜底);副标题放开宽度 */
+.workshop-pg .ws-h2{font-size:clamp(28px,4vw,46px);margin-top:20px;letter-spacing:-.02em;max-width:none;white-space:nowrap}
+@media (max-width:980px){.workshop-pg .ws-h2{white-space:normal}}
+.workshop-pg .sec-head p.sub{max-width:none}
+
+/* 卡片顶部蓝绿强调条(替代旧内联色) */
+.workshop-pg .card .k{width:28px;height:3px;border-radius:2px;margin-bottom:18px;background:var(--ws-grad)}
+
+/* ---------- 灵魂前提 ---------- */
+.workshop-pg .premise-2{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:40px}
+@media (max-width:680px){.workshop-pg .premise-2{grid-template-columns:1fr}}
+.workshop-pg .premise-2 .card .big{font-size:24px;font-weight:600;color:var(--ink);margin-bottom:10px}
+
+/* 强调收束句 · 左对齐编辑式,蓝绿描边引导 */
+.workshop-pg .pull-line{margin-top:34px;max-width:none;padding-left:20px;
+  border-left:3px solid transparent;border-image:var(--ws-grad) 1;border-image-slice:1;
+  font-size:21px;line-height:1.6;color:var(--ink);font-weight:600}
+
+/* ---------- 四步 · 深色签名时刻(全页唯一暗场) ---------- */
+.workshop-pg .ws-steps{position:relative;overflow:hidden;background:var(--dark);color:#fff;padding:120px 0}
+@media (max-width:700px){.workshop-pg .ws-steps{padding:84px 0}}
+.workshop-pg .ws-grid{position:absolute;inset:0;z-index:0;pointer-events:none;
+  background-image:linear-gradient(to right,rgba(63,217,184,.10) 1px,transparent 1px),
+                   linear-gradient(to bottom,rgba(63,217,184,.10) 1px,transparent 1px);
+  background-size:54px 54px;
+  -webkit-mask-image:radial-gradient(120% 95% at 82% 2%,#000 0%,transparent 62%);
+          mask-image:radial-gradient(120% 95% at 82% 2%,#000 0%,transparent 62%)}
+.workshop-pg .ws-steps .wrap{position:relative;z-index:1}
+.workshop-pg .ws-steps .eyebrow{color:#3fd9b8}
+.workshop-pg .ws-h2.on-dark{color:#fff}
+.workshop-pg .ws-steps .flow .step .n{color:#3fd9b8}
+
+/* ---------- 适用场景 ---------- */
+.workshop-pg .scenes{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:44px}
+@media (max-width:900px){.workshop-pg .scenes{grid-template-columns:repeat(2,1fr)}}
+@media (max-width:560px){.workshop-pg .scenes{grid-template-columns:1fr}}
+.workshop-pg .scene-c{display:block;border:1px solid var(--line);border-radius:16px;background:var(--paper);
+  padding:24px 22px;transition:transform .25s,box-shadow .25s,border-color .25s}
+.workshop-pg .scene-c:hover{transform:translateY(-4px);box-shadow:0 14px 40px rgba(26,25,22,.08);border-color:rgba(12,139,130,.36)}
+.workshop-pg .scene-c .ic{width:38px;height:38px;border-radius:10px;display:grid;place-items:center;
+  color:#fff;margin-bottom:14px;background:var(--ws-grad)}
+.workshop-pg .scene-c h4{font-size:18px;font-weight:600;margin-bottom:8px}
+.workshop-pg .scene-c p{font-size:14px;color:var(--ink-2);line-height:1.6}
+.workshop-pg .scene-c .go{display:inline-flex;align-items:center;gap:5px;margin-top:14px;font-size:13px;font-weight:600;color:var(--teal-ink)}
+.workshop-pg .scene-c .go svg{transition:transform .2s}
+.workshop-pg .scene-c:hover .go svg{transform:translateX(3px)}
+
+/* ---------- 你会带走什么 ---------- */
+.workshop-pg .takeaway .card{background:var(--paper)}
+
+/* ---------- 为什么有效 · 列表 ---------- */
+.workshop-pg .why-list{display:grid;grid-template-columns:repeat(3,1fr);gap:0;border-top:1px solid var(--line)}
+@media (max-width:780px){.workshop-pg .why-list{grid-template-columns:1fr 1fr}}
+@media (max-width:480px){.workshop-pg .why-list{grid-template-columns:1fr}}
+.workshop-pg .why-list .w{position:relative;padding:26px 24px 24px;border-bottom:1px solid var(--line);border-right:1px solid var(--line)}
+.workshop-pg .why-list .w:nth-child(3n){border-right:none}
+@media (max-width:780px){.workshop-pg .why-list .w:nth-child(3n){border-right:1px solid var(--line)} .workshop-pg .why-list .w:nth-child(2n){border-right:none}}
+@media (max-width:480px){.workshop-pg .why-list .w{border-right:none !important}}
+.workshop-pg .why-list .w h4{font-size:19px;font-weight:600;margin:0 0 8px;padding-left:16px;position:relative}
+.workshop-pg .why-list .w h4::before{content:"";position:absolute;left:0;top:4px;bottom:2px;width:3px;border-radius:3px;background:var(--ws-grad)}
+.workshop-pg .why-list .w p{font-size:14.5px;color:var(--ink-2);line-height:1.6;margin:0}
+
+/* ---------- 谁适合来 ---------- */
+.workshop-pg .who4 .card{min-height:150px}
+.workshop-pg .who4 .card .role{font-size:12px;color:var(--teal-ink);letter-spacing:.04em;margin-bottom:12px;font-weight:600}
+
+/* ---------- 时间与费用 ---------- */
+.workshop-pg .fee{max-width:var(--measure);font-size:18px;color:var(--ink-2);line-height:1.8}
+
+/* ---------- 可访问性 / 动效降级 ---------- */
+.workshop-pg a:focus-visible,.workshop-pg .btn:focus-visible,.workshop-pg summary:focus-visible{outline:2px solid var(--teal);outline-offset:3px;border-radius:10px}
+
+/* ---------- 表单提交反馈(蓝绿 VI) ---------- */
+.workshop-pg .form-err{margin:-6px 0 14px; font-size:13.5px; color:var(--teal-ink); line-height:1.55}
+.workshop-pg .btn[disabled]{opacity:.6; cursor:not-allowed; transform:none}
+.workshop-pg .form-done{position:relative; max-width:680px; padding:34px 30px; border:1px solid var(--line); border-radius:16px; background:var(--paper); overflow:hidden}
+.workshop-pg .form-done::before{content:""; position:absolute; left:0; right:0; top:0; height:3px; background:var(--ws-grad)}
+.workshop-pg .form-done-mark{width:48px; height:48px; border-radius:50%; display:grid; place-items:center; color:#fff; background:var(--ws-grad); margin-bottom:18px}
+.workshop-pg .form-done-h{margin:0 0 10px; font-size:22px; font-weight:800; letter-spacing:-.02em; color:var(--ink)}
+.workshop-pg .form-done-p{margin:0; font-size:15.5px; line-height:1.7; color:var(--ink-2); max-width:50ch}

@@ -19,6 +19,11 @@ export default function Footer() {
               ))}
             </div>
           ))}
+          <div className="ft-qr">
+            <h5>公众号</h5>
+            <Image className="ft-qr-img" src="/images/wx.jpg" alt="启盟科技公众号二维码" width={108} height={108} />
+            <p className="ft-qr-cap">微信扫码关注</p>
+          </div>
         </div>
       </div>
       <div className="ft-bot">

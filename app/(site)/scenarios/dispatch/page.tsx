@@ -10,14 +10,14 @@ export const metadata = {
 
 export default function Page() {
   return (
-    <main className="scenario-page sc-blue">
+    <main className="scenario-page scx">
       {/* HERO */}
       <section className="phero">
         <div className="hero-mesh"></div>
         <div className="wrap">
           <div className="crumb reveal"><Link href="/workshop">FMClaw™ 加速营</Link> / 适用场景 / 智能派单</div>
           <span className="eyebrow reveal">适用场景</span>
-          <h1 className="reveal" style={{ marginTop: "18px" }}>智能派单</h1>
+          <h1 className="reveal">智能派单</h1>
           <p className="lead reveal">工单进来自动定位、定级，按技能与负载派给合适的人，超时自动升级，人只需确认或改派。</p>
         </div>
       </section>
@@ -36,23 +36,16 @@ export default function Page() {
           { k: "更均衡", b: "凭经验，忙闲不均", a: "按技能与负载分配" },
           { k: "闭环", b: "超时才发现，没反馈", a: "双向通知，超时自动升级" },
         ]}
+        note={`AI 接了派给谁、为什么是他、超时怎么办；人保留确认与改派的权力。它把散在各人脑子里的调度判断，收拢成一处看得见、可追溯的派单。`}
+        solutionHref="/solutions/operations"
       />
-
-      {/* 简短说明 */}
-      <section className="band alt">
-        <div className="wrap">
-          <div className="sec-head"><span className="eyebrow reveal">谁接了哪一步</span></div>
-          <p className="note reveal">AI 接了派给谁、为什么是他、超时怎么办；人保留确认与改派的权力。它把散在各人脑子里的调度判断，收拢成一处看得见、可追溯的派单。</p>
-          <p className="reveal" style={{ marginTop: "22px" }}><Link href="/solutions/operations" style={{ color: "var(--accent)", fontWeight: 600 }}>看完整解决方案 →</Link></p>
-        </div>
-      </section>
 
       {/* 收口 CTA */}
       <section className="endcta">
         <div className="wrap">
-          <h2 className="reveal">想在你自己的数据上,<br />跑通这个场景?</h2>
+          <h2 className="reveal">想在你自己的数据上,跑通这个场景?</h2>
           <p className="reveal">带上你的真实数据，来一次 FMClaw™ 加速营，当场把它跑通。</p>
-          <div className="cta-row reveal"><Link href="/workshop" className="btn btn-primary" style={{ padding: "16px 32px", fontSize: "16.5px" }}>预约 FMClaw™ 加速营 →</Link></div>
+          <div className="cta-row reveal"><Link href="/workshop" className="btn btn-primary">预约 FMClaw™ 加速营 →</Link></div>
         </div>
       </section>
     </main>
