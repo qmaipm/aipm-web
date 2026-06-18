@@ -23,6 +23,12 @@ FROM base AS runner
 ENV NODE_ENV=production
 ENV PORT=3000
 ENV HOSTNAME=0.0.0.0
+# 容器默认 UTC，但日期格式化/日志按北京时间。Alpine 不带 tzdata，只设 TZ 不生效，
+# 必须装 tzdata 并写 /etc/localtime。放在切换到非 root 用户之前（apk 需要 root）。
+RUN apk add --no-cache tzdata && \
+    cp /usr/share/zoneinfo/Asia/Shanghai /etc/localtime && \
+    echo "Asia/Shanghai" > /etc/timezone
+ENV TZ=Asia/Shanghai
 RUN addgroup -g 1001 -S nodejs && adduser -S nextjs -u 1001
 COPY --from=builder /app/public ./public
 COPY --from=builder --chown=nextjs:nodejs /app/.next/standalone ./
