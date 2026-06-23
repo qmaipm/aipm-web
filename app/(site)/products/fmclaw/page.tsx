@@ -159,31 +159,38 @@ export default function Page() {
         <div className="fm-grid dark" aria-hidden="true" />
         <div className="wrap">
           <span className="fm-eyebrow on-dark">要不要自己做</span>
-          <h2 className="fm-h2 on-dark">自己从零搭一套，你会撞上<span className="grad">三道墙</span></h2>
+          <h2 className="fm-h2 on-dark">自己从零搭一套，你会撞上<span className="grad">四道墙</span></h2>
           <div className="fm-barriers">
             <div className="fm-barrier">
               <span className="fm-bn">01</span>
               <div className="fm-bc">
-                <h3>框架好搭，工作流难攒</h3>
-                <p>真正难的不是搭一套框架，而是把行业里每一件工作，拆成数据、能力与工具的特定组合——这只能在真实现场里一条条试出来，试错的成本由时间承担。</p>
+                <h3>模型墙：有个强模型，不等于能干活</h3>
+                <p>再强的模型也只是个会推理、会生成的部件——它不知道你的业务规则、不记得上一次发生了什么，也不会主动去调用工具。单靠模型，离稳定干完一件真实的活，永远差一口气。</p>
               </div>
             </div>
             <div className="fm-barrier">
               <span className="fm-bn">02</span>
               <div className="fm-bc">
-                <h3>通用平台，下沉不到这行</h3>
-                <p>越靠近物业这行的细节、越靠近物理世界，通用平台越难覆盖；那不是它们的投入方向，也不是多招几个工程师就能补上的。</p>
+                <h3>工程墙：把它工程化，是个无底洞</h3>
+                <p>一件事不是调一次模型就完，而是一连串调度、重试、纠错与监控。模型一升级行为就变、工具一增加编排就重写——这是一面要常年维护的堤坝，精力很快从业务被耗到基础设施上。</p>
               </div>
             </div>
             <div className="fm-barrier">
               <span className="fm-bn">03</span>
               <div className="fm-bc">
-                <h3>物理世界，没有捷径</h3>
-                <p>要先感知一次服务到底做没做、做得好不好，再据此在现实里动手——这一段经验，只能一线跑出来，绕不过去。</p>
+                <h3>数据墙：你的数据，散、脏、口径不一</h3>
+                <p>数据散落在表格、PDF、IoT、聊天记录和没人愿碰的老系统里。接进来只是第一步，真正难的是理解：这条「完成」到底谁判定、这单「超时」对项目意味着什么。数据接入是翻译，不是搬运。</p>
+              </div>
+            </div>
+            <div className="fm-barrier">
+              <span className="fm-bn">04</span>
+              <div className="fm-bc">
+                <h3>时间墙：前三道砸钱能过，这道只能用时间</h3>
+                <p>被验证过的工作流、可复用的能力、对各种边界情况的处理经验——买不到，也突击不出来，只能在一个个真实项目里跑出来。哪怕你拿到一样的模型和工程，也仍落后于那个已经跑了多年的平台。</p>
               </div>
             </div>
           </div>
-          <p className="fm-verdict">与其用几年时间和试错成本去填这三道墙，不如直接站在一个<span className="grad">已经跑了七八年的平台</span>上——把时间花在你的业务，而不是基础设施上。</p>
+          <p className="fm-verdict">与其用几年时间和试错成本去翻这四道墙，不如直接站在一个<span className="grad">已经翻过去、跑了七八年的平台</span>上——把时间花在你的业务，而不是基础设施上。</p>
         </div>
       </section>
 
