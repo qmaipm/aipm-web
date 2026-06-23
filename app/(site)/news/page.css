@@ -36,9 +36,9 @@
 .nw-lead{margin:24px 0 0;font-size:clamp(16px,1.8vw,19px);line-height:1.6;color:var(--nw-ink-2);max-width:none;font-weight:400}
 
 /* band */
-.nw-band{position:relative;padding:96px 0;background:var(--nw-paper)}
+.nw-band{position:relative;padding:52px 0 96px;background:var(--nw-paper)}
 .nw-band.mist{background:var(--nw-mist)}
-@media(max-width:700px){.nw-band{padding:72px 0}}
+@media(max-width:700px){.nw-band{padding:40px 0 72px}}
 
 /* 分类 tabs(仅 fallback) */
 .nw-tabs{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:34px}
