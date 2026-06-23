@@ -1,0 +1,34 @@
+/* ============================================================
+   法务页(隐私 / 条款 / Cookie) — 重设计 · 共用 scoped 样式
+   文本为主、克制:hero(纸) vs body(次级底)轻斑马;蓝绿 VI 链接与小标强调;
+   单一字族,无句号标题,可读排版。全部 scoped 于 .legalx。
+   三页样式一致(各自 import 同内容)。
+   ============================================================ */
+.legalx{
+  --lg-grad:linear-gradient(135deg,#0070FF,#12B98A);
+  --lg-teal:#0C8B82; --lg-teal-ink:#096B73;
+}
+
+/* hero 标题尽量一行,无句号;副标放开宽度 */
+.legalx .phero h1{max-width:none}
+.legalx .phero .lead{max-width:none}
+
+/* 正文段:用次级底与 hero 做轻斑马 */
+.legalx .lg-body{background:var(--ivory-2)}
+
+/* 「最近更新」做成低调蓝绿小药丸 */
+.legalx .lg-updated{display:inline-flex; align-items:center; gap:9px; margin-bottom:40px;
+  font-size:13px; color:var(--lg-teal-ink); background:var(--teal-soft);
+  border:1px solid rgba(18,185,138,.22); border-radius:999px; padding:7px 15px}
+.legalx .lg-updated::before{content:""; width:7px; height:7px; border-radius:50%; background:var(--lg-grad)}
+
+/* prose:在 scoped 内把强调色从全站暖蓝改为蓝绿 VI */
+.legalx .prose{color:var(--ink-2)}
+.legalx .prose h2{position:relative; padding-bottom:14px; font-weight:800; letter-spacing:-.02em; color:var(--ink)}
+.legalx .prose h2::after{content:""; position:absolute; left:0; bottom:0; width:40px; height:2px; border-radius:2px; background:var(--lg-grad)}
+.legalx .prose a{color:var(--lg-teal-ink); text-decoration-color:rgba(18,185,138,.4)}
+.legalx .prose a:hover{text-decoration-color:var(--lg-teal)}
+.legalx .prose blockquote{border-left-color:var(--lg-teal)}
+
+/* 焦点可见 */
+.legalx a:focus-visible{outline:2px solid var(--lg-teal); outline-offset:3px; border-radius:6px}

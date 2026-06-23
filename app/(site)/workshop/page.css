@@ -1,27 +1,167 @@
-  .premise-2{display:grid; grid-template-columns:1fr 1fr; gap:18px; margin-top:40px}
-  @media (max-width:680px){.premise-2{grid-template-columns:1fr}}
-  .premise-2 .card .big{font-family:"Noto Sans SC",serif; font-size:24px; font-weight:600; color:var(--ink); margin-bottom:10px}
-  .takeaway .card{background:transparent}
-  .why-list{display:grid; grid-template-columns:repeat(3,1fr); gap:0; border-top:1px solid var(--line)}
-  @media (max-width:780px){.why-list{grid-template-columns:1fr 1fr}}
-  @media (max-width:480px){.why-list{grid-template-columns:1fr}}
-  .why-list .w{padding:26px 24px 24px; border-bottom:1px solid var(--line); border-right:1px solid var(--line)}
-  .why-list .w:nth-child(3n){border-right:none}
-  @media (max-width:780px){.why-list .w:nth-child(3n){border-right:1px solid var(--line)} .why-list .w:nth-child(2n){border-right:none}}
-  @media (max-width:480px){.why-list .w{border-right:none !important}}
-  .why-list .w h4{font-family:"Noto Sans SC",serif; font-size:19px; font-weight:600; margin:0 0 8px}
-  .why-list .w p{font-size:14.5px; color:var(--ink-2); line-height:1.6; margin:0}
-  .who4 .card{min-height:150px}
-  .who4 .card .role{font-family:"JetBrains Mono"; font-size:12px; color:var(--mut); margin-bottom:12px}
-  .fee{max-width:var(--measure); font-size:18px; color:var(--ink-2); line-height:1.8}
-  /* 适用场景 */
-  .scenes{display:grid; grid-template-columns:repeat(3,1fr); gap:18px; margin-top:44px}
-  @media (max-width:900px){.scenes{grid-template-columns:repeat(2,1fr)}}
-  @media (max-width:560px){.scenes{grid-template-columns:1fr}}
-  .scene-c{display:block; border:1px solid var(--line); border-radius:16px; background:var(--paper); padding:24px 22px; transition:transform .25s, box-shadow .25s, border-color .25s}
-  .scene-c:hover{transform:translateY(-4px); box-shadow:0 14px 40px rgba(26,25,22,.08); border-color:var(--ink)}
-  .scene-c .ic{width:38px; height:38px; border-radius:10px; display:grid; place-items:center; color:#fff; margin-bottom:14px}
-  .scene-c h4{font-size:18px; font-weight:600; margin-bottom:8px}
-  .scene-c p{font-size:14px; color:var(--ink-2); line-height:1.6}
-  .scene-c .go{display:inline-flex; align-items:center; gap:5px; margin-top:14px; font-size:13px; font-weight:600; color:var(--ink)}
-  .scene-c:hover .go{color:var(--blue)}
+/* ============================================================
+   FMClaw™ 加速营 / Bootcamp — 冷调平台重设计
+   参考 /products/fmclaw 与 /solutions/* 的「冷平台」视觉语言。
+   结构:蓝图网格 hero(proof) → 灵魂前提(mist) → 暗场签名段:四步
+        → 适用场景 → 你会带走什么(mist) → 为什么有效 → 谁适合来(mist)
+        → 预约表单 → 时间与费用(mist) → 常见疑问 → 最终 CTA
+   全部规则收在 .solws 作用域内;单一字族,蓝绿 VI。
+   ============================================================ */
+.solws{
+  --ws-ink:#14201C; --ws-ink-2:#46524D; --ws-mut:#7C857F; --ws-faint:#A7AFAB;
+  --ws-line:#E6EAE8; --ws-mist:#ECF3F1; --ws-paper:#FFFFFF; --ws-core:#0B1714;
+  --ws-blue:#0070FF; --ws-green:#12B98A; --ws-grad:linear-gradient(115deg,#0070FF,#12B98A);
+  --ws-vi-line:rgba(12,139,130,.16);
+  background:var(--ws-paper); color:var(--ws-ink);
+}
+.solws .wrap{max-width:1160px;margin:0 auto;padding:0 32px}
+@media(max-width:600px){.solws .wrap{padding:0 22px}}
+.solws .grad{background:var(--ws-grad);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+@supports not ((-webkit-background-clip:text) or (background-clip:text)){.solws .grad{color:var(--ws-green);-webkit-text-fill-color:currentColor}}
+
+/* 蓝图网格 */
+.solws .ws-grid{position:absolute;inset:0;z-index:0;pointer-events:none;
+  background-image:linear-gradient(to right,var(--ws-vi-line) 1px,transparent 1px),
+                   linear-gradient(to bottom,var(--ws-vi-line) 1px,transparent 1px);
+  background-size:54px 54px;
+  -webkit-mask-image:radial-gradient(125% 90% at 80% 0%,#000 0%,transparent 62%);
+          mask-image:radial-gradient(125% 90% at 80% 0%,#000 0%,transparent 62%)}
+.solws .ws-grid.dark{background-image:linear-gradient(to right,rgba(63,217,184,.10) 1px,transparent 1px),
+                   linear-gradient(to bottom,rgba(63,217,184,.10) 1px,transparent 1px)}
+
+/* ---------- HERO ---------- */
+.solws .ws-hero{position:relative;overflow:hidden;padding:150px 0 64px;background:var(--ws-paper)}
+.solws .ws-hero-top{position:relative;z-index:2}
+.solws .ws-kicker{display:inline-flex;align-items:center;flex-wrap:wrap;font-size:12px;font-weight:600;letter-spacing:.14em;
+  text-transform:uppercase;color:var(--ws-mut)}
+.solws .ws-kicker a{color:var(--ws-mut)}.solws .ws-kicker a:hover{color:var(--ws-green)}
+.solws .ws-kicker i{color:var(--ws-green);font-style:normal;margin:0 9px;font-weight:700}
+.solws .ws-h1{margin:22px 0 0;font-weight:800;font-size:clamp(38px,6vw,72px);line-height:1.06;letter-spacing:-.035em;color:var(--ws-ink);max-width:18ch}
+.solws .ws-lead{margin:26px 0 0;font-size:clamp(16px,1.8vw,19px);line-height:1.6;color:var(--ws-ink-2);max-width:none;font-weight:400}
+.solws .ws-lead b{color:var(--ws-ink);font-weight:600}
+.solws .ws-cta{margin-top:38px;display:flex;flex-wrap:wrap;gap:14px;align-items:center}
+@media(max-width:560px){.solws .ws-cta{flex-direction:column;align-items:stretch}.solws .ws-cta .btn{width:100%}}
+.solws .ws-proof{position:relative;z-index:2;margin-top:52px;display:flex;flex-wrap:wrap;align-items:center;gap:12px 22px;
+  font-size:clamp(15px,1.9vw,18px);color:var(--ws-mut)}
+.solws .ws-proof b{color:var(--ws-ink);font-weight:600}
+.solws .ws-proof b.grad{font-weight:800;letter-spacing:-.01em}
+.solws .ws-proof .sep{width:5px;height:5px;border-radius:50%;background:var(--ws-faint)}
+
+/* ---------- 通用 band ---------- */
+.solws .ws-band{position:relative;padding:104px 0;background:var(--ws-paper)}
+.solws .ws-band.mist{background:var(--ws-mist)}
+@media(max-width:700px){.solws .ws-band{padding:76px 0}}
+.solws .ws-eyebrow{display:inline-flex;align-items:center;gap:10px;font-size:12px;font-weight:600;letter-spacing:.2em;
+  text-transform:uppercase;color:var(--ws-green)}
+.solws .ws-eyebrow::before{content:"";width:22px;height:2px;border-radius:2px;background:var(--ws-grad)}
+.solws .ws-eyebrow.on-dark{color:#3fd9b8}
+.solws .ws-h2{margin:18px 0 0;font-weight:800;font-size:clamp(27px,3.5vw,40px);line-height:1.18;letter-spacing:-.03em;color:var(--ws-ink);max-width:none;white-space:nowrap}
+.solws .ws-h2.on-dark{color:#fff}
+@media(max-width:980px){.solws .ws-h2{white-space:normal}}
+.solws .ws-sub{margin:18px 0 0;font-size:clamp(15px,1.65vw,17px);line-height:1.6;color:var(--ws-ink-2);max-width:none}
+.solws .ws-sub b{color:var(--ws-ink);font-weight:600}
+
+/* 收束判词:左渐变条 */
+.solws .ws-verdict{position:relative;margin-top:44px;max-width:none;padding-left:22px;
+  font-size:clamp(17px,2vw,22px);font-weight:700;line-height:1.45;letter-spacing:-.015em;color:#fff}
+.solws .ws-verdict::before{content:"";position:absolute;left:0;top:6px;bottom:6px;width:3px;border-radius:3px;background:var(--ws-grad)}
+.solws .ws-verdict.light{color:var(--ws-ink)}
+
+/* ---------- 灵魂前提 ---------- */
+.solws .ws-premise{margin-top:42px;display:grid;grid-template-columns:1fr 1fr;gap:16px}
+@media(max-width:680px){.solws .ws-premise{grid-template-columns:1fr}}
+.solws .ws-pcard{border:1px solid var(--ws-line);border-radius:16px;background:var(--ws-paper);padding:30px 28px;
+  transition:border-color .2s,box-shadow .2s,transform .2s}
+.solws .ws-pcard:hover{border-color:rgba(12,139,130,.34);box-shadow:0 14px 34px rgba(12,139,130,.08);transform:translateY(-2px)}
+.solws .ws-pic{display:grid;place-items:center;width:48px;height:48px;border-radius:13px;background:var(--ws-grad);color:#fff;margin-bottom:18px}
+.solws .ws-pic svg{width:24px;height:24px}
+.solws .ws-pbig{font-size:clamp(20px,2.4vw,24px);font-weight:700;letter-spacing:-.015em;color:var(--ws-ink);margin-bottom:10px;line-height:1.3}
+.solws .ws-pcard p{margin:0;font-size:clamp(14px,1.6vw,15.5px);line-height:1.65;color:var(--ws-ink-2)}
+
+/* ---------- 四步 · 暗场签名段 ---------- */
+.solws .ws-core{position:relative;overflow:hidden;background:var(--ws-core);color:#E8EFEC;padding:120px 0}
+@media(max-width:700px){.solws .ws-core{padding:84px 0}}
+.solws .ws-core .wrap{position:relative;z-index:1}
+.solws .ws-steps{margin-top:48px;display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+@media(max-width:820px){.solws .ws-steps{grid-template-columns:1fr 1fr}}
+@media(max-width:460px){.solws .ws-steps{grid-template-columns:1fr}}
+.solws .ws-step{position:relative;border:1px solid rgba(255,255,255,.12);border-radius:14px;background:rgba(255,255,255,.03);
+  padding:26px 24px;display:flex;flex-direction:column;gap:9px;transition:border-color .2s,box-shadow .2s,transform .2s}
+.solws .ws-step:hover{border-color:rgba(63,217,184,.34);box-shadow:0 14px 34px rgba(0,0,0,.28);transform:translateY(-2px)}
+.solws .ws-step[data-end="true"]{border-color:rgba(63,217,184,.34);background:linear-gradient(180deg,rgba(18,185,138,.10),rgba(255,255,255,.02))}
+.solws .ws-sno{font-size:clamp(30px,3.8vw,44px);font-weight:800;line-height:.9;letter-spacing:-.03em;font-variant-numeric:tabular-nums}
+.solws .ws-step h4{margin:6px 0 0;font-size:clamp(17px,1.9vw,20px);font-weight:700;letter-spacing:-.015em;color:#fff;line-height:1.28}
+.solws .ws-step p{margin:0;font-size:clamp(13.5px,1.5vw,14.5px);line-height:1.65;color:#AEBAB5}
+.solws .ws-sarr{position:absolute;right:-12px;top:42px;z-index:2;width:24px;height:24px;
+  display:grid;place-items:center;font-weight:800;color:var(--ws-core);background:#3fd9b8;border-radius:50%}
+@media(max-width:820px){.solws .ws-sarr{display:none}}
+
+/* ---------- 适用场景 ---------- */
+.solws .ws-scenes{margin-top:46px;display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+@media(max-width:900px){.solws .ws-scenes{grid-template-columns:1fr 1fr}}
+@media(max-width:560px){.solws .ws-scenes{grid-template-columns:1fr}}
+.solws .ws-scene{display:flex;flex-direction:column;border:1px solid var(--ws-line);border-radius:16px;background:var(--ws-paper);
+  padding:26px 24px;transition:border-color .2s,box-shadow .2s,transform .2s}
+.solws .ws-scene:hover{border-color:rgba(12,139,130,.36);box-shadow:0 14px 34px rgba(12,139,130,.09);transform:translateY(-2px)}
+.solws .ws-scene-ic{display:grid;place-items:center;width:46px;height:46px;border-radius:13px;background:var(--ws-grad);color:#fff;margin-bottom:16px}
+.solws .ws-scene h4{margin:0 0 8px;font-size:18px;font-weight:700;letter-spacing:-.01em;color:var(--ws-ink)}
+.solws .ws-scene p{margin:0;font-size:14px;line-height:1.6;color:var(--ws-ink-2);flex:1}
+.solws .ws-go{margin-top:16px;display:inline-flex;align-items:center;gap:7px;font-size:13px;font-weight:600;color:var(--ws-green)}
+.solws .ws-scene:hover .ws-go .ar{transform:translateX(3px)}.solws .ws-go .ar{transition:transform .2s}
+
+/* ---------- 你会带走什么 ---------- */
+.solws .ws-take{margin-top:46px;display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+@media(max-width:780px){.solws .ws-take{grid-template-columns:1fr}}
+.solws .ws-tcard{border:1px solid var(--ws-line);border-radius:16px;background:var(--ws-paper);padding:28px 26px;
+  transition:border-color .2s,box-shadow .2s,transform .2s}
+.solws .ws-tcard:hover{border-color:rgba(12,139,130,.34);box-shadow:0 14px 34px rgba(12,139,130,.08);transform:translateY(-2px)}
+.solws .ws-tno{display:block;font-size:clamp(28px,3.4vw,38px);font-weight:800;line-height:.9;letter-spacing:-.03em;margin-bottom:16px;font-variant-numeric:tabular-nums}
+.solws .ws-tcard h3{margin:0 0 9px;font-size:19px;font-weight:700;letter-spacing:-.01em;color:var(--ws-ink);line-height:1.3}
+.solws .ws-tcard p{margin:0;font-size:14.5px;line-height:1.65;color:var(--ws-ink-2)}
+
+/* ---------- 为什么有效 · 网格列表 ---------- */
+.solws .ws-why{margin-top:46px;display:grid;grid-template-columns:repeat(3,1fr);gap:0;border-top:1px solid var(--ws-line)}
+@media(max-width:780px){.solws .ws-why{grid-template-columns:1fr 1fr}}
+@media(max-width:480px){.solws .ws-why{grid-template-columns:1fr}}
+.solws .ws-w{position:relative;padding:26px 24px 24px;border-bottom:1px solid var(--ws-line);border-right:1px solid var(--ws-line)}
+.solws .ws-w:nth-child(3n){border-right:none}
+@media(max-width:780px){.solws .ws-w:nth-child(3n){border-right:1px solid var(--ws-line)}.solws .ws-w:nth-child(2n){border-right:none}}
+@media(max-width:480px){.solws .ws-w{border-right:none!important}}
+.solws .ws-w h4{margin:0 0 8px;font-size:19px;font-weight:700;letter-spacing:-.01em;color:var(--ws-ink);padding-left:16px;position:relative}
+.solws .ws-w h4::before{content:"";position:absolute;left:0;top:4px;bottom:2px;width:3px;border-radius:3px;background:var(--ws-grad)}
+.solws .ws-w p{margin:0;font-size:14.5px;line-height:1.6;color:var(--ws-ink-2)}
+
+/* ---------- 谁适合来 ---------- */
+.solws .ws-who{margin-top:46px;display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+@media(max-width:900px){.solws .ws-who{grid-template-columns:1fr 1fr}}
+@media(max-width:520px){.solws .ws-who{grid-template-columns:1fr}}
+.solws .ws-rcard{min-height:150px;border:1px solid var(--ws-line);border-radius:16px;background:var(--ws-paper);padding:26px 24px;
+  display:flex;flex-direction:column;transition:border-color .2s,box-shadow .2s,transform .2s}
+.solws .ws-rcard:hover{border-color:rgba(12,139,130,.34);box-shadow:0 14px 34px rgba(12,139,130,.08);transform:translateY(-2px)}
+.solws .ws-role{font-size:12px;font-weight:700;letter-spacing:.04em;color:var(--ws-green);margin-bottom:14px}
+.solws .ws-rcard p{margin:0;font-size:14.5px;line-height:1.6;color:var(--ws-ink-2)}
+
+/* ---------- 时间与费用 ---------- */
+.solws .ws-fee{margin:24px 0 0;max-width:var(--measure,760px);font-size:clamp(16px,1.9vw,18px);color:var(--ws-ink-2);line-height:1.8}
+
+/* ---------- 预约表单(沿用全局 .form/.field) ---------- */
+.solws .form-err{margin:-6px 0 14px;font-size:13.5px;color:var(--ws-green);line-height:1.55}
+.solws .btn[disabled]{opacity:.6;cursor:not-allowed;transform:none}
+.solws .form-done{position:relative;max-width:680px;padding:34px 30px;border:1px solid var(--ws-line);border-radius:16px;background:var(--ws-paper);overflow:hidden}
+.solws .form-done::before{content:"";position:absolute;left:0;right:0;top:0;height:3px;background:var(--ws-grad)}
+.solws .form-done-mark{width:48px;height:48px;border-radius:50%;display:grid;place-items:center;color:#fff;background:var(--ws-grad);margin-bottom:18px}
+.solws .form-done-h{margin:0 0 10px;font-size:22px;font-weight:800;letter-spacing:-.02em;color:var(--ws-ink)}
+.solws .form-done-p{margin:0;font-size:15.5px;line-height:1.7;color:var(--ws-ink-2);max-width:50ch}
+
+/* ---------- 常见疑问(沿用全局 .faq 手法,冷调描边) ---------- */
+.solws .ws-faq{margin-top:40px;max-width:var(--measure,760px);border-top:1px solid var(--ws-line)}
+.solws .ws-faq details{border-bottom:1px solid var(--ws-line)}
+.solws .ws-faq summary{list-style:none;cursor:pointer;padding:22px 0;display:flex;justify-content:space-between;align-items:center;gap:20px;
+  font-size:clamp(16px,1.8vw,18px);font-weight:600;color:var(--ws-ink);line-height:1.4}
+.solws .ws-faq summary::-webkit-details-marker{display:none}
+.solws .ws-faq summary .ic{flex:none;width:22px;height:22px;transition:transform .25s;color:var(--ws-mut)}
+.solws .ws-faq details[open] summary .ic{transform:rotate(45deg);color:var(--ws-green)}
+.solws .ws-faq .ans{padding:0 0 24px;color:var(--ws-ink-2);font-size:16px;line-height:1.75;max-width:60ch}
+
+/* ---------- 可访问性 / 动效降级 ---------- */
+.solws a:focus-visible,.solws .btn:focus-visible,.solws summary:focus-visible{outline:2px solid var(--ws-green);outline-offset:3px;border-radius:10px}
+@media(prefers-reduced-motion:reduce){.solws *{transition:none!important}}

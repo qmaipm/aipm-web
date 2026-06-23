@@ -1,3 +1,6 @@
+import Link from "next/link";
+import "./page.css";
+
 export const metadata = {
   title: "服务条款 — 启盟科技",
   description:
@@ -6,20 +9,29 @@ export const metadata = {
 
 export default function Page() {
   return (
-    <main>
+    <main className="legalx">
       {/* HERO */}
       <section className="phero">
+        <div className="hero-mesh" />
         <div className="wrap">
+          <div className="crumb reveal">
+            <Link href="/">首页</Link> / 法务 / 服务条款
+          </div>
           <span className="eyebrow reveal">法务</span>
           <h1 className="reveal" style={{ marginTop: "20px" }}>服务条款</h1>
+          <p className="lead reveal">
+            本服务条款(以下简称"本条款")由您与启盟科技及其关联方(以下简称"我们")就使用 FMClaw™ 平台及相关服务(以下简称"服务")达成。在使用服务前,请您完整阅读并理解本条款的全部内容。
+          </p>
         </div>
       </section>
 
       {/* BODY */}
-      <section className="band">
+      <section className="band lg-body">
         <div className="wrap">
-          <div className="prose reveal">
-            <p>本服务条款(以下简称"本条款")由您与启盟科技及其关联方(以下简称"我们")就使用 FMClaw™ 平台及相关服务(以下简称"服务")达成。本页内容为占位文本,仅供原型展示,最终以正式发布的版本为准。在使用服务前,请您完整阅读并理解本条款的全部内容。</p>
+          <article className="prose reveal">
+            <p className="lg-updated reveal">最近更新:本页为占位说明,以正式版本为准</p>
+
+            <p>本页内容为占位文本,仅供原型展示,最终以正式发布的版本为准。</p>
 
             <h2>一、服务范围</h2>
             <p>我们向您提供的服务包括但不限于 FMClaw™ AI 平台、相关 IoT 与硬件设备、配套工具及技术支持。具体服务内容、功能模块与可用范围,以双方另行签署的协议或我们在平台内公布的说明为准。我们可能根据业务需要,对服务的形式与内容进行调整。</p>
@@ -35,7 +47,11 @@ export default function Page() {
 
             <h2>五、变更与终止</h2>
             <p>我们可能不时更新本条款,更新后的条款将在平台内公布并自公布之日起生效。如您不同意变更内容,应停止使用服务。在符合法律法规及双方约定的情况下,任一方可依约终止服务。本页为占位说明,具体条款最终以正式版本为准。</p>
-          </div>
+
+            <p style={{ marginTop: "44px", color: "var(--mut)" }}>
+              如对本条款有任何疑问,欢迎通过<Link href="/contact">联系我们</Link>与我们沟通。
+            </p>
+          </article>
         </div>
       </section>
     </main>

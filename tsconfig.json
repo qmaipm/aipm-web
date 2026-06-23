@@ -27,7 +27,7 @@
         "./*"
       ],
       "@hp/*": [
-        "./agents-app/*"
+        "./app/(agents)/_agents-app/*"
       ]
     }
   },

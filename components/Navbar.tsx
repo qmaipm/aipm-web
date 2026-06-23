@@ -17,7 +17,6 @@ export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
   const pathname = usePathname();
-  const interior = pathname !== "/";
   useEffect(() => {
     const onScroll = () => setScrolled((window.scrollY || 0) > 40);
     window.addEventListener("scroll", onScroll, { passive: true });
@@ -27,10 +26,13 @@ export default function Navbar() {
   useEffect(() => {
     setOpen(false);
   }, [pathname]);
-  const solid = scrolled || interior || open;
+  const solid = scrolled || open;
+  // 深色 hero 页面:顶部未滚动时导航转白字,避免暗底吞掉深色导航
+  const DARK_HERO = ["/ai-service", "/agents"];
+  const onDark = !solid && DARK_HERO.includes(pathname);
 
   return (
-    <header className={`nav${solid ? " solid" : ""}`} id="nav">
+    <header className={`nav${solid ? " solid" : ""}${onDark ? " on-dark" : ""}`} id="nav">
       <div className="navrow">
         <Link href="/" className="logo" aria-label="启盟科技 Stalliance">
           <Image src="/images/logo.webp" alt="启盟科技 Stalliance" width={384} height={113} priority />

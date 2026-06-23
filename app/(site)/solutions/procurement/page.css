@@ -1,0 +1,122 @@
+/* ============================================================
+   采购管理 — 重设计(参考 /products/fmclaw 冷调平台手法)
+   结构:蓝图网格 hero(proof) → 它解决什么(过去三痛点) → 暗场签名段:FMClaw 智能采购四能力 + 判词
+        → 依赖产品(三 Agent)+ 数据集成 → 落地挑战 → CTA
+   全部规则收在 .solpro 作用域内,不泄漏全站。单一字族,蓝绿 VI。
+   ============================================================ */
+.solpro{
+  --pr-ink:#14201C; --pr-ink-2:#46524D; --pr-mut:#7C857F; --pr-faint:#A7AFAB;
+  --pr-line:#E6EAE8; --pr-mist:#ECF3F1; --pr-paper:#FFFFFF; --pr-core:#0B1714;
+  --pr-blue:#0070FF; --pr-green:#12B98A; --pr-grad:linear-gradient(115deg,#0070FF,#12B98A);
+  --pr-vi-line:rgba(12,139,130,.16);
+  background:var(--pr-paper); color:var(--pr-ink);
+}
+.solpro .wrap{max-width:1160px;margin:0 auto;padding:0 32px}
+@media(max-width:600px){.solpro .wrap{padding:0 22px}}
+.solpro .grad{background:var(--pr-grad);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+@supports not ((-webkit-background-clip:text) or (background-clip:text)){.solpro .grad{color:var(--pr-green);-webkit-text-fill-color:currentColor}}
+
+/* 蓝图网格 */
+.pr-grid{position:absolute;inset:0;z-index:0;pointer-events:none;
+  background-image:linear-gradient(to right,var(--pr-vi-line) 1px,transparent 1px),
+                   linear-gradient(to bottom,var(--pr-vi-line) 1px,transparent 1px);
+  background-size:54px 54px;
+  -webkit-mask-image:radial-gradient(125% 90% at 80% 0%,#000 0%,transparent 62%);
+          mask-image:radial-gradient(125% 90% at 80% 0%,#000 0%,transparent 62%)}
+.pr-grid.dark{background-image:linear-gradient(to right,rgba(63,217,184,.10) 1px,transparent 1px),
+                   linear-gradient(to bottom,rgba(63,217,184,.10) 1px,transparent 1px)}
+
+/* HERO */
+.pr-hero{position:relative;overflow:hidden;padding:150px 0 64px;background:var(--pr-paper)}
+.pr-hero-top{position:relative;z-index:2}
+.pr-kicker{display:inline-flex;align-items:center;flex-wrap:wrap;font-size:12px;font-weight:600;letter-spacing:.14em;
+  text-transform:uppercase;color:var(--pr-mut)}
+.pr-kicker a{color:var(--pr-mut)}.pr-kicker a:hover{color:var(--pr-green)}
+.pr-kicker i{color:var(--pr-green);font-style:normal;margin:0 9px;font-weight:700}
+.pr-h1{margin:22px 0 0;font-weight:800;font-size:clamp(38px,6vw,72px);line-height:1.06;letter-spacing:-.035em;color:var(--pr-ink);max-width:18ch}
+.pr-lead{margin:26px 0 0;font-size:clamp(16px,1.8vw,19px);line-height:1.6;color:var(--pr-ink-2);max-width:none;font-weight:400}
+.pr-lead b{color:var(--pr-ink);font-weight:600}
+.pr-cta{margin-top:38px;display:flex;flex-wrap:wrap;gap:14px;align-items:center}
+.pr-proof{position:relative;z-index:2;margin-top:50px;display:flex;flex-wrap:wrap;align-items:center;gap:12px 22px;
+  font-size:clamp(15px,1.9vw,18px);color:var(--pr-mut)}
+.pr-proof b{color:var(--pr-ink);font-weight:600}
+.pr-proof b.grad{font-weight:800;letter-spacing:-.01em}
+.pr-proof .sep{width:5px;height:5px;border-radius:50%;background:var(--pr-faint)}
+
+/* band */
+.pr-band{position:relative;padding:104px 0;background:var(--pr-paper)}
+.pr-band.mist{background:var(--pr-mist)}
+@media(max-width:700px){.pr-band{padding:76px 0}}
+.pr-eyebrow{display:inline-flex;align-items:center;gap:10px;font-size:12px;font-weight:600;letter-spacing:.2em;
+  text-transform:uppercase;color:var(--pr-green)}
+.pr-eyebrow::before{content:"";width:22px;height:2px;border-radius:2px;background:var(--pr-grad)}
+.pr-eyebrow.on-dark{color:#3fd9b8}
+.pr-h2{margin:18px 0 0;font-weight:800;font-size:clamp(27px,3.5vw,40px);line-height:1.18;letter-spacing:-.03em;color:var(--pr-ink);max-width:none;white-space:nowrap}
+.pr-h2.on-dark{color:#fff}
+@media(max-width:880px){.pr-h2{white-space:normal}}
+.pr-sub{margin:18px 0 0;font-size:clamp(15px,1.65vw,17px);line-height:1.6;color:var(--pr-ink-2);max-width:none}
+.pr-sub b{color:var(--pr-ink);font-weight:600}
+.pr-sub.on-dark{color:#AEBAB5}
+.pr-sub.on-dark b{color:#fff}
+
+/* 它解决什么:三痛点 */
+.pr-pains{margin-top:44px;display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+@media(max-width:820px){.pr-pains{grid-template-columns:1fr}}
+.pr-pain{border:1px solid var(--pr-line);border-radius:16px;background:var(--pr-paper);padding:26px 26px 24px}
+.pr-pain-x{display:grid;place-items:center;width:30px;height:30px;border-radius:50%;background:#EEF1F0;color:var(--pr-faint);font-size:13px;font-weight:800}
+.pr-pain h3{margin:16px 0 0;font-size:clamp(18px,2vw,21px);font-weight:700;letter-spacing:-.015em;color:var(--pr-ink-2)}
+.pr-pain p{margin:8px 0 0;font-size:14.5px;line-height:1.62;color:var(--pr-ink-2)}
+
+/* 暗场:四个能力 */
+.pr-core{position:relative;overflow:hidden;background:var(--pr-core);color:#E8EFEC;padding:120px 0}
+@media(max-width:700px){.pr-core{padding:84px 0}}
+.pr-core .wrap{position:relative;z-index:1}
+.pr-feats{margin-top:42px;display:grid;grid-template-columns:repeat(2,1fr);gap:16px}
+@media(max-width:680px){.pr-feats{grid-template-columns:1fr}}
+.pr-feat{border:1px solid rgba(255,255,255,.12);border-radius:16px;background:rgba(255,255,255,.03);padding:26px 26px;display:flex;flex-direction:column;gap:8px}
+.pr-feat[data-end="true"]{border-color:rgba(63,217,184,.34);background:linear-gradient(180deg,rgba(18,185,138,.10),rgba(255,255,255,.02))}
+.pr-feat-h{display:flex;align-items:center;gap:14px}
+.pr-fic{flex:none;display:grid;place-items:center;width:42px;height:42px;border-radius:12px;background:var(--pr-grad);color:#fff}
+.pr-fic svg{width:22px;height:22px}
+.pr-fno{font-size:clamp(26px,3vw,34px);font-weight:800;line-height:.9;letter-spacing:-.03em;font-variant-numeric:tabular-nums}
+.pr-feat h3{margin:6px 0 0;font-size:clamp(18px,2vw,21px);font-weight:700;letter-spacing:-.015em;color:#fff;line-height:1.25}
+.pr-feat p{margin:0;font-size:clamp(13.5px,1.5vw,15px);line-height:1.62;color:#AEBAB5}
+
+/* 判词 */
+.pr-verdict{position:relative;margin-top:44px;max-width:none;padding-left:22px;
+  font-size:clamp(17px,2vw,22px);font-weight:700;line-height:1.45;letter-spacing:-.015em;color:#fff}
+.pr-verdict::before{content:"";position:absolute;left:0;top:6px;bottom:6px;width:3px;border-radius:3px;background:var(--pr-grad)}
+
+/* 依赖产品:三 Agent */
+.pr-agents{margin-top:44px;display:grid;grid-template-columns:repeat(3,1fr);gap:16px;align-items:stretch}
+@media(max-width:820px){.pr-agents{grid-template-columns:1fr}}
+.pr-agent{display:flex;flex-direction:column;border:1px solid var(--pr-line);border-radius:16px;background:var(--pr-paper);
+  padding:26px 26px;color:inherit;text-decoration:none;transition:border-color .2s,box-shadow .2s,transform .2s}
+a.pr-agent:hover{border-color:rgba(12,139,130,.34);box-shadow:0 14px 34px rgba(12,139,130,.08);transform:translateY(-2px)}
+.pr-agent-h{display:flex;align-items:center;gap:12px;font-size:clamp(17px,1.9vw,19px);font-weight:700;letter-spacing:-.01em;color:var(--pr-ink)}
+.pr-aic{flex:none;display:grid;place-items:center;width:40px;height:40px;border-radius:11px;background:var(--pr-grad);color:#fff}
+.pr-aic svg{width:22px;height:22px}
+.pr-agent p{margin:14px 0 0;font-size:14.5px;line-height:1.6;color:var(--pr-ink-2)}
+.pr-agent-link{margin-top:auto;padding-top:18px;display:inline-flex;align-items:center;gap:7px;font-size:13.5px;font-weight:600;color:var(--pr-green)}
+.pr-agent-link .ar{transition:transform .2s}
+a.pr-agent:hover .pr-agent-link .ar{transform:translateX(3px)}
+
+/* 数据集成 */
+.pr-srcnote{margin-top:24px;border:1px dashed var(--pr-line);border-radius:16px;background:var(--pr-mist);
+  padding:24px 28px;display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:14px 24px}
+.pr-srcnote-h h3{margin:0;font-size:17px;font-weight:700;letter-spacing:-.01em;color:var(--pr-ink)}
+.pr-srcnote-h p{margin:6px 0 0;font-size:14.5px;line-height:1.6;color:var(--pr-ink-2);max-width:54ch}
+.pr-src-chips{display:flex;flex-wrap:wrap;gap:10px}
+.pr-src{font-size:14px;font-weight:600;color:var(--pr-ink);background:var(--pr-paper);border:1px solid var(--pr-line);border-radius:999px;padding:9px 18px}
+
+/* 落地挑战 */
+.pr-challenges{margin-top:42px;display:grid;grid-template-columns:1fr 1fr;gap:16px}
+@media(max-width:680px){.pr-challenges{grid-template-columns:1fr}}
+.pr-challenge{position:relative;overflow:hidden;border:1px solid var(--pr-line);border-radius:16px;background:var(--pr-paper);padding:26px 28px}
+.pr-challenge-k{position:absolute;left:0;top:0;bottom:0;width:4px;background:var(--pr-grad)}
+.pr-challenge h3{margin:0 0 0 6px;font-size:clamp(18px,2vw,21px);font-weight:700;letter-spacing:-.015em;color:var(--pr-ink)}
+.pr-challenge p{margin:8px 0 0 6px;font-size:14.5px;line-height:1.62;color:var(--pr-ink-2)}
+
+/* 可访问性 / 动效降级 */
+.solpro a:focus-visible,.solpro .btn:focus-visible{outline:2px solid var(--pr-green);outline-offset:3px;border-radius:10px}
+@media(prefers-reduced-motion:reduce){.solpro *{transition:none!important}}

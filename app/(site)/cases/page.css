@@ -1,5 +1,74 @@
-/* Page-specific styles for /cases. */
+/* ============================================================
+   客户案例 — 重设计(参考 /products/fmclaw 冷调平台手法)
+   结构:蓝图网格 hero(proof) → 在运行的项目(案例卡) → CTA
+   全部规则收在 .solcase 作用域内,不泄漏全站。单一字族,蓝绿 VI。
+   ============================================================ */
+.solcase{
+  --ca-ink:#14201C; --ca-ink-2:#46524D; --ca-mut:#7C857F; --ca-faint:#A7AFAB;
+  --ca-line:#E6EAE8; --ca-mist:#ECF3F1; --ca-paper:#FFFFFF;
+  --ca-blue:#0070FF; --ca-green:#12B98A; --ca-grad:linear-gradient(115deg,#0070FF,#12B98A);
+  --ca-vi-line:rgba(12,139,130,.16);
+  background:var(--ca-paper); color:var(--ca-ink);
+}
+.solcase .wrap{max-width:1160px;margin:0 auto;padding:0 32px}
+@media(max-width:600px){.solcase .wrap{padding:0 22px}}
+.solcase .grad{background:var(--ca-grad);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+@supports not ((-webkit-background-clip:text) or (background-clip:text)){.solcase .grad{color:var(--ca-green);-webkit-text-fill-color:currentColor}}
 
-/* 删除"省会"案例后剩两张卡:用两列布局重新平衡,避免三列网格右侧留空位。 */
-.casegrid.cases-2{grid-template-columns:repeat(2,1fr); max-width:760px}
-@media (max-width:600px){.casegrid.cases-2{grid-template-columns:1fr}}
+/* 蓝图网格 */
+.ca-grid{position:absolute;inset:0;z-index:0;pointer-events:none;
+  background-image:linear-gradient(to right,var(--ca-vi-line) 1px,transparent 1px),
+                   linear-gradient(to bottom,var(--ca-vi-line) 1px,transparent 1px);
+  background-size:54px 54px;
+  -webkit-mask-image:radial-gradient(125% 90% at 80% 0%,#000 0%,transparent 62%);
+          mask-image:radial-gradient(125% 90% at 80% 0%,#000 0%,transparent 62%)}
+
+/* HERO */
+.ca-hero{position:relative;overflow:hidden;padding:150px 0 64px;background:var(--ca-paper)}
+.ca-hero-top{position:relative;z-index:2}
+.ca-kicker{display:inline-flex;align-items:center;flex-wrap:wrap;font-size:12px;font-weight:600;letter-spacing:.14em;
+  text-transform:uppercase;color:var(--ca-mut)}
+.ca-kicker a{color:var(--ca-mut)}.ca-kicker a:hover{color:var(--ca-green)}
+.ca-kicker i{color:var(--ca-green);font-style:normal;margin:0 9px;font-weight:700}
+.ca-h1{margin:22px 0 0;font-weight:800;font-size:clamp(38px,6vw,72px);line-height:1.06;letter-spacing:-.035em;color:var(--ca-ink);max-width:18ch}
+.ca-lead{margin:26px 0 0;font-size:clamp(16px,1.8vw,19px);line-height:1.6;color:var(--ca-ink-2);max-width:none;font-weight:400}
+.ca-lead b{color:var(--ca-ink);font-weight:600}
+.ca-proof{position:relative;z-index:2;margin-top:50px;display:flex;flex-wrap:wrap;align-items:center;gap:12px 22px;
+  font-size:clamp(15px,1.9vw,18px);color:var(--ca-mut)}
+.ca-proof b{color:var(--ca-ink);font-weight:600}
+.ca-proof b.grad{font-weight:800;letter-spacing:-.01em}
+.ca-proof .sep{width:5px;height:5px;border-radius:50%;background:var(--ca-faint)}
+
+/* band */
+.ca-band{position:relative;padding:104px 0;background:var(--ca-paper)}
+.ca-band.mist{background:var(--ca-mist)}
+@media(max-width:700px){.ca-band{padding:76px 0}}
+.ca-h2{margin:0;font-weight:800;font-size:clamp(24px,3vw,34px);line-height:1.18;letter-spacing:-.03em;color:var(--ca-ink)}
+
+/* 列表头 + tabs */
+.ca-listhead{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:16px}
+.ca-tabs{display:flex;flex-wrap:wrap;gap:9px}
+.ca-tab{font-size:13.5px;font-weight:600;color:var(--ca-mut);background:var(--ca-paper);
+  border:1px solid var(--ca-line);border-radius:999px;padding:8px 18px}
+.ca-tab.on{color:#fff;border-color:transparent;background:var(--ca-grad)}
+
+/* 案例卡 */
+.ca-list{margin-top:36px;display:grid;grid-template-columns:1fr 1fr;gap:22px}
+@media(max-width:760px){.ca-list{grid-template-columns:1fr}}
+.ca-card{display:flex;flex-direction:column;border:1px solid var(--ca-line);border-radius:18px;overflow:hidden;
+  background:var(--ca-paper);color:inherit;text-decoration:none;transition:border-color .2s,box-shadow .2s,transform .2s}
+.ca-card:hover{border-color:rgba(12,139,130,.34);box-shadow:0 18px 44px rgba(12,139,130,.10);transform:translateY(-3px)}
+.ca-cover{position:relative;aspect-ratio:16/9;background-size:cover;background-position:center}
+.ca-bar{position:absolute;left:0;right:0;bottom:0;height:4px;background:var(--ca-grad)}
+.ca-body{padding:26px 28px 28px;display:flex;flex-direction:column;flex:1}
+.ca-meta{font-size:13px;font-weight:600;letter-spacing:.02em;color:var(--ca-green)}
+.ca-body h3{margin:12px 0 0;font-size:clamp(20px,2.3vw,24px);font-weight:700;letter-spacing:-.02em;color:var(--ca-ink);line-height:1.25}
+.ca-card:hover .ca-body h3{color:var(--ca-green)}
+.ca-body p{margin:10px 0 0;font-size:clamp(14px,1.5vw,15px);line-height:1.65;color:var(--ca-ink-2)}
+.ca-go{margin-top:18px;display:inline-flex;align-items:center;gap:7px;font-size:14px;font-weight:600;color:var(--ca-green)}
+.ca-go .ar{transition:transform .2s}
+.ca-card:hover .ca-go .ar{transform:translateX(3px)}
+
+/* 可访问性 / 动效降级 */
+.solcase a:focus-visible,.solcase .btn:focus-visible{outline:2px solid var(--ca-green);outline-offset:3px;border-radius:10px}
+@media(prefers-reduced-motion:reduce){.solcase *{transition:none!important}}

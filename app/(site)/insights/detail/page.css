@@ -1,17 +1,36 @@
-/* Page-specific styles for /insights/detail — net-new rules from the
-   prototype's inline <style>. Globals (.prose/.card/.grid/.endcta/.crumb)
-   live in the shared site design system and are NOT re-declared here.
-   The base .subform rules are included because the prototype relied on the
-   /insights page's inline styles for them; kept identical to that source. */
+/* ============================================================
+   /insights/detail — 行业研究(文章)
+   与列表页成对:暖纸白阅读列(.prose),蓝绿 VI 链接/引语强调。
+   规则收在 .insight-detail 作用域内。
+   ============================================================ */
 
-.artmeta{font-family:"JetBrains Mono"; font-size:13px; color:var(--mut); letter-spacing:.02em; margin-top:28px}
-.prose .lede{font-size:21px; line-height:1.7; color:var(--ink); font-family:"Noto Serif SC",serif; margin-bottom:32px}
-.rec .card h3{font-size:18px; line-height:1.35}
-.rec .card .tag{font-family:"JetBrains Mono"; font-size:11px; color:var(--mut); letter-spacing:.05em; margin-bottom:12px}
+.insight-detail .artmeta{font-size:13px; color:var(--mut); letter-spacing:.02em; margin-top:28px}
 
-.subform{display:flex; gap:10px; max-width:440px; margin-top:8px}
-.subform input{flex:1; font:inherit; font-size:15px; color:var(--ink); background:var(--paper);
-  border:1px solid var(--line); border-radius:11px; padding:13px 15px}
-.subform input:focus{outline:none; border-color:var(--ink); box-shadow:0 0 0 3px rgba(26,25,22,.06)}
-@media (max-width:520px){.subform{flex-direction:column}}
-.endcta .subform{justify-content:center; margin:0 auto 6px}
+/* 阅读体验:导语 + 蓝绿链接与引语 */
+.insight-detail .prose{max-width:var(--measure)}
+.insight-detail .prose .lede{font-size:21px; line-height:1.7; color:var(--ink); margin-bottom:32px}
+.insight-detail .prose a{color:var(--teal-ink); text-decoration:underline; text-underline-offset:3px; text-decoration-color:var(--vi-line)}
+.insight-detail .prose a:hover{color:var(--teal)}
+.insight-detail .prose blockquote{border-left:3px solid var(--teal)}
+
+/* 推荐阅读 */
+.insight-detail .rec .card .k.vi-bar{display:block; background:var(--vi-grad)}
+.insight-detail .rec .card h3{font-size:18px; line-height:1.35}
+.insight-detail .rec .card .tag{font-size:11px; color:var(--teal-ink); letter-spacing:.05em; margin-bottom:12px}
+
+/* 文末订阅表单 */
+.insight-detail .subform{display:flex; gap:10px; max-width:440px; margin-top:8px}
+.insight-detail .subform input{flex:1; font:inherit; font-size:15px; color:var(--ink); background:var(--paper);
+  border:1px solid var(--line); border-radius:11px; padding:13px 15px; min-height:48px}
+.insight-detail .subform input:focus{outline:none; border-color:var(--teal); box-shadow:0 0 0 3px var(--vi-soft)}
+@media (max-width:520px){.insight-detail .subform{flex-direction:column}}
+.insight-detail .endcta .subform{justify-content:center; margin:0 auto 6px}
+
+/* 可访问性 / 动效降级 */
+.insight-detail a:focus-visible,.insight-detail .btn:focus-visible,.insight-detail input:focus-visible,.insight-detail .card:focus-visible{outline:2px solid var(--teal); outline-offset:3px; border-radius:12px}
+@media (prefers-reduced-motion:reduce){.insight-detail .card{transition:none}}
+
+/* ---------- 订阅表单反馈(蓝绿 VI) ---------- */
+.insight-detail .form-err{margin-top:10px; font-size:13.5px; color:var(--teal-ink); line-height:1.55}
+.insight-detail .subform .btn[disabled]{opacity:.6; cursor:not-allowed; transform:none}
+.insight-detail .sub-done{max-width:440px; margin:0 auto; padding:16px 18px; border:1px solid var(--line); border-left:3px solid var(--teal); border-radius:12px; background:var(--paper); font-size:14.5px; line-height:1.65; color:var(--ink-2)}

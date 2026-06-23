@@ -1,16 +1,46 @@
-/* Page-specific styles for /cases/detail. */
-.montag{font-family:"JetBrains Mono"; font-size:13px; letter-spacing:.06em; color:var(--dark-mut-c); margin-bottom:22px}
-.compare{border-top:1px solid var(--line)}
-.compare .row{display:grid; grid-template-columns:200px 1fr 1fr; gap:24px; padding:20px 0; border-bottom:1px solid var(--line-2); align-items:baseline}
-.compare .row .k{font-weight:600; color:var(--ink)}
-.compare .row .before{color:var(--mut); font-size:15.5px}
-.compare .row .after{color:var(--ink); font-size:15.5px; font-weight:500}
-.compare .head{display:grid; grid-template-columns:200px 1fr 1fr; gap:24px; padding:0 0 14px; border-bottom:1px solid var(--line)}
-.compare .head span{font-family:"JetBrains Mono"; font-size:11.5px; letter-spacing:.08em; text-transform:uppercase; color:var(--mut-2)}
-@media (max-width:620px){.compare .row,.compare .head{grid-template-columns:1fr; gap:6px} .compare .head span:first-child{display:none}}
-.painlist{list-style:none; padding:0; margin:32px 0 0; max-width:var(--measure)}
-.painlist li{position:relative; padding:10px 0 10px 26px; color:var(--ink-2); font-size:16px; border-bottom:1px solid var(--line-2)}
-.painlist li::before{content:""; position:absolute; left:0; top:19px; width:7px; height:7px; border-radius:50%; background:var(--blue)}
-.voice{max-width:34ch; font-family:"Noto Serif SC",serif; font-style:italic; font-size:clamp(22px,3.4vw,30px); line-height:1.5; color:#fff; position:relative; padding-left:24px}
-.voice::before{content:""; position:absolute; left:0; top:6px; bottom:6px; width:3px; border-radius:3px; background:var(--grad5)}
-.voice-by{margin-top:22px; font-family:"JetBrains Mono"; font-size:12.5px; letter-spacing:.06em; color:var(--dark-mut-c)}
+/* ============================================================
+   /cases/detail — 客户案例(详情)
+   与列表页成对:暖纸底 + 斑马纹,蓝绿 VI 强调,唯一暗场 = 客户原声。
+   全部规则收在 .case-detail 作用域内。
+   ============================================================ */
+
+.case-detail .montag{font-size:13px; letter-spacing:.06em; color:var(--mut); margin-bottom:22px}
+
+/* 改造前 vs 改造后 对照表 */
+.case-detail .compare{border-top:1px solid var(--line)}
+.case-detail .compare .row{display:grid; grid-template-columns:200px 1fr 1fr; gap:24px; padding:20px 0; border-bottom:1px solid var(--line-2); align-items:baseline}
+.case-detail .compare .row .k{font-weight:600; color:var(--ink)}
+.case-detail .compare .row .before{color:var(--mut); font-size:15.5px}
+.case-detail .compare .row .after{color:var(--ink); font-size:15.5px; font-weight:500}
+.case-detail .compare .head{display:grid; grid-template-columns:200px 1fr 1fr; gap:24px; padding:0 0 14px; border-bottom:1px solid var(--line)}
+.case-detail .compare .head span{font-size:11.5px; letter-spacing:.08em; text-transform:uppercase; color:var(--mut-2)}
+@media (max-width:620px){.case-detail .compare .row,.case-detail .compare .head{grid-template-columns:1fr; gap:6px} .case-detail .compare .head span:first-child{display:none}}
+
+/* 定义表(接入之前) */
+.case-detail .deflist{border-top:1px solid var(--line)}
+.case-detail .deflist .row{display:grid; grid-template-columns:160px 1fr; gap:24px; padding:18px 0; border-bottom:1px solid var(--line-2); align-items:baseline}
+.case-detail .deflist .row .k{font-weight:600; color:var(--ink); font-size:15px}
+.case-detail .deflist .row .v{color:var(--ink-2); font-size:15.5px; line-height:1.65}
+@media (max-width:620px){.case-detail .deflist .row{grid-template-columns:1fr; gap:5px}}
+
+/* 痛点列表 */
+.case-detail .painlist{list-style:none; padding:0; margin:32px 0 0; max-width:var(--measure)}
+.case-detail .painlist li{position:relative; padding:10px 0 10px 26px; color:var(--ink-2); font-size:16px; border-bottom:1px solid var(--line-2)}
+.case-detail .painlist li::before{content:""; position:absolute; left:0; top:19px; width:7px; height:7px; border-radius:50%; background:var(--teal)}
+
+/* 卡片色条统一蓝绿 */
+.case-detail .card .k.vi-bar{display:block; background:var(--vi-grad)}
+
+/* 行内注释/链接 */
+.case-detail .note-line{margin-top:32px; font-size:14.5px; color:var(--mut); line-height:1.7; max-width:var(--measure)}
+.case-detail .note-line a{color:var(--teal-ink); text-decoration:underline; text-underline-offset:3px; text-decoration-color:var(--vi-line)}
+.case-detail .note-line a:hover{color:var(--teal)}
+
+/* 客户原声(唯一暗场签名段) */
+.case-detail .voice{margin-top:28px; max-width:34ch; font-size:clamp(22px,3.4vw,30px); line-height:1.5; color:#fff; position:relative; padding-left:24px}
+.case-detail .voice::before{content:""; position:absolute; left:0; top:6px; bottom:6px; width:3px; border-radius:3px; background:var(--vi-grad)}
+.case-detail .voice-by{margin-top:22px; font-size:12.5px; letter-spacing:.06em; color:var(--dark-mut-c)}
+
+/* 可访问性 / 动效降级 */
+.case-detail a:focus-visible,.case-detail .btn:focus-visible,.case-detail .card:focus-visible{outline:2px solid var(--teal); outline-offset:3px; border-radius:12px}
+.case-detail.band.dark a:focus-visible,.case-detail .band.dark a:focus-visible{outline-color:#3fd9b8}

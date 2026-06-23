@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Hero from "@hp/components/sections/Hero";
 import Clients from "@hp/components/sections/Clients";
 import AgentShowcase from "@hp/components/sections/AgentShowcase";
+import Contact from "@hp/components/sections/Contact";
 
 export const metadata: Metadata = {
   title: "Agentic 产品套件 · 一体化物业管理 AI — 启盟科技",
@@ -12,10 +13,11 @@ export const metadata: Metadata = {
 
 export default function Page() {
   return (
-    <main className="min-h-screen">
+    <main className="min-h-screen agents-app">
       <Hero />
       <Clients />
       <AgentShowcase />
+      <Contact />
     </main>
   );
 }

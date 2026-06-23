@@ -48,6 +48,7 @@ export const MENU: MenuItem[] = [
       },
     ],
   },
+  { label: "AI 物业服务", href: "/ai-service" },
   { label: "客户案例", href: "/cases" },
   {
     label: "FMClaw™ 加速营",
@@ -82,6 +83,7 @@ export const MENU: MenuItem[] = [
           { label: "团队", href: "/team" },
           { label: "新闻动态", href: "/news" },
           { label: "行业研究", href: "/insights" },
+          { label: "联系我们", href: "/contact" },
         ],
       },
     ],

@@ -1,0 +1,132 @@
+/* ============================================================
+   服务分包管理 — 重设计(参考 /products/fmclaw 冷调平台手法)
+   结构:蓝图网格 hero(proof) → 它解决什么(过去 vs 现在) → 多维度考核 + 自定义数据源
+        → 暗场签名段:FMClaw 工作流(数据→AI 计算→出账单) + 判词 → CTA
+   全部规则收在 .solsc 作用域内,不泄漏全站。单一字族,蓝绿 VI。
+   ============================================================ */
+.solsc{
+  --s-ink:#14201C; --s-ink-2:#46524D; --s-mut:#7C857F; --s-faint:#A7AFAB;
+  --s-line:#E6EAE8; --s-mist:#ECF3F1; --s-paper:#FFFFFF; --s-core:#0B1714;
+  --s-blue:#0070FF; --s-green:#12B98A; --s-grad:linear-gradient(115deg,#0070FF,#12B98A);
+  --s-vi-line:rgba(12,139,130,.16);
+  background:var(--s-paper); color:var(--s-ink);
+}
+.solsc .wrap{max-width:1160px;margin:0 auto;padding:0 32px}
+@media(max-width:600px){.solsc .wrap{padding:0 22px}}
+.solsc .grad{background:var(--s-grad);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+@supports not ((-webkit-background-clip:text) or (background-clip:text)){.solsc .grad{color:var(--s-green);-webkit-text-fill-color:currentColor}}
+
+/* 蓝图网格 */
+.sc-grid{position:absolute;inset:0;z-index:0;pointer-events:none;
+  background-image:linear-gradient(to right,var(--s-vi-line) 1px,transparent 1px),
+                   linear-gradient(to bottom,var(--s-vi-line) 1px,transparent 1px);
+  background-size:54px 54px;
+  -webkit-mask-image:radial-gradient(125% 90% at 80% 0%,#000 0%,transparent 62%);
+          mask-image:radial-gradient(125% 90% at 80% 0%,#000 0%,transparent 62%)}
+.sc-grid.dark{background-image:linear-gradient(to right,rgba(63,217,184,.10) 1px,transparent 1px),
+                   linear-gradient(to bottom,rgba(63,217,184,.10) 1px,transparent 1px)}
+
+/* HERO */
+.sc-hero{position:relative;overflow:hidden;padding:150px 0 64px;background:var(--s-paper)}
+.sc-hero-top{position:relative;z-index:2}
+.sc-kicker{display:inline-flex;align-items:center;flex-wrap:wrap;font-size:12px;font-weight:600;letter-spacing:.14em;
+  text-transform:uppercase;color:var(--s-mut)}
+.sc-kicker a{color:var(--s-mut)}.sc-kicker a:hover{color:var(--s-green)}
+.sc-kicker i{color:var(--s-green);font-style:normal;margin:0 9px;font-weight:700}
+.sc-h1{margin:22px 0 0;font-weight:800;font-size:clamp(38px,6vw,72px);line-height:1.06;letter-spacing:-.035em;color:var(--s-ink);max-width:18ch}
+.sc-lead{margin:26px 0 0;font-size:clamp(16px,1.8vw,19px);line-height:1.6;color:var(--s-ink-2);max-width:none;font-weight:400}
+.sc-lead b{color:var(--s-ink);font-weight:600}
+.sc-cta{margin-top:38px;display:flex;flex-wrap:wrap;gap:14px;align-items:center}
+.sc-proof{position:relative;z-index:2;margin-top:52px;display:flex;flex-wrap:wrap;align-items:center;gap:12px 22px;
+  font-size:clamp(15px,1.9vw,18px);color:var(--s-mut)}
+.sc-proof b{color:var(--s-ink);font-weight:600}
+.sc-proof b.grad{font-weight:800;letter-spacing:-.01em}
+.sc-proof .sep{width:5px;height:5px;border-radius:50%;background:var(--s-faint)}
+
+/* band */
+.sc-band{position:relative;padding:104px 0;background:var(--s-paper)}
+.sc-band.mist{background:var(--s-mist)}
+@media(max-width:700px){.sc-band{padding:76px 0}}
+.sc-eyebrow{display:inline-flex;align-items:center;gap:10px;font-size:12px;font-weight:600;letter-spacing:.2em;
+  text-transform:uppercase;color:var(--s-green)}
+.sc-eyebrow::before{content:"";width:22px;height:2px;border-radius:2px;background:var(--s-grad)}
+.sc-eyebrow.on-dark{color:#3fd9b8}
+.sc-h2{margin:18px 0 0;font-weight:800;font-size:clamp(27px,3.5vw,40px);line-height:1.18;letter-spacing:-.03em;color:var(--s-ink);max-width:none;white-space:nowrap}
+.sc-h2.on-dark{color:#fff}
+@media(max-width:880px){.sc-h2{white-space:normal}}
+.sc-sub{margin:18px 0 0;font-size:clamp(15px,1.65vw,17px);line-height:1.6;color:var(--s-ink-2);max-width:none}
+.sc-sub b{color:var(--s-ink);font-weight:600}
+.sc-sub.on-dark{color:#AEBAB5}
+.sc-sub.on-dark b{color:#fff}
+
+/* them vs us */
+.sc-versus{display:grid;grid-template-columns:1fr 56px 1fr;align-items:stretch;margin-top:48px}
+@media(max-width:760px){.sc-versus{grid-template-columns:1fr;gap:14px}}
+.sc-vs{padding:34px 32px;display:flex;flex-direction:column;gap:10px;border-radius:16px;border:1px solid var(--s-line);background:var(--s-paper)}
+.sc-vs.us{background:linear-gradient(180deg,rgba(18,185,138,.08),var(--s-paper));border-color:rgba(18,185,138,.32)}
+.sc-vs-tag{font-size:12px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--s-mut)}
+.sc-vs.us .sc-vs-tag{color:var(--s-green)}
+.sc-vs-line{margin:4px 0 0;font-size:clamp(20px,2.5vw,26px);font-weight:700;letter-spacing:-.02em;color:var(--s-ink);line-height:1.25}
+.sc-vs-sub{font-size:15px;line-height:1.65;color:var(--s-ink-2)}
+.sc-vs-mid{display:grid;place-items:center}
+.sc-vs-mid span{font-size:12px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--s-faint);
+  border:1px solid var(--s-line);border-radius:999px;width:44px;height:44px;display:grid;place-items:center;
+  background:var(--s-paper);box-shadow:0 5px 16px rgba(20,32,28,.07)}
+@media(max-width:760px){.sc-vs-mid span{transform:rotate(90deg)}}
+
+/* 多维度考核指标 */
+.sc-metrics{margin-top:44px;display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+@media(max-width:760px){.sc-metrics{grid-template-columns:1fr 1fr}}
+@media(max-width:460px){.sc-metrics{grid-template-columns:1fr}}
+.sc-metric{display:flex;align-items:center;gap:15px;border:1px solid var(--s-line);border-radius:14px;background:var(--s-paper);
+  padding:20px 22px;transition:border-color .2s,box-shadow .2s,transform .2s}
+.sc-metric:hover{border-color:rgba(12,139,130,.34);box-shadow:0 12px 28px rgba(12,139,130,.07);transform:translateY(-2px)}
+.sc-metric-ic{flex:none;display:grid;place-items:center;width:42px;height:42px;border-radius:12px;background:var(--s-grad);color:#fff}
+.sc-metric-ic svg{width:22px;height:22px}
+.sc-metric-c{display:flex;flex-direction:column;gap:4px;min-width:0}
+.sc-metric-t{font-size:13.5px;font-weight:600;color:var(--s-mut);letter-spacing:.01em}
+.sc-metric-v{font-size:clamp(21px,2.4vw,25px);font-weight:800;letter-spacing:-.02em;line-height:1}
+
+/* 自定义数据源 */
+.sc-sources{margin-top:32px;border:1px dashed var(--s-line);border-radius:16px;background:var(--s-mist);
+  padding:26px 28px;display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:18px 24px;
+  color:inherit;text-decoration:none;transition:border-color .2s,box-shadow .2s}
+a.sc-sources:hover{border-color:rgba(12,139,130,.45);box-shadow:0 12px 30px rgba(12,139,130,.09)}
+.sc-sources-h h3{margin:0;font-size:18px;font-weight:700;letter-spacing:-.01em;color:var(--s-ink)}
+.sc-sources-h p{margin:7px 0 0;font-size:14.5px;line-height:1.6;color:var(--s-ink-2);max-width:52ch}
+.sc-source-link{margin-top:12px;display:inline-flex;align-items:center;gap:7px;font-size:13.5px;font-weight:600;color:var(--s-green)}
+.sc-source-link .ar{transition:transform .2s}
+a.sc-sources:hover .sc-source-link .ar{transform:translateX(3px)}
+.sc-source-chips{display:flex;flex-wrap:wrap;gap:10px}
+.sc-source{font-size:14px;font-weight:600;color:var(--s-ink);background:var(--s-paper);
+  border:1px solid var(--s-line);border-radius:999px;padding:9px 18px}
+.sc-link{margin-top:30px;font-size:15px;color:var(--s-mut);line-height:1.7}
+.sc-link a{color:var(--s-green);font-weight:600;text-underline-offset:3px;text-decoration:underline;text-decoration-color:rgba(12,139,130,.35)}
+.sc-link a:hover{text-decoration-color:var(--s-green)}
+
+/* 暗场:FMClaw 工作流 */
+.sc-core{position:relative;overflow:hidden;background:var(--s-core);color:#E8EFEC;padding:120px 0}
+@media(max-width:700px){.sc-core{padding:84px 0}}
+.sc-core .wrap{position:relative;z-index:1}
+.sc-flow{margin-top:48px;display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+@media(max-width:760px){.sc-flow{grid-template-columns:1fr;gap:14px}}
+.sc-fstep{position:relative;border:1px solid rgba(255,255,255,.12);border-radius:14px;background:rgba(255,255,255,.03);
+  padding:26px 24px;display:flex;flex-direction:column;gap:8px}
+.sc-fstep[data-end="true"]{border-color:rgba(63,217,184,.34);background:linear-gradient(180deg,rgba(18,185,138,.10),rgba(255,255,255,.02))}
+.sc-fno{font-size:clamp(30px,3.8vw,42px);font-weight:800;line-height:.9;letter-spacing:-.03em;font-variant-numeric:tabular-nums}
+.sc-flane{font-size:12px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#3fd9b8}
+.sc-fstep h3{margin:4px 0 0;font-size:clamp(18px,2vw,21px);font-weight:700;letter-spacing:-.015em;color:#fff;line-height:1.25}
+.sc-fstep p{margin:0;font-size:clamp(13.5px,1.5vw,15px);line-height:1.6;color:#AEBAB5}
+.sc-farr{position:absolute;right:-12px;top:50%;transform:translateY(-50%);z-index:2;width:24px;height:24px;
+  display:grid;place-items:center;font-weight:800;color:var(--s-core);background:#3fd9b8;border-radius:50%}
+@media(max-width:760px){.sc-farr{display:none}}
+
+/* 判词 */
+.sc-verdict{position:relative;margin-top:44px;max-width:none;padding-left:22px;
+  font-size:clamp(17px,2vw,22px);font-weight:700;line-height:1.45;letter-spacing:-.015em;color:var(--s-ink)}
+.sc-verdict.on-dark{color:#fff}
+.sc-verdict::before{content:"";position:absolute;left:0;top:6px;bottom:6px;width:3px;border-radius:3px;background:var(--s-grad)}
+
+/* 可访问性 / 动效降级 */
+.solsc a:focus-visible,.solsc .btn:focus-visible{outline:2px solid var(--s-green);outline-offset:3px;border-radius:10px}
+@media(prefers-reduced-motion:reduce){.solsc *{transition:none!important}}

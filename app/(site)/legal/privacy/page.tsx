@@ -1,3 +1,6 @@
+import Link from "next/link";
+import "./page.css";
+
 export const metadata = {
   title: "隐私政策 — 启盟科技",
   description:
@@ -6,20 +9,29 @@ export const metadata = {
 
 export default function Page() {
   return (
-    <main>
+    <main className="legalx">
       {/* HERO */}
       <section className="phero">
+        <div className="hero-mesh" />
         <div className="wrap">
+          <div className="crumb reveal">
+            <Link href="/">首页</Link> / 法务 / 隐私政策
+          </div>
           <span className="eyebrow reveal">法务</span>
           <h1 className="reveal" style={{ marginTop: "20px" }}>隐私政策</h1>
+          <p className="lead reveal">
+            我们重视并保护您的个人信息。本隐私政策说明启盟科技及其关联方(以下简称"我们")在您使用 FMClaw™ 平台及相关服务时,如何收集、使用、共享、存储与保护您的信息,以及您可以行使的权利。
+          </p>
         </div>
       </section>
 
       {/* BODY */}
-      <section className="band">
+      <section className="band lg-body">
         <div className="wrap">
-          <div className="prose reveal">
-            <p>我们重视并保护您的个人信息。本隐私政策说明启盟科技及其关联方(以下简称"我们")在您使用 FMClaw™ 平台及相关服务时,如何收集、使用、共享、存储与保护您的信息,以及您可以行使的权利。本页内容为占位文本,仅供原型展示,最终以正式发布的版本为准。我们处理个人信息将遵循《中华人民共和国个人信息保护法》(PIPL)及其他适用的法律法规。</p>
+          <article className="prose reveal">
+            <p className="lg-updated reveal">最近更新:本页为占位说明,以正式版本为准</p>
+
+            <p>本页内容为占位文本,仅供原型展示,最终以正式发布的版本为准。我们处理个人信息将遵循《中华人民共和国个人信息保护法》(PIPL)及其他适用的法律法规。</p>
 
             <h2>一、信息收集</h2>
             <p>我们仅在为您提供服务所必需的范围内收集信息,包括您主动提供的信息(如联系方式、单位与职务、咨询内容)以及在使用过程中产生的信息(如设备信息、日志信息)。我们不会收集与服务无关的信息。</p>
@@ -35,7 +47,11 @@ export default function Page() {
 
             <h2>五、你的权利</h2>
             <p>在适用法律允许的范围内,您有权查阅、复制、更正、补充或删除您的个人信息,有权撤回此前作出的同意,并有权要求我们解释个人信息处理规则。您可通过本站联系方式与我们联系以行使上述权利。本页为占位说明,具体内容最终以正式版本为准。</p>
-          </div>
+
+            <p style={{ marginTop: "44px", color: "var(--mut)" }}>
+              如需行使上述权利或对本政策有任何疑问,欢迎通过<Link href="/contact">联系我们</Link>与我们沟通。
+            </p>
+          </article>
         </div>
       </section>
     </main>

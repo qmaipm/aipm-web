@@ -10,14 +10,14 @@ export const metadata = {
 
 export default function Page() {
   return (
-    <main className="scenario-page sc-blue">
+    <main className="scenario-page scx">
       {/* HERO */}
       <section className="phero">
         <div className="hero-mesh"></div>
         <div className="wrap">
           <div className="crumb reveal"><Link href="/workshop">FMClaw™ 加速营</Link> / 适用场景 / 报修智能客服</div>
           <span className="eyebrow reveal">适用场景</span>
-          <h1 className="reveal" style={{ marginTop: "18px" }}>报修智能客服</h1>
+          <h1 className="reveal">报修智能客服</h1>
           <p className="lead reveal">平台 Bot 7×24 守群不漏单，FMClaw 自动派单不到 1 分钟，下单人与接单人双向通知闭环。</p>
         </div>
       </section>
@@ -36,23 +36,16 @@ export default function Page() {
           { k: "不延迟", b: "记单、派单、跟踪，链路长", a: "派单 < 1 分钟，自动通知" },
           { k: "有反馈", b: "客户无反馈，投诉升级", a: "下单人 + 接单人双向通知，闭环" },
         ]}
+        note={`对话还在你原来的钉钉 / 飞书群里，AI 接的是"守群—接单—派单—通知"这一段；人只在派错或异常时介入。原有协作平台不替换，FMClaw 只补上业务闭环那一截。`}
+        solutionHref="/solutions/operations"
       />
-
-      {/* 简短说明 */}
-      <section className="band alt">
-        <div className="wrap">
-          <div className="sec-head"><span className="eyebrow reveal">谁接了哪一步</span></div>
-          <p className="note reveal">对话还在你原来的钉钉 / 飞书群里，AI 接的是"守群—接单—派单—通知"这一段；人只在派错或异常时介入。原有协作平台不替换，FMClaw 只补上业务闭环那一截。</p>
-          <p className="reveal" style={{ marginTop: "22px" }}><Link href="/solutions/operations" style={{ color: "var(--accent)", fontWeight: 600 }}>看完整解决方案 →</Link></p>
-        </div>
-      </section>
 
       {/* 收口 CTA */}
       <section className="endcta">
         <div className="wrap">
-          <h2 className="reveal">想在你自己的数据上,<br />跑通这个场景?</h2>
+          <h2 className="reveal">想在你自己的数据上,跑通这个场景?</h2>
           <p className="reveal">带上你的真实数据，来一次 FMClaw™ 加速营，当场把它跑通。</p>
-          <div className="cta-row reveal"><Link href="/workshop" className="btn btn-primary" style={{ padding: "16px 32px", fontSize: "16.5px" }}>预约 FMClaw™ 加速营 →</Link></div>
+          <div className="cta-row reveal"><Link href="/workshop" className="btn btn-primary">预约 FMClaw™ 加速营 →</Link></div>
         </div>
       </section>
     </main>

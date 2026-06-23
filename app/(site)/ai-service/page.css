@@ -1,0 +1,225 @@
+/* ============================================================
+   AI 物业服务 — 参考 /products/fmclaw 的 .fmx 系统
+   冷调蓝绿「平台」观感 + 实景照片(来自《AI 物业服务简介 V2.0》)。
+   结构:实景 hero → 服务宗旨 → 总体服务方案(五大服务·照片卡)
+        → 增值服务(绿色 LEED / 健康 FITWEL) → 暗场·数据运营 → 使命 → CTA
+   全部收在 .aisv 作用域内。
+   ============================================================ */
+.aisv{
+  --av-ink:#14201C; --av-ink-2:#46524D; --av-mut:#7C857F; --av-faint:#A7AFAB;
+  --av-line:#E6EAE8; --av-mist:#ECF3F1; --av-paper:#FFFFFF; --av-core:#0B1714;
+  --av-blue:#0070FF; --av-green:#12B98A; --av-grad:linear-gradient(115deg,#0070FF,#12B98A);
+  --av-vi-line:rgba(12,139,130,.16);
+  background:var(--av-paper); color:var(--av-ink);
+}
+.aisv .wrap{max-width:1160px;margin:0 auto;padding:0 32px}
+@media(max-width:600px){.aisv .wrap{padding:0 22px}}
+.aisv .grad{background:var(--av-grad);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+@supports not ((-webkit-background-clip:text) or (background-clip:text)){.aisv .grad{color:var(--av-green);-webkit-text-fill-color:currentColor}}
+
+/* 蓝图网格 */
+.av-grid{position:absolute;inset:0;z-index:1;pointer-events:none;
+  background-image:linear-gradient(to right,rgba(63,217,184,.10) 1px,transparent 1px),
+                   linear-gradient(to bottom,rgba(63,217,184,.10) 1px,transparent 1px);
+  background-size:54px 54px;
+  -webkit-mask-image:radial-gradient(120% 90% at 80% 0%,#000 0%,transparent 62%);
+          mask-image:radial-gradient(120% 90% at 80% 0%,#000 0%,transparent 62%)}
+
+/* ---------- HERO · 实景 ---------- */
+.av-hero{position:relative;overflow:hidden;color:#fff;background:var(--av-core);padding:178px 0 72px;min-height:640px;display:flex;align-items:flex-end}
+.av-hero__bg{position:absolute;inset:0;z-index:0;background:url(/ai-service/hero.jpg) center/cover no-repeat}
+.av-hero__bg::after{content:"";position:absolute;inset:0;
+  background:linear-gradient(180deg,rgba(7,15,13,.62) 0%,rgba(7,15,13,.42) 42%,rgba(7,15,13,.92) 100%)}
+.av-hero-top{position:relative;z-index:2;width:100%}
+.av-kicker{display:inline-flex;align-items:center;font-size:12px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:#9fded0}
+.av-kicker a{color:#9fded0}.av-kicker i{color:var(--av-green);font-style:normal;margin:0 9px;font-weight:700}
+.av-h1{margin:20px 0 0;font-weight:800;font-size:clamp(40px,6.6vw,76px);line-height:1.04;letter-spacing:-.035em;color:#fff;max-width:16ch}
+.av-lead{margin:22px 0 0;font-size:clamp(16px,1.8vw,19px);line-height:1.6;color:#D7E2DD;max-width:54ch;font-weight:400}
+.av-lead b{color:#fff;font-weight:600}
+.av-lead .tn{color:#5fe0c6;font-weight:800;letter-spacing:.01em}
+.av-cta{margin-top:34px;display:flex;flex-wrap:wrap;gap:14px;align-items:center}
+.av-hero .btn-ghost{color:#fff;border-color:rgba(255,255,255,.45);background:rgba(255,255,255,.05)}
+.av-hero .btn-ghost:hover{border-color:#fff;background:rgba(255,255,255,.12)}
+.av-proof{margin-top:46px;display:flex;flex-wrap:wrap;align-items:center;gap:12px 22px;font-size:clamp(15px,1.9vw,18px);color:#B7C6C0}
+.av-proof b{color:#fff;font-weight:600}
+.av-proof b.grad{font-weight:800;font-size:1.3em;letter-spacing:-.02em}
+.av-proof .sep{width:5px;height:5px;border-radius:50%;background:rgba(255,255,255,.4)}
+
+/* ---------- 我们的客户 · logo 带 ---------- */
+.av-clients{background:var(--av-paper);padding:36px 0;border-bottom:1px solid var(--av-line)}
+.av-clients__lab{display:block;text-align:center;font-size:12px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--av-mut);margin-bottom:24px}
+.av-clients__row{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;align-items:center;max-width:880px;margin:0 auto}
+@media(max-width:680px){.av-clients__row{grid-template-columns:1fr 1fr;gap:28px}}
+.av-cli{display:grid;place-items:center;height:56px}
+.av-cli img{max-height:44px;max-width:160px;width:auto;object-fit:contain;transition:transform .25s ease}
+/* 万益蓝 logo 偏方,稍放大一档,与其它横版 logo 视觉更协调 */
+.av-cli img.cli-lg{max-height:54px;max-width:184px}
+.av-cli:hover img{transform:scale(1.05)}
+
+/* ---------- 通用 band ---------- */
+.av-band{position:relative;padding:104px 0;background:var(--av-paper)}
+.av-band.mist{background:var(--av-mist)}
+@media(max-width:700px){.av-band{padding:76px 0}}
+.av-eyebrow{display:inline-flex;align-items:center;gap:10px;font-size:12px;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:var(--av-green)}
+.av-eyebrow::before{content:"";width:22px;height:2px;border-radius:2px;background:var(--av-grad)}
+.av-eyebrow.on-dark{color:#3fd9b8}
+.av-h2{margin:18px 0 0;font-weight:800;font-size:clamp(27px,3.5vw,40px);line-height:1.18;letter-spacing:-.03em;color:var(--av-ink);max-width:24ch}
+.av-h2.on-dark{color:#fff}
+.av-sub{margin:18px 0 0;font-size:clamp(15px,1.65vw,17px);line-height:1.65;color:var(--av-ink-2);max-width:64ch}
+.av-sub.on-dark{color:#AEBAB5}
+.av-sub b{color:var(--av-ink);font-weight:600}
+#services > .wrap > .av-sub{max-width:none;font-size:15px}
+
+/* ---------- 服务宗旨 · 两份宗旨 ---------- */
+.av-tenets{margin-top:46px;display:grid;grid-template-columns:1fr 1fr;gap:16px}
+@media(max-width:760px){.av-tenets{grid-template-columns:1fr}}
+.av-tenet{border:1px solid var(--av-line);border-radius:16px;background:var(--av-paper);padding:30px 30px 26px}
+.av-tenet.us{background:linear-gradient(180deg,rgba(18,185,138,.07),var(--av-paper));border-color:rgba(18,185,138,.3)}
+.av-tenet .ten-en{font-size:12px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--av-mut)}
+.av-tenet.us .ten-en{color:var(--av-green)}
+.av-tenet h3{margin:8px 0 0;font-size:clamp(19px,2.2vw,23px);font-weight:700;letter-spacing:-.01em;color:var(--av-ink)}
+.av-tenet .ten-words{margin-top:18px;display:flex;flex-wrap:wrap;gap:9px}
+.av-tenet .ten-words span{font-size:15px;font-weight:600;color:var(--av-ink);background:var(--av-mist);border:1px solid var(--av-line);border-radius:999px;padding:8px 16px}
+.av-tenet.us .ten-words span{background:rgba(18,185,138,.08);border-color:rgba(18,185,138,.22)}
+
+/* ---------- 模式徽 · 专业 + 数字 ---------- */
+/* 专业 + 数字 = 一体化(参 PPT:双圆 Venn,两侧带服务/标准小点) */
+.av-venn{margin-top:50px;display:grid;grid-template-columns:1fr auto 1fr;align-items:center;gap:30px;justify-items:center}
+@media(max-width:880px){.av-venn{grid-template-columns:1fr;gap:24px}}
+/* 两侧:5 个小点用弧线串起,引向圆(参 PPT) */
+.av-arc{width:280px;height:290px;max-width:100%;overflow:visible}
+.av-arc.l{justify-self:end}
+.av-arc.r{justify-self:start}
+.av-arc-line{fill:none;stroke-width:1.6}
+.av-arc.l .av-arc-line{stroke:rgba(18,185,138,.5)}
+.av-arc.r .av-arc-line{stroke:rgba(0,112,255,.45)}
+.av-arc-dot{stroke:#fff;stroke-width:1.5}
+.av-arc.l .av-arc-dot{fill:var(--av-green)}
+.av-arc.r .av-arc-dot{fill:var(--av-blue)}
+.av-arc-t{font-size:14px;font-weight:600;fill:var(--av-ink)}
+@media(max-width:880px){.av-arc{justify-self:center}}
+
+.av-venn__d{position:relative;width:430px;max-width:100%;height:270px;flex:none}
+.av-vc{position:absolute;top:0;width:270px;height:270px;border-radius:50%;display:flex;align-items:center}
+.av-vc span{font-size:19px;font-weight:800;letter-spacing:.04em}
+.av-vc.l{left:0;background:radial-gradient(circle at 38% 42%,rgba(18,185,138,.12),rgba(236,243,241,.55));
+  border:1.5px solid rgba(12,139,130,.34);justify-content:flex-start;padding-left:30px}
+.av-vc.l span{color:var(--av-ink)}
+.av-vc.r{right:0;background:linear-gradient(125deg,rgba(0,112,255,.94),rgba(18,185,138,.94));
+  box-shadow:0 20px 46px rgba(12,139,130,.26);justify-content:flex-end;padding-right:30px}
+.av-vc.r span{color:#fff}
+.av-venn__mid{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);z-index:3;
+  font-size:44px;font-weight:700;line-height:1;color:#fff;text-shadow:0 2px 12px rgba(11,23,20,.35)}
+@media(max-width:520px){
+  .av-venn__d{width:320px;height:210px}
+  .av-vc{width:205px;height:205px}
+  .av-vc span{font-size:16px}
+  .av-vc.l{padding-left:22px}.av-vc.r{padding-right:22px}
+  .av-venn__mid{font-size:38px}
+}
+
+/* ---------- 对客户的宗旨 · 省心/周到/主动/智能 ---------- */
+.av-pledge-band{position:relative;overflow:hidden}
+.av-pledge-bg{position:absolute;inset:0;z-index:0;background:url(/ai-service/green.jpg) center/cover no-repeat;opacity:.12}
+.av-pledge-bg::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(236,243,241,.82),rgba(236,243,241,.94))}
+.av-pledge-band .wrap{position:relative;z-index:1}
+.av-pledge-band .av-sub{max-width:none}
+.av-pledge{margin-top:48px;display:grid;grid-template-columns:1fr 1fr;gap:18px}
+@media(max-width:760px){.av-pledge{grid-template-columns:1fr}}
+.av-pcard{position:relative;border:1px solid var(--av-line);border-radius:18px;background:rgba(255,255,255,.78);backdrop-filter:blur(8px);
+  padding:30px 30px 28px;transition:border-color .2s,box-shadow .2s,transform .2s}
+.av-pcard:hover{border-color:rgba(12,139,130,.32);box-shadow:0 20px 44px rgba(12,139,130,.12);transform:translateY(-3px)}
+.av-pcard__top{display:flex;align-items:center;justify-content:space-between}
+.av-pno{font-size:13px;font-weight:800;letter-spacing:.06em;color:var(--av-faint);font-variant-numeric:tabular-nums}
+.av-pen{font-size:12px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--av-mut)}
+.av-pword{margin-top:10px;font-size:clamp(26px,3.2vw,34px);font-weight:800;letter-spacing:.04em;line-height:1;
+  background:var(--av-grad);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;width:max-content}
+@supports not ((-webkit-background-clip:text) or (background-clip:text)){.av-pword{color:var(--av-green);-webkit-text-fill-color:currentColor}}
+.av-pess{margin:18px 0 0;font-size:clamp(16px,1.8vw,18px);font-weight:700;letter-spacing:-.01em;color:var(--av-ink);line-height:1.4}
+.av-pdetail{margin:10px 0 0;font-size:14.5px;line-height:1.72;color:var(--av-ink-2)}
+.av-ppoints{margin:18px 0 0;padding:0;list-style:none;display:flex;flex-direction:column;gap:9px}
+.av-ppoints li{position:relative;padding-left:18px;font-size:13.5px;line-height:1.5;color:var(--av-ink-2)}
+.av-ppoints li::before{content:"";position:absolute;left:0;top:7px;width:7px;height:7px;border-radius:2px;background:var(--av-grad)}
+
+/* ---------- 五项专业服务 · 每项一个大板块(左右交替) ---------- */
+.av-svclist{margin-top:56px;display:flex;flex-direction:column;gap:60px}
+@media(max-width:860px){.av-svclist{gap:44px}}
+.av-svc{display:grid;grid-template-columns:1.02fr .98fr;gap:50px;align-items:center}
+.av-svc:nth-child(even) .av-svc__media{order:2}
+@media(max-width:860px){.av-svc{grid-template-columns:1fr;gap:22px}.av-svc:nth-child(even) .av-svc__media{order:0}}
+.av-svc__media{position:relative;border-radius:18px;overflow:hidden;aspect-ratio:16/11;background:var(--av-mist);
+  box-shadow:0 22px 48px rgba(12,139,130,.12)}
+.av-svc__media img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .45s ease}
+.av-svc:hover .av-svc__media img{transform:scale(1.04)}
+.av-svc__no{display:inline-flex;align-items:center;font-size:12px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;
+  color:var(--av-green);padding-bottom:2px;border-bottom:2px solid var(--av-green)}
+.av-svc__h{margin:16px 0 0;font-size:clamp(22px,2.6vw,30px);font-weight:800;letter-spacing:-.02em;line-height:1.2;color:var(--av-ink)}
+.av-svc__p{margin:12px 0 0;font-size:clamp(15px,1.6vw,17px);line-height:1.65;color:var(--av-ink-2);max-width:48ch}
+.av-svc__ul{margin:22px 0 0;padding:0;list-style:none;display:grid;grid-template-columns:1fr 1fr;gap:11px 24px}
+@media(max-width:520px){.av-svc__ul{grid-template-columns:1fr}}
+.av-svc__ul li{position:relative;padding-left:18px;font-size:14px;line-height:1.5;color:var(--av-ink-2)}
+.av-svc__ul li::before{content:"";position:absolute;left:0;top:7px;width:7px;height:7px;border-radius:2px;background:var(--av-grad)}
+
+/* ---------- 增值服务 · 绿色 / 健康 ---------- */
+.av-green{margin-top:46px;display:grid;grid-template-columns:1.05fr .95fr;gap:36px;align-items:center}
+@media(max-width:860px){.av-green{grid-template-columns:1fr;gap:26px}}
+.av-green__media{position:relative;border-radius:18px;overflow:hidden;aspect-ratio:4/3;background:var(--av-mist)}
+.av-green__media img{width:100%;height:100%;object-fit:cover;display:block}
+.av-levels{margin-top:6px;display:flex;flex-direction:column;gap:10px}
+.av-level{display:grid;grid-template-columns:auto 1fr auto;align-items:center;gap:14px;
+  border:1px solid var(--av-line);border-radius:12px;background:var(--av-paper);padding:13px 16px}
+.av-level .lv{font-size:14px;font-weight:800;color:var(--av-ink)}
+.av-level .lvd{font-size:13px;color:var(--av-mut)}
+.av-level .lvs{font-size:13px;font-weight:700;color:var(--av-green);font-variant-numeric:tabular-nums}
+.av-stats{margin-top:26px;display:grid;grid-template-columns:repeat(3,1fr);gap:12px;max-width:760px}
+@media(max-width:600px){.av-stats{grid-template-columns:1fr 1fr}}
+.av-stat{border:1px solid var(--av-line);border-radius:12px;background:var(--av-paper);padding:18px}
+.av-stat b{display:block;font-size:clamp(22px,2.6vw,28px);font-weight:800;letter-spacing:-.02em;line-height:1;
+  background:var(--av-grad);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+.av-stat span{display:block;margin-top:8px;font-size:13px;color:var(--av-mut)}
+.av-foot{margin-top:24px;font-size:14px;line-height:1.7;color:var(--av-mut);max-width:64ch}
+
+/* ---------- 暗场 · 数据运营 ---------- */
+.av-core{position:relative;overflow:hidden;background:var(--av-core);color:#E8EFEC;padding:118px 0}
+@media(max-width:700px){.av-core{padding:84px 0}}
+.av-core__bg{position:absolute;inset:0;z-index:0;background:url(/ai-service/skyline.jpg) center/cover no-repeat;opacity:.22}
+.av-core__bg::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(8,16,14,.6),rgba(8,16,14,.88))}
+.av-core .wrap{position:relative;z-index:1}
+.av-core .av-sub{max-width:none}
+.av-metrics{margin-top:40px;display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+@media(max-width:760px){.av-metrics{grid-template-columns:1fr 1fr}}
+.av-metric{border:1px solid rgba(255,255,255,.14);border-radius:14px;background:rgba(255,255,255,.04);padding:22px 20px}
+.av-metric .mv{font-size:clamp(24px,3vw,32px);font-weight:800;letter-spacing:-.02em;line-height:1;color:#fff}
+.av-metric .mv em{font-style:normal;color:#3fd9b8}
+.av-metric .ml{margin-top:10px;font-size:13.5px;line-height:1.5;color:#AEBAB5}
+
+/* 转型前后对比 */
+.av-compare{margin-top:40px;border:1px solid rgba(255,255,255,.14);border-radius:16px;overflow:hidden}
+.av-cr{display:grid;grid-template-columns:1.1fr 1fr 1.1fr;align-items:stretch}
+.av-cr+.av-cr{border-top:1px solid rgba(255,255,255,.1)}
+.av-cr>div{padding:15px 20px;font-size:14.5px;line-height:1.5}
+.av-ch>div{font-size:12px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:#8FA39C}
+.av-ch .av-aft{color:#3fd9b8}
+.av-ck{font-weight:600;color:#fff}
+.av-bef{color:#9aa8a2}
+.av-aft{color:#fff;font-weight:600;background:rgba(18,185,138,.12);position:relative}
+.av-aft::before{content:"";position:absolute;left:0;top:0;bottom:0;width:2px;background:var(--av-grad)}
+@media(max-width:600px){.av-cr>div{padding:13px 14px;font-size:13px}}
+
+/* ---------- 使命「时刻」---------- */
+.av-mission{position:relative;overflow:hidden;background:var(--av-mist);padding:128px 0;text-align:center}
+@media(max-width:700px){.av-mission{padding:92px 0}}
+.av-mission__glow{position:absolute;left:50%;top:46%;transform:translate(-50%,-50%);width:70vw;height:70vw;max-width:840px;max-height:840px;
+  border-radius:50%;filter:blur(84px);opacity:.55;pointer-events:none;z-index:0;
+  background:radial-gradient(circle at 42% 42%,rgba(0,112,255,.18),transparent 60%),radial-gradient(circle at 62% 60%,rgba(18,185,138,.18),transparent 62%)}
+.av-mission .wrap{position:relative;z-index:1}
+.av-mission-en{margin:0;font-size:13px;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:var(--av-mut)}
+.av-mission-zh{margin:18px 0 0;font-size:clamp(34px,6vw,64px);font-weight:800;letter-spacing:-.03em;color:var(--av-ink);line-height:1.12}
+.av-mission-sub{margin:22px auto 0;font-size:16px;line-height:1.7;color:var(--av-ink-2);max-width:46ch}
+
+.av-link{color:var(--av-green);font-weight:600;display:inline-flex;align-items:center;gap:7px}
+.av-link:hover .ar{transform:translateX(3px)}.av-link .ar{transition:transform .2s}
+
+/* 可访问性 / 动效降级 */
+.aisv a:focus-visible,.aisv .btn:focus-visible{outline:2px solid var(--av-green);outline-offset:3px;border-radius:10px}
+@media(prefers-reduced-motion:reduce){.aisv *{transition:none!important;animation:none!important}}

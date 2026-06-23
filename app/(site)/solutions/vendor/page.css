@@ -1,6 +1,102 @@
-.statement{max-width:var(--measure); font-family:"Noto Sans SC",serif; font-size:clamp(22px,3vw,28px);
-  line-height:1.5; color:var(--ink); margin-top:8px}
-.tag.mono{display:inline-block; font-family:"JetBrains Mono"; font-size:12px; color:var(--mut);
-  letter-spacing:.06em; margin:48px 0 18px}
-.tag.mono b{color:var(--ink)}
-.card.lk{display:block} .card.lk:hover h3{color:var(--blue)}
+/* ============================================================
+   智能体解决方案 · 内页统一样式（warm 内容页 · 蓝绿 VI 强调）
+   方向:暖纸底「运营笔记」+ 蓝绿 VI。结构 = hero + 三点编号梯 + 判词 + CTA。
+   8 个解决方案子页共用同一套 scoped 模式（wrapper .solx），保证成组一致。
+   所有规则收在 .solx 作用域内,不依赖 globals 的暖色 .sol-*；复用 .btn/.endcta/.reveal/.wrap。
+   ============================================================ */
+.solx{
+  --sx-ink:#17160F; --sx-ink-2:#45433A; --sx-mut:#75715F; --sx-faint:#9A9483;
+  --sx-line:#DED8C8; --sx-line-2:#E9E4D6;
+  --sx-paper:#FAF8F1; --sx-ivory:#F4F1E8; --sx-mist:#ECE8DB;
+  --sx-blue:#0070FF; --sx-green:#0C8B82; --sx-grad:linear-gradient(115deg,#0070FF,#12B98A);
+  --sx-soft:rgba(18,185,138,.10); --sx-soft-b:rgba(0,112,255,.08);
+  --sx-line-vi:rgba(12,139,130,.16);
+  background:var(--sx-ivory); color:var(--sx-ink);
+}
+.solx .grad{background:var(--sx-grad);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+@supports not ((-webkit-background-clip:text) or (background-clip:text)){.solx .grad{color:var(--sx-green);-webkit-text-fill-color:currentColor}}
+
+/* 蓝图网格 + 柔光（轻量科技底,替代 hero-mesh 暖色） */
+.sx-grid{position:absolute;inset:0;z-index:0;pointer-events:none;
+  background-image:linear-gradient(to right,var(--sx-line-vi) 1px,transparent 1px),
+                   linear-gradient(to bottom,var(--sx-line-vi) 1px,transparent 1px);
+  background-size:54px 54px;
+  -webkit-mask-image:radial-gradient(120% 92% at 82% 0%,#000 0%,transparent 60%);
+          mask-image:radial-gradient(120% 92% at 82% 0%,#000 0%,transparent 60%)}
+.sx-glow{position:absolute;right:-10vw;top:-14vw;width:58vw;height:58vw;max-width:760px;max-height:760px;
+  border-radius:50%;filter:blur(80px);opacity:.5;pointer-events:none;z-index:0;
+  background:radial-gradient(circle at 42% 44%,rgba(0,112,255,.18),transparent 60%),
+             radial-gradient(circle at 64% 58%,rgba(18,185,138,.20),transparent 62%)}
+
+/* ---------- HERO ---------- */
+.sx-hero{position:relative;overflow:hidden;padding:152px 0 76px;background:var(--sx-paper)}
+.sx-hero .wrap{position:relative;z-index:1}
+.sx-crumb{font-size:12px;color:var(--sx-mut);letter-spacing:.04em;margin-bottom:22px}
+.sx-crumb a:hover{color:var(--sx-ink)}
+.sx-eyebrow{display:inline-flex;align-items:center;gap:10px;font-size:12px;font-weight:600;letter-spacing:.2em;
+  text-transform:uppercase;color:var(--sx-green)}
+.sx-eyebrow::before{content:"";width:22px;height:2px;border-radius:2px;background:var(--sx-grad)}
+.sx-h1{margin:20px 0 0;font-weight:800;font-size:clamp(34px,5vw,58px);line-height:1.08;letter-spacing:-.03em;color:var(--sx-ink);max-width:18ch}
+.sx-hlead{margin:26px 0 0;font-size:clamp(17px,2vw,21px);line-height:1.6;color:var(--sx-ink-2);max-width:none;font-weight:400}
+
+/* ---------- band（斑马纹:相邻段不同底） ---------- */
+.sx-band{position:relative;padding:108px 0;background:var(--sx-paper)}
+.sx-band.alt{background:var(--sx-ivory)}
+@media(max-width:700px){.sx-band{padding:78px 0}}
+.sx-band .sx-eyebrow{color:var(--sx-green)}
+.sx-h2{margin:18px 0 0;font-weight:800;font-size:clamp(26px,3.4vw,40px);line-height:1.18;letter-spacing:-.03em;color:var(--sx-ink);max-width:none;white-space:nowrap}
+@media(max-width:880px){.sx-h2{white-space:normal}}
+
+/* 大主张句（lead） */
+.sx-lead{margin:30px 0 0;font-weight:700;font-size:clamp(23px,3.1vw,34px);line-height:1.34;letter-spacing:-.02em;color:var(--sx-ink);max-width:none}
+.sx-lead .em{background:linear-gradient(180deg,transparent 62%,rgba(18,185,138,.20) 0);padding:0 1px}
+
+/* 支撑正文 */
+.sx-body{margin-top:30px;max-width:760px;font-size:17px;line-height:1.8;color:var(--sx-ink-2)}
+.sx-body p{margin:0 0 18px}.sx-body p:last-child{margin-bottom:0}
+
+/* ---------- 三点编号梯（内容本身有序:源头/过程/长期） ---------- */
+.sx-grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:46px}
+@media(max-width:860px){.sx-grid3{grid-template-columns:1fr}}
+.sx-pt{position:relative;border:1px solid var(--sx-line);border-radius:16px;background:var(--sx-paper);
+  padding:28px 24px 26px;display:flex;flex-direction:column;gap:12px;transition:box-shadow .2s,transform .2s,border-color .2s}
+.sx-band.alt .sx-pt{background:var(--sx-paper)}
+.sx-pt::before{content:"";position:absolute;left:-1px;right:-1px;top:-1px;height:3px;border-radius:16px 16px 0 0;background:var(--sx-grad)}
+.sx-pt:hover{transform:translateY(-3px);box-shadow:0 14px 34px rgba(26,25,22,.09);border-color:rgba(12,139,130,.30)}
+.sx-pt .top{display:flex;align-items:center;justify-content:space-between}
+.sx-pt .n{font-size:11.5px;font-weight:700;letter-spacing:.1em;color:var(--sx-green)}
+.sx-pt .ic{width:26px;height:26px;color:var(--sx-green)}
+.sx-pt .lab{font-size:18px;font-weight:700;letter-spacing:-.01em;color:var(--sx-ink)}
+.sx-pt p{margin:0;font-size:14.5px;line-height:1.72;color:var(--sx-ink-2)}
+
+/* ---------- 过去→现在 对比（两张独立卡） ---------- */
+.sx-flow{display:grid;grid-template-columns:1fr 52px 1fr;align-items:stretch;margin-top:46px}
+@media(max-width:760px){.sx-flow{grid-template-columns:1fr;gap:14px}}
+.sx-pane{padding:30px 30px;border:1px solid var(--sx-line);border-radius:16px;background:var(--sx-paper);display:flex;flex-direction:column;gap:12px}
+.sx-pane.b{background:linear-gradient(180deg,var(--sx-soft),var(--sx-paper));border-color:rgba(18,185,138,.30)}
+.sx-pane .lab{font-size:11.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--sx-faint);font-weight:700}
+.sx-pane.b .lab{color:var(--sx-green)}
+.sx-pane p{margin:0;font-size:15px;line-height:1.72;color:var(--sx-ink-2)}
+.sx-flow .mid{display:grid;place-items:center;color:var(--sx-faint);font-size:20px;font-weight:700}
+@media(max-width:760px){.sx-flow .mid{transform:rotate(90deg)}}
+
+/* ---------- 流程链 chain ---------- */
+.sx-chain{display:flex;flex-wrap:wrap;align-items:center;gap:10px;margin-top:46px}
+.sx-chain .node{font-size:14px;font-weight:600;color:var(--sx-ink);background:var(--sx-paper);border:1px solid var(--sx-line);border-radius:12px;padding:12px 18px}
+.sx-chain .node.human{border-color:#efdfba;background:linear-gradient(180deg,rgba(190,122,46,.10),var(--sx-paper));color:#8a6400}
+.sx-chain .ar{color:var(--sx-faint);font-weight:700;font-size:16px}
+@media(max-width:600px){.sx-chain{flex-direction:column;align-items:stretch}.sx-chain .node{text-align:center}.sx-chain .ar{transform:rotate(90deg);align-self:center}}
+
+/* ---------- 判词 emph + 关联链接 ---------- */
+.sx-emph{position:relative;margin-top:40px;padding:24px 26px 24px 28px;background:var(--sx-paper);
+  border:1px solid var(--sx-line);border-radius:0 14px 14px 0;
+  font-size:clamp(18px,2.3vw,23px);font-weight:700;line-height:1.5;letter-spacing:-.01em;color:var(--sx-ink);max-width:760px}
+.sx-band.alt .sx-emph{background:var(--sx-paper)}
+.sx-emph::before{content:"";position:absolute;left:0;top:10px;bottom:10px;width:3px;border-radius:3px;background:var(--sx-grad)}
+.sx-link{margin-top:28px;font-size:15px;color:var(--sx-mut);max-width:760px;line-height:1.7}
+.sx-link a{color:var(--sx-green);font-weight:600;text-underline-offset:3px;text-decoration:underline;text-decoration-color:rgba(12,139,130,.35)}
+.sx-link a:hover{text-decoration-color:var(--sx-green)}
+
+/* ---------- 可访问性 / 动效降级 ---------- */
+.solx a:focus-visible,.solx .btn:focus-visible{outline:2px solid var(--sx-green);outline-offset:3px;border-radius:10px}
+@media(prefers-reduced-motion:reduce){.solx .sx-pt{transition:none}}
