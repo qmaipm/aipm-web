@@ -158,39 +158,40 @@ export default function Page() {
       <section className="fm-core">
         <div className="fm-grid dark" aria-hidden="true" />
         <div className="wrap">
-          <span className="fm-eyebrow on-dark">要不要自己做</span>
-          <h2 className="fm-h2 on-dark">自己从零搭一套，你会撞上<span className="grad">四道墙</span></h2>
+          <span className="fm-eyebrow on-dark">为什么不自建</span>
+          <h2 className="fm-h2 on-dark">企业自建 Agent 平台，会撞到<span className="grad">四道结构性的墙</span></h2>
+          <p className="fm-coreintro">不是模型在变——模型、框架、记忆、协议、检索、评估同时在变，每六个月范式就重写一次。</p>
           <div className="fm-barriers">
             <div className="fm-barrier">
               <span className="fm-bn">01</span>
               <div className="fm-bc">
-                <h3>模型墙：有个强模型，不等于能干活</h3>
-                <p>再强的模型也只是个会推理、会生成的部件——它不知道你的业务规则、不记得上一次发生了什么，也不会主动去调用工具。单靠模型，离稳定干完一件真实的活，永远差一口气。</p>
+                <h3>模型墙 · 模型每周一个 SOTA</h3>
+                <p>GPT-5、Claude、Gemini、Kimi、DeepSeek……最强模型几乎每周更迭一次。自建团队刚适配完一个，下一个 SOTA 就出来了——永远在追，永远不是最优。</p>
               </div>
             </div>
             <div className="fm-barrier">
               <span className="fm-bn">02</span>
               <div className="fm-bc">
-                <h3>工程墙：把它工程化，是个无底洞</h3>
-                <p>一件事不是调一次模型就完，而是一连串调度、重试、纠错与监控。模型一升级行为就变、工具一增加编排就重写——这是一面要常年维护的堤坝，精力很快从业务被耗到基础设施上。</p>
+                <h3>框架墙 · 范式每月一变</h3>
+                <p>Claude Code、Cursor、LangGraph、AutoGen……编排、状态、工具调用、错误恢复，每条子赛道都有框架在打架；今天选定的，可能半年后就被淘汰。</p>
               </div>
             </div>
             <div className="fm-barrier">
               <span className="fm-bn">03</span>
               <div className="fm-bc">
-                <h3>数据墙：你的数据，散、脏、口径不一</h3>
-                <p>数据散落在表格、PDF、IoT、聊天记录和没人愿碰的老系统里。接进来只是第一步，真正难的是理解：这条「完成」到底谁判定、这单「超时」对项目意味着什么。数据接入是翻译，不是搬运。</p>
+                <h3>记忆与协议墙 · 6+ 条子栈同时演化</h3>
+                <p>Mem0、Letta、MCP、Apps SDK、GraphRAG……记忆栈与协议栈同时在变，Mem0 还没定 Letta 就来了、MCP 还在草案——光工具调用协议本身就在打架。</p>
               </div>
             </div>
             <div className="fm-barrier">
               <span className="fm-bn">04</span>
               <div className="fm-bc">
-                <h3>时间墙：前三道砸钱能过，这道只能用时间</h3>
-                <p>被验证过的工作流、可复用的能力、对各种边界情况的处理经验——买不到，也突击不出来，只能在一个个真实项目里跑出来。哪怕你拿到一样的模型和工程，也仍落后于那个已经跑了多年的平台。</p>
+                <h3>时间墙 · 客户只想「今天就用」</h3>
+                <p>Gartner 预测，40%+ 的 Agentic AI 项目会在 2027 年前被取消。「6 个月 PoC + 12 个月上线 + 24 个月二开」的老节奏已经死了——客户的预算窗口，比技术演化窗口短得多。</p>
               </div>
             </div>
           </div>
-          <p className="fm-verdict">与其用几年时间和试错成本去翻这四道墙，不如直接站在一个<span className="grad">已经翻过去、跑了七八年的平台</span>上——把时间花在你的业务，而不是基础设施上。</p>
+          <p className="fm-verdict">四道墙都在变厚。自建团队要同时追 模型 · 框架 · 记忆 · 协议 · 检索 · 评估 六条子赛道——这不是工程能力问题，是<span className="grad">赛道选择问题</span>。这些交给 FMClaw，你把时间花在自己的业务上。</p>
         </div>
       </section>
 

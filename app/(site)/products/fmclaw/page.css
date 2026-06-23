@@ -140,7 +140,8 @@
 .fm-eyebrow.on-dark{color:#3fd9b8}
 .fm-h2.on-dark{color:#fff}
 /* 三道壁垒:大号渐变序号 + 白色小标题 + 提亮正文,代替原来的散文墙 */
-.fm-barriers{margin-top:46px;display:flex;flex-direction:column;border-top:1px solid rgba(255,255,255,.10)}
+.fm-coreintro{margin:18px 0 0;font-size:clamp(15px,1.7vw,17px);line-height:1.65;color:#AEBAB5;max-width:none}
+.fm-barriers{margin-top:40px;display:flex;flex-direction:column;border-top:1px solid rgba(255,255,255,.10)}
 .fm-barrier{display:grid;grid-template-columns:74px 1fr;gap:22px;align-items:start;padding:30px 0;border-bottom:1px solid rgba(255,255,255,.10)}
 @media(max-width:600px){.fm-barrier{grid-template-columns:1fr;gap:12px;padding:26px 0}}
 .fm-bn{font-size:clamp(36px,4.6vw,54px);font-weight:800;line-height:.9;letter-spacing:-.03em;
