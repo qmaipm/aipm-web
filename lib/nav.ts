@@ -31,7 +31,11 @@ export const MENU: MenuItem[] = [
       {
         heading: "产品套件",
         items: [
-          { label: "Agentic 产品套件", href: "/agents", small: "服务设计 · 运营管理 · 质量评估 · 服务优化" },
+          { label: "Agentic 产品套件", href: "/agents", small: "四个 Agent · 一个闭环" },
+          { label: "服务设计 Agent", href: "/solutions/service-design", small: "服务标准 · 人员配置 · SOP" },
+          { label: "运营管理 Agent", href: "/solutions/operations", small: "实时调度 · 工单派发" },
+          { label: "质量评估 Agent", href: "/solutions/assessment", small: "AI 视觉 + IoT 独立质检" },
+          { label: "服务优化 Agent", href: "/solutions/optimization", small: "识别高频问题 · 输出改进" },
         ],
       },
       {
