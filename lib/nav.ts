@@ -26,7 +26,7 @@ export const MENU: MenuItem[] = [
   {
     label: "智能体解决方案",
     href: "/solutions",
-    minWidth: 300,
+    minWidth: 380,
     groups: [
       {
         heading: "产品套件",
