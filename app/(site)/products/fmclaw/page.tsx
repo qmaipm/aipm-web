@@ -191,7 +191,7 @@ export default function Page() {
               </div>
             </div>
           </div>
-          <p className="fm-verdict">四道墙都在变厚。自建团队要同时追 模型 · 框架 · 记忆 · 协议 · 检索 · 评估 六条子赛道——这不是工程能力问题，是<span className="grad">赛道选择问题</span>。这些交给 FMClaw，你把时间花在自己的业务上。</p>
+          <p className="fm-verdict">四道墙都在变厚。自建团队要同时追 模型 · 框架 · 记忆 · 协议 · 检索 · 评估 六条子赛道——这不是工程能力问题，是<span className="grad">时间选择问题</span>。这些交给 FMClaw，你把时间花在自己的业务上。</p>
         </div>
       </section>
 
