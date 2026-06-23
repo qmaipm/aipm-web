@@ -221,7 +221,7 @@ export default function Page() {
       <section className="cb-band mist">
         <div className="wrap">
           <span className="cb-eyebrow">五年沉淀</span>
-          <h2 className="cb-h2">五年下来，会长出一家什么样的本地 AI 公司</h2>
+          <h2 className="cb-h2">双方共建五年，会长出一家什么样的本地 AI 公司</h2>
           <p className="cb-sub">从单个样板起步，到规模化部署，再向区域辐射——这是一条由场景生长出产业的递进路径。</p>
 
           <div className="cb-stages">
@@ -252,7 +252,7 @@ export default function Page() {
       <section className="cb-band" id="contact">
         <div className="wrap">
           <span className="cb-eyebrow">联系</span>
-          <h2 className="cb-h2">想把这套方案，落到一个地方</h2>
+          <h2 className="cb-h2">想在你的地区，共建一个本地 AI 产业？</h2>
           <p className="cb-sub">无论你是地方政府、国资平台，还是国企 / 园区——政府 AI 招商、国有物业 AI 化运营、国企 AI 转型，都可以用这套方案对接。留下联系方式，我们把方案对到你的真实场景。</p>
           <CobuildForm />
         </div>
