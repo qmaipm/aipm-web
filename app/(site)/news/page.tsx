@@ -33,42 +33,46 @@ export default async function Page() {
     : FALLBACK;
 
   return (
-    <main className="news-page">
-      {/* HERO */}
-      <section className="phero">
-        <div className="hero-mesh"></div>
-        <div className="wrap">
-          <h1 className="reveal" style={{ marginTop: "20px" }}>新闻动态</h1>
-          <p className="lead reveal">了解启盟科技的最新动态与媒体报道</p>
+    <main className="solnw">
+      {/* HERO — 蓝图网格冷调首屏 */}
+      <section className="nw-hero">
+        <div className="nw-grid" aria-hidden="true" />
+        <div className="wrap nw-hero-top">
+          <span className="nw-kicker">
+            <Link href="/">启盟科技</Link>
+            <i>/</i>新闻动态
+          </span>
+          <h1 className="nw-h1">新闻动态</h1>
+          <p className="nw-lead">了解启盟科技的最新动态与媒体报道</p>
         </div>
       </section>
 
       {/* NEWS LIST */}
-      <section className="band alt">
+      <section className="nw-band mist">
         <div className="wrap">
           {!useWx && (
-            <div className="tabs reveal">
-              <span className="tab on">全部</span>
-              <span className="tab">融资</span>
-              <span className="tab">签约</span>
-              <span className="tab">媒体报道</span>
-              <span className="tab">获奖</span>
-              <span className="tab">发布会</span>
+            <div className="nw-tabs">
+              <span className="nw-tab on">全部</span>
+              <span className="nw-tab">融资</span>
+              <span className="nw-tab">签约</span>
+              <span className="nw-tab">媒体报道</span>
+              <span className="nw-tab">获奖</span>
+              <span className="nw-tab">发布会</span>
             </div>
           )}
 
-          <div className="newslist reveal">
+          <div className="nw-list">
             {items.map((n, i) => (
               <a
-                className={`news-item${n.cover ? " has-cover" : ""}`}
+                className={`nw-item${n.cover ? " has-cover" : ""}`}
                 href={n.href}
                 key={i}
                 {...(n.external ? { target: "_blank", rel: "noopener noreferrer" } : {})}
               >
-                <div className="date">{n.date}</div>
-                {n.cover && <img className="news-cover" src={n.cover} alt="" loading="lazy" referrerPolicy="no-referrer" />}
-                <div>
-                  {n.tag && <span className="tag">{n.tag}</span>}
+                <div className="nw-date">{n.date}</div>
+                {n.cover && <img className="nw-cover" src={n.cover} alt="" loading="lazy" referrerPolicy="no-referrer" />}
+                <div className="nw-body">
+                  {n.tag && <span className="nw-tag">{n.tag}</span>}
                   <h3>{n.title}</h3>
                   {n.desc && <p>{n.desc}</p>}
                 </div>
@@ -77,7 +81,7 @@ export default async function Page() {
             ))}
           </div>
 
-          <p className="sub-line reveal" style={{ marginTop: "48px" }}>想及时收到这些动态,可关注我们的 <Link href="/contact">微信公众号</Link>。</p>
+          <p className="nw-subline">想及时收到这些动态,可关注我们的 <Link href="/contact">微信公众号</Link>。</p>
         </div>
       </section>
     </main>

@@ -142,7 +142,7 @@ const productModules = [
     headline: 'AI 自动审图质检，让质量管理更轻松',
     description: 'AI 替代人工审图，大幅降低审图成本，客观评分消除甲乙方质量评价分歧，留存数据标签助力复盘。',
     cta: '开始使用质量评估 Agent',
-    ctaLink: '/solutions/quality',
+    ctaLink: '/solutions/assessment',
     relatedProducts: [
       { name: '设备管理系统', desc: '人单合一的拍照抄表', href: '/products/device' },
       { name: '多模态巡检', desc: 'AI视觉 + IoT联合巡检', href: '/products/inspect' },

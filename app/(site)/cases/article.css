@@ -1,0 +1,141 @@
+/* ============================================================
+   客户案例 · 详情文章 — 共享样式(参考 /products/fmclaw 的 .fmx 系统)
+   冷调蓝绿「平台/操作底座」观感;单一字族,靠尺度/字重/字距出性格。
+   两篇详情页(综合体 /cases/detail · 写字楼 /cases/office)共用,全部收在 .casefx 作用域内。
+   结构:hero·场景画像 → 问题 01/02/03 → Skill×Data×Tools=工作流
+        → 改造前 vs 改造后 → 暗场·客户原声 → 复用路径 → 相关案例 → CTA
+   ============================================================ */
+.casefx{
+  --cf-ink:#14201C; --cf-ink-2:#46524D; --cf-mut:#7C857F; --cf-faint:#A7AFAB;
+  --cf-line:#E6EAE8; --cf-mist:#ECF3F1; --cf-paper:#FFFFFF; --cf-core:#0B1714;
+  --cf-blue:#0070FF; --cf-green:#12B98A; --cf-grad:linear-gradient(115deg,#0070FF,#12B98A);
+  --cf-vi-line:rgba(12,139,130,.16); --cf-measure:820px;
+  background:var(--cf-paper); color:var(--cf-ink);
+}
+.casefx .wrap{max-width:1160px;margin:0 auto;padding:0 32px}
+@media(max-width:600px){.casefx .wrap{padding:0 22px}}
+.casefx .grad{background:var(--cf-grad);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+@supports not ((-webkit-background-clip:text) or (background-clip:text)){.casefx .grad{color:var(--cf-green);-webkit-text-fill-color:currentColor}}
+
+/* 蓝图网格 */
+.cf-grid{position:absolute;inset:0;z-index:0;pointer-events:none;
+  background-image:linear-gradient(to right,var(--cf-vi-line) 1px,transparent 1px),
+                   linear-gradient(to bottom,var(--cf-vi-line) 1px,transparent 1px);
+  background-size:54px 54px;
+  -webkit-mask-image:radial-gradient(125% 90% at 80% 0%,#000 0%,transparent 62%);
+          mask-image:radial-gradient(125% 90% at 80% 0%,#000 0%,transparent 62%)}
+.cf-grid.dark{background-image:linear-gradient(to right,rgba(63,217,184,.10) 1px,transparent 1px),
+                   linear-gradient(to bottom,rgba(63,217,184,.10) 1px,transparent 1px)}
+
+/* ---------- HERO · 场景画像 ---------- */
+.cf-hero{position:relative;overflow:hidden;padding:138px 0 60px;background:var(--cf-paper)}
+.cf-hero-top{position:relative;z-index:2}
+.cf-crumb{display:inline-flex;align-items:center;font-size:12px;font-weight:600;letter-spacing:.12em;
+  text-transform:uppercase;color:var(--cf-mut)}
+.cf-crumb a{color:var(--cf-mut)}.cf-crumb a:hover{color:var(--cf-green)}
+.cf-crumb i{color:var(--cf-green);font-style:normal;margin:0 9px;font-weight:700}
+.cf-montag{margin-top:22px;display:inline-flex;align-items:center;gap:9px;font-size:12.5px;font-weight:700;letter-spacing:.04em;
+  color:var(--cf-green);background:rgba(18,185,138,.08);border:1px solid rgba(18,185,138,.22);
+  padding:7px 14px;border-radius:999px}
+.cf-h1{margin:20px 0 0;font-weight:800;font-size:clamp(34px,5.4vw,60px);line-height:1.08;letter-spacing:-.035em;
+  color:var(--cf-ink);max-width:18ch}
+.cf-lead{margin:24px 0 0;font-size:clamp(16px,1.8vw,19px);line-height:1.62;color:var(--cf-ink-2);max-width:none;font-weight:400}
+.cf-lead b{color:var(--cf-ink);font-weight:600}
+.cf-proof{position:relative;z-index:2;margin-top:46px;display:flex;flex-wrap:wrap;align-items:center;gap:12px 22px;
+  font-size:clamp(15px,1.9vw,18px);color:var(--cf-mut)}
+.cf-proof b{color:var(--cf-ink);font-weight:600}
+.cf-proof b.grad{font-weight:800;font-size:1.3em;letter-spacing:-.02em}
+.cf-proof .sep{width:5px;height:5px;border-radius:50%;background:var(--cf-faint)}
+
+/* ---------- 通用 band ---------- */
+.cf-band{position:relative;padding:100px 0;background:var(--cf-paper)}
+.cf-band.mist{background:var(--cf-mist)}
+@media(max-width:700px){.cf-band{padding:74px 0}}
+.cf-eyebrow{display:inline-flex;align-items:center;gap:10px;font-size:12px;font-weight:600;letter-spacing:.2em;
+  text-transform:uppercase;color:var(--cf-green)}
+.cf-eyebrow::before{content:"";width:22px;height:2px;border-radius:2px;background:var(--cf-grad)}
+.cf-eyebrow.on-dark{color:#3fd9b8}
+.cf-h2{margin:18px 0 0;font-weight:800;font-size:clamp(26px,3.3vw,38px);line-height:1.2;letter-spacing:-.03em;color:var(--cf-ink);max-width:none;white-space:nowrap}
+.cf-h2.on-dark{color:#fff}
+@media(max-width:880px){.cf-h2{white-space:normal}}
+.cf-sub{margin:18px 0 0;font-size:clamp(15px,1.65vw,17px);line-height:1.65;color:var(--cf-ink-2);max-width:none}
+.cf-sub b{color:var(--cf-ink);font-weight:600}
+
+/* ---------- 问题 01/02/03(轻量编号,呼应 fmclaw 壁垒) ---------- */
+.cf-problems{margin-top:46px;display:flex;flex-direction:column;border-top:1px solid var(--cf-line)}
+.cf-problem{display:grid;grid-template-columns:72px 1fr;gap:24px;align-items:start;padding:28px 0;border-bottom:1px solid var(--cf-line)}
+@media(max-width:600px){.cf-problem{grid-template-columns:1fr;gap:10px;padding:24px 0}}
+.cf-pn{font-size:clamp(34px,4.4vw,50px);font-weight:800;line-height:.9;letter-spacing:-.03em;
+  background:var(--cf-grad);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+@supports not ((-webkit-background-clip:text) or (background-clip:text)){.cf-pn{color:var(--cf-green);-webkit-text-fill-color:currentColor}}
+.cf-pc h3{margin:0 0 9px;font-size:clamp(18px,2.1vw,22px);font-weight:700;letter-spacing:-.015em;color:var(--cf-ink);line-height:1.3}
+.cf-pc p{margin:0;font-size:clamp(14px,1.5vw,15.5px);line-height:1.66;color:var(--cf-ink-2);max-width:none}
+
+/* ---------- 公式 Skill × 行业 Data × 行业 Tools ---------- */
+.cf-formula{margin-top:44px;display:flex;flex-wrap:wrap;align-items:center;gap:12px 14px}
+.cf-fx{font-size:clamp(15px,1.9vw,18px);font-weight:600;color:var(--cf-ink);background:var(--cf-mist);
+  border:1px solid var(--cf-line);border-radius:13px;padding:13px 20px}
+.cf-fx.res{color:#fff;border-color:transparent;background:var(--cf-grad);box-shadow:0 10px 26px rgba(12,139,130,.22)}
+.cf-op{font-style:normal;font-weight:700;font-size:18px;color:var(--cf-faint)}
+.cf-eq{font-style:normal;font-weight:800;font-size:22px;color:var(--cf-green);margin:0 2px}
+.cf-formula-note{margin-top:18px;font-size:15px;line-height:1.7;color:var(--cf-mut);max-width:none}
+@media(max-width:600px){.cf-formula{gap:9px}.cf-fx{padding:11px 15px;font-size:14px}}
+
+/* ---------- 岗位 × 工作流 矩阵 ---------- */
+.cf-wf{margin-top:32px;display:flex;flex-direction:column;gap:12px}
+.cf-wfrow{display:grid;grid-template-columns:128px 1fr;gap:22px;align-items:start;
+  border:1px solid var(--cf-line);border-radius:14px;background:var(--cf-paper);padding:18px 22px;transition:border-color .2s,box-shadow .2s}
+.cf-wfrow:hover{border-color:rgba(12,139,130,.34);box-shadow:0 12px 30px rgba(12,139,130,.07)}
+@media(max-width:600px){.cf-wfrow{grid-template-columns:1fr;gap:11px;padding:15px 17px}}
+.cf-pos{font-size:12.5px;letter-spacing:.04em;color:var(--cf-green);font-weight:700;padding-top:6px}
+.cf-chips{display:flex;flex-wrap:wrap;gap:8px}
+.cf-tag{font-size:13.5px;color:var(--cf-ink-2);background:var(--cf-mist);border:1px solid var(--cf-line);border-radius:999px;padding:7px 14px}
+
+/* ---------- 改造前 vs 改造后 表 ---------- */
+.cf-compare{margin-top:42px;border:1px solid var(--cf-line);border-radius:16px;overflow:hidden;background:var(--cf-paper);max-width:var(--cf-measure)}
+.cf-crow{display:grid;grid-template-columns:1.05fr 1fr 1.06fr;align-items:stretch}
+.cf-crow+.cf-crow{border-top:1px solid var(--cf-line)}
+.cf-crow>div{padding:15px 20px;font-size:14.5px;line-height:1.5}
+.cf-chead{background:rgba(20,32,28,.02)}
+.cf-chead>div{font-size:12px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--cf-mut)}
+.cf-chead .cf-after{color:var(--cf-green)}
+.cf-ck{font-weight:600;color:var(--cf-ink)}
+.cf-before{color:var(--cf-mut)}
+.cf-after{color:var(--cf-ink);font-weight:600;background:rgba(18,185,138,.05);position:relative}
+.cf-after::before{content:"";position:absolute;left:0;top:0;bottom:0;width:2px;background:var(--cf-grad)}
+@media(max-width:600px){.cf-crow>div{padding:13px 14px;font-size:13px}}
+.cf-note{margin-top:22px;max-width:none;font-size:13.5px;line-height:1.7;color:var(--cf-mut)}
+
+/* ---------- 暗场 · 客户原声 ---------- */
+.cf-core{position:relative;overflow:hidden;background:var(--cf-core);color:#E8EFEC;padding:108px 0}
+@media(max-width:700px){.cf-core{padding:80px 0}}
+.cf-core .wrap{position:relative;z-index:1}
+.cf-voice{margin:26px 0 0;font-size:clamp(19px,2.5vw,28px);font-weight:700;letter-spacing:-.02em;line-height:1.4;color:#fff;max-width:none}
+.cf-voice-by{margin-top:22px;font-size:14px;color:#8FA39C;letter-spacing:.02em}
+
+/* ---------- 复用路径 ---------- */
+.cf-steps{margin-top:46px;display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+@media(max-width:760px){.cf-steps{grid-template-columns:1fr}}
+.cf-step{position:relative;border:1px solid var(--cf-line);border-radius:14px;background:var(--cf-paper);padding:25px 22px 22px;display:flex;flex-direction:column;gap:8px}
+.cf-step::before{content:"";position:absolute;left:-1px;right:-1px;top:-1px;height:3px;border-radius:14px 14px 0 0;background:var(--cf-grad)}
+.cf-step .si{font-size:12px;font-weight:700;letter-spacing:.1em;color:var(--cf-green)}
+.cf-step h3{margin:0;font-size:19px;font-weight:700;letter-spacing:-.01em;color:var(--cf-ink)}
+.cf-step p{margin:0;font-size:14px;line-height:1.62;color:var(--cf-ink-2)}
+
+.cf-foot{margin-top:26px;max-width:none;font-size:14.5px;line-height:1.7;color:var(--cf-mut)}
+.cf-link{color:var(--cf-green);font-weight:600;display:inline-flex;align-items:center;gap:7px}
+.cf-link:hover .ar{transform:translateX(3px)}.cf-link .ar{transition:transform .2s}
+
+/* ---------- 相关案例 ---------- */
+.cf-related{margin-top:42px;display:grid;grid-template-columns:1fr 1fr;gap:16px}
+@media(max-width:760px){.cf-related{grid-template-columns:1fr}}
+.cf-rcard{border:1px solid var(--cf-line);border-radius:16px;background:var(--cf-paper);padding:26px 26px 24px;
+  transition:border-color .2s,box-shadow .2s,transform .2s;display:block}
+.cf-rcard:hover{border-color:rgba(12,139,130,.34);box-shadow:0 16px 38px rgba(12,139,130,.08);transform:translateY(-2px)}
+.cf-rcard .rmeta{font-size:12px;letter-spacing:.04em;color:var(--cf-mut);margin-bottom:12px}
+.cf-rcard h3{margin:0 0 9px;font-size:19px;font-weight:700;letter-spacing:-.01em;color:var(--cf-ink);line-height:1.3}
+.cf-rcard p{margin:0;font-size:14px;line-height:1.6;color:var(--cf-ink-2)}
+
+/* ---------- 可访问性 / 动效降级 ---------- */
+.casefx a:focus-visible,.casefx .btn:focus-visible{outline:2px solid var(--cf-green);outline-offset:3px;border-radius:10px}
+@media(prefers-reduced-motion:reduce){.casefx *{transition:none!important;animation:none!important}}

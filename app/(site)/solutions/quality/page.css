@@ -1,11 +1,12 @@
 /* ============================================================
    服务质量管理 — 重设计(参考 /products/fmclaw 冷调平台手法)
-   结构:蓝图网格 hero → 能力梯(源头/过程/评估)→ 浅色使命时刻 → CTA
+   结构:蓝图网格 hero(proof) → 它解决什么 → 暗场签名段:两个 Agent × 四个维度 + 判词
+        → 落地要求(传感器/管理动作/考核挂钩) → CTA
    全部规则收在 .solq 作用域内,不泄漏全站。单一字族,蓝绿 VI。
    ============================================================ */
 .solq{
   --q-ink:#14201C; --q-ink-2:#46524D; --q-mut:#7C857F; --q-faint:#A7AFAB;
-  --q-line:#E6EAE8; --q-mist:#ECF3F1; --q-paper:#FFFFFF;
+  --q-line:#E6EAE8; --q-mist:#ECF3F1; --q-paper:#FFFFFF; --q-core:#0B1714;
   --q-blue:#0070FF; --q-green:#12B98A; --q-grad:linear-gradient(115deg,#0070FF,#12B98A);
   --q-vi-line:rgba(12,139,130,.16);
   background:var(--q-paper); color:var(--q-ink);
@@ -22,6 +23,8 @@
   background-size:54px 54px;
   -webkit-mask-image:radial-gradient(125% 90% at 80% 0%,#000 0%,transparent 62%);
           mask-image:radial-gradient(125% 90% at 80% 0%,#000 0%,transparent 62%)}
+.sq-grid.dark{background-image:linear-gradient(to right,rgba(63,217,184,.10) 1px,transparent 1px),
+                   linear-gradient(to bottom,rgba(63,217,184,.10) 1px,transparent 1px)}
 
 /* HERO */
 .sq-hero{position:relative;overflow:hidden;padding:150px 0 64px;background:var(--q-paper)}
@@ -37,6 +40,7 @@
 .sq-proof{position:relative;z-index:2;margin-top:52px;display:flex;flex-wrap:wrap;align-items:center;gap:12px 22px;
   font-size:clamp(15px,1.9vw,18px);color:var(--q-mut)}
 .sq-proof b{color:var(--q-ink);font-weight:600}
+.sq-proof b.grad{font-weight:800;letter-spacing:-.01em}
 .sq-proof .sep{width:5px;height:5px;border-radius:50%;background:var(--q-faint)}
 
 /* band */
@@ -46,36 +50,87 @@
 .sq-eyebrow{display:inline-flex;align-items:center;gap:10px;font-size:12px;font-weight:600;letter-spacing:.2em;
   text-transform:uppercase;color:var(--q-green)}
 .sq-eyebrow::before{content:"";width:22px;height:2px;border-radius:2px;background:var(--q-grad)}
+.sq-eyebrow.on-dark{color:#3fd9b8}
 .sq-h2{margin:18px 0 0;font-weight:800;font-size:clamp(27px,3.5vw,40px);line-height:1.18;letter-spacing:-.03em;color:var(--q-ink);max-width:none;white-space:nowrap}
-.sq-sub{margin:18px 0 0;font-size:clamp(15px,1.65vw,17px);line-height:1.6;color:var(--q-ink-2);max-width:none}
-.sq-sub b{color:var(--q-ink);font-weight:600}
+.sq-h2.on-dark{color:#fff}
 @media(max-width:880px){.sq-h2{white-space:normal}}
+.sq-sub{margin:18px 0 0;font-size:clamp(15px,1.65vw,17px);line-height:1.6;color:var(--q-ink-2);max-width:64ch}
+.sq-sub b{color:var(--q-ink);font-weight:600}
+.sq-sub-1{max-width:none}
+.sq-sub.on-dark{color:#AEBAB5;max-width:none}
+.sq-sub.on-dark b{color:#fff}
 
-/* 能力梯 */
-.sq-ladder{margin-top:46px;display:flex;flex-direction:column;border-top:1px solid var(--q-line)}
-.sq-step{display:grid;grid-template-columns:160px 1fr;gap:26px;align-items:start;padding:30px 0;border-bottom:1px solid var(--q-line)}
-@media(max-width:680px){.sq-step{grid-template-columns:1fr;gap:12px;padding:26px 0}}
-.sq-step-k{display:flex;align-items:baseline;gap:14px}
-.sq-no{font-size:clamp(34px,4.4vw,50px);font-weight:800;line-height:.9;letter-spacing:-.03em;font-variant-numeric:tabular-nums}
-.sq-step-tag{font-size:13px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--q-green)}
-.sq-step-c h3{margin:0 0 10px;font-size:clamp(19px,2.2vw,23px);font-weight:700;letter-spacing:-.015em;color:var(--q-ink);line-height:1.25}
-.sq-step-c p{margin:0;font-size:clamp(13.5px,1.5vw,15px);line-height:1.65;color:var(--q-ink-2);max-width:none}
+/* 它解决什么:过去抽查 → 现在全程在管 */
+.sq-shift{margin-top:36px;display:grid;grid-template-columns:1fr auto 1fr;gap:16px;align-items:stretch}
+@media(max-width:680px){.sq-shift{grid-template-columns:1fr;gap:12px}}
+.sq-shift-card{border:1px solid var(--q-line);border-radius:16px;background:var(--q-paper);padding:24px 26px}
+.sq-shift-card.to{border-color:rgba(12,139,130,.34);box-shadow:0 14px 34px rgba(12,139,130,.08)}
+.sq-shift-lbl{display:inline-block;font-size:13px;font-weight:700;letter-spacing:.1em;text-transform:uppercase}
+.sq-shift-card.from .sq-shift-lbl{color:var(--q-mut)}
+.sq-shift-card.to .sq-shift-lbl{color:var(--q-green)}
+.sq-shift-card p{margin:13px 0 0;font-size:clamp(16px,1.9vw,18px);line-height:1.55}
+.sq-shift-card.from p{color:var(--q-ink-2)}
+.sq-shift-card.to p{color:var(--q-ink);font-weight:500}
+.sq-shift-arr{align-self:center;display:grid;place-items:center;width:36px;height:36px;border-radius:50%;
+  background:var(--q-grad);color:#fff;font-weight:800;flex:none}
+@media(max-width:680px){.sq-shift-arr{transform:rotate(90deg);margin:0 auto}}
 
-/* 使命时刻(浅色) */
-.sq-mission-band{position:relative;overflow:hidden;background:var(--q-mist);padding:132px 0;text-align:center}
-@media(max-width:700px){.sq-mission-band{padding:94px 0}}
-.sq-mission-band .sq-grid{-webkit-mask-image:radial-gradient(68% 70% at 50% 50%,#000 0%,transparent 72%);
-          mask-image:radial-gradient(68% 70% at 50% 50%,#000 0%,transparent 72%)}
-.sq-mission-glow{position:absolute;left:50%;top:47%;transform:translate(-50%,-50%);
-  width:72vw;height:72vw;max-width:880px;max-height:880px;border-radius:50%;filter:blur(84px);opacity:.55;pointer-events:none;z-index:0;
-  background:radial-gradient(circle at 42% 42%,rgba(0,112,255,.18),transparent 60%),radial-gradient(circle at 62% 60%,rgba(18,185,138,.18),transparent 62%)}
-.sq-mission-band .wrap{position:relative;z-index:1}
-.sq-mission-en{margin:0;font-size:13px;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:var(--q-mut)}
-.sq-mission-zh{margin:18px 0 0;font-size:clamp(30px,5vw,52px);font-weight:800;letter-spacing:-.03em;color:var(--q-ink);line-height:1.16}
-.sq-mission-sub{margin:24px auto 0;font-size:16px;line-height:1.7;color:var(--q-ink-2);max-width:48ch}
-.sq-mission-sub a{color:var(--q-green);font-weight:600}
-.sq-mission-sub a:hover{text-decoration:underline;text-underline-offset:3px}
+/* 暗场:两个 Agent × 四个维度 */
+.sq-core{position:relative;overflow:hidden;background:var(--q-core);color:#E8EFEC;padding:120px 0}
+@media(max-width:700px){.sq-core{padding:84px 0}}
+.sq-core .wrap{position:relative;z-index:1}
+.sq-agents{margin-top:48px;display:grid;grid-template-columns:1fr auto 1fr auto 1fr;gap:16px;align-items:stretch}
+@media(max-width:860px){.sq-agents{grid-template-columns:1fr;gap:14px}}
+.sq-agent{border:1px solid rgba(255,255,255,.12);border-radius:16px;background:rgba(255,255,255,.03);padding:26px 24px 28px;
+  display:flex;flex-direction:column;color:inherit;text-decoration:none;transition:border-color .2s,box-shadow .2s,transform .2s}
+a.sq-agent:hover{border-color:rgba(63,217,184,.4);box-shadow:0 16px 40px rgba(12,139,130,.14);transform:translateY(-2px)}
+.sq-alink{margin-top:auto;padding-top:22px;display:inline-flex;align-items:center;gap:7px;font-size:13.5px;font-weight:600;color:#3fd9b8}
+.sq-alink .ar{transition:transform .2s}
+a.sq-agent:hover .sq-alink .ar{transform:translateX(3px)}
+.sq-dim.sq-dim-plain{grid-template-columns:1fr}
+.sq-agent-h{display:flex;align-items:center;gap:12px;font-size:clamp(17px,2vw,20px);font-weight:700;color:#fff;letter-spacing:-.01em}
+.sq-aicon{flex:none;display:grid;place-items:center;width:40px;height:40px;border-radius:11px;background:var(--q-grad);color:#fff}
+.sq-aicon svg{width:22px;height:22px}
+.sq-dim{display:grid;grid-template-columns:52px 1fr;gap:14px;align-items:start;margin-top:20px;padding-top:20px;border-top:1px solid rgba(255,255,255,.10)}
+.sq-dno{font-size:clamp(24px,2.8vw,34px);font-weight:800;line-height:.9;letter-spacing:-.03em;font-variant-numeric:tabular-nums}
+.sq-dtag{display:block;font-size:15px;font-weight:700;color:#fff;letter-spacing:-.01em}
+.sq-dtag-2{margin-top:18px;padding-top:18px;border-top:1px solid rgba(255,255,255,.10)}
+.sq-dim-c p{margin:8px 0 0;font-size:clamp(13.5px,1.5vw,14.5px);line-height:1.62;color:#AEBAB5}
+.sq-handoff{align-self:center;display:grid;place-items:center;width:34px;height:34px;border-radius:50%;
+  background:#3fd9b8;color:var(--q-core);font-weight:800;flex:none}
+@media(max-width:860px){.sq-handoff{transform:rotate(90deg);margin:2px auto}}
 
-/* 可访问性 */
+
+/* 判词 */
+.sq-verdict{position:relative;margin-top:44px;max-width:none;padding-left:22px;
+  font-size:clamp(17px,2vw,22px);font-weight:700;line-height:1.4;letter-spacing:-.015em;color:#fff}
+.sq-verdict::before{content:"";position:absolute;left:0;top:6px;bottom:6px;width:3px;border-radius:3px;background:var(--q-grad)}
+.sq-loop{margin-top:26px}
+.sq-loop a{color:#3fd9b8;font-weight:600;display:inline-flex;align-items:center;gap:7px}
+.sq-loop a .ar{transition:transform .2s}
+.sq-loop a:hover .ar{transform:translateX(3px)}
+
+/* 落地要求 */
+.sq-reqs{margin-top:42px;display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+@media(max-width:760px){.sq-reqs{grid-template-columns:1fr}}
+.sq-req{display:flex;flex-direction:column;border:1px solid var(--q-line);border-radius:16px;background:var(--q-paper);padding:26px 26px 24px;
+  color:inherit;text-decoration:none;transition:border-color .2s,box-shadow .2s,transform .2s}
+a.sq-req:hover{border-color:rgba(12,139,130,.34);box-shadow:0 14px 34px rgba(12,139,130,.08);transform:translateY(-2px)}
+.sq-req-link{margin-top:auto;padding-top:16px;display:inline-flex;align-items:center;gap:7px;font-size:13.5px;font-weight:600;color:var(--q-green)}
+.sq-req-link .ar{transition:transform .2s}
+a.sq-req:hover .sq-req-link .ar{transform:translateX(3px)}
+.sq-req-k{display:grid;place-items:center;width:40px;height:40px;border-radius:11px;background:var(--q-grad);color:#fff}
+.sq-req-k svg{width:22px;height:22px}
+.sq-req h3{margin:16px 0 0;font-size:18px;font-weight:700;letter-spacing:-.01em;color:var(--q-ink)}
+.sq-req p{margin:8px 0 0;font-size:14px;line-height:1.6;color:var(--q-ink-2)}
+.sq-note{position:relative;overflow:hidden;margin-top:30px;padding:20px 26px 20px 28px;border:1px solid var(--q-line);
+  border-radius:0 14px 14px 0;background:var(--q-paper);font-size:clamp(14.5px,1.6vw,16px);line-height:1.65;color:var(--q-ink);max-width:none}
+.sq-note::before{content:"";position:absolute;left:0;top:0;bottom:0;width:4px;background:var(--q-grad)}
+.sq-note b{font-weight:700}
+.sq-link{margin-top:22px;font-size:15px;color:var(--q-mut);line-height:1.7}
+.sq-link a{color:var(--q-green);font-weight:600;text-underline-offset:3px;text-decoration:underline;text-decoration-color:rgba(12,139,130,.35)}
+.sq-link a:hover{text-decoration-color:var(--q-green)}
+
+/* 可访问性 / 动效降级 */
 .solq a:focus-visible,.solq .btn:focus-visible{outline:2px solid var(--q-green);outline-offset:3px;border-radius:10px}
 @media(prefers-reduced-motion:reduce){.solq *{transition:none!important}}

@@ -1,81 +1,124 @@
 /* ============================================================
-   联系页 — 重设计
-   左表单 + 右信息侧栏的正经网页布局,左对齐,非居中幻灯。
-   暖纸底 + 蓝绿 VI 强调(只此一种强调色),单一字族,全部 scoped 于 .contactx。
+   联系页 — 重设计(冷调平台手法,参考 /products/fmclaw 与 /solutions/*)
+   结构:蓝图网格冷调 hero → 干净冷调带:左表单 + 右信息侧栏(卡片 + 二维码)
+   全部规则收在 .solct 作用域内,不泄漏全站。单一字族,蓝绿 VI。
    ============================================================ */
-.contactx{
-  --cx-grad:linear-gradient(135deg,#0070FF,#12B98A);
-  --cx-teal:#0C8B82; --cx-teal-ink:#096B73;
+.solct{
+  --ct-ink:#14201C; --ct-ink-2:#46524D; --ct-mut:#7C857F; --ct-faint:#A7AFAB;
+  --ct-line:#E6EAE8; --ct-mist:#ECF3F1; --ct-paper:#FFFFFF;
+  --ct-blue:#0070FF; --ct-green:#12B98A; --ct-grad:linear-gradient(115deg,#0070FF,#12B98A);
+  --ct-vi-line:rgba(12,139,130,.16);
+  background:var(--ct-paper); color:var(--ct-ink);
 }
-.contactx .cx-grad-text{background:var(--cx-grad);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
-@supports not ((-webkit-background-clip:text) or (background-clip:text)){.contactx .cx-grad-text{color:var(--cx-teal);-webkit-text-fill-color:currentColor}}
+.solct .wrap{max-width:1160px;margin:0 auto;padding:0 32px}
+@media(max-width:600px){.solct .wrap{padding:0 22px}}
+.solct .grad{background:var(--ct-grad);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+@supports not ((-webkit-background-clip:text) or (background-clip:text)){.solct .grad{color:var(--ct-green);-webkit-text-fill-color:currentColor}}
 
-/* 标题:一行,无句号;副标尽量一行 */
-.contactx .cx-h1{margin-top:20px}
-.contactx .cx-lead{max-width:none}
+/* 蓝图网格 */
+.ct-grid{position:absolute;inset:0;z-index:0;pointer-events:none;
+  background-image:linear-gradient(to right,var(--ct-vi-line) 1px,transparent 1px),
+                   linear-gradient(to bottom,var(--ct-vi-line) 1px,transparent 1px);
+  background-size:54px 54px;
+  -webkit-mask-image:radial-gradient(125% 90% at 80% 0%,#000 0%,transparent 62%);
+          mask-image:radial-gradient(125% 90% at 80% 0%,#000 0%,transparent 62%)}
 
-/* 表单标签 */
-.cx-eyebrow{display:inline-flex;align-items:center;gap:10px;font-size:12px;font-weight:600;
-  letter-spacing:.2em;text-transform:uppercase;color:var(--cx-teal-ink)}
-.cx-eyebrow::before{content:"";width:22px;height:2px;border-radius:2px;background:var(--cx-grad)}
+/* HERO */
+.ct-hero{position:relative;overflow:hidden;padding:150px 0 64px;background:var(--ct-paper)}
+.ct-hero-top{position:relative;z-index:2}
+.ct-h1{margin:0;font-weight:800;font-size:clamp(38px,6vw,72px);line-height:1.06;letter-spacing:-.035em;color:var(--ct-ink);max-width:16ch}
+.ct-lead{margin:26px 0 0;font-size:clamp(16px,1.8vw,19px);line-height:1.6;color:var(--ct-ink-2);max-width:none;font-weight:400}
+.ct-lead b{color:var(--ct-ink);font-weight:600}
 
-/* 联系页:正经网页表单布局 — 左表单 + 右信息侧栏 */
-.contact-layout{display:grid; grid-template-columns:1fr 320px; gap:60px; align-items:start}
-@media (max-width:880px){.contact-layout{grid-template-columns:1fr; gap:48px}}
+/* 冷调内容带 */
+.ct-band{position:relative;padding:96px 0 104px;background:var(--ct-paper)}
+@media(max-width:700px){.ct-band{padding:64px 0 76px}}
 
-.cf-title{margin-top:14px;font-size:clamp(26px,3.4vw,38px); font-weight:800; letter-spacing:-.03em; line-height:1.15; color:var(--ink)}
-.cf-sub{margin-top:12px; font-size:15px; color:var(--mut)}
-.cf-note{margin-top:18px; font-size:12.5px; color:var(--mut); line-height:1.6; max-width:none}
+/* 正经网页表单布局 — 左表单 + 右信息侧栏 */
+.ct-layout{display:grid;grid-template-columns:1fr 332px;gap:60px;align-items:start}
+@media(max-width:880px){.ct-layout{grid-template-columns:1fr;gap:48px}}
 
-/* 必填星号:VI 蓝绿(不用全站粉色) */
-.contactx .field label .req,.contactx .cf-sub .req{color:var(--cx-teal-ink)}
+/* 左:表单列 */
+.ct-eyebrow{display:inline-flex;align-items:center;gap:10px;font-size:12px;font-weight:600;
+  letter-spacing:.2em;text-transform:uppercase;color:var(--ct-green)}
+.ct-eyebrow::before{content:"";width:22px;height:2px;border-radius:2px;background:var(--ct-grad)}
+.ct-sub{margin:16px 0 0;font-size:15px;line-height:1.6;color:var(--ct-ink-2)}
+.solct .ct-sub .req,.solct .field label .req{color:var(--ct-green)}
 
-/* 表单顶部细 VI 强调条 */
-.contactx .cx-form{position:relative; margin-top:28px; padding-top:30px}
-.contactx .cx-form::before{content:""; position:absolute; left:0; top:0; width:56px; height:2px; border-radius:2px; background:var(--cx-grad)}
+/* 表单:冷调 */
+.solct .cx-form{position:relative;margin-top:28px;padding-top:30px}
+.solct .cx-form::before{content:"";position:absolute;left:0;top:0;width:56px;height:2px;border-radius:2px;background:var(--ct-grad)}
 
-/* 输入态:聚焦时蓝绿描边(覆盖全站近黑描边,贴合 VI) */
-.contactx .field input:focus,.contactx .field textarea:focus,.contactx .field select:focus{
-  border-color:var(--cx-teal); box-shadow:0 0 0 3px var(--teal-soft)}
+.solct .field-row{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-bottom:18px}
+@media(max-width:560px){.solct .field-row{grid-template-columns:1fr;gap:18px;margin-bottom:18px}}
+.solct .cx-form > .field{margin-bottom:18px}
+.solct .field{display:flex;flex-direction:column;gap:9px;margin:0}
+.solct .field label{font-size:13px;font-weight:600;letter-spacing:.01em;color:var(--ct-ink-2)}
 
-.contactx .cx-submit{margin-top:6px; min-height:50px}
-.contactx .cx-submit:hover .ar{transform:translateX(3px)}
-.contactx .cx-submit .ar{transition:transform .2s}
+.solct .field input,
+.solct .field select,
+.solct .field textarea{
+  width:100%;font:inherit;font-size:15px;color:var(--ct-ink);
+  background:var(--ct-paper);border:1px solid var(--ct-line);border-radius:12px;
+  padding:13px 15px;transition:border-color .18s,box-shadow .18s;outline:none;-webkit-appearance:none;appearance:none}
+.solct .field textarea{min-height:128px;resize:vertical;line-height:1.6}
+.solct .field input::placeholder,
+.solct .field textarea::placeholder{color:var(--ct-faint)}
+.solct .field select{cursor:pointer;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='14' viewBox='0 0 16 16' fill='none' stroke='%237C857F' stroke-width='1.6' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M4 6l4 4 4-4'/%3E%3C/svg%3E");
+  background-repeat:no-repeat;background-position:right 14px center;padding-right:40px}
+.solct .field input:focus,
+.solct .field select:focus,
+.solct .field textarea:focus{
+  border-color:var(--ct-green);box-shadow:0 0 0 3px rgba(18,185,138,.14)}
 
-/* 右侧信息侧栏:卡片化,蓝绿顶条 */
-.contact-aside{display:flex; flex-direction:column; gap:18px}
-.ca-block{background:var(--paper); border:1px solid var(--line); border-radius:16px; padding:24px 26px; position:relative; overflow:hidden}
-.ca-block::before{content:""; position:absolute; left:0; right:0; top:0; height:3px; background:var(--cx-grad)}
-.ca-h{font-size:11px; letter-spacing:.14em; text-transform:uppercase; color:var(--cx-teal-ink); margin-bottom:16px; font-weight:600}
+/* 提交按钮:渐变 */
+.solct .cx-submit{margin-top:6px;min-height:50px;display:inline-flex;align-items:center;justify-content:center;gap:9px;
+  padding:0 26px;border:0;border-radius:12px;font:inherit;font-size:15.5px;font-weight:600;color:#fff;cursor:pointer;
+  background:var(--ct-grad);box-shadow:0 10px 26px rgba(12,139,130,.22);transition:transform .18s,box-shadow .18s,opacity .18s}
+.solct .cx-submit:hover{transform:translateY(-2px);box-shadow:0 14px 32px rgba(12,139,130,.28)}
+.solct .cx-submit:hover .ar{transform:translateX(3px)}
+.solct .cx-submit .ar{transition:transform .2s}
+.solct .cx-submit[disabled]{opacity:.6;cursor:not-allowed;transform:none;box-shadow:none}
+.solct .cf-note{margin-top:18px;font-size:12.5px;color:var(--ct-mut);line-height:1.6;max-width:none}
 
-.ca-list{margin:0; display:flex; flex-direction:column; gap:14px}
-.ca-list > div{display:flex; flex-direction:column; gap:3px}
-.ca-list dt{font-size:12.5px; color:var(--mut)}
-.ca-list dd{margin:0; font-size:15px; color:var(--ink); font-weight:500; line-height:1.5}
-.ca-list dd a{color:var(--ink); text-decoration:none}
-.ca-list dd a:hover{color:var(--cx-teal-ink); text-decoration:underline; text-underline-offset:3px}
+/* 校验错误 / 提交反馈 */
+.solct .form-err{margin:-2px 0 14px;font-size:13.5px;color:var(--ct-green);line-height:1.55}
+.solct .form-done{position:relative;padding:34px 30px;border:1px solid var(--ct-line);border-radius:16px;
+  background:var(--ct-paper);overflow:hidden}
+.solct .form-done::before{content:"";position:absolute;left:0;right:0;top:0;height:3px;background:var(--ct-grad)}
+.solct .form-done-mark{width:48px;height:48px;border-radius:50%;display:grid;place-items:center;
+  color:#fff;background:var(--ct-grad);margin-bottom:18px}
+.solct .form-done-h{margin:0 0 10px;font-size:22px;font-weight:800;letter-spacing:-.02em;color:var(--ct-ink)}
+.solct .form-done-p{margin:0;font-size:15.5px;line-height:1.7;color:var(--ct-ink-2);max-width:46ch}
 
-.social{display:flex; flex-wrap:wrap; gap:8px 22px}
-.social a{font-size:15px; color:var(--ink); text-decoration:underline; text-underline-offset:3px; text-decoration-color:var(--line); min-height:44px; display:inline-flex; align-items:center}
-.social a:hover{text-decoration-color:var(--cx-teal); color:var(--cx-teal-ink)}
-.contactx a:focus-visible,.contactx .btn:focus-visible{outline:2px solid var(--cx-teal); outline-offset:3px; border-radius:10px}
+/* 右:联系信息侧栏 — 干净冷调卡片 */
+.ct-aside{display:flex;flex-direction:column;gap:18px}
+.ct-card{position:relative;background:var(--ct-paper);border:1px solid var(--ct-line);border-radius:16px;
+  padding:26px 26px 24px;overflow:hidden;transition:border-color .2s,box-shadow .2s}
+.ct-card::before{content:"";position:absolute;left:0;right:0;top:0;height:3px;background:var(--ct-grad)}
+.ct-card:hover{border-color:rgba(12,139,130,.30);box-shadow:0 14px 34px rgba(12,139,130,.08)}
+.ct-card-h{font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--ct-green);margin-bottom:18px;font-weight:700}
 
-.ca-qr .qr{width:148px; height:148px; border:1px solid var(--line); border-radius:14px; background:#fff;
-  display:grid; place-items:center; overflow:hidden}
-.ca-qr .qr img{width:100%; height:100%; object-fit:contain; display:block}
-.qr-cap{font-size:13px; color:var(--mut); margin-top:12px}
+.ct-list{margin:0;display:flex;flex-direction:column;gap:15px}
+.ct-list > div{display:flex;flex-direction:column;gap:4px}
+.ct-list dt{font-size:12px;letter-spacing:.02em;color:var(--ct-mut)}
+.ct-list dd{margin:0;font-size:15px;color:var(--ct-ink);font-weight:500;line-height:1.5}
+.ct-list dd a{color:var(--ct-ink);text-decoration:none;transition:color .15s}
+.ct-list dd a:hover{color:var(--ct-green);text-decoration:underline;text-underline-offset:3px}
 
-@media (prefers-reduced-motion:reduce){
-  .contactx .cx-submit:hover .ar{transform:none}
+.ct-qr-card{align-items:flex-start}
+.ct-qr{width:148px;height:148px;border:1px solid var(--ct-line);border-radius:14px;background:#fff;
+  display:grid;place-items:center;overflow:hidden}
+.ct-qr img{width:100%;height:100%;object-fit:contain;display:block}
+.ct-qr-cap{font-size:13px;color:var(--ct-mut);margin:12px 0 0;line-height:1.6}
+
+/* 可访问性 / 动效降级 */
+.solct a:focus-visible,.solct .cx-submit:focus-visible,.solct .field input:focus-visible,
+.solct .field select:focus-visible,.solct .field textarea:focus-visible{
+  outline:2px solid var(--ct-green);outline-offset:3px;border-radius:10px}
+@media(prefers-reduced-motion:reduce){
+  .solct *{transition:none!important}
+  .solct .cx-submit:hover{transform:none}
+  .solct .cx-submit:hover .ar{transform:none}
 }
-
-/* 校验错误提示 / 提交反馈(蓝绿 VI,贴合本页) */
-.contactx .form-err{margin:-6px 0 14px; font-size:13.5px; color:var(--cx-teal-ink); line-height:1.55}
-.contactx .btn[disabled]{opacity:.6; cursor:not-allowed; transform:none}
-.contactx .form-done{position:relative; padding:34px 30px; border:1px solid var(--line); border-radius:16px;
-  background:var(--paper); overflow:hidden}
-.contactx .form-done::before{content:""; position:absolute; left:0; right:0; top:0; height:3px; background:var(--cx-grad)}
-.contactx .form-done-mark{width:48px; height:48px; border-radius:50%; display:grid; place-items:center;
-  color:#fff; background:var(--cx-grad); margin-bottom:18px}
-.contactx .form-done-h{margin:0 0 10px; font-size:22px; font-weight:800; letter-spacing:-.02em; color:var(--ink)}
-.contactx .form-done-p{margin:0; font-size:15.5px; line-height:1.7; color:var(--ink-2); max-width:46ch}

@@ -22,7 +22,14 @@ export default function RevealOnScroll() {
       },
       { rootMargin: "0px 0px -8% 0px", threshold: 0.06 }
     );
+    const vh = window.innerHeight || document.documentElement.clientHeight;
     els.forEach((el) => {
+      // 首屏内已经可见的元素直接显示,避免必须滚动一下才出现
+      const r = el.getBoundingClientRect();
+      if (r.top < vh && r.bottom > 0) {
+        el.classList.add("in");
+        return;
+      }
       const parent = el.parentElement;
       if (parent) {
         const sibs = Array.from(parent.querySelectorAll(":scope > .reveal"));
