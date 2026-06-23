@@ -75,6 +75,16 @@ export default function Page() {
             <p className="fm-sub">这是七八年在真实现场里一条条跑出来的积累，不是设想。既宽——覆盖的岗位多；又深——每一条都打到行业细节。</p>
           </div>
 
+          {/* 真实工作流编辑器截图(眼见为实) */}
+          <figure className="fm-shot">
+            <img
+              src="/products/fmclaw-workflow.png"
+              alt="FMClaw 工作流编辑器:左侧物业 17 个业务分类,右侧一条「现场品质巡检」工作流——定时触发、拉取并分类风险点、审批、批量建工单"
+              loading="lazy"
+            />
+            <figcaption>这是工作流编辑器真实的样子:左侧是物业的 17 个业务分类,右侧是一条「现场品质巡检」——定时触发、拉取并分类风险点、审批、批量建工单,一步步串起来。</figcaption>
+          </figure>
+
           {/* Skill × Data × Tools = 工作流(核心洞察) */}
           <div className="fm-formula">
             <span className="fm-fx">Skill</span>
