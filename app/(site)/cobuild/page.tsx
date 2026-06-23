@@ -116,7 +116,7 @@ export default function Page() {
             一套「以投带产」的<br /><span className="grad">人工智能产业共建方案</span>
           </h1>
           <p className="cb-lead">
-            这不是一次试点采购，也不是对某一个地区的招商提案，而是一套<b>可复制的产业共建方案</b>：启盟带着资金、技术与运营团队在地方落地，和政府与国资平台一起承接国家人工智能产业战略——产业、税收、就业与数据资产，沉淀在本地。
+            启盟带着<b>资金、技术与运营团队</b>在地方落地，和政府与国资平台一起承接国家人工智能产业战略——产业、税收、就业与数据资产，沉淀在本地。
           </p>
           <div className="cb-cta">
             <a href="#core" className="btn btn-primary">看以投带产模式 <Arrow /></a>
