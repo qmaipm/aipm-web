@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import "./page.css";
+import SeoFaq from "@/components/SeoFaq";
 
 export const metadata: Metadata = {
   title: "人员薪酬管理 · 智能体解决方案 — 启盟科技",
@@ -124,6 +125,17 @@ export default function Page() {
           <p className="pay-verdict on-dark">你只需配好规则，<span className="grad">薪酬 AI 自动算出来</span></p>
         </div>
       </section>
+
+      <SeoFaq
+        heading="薪酬管理,你可能想问"
+        serviceName="人员薪酬管理"
+        serviceDesc="打通考勤工时与考核,自动核算物业薪酬。"
+        items={[
+          { q: "物业薪酬核算为什么容易出错?", a: "多项目、多班次、连班缺编、考勤口径不一,手工核算既慢又易错。把考勤与工时数据打通后可自动核算,减少误差与人情分。" },
+          { q: "薪酬能和考勤、考核打通吗?", a: "可以。把到岗工时、服务达标等数据与薪酬规则联动,实现按真实出勤与结果核算,既公平又可追溯。" },
+          { q: "上线薪酬自动化要换系统吗?", a: "不必。可在现有考勤 / 工时数据上接入核算逻辑,先跑通一个项目再推广。" },
+        ]}
+      />
 
       {/* CTA */}
       <section className="endcta">

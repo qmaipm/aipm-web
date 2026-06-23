@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import "./page.css";
+import SeoFaq from "@/components/SeoFaq";
 
 export const metadata: Metadata = {
   title: "设备巡检管理 · 智能体解决方案 — 启盟科技",
@@ -109,6 +110,17 @@ export default function Page() {
           <p className="in-verdict">数据真、数据全，故障才能<span className="grad">提前预警、预防性维护</span></p>
         </div>
       </section>
+
+      <SeoFaq
+        heading="设备智能巡检,你可能想问"
+        serviceName="设备巡检管理"
+        serviceDesc="IoT + AI 的设备智能巡检,做到人单合一与异常预警。"
+        items={[
+          { q: "设备智能巡检和电子巡更有什么不同?", a: "电子巡更只证明“人到过点”,容易作弊;智能巡检结合 IoT 与 AI,采集真实在岗、巡检到岗率与设备状态,做到“人单合一”,并能预警设备异常。" },
+          { q: "AI 巡检能解决重点区域反复投诉吗?", a: "能定位问题。把重点区域(如卫生间、机房)的到岗与达标数据化后,可精准发现薄弱点并持续跟踪改善,而非反复做无效专项整改。" },
+          { q: "巡检数据能用于供应商考核吗?", a: "可以。巡检到岗率、服务达标率等可直接作为 OBC 考核指标,把巡检从“成本”变成“管理抓手”。" },
+        ]}
+      />
 
       {/* CTA */}
       <section className="endcta">

@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import "./page.css";
+import SeoFaq from "@/components/SeoFaq";
 
 export const metadata: Metadata = {
   title: "成本控制 · 智能体解决方案 — 启盟科技",
@@ -197,6 +198,17 @@ export default function Page() {
           </div>
         </div>
       </section>
+
+      <SeoFaq
+        heading="物业降本增效,你可能想问"
+        serviceName="人员成本优化"
+        serviceDesc="以 AI 提升物业与设施管理的人效,从减人头转向提人效。"
+        items={[
+          { q: "物业怎么用 AI 做降本增效?", a: "不是简单减人,而是把工时、排班、到岗与服务结果数据化,识别低效与冗余,把人配到真正需要的地方;再用数字员工/智能体接管重复性工作,从“减人头”转向“提人效”。" },
+          { q: "AI 降本会不会只是减员?", a: "不是。核心是提升人均产出,把一线从重复劳动中释放出来,转向更有价值的服务;减少的是无效工时与管理损耗,而非简单裁人。" },
+          { q: "降本方案需要替换现有系统吗?", a: "不需要整体替换。可在现有考勤、工单、IoT 等数据之上接入,先用一个真实业务跑通,再逐步扩展。" },
+        ]}
+      />
 
       {/* CTA */}
       <section className="endcta">
