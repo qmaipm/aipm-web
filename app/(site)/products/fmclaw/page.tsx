@@ -95,15 +95,6 @@ export default function Page() {
             <span className="fm-fx res">一条工作流</span>
           </div>
           <p className="fm-formula-note">不是一句提示词。每一条工作流，都是这三样东西在行业里的特定组合。</p>
-
-          {/* 岗位 × 工作流 矩阵 */}
-          <div className="fm-wf">
-            <div className="fm-wfrow"><div className="fm-pos">财务 · 收费</div><div className="fm-chips">{["月度水电费核算", "账单核算", "业财一体化", "AI 对账"].map((c) => <span className="fm-tag" key={c}>{c}</span>)}</div></div>
-            <div className="fm-wfrow"><div className="fm-pos">工程 · 设备</div><div className="fm-chips">{["异常归因", "能耗分析", "设备巡检"].map((c) => <span className="fm-tag" key={c}>{c}</span>)}</div></div>
-            <div className="fm-wfrow"><div className="fm-pos">调度 · 客服</div><div className="fm-chips">{["派工规则", "报修智能客服", "管理层问询"].map((c) => <span className="fm-tag" key={c}>{c}</span>)}</div></div>
-            <div className="fm-wfrow"><div className="fm-pos">品质 · 安防</div><div className="fm-chips">{["质量考评", "巡检质检"].map((c) => <span className="fm-tag" key={c}>{c}</span>)}</div></div>
-          </div>
-          <p className="fm-foot">这只是其中一部分。与通用平台最根本的区别就在这里：通用平台给你能力原料、要你自己拼；我们给你的是已经在行业里跑通的工作流。</p>
         </div>
       </section>
 
