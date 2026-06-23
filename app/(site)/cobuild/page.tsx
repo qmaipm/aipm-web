@@ -261,8 +261,8 @@ export default function Page() {
       {/* CTA */}
       <section className="endcta">
         <div className="wrap">
-          <h2 className="reveal">把一个产业，<br />投到一个地方落地生根</h2>
-          <p className="reveal">从把方案对到你的场景开始。</p>
+          <h2 className="reveal">把一个 AI 产业，<br />共建到你的地区</h2>
+          <p className="reveal">从一次深入沟通开始。</p>
           <div className="cta-row reveal">
             <a href="#contact" className="btn btn-primary">留下联系方式 <Arrow s={16} /></a>
           </div>
