@@ -149,7 +149,7 @@ export default function Page() {
               </div>
             ))}
           </div>
-          <p className="cb-quote">这不是采购 AI 服务，而是在一个地方<span className="grad">共建一个本地 AI 产业</span>。</p>
+          <p className="cb-quote">这不是采购 AI 服务，而是<span className="grad">共建一个本地 AI 产业</span>。</p>
         </div>
       </section>
 
