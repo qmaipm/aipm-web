@@ -57,6 +57,18 @@ const AGENTS: {
   },
 ];
 
+// 四个 Agent 的图标(线性,白色,放在渐变头部)
+const AGENT_ICONS = [
+  // 服务设计:标准/文档
+  <svg key="i1" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round"><rect x="4" y="3" width="16" height="18" rx="2" /><path d="M8 8h8M8 12h8M8 16h5" /></svg>,
+  // 运营管理:循环调度
+  <svg key="i2" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round"><path d="M3 12a9 9 0 0 1 14.5-7" /><path d="M17 2v4h-4" /><path d="M21 12a9 9 0 0 1-14.5 7" /><path d="M7 22v-4h4" /></svg>,
+  // 质量评估:盾牌+勾
+  <svg key="i3" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round"><path d="M12 3l7 3v5c0 4.4-3 7.6-7 9-4-1.4-7-4.6-7-9V6l7-3Z" /><path d="M9 12l2 2 4-4" /></svg>,
+  // 服务优化:上升趋势
+  <svg key="i4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round"><path d="M3 17l5-5 4 4 8-8" /><path d="M16 8h5v5" /></svg>,
+];
+
 export default function Page() {
   return (
     <main className="fmx">
@@ -150,18 +162,22 @@ export default function Page() {
             <p className="fm-sub">从标准制定到持续优化，四个 Agent 完成一个管理闭环：每一次服务执行都被记录、每一个异常都被识别、每一轮优化都基于数据而非经验。闭环自动运转，人只在关键节点决策。</p>
           </div>
           <div className="fm-agents">
-            {AGENTS.map((a) => (
+            {AGENTS.map((a, i) => (
               <Link className="fm-agent" href={a.href} key={a.name}>
-                <span className="fm-agent-bar" aria-hidden="true" style={{ background: a.grad }} />
-                <span className="fm-agent-step" style={{ background: a.grad }}>{a.step}</span>
-                <h3 className="fm-agent-name">{a.name}</h3>
-                <p className="fm-agent-desc">{a.desc}</p>
-                <ul className="fm-agent-prod">
-                  {a.products.map(([n, d]) => (
-                    <li key={n}><b>{n}</b> · {d}</li>
-                  ))}
-                </ul>
-                <span className="fm-agent-link">进入{a.name.replace(" Agent", "")} <Arrow s={13} /></span>
+                <div className="fm-agent-head" style={{ background: a.grad }}>
+                  <span className="fm-agent-ic" aria-hidden="true">{AGENT_ICONS[i]}</span>
+                  <h3 className="fm-agent-name">{a.name}</h3>
+                  <span className="fm-agent-step">{a.step}</span>
+                </div>
+                <div className="fm-agent-body">
+                  <p className="fm-agent-desc">{a.desc}</p>
+                  <ul className="fm-agent-prod">
+                    {a.products.map(([n, d]) => (
+                      <li key={n}><b>{n}</b> · {d}</li>
+                    ))}
+                  </ul>
+                  <span className="fm-agent-link">进入{a.name.replace(" Agent", "")} <Arrow s={13} /></span>
+                </div>
               </Link>
             ))}
           </div>
