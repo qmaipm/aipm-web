@@ -221,7 +221,7 @@ export default function Page() {
       <section className="cb-band mist">
         <div className="wrap">
           <span className="cb-eyebrow">五年沉淀</span>
-          <h2 className="cb-h2">双方共建五年，将沉淀出一家怎样的本地 AI 企业</h2>
+          <h2 className="cb-h2">双方共建五年，沉淀出一家扎根本地的 AI 企业</h2>
           <p className="cb-sub">从单个样板起步，到规模化部署，再向区域辐射——这是一条由场景生长出产业的递进路径。</p>
 
           <div className="cb-stages">
