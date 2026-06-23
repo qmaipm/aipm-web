@@ -1,6 +1,9 @@
 import Link from "next/link";
 import "./article.css";
+import JsonLd from "@/components/JsonLd";
 import { getArticle, getRecommended } from "./articles";
+
+const SITE_URL = process.env.SITE_URL || "https://www.aipm.cn";
 
 const Arrow = ({ s = 16 }: { s?: number }) => (
   <svg className="ar" width={s} height={s} viewBox="0 0 16 16" aria-hidden="true">
@@ -57,9 +60,40 @@ export default function ArticleShell({
 }) {
   const a = getArticle(slug);
   const recs = getRecommended(slug, 3);
+  const pageUrl = `${SITE_URL}/insights/${a.slug}`;
+
+  // 结构化数据:Article(+ FAQPage,若有 faq)——供搜索引擎与 AI 生成引擎解析/引用
+  const articleLd = {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    headline: a.title,
+    description: a.desc,
+    inLanguage: "zh-CN",
+    datePublished: a.date.replace(/\./g, "-"),
+    author: { "@type": "Organization", name: "启盟科技" },
+    publisher: {
+      "@type": "Organization",
+      name: "启盟科技",
+      logo: { "@type": "ImageObject", url: `${SITE_URL}/logo-stalliance-clean.png` },
+    },
+    mainEntityOfPage: pageUrl,
+    articleSection: a.theme,
+  };
+  const faqLd = a.faq?.length
+    ? {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        mainEntity: a.faq.map((f) => ({
+          "@type": "Question",
+          name: f.q,
+          acceptedAnswer: { "@type": "Answer", text: f.a },
+        })),
+      }
+    : null;
 
   return (
     <main className="isd">
+      <JsonLd data={faqLd ? [articleLd, faqLd] : articleLd} />
       {/* HERO */}
       <section className="isd-hero">
         <div className="isd-grid" aria-hidden="true" />
@@ -87,6 +121,23 @@ export default function ArticleShell({
           </article>
         </div>
       </section>
+
+      {/* 常见问题(FAQ) */}
+      {a.faq?.length ? (
+        <section className="isd-faq">
+          <div className="wrap">
+            <span className="isd-eyebrow reveal">常见问题</span>
+            <dl className="isd-faq-list">
+              {a.faq.map((f) => (
+                <div className="isd-faq-item reveal" key={f.q}>
+                  <dt>{f.q}</dt>
+                  <dd>{f.a}</dd>
+                </div>
+              ))}
+            </dl>
+          </div>
+        </section>
+      ) : null}
 
       {/* 推荐阅读 */}
       <section className="isd-rec">

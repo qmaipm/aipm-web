@@ -104,6 +104,14 @@
 .isd .prose .isd-conclusion p{margin:0;font-size:clamp(18px,2vw,22px);line-height:1.5;color:var(--d-ink);font-weight:700;letter-spacing:-.015em}
 @media(max-width:560px){.isd .prose .isd-conclusion{flex-direction:column;gap:10px;padding:20px 22px}}
 
+/* ---------- 常见问题 FAQ ---------- */
+.isd-faq{position:relative;padding:0 0 8px;background:var(--d-paper)}
+.isd-faq .wrap{max-width:900px}
+.isd-faq-list{margin:22px 0 0;border-top:1px solid var(--d-line)}
+.isd-faq-item{padding:22px 0;border-bottom:1px solid var(--d-line)}
+.isd-faq-item dt{font-size:17px;font-weight:700;letter-spacing:-.01em;color:var(--d-ink);line-height:1.5}
+.isd-faq-item dd{margin:10px 0 0;font-size:15.5px;line-height:1.75;color:var(--d-ink-2)}
+
 /* ---------- 推荐阅读 ---------- */
 .isd-rec{position:relative;padding:104px 0;background:var(--d-mist)}
 @media(max-width:700px){.isd-rec{padding:76px 0}}
