@@ -3,9 +3,9 @@ import Link from "next/link";
 import "./page.css";
 
 export const metadata: Metadata = {
-  title: "FMClaw™ AI 平台 · 物业与设施管理的行业级 Agent 基座 — 启盟科技",
+  title: "FMClaw™ · 物业与设施管理的行业级 AI 平台 — 启盟科技",
   description:
-    "FMClaw 是面向物业与设施管理的行业级 Agent 平台。工作流是它的第一能力——100+ 条工作流覆盖几十个工作岗位，每一条都是 Skill、行业 Data 与行业 Tools 的组合。多智能体 A2A 协同、模型/数据/工具灵活配置，并具备物理世界感知。",
+    "FMClaw 是面向物业与设施管理的行业级 AI 平台，把日常运营里大量重复、繁琐的活儿变成能直接跑的工作流——100+ 条工作流覆盖几十个岗位，多个专业 Agent 接力协同，模型 / 数据 / 工具灵活配置，并能感知现场、在物理世界里动手。",
 };
 
 const Arrow = ({ s = 15 }: { s?: number }) => (
@@ -21,13 +21,12 @@ export default function Page() {
       <section className="fm-hero">
         <div className="fm-grid" aria-hidden="true" />
         <div className="wrap fm-hero-top">
-          <span className="fm-kicker">FMClaw™ AI 平台<i>/</i>物业与设施管理的行业级 Agent 基座</span>
+          <span className="fm-kicker">FMClaw™ AI 平台<i>/</i>物业与设施管理 · 行业级 AI 平台</span>
           <h1 className="fm-h1">
-            工作流，是这个平台的<br /><span className="grad">第一能力</span>
+            你每天要做的那些活儿，<br /><span className="grad">它已经一条条跑通了</span>
           </h1>
           <p className="fm-lead">
-            像 Genspark、Manus 之于通用任务，FMClaw 是物业与设施管理这件事的行业级底座。
-            不同的是，它还能<b>感知物理世界</b>、并在<b>物理世界里动手</b>。
+            FMClaw 把物业与设施管理里大量<b>重复、繁琐的活儿</b>，变成能直接跑的工作流——它懂这行的细节，还能<b>感知现场、在现场动手</b>。不用你从零搭，拿来就用。
           </p>
           <div className="fm-cta">
             <Link href="/workshop" className="btn btn-primary">预约 FMClaw™ 加速营 <Arrow /></Link>
@@ -49,8 +48,8 @@ export default function Page() {
       {/* ===== 定位 · 不是空架子(them vs us) ===== */}
       <section className="fm-band mist">
         <div className="wrap">
-          <span className="fm-eyebrow">定位</span>
-          <h2 className="fm-h2">一个为这件事备好的底座，不是一个空架子</h2>
+          <span className="fm-eyebrow">和通用 AI 平台有什么不同</span>
+          <h2 className="fm-h2">拿来就能用，不用你自己从零搭</h2>
           <div className="fm-versus">
             <div className="fm-vs them">
               <span className="fm-vs-tag">通用 Agent 平台</span>
@@ -105,7 +104,7 @@ export default function Page() {
           <div className="fm-caphead">
             <span className="fm-capno">能力 02</span>
             <h2 className="fm-h2">四个专业 Agent，接力把一件事跑完</h2>
-            <p className="fm-sub">平台不是单个 Agent，而是多个专业 Agent 分工协同。一件事从规划、执行、评估到优化，由不同 Agent 接力闭环（A2A），人只在关键节点决策。</p>
+            <p className="fm-sub">不是一个万能助手包打天下，而是多个专业 Agent 分工协同：一件事从规划、执行、评估到优化，由不同 Agent 接力跑完，人只在关键节点拍板。</p>
           </div>
           <div className="fm-relay">
             {[
