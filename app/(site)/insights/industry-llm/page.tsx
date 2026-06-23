@@ -36,12 +36,12 @@ export default function Page() {
         cols={2}
         items={[
           {
-            src: "/insights/industry-llm-4-team.png",
+            src: "/insights/industry-llm-4-team.jpg",
             alt: "启盟技术团队",
             caption: "技术团队:算法、产品与交付的复合班底。",
           },
           {
-            src: "/insights/industry-llm-5-capital.png",
+            src: "/insights/industry-llm-5-capital.jpg",
             alt: "资本认可",
             caption: "一线产业资本的认可与加持。",
           },
