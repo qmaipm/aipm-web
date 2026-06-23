@@ -27,7 +27,7 @@ const AGENTS: {
     step: "STEP 01",
     name: "服务设计 Agent",
     href: "/solutions/service-design",
-    grad: "linear-gradient(135deg,#3B82F6,#6366F1)",
+    grad: "linear-gradient(135deg,#0070FF,#12B98A)",
     desc: "根据项目业态、面积、设备清单与业主需求，自动生成服务标准、人员配置方案与 SOP 体系。每个项目获得独立定制的管理基线。",
     products: [["空间管理系统", "空间配置"], ["服务配置系统", "流程与标准设计"], ["API 开放平台", "标准数据接口"]],
   },
@@ -35,7 +35,7 @@ const AGENTS: {
     step: "STEP 02",
     name: "运营管理 Agent",
     href: "/solutions/operations",
-    grad: "linear-gradient(135deg,#06B6D4,#12B98A)",
+    grad: "linear-gradient(135deg,#12B98A,#F59E0B)",
     desc: "实时调度巡检、保洁、维修、安防等现场任务。对接 IoT 传感器与工单系统，把服务标准转化为每日可执行、可追踪的工作流。",
     products: [["SSR 服务记录", "无感记录全过程"], ["工单调度系统", "任务自动分配"], ["人机协同引擎", "多端协同效率高"]],
   },
@@ -43,7 +43,7 @@ const AGENTS: {
     step: "STEP 03",
     name: "质量评估 Agent",
     href: "/solutions/assessment",
-    grad: "linear-gradient(135deg,#8B5CF6,#EC4899)",
+    grad: "linear-gradient(135deg,#9333EA,#EC4899)",
     desc: "基于 IoT 数据、工单完成率、住户反馈与巡检记录，独立生成服务质量评估报告。评估标准由数据驱动，业主可直接获取。",
     products: [["设备管理系统", "智能抄表监测"], ["多模态巡检", "AI 视觉识别"], ["小智帮手", "一线移动端助手"]],
   },
@@ -51,22 +51,22 @@ const AGENTS: {
     step: "STEP 04",
     name: "服务优化 Agent",
     href: "/solutions/optimization",
-    grad: "linear-gradient(135deg,#F59E0B,#EF4444)",
+    grad: "linear-gradient(135deg,#0070FF,#9333EA)",
     desc: "汇总质量评估数据与运营趋势，识别重复性问题与资源浪费，生成优化建议并反馈至服务设计 Agent——闭环由此成立。",
     products: [["计薪系统", "薪酬 KPI 自动化"], ["数据大屏", "展现卓越服务能力"], ["API 开放平台", "第三方集成接口"]],
   },
 ];
 
-// 四个 Agent 的图标(线性,白色,放在渐变头部)
+// 四个 Agent 的图标——沿用站内原有 Agent 套件(_agents-app/Products)的图标
 const AGENT_ICONS = [
-  // 服务设计:标准/文档
-  <svg key="i1" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round"><rect x="4" y="3" width="16" height="18" rx="2" /><path d="M8 8h8M8 12h8M8 16h5" /></svg>,
-  // 运营管理:循环调度
-  <svg key="i2" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round"><path d="M3 12a9 9 0 0 1 14.5-7" /><path d="M17 2v4h-4" /><path d="M21 12a9 9 0 0 1-14.5 7" /><path d="M7 22v-4h4" /></svg>,
-  // 质量评估:盾牌+勾
-  <svg key="i3" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round"><path d="M12 3l7 3v5c0 4.4-3 7.6-7 9-4-1.4-7-4.6-7-9V6l7-3Z" /><path d="M9 12l2 2 4-4" /></svg>,
-  // 服务优化:上升趋势
-  <svg key="i4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round"><path d="M3 17l5-5 4 4 8-8" /><path d="M16 8h5v5" /></svg>,
+  // 服务设计
+  <svg key="i1" viewBox="0 0 24 24" fill="none"><rect x="3" y="3" width="18" height="18" rx="3" stroke="currentColor" strokeWidth="1.5" /><path d="M8 12L11 15L16 9" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" /><circle cx="18" cy="6" r="3" fill="#10B981" /></svg>,
+  // 运营管理
+  <svg key="i2" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" stroke="currentColor" strokeWidth="1.5" /><circle cx="12" cy="12" r="3" fill="currentColor" /><path d="M12 3V6M12 18V21M3 12H6M18 12H21" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" /></svg>,
+  // 质量评估
+  <svg key="i3" viewBox="0 0 24 24" fill="none"><path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z" stroke="currentColor" strokeWidth="1.5" strokeLinejoin="round" /><path d="M8.5 12L10.5 14L15.5 9" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" /></svg>,
+  // 服务优化
+  <svg key="i4" viewBox="0 0 24 24" fill="none"><rect x="3" y="4" width="18" height="16" rx="2" stroke="currentColor" strokeWidth="1.5" /><path d="M7 14L10 11L13 14L17 10" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" /><circle cx="7" cy="14" r="1.5" fill="currentColor" /><circle cx="10" cy="11" r="1.5" fill="currentColor" /><circle cx="13" cy="14" r="1.5" fill="currentColor" /><circle cx="17" cy="10" r="1.5" fill="currentColor" /></svg>,
 ];
 
 export default function Page() {
