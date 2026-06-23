@@ -49,8 +49,12 @@ function fmtDate(unixSec?: number): string {
   return `${d.getFullYear()} · ${p(d.getMonth() + 1)} · ${p(d.getDate())}`;
 }
 
+// 标题黑名单:公司介绍/关于我们、联系我们、品牌简介、关于琥珀 等"网站页面"类条目,不当新闻展示。
+const BLOCK_TITLES = ["关于我们", "关于爱物管", "公司介绍", "品牌简介", "联系我们", "关于琥珀"];
+const isBlocked = (t: string) => BLOCK_TITLES.some((k) => t.includes(k));
+
 // 分页拉取一个列表接口(freepublish 或 draft),展开图文里的每条子文章。
-// 跳过:已删除的、缺 url 或标题的(没发出去的纯草稿 url 为空,会在此被滤掉)。
+// 跳过:已删除的、缺 url 或标题的(没发出去的纯草稿 url 为空,会在此被滤掉)、以及黑名单页面。
 async function fetchList(listUrl: string, token: string): Promise<RawArticle[]> {
   const PAGE = 20; // 单次上限
   const HARD_CAP = 2000; // 防御性上限,避免接口异常时无限翻页
@@ -73,6 +77,7 @@ async function fetchList(listUrl: string, token: string): Promise<RawArticle[]> 
       for (const n of it.content?.news_item ?? []) {
         if (n?.is_deleted) continue; // 已删除的不取
         if (!n?.url || !n?.title) continue; // 没有公开链接(未发布草稿)或缺标题的不取
+        if (isBlocked(n.title)) continue; // 公司介绍/联系我们/品牌简介等页面不当新闻
         out.push({ title: n.title, url: n.url, digest: n.digest || "", date: fmtDate(ts), cover: n.thumb_url || undefined, ts });
       }
     }
