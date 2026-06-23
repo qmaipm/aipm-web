@@ -14,6 +14,49 @@ const Arrow = ({ s = 15 }: { s?: number }) => (
   </svg>
 );
 
+// 四个专业 Agent(内容与格式对齐《AI 物业经理 FMClaw》Part 4),各配一种渐变色,卡片直接链到对应 Agent 页。
+const AGENTS: {
+  step: string;
+  name: string;
+  href: string;
+  grad: string;
+  desc: string;
+  products: [string, string][];
+}[] = [
+  {
+    step: "STEP 01",
+    name: "服务设计 Agent",
+    href: "/solutions/service-design",
+    grad: "linear-gradient(135deg,#3B82F6,#6366F1)",
+    desc: "根据项目业态、面积、设备清单与业主需求，自动生成服务标准、人员配置方案与 SOP 体系。每个项目获得独立定制的管理基线。",
+    products: [["空间管理系统", "空间配置"], ["服务配置系统", "流程与标准设计"], ["API 开放平台", "标准数据接口"]],
+  },
+  {
+    step: "STEP 02",
+    name: "运营管理 Agent",
+    href: "/solutions/operations",
+    grad: "linear-gradient(135deg,#06B6D4,#12B98A)",
+    desc: "实时调度巡检、保洁、维修、安防等现场任务。对接 IoT 传感器与工单系统，把服务标准转化为每日可执行、可追踪的工作流。",
+    products: [["SSR 服务记录", "无感记录全过程"], ["工单调度系统", "任务自动分配"], ["人机协同引擎", "多端协同效率高"]],
+  },
+  {
+    step: "STEP 03",
+    name: "质量评估 Agent",
+    href: "/solutions/assessment",
+    grad: "linear-gradient(135deg,#8B5CF6,#EC4899)",
+    desc: "基于 IoT 数据、工单完成率、住户反馈与巡检记录，独立生成服务质量评估报告。评估标准由数据驱动，业主可直接获取。",
+    products: [["设备管理系统", "智能抄表监测"], ["多模态巡检", "AI 视觉识别"], ["小智帮手", "一线移动端助手"]],
+  },
+  {
+    step: "STEP 04",
+    name: "服务优化 Agent",
+    href: "/solutions/optimization",
+    grad: "linear-gradient(135deg,#F59E0B,#EF4444)",
+    desc: "汇总质量评估数据与运营趋势，识别重复性问题与资源浪费，生成优化建议并反馈至服务设计 Agent——闭环由此成立。",
+    products: [["计薪系统", "薪酬 KPI 自动化"], ["数据大屏", "展现卓越服务能力"], ["API 开放平台", "第三方集成接口"]],
+  },
+];
+
 export default function Page() {
   return (
     <main className="fmx">
@@ -103,25 +146,26 @@ export default function Page() {
         <div className="wrap">
           <div className="fm-caphead">
             <span className="fm-capno">能力 02</span>
-            <h2 className="fm-h2">四个专业 Agent，接力把一件事跑完</h2>
-            <p className="fm-sub">不是一个万能助手包打天下，而是多个专业 Agent 分工协同：一件事从规划、执行、评估到优化，由不同 Agent 接力跑完，人只在关键节点拍板。</p>
+            <h2 className="fm-h2">四个专业 Agent，接力跑完一个闭环</h2>
+            <p className="fm-sub">从标准制定到持续优化，四个 Agent 完成一个管理闭环：每一次服务执行都被记录、每一个异常都被识别、每一轮优化都基于数据而非经验。闭环自动运转，人只在关键节点决策。</p>
           </div>
-          <div className="fm-relay">
-            {[
-              ["服务设计", "把标准说清楚"],
-              ["运营管理", "每天照着跑"],
-              ["质量评估", "做得好不好"],
-              ["服务优化", "下一轮更好"],
-            ].map(([name, desc], i, arr) => (
-              <div className="fm-relay-step" key={name}>
-                <span className="fm-relay-i">A{i + 1}</span>
-                <span className="fm-relay-n">{name}</span>
-                <span className="fm-relay-d">{desc}</span>
-                {i < arr.length - 1 && <span className="fm-relay-arr" aria-hidden="true">→</span>}
-              </div>
+          <div className="fm-agents">
+            {AGENTS.map((a) => (
+              <Link className="fm-agent" href={a.href} key={a.name}>
+                <span className="fm-agent-bar" aria-hidden="true" style={{ background: a.grad }} />
+                <span className="fm-agent-step" style={{ background: a.grad }}>{a.step}</span>
+                <h3 className="fm-agent-name">{a.name}</h3>
+                <p className="fm-agent-desc">{a.desc}</p>
+                <ul className="fm-agent-prod">
+                  {a.products.map(([n, d]) => (
+                    <li key={n}><b>{n}</b> · {d}</li>
+                  ))}
+                </ul>
+                <span className="fm-agent-link">进入{a.name.replace(" Agent", "")} <Arrow s={13} /></span>
+              </Link>
             ))}
           </div>
-          <p className="fm-foot"><Link href="/agents" className="fm-link">看四 Agent 闭环 <Arrow s={13} /></Link></p>
+          <p className="fm-foot"><Link href="/agents" className="fm-link">看四 Agent 闭环总览 <Arrow s={13} /></Link></p>
         </div>
       </section>
 

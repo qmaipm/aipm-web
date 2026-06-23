@@ -102,6 +102,24 @@
 .fm-link{color:var(--fm-green);font-weight:600;display:inline-flex;align-items:center;gap:7px}
 .fm-link:hover .ar{transform:translateX(3px)}.fm-link .ar{transition:transform .2s}
 
+/* ---------- 四个专业 Agent 卡片(对齐 PDF Part 4,各配渐变色,链到对应 Agent 页) ---------- */
+.fm-agents{margin-top:46px;display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+@media(max-width:1040px){.fm-agents{grid-template-columns:1fr 1fr}}
+@media(max-width:560px){.fm-agents{grid-template-columns:1fr}}
+.fm-agent{position:relative;display:flex;flex-direction:column;background:var(--fm-paper);border:1px solid var(--fm-line);
+  border-radius:16px;padding:26px 22px 22px;overflow:hidden;transition:border-color .25s,box-shadow .25s,transform .25s}
+.fm-agent:hover{border-color:rgba(12,139,130,.30);box-shadow:0 16px 36px rgba(20,32,28,.09);transform:translateY(-2px)}
+.fm-agent-bar{position:absolute;left:0;right:0;top:0;height:4px}
+.fm-agent-step{align-self:flex-start;font-size:11.5px;font-weight:800;letter-spacing:.08em;color:#fff;border-radius:999px;padding:4px 11px}
+.fm-agent-name{margin:14px 0 0;font-size:18px;font-weight:800;letter-spacing:-.01em;color:var(--fm-ink)}
+.fm-agent-desc{margin:10px 0 0;font-size:13.5px;line-height:1.65;color:var(--fm-ink-2)}
+.fm-agent-prod{margin:16px 0 0;padding:16px 0 0;border-top:1px solid var(--fm-line);display:flex;flex-direction:column;gap:8px;list-style:none}
+.fm-agent-prod li{font-size:12.5px;line-height:1.5;color:var(--fm-mut)}
+.fm-agent-prod li b{color:var(--fm-ink);font-weight:600}
+.fm-agent-link{margin-top:auto;padding-top:18px;font-size:13.5px;font-weight:600;color:var(--fm-green);display:inline-flex;align-items:center;gap:6px}
+.fm-agent-link .ar{transition:transform .2s}
+.fm-agent:hover .fm-agent-link .ar{transform:translateX(3px)}
+
 /* ---------- A2A 接力 ---------- */
 .fm-relay{margin-top:46px;display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
 @media(max-width:760px){.fm-relay{grid-template-columns:1fr 1fr}}
