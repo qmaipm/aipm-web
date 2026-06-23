@@ -158,32 +158,32 @@ export default function Page() {
       <section className="fm-core">
         <div className="fm-grid dark" aria-hidden="true" />
         <div className="wrap">
-          <span className="fm-eyebrow on-dark">为什么别人做不到</span>
-          <h2 className="fm-h2 on-dark">壁垒是<span className="grad">时间</span>，不是工程能力</h2>
+          <span className="fm-eyebrow on-dark">要不要自己做</span>
+          <h2 className="fm-h2 on-dark">自己从零搭一套，你会撞上<span className="grad">三道墙</span></h2>
           <div className="fm-barriers">
             <div className="fm-barrier">
               <span className="fm-bn">01</span>
               <div className="fm-bc">
-                <h3>自己从零搭，会撞墙</h3>
-                <p>把行业里每一件工作拆成数据、Skill 与工具的特定组合，不是搭好一套框架就能完成的事——它要在真实现场里一条条试出来，试错的成本由时间承担。</p>
+                <h3>框架好搭，工作流难攒</h3>
+                <p>真正难的不是搭一套框架，而是把行业里每一件工作，拆成数据、能力与工具的特定组合——这只能在真实现场里一条条试出来，试错的成本由时间承担。</p>
               </div>
             </div>
             <div className="fm-barrier">
               <span className="fm-bn">02</span>
               <div className="fm-bc">
-                <h3>通用大厂，难下沉</h3>
-                <p>越靠近一个具体行业的细节、越靠近物理世界，通用平台越难覆盖；那不是它们的投入方向，也不是堆工程就能补上的差距。</p>
+                <h3>通用平台，下沉不到这行</h3>
+                <p>越靠近物业这行的细节、越靠近物理世界，通用平台越难覆盖；那不是它们的投入方向，也不是多招几个工程师就能补上的。</p>
               </div>
             </div>
             <div className="fm-barrier">
               <span className="fm-bn">03</span>
               <div className="fm-bc">
-                <h3>越靠近物理世界，越难</h3>
-                <p>先感知一次服务到底有没有做、做得好不好，再据此在现实里动手，中间没有捷径。</p>
+                <h3>物理世界，没有捷径</h3>
+                <p>要先感知一次服务到底做没做、做得好不好，再据此在现实里动手——这一段经验，只能一线跑出来，绕不过去。</p>
               </div>
             </div>
           </div>
-          <p className="fm-verdict">真正难复制的，不是模型，也不是某个产品，而是这些工作流背后<span className="grad">七八年的行业积累</span>——只能跑出来，买不到。</p>
+          <p className="fm-verdict">与其用几年时间和试错成本去填这三道墙，不如直接站在一个<span className="grad">已经跑了七八年的平台</span>上——把时间花在你的业务，而不是基础设施上。</p>
         </div>
       </section>
 
