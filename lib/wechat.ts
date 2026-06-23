@@ -82,36 +82,86 @@ async function fetchList(listUrl: string, token: string): Promise<RawArticle[]> 
   return out;
 }
 
+// 手动补充:接口拉不到的文章(群发后草稿被删 / 转载等)。
+// 封面用文章 og:image(新闻页以 referrerPolicy="no-referrer" 加载,可绕过微信图片防盗链)。
+// 日期格式 "YYYY-MM-DD";会和接口结果按标题去重合并,不会重复。
+const MANUAL: { title: string; url: string; date: string; cover?: string }[] = [
+  {
+    title: "《智能体AI时代》闭门分享会：从认知觉醒到实战落地——与CEO们共赴智能体企业转型之路",
+    url: "https://mp.weixin.qq.com/s/EAN3ZMGZ6pj4WoUMYi3nZA",
+    date: "2026-04-11",
+    cover: "https://mmbiz.qpic.cn/sz_mmbiz_jpg/XRyicMjm4ePzibX5c7BWRTOUic1h5NHTWaGWdOhnqsFF40kiasmCEcjfndH13icIYkYNqt3IK5yrtjYSgd4Nax53VXWT19J8nKMkuwuJkOeIXOsY/0?wx_fmt=jpeg",
+  },
+  {
+    title: "启盟科技创始人滕一帆受邀做客广东广播电视台科技节目，拆解AI智能体在物管领域的深度应用与价值",
+    url: "https://mp.weixin.qq.com/s/bgG7sXtoM_lBbZBdjIuHOg",
+    date: "2025-09-17",
+    cover: "https://mmbiz.qpic.cn/sz_mmbiz_jpg/JQ8zY1kjTXs82oP7ErXOGpiaSPnCVanFviaD9KX9G1aZypEWicOpvzxbrm3du4WTC0PJgv4wZFSibA40T6a8uerGlw/0?wx_fmt=jpeg",
+  },
+  {
+    title: "启盟科技（爱物管）亮相第八届行政峰会，引领行政物管智能品控新趋势",
+    url: "https://mp.weixin.qq.com/s/X6Jx51BwDX0QfJl1R3mmzA",
+    date: "2025-05-26",
+    cover: "https://mmbiz.qpic.cn/sz_mmbiz_jpg/JQ8zY1kjTXv9gRLjTSHQ4V9vkicAXeS66rQvcJiceJRD8poRGYxzovqtUFIoQXR9lVrBuBSiaWb3wo4pxib52fxRRg/0?wx_fmt=jpeg",
+  },
+  {
+    title: "爱物管荣获“行政后勤优秀服务商奖”，携智能服务记录解决方案亮相第七届企业行政峰会",
+    url: "https://mp.weixin.qq.com/s/fulGccTI6dLdtKZilCqSuQ",
+    date: "2024-05-18",
+    cover: "https://mmbiz.qpic.cn/sz_mmbiz_jpg/JQ8zY1kjTXt8kNdv5VqrYg2AR3KWiaDTZtW5cSkc8nLR42JHVUWY4uXqOXNxeUicw6pSS20Qpw8ZUJepoJUOkz6A/0?wx_fmt=jpeg",
+  },
+  {
+    title: "喜报 | 爱物管荣获第十二届中国创新创业大赛（广东·广州赛区）优胜奖",
+    url: "https://mp.weixin.qq.com/s/zafV2Rj-43vPeoCt_m0AgQ",
+    date: "2024-01-26",
+    cover: "https://mmbiz.qpic.cn/sz_mmbiz_jpg/JQ8zY1kjTXv1v5CMPXLKzdJp8ECMT1LU5pVe4bz3icw2BiaFvV8AYibJohGDhyREEKNNLEKTCiaTUtl6uNBo6Vakmw/0?wx_fmt=jpeg",
+  },
+];
+
+function manualArticles(): RawArticle[] {
+  return MANUAL.map((m) => ({
+    title: m.title,
+    url: m.url,
+    digest: "",
+    date: m.date.replace(/-/g, " · "),
+    cover: m.cover,
+    ts: Math.floor(new Date(`${m.date}T12:00:00+08:00`).getTime() / 1000),
+  }));
+}
+
+// 合并、按标题去重(同一篇在不同渠道 url 形式不同)、按时间倒序。
+function dedupeSort(list: RawArticle[]): WechatArticle[] {
+  const merged = [...list].sort((a, b) => b.ts - a.ts);
+  const seen = new Set<string>();
+  const out: RawArticle[] = [];
+  for (const a of merged) {
+    const key = a.title.replace(/\s+/g, "").trim();
+    if (!key || seen.has(key)) continue;
+    seen.add(key);
+    out.push(a);
+  }
+  return out.map(({ ts: _ts, ...a }) => a);
+}
+
 /**
- * 拉取公众号文章:freepublish + 草稿箱 两个渠道合并,按标题去重,按时间倒序(最新在前)。
+ * 拉取公众号文章:freepublish + 草稿箱 接口 + 手动补充清单,合并去重,按时间倒序(最新在前)。
  */
 export async function getWechatArticles(): Promise<WechatArticle[]> {
+  const manual = manualArticles();
   const appid = process.env.WECHAT_APPID;
   const secret = process.env.WECHAT_APPSECRET;
-  if (!appid || !secret) return []; // 未配置 → 回退静态内容
+  if (!appid || !secret) return dedupeSort(manual); // 未配置:至少显示手动补充
 
   try {
     const token = await getAccessToken(appid, secret);
-    if (!token) return [];
+    if (!token) return dedupeSort(manual);
 
     const [fp, draft] = await Promise.all([fetchList(FREEPUBLISH_URL, token), fetchList(DRAFT_URL, token)]);
-
-    // 合并,最新在前;同一篇在两渠道 url 形式不同,按标题去重(保留排序后先出现的,即较新的那条)。
-    const merged = [...fp, ...draft].sort((a, b) => b.ts - a.ts);
-    const seen = new Set<string>();
-    const result: RawArticle[] = [];
-    for (const a of merged) {
-      const key = a.title.replace(/\s+/g, "").trim();
-      if (!key || seen.has(key)) continue;
-      seen.add(key);
-      result.push(a);
-    }
-
-    console.log(`[wechat] freepublish=${fp.length} | 草稿箱=${draft.length} | 合并去重后=${result.length}`);
-
-    return result.map(({ ts: _ts, ...a }) => a);
+    const result = dedupeSort([...fp, ...draft, ...manual]);
+    console.log(`[wechat] freepublish=${fp.length} | 草稿箱=${draft.length} | 手动=${manual.length} | 合并去重后=${result.length}`);
+    return result;
   } catch (e) {
     console.error("[wechat] 拉取异常:", e);
-    return [];
+    return dedupeSort(manual);
   }
 }
