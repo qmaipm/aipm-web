@@ -58,7 +58,7 @@ export default function Page() {
         <div className="co-grid" aria-hidden="true" />
         <div className="wrap co-hero-top">
           <span className="co-kicker">
-            <Link href="/solutions">智能体解决方案</Link>
+            <Link href="/agents">智能体解决方案</Link>
             <i>/</i>成本控制
           </span>
           <h1 className="co-h1">

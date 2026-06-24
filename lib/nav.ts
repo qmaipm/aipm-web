@@ -25,7 +25,7 @@ export const MENU: MenuItem[] = [
   },
   {
     label: "智能体解决方案",
-    href: "/solutions",
+    href: "/agents",
     minWidth: 320,
     groups: [
       {

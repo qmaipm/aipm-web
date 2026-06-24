@@ -108,14 +108,14 @@ header.nav.on-dark .burger{color:#fff}
 .dropdown a.di:hover{background:rgba(26,25,22,.05); color:var(--ink)}
 .dropdown a.di small{display:block; color:var(--mut-2); font-size:12px; margin-top:1px}
 .dropdown .sep{height:1px; background:var(--line-2); margin:7px 6px}
-/* 产品套件:标题链接 + 一行可点击的 Agent */
-.dropdown .di-suite{padding:9px 12px; border-radius:9px}
-.dropdown .di-suite .di-title{display:block; font-size:14px; color:var(--ink-2); transition:color .15s}
-.dropdown .di-suite:hover .di-title{color:var(--ink)}
-.dropdown .di-suite .di-sublinks{margin-top:3px; display:flex; flex-wrap:nowrap; align-items:center; white-space:nowrap; font-size:12px; color:var(--mut-2)}
+/* 产品套件:标题链接 + 一行可点击的 Agent;hover 与其他下拉项一致——各自高亮 */
+.dropdown .di-suite{border-radius:9px}
+.dropdown .di-suite .di-title{display:block; padding:9px 12px 4px; border-radius:9px; font-size:14px; color:var(--ink-2); transition:background .15s,color .15s}
+.dropdown .di-suite .di-title:hover{background:rgba(26,25,22,.05); color:var(--blue)}
+.dropdown .di-suite .di-sublinks{padding:0 12px 8px; display:flex; flex-wrap:nowrap; align-items:center; white-space:nowrap; font-size:12px; color:var(--mut-2)}
 .dropdown .di-suite .di-sublinks i{font-style:normal; margin:0 2px; color:var(--mut-2)}
 .dropdown .di-suite .di-sublinks a{color:var(--mut-2); padding:1px 5px; border-radius:6px; transition:background .15s,color .15s}
-.dropdown .di-suite .di-sublinks a:hover{background:rgba(26,25,22,.06); color:#0C8B82}
+.dropdown .di-suite .di-sublinks a:hover{background:rgba(26,25,22,.06); color:var(--blue)}
 .mobile-menu .mm-link.mm-sub{padding-left:24px; opacity:.85; font-size:14.5px}
 .nav-spacer{flex:1}
 .nav-cta{flex:none; display:inline-flex; align-items:center; gap:8px; padding:11px 19px; border-radius:999px;

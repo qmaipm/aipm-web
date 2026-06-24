@@ -36,7 +36,7 @@ export default function Page() {
         <div className="in-grid" aria-hidden="true" />
         <div className="wrap in-hero-top">
           <span className="in-kicker">
-            <Link href="/solutions">智能体解决方案</Link>
+            <Link href="/agents">智能体解决方案</Link>
             <i>/</i>设备巡检管理
           </span>
           <h1 className="in-h1">

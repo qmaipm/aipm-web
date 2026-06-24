@@ -48,7 +48,7 @@ export default function Page() {
         <div className="sc-grid" aria-hidden="true" />
         <div className="wrap sc-hero-top">
           <span className="sc-kicker">
-            <Link href="/solutions">智能体解决方案</Link>
+            <Link href="/agents">智能体解决方案</Link>
             <i>/</i>服务分包管理
           </span>
           <h1 className="sc-h1">

@@ -56,7 +56,7 @@ export default function Page() {
         <div className="pr-grid" aria-hidden="true" />
         <div className="wrap pr-hero-top">
           <span className="pr-kicker">
-            <Link href="/solutions">智能体解决方案</Link>
+            <Link href="/agents">智能体解决方案</Link>
             <i>/</i>采购管理
           </span>
           <h1 className="pr-h1">

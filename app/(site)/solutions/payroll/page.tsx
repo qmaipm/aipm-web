@@ -36,7 +36,7 @@ export default function Page() {
         <div className="pay-grid" aria-hidden="true" />
         <div className="wrap pay-hero-top">
           <span className="pay-kicker">
-            <Link href="/solutions">智能体解决方案</Link>
+            <Link href="/agents">智能体解决方案</Link>
             <i>/</i>人员薪酬管理
           </span>
           <h1 className="pay-h1">

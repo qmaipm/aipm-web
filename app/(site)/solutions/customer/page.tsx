@@ -37,7 +37,7 @@ export default function Page() {
         <div className="cu-grid" aria-hidden="true" />
         <div className="wrap cu-hero-top">
           <span className="cu-kicker">
-            <Link href="/solutions">智能体解决方案</Link>
+            <Link href="/agents">智能体解决方案</Link>
             <i>/</i>客户服务
           </span>
           <h1 className="cu-h1">

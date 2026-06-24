@@ -71,7 +71,7 @@ export default function OperationsPage() {
         <div className="op-grid" aria-hidden="true" />
         <div className="wrap op-hero-top">
           <span className="op-kicker">
-            <Link href="/solutions">智能体解决方案</Link>
+            <Link href="/agents">智能体解决方案</Link>
             <i>/</i>运营管理
           </span>
           <h1 className="op-h1">

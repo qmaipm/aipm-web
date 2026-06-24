@@ -22,7 +22,6 @@ const ROUTES = [
   "/products/collaboration",
   "/products/iot",
   "/products/robots",
-  "/solutions",
   "/solutions/cost",
   "/solutions/quality",
   "/solutions/customer",
