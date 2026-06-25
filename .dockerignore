@@ -12,10 +12,9 @@ Dockerfile
 docker-compose*.yml
 README*.md
 DEPLOY.md
-# 非应用资产(避免进入构建上下文,显著减小体积)
+# non-app assets: keep out of build context to shrink image size
 docs
 file
 agents-app/.next
 *.zip
-归档.zip
 tsconfig.tsbuildinfo
