@@ -41,7 +41,7 @@ export default function Page() {
         <div className="qa-grid" aria-hidden="true" />
         <div className="wrap qa-hero-top">
           <span className="qa-kicker">
-            <Link href="/solutions">智能体解决方案</Link>
+            <Link href="/agents">智能体解决方案</Link>
             <i>/</i>质量评估 Agent
           </span>
           <h1 className="qa-h1">

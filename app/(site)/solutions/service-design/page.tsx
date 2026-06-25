@@ -46,7 +46,7 @@ export default function ServiceDesignPage() {
         <div className="sd-grid" aria-hidden="true" />
         <div className="wrap sd-hero-top">
           <span className="sd-kicker">
-            <Link href="/solutions">智能体解决方案</Link>
+            <Link href="/agents">智能体解决方案</Link>
             <i>/</i>服务设计
           </span>
           <h1 className="sd-h1">

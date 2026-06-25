@@ -16,7 +16,7 @@ export default function VendorPage() {
         <div className="sx-grid" aria-hidden="true" />
         <span className="sx-glow" aria-hidden="true" />
         <div className="wrap">
-          <div className="sx-crumb reveal"><Link href="/solutions">智能体解决方案</Link> / 供应商管理与自动对账</div>
+          <div className="sx-crumb reveal"><Link href="/agents">智能体解决方案</Link> / 供应商管理与自动对账</div>
           <span className="sx-eyebrow reveal">智能体解决方案</span>
           <h1 className="sx-h1 reveal">供应商对账，让 Agent 先核完，你只看结论</h1>
         </div>

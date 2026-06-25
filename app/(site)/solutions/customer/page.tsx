@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import "./page.css";
+import SeoFaq from "@/components/SeoFaq";
 
 export const metadata: Metadata = {
   title: "客户服务 · 智能体解决方案 — 启盟科技",
@@ -36,7 +37,7 @@ export default function Page() {
         <div className="cu-grid" aria-hidden="true" />
         <div className="wrap cu-hero-top">
           <span className="cu-kicker">
-            <Link href="/solutions">智能体解决方案</Link>
+            <Link href="/agents">智能体解决方案</Link>
             <i>/</i>客户服务
           </span>
           <h1 className="cu-h1">
@@ -120,6 +121,17 @@ export default function Page() {
           <p className="cu-verdict on-dark">一个住在群里的助手，<span className="grad">7×24 接住每一条诉求</span></p>
         </div>
       </section>
+
+      <SeoFaq
+        heading="物业 AI 客服,你可能想问"
+        serviceName="客户服务"
+        serviceDesc="物业 AI 客服:7×24 处理高频咨询,释放人工坐席。"
+        items={[
+          { q: "物业 AI 客服能处理哪些事?", a: "报修、咨询、投诉受理、缴费提醒等高频重复咨询可由 AI 客服 7×24 先行处理,复杂问题再转人工,缩短响应时间、释放客服坐席。" },
+          { q: "AI 客服会取代人工客服吗?", a: "不会取代,而是分担。AI 接住重复咨询,人工转向需要判断力与情感链接的复杂场景与主动服务。" },
+          { q: "接入 AI 客服需要多久?", a: "可从一个高频场景(如报修或缴费咨询)起步,在现有渠道(公众号 / 钉钉 / 飞书 / 企业微信)上接入,先跑通再扩展。" },
+        ]}
+      />
 
       {/* CTA */}
       <section className="endcta">

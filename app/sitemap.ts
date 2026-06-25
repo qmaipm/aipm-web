@@ -6,29 +6,29 @@ export const dynamic = "force-dynamic";
 const SITE_URL = process.env.SITE_URL || "https://www.aipm.cn";
 
 // 站点主要可索引路由(与 lib/nav.ts 的页面保持一致)。新增页面时同步补充。
+// 主要可索引路由(与 lib/nav.ts 保持一致)。新增页面时同步补充。
 const ROUTES = [
   "/",
+  "/ai-service",
   "/agents",
   "/workshop",
   "/cases",
-  "/cases/detail",
   "/cobuild",
   "/contact",
   "/company",
   "/team",
   "/news",
-  "/insights",
-  "/insights/detail",
   "/products/fmclaw",
   "/products/collaboration",
   "/products/iot",
   "/products/robots",
-  "/solutions",
-  "/solutions/service-design",
-  "/solutions/operations",
+  "/solutions/cost",
   "/solutions/quality",
-  "/solutions/optimization",
-  "/solutions/vendor",
+  "/solutions/customer",
+  "/solutions/subcontract",
+  "/solutions/inspection",
+  "/solutions/payroll",
+  "/solutions/procurement",
   "/scenarios/utility-bill",
   "/scenarios/repair-bot",
   "/scenarios/exec-query",
@@ -40,10 +40,29 @@ const ROUTES = [
   "/legal/cookies",
 ];
 
+// 行业研究文章(GEO 重点内容,优先级更高)
+const INSIGHTS = [
+  "/insights",
+  "/insights/why-obc",
+  "/insights/about-obc",
+  "/insights/obc-practice",
+  "/insights/obc-impact",
+  "/insights/obc-in-china",
+  "/insights/industry-llm",
+  "/insights/digital-labor",
+  "/insights/digital-labor-trends",
+];
+
 export default function sitemap(): MetadataRoute.Sitemap {
-  return ROUTES.map((path) => ({
+  const main = ROUTES.map((path) => ({
     url: `${SITE_URL}${path === "/" ? "" : path}`,
-    changeFrequency: "monthly",
+    changeFrequency: "monthly" as const,
     priority: path === "/" ? 1 : 0.7,
   }));
+  const insights = INSIGHTS.map((path) => ({
+    url: `${SITE_URL}${path}`,
+    changeFrequency: "weekly" as const,
+    priority: 0.8,
+  }));
+  return [...main, ...insights];
 }

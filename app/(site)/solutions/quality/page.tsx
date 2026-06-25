@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import "./page.css";
+import SeoFaq from "@/components/SeoFaq";
 
 export const metadata: Metadata = {
   title: "服务质量管理 · 智能体解决方案 — 启盟科技",
@@ -51,7 +52,7 @@ export default function Page() {
         <div className="sq-grid" aria-hidden="true" />
         <div className="wrap sq-hero-top">
           <span className="sq-kicker">
-            <Link href="/solutions">智能体解决方案</Link>
+            <Link href="/agents">智能体解决方案</Link>
             <i>/</i>服务质量管理
           </span>
           <h1 className="sq-h1">
@@ -173,6 +174,17 @@ export default function Page() {
           <p className="sq-link">同一套质量数据，也支撑 <Link href="/solutions/subcontract">服务分包管理</Link> 与 <Link href="/solutions/payroll">人员薪酬管理</Link>。</p>
         </div>
       </section>
+
+      <SeoFaq
+        heading="服务质量管理,你可能想问"
+        serviceName="服务质量管理"
+        serviceDesc="把物业服务质量数据化,实现质价相符与 AI 质检。"
+        items={[
+          { q: "物业服务质量怎么量化考核?", a: "把“好”定义成可衡量的指标(巡检评分、服务达标率、到岗率、投诉率、响应时间),用 IoT 与智能软件实时采集并自动生成达成率报告,让质量可看、可对账。" },
+          { q: "什么是 AI 质检?", a: "用 AI 对现场服务的过程数据与影像做自动核查,替代部分人工抽查,降低抽查成本、统一扣分标准,让质检更客观、更高频。" },
+          { q: "“质价相符”对物业意味着什么?", a: "服务定价要与可衡量的服务质量挂钩。把质量数据化后,既能向业主说清楚钱花在哪,也能驱动服务商持续改进。" },
+        ]}
+      />
 
       {/* CTA */}
       <section className="endcta">

@@ -52,7 +52,7 @@ export default function OptimizationPage() {
         <div className="ot-grid" aria-hidden="true" />
         <div className="wrap ot-hero-top">
           <span className="ot-kicker">
-            <Link href="/solutions">智能体解决方案</Link>
+            <Link href="/agents">智能体解决方案</Link>
             <i>/</i>服务优化
           </span>
           <h1 className="ot-h1">

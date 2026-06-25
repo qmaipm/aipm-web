@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import "./page.css";
+import SeoFaq from "@/components/SeoFaq";
 
 export const metadata: Metadata = {
   title: "采购管理 · 智能体解决方案 — 启盟科技",
@@ -55,7 +56,7 @@ export default function Page() {
         <div className="pr-grid" aria-hidden="true" />
         <div className="wrap pr-hero-top">
           <span className="pr-kicker">
-            <Link href="/solutions">智能体解决方案</Link>
+            <Link href="/agents">智能体解决方案</Link>
             <i>/</i>采购管理
           </span>
           <h1 className="pr-h1">
@@ -171,6 +172,17 @@ export default function Page() {
           </div>
         </div>
       </section>
+
+      <SeoFaq
+        heading="采购管理,你可能想问"
+        serviceName="采购管理"
+        serviceDesc="用智能体把物业采购的申请、比价、审批、台账串起来。"
+        items={[
+          { q: "物业采购管理的痛点是什么?", a: "需求分散、比价与审批链路长、台账不清。用智能体把申请、比价、审批、台账串起来,可提速并全程留痕。" },
+          { q: "AI 能帮物业采购做什么?", a: "自动归集需求、辅助比价与合规校验、跟踪审批进度,并把采购数据沉淀为可分析的台账。" },
+          { q: "采购能和成本优化联动吗?", a: "可以。采购数据与成本、供应商考核打通后,能从源头控制成本,而不只是事后报销审核。" },
+        ]}
+      />
 
       {/* CTA */}
       <section className="endcta">

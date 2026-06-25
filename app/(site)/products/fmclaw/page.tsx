@@ -3,9 +3,9 @@ import Link from "next/link";
 import "./page.css";
 
 export const metadata: Metadata = {
-  title: "FMClaw™ AI 平台 · 物业与设施管理的行业级 Agent 基座 — 启盟科技",
+  title: "FMClaw™ · 物业与设施管理的行业级 AI 平台 — 启盟科技",
   description:
-    "FMClaw 是面向物业与设施管理的行业级 Agent 平台。工作流是它的第一能力——100+ 条工作流覆盖几十个工作岗位，每一条都是 Skill、行业 Data 与行业 Tools 的组合。多智能体 A2A 协同、模型/数据/工具灵活配置，并具备物理世界感知。",
+    "FMClaw 是面向物业与设施管理的行业级 AI 平台，把日常运营里大量重复、繁琐的活儿变成能直接跑的工作流——100+ 条工作流覆盖几十个岗位，多个专业 Agent 接力协同，模型 / 数据 / 工具灵活配置，并能感知现场、在物理世界里动手。",
 };
 
 const Arrow = ({ s = 15 }: { s?: number }) => (
@@ -14,6 +14,61 @@ const Arrow = ({ s = 15 }: { s?: number }) => (
   </svg>
 );
 
+// 四个专业 Agent(内容与格式对齐《AI 物业经理 FMClaw》Part 4),各配一种渐变色,卡片直接链到对应 Agent 页。
+const AGENTS: {
+  step: string;
+  name: string;
+  href: string;
+  grad: string;
+  desc: string;
+  products: [string, string][];
+}[] = [
+  {
+    step: "STEP 01",
+    name: "服务设计 Agent",
+    href: "/solutions/service-design",
+    grad: "linear-gradient(135deg,#0070FF,#12B98A)",
+    desc: "根据项目业态、面积、设备清单与业主需求，自动生成服务标准、人员配置方案与 SOP 体系。每个项目获得独立定制的管理基线。",
+    products: [["空间管理系统", "空间配置"], ["服务配置系统", "流程与标准设计"], ["API 开放平台", "标准数据接口"]],
+  },
+  {
+    step: "STEP 02",
+    name: "运营管理 Agent",
+    href: "/solutions/operations",
+    grad: "linear-gradient(135deg,#12B98A,#F59E0B)",
+    desc: "实时调度巡检、保洁、维修、安防等现场任务。对接 IoT 传感器与工单系统，把服务标准转化为每日可执行、可追踪的工作流。",
+    products: [["SSR 服务记录", "无感记录全过程"], ["工单调度系统", "任务自动分配"], ["人机协同引擎", "多端协同效率高"]],
+  },
+  {
+    step: "STEP 03",
+    name: "质量评估 Agent",
+    href: "/solutions/assessment",
+    grad: "linear-gradient(135deg,#9333EA,#EC4899)",
+    desc: "基于 IoT 数据、工单完成率、住户反馈与巡检记录，独立生成服务质量评估报告。评估标准由数据驱动，业主可直接获取。",
+    products: [["设备管理系统", "智能抄表监测"], ["多模态巡检", "AI 视觉识别"], ["小智帮手", "一线移动端助手"]],
+  },
+  {
+    step: "STEP 04",
+    name: "服务优化 Agent",
+    href: "/solutions/optimization",
+    grad: "linear-gradient(135deg,#0070FF,#9333EA)",
+    desc: "汇总质量评估数据与运营趋势，识别重复性问题与资源浪费，生成优化建议并反馈至服务设计 Agent——闭环由此成立。",
+    products: [["计薪系统", "薪酬 KPI 自动化"], ["数据大屏", "展现卓越服务能力"], ["API 开放平台", "第三方集成接口"]],
+  },
+];
+
+// 四个 Agent 的图标——沿用站内原有 Agent 套件(_agents-app/Products)的图标
+const AGENT_ICONS = [
+  // 服务设计
+  <svg key="i1" viewBox="0 0 24 24" fill="none"><rect x="3" y="3" width="18" height="18" rx="3" stroke="currentColor" strokeWidth="1.5" /><path d="M8 12L11 15L16 9" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" /><circle cx="18" cy="6" r="3" fill="#10B981" /></svg>,
+  // 运营管理
+  <svg key="i2" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" stroke="currentColor" strokeWidth="1.5" /><circle cx="12" cy="12" r="3" fill="currentColor" /><path d="M12 3V6M12 18V21M3 12H6M18 12H21" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" /></svg>,
+  // 质量评估
+  <svg key="i3" viewBox="0 0 24 24" fill="none"><path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z" stroke="currentColor" strokeWidth="1.5" strokeLinejoin="round" /><path d="M8.5 12L10.5 14L15.5 9" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" /></svg>,
+  // 服务优化
+  <svg key="i4" viewBox="0 0 24 24" fill="none"><rect x="3" y="4" width="18" height="16" rx="2" stroke="currentColor" strokeWidth="1.5" /><path d="M7 14L10 11L13 14L17 10" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" /><circle cx="7" cy="14" r="1.5" fill="currentColor" /><circle cx="10" cy="11" r="1.5" fill="currentColor" /><circle cx="13" cy="14" r="1.5" fill="currentColor" /><circle cx="17" cy="10" r="1.5" fill="currentColor" /></svg>,
+];
+
 export default function Page() {
   return (
     <main className="fmx">
@@ -21,13 +76,12 @@ export default function Page() {
       <section className="fm-hero">
         <div className="fm-grid" aria-hidden="true" />
         <div className="wrap fm-hero-top">
-          <span className="fm-kicker">FMClaw™ AI 平台<i>/</i>物业与设施管理的行业级 Agent 基座</span>
+          <span className="fm-kicker">FMClaw™ AI 平台<i>/</i>物业与设施管理 · 行业级 AI 平台</span>
           <h1 className="fm-h1">
-            工作流，是这个平台的<br /><span className="grad">第一能力</span>
+            你每天要做的那些活儿，<br /><span className="grad">它已经一条条跑通了</span>
           </h1>
           <p className="fm-lead">
-            像 Genspark、Manus 之于通用任务，FMClaw 是物业与设施管理这件事的行业级底座。
-            不同的是，它还能<b>感知物理世界</b>、并在<b>物理世界里动手</b>。
+            FMClaw 把物业与设施管理里大量<b>重复、繁琐的活儿</b>，变成能直接跑的工作流——它懂这行的细节，还能<b>感知现场、在现场动手</b>。不用你从零搭，拿来就用。
           </p>
           <div className="fm-cta">
             <Link href="/workshop" className="btn btn-primary">预约 FMClaw™ 加速营 <Arrow /></Link>
@@ -49,8 +103,8 @@ export default function Page() {
       {/* ===== 定位 · 不是空架子(them vs us) ===== */}
       <section className="fm-band mist">
         <div className="wrap">
-          <span className="fm-eyebrow">定位</span>
-          <h2 className="fm-h2">一个为这件事备好的底座，不是一个空架子</h2>
+          <span className="fm-eyebrow">和通用 AI 平台有什么不同</span>
+          <h2 className="fm-h2">拿来就能用，不用你自己从零搭</h2>
           <div className="fm-versus">
             <div className="fm-vs them">
               <span className="fm-vs-tag">通用 Agent 平台</span>
@@ -76,6 +130,15 @@ export default function Page() {
             <p className="fm-sub">这是七八年在真实现场里一条条跑出来的积累，不是设想。既宽——覆盖的岗位多；又深——每一条都打到行业细节。</p>
           </div>
 
+          {/* 真实工作流编辑器截图(眼见为实) */}
+          <figure className="fm-shot">
+            <img
+              src="/products/fmclaw-workflow.png"
+              alt="FMClaw 工作流编辑器:左侧物业 17 个业务分类,右侧一条「现场品质巡检」工作流——定时触发、拉取并分类风险点、审批、批量建工单"
+              loading="lazy"
+            />
+          </figure>
+
           {/* Skill × Data × Tools = 工作流(核心洞察) */}
           <div className="fm-formula">
             <span className="fm-fx">Skill</span>
@@ -87,15 +150,6 @@ export default function Page() {
             <span className="fm-fx res">一条工作流</span>
           </div>
           <p className="fm-formula-note">不是一句提示词。每一条工作流，都是这三样东西在行业里的特定组合。</p>
-
-          {/* 岗位 × 工作流 矩阵 */}
-          <div className="fm-wf">
-            <div className="fm-wfrow"><div className="fm-pos">财务 · 收费</div><div className="fm-chips">{["月度水电费核算", "账单核算", "业财一体化", "AI 对账"].map((c) => <span className="fm-tag" key={c}>{c}</span>)}</div></div>
-            <div className="fm-wfrow"><div className="fm-pos">工程 · 设备</div><div className="fm-chips">{["异常归因", "能耗分析", "设备巡检"].map((c) => <span className="fm-tag" key={c}>{c}</span>)}</div></div>
-            <div className="fm-wfrow"><div className="fm-pos">调度 · 客服</div><div className="fm-chips">{["派工规则", "报修智能客服", "管理层问询"].map((c) => <span className="fm-tag" key={c}>{c}</span>)}</div></div>
-            <div className="fm-wfrow"><div className="fm-pos">品质 · 安防</div><div className="fm-chips">{["质量考评", "巡检质检"].map((c) => <span className="fm-tag" key={c}>{c}</span>)}</div></div>
-          </div>
-          <p className="fm-foot">这只是其中一部分。与通用平台最根本的区别就在这里：通用平台给你能力原料、要你自己拼；我们给你的是已经在行业里跑通的工作流。</p>
         </div>
       </section>
 
@@ -104,25 +158,30 @@ export default function Page() {
         <div className="wrap">
           <div className="fm-caphead">
             <span className="fm-capno">能力 02</span>
-            <h2 className="fm-h2">四个专业 Agent，接力把一件事跑完</h2>
-            <p className="fm-sub">平台不是单个 Agent，而是多个专业 Agent 分工协同。一件事从规划、执行、评估到优化，由不同 Agent 接力闭环（A2A），人只在关键节点决策。</p>
+            <h2 className="fm-h2">四个专业 Agent，接力跑完一个闭环</h2>
+            <p className="fm-sub">从标准制定到持续优化，四个 Agent 完成一个管理闭环：每一次服务执行都被记录、每一个异常都被识别、每一轮优化都基于数据而非经验。闭环自动运转，人只在关键节点决策。</p>
           </div>
-          <div className="fm-relay">
-            {[
-              ["服务设计", "把标准说清楚"],
-              ["运营管理", "每天照着跑"],
-              ["质量评估", "做得好不好"],
-              ["服务优化", "下一轮更好"],
-            ].map(([name, desc], i, arr) => (
-              <div className="fm-relay-step" key={name}>
-                <span className="fm-relay-i">A{i + 1}</span>
-                <span className="fm-relay-n">{name}</span>
-                <span className="fm-relay-d">{desc}</span>
-                {i < arr.length - 1 && <span className="fm-relay-arr" aria-hidden="true">→</span>}
-              </div>
+          <div className="fm-agents">
+            {AGENTS.map((a, i) => (
+              <Link className="fm-agent" href={a.href} key={a.name}>
+                <div className="fm-agent-head" style={{ background: a.grad }}>
+                  <span className="fm-agent-ic" aria-hidden="true">{AGENT_ICONS[i]}</span>
+                  <h3 className="fm-agent-name">{a.name}</h3>
+                  <span className="fm-agent-step">{a.step}</span>
+                </div>
+                <div className="fm-agent-body">
+                  <p className="fm-agent-desc">{a.desc}</p>
+                  <ul className="fm-agent-prod">
+                    {a.products.map(([n, d]) => (
+                      <li key={n}><b>{n}</b> · {d}</li>
+                    ))}
+                  </ul>
+                  <span className="fm-agent-link">进入{a.name.replace(" Agent", "")} <Arrow s={13} /></span>
+                </div>
+              </Link>
             ))}
           </div>
-          <p className="fm-foot"><Link href="/agents" className="fm-link">看四 Agent 闭环 <Arrow s={13} /></Link></p>
+          <p className="fm-foot"><Link href="/agents" className="fm-link">看四 Agent 闭环总览 <Arrow s={13} /></Link></p>
         </div>
       </section>
 
@@ -159,32 +218,40 @@ export default function Page() {
       <section className="fm-core">
         <div className="fm-grid dark" aria-hidden="true" />
         <div className="wrap">
-          <span className="fm-eyebrow on-dark">为什么别人做不到</span>
-          <h2 className="fm-h2 on-dark">壁垒是<span className="grad">时间</span>，不是工程能力</h2>
+          <span className="fm-eyebrow on-dark">为什么不自建</span>
+          <h2 className="fm-h2 on-dark">企业自建 Agent 平台，会撞到<span className="grad">四道结构性的墙</span></h2>
+          <p className="fm-coreintro">不是模型在变——模型、框架、记忆、协议、检索、评估同时在变，每六个月范式就重写一次。</p>
           <div className="fm-barriers">
             <div className="fm-barrier">
               <span className="fm-bn">01</span>
               <div className="fm-bc">
-                <h3>自己从零搭，会撞墙</h3>
-                <p>把行业里每一件工作拆成数据、Skill 与工具的特定组合，不是搭好一套框架就能完成的事——它要在真实现场里一条条试出来，试错的成本由时间承担。</p>
+                <h3>模型墙 · 模型每周一个 SOTA</h3>
+                <p>GPT-5、Claude、Gemini、Kimi、DeepSeek……最强模型几乎每周更迭一次。自建团队刚适配完一个，下一个 SOTA 就出来了——永远在追，永远不是最优。</p>
               </div>
             </div>
             <div className="fm-barrier">
               <span className="fm-bn">02</span>
               <div className="fm-bc">
-                <h3>通用大厂，难下沉</h3>
-                <p>越靠近一个具体行业的细节、越靠近物理世界，通用平台越难覆盖；那不是它们的投入方向，也不是堆工程就能补上的差距。</p>
+                <h3>框架墙 · 范式每月一变</h3>
+                <p>Claude Code、Cursor、LangGraph、AutoGen……编排、状态、工具调用、错误恢复，每条子赛道都有框架在打架；今天选定的，可能半年后就被淘汰。</p>
               </div>
             </div>
             <div className="fm-barrier">
               <span className="fm-bn">03</span>
               <div className="fm-bc">
-                <h3>越靠近物理世界，越难</h3>
-                <p>先感知一次服务到底有没有做、做得好不好，再据此在现实里动手，中间没有捷径。</p>
+                <h3>记忆与协议墙 · 6+ 条子栈同时演化</h3>
+                <p>Mem0、Letta、MCP、Apps SDK、GraphRAG……记忆栈与协议栈同时在变，Mem0 还没定 Letta 就来了、MCP 还在草案——光工具调用协议本身就在打架。</p>
+              </div>
+            </div>
+            <div className="fm-barrier">
+              <span className="fm-bn">04</span>
+              <div className="fm-bc">
+                <h3>时间墙 · 客户只想「今天就用」</h3>
+                <p>Gartner 预测，40%+ 的 Agentic AI 项目会在 2027 年前被取消。「6 个月 PoC + 12 个月上线 + 24 个月二开」的老节奏已经死了——客户的预算窗口，比技术演化窗口短得多。</p>
               </div>
             </div>
           </div>
-          <p className="fm-verdict">真正难复制的，不是模型，也不是某个产品，而是这些工作流背后<span className="grad">七八年的行业积累</span>——只能跑出来，买不到。</p>
+          <p className="fm-verdict">四道墙都在变厚。自建团队要同时追 模型 · 框架 · 记忆 · 协议 · 检索 · 评估 六条子赛道——这不是工程能力问题，是<span className="grad">时间选择问题</span>。这些交给 FMClaw，你把时间花在自己的业务上。</p>
         </div>
       </section>
 

@@ -108,6 +108,15 @@ header.nav.on-dark .burger{color:#fff}
 .dropdown a.di:hover{background:rgba(26,25,22,.05); color:var(--ink)}
 .dropdown a.di small{display:block; color:var(--mut-2); font-size:12px; margin-top:1px}
 .dropdown .sep{height:1px; background:var(--line-2); margin:7px 6px}
+/* 产品套件:标题链接 + 一行可点击的 Agent;hover 与其他下拉项一致——各自高亮 */
+.dropdown .di-suite{border-radius:9px}
+.dropdown .di-suite .di-title{display:block; padding:9px 12px 4px; border-radius:9px; font-size:14px; color:var(--ink-2); transition:background .15s,color .15s}
+.dropdown .di-suite .di-title:hover{background:rgba(26,25,22,.05); color:var(--blue)}
+.dropdown .di-suite .di-sublinks{padding:0 12px 8px; display:flex; flex-wrap:nowrap; align-items:center; white-space:nowrap; font-size:12px; color:var(--mut-2)}
+.dropdown .di-suite .di-sublinks i{font-style:normal; margin:0 2px; color:var(--mut-2)}
+.dropdown .di-suite .di-sublinks a{color:var(--mut-2); padding:1px 5px; border-radius:6px; transition:background .15s,color .15s}
+.dropdown .di-suite .di-sublinks a:hover{background:rgba(26,25,22,.06); color:var(--blue)}
+.mobile-menu .mm-link.mm-sub{padding-left:24px; opacity:.85; font-size:14.5px}
 .nav-spacer{flex:1}
 .nav-cta{flex:none; display:inline-flex; align-items:center; gap:8px; padding:11px 19px; border-radius:999px;
   background:var(--brand-grad); color:#fff; font-size:14px; font-weight:600; transition:transform .2s, filter .2s; white-space:nowrap}
@@ -697,3 +706,16 @@ a:focus-visible, button:focus-visible, .btn:focus-visible, .t:focus-visible,
   -webkit-mask-image:radial-gradient(120% 90% at 92% 0%, #000 0%, transparent 60%);
           mask-image:radial-gradient(120% 90% at 92% 0%, #000 0%, transparent 60%)}
 .moat .wrap{position:relative; z-index:1}
+
+/* ---------- 通用 FAQ 区块(SeoFaq 组件,冷调 VI,跨页面复用) ---------- */
+.seo-faq{padding:96px 0;border-top:1px solid #E6EAE8;background:#fff}
+@media (max-width:600px){.seo-faq{padding:64px 0}}
+.seo-faq__wrap{max-width:1160px;margin:0 auto;padding:0 32px}
+@media (max-width:600px){.seo-faq__wrap{padding:0 22px}}
+.seo-faq__eyebrow{display:inline-flex;align-items:center;gap:10px;font-size:12px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:#12B98A}
+.seo-faq__eyebrow::before{content:"";width:22px;height:2px;border-radius:2px;background:linear-gradient(115deg,#0070FF,#12B98A)}
+.seo-faq__h{margin:16px 0 0;font-size:clamp(24px,3.2vw,36px);font-weight:800;letter-spacing:-.02em;color:#14201C;line-height:1.18}
+.seo-faq__list{margin:30px 0 0;border-top:1px solid #E6EAE8;max-width:900px}
+.seo-faq__item{padding:22px 0;border-bottom:1px solid #E6EAE8}
+.seo-faq__item dt{font-size:17px;font-weight:700;letter-spacing:-.01em;color:#14201C;line-height:1.5}
+.seo-faq__item dd{margin:10px 0 0;font-size:15.5px;line-height:1.75;color:#46524D}

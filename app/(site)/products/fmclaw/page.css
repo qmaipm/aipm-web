@@ -102,6 +102,27 @@
 .fm-link{color:var(--fm-green);font-weight:600;display:inline-flex;align-items:center;gap:7px}
 .fm-link:hover .ar{transform:translateX(3px)}.fm-link .ar{transition:transform .2s}
 
+/* ---------- 四个专业 Agent 卡片(对齐 PDF Part 4,各配渐变色,链到对应 Agent 页) ---------- */
+.fm-agents{margin-top:46px;display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+@media(max-width:1040px){.fm-agents{grid-template-columns:1fr 1fr}}
+@media(max-width:560px){.fm-agents{grid-template-columns:1fr}}
+.fm-agent{position:relative;display:flex;flex-direction:column;background:var(--fm-paper);border:1px solid var(--fm-line);
+  border-radius:16px;overflow:hidden;transition:border-color .25s,box-shadow .25s,transform .25s}
+.fm-agent:hover{border-color:rgba(12,139,130,.30);box-shadow:0 16px 36px rgba(20,32,28,.09);transform:translateY(-2px)}
+.fm-agent-head{position:relative;display:flex;align-items:center;gap:11px;padding:18px 18px;color:#fff}
+.fm-agent-ic{flex:none;width:26px;height:26px;color:#fff}
+.fm-agent-ic svg{width:100%;height:100%;display:block}
+.fm-agent-name{margin:0;font-size:16.5px;font-weight:800;letter-spacing:-.01em;color:#fff}
+.fm-agent-step{position:absolute;top:12px;right:15px;font-size:10.5px;font-weight:700;letter-spacing:.08em;color:rgba(255,255,255,.82)}
+.fm-agent-body{display:flex;flex-direction:column;flex:1;padding:20px 20px}
+.fm-agent-desc{margin:0;font-size:13.5px;line-height:1.65;color:var(--fm-ink-2)}
+.fm-agent-prod{margin:16px 0 0;padding:16px 0 0;border-top:1px solid var(--fm-line);display:flex;flex-direction:column;gap:8px;list-style:none}
+.fm-agent-prod li{font-size:12.5px;line-height:1.5;color:var(--fm-mut)}
+.fm-agent-prod li b{color:var(--fm-ink);font-weight:600}
+.fm-agent-link{margin-top:auto;padding-top:18px;font-size:13.5px;font-weight:600;color:var(--fm-green);display:inline-flex;align-items:center;gap:6px}
+.fm-agent-link .ar{transition:transform .2s}
+.fm-agent:hover .fm-agent-link .ar{transform:translateX(3px)}
+
 /* ---------- A2A 接力 ---------- */
 .fm-relay{margin-top:46px;display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
 @media(max-width:760px){.fm-relay{grid-template-columns:1fr 1fr}}
@@ -140,7 +161,8 @@
 .fm-eyebrow.on-dark{color:#3fd9b8}
 .fm-h2.on-dark{color:#fff}
 /* 三道壁垒:大号渐变序号 + 白色小标题 + 提亮正文,代替原来的散文墙 */
-.fm-barriers{margin-top:46px;display:flex;flex-direction:column;border-top:1px solid rgba(255,255,255,.10)}
+.fm-coreintro{margin:18px 0 0;font-size:clamp(15px,1.7vw,17px);line-height:1.65;color:#AEBAB5;max-width:none}
+.fm-barriers{margin-top:40px;display:flex;flex-direction:column;border-top:1px solid rgba(255,255,255,.10)}
 .fm-barrier{display:grid;grid-template-columns:74px 1fr;gap:22px;align-items:start;padding:30px 0;border-bottom:1px solid rgba(255,255,255,.10)}
 @media(max-width:600px){.fm-barrier{grid-template-columns:1fr;gap:12px;padding:26px 0}}
 .fm-bn{font-size:clamp(36px,4.6vw,54px);font-weight:800;line-height:.9;letter-spacing:-.03em;
@@ -164,6 +186,12 @@
 .fm-mission-en{margin:0;font-size:13px;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:var(--fm-mut)}
 .fm-mission-zh{margin:18px 0 0;font-size:clamp(34px,6vw,64px);font-weight:800;letter-spacing:-.03em;color:var(--fm-ink);line-height:1.12}
 .fm-mission-sub{margin:24px auto 0;font-size:16px;line-height:1.7;color:var(--fm-ink-2);max-width:44ch}
+
+/* ---------- 工作流编辑器截图 ---------- */
+.fm-shot{margin:38px 0 0}
+.fm-shot img{display:block;width:100%;height:auto;border:1px solid var(--fm-line);border-radius:16px;
+  box-shadow:0 22px 56px rgba(20,32,28,.10)}
+.fm-shot figcaption{margin:14px 0 0;font-size:13.5px;line-height:1.6;color:var(--fm-mut);max-width:none}
 
 /* ---------- 可访问性 / 动效降级 ---------- */
 .fmx a:focus-visible,.fmx .btn:focus-visible{outline:2px solid var(--fm-green);outline-offset:3px;border-radius:10px}

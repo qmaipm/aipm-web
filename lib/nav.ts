@@ -1,6 +1,6 @@
 // 全站导航与路由配置(锁定结构 A9)。第二期未建页面暂指向最近的核心页。
 
-export type DropItem = { label: string; href: string; small?: string };
+export type DropItem = { label: string; href: string; small?: string; links?: { label: string; href: string }[] };
 export type DropGroup = { heading?: string; items: DropItem[] };
 export type MenuItem = {
   label: string;
@@ -25,13 +25,22 @@ export const MENU: MenuItem[] = [
   },
   {
     label: "智能体解决方案",
-    href: "/solutions",
-    minWidth: 300,
+    href: "/agents",
+    minWidth: 320,
     groups: [
       {
         heading: "产品套件",
         items: [
-          { label: "Agentic 产品套件", href: "/agents", small: "服务设计 · 运营管理 · 质量评估 · 服务优化" },
+          {
+            label: "Agentic 产品套件",
+            href: "/agents",
+            links: [
+              { label: "服务设计", href: "/solutions/service-design" },
+              { label: "运营管理", href: "/solutions/operations" },
+              { label: "质量评估", href: "/solutions/assessment" },
+              { label: "服务优化", href: "/solutions/optimization" },
+            ],
+          },
         ],
       },
       {

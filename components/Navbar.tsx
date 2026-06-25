@@ -2,7 +2,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
-import { useEffect, useState } from "react";
+import { Fragment, useEffect, useState } from "react";
 import { MENU } from "@/lib/nav";
 
 function Caret() {
@@ -51,12 +51,26 @@ export default function Navbar() {
                     <div key={gi}>
                       {gi > 0 && <div className="sep" />}
                       {g.heading && <div className="dh">{g.heading}</div>}
-                      {g.items.map((it) => (
-                        <Link className="di" href={it.href} key={it.label + it.href}>
-                          {it.label}
-                          {it.small && <small>{it.small}</small>}
-                        </Link>
-                      ))}
+                      {g.items.map((it) =>
+                        it.links ? (
+                          <div className="di-suite" key={it.label + it.href}>
+                            <Link className="di-title" href={it.href}>{it.label}</Link>
+                            <div className="di-sublinks">
+                              {it.links.map((l, li) => (
+                                <span key={l.href}>
+                                  {li > 0 && <i aria-hidden="true">·</i>}
+                                  <Link href={l.href}>{l.label}</Link>
+                                </span>
+                              ))}
+                            </div>
+                          </div>
+                        ) : (
+                          <Link className="di" href={it.href} key={it.label + it.href}>
+                            {it.label}
+                            {it.small && <small>{it.small}</small>}
+                          </Link>
+                        )
+                      )}
                     </div>
                   ))}
                 </div>
@@ -103,9 +117,16 @@ export default function Navbar() {
                   )}
                 </div>
                 {item.groups.flatMap((g) => g.items).map((it) => (
-                  <Link className="mm-link" href={it.href} key={it.label + it.href} onClick={() => setOpen(false)}>
-                    {it.label}
-                  </Link>
+                  <Fragment key={it.label + it.href}>
+                    <Link className="mm-link" href={it.href} onClick={() => setOpen(false)}>
+                      {it.label}
+                    </Link>
+                    {it.links?.map((l) => (
+                      <Link className="mm-link mm-sub" href={l.href} key={l.href} onClick={() => setOpen(false)}>
+                        {l.label}
+                      </Link>
+                    ))}
+                  </Fragment>
                 ))}
               </div>
             ) : (

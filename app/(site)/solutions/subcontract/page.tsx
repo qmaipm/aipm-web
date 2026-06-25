@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import "./page.css";
+import SeoFaq from "@/components/SeoFaq";
 
 export const metadata: Metadata = {
   title: "服务分包管理 · 智能体解决方案 — 启盟科技",
@@ -47,7 +48,7 @@ export default function Page() {
         <div className="sc-grid" aria-hidden="true" />
         <div className="wrap sc-hero-top">
           <span className="sc-kicker">
-            <Link href="/solutions">智能体解决方案</Link>
+            <Link href="/agents">智能体解决方案</Link>
             <i>/</i>服务分包管理
           </span>
           <h1 className="sc-h1">
@@ -147,6 +148,17 @@ export default function Page() {
           <p className="sc-verdict on-dark">你只需把考核规则说清楚，<span className="grad">账单 AI 自动出</span></p>
         </div>
       </section>
+
+      <SeoFaq
+        heading="供应商管理与 OBC,你可能想问"
+        serviceName="服务分包管理"
+        serviceDesc="用 OBC 成果导向合约与过程数据,管好外包供应商。"
+        items={[
+          { q: "怎么管好物业的外包供应商?", a: "关键是从“数人头”转向“看结果”:用智能服务记录采集到岗、工时、达标等过程数据,按可衡量的成果(OBC 指标)对供应商考核、对账。" },
+          { q: "什么是 OBC 成果导向合约?", a: "OBC(Outcome-Based Contracting)以可衡量的绩效成果作为合同要求与付费依据,而非人员编制数量;它给供应商创新激励,也让甲方买到确定的结果。" },
+          { q: "供应商对账成本高怎么办?", a: "用过程数据自动统计替代手工收集与人情分,可显著降低对账成本与误差(公开案例中某用户对账成本减少约 260 人/天/月)。" },
+        ]}
+      />
 
       {/* CTA */}
       <section className="endcta">

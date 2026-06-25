@@ -6,7 +6,7 @@ import CobuildForm from "./CobuildForm";
 export const metadata: Metadata = {
   title: "人工智能产业共建 · 以投带产 — 启盟科技",
   description:
-    "我们带着资金、技术与运营团队来本地落地，与贵区共建本地人工智能产业。以投带产，贵方零投入、零采购风险——产业、税收、就业与数据资产沉淀在本地。",
+    "一套「以投带产」的人工智能产业共建方案：启盟带着资金、技术与运营团队在地方落地，以国有物业为切入，合作方零投入、零采购风险——产业、税收、就业与数据资产沉淀在本地。",
 };
 
 const Arrow = ({ s = 15 }: { s?: number }) => (
@@ -34,19 +34,19 @@ const onepage = [
   {
     no: "04",
     title: "共建路径",
-    body: "以贵区国有物业为起点，先打样板、再做合资、后向区域推广；五年扎根，逐步培育出一个区域级的人工智能服务业产业集群。",
+    body: "以地方国有物业为起点，先打样板、再做合资、后向区域推广；五年扎根，逐步培育出一个区域级的人工智能服务业产业集群。",
   },
   {
     no: "05",
     title: "双方角色",
-    body: "贵区主导路径设计，提供场景与政策协同；我方投入资金、技术与运营团队，承担产业培育的主体责任——产业、税收、就业与数据资产沉淀本地。",
+    body: "地方主导路径设计，提供场景与政策协同；启盟投入资金、技术与运营团队，承担产业培育的主体责任——产业、税收、就业与数据资产沉淀本地。",
   },
 ];
 
 const why = [
   {
     title: "无处不在的底盘",
-    body: "办公园区、商业综合体、人才公寓、医院、学校、工业厂区——贵区几乎每一栋楼都在物业管理覆盖之内。这是政府用场景换产业最大的一块底盘。",
+    body: "办公园区、商业综合体、人才公寓、医院、学校、工业厂区——一个区域里几乎每一栋楼都在物业管理覆盖之内。这是政府用场景换产业最大的一块底盘。",
     icon: (
       <svg viewBox="0 0 24 24" fill="none"><rect x="3" y="9" width="7" height="12" rx="1.4" stroke="currentColor" strokeWidth="1.6" /><rect x="13" y="4" width="8" height="17" rx="1.4" stroke="currentColor" strokeWidth="1.6" /><path d="M6 13h1M6 16h1M16 8h2M16 12h2M16 16h2" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" /><path d="M3 21h18" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" /></svg>
     ),
@@ -76,7 +76,7 @@ const why = [
 
 const dcards = [
   {
-    title: "贵方零投入",
+    title: "合作方零投入",
     body: "不采购设备、不投入固定资产、不承担技术风险。国企 / 园区按 FM 服务合同付费，且持平或低于现有物业支出。",
   },
   {
@@ -113,17 +113,17 @@ export default function Page() {
             <i>/</i>人工智能产业共建
           </span>
           <h1 className="cb-h1">
-            来本地投资兴业，<br />与贵区<span className="grad">共建本地人工智能产业</span>
+            一套「以投带产」的<br /><span className="grad">人工智能产业共建方案</span>
           </h1>
           <p className="cb-lead">
-            这不是一次试点采购。我们带着<b>资金、技术与运营团队</b>来本地落地，与贵区一起承接国家人工智能产业战略——产业、税收、就业与数据资产，沉淀在本地。
+            启盟带着<b>资金、技术与运营团队</b>在地方落地，和政府与国资平台一起承接国家人工智能产业战略——产业、税收、就业与数据资产，沉淀在本地。
           </p>
           <div className="cb-cta">
             <a href="#core" className="btn btn-primary">看以投带产模式 <Arrow /></a>
-            <a href="#contact" className="btn btn-ghost">留下联系方式 <Arrow /></a>
+            <a href="#contact" className="btn btn-ghost">了解如何落地 <Arrow /></a>
           </div>
           <div className="cb-proof">
-            <span>贵方<b>零投入</b></span>
+            <span>合作方<b>零投入</b></span>
             <span className="sep" />
             <span>我方<b>出资 · 出技术 · 出团队</b></span>
             <span className="sep" />
@@ -136,7 +136,7 @@ export default function Page() {
       <section className="cb-band mist">
         <div className="wrap">
           <span className="cb-eyebrow">一页读懂</span>
-          <h2 className="cb-h2">我们与贵区在谈的，是一件什么事</h2>
+          <h2 className="cb-h2">产业共建方案的整体逻辑</h2>
           <p className="cb-sub">从国家任务到共建路径，五句话讲清楚这件事的来龙去脉。</p>
           <div className="cb-onepage">
             {onepage.map((o) => (
@@ -149,7 +149,7 @@ export default function Page() {
               </div>
             ))}
           </div>
-          <p className="cb-quote">这不是采购 AI 服务，是与贵区<span className="grad">共建一个本地 AI 产业</span>。</p>
+          <p className="cb-quote">这不是采购 AI 服务，而是<span className="grad">共建一个本地 AI 产业</span></p>
         </div>
       </section>
 
@@ -176,7 +176,7 @@ export default function Page() {
         <div className="cb-grid dark" aria-hidden="true" />
         <div className="wrap">
           <span className="cb-eyebrow on-dark">以投带产 · 核心模式</span>
-          <h2 className="cb-h2 on-dark">不是卖给贵区一套系统，是把一个产业投到本地</h2>
+          <h2 className="cb-h2 on-dark">不是卖给谁一套系统，而是把一个产业投到地方</h2>
 
           <div className="cb-dcards">
             {dcards.map((d, i) => (
@@ -200,7 +200,7 @@ export default function Page() {
             <div className="cb-cyc">
               <div className="cb-cyc-lab">本地落地</div>
               <h4>固定资产 · 本地企业</h4>
-              <p>形成本地的固定资产，并在本地注册、运营起一家 AI 企业，工商税务全在贵辖区。</p>
+              <p>形成本地的固定资产，并在本地注册、运营起一家 AI 企业，工商税务全部落在本地。</p>
             </div>
             <span className="cb-cyc-ar" aria-hidden="true">
               <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M4 12h15M13 6l6 6-6 6" strokeLinecap="round" strokeLinejoin="round" /></svg>
@@ -212,7 +212,7 @@ export default function Page() {
             </div>
           </div>
 
-          <p className="cb-verdict">贵方<span className="grad">零投入、零采购风险</span>，产业却扎根在本地。</p>
+          <p className="cb-verdict">合作方<span className="grad">零投入、零采购风险</span>，产业却扎根在本地。</p>
           <p className="cb-faint">具体基金规模与结构，面议时详述。</p>
         </div>
       </section>
@@ -221,7 +221,7 @@ export default function Page() {
       <section className="cb-band mist">
         <div className="wrap">
           <span className="cb-eyebrow">五年沉淀</span>
-          <h2 className="cb-h2">五年后，贵区会培育出一家什么样的 AI 公司</h2>
+          <h2 className="cb-h2">双方共建五年，沉淀出一家扎根本地的 AI 企业</h2>
           <p className="cb-sub">从单个样板起步，到规模化部署，再向区域辐射——这是一条由场景生长出产业的递进路径。</p>
 
           <div className="cb-stages">
@@ -252,8 +252,8 @@ export default function Page() {
       <section className="cb-band" id="contact">
         <div className="wrap">
           <span className="cb-eyebrow">联系</span>
-          <h2 className="cb-h2">剩下的，见面详谈</h2>
-          <p className="cb-sub">欢迎地方招商局、商务局、国资委及国企平台联系。无论是政府 AI 招商、国有物业 AI 化运营，还是国企 AI 转型，留下联系方式，我们带方案当面来谈。</p>
+          <h2 className="cb-h2">想在你的地区，共建一个本地 AI 产业？</h2>
+          <p className="cb-sub">无论你是地方政府、国资平台，还是国企 / 园区——政府 AI 招商、国有物业 AI 化运营、国企 AI 转型，都可以用这套方案对接。留下联系方式，我们把方案对到你的真实场景。</p>
           <CobuildForm />
         </div>
       </section>
@@ -261,8 +261,8 @@ export default function Page() {
       {/* CTA */}
       <section className="endcta">
         <div className="wrap">
-          <h2 className="reveal">把一个产业，<br />投到贵区落地生根</h2>
-          <p className="reveal">从一次当面详谈开始。</p>
+          <h2 className="reveal">把一个 AI 产业，<br />共建到你的地区</h2>
+          <p className="reveal">从一次深入沟通开始。</p>
           <div className="cta-row reveal">
             <a href="#contact" className="btn btn-primary">留下联系方式 <Arrow s={16} /></a>
           </div>
