@@ -37,7 +37,7 @@ export default function Page() {
         items={[
           {
             src: "/insights/industry-llm-4-team.jpg",
-            alt: "启盟技术团队",
+            alt: "启盟科技技术团队",
             caption: "技术团队:算法、产品与交付的复合班底。",
           },
           {

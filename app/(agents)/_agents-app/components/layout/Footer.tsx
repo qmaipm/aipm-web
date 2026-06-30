@@ -60,7 +60,7 @@ const companyLinks = [
   { name: '技术实力', href: '#' },
   { name: '成为合伙人', href: '#' },
   { name: '新闻中心', href: '#' },
-  { name: '加入启盟', href: '#' },
+  { name: '加入启盟科技', href: '#' },
   { name: '联系我们', href: '#contact' },
 ];
 
@@ -173,7 +173,7 @@ export default function Footer() {
               <span className="footer-cta-badge">开启智能物业新时代</span>
               <h2 className="footer-cta-title">准备好开始了吗？</h2>
               <p className="footer-cta-desc">
-                立即体验启盟 AI，让您的物业管理迈入智能化时代
+                立即体验启盟科技 AI，让您的物业管理迈入智能化时代
               </p>
             </div>
             

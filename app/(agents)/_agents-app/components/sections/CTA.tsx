@@ -12,7 +12,7 @@ export default function CTA() {
       <div className="section-container">
         <div className="cta-content">
           <h2>准备好开始了吗？</h2>
-          <p>立即体验启盟 AI，让您的物业管理迈入智能化时代</p>
+          <p>立即体验启盟科技 AI，让您的物业管理迈入智能化时代</p>
           <div className="cta-actions">
             <Link href="#contact" className="btn-cta-primary">
               预约演示

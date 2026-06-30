@@ -3,7 +3,7 @@ import Link from "next/link";
 import "./page.css";
 
 export const metadata: Metadata = {
-  title: "关于启盟 · 使命与八年自营 — 启盟科技",
+  title: "关于启盟科技 · 使命与八年自营 — 启盟科技",
   description:
     "启盟科技创立于 2017 年,八年自营物业与设施管理,在真实运营中积累数据与工作流。我们的使命:让智能,走进物理世界。物业是这件事最大、也最现实的入口。",
 };
@@ -105,7 +105,7 @@ export default function Page() {
         <div className="wrap cm-hero-top">
           <span className="cm-kicker">
             <Link href="/">启盟科技</Link>
-            <i>/</i>关于启盟
+            <i>/</i>关于启盟科技
           </span>
           <h1 className="cm-h1">
             让软件,<span className="grad">为人工作</span>
@@ -144,7 +144,7 @@ export default function Page() {
         <div className="wrap">
           <span className="cm-eyebrow">公司演进 · 大事记</span>
           <h2 className="cm-h2">八年,做同一件事</h2>
-          <p className="cm-sub">自 2017 年至今,启盟始终专注一件事:让智能走进物业与设施管理的真实运营。这条路分为两个阶段——先在一线积累数据与工作流,再让智能体真正承担工作。</p>
+          <p className="cm-sub">自 2017 年至今,启盟科技始终专注一件事:让智能走进物业与设施管理的真实运营。这条路分为两个阶段——先在一线积累数据与工作流,再让智能体真正承担工作。</p>
 
           <div className="cm-rail">
             <div className="cm-rail__phases">

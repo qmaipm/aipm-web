@@ -580,7 +580,7 @@ export default function Navbar() {
               <div className="dropdown-content">
                 <div className="dropdown-company-grid">
                   <div className="dropdown-col">
-                    <div className="dropdown-col-label">关于启盟</div>
+                    <div className="dropdown-col-label">关于启盟科技</div>
                     <Link href="#" className="dropdown-solution-item">
                       关于我们
                       <svg width="12" height="12" viewBox="0 0 12 12">
@@ -600,7 +600,7 @@ export default function Navbar() {
                       </svg>
                     </Link>
                     <Link href="#" className="dropdown-solution-item">
-                      加入启盟
+                      加入启盟科技
                       <svg width="12" height="12" viewBox="0 0 12 12">
                         <path d="M2 6h8M6 2l4 4-4 4" stroke="currentColor" strokeWidth="1.5" fill="none"/>
                       </svg>
