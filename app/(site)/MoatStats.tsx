@@ -30,7 +30,7 @@ export default function MoatStats() {
 
   return (
     <div className="moat-row reveal" ref={ref}>
-      <CountStat inView={inView} target={12} suffix="家" label="头部客户在用" />
+      <CountStat inView={inView} target={100} suffix="家" label="企业客户" plus />
       <CountStat inView={inView} target={3000} suffix="万㎡" label="全业态在管面积" />
       <CountStat inView={inView} target={10} suffix="万+" label="传感器实时在线" />
       <LiveStat inView={inView} label="数据持续沉淀" />
@@ -42,13 +42,15 @@ function reduced() {
   return typeof window !== "undefined" && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 }
 
-function CountStat({ inView, target, suffix, label }: { inView: boolean; target: number; suffix: string; label: string }) {
+function CountStat({ inView, target, suffix, label, plus }: { inView: boolean; target: number; suffix: string; label: string; plus?: boolean }) {
   const [val, setVal] = useState(0);
+  const [done, setDone] = useState(false);
 
   useEffect(() => {
     if (!inView) return;
     if (reduced()) {
       setVal(target);
+      setDone(true);
       return;
     }
     let raf = 0;
@@ -60,7 +62,10 @@ function CountStat({ inView, target, suffix, label }: { inView: boolean; target:
       const eased = 1 - Math.pow(1 - t, 3);
       setVal(target * eased);
       if (t < 1) raf = requestAnimationFrame(tick);
-      else setVal(target);
+      else {
+        setVal(target);
+        setDone(true);
+      }
     };
     raf = requestAnimationFrame(tick);
     return () => cancelAnimationFrame(raf);
@@ -69,7 +74,9 @@ function CountStat({ inView, target, suffix, label }: { inView: boolean; target:
   return (
     <div className="mstat">
       <span className="mstat-n">
+        {/* 封顶后追加 “+”(如 100+),只在累加结束时显示,避免动画途中闪烁 */}
         {Math.round(val)}
+        {plus && done ? "+" : ""}
         <small>{suffix}</small>
       </span>
       <span className="mstat-k">{label}</span>

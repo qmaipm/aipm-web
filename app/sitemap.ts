@@ -43,6 +43,8 @@ const ROUTES = [
 // 行业研究文章(GEO 重点内容,优先级更高)
 const INSIGHTS = [
   "/insights",
+  "/insights/ai-property-staff-optimization",
+  "/insights/how-to-choose-cleaning-robot-roi",
   "/insights/why-obc",
   "/insights/about-obc",
   "/insights/obc-practice",
