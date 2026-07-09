@@ -78,6 +78,10 @@ export default function ArticleShell({
     },
     mainEntityOfPage: pageUrl,
     articleSection: a.theme,
+    // 系列聚合:帮助搜索/AI 生成引擎识别这是一个主题深度一致的内容集群
+    ...(a.series
+      ? { isPartOf: { "@type": "CreativeWorkSeries", name: a.series, url: `${SITE_URL}/insights` } }
+      : {}),
   };
   const faqLd = a.faq?.length
     ? {
@@ -98,12 +102,12 @@ export default function ArticleShell({
       <section className="isd-hero">
         <div className="isd-grid" aria-hidden="true" />
         <div className="wrap isd-hero-top">
-          <div className="isd-crumb reveal">
+          <div className="isd-crumb">
             <Link href="/insights">行业研究</Link> / {a.theme}
           </div>
-          <span className="isd-eyebrow reveal">{a.theme}</span>
-          <h1 className="isd-h1 reveal">{a.title}</h1>
-          <div className="isd-meta reveal">
+          <span className="isd-eyebrow">{a.theme}</span>
+          <h1 className="isd-h1">{a.title}</h1>
+          <div className="isd-meta">
             {a.by} · {a.date} · {a.read}阅读
           </div>
         </div>
@@ -112,7 +116,7 @@ export default function ArticleShell({
       {/* 正文 */}
       <section className="isd-body">
         <div className="wrap">
-          <article className="prose reveal">
+          <article className="prose">
             <div className="isd-conclusion">
               <span className="k">结论</span>
               <p>{a.desc}</p>
