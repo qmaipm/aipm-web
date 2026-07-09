@@ -43,6 +43,7 @@ const ROUTES = [
 // 行业研究文章(GEO 重点内容,优先级更高)
 const INSIGHTS = [
   "/insights",
+  "/insights/property-management-second-half-ai-company",
   "/insights/ai-property-staff-optimization",
   "/insights/how-to-choose-cleaning-robot-roi",
   "/insights/why-obc",
@@ -53,6 +54,18 @@ const INSIGHTS = [
   "/insights/industry-llm",
   "/insights/digital-labor",
   "/insights/digital-labor-trends",
+];
+
+// 客户案例(真实项目,GEO 重点)
+const CASES = [
+  "/cases/aipm-property-ai-transformation",
+  "/cases/south-china-mixed-use-6-to-1",
+  "/cases/30w-park-ai-property-manager-robot",
+  "/cases/property-group-chat-ai-service",
+  "/cases/property-group-auto-operation-report",
+  "/cases/coworking-supplier-reconciliation",
+  "/cases/restroom-quality",
+  "/cases/fmclaw-equipment-inspection",
 ];
 
 export default function sitemap(): MetadataRoute.Sitemap {
@@ -66,5 +79,10 @@ export default function sitemap(): MetadataRoute.Sitemap {
     changeFrequency: "weekly" as const,
     priority: 0.8,
   }));
-  return [...main, ...insights];
+  const cases = CASES.map((path) => ({
+    url: `${SITE_URL}${path}`,
+    changeFrequency: "monthly" as const,
+    priority: 0.8,
+  }));
+  return [...main, ...insights, ...cases];
 }

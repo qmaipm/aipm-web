@@ -1,7 +1,7 @@
 // 行业研究文章登记表 — 索引页列表、头条、文末"推荐阅读"与结构化数据(Article/FAQPage)共用一份数据。
 // theme 用于分组与同主题优先的推荐排序;faq 用于正文末 FAQ 区块 + GEO 的 FAQPage 结构化数据。
 
-export type Theme = "OBC 模式" | "数字劳动力" | "行业大模型";
+export type Theme = "OBC 模式" | "数字劳动力" | "AI 物业前瞻";
 export type Faq = { q: string; a: string };
 
 export type Article = {
@@ -13,13 +13,55 @@ export type Article = {
   by: string;
   date: string;
   read: string;
+  // 所属系列(专题):设置后正文 JSON-LD 会输出 isPartOf(CreativeWorkSeries),帮 AI 引擎识别内容集群
+  series?: string;
   faq?: Faq[];
 };
 
+// 系列名(专题):三篇同主题深度研究,内链互通、共用 isPartOf
+export const SERIES_PROPERTY_AI = "物业 AI 化三部曲:世界观、管理层、执行层";
+
 export const ARTICLES: Article[] = [
   {
+    slug: "property-management-second-half-ai-company",
+    theme: "AI 物业前瞻",
+    series: SERIES_PROPERTY_AI,
+    title: "物业管理的下半场,到底该走向哪里?",
+    desc: "下半场的真问题不是“物业公司该卖什么”,而是“物业公司该变成一家什么公司”。",
+    by: "启盟科技",
+    date: "2026.07.04",
+    read: "12 分钟",
+    faq: [
+      {
+        q: "物业管理的下半场应该怎么走?",
+        a: "主流答案是“转向生活服务商”“寻找第二增长曲线”“弹性定价”,但这些都默认物业公司永远是物业公司。更根本的路径是:当管理 80-90% 由智能体完成、执行层人机协同、空间遍布 IoT 时,物业公司本质上已成为一家人工智能公司。下半场的终局不是成为更好的物业公司,而是成为一家 AI 公司。",
+      },
+      {
+        q: "物业公司转型 AI,为什么科技投入总是拖累报表?",
+        a: "因为多数公司把 AI 和机器人当成“买来的工具”,工具是成本项,买得越多短期现金流越承压,且不产生独立价值。而当公司把 AI 变成自身的主营与资产(数据可训练模型、智能体可对外输出、软硬件一体可规模化),AI 就从成本项变成收入项。区别在于“用 AI”还是“成为 AI”。",
+      },
+      {
+        q: "一家深度使用 AI 的物业公司,本质上是什么公司?",
+        a: "判断一家公司是什么公司,应看它的三个客观特征:管理由什么完成、执行由谁承担、空间里流动着什么数据。一家以智能体运行管理、以机器人执行作业、以 IoT 持续产生数据的公司,从客观定义上就是一家人工智能公司,只是应用场景在物业与设施管理。",
+      },
+      {
+        q: "“物业公司变成 AI 公司”能体现在产值和税收上吗?",
+        a: "可以。一家被定义为物业公司的企业,收入计入商务服务业;而一家被定义为人工智能公司的企业,产值可计入人工智能产业。通过招采、合同、考核等管理链条的转变,物业的服务产值可以在产业统计口径上转化为 AI 产业产值。这在国有物业的实践中已有走通的路径。",
+      },
+      {
+        q: "物业公司要成为 AI 公司,需要具备什么?",
+        a: "需要三样东西:一是能承受投入期的耐心资金;二是把一线业务经验转化为可运行 AI 能力的工程能力(FDE);三是一个能承接智能体运行、数据沉淀、工具调用与人机协同调度的行业级 AI 平台。这三样多数物业公司难以自建,需要外部伙伴支撑。",
+      },
+      {
+        q: "有没有现成的物业 AI 智能体平台可以直接用?",
+        a: "有。广州启盟科技的 FMClaw™ 是面向物业与设施管理场景的 AI 物业管理智能体平台(也称“AI 物业经理”),内置 100 多条已在真实现场跑通的物业工作流,开箱即用,也支持按管理需求灵活编排专属工作流。给它一个管理目标,它会自主接入数据、调用工具、联动现场 IoT 设备完成任务。启盟科技自 2017 年起专注物业管理领域,FMClaw™ 的工作流与数据均来自真实运营现场的沉淀。",
+      },
+    ],
+  },
+  {
     slug: "ai-property-staff-optimization",
-    theme: "数字劳动力",
+    theme: "AI 物业前瞻",
+    series: SERIES_PROPERTY_AI,
     title: "岗位是怎么消失的 · 从工作流的视角看 AI 物管",
     desc: "别问 AI 会取代哪些岗位,去看它能跑通哪些工作流——岗位只是工作流的容器。",
     by: "启盟科技",
@@ -54,7 +96,8 @@ export const ARTICLES: Article[] = [
   },
   {
     slug: "how-to-choose-cleaning-robot-roi",
-    theme: "数字劳动力",
+    theme: "AI 物业前瞻",
+    series: SERIES_PROPERTY_AI,
     title: "物业如何选择清洁机器人 · 从工时替代到工序替代",
     desc: "别让机器人去抢人的工时,让它去做人做不起的工序。",
     by: "启盟科技",
@@ -176,7 +219,7 @@ export const ARTICLES: Article[] = [
   },
   {
     slug: "industry-llm",
-    theme: "行业大模型",
+    theme: "AI 物业前瞻",
     title: "行业大模型 · 物管大模型国内先发",
     desc: "数据 + 算法 + 场景三位一体,打造 AI 物管智能体集群。",
     by: "启盟科技",
@@ -221,7 +264,7 @@ export const ARTICLES: Article[] = [
   },
 ];
 
-export const THEMES: Theme[] = ["OBC 模式", "数字劳动力", "行业大模型"];
+export const THEMES: Theme[] = ["OBC 模式", "数字劳动力", "AI 物业前瞻"];
 
 export function getArticle(slug: string): Article {
   const a = ARTICLES.find((x) => x.slug === slug);

@@ -6,7 +6,7 @@ import { getArticle } from "./articles";
 export const metadata = {
   title: "行业研究 · 启盟科技看物业与 FM 行业 — 启盟科技",
   description:
-    "从 OBC 合约模式到数字劳动力,从行业大模型到一线落地——启盟科技对物业与设施管理(FM)行业的长期研究。",
+    "从 OBC 合约模式到数字劳动力,从 AI 物业前瞻到一线落地——启盟科技对物业与设施管理(FM)行业的长期研究。",
 };
 
 const Arrow = ({ s = 15 }: { s?: number }) => (
@@ -16,7 +16,7 @@ const Arrow = ({ s = 15 }: { s?: number }) => (
 );
 
 export default function Page() {
-  const featured = getArticle("ai-property-staff-optimization");
+  const featured = getArticle("property-management-second-half-ai-company");
 
   return (
     <main className="solis">
@@ -31,14 +31,14 @@ export default function Page() {
             物业与 AI 怎么真正结合,<span className="grad">我们研究得透一点</span>
           </h1>
           <p className="is-lead">
-            从 <b>OBC 合约模式</b>到<b>数字劳动力</b>,从<b>行业大模型</b>到一线落地——这里是启盟科技把 <b>AI</b> 用进<b>物业与设施管理(FM)</b>的长期研究:不止于趋势判断,更要把每一件事在现场跑通。
+            从 <b>OBC 合约模式</b>到<b>数字劳动力</b>,从<b>AI 物业前瞻</b>到一线落地——这里是启盟科技把 <b>AI</b> 用进<b>物业与设施管理(FM)</b>的长期研究:不止于趋势判断,更要把每一件事在现场跑通。
           </p>
           <div className="is-proof">
             <span><b>OBC</b> 合约模式</span>
             <span className="sep" />
             <span><b>数字劳动力</b></span>
             <span className="sep" />
-            <span><b className="grad">行业大模型</b></span>
+            <span><b className="grad">AI 物业前瞻</b></span>
           </div>
         </div>
       </section>
@@ -48,17 +48,17 @@ export default function Page() {
         <div className="wrap">
           <span className="is-eyebrow">头条</span>
           <h2 className="is-h2">这一篇,值得你先读</h2>
-          <p className="is-sub">别问 AI 会取代哪些岗位,去看它能跑通哪些工作流——岗位只是工作流的容器。</p>
+          <p className="is-sub">下半场的真问题不是“物业公司该卖什么”,而是“物业公司该变成一家什么公司”。</p>
 
           <Link className="is-featured" href={`/insights/${featured.slug}`}>
             <div className="is-cover" aria-hidden="true">
-              <img className="is-cover-img" src="/insights/ai-staff-optimization-cover.jpg" alt="" />
+              <img className="is-cover-img" src="/insights/second-half-ai-company-cover.jpg" alt="" />
               <span className="is-ftag">{featured.theme}</span>
             </div>
             <div className="is-fbody">
               <div className="is-ftag-tx">FEATURED · {featured.theme}</div>
               <h3>{featured.title}</h3>
-              <p>AI 不替代岗位,它逐条接管工作流。把抄表、对账、派单、巡检、质检这些工作流端到端跑通后,承载它们的岗位会自然腾空——在启盟科技自营物业爱物管的 0-1 验证里,管理层从 69 人降到 5 人、净利率从 3.4% 升到 14%,减员是结果,不是手段。</p>
+              <p>主流答案都在讨论物业公司“该多卖什么、怎么定价”,却默认了同一个前提:它永远是一家物业公司。但当管理 80-90% 由智能体完成、执行层人机协同、空间遍布 IoT,把“物业”两个字拿掉,它本质上已经是一家人工智能公司。下半场的终局,不是更好的物业公司,而是一家 AI 公司。</p>
               <div className="is-fmeta">{featured.by} <span className="dot" aria-hidden>·</span> {featured.date} <span className="dot" aria-hidden>·</span> {featured.read}阅读 <Arrow s={14} /></div>
             </div>
           </Link>
