@@ -1,23 +1,22 @@
 /* ============================================================
-   客户案例 · 详情文章 — 共享样式(参考 /products/fmclaw 的 .fmx 系统)
-   冷调蓝绿「平台/操作底座」观感;单一字族,靠尺度/字重/字距出性格。
-   两篇详情页(综合体 /cases/detail · 写字楼 /cases/office)共用,全部收在 .casefx 作用域内。
-   结构:hero·场景画像 → 问题 01/02/03 → Skill×Data×Tools=工作流
-        → 改造前 vs 改造后 → 暗场·客户原声 → 复用路径 → 相关案例 → CTA
+   客户案例 · 详情页 — 与 /products/fmclaw(.fmx)同一套「平台/操作底座」视觉语言
+   冷调白底 + 蓝绿 VI 渐变(eyebrow 引线 / 大数字 / 卡片强调条)+ 蓝图网格 + 暗色 core。
+   版式沿用方向 B:遥测面包屑 → 指标面板 → 要点卡片 → 暗场引述 → FAQ → 相关案例。
+   数据驱动:内容取自 cases.ts,由 _CaseShell.tsx 渲染,全部收在 .casefx 作用域内。
    ============================================================ */
 .casefx{
   --cf-ink:#14201C; --cf-ink-2:#46524D; --cf-mut:#7C857F; --cf-faint:#A7AFAB;
-  --cf-line:#E6EAE8; --cf-mist:#ECF3F1; --cf-paper:#FFFFFF; --cf-core:#0B1714;
+  --cf-line:#E6EAE8; --cf-line-2:#EEF2F0; --cf-mist:#ECF3F1; --cf-paper:#FFFFFF; --cf-core:#0B1714;
   --cf-blue:#0070FF; --cf-green:#12B98A; --cf-grad:linear-gradient(115deg,#0070FF,#12B98A);
-  --cf-vi-line:rgba(12,139,130,.16); --cf-measure:820px;
+  --cf-vi-line:rgba(12,139,130,.16);
   background:var(--cf-paper); color:var(--cf-ink);
 }
 .casefx .wrap{max-width:1160px;margin:0 auto;padding:0 32px}
 @media(max-width:600px){.casefx .wrap{padding:0 22px}}
+.casefx a{color:inherit}
 .casefx .grad{background:var(--cf-grad);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
-@supports not ((-webkit-background-clip:text) or (background-clip:text)){.casefx .grad{color:var(--cf-green);-webkit-text-fill-color:currentColor}}
 
-/* 蓝图网格 */
+/* 蓝图网格(与 fmx 一致) */
 .cf-grid{position:absolute;inset:0;z-index:0;pointer-events:none;
   background-image:linear-gradient(to right,var(--cf-vi-line) 1px,transparent 1px),
                    linear-gradient(to bottom,var(--cf-vi-line) 1px,transparent 1px);
@@ -27,115 +26,190 @@
 .cf-grid.dark{background-image:linear-gradient(to right,rgba(63,217,184,.10) 1px,transparent 1px),
                    linear-gradient(to bottom,rgba(63,217,184,.10) 1px,transparent 1px)}
 
-/* ---------- HERO · 场景画像 ---------- */
-.cf-hero{position:relative;overflow:hidden;padding:138px 0 60px;background:var(--cf-paper)}
+/* ---------- HERO ---------- */
+.cf-hero{position:relative;overflow:hidden;padding:150px 0 64px;background:var(--cf-paper)}
 .cf-hero-top{position:relative;z-index:2}
-.cf-crumb{display:inline-flex;align-items:center;font-size:12px;font-weight:600;letter-spacing:.12em;
+.cf-crumb{display:inline-flex;align-items:center;font-size:12px;font-weight:600;letter-spacing:.14em;
   text-transform:uppercase;color:var(--cf-mut)}
 .cf-crumb a{color:var(--cf-mut)}.cf-crumb a:hover{color:var(--cf-green)}
 .cf-crumb i{color:var(--cf-green);font-style:normal;margin:0 9px;font-weight:700}
-.cf-montag{margin-top:22px;display:inline-flex;align-items:center;gap:9px;font-size:12.5px;font-weight:700;letter-spacing:.04em;
-  color:var(--cf-green);background:rgba(18,185,138,.08);border:1px solid rgba(18,185,138,.22);
-  padding:7px 14px;border-radius:999px}
-.cf-h1{margin:20px 0 0;font-weight:800;font-size:clamp(34px,5.4vw,60px);line-height:1.08;letter-spacing:-.035em;
-  color:var(--cf-ink);max-width:18ch}
-.cf-lead{margin:24px 0 0;font-size:clamp(16px,1.8vw,19px);line-height:1.62;color:var(--cf-ink-2);max-width:none;font-weight:400}
+.cf-h1{margin:22px 0 0;font-weight:800;font-size:clamp(36px,5.6vw,64px);line-height:1.07;letter-spacing:-.035em;
+  color:var(--cf-ink);max-width:17ch}
+.cf-lead{margin:26px 0 0;font-size:clamp(16px,1.8vw,19px);line-height:1.6;color:var(--cf-ink-2);max-width:44ch;font-weight:400}
 .cf-lead b{color:var(--cf-ink);font-weight:600}
-.cf-proof{position:relative;z-index:2;margin-top:46px;display:flex;flex-wrap:wrap;align-items:center;gap:12px 22px;
-  font-size:clamp(15px,1.9vw,18px);color:var(--cf-mut)}
-.cf-proof b{color:var(--cf-ink);font-weight:600}
-.cf-proof b.grad{font-weight:800;font-size:1.3em;letter-spacing:-.02em}
-.cf-proof .sep{width:5px;height:5px;border-radius:50%;background:var(--cf-faint)}
+/* meta 行(行业·规模·地区 / 采用产品) */
+.cf-montag{margin-top:34px;font-size:12.5px;font-weight:600;letter-spacing:.06em;color:var(--cf-mut);
+  display:flex;flex-wrap:wrap;gap:8px 24px;align-items:center}
+.cf-montag b{color:var(--cf-ink);font-weight:700}
+.cf-hero .cf-montag:last-of-type{margin-top:12px}
+
+/* 核心指标 · 面板(签名:VI 渐变大数字) */
+.cf-metrics{position:relative;z-index:2;margin-top:48px;display:grid;grid-template-columns:repeat(3,1fr);gap:0;
+  border:1px solid var(--cf-line);border-radius:16px;overflow:hidden;background:var(--cf-paper)}
+@media(max-width:640px){.cf-metrics{grid-template-columns:1fr}}
+.cf-metric{padding:28px 30px;border-right:1px solid var(--cf-line);display:flex;flex-direction:column;gap:12px}
+.cf-metric:last-child{border-right:0}
+@media(max-width:640px){.cf-metric{border-right:0;border-bottom:1px solid var(--cf-line)}.cf-metric:last-child{border-bottom:0}}
+.cf-metric b{font-weight:800;font-size:clamp(34px,4.4vw,48px);line-height:1;letter-spacing:-.025em;
+  background:var(--cf-grad);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;width:max-content}
+@supports not ((-webkit-background-clip:text) or (background-clip:text)){.cf-metric b{color:var(--cf-green);-webkit-text-fill-color:currentColor}}
+.cf-metric span{font-size:13px;line-height:1.5;color:var(--cf-mut)}
 
 /* ---------- 通用 band ---------- */
-.cf-band{position:relative;padding:100px 0;background:var(--cf-paper)}
+.cf-band{position:relative;padding:104px 0;background:var(--cf-paper)}
 .cf-band.mist{background:var(--cf-mist)}
-@media(max-width:700px){.cf-band{padding:74px 0}}
+@media(max-width:700px){.cf-band{padding:76px 0}}
 .cf-eyebrow{display:inline-flex;align-items:center;gap:10px;font-size:12px;font-weight:600;letter-spacing:.2em;
   text-transform:uppercase;color:var(--cf-green)}
 .cf-eyebrow::before{content:"";width:22px;height:2px;border-radius:2px;background:var(--cf-grad)}
 .cf-eyebrow.on-dark{color:#3fd9b8}
-.cf-h2{margin:18px 0 0;font-weight:800;font-size:clamp(26px,3.3vw,38px);line-height:1.2;letter-spacing:-.03em;color:var(--cf-ink);max-width:none;white-space:nowrap}
+.cf-h2{margin:18px 0 0;font-weight:800;font-size:clamp(27px,3.4vw,40px);line-height:1.18;letter-spacing:-.03em;color:var(--cf-ink)}
 .cf-h2.on-dark{color:#fff}
-@media(max-width:880px){.cf-h2{white-space:normal}}
-.cf-sub{margin:18px 0 0;font-size:clamp(15px,1.65vw,17px);line-height:1.65;color:var(--cf-ink-2);max-width:none}
-.cf-sub b{color:var(--cf-ink);font-weight:600}
 
-/* ---------- 问题 01/02/03(轻量编号,呼应 fmclaw 壁垒) ---------- */
-.cf-problems{margin-top:46px;display:flex;flex-direction:column;border-top:1px solid var(--cf-line)}
-.cf-problem{display:grid;grid-template-columns:72px 1fr;gap:24px;align-items:start;padding:28px 0;border-bottom:1px solid var(--cf-line)}
-@media(max-width:600px){.cf-problem{grid-template-columns:1fr;gap:10px;padding:24px 0}}
-.cf-pn{font-size:clamp(34px,4.4vw,50px);font-weight:800;line-height:.9;letter-spacing:-.03em;
-  background:var(--cf-grad);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
-@supports not ((-webkit-background-clip:text) or (background-clip:text)){.cf-pn{color:var(--cf-green);-webkit-text-fill-color:currentColor}}
-.cf-pc h3{margin:0 0 9px;font-size:clamp(18px,2.1vw,22px);font-weight:700;letter-spacing:-.015em;color:var(--cf-ink);line-height:1.3}
-.cf-pc p{margin:0;font-size:clamp(14px,1.5vw,15.5px);line-height:1.66;color:var(--cf-ink-2);max-width:none}
+/* 分节:标题在上,内容在下 */
+.cf-sec{display:block}
+.cf-sec-head{margin-bottom:40px}
+.cf-sec-body{max-width:none}
+.cf-sec-body>p{margin:0 0 1.15em;max-width:none;font-size:17px;line-height:1.8;color:var(--cf-ink-2)}
+.cf-sec-body>p:last-child{margin-bottom:0}
+.cf-sec-body>p b,.cf-sec-body>p strong{color:var(--cf-ink);font-weight:600}
 
-/* ---------- 公式 Skill × 行业 Data × 行业 Tools ---------- */
-.cf-formula{margin-top:44px;display:flex;flex-wrap:wrap;align-items:center;gap:12px 14px}
-.cf-fx{font-size:clamp(15px,1.9vw,18px);font-weight:600;color:var(--cf-ink);background:var(--cf-mist);
-  border:1px solid var(--cf-line);border-radius:13px;padding:13px 20px}
-.cf-fx.res{color:#fff;border-color:transparent;background:var(--cf-grad);box-shadow:0 10px 26px rgba(12,139,130,.22)}
-.cf-op{font-style:normal;font-weight:700;font-size:18px;color:var(--cf-faint)}
-.cf-eq{font-style:normal;font-weight:800;font-size:22px;color:var(--cf-green);margin:0 2px}
-.cf-formula-note{margin-top:18px;font-size:15px;line-height:1.7;color:var(--cf-mut);max-width:none}
-@media(max-width:600px){.cf-formula{gap:9px}.cf-fx{padding:11px 15px;font-size:14px}}
+/* ---------- 可扫读要点 → 卡片(顶部 VI 渐变条,与 fmx relay 一致) ---------- */
+.cf-points{margin:0;padding:0;list-style:none;display:grid;grid-template-columns:1fr 1fr;gap:16px}
+@media(max-width:760px){.cf-points{grid-template-columns:1fr}}
+.cf-point{position:relative;border:1px solid var(--cf-line);border-radius:14px;background:var(--cf-paper);
+  padding:26px 26px 24px;transition:border-color .2s,box-shadow .2s,transform .2s}
+.cf-point::before{content:"";position:absolute;left:-1px;right:-1px;top:-1px;height:3px;border-radius:14px 14px 0 0;background:var(--cf-grad)}
+.cf-point:hover{border-color:rgba(12,139,130,.34);box-shadow:0 14px 32px rgba(12,139,130,.08);transform:translateY(-2px)}
+.cf-point-k{display:block;font-size:16.5px;font-weight:700;line-height:1.5;color:var(--cf-ink);letter-spacing:-.01em}
+.cf-point-d{display:block;margin-top:8px;font-size:14px;line-height:1.6;color:var(--cf-mut)}
 
-/* ---------- 岗位 × 工作流 矩阵 ---------- */
-.cf-wf{margin-top:32px;display:flex;flex-direction:column;gap:12px}
-.cf-wfrow{display:grid;grid-template-columns:128px 1fr;gap:22px;align-items:start;
-  border:1px solid var(--cf-line);border-radius:14px;background:var(--cf-paper);padding:18px 22px;transition:border-color .2s,box-shadow .2s}
-.cf-wfrow:hover{border-color:rgba(12,139,130,.34);box-shadow:0 12px 30px rgba(12,139,130,.07)}
-@media(max-width:600px){.cf-wfrow{grid-template-columns:1fr;gap:11px;padding:15px 17px}}
-.cf-pos{font-size:12.5px;letter-spacing:.04em;color:var(--cf-green);font-weight:700;padding-top:6px}
-.cf-chips{display:flex;flex-wrap:wrap;gap:8px}
-.cf-tag{font-size:13.5px;color:var(--cf-ink-2);background:var(--cf-mist);border:1px solid var(--cf-line);border-radius:999px;padding:7px 14px}
+/* ---------- 实现流程 → 信号路径(遥测语言:渐变导轨 + 渐变编号站点) ---------- */
+.cf-flow{list-style:none;margin:0;padding:0;position:relative}
+.cf-step{position:relative;padding:0 0 30px 66px}
+.cf-step:last-child{padding-bottom:0}
+/* 站点间的连接段:从本站中心连到下一站中心,下一站的白底盖住线头,形成"线上的站点" */
+.cf-step:not(:last-child)::before{content:"";position:absolute;left:20px;top:21px;bottom:-21px;width:2px;
+  background:var(--cf-grad);opacity:.28;border-radius:2px}
+.cf-step-n{position:absolute;left:0;top:0;z-index:1;width:42px;height:42px;border-radius:12px;
+  display:grid;place-items:center;background:var(--cf-paper);border:1px solid var(--cf-line);
+  box-shadow:0 2px 10px rgba(12,139,130,.06);
+  font-size:13.5px;font-weight:800;letter-spacing:.02em;font-variant-numeric:tabular-nums}
+.cf-step-n span{background:var(--cf-grad);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+@supports not ((-webkit-background-clip:text) or (background-clip:text)){.cf-step-n span{color:var(--cf-green);-webkit-text-fill-color:currentColor}}
+.cf-step-k{font-size:17px;font-weight:700;line-height:1.4;color:var(--cf-ink);letter-spacing:-.01em;padding-top:9px}
+.cf-step-d{margin:8px 0 0;font-size:15px;line-height:1.75;color:var(--cf-ink-2);max-width:58ch}
+@media(max-width:600px){.cf-step{padding-left:58px}.cf-step-n{width:38px;height:38px}.cf-step:not(:last-child)::before{left:18px}}
 
-/* ---------- 改造前 vs 改造后 表 ---------- */
-.cf-compare{margin-top:42px;border:1px solid var(--cf-line);border-radius:16px;overflow:hidden;background:var(--cf-paper);max-width:var(--cf-measure)}
-.cf-crow{display:grid;grid-template-columns:1.05fr 1fr 1.06fr;align-items:stretch}
-.cf-crow+.cf-crow{border-top:1px solid var(--cf-line)}
-.cf-crow>div{padding:15px 20px;font-size:14.5px;line-height:1.5}
-.cf-chead{background:rgba(20,32,28,.02)}
-.cf-chead>div{font-size:12px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--cf-mut)}
-.cf-chead .cf-after{color:var(--cf-green)}
-.cf-ck{font-weight:600;color:var(--cf-ink)}
-.cf-before{color:var(--cf-mut)}
-.cf-after{color:var(--cf-ink);font-weight:600;background:rgba(18,185,138,.05);position:relative}
-.cf-after::before{content:"";position:absolute;left:0;top:0;bottom:0;width:2px;background:var(--cf-grad)}
-@media(max-width:600px){.cf-crow>div{padding:13px 14px;font-size:13px}}
-.cf-note{margin-top:22px;max-width:none;font-size:13.5px;line-height:1.7;color:var(--cf-mut)}
+/* 成果清单(如仍使用) */
+.cf-wins{margin:0;display:grid;grid-template-columns:1fr 1fr;gap:16px}
+@media(max-width:760px){.cf-wins{grid-template-columns:1fr}}
+.cf-win{position:relative;border:1px solid var(--cf-line);border-radius:14px;background:var(--cf-paper);
+  padding:24px 26px;font-size:16px;line-height:1.55;color:var(--cf-ink);font-weight:600}
+.cf-win::before{content:"";position:absolute;left:-1px;right:-1px;top:-1px;height:3px;border-radius:14px 14px 0 0;background:var(--cf-grad)}
 
-/* ---------- 暗场 · 客户原声 ---------- */
-.cf-core{position:relative;overflow:hidden;background:var(--cf-core);color:#E8EFEC;padding:108px 0}
-@media(max-width:700px){.cf-core{padding:80px 0}}
+/* ---------- 客户原声 · 暗色 platform core(与 fmx .fm-core 一致) ---------- */
+.cf-core{position:relative;overflow:hidden;background:var(--cf-core);color:#E8EFEC;padding:118px 0;text-align:center}
+@media(max-width:700px){.cf-core{padding:84px 0}}
 .cf-core .wrap{position:relative;z-index:1}
-.cf-voice{margin:26px 0 0;font-size:clamp(19px,2.5vw,28px);font-weight:700;letter-spacing:-.02em;line-height:1.4;color:#fff;max-width:none}
-.cf-voice-by{margin-top:22px;font-size:14px;color:#8FA39C;letter-spacing:.02em}
+.cf-voice{margin:26px auto 0;font-size:clamp(22px,2.7vw,32px);font-weight:700;letter-spacing:-.02em;line-height:1.42;color:#fff;max-width:26ch}
+.cf-voice-by{margin-top:30px;font-size:12px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:#8FA39C}
 
-/* ---------- 复用路径 ---------- */
-.cf-steps{margin-top:46px;display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
-@media(max-width:760px){.cf-steps{grid-template-columns:1fr}}
-.cf-step{position:relative;border:1px solid var(--cf-line);border-radius:14px;background:var(--cf-paper);padding:25px 22px 22px;display:flex;flex-direction:column;gap:8px}
-.cf-step::before{content:"";position:absolute;left:-1px;right:-1px;top:-1px;height:3px;border-radius:14px 14px 0 0;background:var(--cf-grad)}
-.cf-step .si{font-size:12px;font-weight:700;letter-spacing:.1em;color:var(--cf-green)}
-.cf-step h3{margin:0;font-size:19px;font-weight:700;letter-spacing:-.01em;color:var(--cf-ink)}
-.cf-step p{margin:0;font-size:14px;line-height:1.62;color:var(--cf-ink-2)}
-
-.cf-foot{margin-top:26px;max-width:none;font-size:14.5px;line-height:1.7;color:var(--cf-mut)}
-.cf-link{color:var(--cf-green);font-weight:600;display:inline-flex;align-items:center;gap:7px}
-.cf-link:hover .ar{transform:translateX(3px)}.cf-link .ar{transition:transform .2s}
+/* ---------- FAQ(可折叠) ---------- */
+.cf-faq-list{margin:0;max-width:none;border-top:1px solid var(--cf-line)}
+.cf-faq-item{border-bottom:1px solid var(--cf-line)}
+.cf-faq-item summary{list-style:none;cursor:pointer;padding:22px 34px 22px 0;position:relative;
+  font-weight:700;font-size:16.5px;color:var(--cf-ink);line-height:1.5;transition:color .15s}
+.cf-faq-item summary::-webkit-details-marker{display:none}
+.cf-faq-item summary::after{content:"";position:absolute;right:4px;top:27px;width:9px;height:9px;
+  border-right:2px solid var(--cf-faint);border-bottom:2px solid var(--cf-faint);transform:rotate(45deg);transition:transform .2s,border-color .2s}
+.cf-faq-item[open] summary,.cf-faq-item summary:hover{color:var(--cf-green)}
+.cf-faq-item[open] summary::after{transform:rotate(-135deg);border-color:var(--cf-green)}
+.cf-faq-a{margin:0 0 22px;font-size:15px;line-height:1.8;color:var(--cf-ink-2)}
 
 /* ---------- 相关案例 ---------- */
 .cf-related{margin-top:42px;display:grid;grid-template-columns:1fr 1fr;gap:16px}
 @media(max-width:760px){.cf-related{grid-template-columns:1fr}}
-.cf-rcard{border:1px solid var(--cf-line);border-radius:16px;background:var(--cf-paper);padding:26px 26px 24px;
+.cf-rcard{border:1px solid var(--cf-line);border-radius:16px;background:var(--cf-paper);padding:28px 28px 26px;
   transition:border-color .2s,box-shadow .2s,transform .2s;display:block}
-.cf-rcard:hover{border-color:rgba(12,139,130,.34);box-shadow:0 16px 38px rgba(12,139,130,.08);transform:translateY(-2px)}
-.cf-rcard .rmeta{font-size:12px;letter-spacing:.04em;color:var(--cf-mut);margin-bottom:12px}
-.cf-rcard h3{margin:0 0 9px;font-size:19px;font-weight:700;letter-spacing:-.01em;color:var(--cf-ink);line-height:1.3}
+.cf-rcard:hover{border-color:rgba(12,139,130,.34);box-shadow:0 16px 38px rgba(12,139,130,.08);transform:translateY(-3px)}
+.cf-rcard .rmeta{font-size:11.5px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--cf-mut);margin-bottom:12px}
+.cf-rcard h3{margin:0 0 10px;font-size:19px;font-weight:700;letter-spacing:-.01em;color:var(--cf-ink);line-height:1.3}
+.cf-rcard:hover h3{color:var(--cf-green)}
 .cf-rcard p{margin:0;font-size:14px;line-height:1.6;color:var(--cf-ink-2)}
 
+/* ============================================================
+   旗舰样板 · 长版叙事详情页(爱物管)—— 沿用 .casefx 视觉系统
+   ============================================================ */
+/* 满宽封面 Hero(图 + 深色蒙版 + 叠加标题/指标) */
+.cf-cover-hero{position:relative;overflow:hidden;min-height:clamp(440px,62vh,640px);display:flex;align-items:flex-end;
+  background:var(--cf-core);color:#fff}
+.cf-cover-bg{position:absolute;inset:0;z-index:0;background-size:cover;background-position:center}
+.cf-cover-hero::after{content:"";position:absolute;inset:0;z-index:1;pointer-events:none;
+  background:linear-gradient(180deg,rgba(6,16,13,.32) 0%,rgba(6,16,13,.52) 52%,rgba(6,16,13,.88) 100%)}
+.cf-cover-hero .wrap{position:relative;z-index:2;padding-top:132px;padding-bottom:54px;width:100%}
+.cf-cover-crumb{display:inline-flex;align-items:center;font-size:12px;font-weight:600;letter-spacing:.14em;
+  text-transform:uppercase;color:rgba(255,255,255,.72)}
+.cf-cover-crumb a{color:rgba(255,255,255,.72)}.cf-cover-crumb a:hover{color:#3fd9b8}
+.cf-cover-crumb i{color:#3fd9b8;font-style:normal;margin:0 9px;font-weight:700}
+.cf-cover-tag{display:inline-block;margin-top:20px;font-size:12px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;
+  color:#3fd9b8;border:1px solid rgba(63,217,184,.4);border-radius:999px;padding:5px 12px}
+.cf-cover-hero h1{margin:18px 0 0;font-weight:800;font-size:clamp(28px,4.6vw,52px);line-height:1.1;letter-spacing:-.03em;color:#fff;max-width:20ch}
+.cf-cover-sub{margin:20px 0 0;font-size:clamp(14.5px,1.7vw,18px);line-height:1.62;color:rgba(255,255,255,.82);max-width:54ch}
+.cf-cover-metrics{margin-top:34px;display:flex;flex-wrap:wrap;gap:16px 44px}
+.cf-cover-metric b{display:block;font-size:clamp(26px,3.6vw,42px);font-weight:800;letter-spacing:-.02em;line-height:1;
+  background:linear-gradient(115deg,#5AA9FF,#3fd9b8);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;width:max-content}
+@supports not ((-webkit-background-clip:text) or (background-clip:text)){.cf-cover-metric b{color:#3fd9b8;-webkit-text-fill-color:currentColor}}
+.cf-cover-metric span{display:block;margin-top:8px;font-size:12.5px;color:rgba(255,255,255,.72)}
+
+/* 正文列:与其他案例/文章页一致,占满 wrap 宽度 */
+.cf-article{max-width:none}
+.cf-article>p{margin:0 0 1.15em;font-size:17px;line-height:1.85;color:var(--cf-ink-2)}
+.cf-article>p:last-child{margin-bottom:0}
+.cf-article>p b,.cf-article>p strong{color:var(--cf-ink);font-weight:700}
+.cf-article>h2{margin:54px 0 20px;font-weight:800;font-size:clamp(22px,2.8vw,30px);line-height:1.26;letter-spacing:-.02em;color:var(--cf-ink)}
+.cf-article>h2:first-child{margin-top:0}
+.cf-article a{color:var(--cf-green);text-decoration:underline;text-underline-offset:3px;text-decoration-color:var(--cf-vi-line)}
+.cf-article a:hover{text-decoration-color:var(--cf-green)}
+.cf-article .cf-fig,.cf-article .cf-cmp,.cf-article .cf-pull,.cf-article .cf-note{margin:28px 0}
+
+/* 章节配图 */
+.cf-fig{margin:0}
+.cf-fig img{display:block;width:100%;height:auto;border:1px solid var(--cf-line);border-radius:16px;background:var(--cf-mist)}
+.cf-fig figcaption{margin-top:10px;font-size:13px;line-height:1.55;color:var(--cf-mut);text-align:center}
+
+/* 创始人引言(内联停顿点,VI 渐变左边线) */
+.cf-pull{position:relative;padding:4px 0 4px 26px;border-left:3px solid transparent;border-image:var(--cf-grad) 1}
+.cf-pull p{margin:0;font-size:clamp(19px,2.3vw,25px);line-height:1.5;font-weight:700;letter-spacing:-.01em;color:var(--cf-ink)}
+.cf-pull cite{display:block;margin-top:14px;font-size:14px;font-style:normal;font-weight:600;color:var(--cf-mut)}
+
+/* 合规声明小字 */
+.cf-note{padding:15px 18px;border:1px dashed var(--cf-line);border-radius:12px;background:var(--cf-mist);
+  font-size:13px;line-height:1.7;color:var(--cf-mut)}
+
+/* 数据对比表:传统公司(弱化灰) vs 爱物管(VI 高亮) */
+.cf-cmp{border:1px solid var(--cf-line);border-radius:18px;overflow:hidden;background:var(--cf-paper)}
+.cf-cmp-row{display:grid;grid-template-columns:1.1fr 1fr 1fr;align-items:stretch}
+.cf-cmp-row+.cf-cmp-row{border-top:1px solid var(--cf-line)}
+.cf-cmp-row>div{padding:17px 20px;display:flex;flex-direction:column;justify-content:center}
+.cf-cmp-lab{color:var(--cf-mut);font-size:13.5px;font-weight:600}
+.cf-cmp-trad{text-align:right;border-left:1px solid var(--cf-line-2)}
+.cf-cmp-trad b{font-size:clamp(20px,2.4vw,26px);font-weight:700;color:var(--cf-faint);letter-spacing:-.01em;line-height:1.1}
+.cf-cmp-aipm{text-align:right;border-left:1px solid var(--cf-line);background:rgba(18,185,138,.06);position:relative}
+.cf-cmp-aipm b{font-size:clamp(21px,2.6vw,28px);font-weight:800;letter-spacing:-.01em;line-height:1.1;
+  background:var(--cf-grad);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;width:max-content;margin-left:auto}
+@supports not ((-webkit-background-clip:text) or (background-clip:text)){.cf-cmp-aipm b{color:var(--cf-green);-webkit-text-fill-color:currentColor}}
+.cf-cmp-head{background:var(--cf-mist)}
+.cf-cmp-head .cf-cmp-lab{color:var(--cf-ink-2);font-weight:700}
+.cf-cmp-head .cf-cmp-trad,.cf-cmp-head .cf-cmp-aipm{font-size:14px;font-weight:700;color:var(--cf-ink);justify-content:center;text-align:right}
+.cf-cmp-head .cf-cmp-aipm{color:var(--cf-green)}
+@media(max-width:560px){
+  .cf-cmp-row{grid-template-columns:1fr .9fr .9fr}
+  .cf-cmp-row>div{padding:13px 12px}
+  .cf-cmp-lab{font-size:12px}
+  .cf-cmp-trad b{font-size:18px}.cf-cmp-aipm b{font-size:19px}
+}
+
 /* ---------- 可访问性 / 动效降级 ---------- */
-.casefx a:focus-visible,.casefx .btn:focus-visible{outline:2px solid var(--cf-green);outline-offset:3px;border-radius:10px}
+.casefx a:focus-visible,.casefx .btn:focus-visible,.casefx summary:focus-visible{outline:2px solid var(--cf-green);outline-offset:3px;border-radius:10px}
 @media(prefers-reduced-motion:reduce){.casefx *{transition:none!important;animation:none!important}}
