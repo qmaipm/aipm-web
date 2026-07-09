@@ -88,7 +88,7 @@ export const MENU: MenuItem[] = [
     groups: [
       {
         items: [
-          { label: "关于启盟", href: "/company" },
+          { label: "关于启盟科技", href: "/company" },
           { label: "团队", href: "/team" },
           { label: "新闻动态", href: "/news" },
           { label: "行业研究", href: "/insights" },
@@ -124,7 +124,7 @@ export const FOOTER_COLS: { title: string; links: DropItem[] }[] = [
     links: [
       { label: "FMClaw™ 加速营", href: "/workshop" },
       { label: "人工智能产业共建", href: "/cobuild" },
-      { label: "关于启盟 / 团队", href: "/company" },
+      { label: "关于启盟科技 / 团队", href: "/company" },
       { label: "行业研究", href: "/insights" },
     ],
   },

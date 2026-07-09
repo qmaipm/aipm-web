@@ -35,7 +35,7 @@ export default function Contact() {
         <div className="contact-layout">
           <div className="contact-info">
             <h2>开启智能物业管理之旅</h2>
-            <p>立即联系我们，了解启盟 AI 如何帮助您的企业实现物业管理的智能化升级</p>
+            <p>立即联系我们，了解启盟科技 AI 如何帮助您的企业实现物业管理的智能化升级</p>
             <ul className="contact-features">
               <li>
                 <svg width="20" height="20" viewBox="0 0 20 20">

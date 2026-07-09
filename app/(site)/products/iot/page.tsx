@@ -6,7 +6,7 @@ import "./page.css";
 export const metadata: Metadata = {
   title: "IoT 物理世界感知 · 服务感知是头牌 — 启盟科技",
   description:
-    "FMClaw 的物理世界感知分四类:服务感知、设备感知、环境感知、视觉感知。其中服务感知——感知一次服务到底有没有做、做了多久、做得到不到位——是启盟独有、别人做不到的能力。四类数据统一接进 FMClaw 平台数据集市。",
+    "FMClaw 的物理世界感知分四类:服务感知、设备感知、环境感知、视觉感知。其中服务感知——感知一次服务到底有没有做、做了多久、做得到不到位——是启盟科技独有、别人做不到的能力。四类数据统一接进 FMClaw 平台数据集市。",
 };
 
 const Arrow = ({ s = 15 }: { s?: number }) => (
@@ -73,7 +73,7 @@ export default function Page() {
       <section className="iot-band">
         <div className="wrap">
           <div className="iot-dimhead">
-            <span className="iot-eyebrow">维度一 · 服务感知 <span className="iot-self">启盟独有</span></span>
+            <span className="iot-eyebrow">维度一 · 服务感知 <span className="iot-self">启盟科技独有</span></span>
             <h2 className="iot-h2">服务，到底有没有发生</h2>
             <p className="iot-perceive">感知<b>一次保洁、巡检、维修、安防服务到底有没有真的发生、发生了多久、做得到不到位</b>——由两类自研传感器构成。</p>
             <p className="iot-value">这是别人做不到、我们独有的一层：把「服务」这件原本看不见的事，变成可记录、可证、可追溯的数据。</p>
