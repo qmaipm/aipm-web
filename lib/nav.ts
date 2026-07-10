@@ -130,6 +130,16 @@ export const FOOTER_COLS: { title: string; links: DropItem[] }[] = [
     ],
   },
   {
+    title: "AI 物业服务",
+    links: [
+      { label: "AI 物业服务总览", href: "/ai-service" },
+      { label: "AI 清洁服务", href: "/ai-service/cleaning" },
+      { label: "AI 设施设备服务", href: "/ai-service/facility" },
+      { label: "AI 安保服务", href: "/ai-service/security" },
+      { label: "AI 客服管家", href: "/ai-service/customer-service" },
+    ],
+  },
+  {
     title: "智能体解决方案",
     links: [
       { label: "Agentic 产品套件", href: "/agents" },
