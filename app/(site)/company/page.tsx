@@ -20,6 +20,7 @@ export const metadata: Metadata = {
     "FMClaw",
     "物业管理AI公司",
     "具身智能",
+    "物理AI",
     "物业人工智能产业基金",
   ],
 };
@@ -69,33 +70,33 @@ const BREADCRUMB_LD = {
   ],
 };
 
-/* ---------- 为什么是物业:同一个现场里的三层智能 ---------- */
+/* ---------- 为什么是物业:智能的三种形态 ---------- */
 const entries = [
   {
-    tag: "管理层 · 现在",
+    n: "01",
+    tag: "管理",
     h: "AI 智能体",
-    p: "排班、巡检、工单、品质、结算——管理里每一个决策与流转,智能体都能接手。今天已经在真实项目里运行。",
-    k: "now",
+    p: "排班、巡检、工单、品质、结算——管理中的决策与流转,由智能体接手。今天,已经在真实项目里运行。",
     icon: (
       <svg viewBox="0 0 24 24" fill="none"><rect x="5" y="8" width="14" height="10" rx="3.2" stroke="currentColor" strokeWidth="1.6" /><path d="M12 4.6v3" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" /><circle cx="12" cy="4" r="1.2" fill="currentColor" /><circle cx="9.6" cy="13" r="1.15" fill="currentColor" /><circle cx="14.4" cy="13" r="1.15" fill="currentColor" /></svg>
     ),
   },
   {
-    tag: "一线交付 · 现在",
-    h: "机器人",
-    p: "清洁、安防、巡逻,机器人在真实园区里承担体力劳动,和人组成同一个班组,由同一套系统调度。",
-    k: "now",
+    n: "02",
+    tag: "劳动",
+    h: "机器人与具身智能",
+    p: "清洁、巡逻、安防,机器人与人组成同一个班组,由同一套系统调度。真实、连续、可容错的现场,是具身智能最好的成长环境。",
     icon: (
-      <svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="7.5" r="3" stroke="currentColor" strokeWidth="1.6" /><path d="M6.5 20a5.5 5.5 0 0 1 11 0" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" /><path d="M4 11.5h2.4M17.6 11.5H20" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" /></svg>
+      <svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="6.5" r="2.8" stroke="currentColor" strokeWidth="1.6" /><path d="M6.5 20.5a5.5 5.5 0 0 1 11 0" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" /><path d="M3.8 11.2h3M17.2 11.2h3" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" /><path d="M12 9.3v3.2" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" /></svg>
     ),
   },
   {
-    tag: "具身智能 · 将来",
-    h: "在真实空间里成长",
-    p: "物业场景真实、连续、可容错,是具身智能最好的成长环境。我们正在为它准备数据、工作流与现场。",
-    k: "next",
+    n: "03",
+    tag: "感知",
+    h: "物理 AI",
+    p: "楼宇里的大量传感器,让空间被持续读取:能耗、人流、环境、设备状态——物理世界,第一次成为 AI 的数据来源。",
     icon: (
-      <svg viewBox="0 0 24 24" fill="none"><path d="M12 3l8.5 4.5L12 12 3.5 7.5z" stroke="currentColor" strokeWidth="1.6" strokeLinejoin="round" /><path d="M4 12l8 4.3 8-4.3" stroke="currentColor" strokeWidth="1.6" strokeLinejoin="round" /><path d="M4 16.5l8 4.3 8-4.3" stroke="currentColor" strokeWidth="1.6" strokeLinejoin="round" /></svg>
+      <svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="1.8" fill="currentColor" /><path d="M8.2 8.2a5.4 5.4 0 0 0 0 7.6M15.8 8.2a5.4 5.4 0 0 1 0 7.6" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" /><path d="M5.4 5.4a9.3 9.3 0 0 0 0 13.2M18.6 5.4a9.3 9.3 0 0 1 0 13.2" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" /></svg>
     ),
   },
 ];
@@ -223,6 +224,10 @@ const faqs = [
     a: "启盟科技(Stalliance)创立于 2017 年,总部在广州,是一家专注物业与设施管理(FM)的人工智能公司。核心产品是 FMClaw™ AI 平台,并通过自营物业公司「爱物管」提供端到端的 AI 物业服务。公司是广州市人工智能百强企业(广州市工信局认可)、NVIDIA Inception 全球 AI 加速营成员。",
   },
   {
+    q: "为什么说物业是智能走进物理世界的入口?",
+    a: "物业管理是数万亿规模的行业,并且同时容纳智能的三种形态:AI 智能体接管排班、巡检、工单等管理工作;机器人与具身智能承担一线劳动;楼宇里的大量传感器构成物理 AI,让空间被持续感知。三种形态都发生在真实世界,也都从真实世界获得数据——这是启盟科技从物业开始的原因。",
+  },
+  {
     q: "爱物管和启盟科技是什么关系?",
     a: "爱物管是启盟科技自营的物业公司,2019 年创办。它既是我们八年一线数据与工作流的来源,也是 AI 物业服务的履约交付主体——全部项目由 FMClaw™ 平台接管运营,管理效率达到 51:1,净利率从 3.4% 提升到 14%。",
   },
@@ -252,7 +257,7 @@ export default function Page() {
           <p className="cm-hero-en">Make intelligence ambient in the physical world</p>
           <h1 className="cm-h1">让智能,走进<br />物理世界</h1>
           <p className="cm-lead">
-            特斯拉造车,愿景却是让世界走进可持续能源。我们做物业管理的 AI,愿景也不止于物业——<b>物业,是智能走进物理世界最大、也最天然的入口。</b>
+            智能正在走出屏幕,走进真实的楼宇、园区与街区。<b>物业管理,是这一步最天然的入口</b>——我们为此,已经准备了八年。
           </p>
           <div className="cm-cta">
             <Link href="/workshop" className="btn btn-primary">预约 FMClaw™ 加速营 <Arrow /></Link>
@@ -274,23 +279,26 @@ export default function Page() {
       <section className="cm-band">
         <div className="wrap">
           <span className="cm-eyebrow">为什么是物业</span>
-          <h2 className="cm-h2">很少有一个行业,能同时容纳智能的三种形态</h2>
+          <h2 className="cm-h2">在这里,智能有三种形态</h2>
           <p className="cm-sub">
-            物业管理里,AI 走进管理层,机器人走进一线,具身智能在真实空间里成长——三层都发生在同一个现场。这是我们把它当作入口的原因。
+            物业管理是数万亿规模的行业,覆盖着最真实的空间与劳动。在这里,AI 接管管理,机器人承担劳动,传感器让空间被持续感知——三种形态都发生在真实世界,也都从真实世界获得数据。
           </p>
           <div className="cm-entry">
             {entries.map((e) => (
-              <div className={`cm-entry__card is-${e.k} reveal`} key={e.h}>
+              <div className="cm-entry__card reveal" key={e.h}>
+                <div className="cm-entry__head">
+                  <span className="cm-entry__num">{e.n}</span>
+                  <span className="cm-entry__tag">{e.tag}</span>
+                </div>
                 <span className="cm-entry__ic" aria-hidden="true">{e.icon}</span>
-                <span className="cm-entry__tag">{e.tag}</span>
                 <h3>{e.h}</h3>
                 <p>{e.p}</p>
               </div>
             ))}
           </div>
           <p className="cm-foot">
-            <span className="lead">我们选择物业,不是因为它小——</span>
-            是因为它是<span className="grad">入口</span>
+            <span className="lead">三种形态,同一个现场——</span>
+            这是智能走进物理世界<span className="grad">最天然的入口</span>
           </p>
         </div>
       </section>
@@ -356,6 +364,7 @@ export default function Page() {
               <Link className="cm-aw__link" href="/ai-service">看爱物管交付的 AI 物业服务 <Arrow /></Link>
             </div>
             <aside className="cm-aw__facts" aria-label="爱物管运营数据">
+              <span className="cm-aw__flab">爱物管 · 运营数据</span>
               <div className="cm-aw__fact">
                 <b>51:1</b>
                 <span>AI 接管后的管理效率,一名员工管理相当于过去 51 人的工作面</span>

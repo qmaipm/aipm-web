@@ -54,20 +54,26 @@
 .cm-sub{margin:18px 0 0;font-size:clamp(15px,1.65vw,17px);line-height:1.65;color:var(--cm-ink-2);max-width:62ch}
 .cm-sub b{color:var(--cm-ink);font-weight:600}
 
-/* ---------- 为什么是物业 · 三层智能入口卡 ---------- */
-.cm-entry{margin-top:44px;display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+/* ---------- 为什么是物业 · 智能的三种形态(编号卡) ---------- */
+.cm-entry{margin-top:48px;display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
 @media(max-width:860px){.cm-entry{grid-template-columns:1fr}}
-.cm-entry__card{position:relative;border:1px solid var(--cm-line);border-radius:18px;background:var(--cm-paper);
-  padding:30px 28px;transition:border-color .2s,box-shadow .2s,transform .2s}
-.cm-entry__card:hover{border-color:rgba(12,139,130,.34);box-shadow:0 14px 34px rgba(12,139,130,.08);transform:translateY(-3px)}
-.cm-entry__ic{display:grid;place-items:center;width:48px;height:48px;border-radius:13px;background:var(--cm-grad);color:#fff;margin-bottom:20px}
-.cm-entry__card.is-next .cm-entry__ic{background:var(--cm-mist);color:var(--cm-green);border:1px solid var(--cm-line)}
-.cm-entry__ic svg{width:24px;height:24px}
-.cm-entry__tag{display:inline-block;font-size:11.5px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--cm-green);margin-bottom:10px}
-.cm-entry__card.is-next .cm-entry__tag{color:var(--cm-mut)}
-.cm-entry__card h3{margin:0 0 10px;font-size:clamp(19px,2.2vw,22px);font-weight:700;letter-spacing:-.01em;line-height:1.3;color:var(--cm-ink)}
-.cm-entry__card p{margin:0;font-size:14.5px;line-height:1.74;color:var(--cm-ink-2)}
-.cm-entry__card.is-next{background:linear-gradient(135deg,rgba(0,112,255,.045),rgba(18,185,138,.055));border-style:dashed}
+.cm-entry__card{position:relative;border:1px solid var(--cm-line);border-radius:20px;background:var(--cm-paper);
+  padding:28px 30px 30px;overflow:hidden;transition:border-color .25s,box-shadow .25s,transform .25s}
+.cm-entry__card::before{content:"";position:absolute;left:30px;right:30px;top:0;height:1px;
+  background:var(--cm-grad);opacity:0;transition:opacity .25s}
+.cm-entry__card:hover{border-color:rgba(12,139,130,.3);box-shadow:0 18px 44px rgba(12,139,130,.09);transform:translateY(-4px)}
+.cm-entry__card:hover::before{opacity:1}
+.cm-entry__head{display:flex;align-items:baseline;justify-content:space-between;gap:12px;
+  padding-bottom:16px;margin-bottom:22px;border-bottom:1px solid var(--cm-line)}
+.cm-entry__num{font-size:15px;font-weight:800;letter-spacing:.06em;font-variant-numeric:tabular-nums;
+  background:var(--cm-grad);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+.cm-entry__tag{font-size:11.5px;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:var(--cm-mut)}
+.cm-entry__ic{display:grid;place-items:center;width:50px;height:50px;border-radius:14px;margin-bottom:20px;
+  background:var(--cm-mist);color:var(--cm-green);border:1px solid var(--cm-line);transition:background .25s,color .25s,border-color .25s}
+.cm-entry__card:hover .cm-entry__ic{background:var(--cm-grad);color:#fff;border-color:transparent}
+.cm-entry__ic svg{width:25px;height:25px}
+.cm-entry__card h3{margin:0 0 11px;font-size:clamp(19px,2.2vw,22px);font-weight:800;letter-spacing:-.015em;line-height:1.3;color:var(--cm-ink)}
+.cm-entry__card p{margin:0;font-size:14.5px;line-height:1.76;color:var(--cm-ink-2)}
 
 /* 板块收束论断 */
 .cm-foot{margin-top:46px;max-width:none;text-align:center;
@@ -152,13 +158,15 @@
 .cm-aw__say p b{color:var(--cm-ink);font-weight:600}
 .cm-aw__link{display:inline-flex;align-items:center;gap:8px;margin-top:26px;font-size:15px;font-weight:700;color:var(--cm-green)}
 .cm-aw__link:hover{text-decoration:underline;text-underline-offset:4px}
-.cm-aw__facts{display:flex;flex-direction:column;gap:14px}
-.cm-aw__fact{border:1px solid var(--cm-line);border-radius:16px;background:var(--cm-mist);padding:22px 26px;
-  display:flex;flex-direction:column;gap:7px;transition:border-color .2s,transform .2s}
-.cm-aw__fact:hover{border-color:rgba(12,139,130,.34);transform:translateY(-2px)}
-.cm-aw__fact b{font-size:clamp(26px,3.2vw,34px);font-weight:800;letter-spacing:-.02em;line-height:1;font-variant-numeric:tabular-nums;
+.cm-aw__facts{position:relative;display:flex;flex-direction:column;gap:0;border:1px solid var(--cm-line);
+  border-radius:20px;background:var(--cm-mist);padding:10px 30px;box-shadow:0 18px 44px rgba(12,139,130,.06)}
+.cm-aw__flab{display:block;font-size:11.5px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;
+  color:var(--cm-mut);padding:20px 0 6px}
+.cm-aw__fact{display:flex;flex-direction:column;gap:7px;padding:20px 0 22px;border-top:1px solid rgba(20,32,28,.07)}
+.cm-aw__fact:first-of-type{border-top:0}
+.cm-aw__fact b{font-size:clamp(28px,3.4vw,38px);font-weight:800;letter-spacing:-.02em;line-height:1;font-variant-numeric:tabular-nums;
   background:var(--cm-grad);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
-.cm-aw__fact span{font-size:13.5px;line-height:1.6;color:var(--cm-ink-2)}
+.cm-aw__fact span{font-size:13.5px;line-height:1.62;color:var(--cm-ink-2);max-width:34ch}
 
 /* ---------- 论断 + 组合公式卡 ---------- */
 .cm-moat{margin-top:38px;display:grid;grid-template-columns:1.08fr .92fr;gap:48px;align-items:center}
@@ -192,7 +200,8 @@
 .cm-biz__card{position:relative;display:flex;flex-direction:column;border:1px solid var(--cm-line);border-radius:18px;
   background:var(--cm-paper);padding:30px 28px 26px;overflow:hidden;
   transition:border-color .2s,box-shadow .2s,transform .2s}
-.cm-biz__card:hover{border-color:rgba(12,139,130,.34);box-shadow:0 16px 40px rgba(12,139,130,.09);transform:translateY(-3px)}
+.cm-biz__card:hover{border-color:rgba(12,139,130,.34);box-shadow:0 20px 48px rgba(12,139,130,.1);transform:translateY(-4px)}
+.cm-biz__card.is-operate{border-color:rgba(18,185,138,.32);box-shadow:0 14px 38px rgba(12,139,130,.08)}
 .cm-biz__bar{position:absolute;left:0;top:0;right:0;height:4px}
 .cm-biz__card.is-deliver .cm-biz__bar{background:var(--cm-blue)}
 .cm-biz__card.is-operate .cm-biz__bar{background:var(--cm-grad)}
@@ -250,10 +259,15 @@
 .cm-hmore__text span{font-size:11.5px;line-height:1.4;color:var(--cm-mut)}
 
 /* ---------- 一句话信念 ---------- */
-.cm-oneline{padding:88px 0;background:var(--cm-core);text-align:center}
-@media(max-width:700px){.cm-oneline{padding:64px 0}}
-.cm-oneline p{margin:0 auto;max-width:44ch;font-size:clamp(18px,2.4vw,25px);font-weight:500;line-height:1.7;
-  letter-spacing:-.01em;color:#AEBAB5}
+.cm-oneline{position:relative;overflow:hidden;padding:96px 0;background:var(--cm-core);text-align:center}
+@media(max-width:700px){.cm-oneline{padding:68px 0}}
+.cm-oneline::before{content:"";position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);
+  width:60vw;height:60vw;max-width:720px;max-height:720px;border-radius:50%;filter:blur(90px);opacity:.4;pointer-events:none;
+  background:radial-gradient(circle at 44% 44%,rgba(0,112,255,.26),transparent 60%),
+             radial-gradient(circle at 60% 58%,rgba(18,185,138,.24),transparent 62%)}
+.cm-oneline .wrap{position:relative;z-index:1}
+.cm-oneline p{margin:0 auto;max-width:42ch;font-size:clamp(19px,2.5vw,27px);font-weight:500;line-height:1.72;
+  letter-spacing:-.012em;color:#AEBAB5}
 .cm-oneline p b{font-weight:800;color:#fff}
 
 /* 可访问性 / 动效降级 */
