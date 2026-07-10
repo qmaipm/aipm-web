@@ -64,7 +64,7 @@ export const MENU: MenuItem[] = [
     groups: [
       {
         items: [
-          { label: "AI 物业服务(总览)", href: "/ai-service", small: "「专业 + 数字」一体化 · 省心 周到 主动 智能" },
+          { label: "AI 物业服务(总览)", href: "/ai-service", small: "换物业,先换一种方式" },
         ],
       },
       {
