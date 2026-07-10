@@ -57,7 +57,26 @@ export const MENU: MenuItem[] = [
       },
     ],
   },
-  { label: "AI 物业服务", href: "/ai-service" },
+  {
+    label: "AI 物业服务",
+    href: "/ai-service",
+    minWidth: 300,
+    groups: [
+      {
+        items: [
+          { label: "AI 物业服务(总览)", href: "/ai-service", small: "「专业 + 数字」一体化 · 省心 周到 主动 智能" },
+        ],
+      },
+      {
+        heading: "四大工种",
+        // 其余三个工种页(设施设备 /ai-service/facility、安保 /ai-service/security、
+        // 客服 /ai-service/customer-service)建成后在此逐个补充。
+        items: [
+          { label: "AI 清洁服务", href: "/ai-service/cleaning", small: "干没干,数据会说话" },
+        ],
+      },
+    ],
+  },
   { label: "客户案例", href: "/cases" },
   {
     label: "FMClaw™ 加速营",

@@ -1,0 +1,114 @@
+/* ============================================================
+   AI 清洁服务 — 复用 ai-service 的 .aisv 冷调系统(../page.css),
+   本文件只放清洁页新增区块:对照表 / 态度声明 / 四步闭环 /
+   案例卡 / 爱物管区块 / 三种合作方式 / 尾部 CTA。
+   全部收在 .avclean 作用域内。
+   ============================================================ */
+
+/* ---------- 对照表(浅底版) ---------- */
+.avclean .avc-cmp{margin-top:46px;border:1px solid var(--av-line);border-radius:16px;overflow:hidden;background:var(--av-paper)}
+.avclean .avc-row{display:grid;grid-template-columns:.62fr 1fr 1.18fr}
+.avclean .avc-row+.avc-row{border-top:1px solid var(--av-line)}
+.avclean .avc-row>div{padding:17px 20px;font-size:14.5px;line-height:1.6}
+.avclean .avc-head>div{font-size:12px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--av-mut);padding:13px 20px}
+.avclean .avc-head .now{color:var(--av-green)}
+.avclean .avc-k{font-weight:700;color:var(--av-ink)}
+.avclean .avc-old{color:var(--av-mut)}
+.avclean .avc-new{color:var(--av-ink);font-weight:500;background:rgba(18,185,138,.06);position:relative}
+.avclean .avc-new::before{content:"";position:absolute;left:0;top:0;bottom:0;width:2px;background:var(--av-grad)}
+.avclean .avc-new b{color:var(--av-ink);font-weight:700}
+@media(max-width:760px){
+  .avclean .avc-row{grid-template-columns:1fr}
+  .avclean .avc-row>div{padding:12px 16px}
+  .avclean .avc-head{display:none}
+  .avclean .avc-k{padding-bottom:2px;font-size:13px;letter-spacing:.04em;text-transform:uppercase;color:var(--av-green)}
+  .avclean .avc-old{padding-top:0}.avclean .avc-old::before{content:"传统 · ";font-weight:700;font-size:12px}
+  .avclean .avc-new::before{display:none}
+  .avclean .avc-new{border-left:2px solid var(--av-green)}
+}
+
+/* ---------- 态度声明 ---------- */
+.avclean .avc-stand{margin-top:34px;border-left:3px solid var(--av-green);background:var(--av-paper);
+  border-radius:0 14px 14px 0;padding:24px 28px;max-width:760px}
+.avclean .avc-stand p{margin:0;font-size:clamp(15.5px,1.7vw,17.5px);line-height:1.75;color:var(--av-ink)}
+.avclean .avc-stand p+p{margin-top:10px}
+.avclean .avc-stand b{font-weight:800}
+
+/* ---------- 四步闭环 ---------- */
+.avclean .avc-steps{margin-top:48px;display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+@media(max-width:960px){.avclean .avc-steps{grid-template-columns:1fr 1fr}}
+@media(max-width:560px){.avclean .avc-steps{grid-template-columns:1fr}}
+.avclean .avc-step{position:relative;border:1px solid var(--av-line);border-radius:16px;background:var(--av-paper);
+  padding:24px 22px 20px;display:flex;flex-direction:column;transition:border-color .2s,box-shadow .2s,transform .2s}
+.avclean .avc-step:hover{border-color:rgba(12,139,130,.32);box-shadow:0 16px 36px rgba(12,139,130,.1);transform:translateY(-3px)}
+.avclean .avc-step .n{font-size:13px;font-weight:800;letter-spacing:.08em;color:var(--av-faint);font-variant-numeric:tabular-nums}
+.avclean .avc-step h3{margin:12px 0 0;font-size:18.5px;font-weight:800;letter-spacing:-.01em;color:var(--av-ink)}
+.avclean .avc-step p{margin:10px 0 0;font-size:14px;line-height:1.7;color:var(--av-ink-2);flex:1}
+.avclean .avc-step .ag{margin-top:16px;font-size:13px;font-weight:600;color:var(--av-green);display:inline-flex;align-items:center;gap:6px}
+.avclean .avc-step .ag:hover .ar{transform:translateX(3px)}
+.avclean .avc-note{margin:30px 0 0;font-size:15px;font-weight:600;color:var(--av-ink)}
+.avclean .avc-note em{font-style:normal;background:var(--av-grad);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;font-weight:800}
+@supports not ((-webkit-background-clip:text) or (background-clip:text)){.avclean .avc-note em{color:var(--av-green);-webkit-text-fill-color:currentColor}}
+
+/* ---------- 人机协同 ---------- */
+.avclean .avc-robot{margin-top:46px;display:grid;grid-template-columns:1.05fr .95fr;gap:44px;align-items:center}
+@media(max-width:860px){.avclean .avc-robot{grid-template-columns:1fr;gap:26px}}
+.avclean .avc-robot__body p{margin:0;font-size:15.5px;line-height:1.8;color:var(--av-ink-2)}
+.avclean .avc-robot__body p+p{margin-top:14px}
+.avclean .avc-robot__body p b{color:var(--av-ink);font-weight:700}
+.avclean .avc-robot__media{position:relative;border-radius:18px;overflow:hidden;aspect-ratio:4/3;background:var(--av-mist);
+  box-shadow:0 22px 48px rgba(12,139,130,.12)}
+.avclean .avc-robot__media img{width:100%;height:100%;object-fit:cover;display:block}
+.avclean .avc-quote{margin:38px 0 0;border-left:3px solid var(--av-green);padding:6px 0 6px 24px;max-width:720px}
+.avclean .avc-quote p{margin:0;font-size:clamp(16px,1.9vw,19px);font-weight:600;line-height:1.65;color:var(--av-ink)}
+.avclean .avc-quote cite{display:block;margin-top:10px;font-style:normal;font-size:13.5px;color:var(--av-mut)}
+
+/* ---------- 证据 · 案例卡(暗场内) ---------- */
+.avclean .avc-cases{margin-top:38px;display:grid;grid-template-columns:1fr 1fr;gap:14px}
+@media(max-width:760px){.avclean .avc-cases{grid-template-columns:1fr}}
+.avclean .avc-case{display:block;border:1px solid rgba(255,255,255,.14);border-radius:16px;background:rgba(255,255,255,.04);
+  padding:26px 26px 22px;transition:border-color .2s,background .2s,transform .2s}
+.avclean .avc-case:hover{border-color:rgba(63,217,184,.5);background:rgba(255,255,255,.07);transform:translateY(-3px)}
+.avclean .avc-case .tag{font-size:12.5px;font-weight:600;letter-spacing:.04em;color:#8FA39C}
+.avclean .avc-case h3{margin:10px 0 0;font-size:19px;font-weight:800;letter-spacing:-.01em;line-height:1.35;color:#fff}
+.avclean .avc-case p{margin:10px 0 0;font-size:14px;line-height:1.65;color:#AEBAB5}
+.avclean .avc-case .go{margin-top:16px;display:inline-flex;align-items:center;gap:7px;font-size:13.5px;font-weight:600;color:#3fd9b8}
+.avclean .avc-case:hover .go .ar{transform:translateX(3px)}
+
+/* ---------- 谁在为你服务 · 爱物管 ---------- */
+.avclean .avc-who{margin-top:42px;display:grid;grid-template-columns:auto 1fr;gap:30px;align-items:start;
+  border:1px solid rgba(18,185,138,.3);border-radius:18px;padding:34px 36px;
+  background:linear-gradient(180deg,rgba(18,185,138,.06),var(--av-paper))}
+@media(max-width:760px){.avclean .avc-who{grid-template-columns:1fr;padding:26px 24px}}
+.avclean .avc-who__brand{display:flex;flex-direction:column;gap:4px;min-width:150px}
+.avclean .avc-who__brand .nm{font-size:clamp(24px,2.8vw,30px);font-weight:800;letter-spacing:-.01em;color:var(--av-ink)}
+.avclean .avc-who__brand .en{font-size:12px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--av-green)}
+.avclean .avc-who__brand .rel{margin-top:8px;font-size:13px;color:var(--av-mut);line-height:1.5}
+.avclean .avc-who__body p{margin:0;font-size:15px;line-height:1.8;color:var(--av-ink-2)}
+.avclean .avc-who__body p b{color:var(--av-ink);font-weight:700}
+.avclean .avc-who__links{margin-top:16px;display:flex;flex-wrap:wrap;gap:10px 24px}
+
+/* ---------- 三种合作方式 ---------- */
+.avclean .avc-modes{margin-top:46px;display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+@media(max-width:860px){.avclean .avc-modes{grid-template-columns:1fr}}
+.avclean .avc-mode{border:1px solid var(--av-line);border-radius:16px;background:var(--av-paper);padding:28px 26px 24px;
+  display:flex;flex-direction:column;transition:border-color .2s,box-shadow .2s,transform .2s}
+.avclean .avc-mode:hover{border-color:rgba(12,139,130,.32);box-shadow:0 16px 36px rgba(12,139,130,.1);transform:translateY(-3px)}
+.avclean .avc-mode .lab{font-size:12px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--av-green)}
+.avclean .avc-mode h3{margin:10px 0 0;font-size:20px;font-weight:800;letter-spacing:-.01em;color:var(--av-ink)}
+.avclean .avc-mode p{margin:10px 0 0;font-size:14px;line-height:1.7;color:var(--av-ink-2);flex:1}
+.avclean .avc-mode .who{margin-top:14px;font-size:13px;color:var(--av-mut)}
+.avclean .avc-mode .who b{color:var(--av-ink-2);font-weight:600}
+
+/* ---------- 尾部 CTA ---------- */
+.avclean .avc-end{position:relative;overflow:hidden;background:var(--av-mist);padding:112px 0;text-align:center}
+@media(max-width:700px){.avclean .avc-end{padding:80px 0}}
+.avclean .avc-end__glow{position:absolute;left:50%;top:46%;transform:translate(-50%,-50%);width:66vw;height:66vw;max-width:760px;max-height:760px;
+  border-radius:50%;filter:blur(84px);opacity:.5;pointer-events:none;z-index:0;
+  background:radial-gradient(circle at 42% 42%,rgba(0,112,255,.16),transparent 60%),radial-gradient(circle at 62% 60%,rgba(18,185,138,.16),transparent 62%)}
+.avclean .avc-end .wrap{position:relative;z-index:1}
+.avclean .avc-end h2{margin:0;font-size:clamp(30px,4.6vw,52px);font-weight:800;letter-spacing:-.03em;color:var(--av-ink);line-height:1.14}
+.avclean .avc-end p{margin:20px auto 0;font-size:16px;line-height:1.7;color:var(--av-ink-2);max-width:52ch}
+.avclean .avc-end .av-cta{justify-content:center}
+.avclean .avc-end .alt{font-size:14.5px;color:var(--av-mut)}
+.avclean .avc-end .alt a{color:var(--av-green);font-weight:600}

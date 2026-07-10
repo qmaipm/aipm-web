@@ -10,6 +10,7 @@ const SITE_URL = process.env.SITE_URL || "https://www.aipm.cn";
 const ROUTES = [
   "/",
   "/ai-service",
+  "/ai-service/cleaning",
   "/agents",
   "/workshop",
   "/cases",
