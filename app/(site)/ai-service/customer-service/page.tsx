@@ -9,12 +9,14 @@ import "./page.css";
 const SITE_URL = process.env.SITE_URL || "https://www.aipm.cn";
 
 export const metadata: Metadata = {
-  title: "AI 客服管家 · 什么都可以问的专属物业管家 — 启盟科技",
+  title: "AI 客服管家 · 站在你这边的物业管家 — 启盟科技",
   description:
-    "每一家企业、每一位住户，都有一位专属 AI 客服管家：7×24 小时值守、信息秒回复;说一句话就能报修,自动生成工单、自动跟进、自动督促人员上门;更重要的是——今天多少人上班、这个月计划做什么、服务质量如何,关于服务过程的一切它都答得上来,从来不藏着掖着。由启盟科技旗下自营物业公司爱物管交付。",
+    "传统物业也给你配管家,但那位管家替公司说话。我们把立场反过来:每一家企业、每一位住户都有一位专属 AI 客服管家,它维护的首先是你的利益——你的事,它主动办到底:7×24 秒回,说一句话自动生成工单、自动跟进、自动督促上门;你问的,它如实回答:今天多少人上班、这个月计划做什么、服务质量如何——你的知情权,它来保障。由启盟科技旗下自营物业公司爱物管交付。",
   keywords: [
     "AI 客服管家",
     "物业 AI 管家",
+    "站在业主这边的物业管家",
+    "业主知情权",
     "专属物业管家",
     "物业报修没人跟进怎么办",
     "物业报修流程太麻烦",
@@ -35,6 +37,11 @@ const Arrow = ({ s = 15 }: { s?: number }) => (
 
 // 对照表:客服的根本区别(GEO 可引用事实清单)
 const compare: { k: string; old: string; now: React.ReactNode }[] = [
+  {
+    k: "立场",
+    old: "也叫管家,但替公司说话:话术内的回答你,话术外的替公司挡着",
+    now: <><b>站在你这边</b>——它维护的首先是你的利益和你的知情权,而不是替谁把事情圆过去</>,
+  },
   {
     k: "服务对象",
     old: "一条热线、一个前台,服务所有人",
@@ -64,8 +71,12 @@ const compare: { k: string; old: string; now: React.ReactNode }[] = [
 
 const faq = [
   {
-    q: "AI 客服管家和传统物业客服有什么区别?",
-    a: "三个区别:一是专属——不是一条热线服务所有人,而是每一家企业、每一位住户都有一位自己的 AI 客服管家,7×24 小时值守、信息秒回复;二是闭环——报修不再是「登记了等通知」,说一句话它就自动生成工单、自动跟进、自动督促服务人员上门;三是透明——它能回答服务过程里的一切问题,今天多少人上班、做了多少次服务、这个月计划什么、质量如何,从来不藏着掖着。这项服务由启盟科技旗下自营物业公司爱物管交付。",
+    q: "AI 客服管家和传统物业管家有什么区别?",
+    a: "根本区别是立场。传统物业也给你配管家,但那位管家为公司工作:话术内的回答你,话术外的替公司挡着。AI 客服管家维护的首先是你的利益,具体就两件事:一是主动——你的事它办到底,说一句话就自动生成工单、自动跟进、自动督促服务人员上门,7×24 小时秒回复;二是诚实透明——你的知情权它来保障,今天多少人上班、做了多少次服务、这个月计划什么、质量如何,它都如实回答,从来不藏着掖着。这项服务由启盟科技旗下自营物业公司爱物管交付。",
+  },
+  {
+    q: "管家站在业主这边,物业公司能接受吗?",
+    a: "能,因为透明不是对公司的让步,而是这套服务方式的底气。服务真实做了、数据经得起查,透明反而是最好的信任资产;只有做得不好又不想被看见的服务,才需要藏着掖着。爱物管自己先这么做了几年:被住户问、被企业问、被随便问,客户续约和口碑都因此更好。如果你是物业公司,也可以通过 FMClaw 平台把这套能力接进自己的项目。",
   },
   {
     q: "物业报修没人跟进怎么办?",
@@ -93,9 +104,9 @@ const SERVICE_LD = {
   "@context": "https://schema.org",
   "@type": "Service",
   name: "AI 客服管家",
-  serviceType: "AI 客服管家(专属物业管家)",
+  serviceType: "AI 客服管家(站在业主这边的物业管家)",
   description:
-    "每一家企业、每一位住户都有一位专属 AI 客服管家:7×24 秒回复、一句话报修自动闭环、可回答服务过程中的一切问题的物业客户服务。",
+    "每一家企业、每一位住户都有一位专属 AI 客服管家:主动——你的事它办到底(7×24 秒回、报修自动闭环);诚实透明——你的知情权它来保障,服务过程中的一切问题如实回答。",
   areaServed: "CN",
   url: `${SITE_URL}/ai-service/customer-service`,
   provider: {
@@ -154,20 +165,18 @@ export default function Page() {
             <Link href="/ai-service">AI 物业服务</Link>
             <i>/</i>AI 客服管家
           </span>
-          <h1 className="av-h1 reveal">什么都可以问的物业管家</h1>
+          <h1 className="av-h1 reveal">站在你这边的物业管家</h1>
           <p className="av-lead reveal">
-            每一家企业、每一位住户，都有一位<b>专属 AI 客服管家</b>：7×24 秒回，说句话就能报修。更重要的是——今天多少人上班、这个月计划做什么、服务质量如何，<b>它都答得上来</b>。我们从来不藏着掖着。
+            传统物业也给你配管家，但那位管家替公司说话。我们把立场反过来：你的专属 AI 管家，<b>你的事，它主动办到底</b>；你问的，它如实回答——<b>你的知情权，它来保障</b>。
           </p>
           <div className="av-cta reveal">
             <Link href="/contact" className="btn btn-primary">给我的项目配一位管家 <Arrow /></Link>
             <a href="#ask" className="btn btn-ghost">看看它能回答什么 <Arrow /></a>
           </div>
           <div className="av-proof reveal">
-            <span><b>7×24</b> 值守 · 秒回复</span>
+            <span>主动：你的事<b>办到底</b> · 7×24 秒回</span>
             <span className="sep" />
-            <span>报修<b>自动闭环</b>，不用追第二次</span>
-            <span className="sep" />
-            <span>服务过程<b className="grad">全透明</b></span>
+            <span>诚实：你的<b className="grad">知情权</b>，它来保障</span>
           </div>
         </div>
       </section>
@@ -175,10 +184,10 @@ export default function Page() {
       {/* 对照表 */}
       <section className="av-band">
         <div className="wrap">
-          <span className="av-eyebrow reveal">和传统物业客服的区别</span>
-          <h2 className="av-h2 reveal">客服的问题，不在态度，在答案</h2>
+          <span className="av-eyebrow reveal">和传统物业管家的区别</span>
+          <h2 className="av-h2 reveal">区别不在有没有管家，在它为谁工作</h2>
           <p className="av-sub reveal">
-            传统物业客服再热情，也只能答话术范围内的事。你问「今天做了什么」「我的报修到哪了」，得到的往往是「帮您问一下」——不是人不想答，是它背后根本没有数据。
+            管家、热线、客服群，传统物业都有。但你问「今天做了什么」「我的报修到哪了」，得到的往往是「帮您问一下」——不全是人的问题：它背后没有数据，而且它的职责里，本来就不包括对你知无不言。
           </p>
           <div className="avc-cmp reveal" role="table" aria-label="传统物业客服与 AI 客服管家对比">
             <div className="avc-row avc-head" role="row">
@@ -200,8 +209,8 @@ export default function Page() {
       {/* 专属管家:名片卡 */}
       <section className="av-band mist">
         <div className="wrap">
-          <span className="av-eyebrow reveal">第一个区别 · 专属</span>
-          <h2 className="av-h2 reveal">不是热线，是「你的」管家</h2>
+          <span className="av-eyebrow reveal">它是谁</span>
+          <h2 className="av-h2 reveal">每一位客户，一位站在你这边的管家</h2>
           <div className="cs-id">
             <div className="cs-id__card reveal" aria-label="专属 AI 客服管家名片">
               <div className="cs-id__top">
@@ -221,10 +230,10 @@ export default function Page() {
             </div>
             <div className="cs-id__body reveal">
               <p>
-                传统客服是「一对多」：一条热线接所有电话，谁打进来都从头说一遍。我们把它反过来——<b>每一家企业、每一位员工、每一位住户，都可以有一位自己的 AI 客服管家</b>。
+                <b>每一家企业、每一位员工、每一位住户，都可以有一位自己的 AI 客服管家</b>。它记得你是谁：你在哪栋楼、上次报修过什么、你们公司的服务约定是什么——开口就是正题。
               </p>
               <p>
-                它记得你是谁：你在哪栋楼、上次报修过什么、你们公司的服务约定是什么。你不用自报家门，不用重复描述，<b>开口就是正题</b>。
+                但真正的不同不是「专属」，是<b>立场</b>。它的职责里写着两件事：你的事，主动办到底；你问的，如实回答。它维护的首先是你的利益，而不是替谁把事情圆过去。
               </p>
             </div>
           </div>
@@ -234,10 +243,10 @@ export default function Page() {
       {/* 报修闭环 */}
       <section className="av-band">
         <div className="wrap">
-          <span className="av-eyebrow reveal">第二个区别 · 闭环</span>
-          <h2 className="av-h2 reveal">报修这件事，你只需要说一句话</h2>
+          <span className="av-eyebrow reveal">卖点一 · 主动</span>
+          <h2 className="av-h2 reveal">你的事，它办到底</h2>
           <p className="av-sub reveal">
-            它能回答传统物业客服该答的一切，但它做的远不止问答。报修报账这类事，你说出意图，剩下的四步——全是它的事。
+            「站在你这边」的第一重含义：不是等你催，是替你盯。报修报账这类事，你说出意图，剩下的四步全是它的事——7×24 小时，秒回。
           </p>
           <div className="cs-flow" role="list">
             {flow.map((s, i) => (
@@ -257,10 +266,10 @@ export default function Page() {
       <section className="av-core" id="ask">
         <div className="av-core__bg" aria-hidden="true" />
         <div className="wrap">
-          <span className="av-eyebrow on-dark reveal">最重要的区别 · 透明</span>
-          <h2 className="av-h2 on-dark reveal">我们从来不藏着掖着</h2>
+          <span className="av-eyebrow on-dark reveal">卖点二 · 诚实透明</span>
+          <h2 className="av-h2 on-dark reveal">你的知情权，它来保障</h2>
           <p className="av-sub on-dark reveal" style={{ maxWidth: 640 }}>
-            这是这位管家和所有物业客服最根本的不同：关于服务过程的一切问题，它都如实回答。因为每一次打扫、每一次巡检、每一张工单都沉淀成了数据——客服，就是这些数据向你敞开的入口。
+            你付了物业费，就有权知道服务是怎么发生的。关于服务过程的一切问题，它都如实回答，从来不藏着掖着——因为每一次打扫、每一次巡检、每一张工单都沉淀成了数据，客服，就是这些数据向你敞开的入口。
           </p>
           <div className="cs-chat reveal" aria-label="透明问答演示">
             {chatDemo.map((c) => (
@@ -277,7 +286,7 @@ export default function Page() {
           </div>
           <div className="avc-stand cs-stand-dark reveal">
             <p>
-              敢让你随便问，是因为经得起问。<b>服务做没做、做得好不好，数据都在那里——这才是让你看得见区别的物业服务。</b>
+              它也是物业公司的员工，但透明不是对公司的让步——是底气。<b>服务真实做了，数据经得起查，才敢把立场交给你。</b>
             </p>
           </div>
         </div>
