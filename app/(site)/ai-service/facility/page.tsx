@@ -4,6 +4,7 @@ import JsonLd from "@/components/JsonLd";
 import SeoFaq from "@/components/SeoFaq";
 import "../page.css";
 import "../trade.css";
+import "./page.css";
 
 const SITE_URL = process.env.SITE_URL || "https://www.aipm.cn";
 
@@ -16,11 +17,14 @@ export const metadata: Metadata = {
     "设施设备管理外包",
     "机电维保外包",
     "设备巡检外包",
+    "设备巡检漏检怎么解决",
+    "假巡检",
+    "只巡不检",
     "人单合一",
     "漏修漏检",
     "预防性维护",
     "机房巡检",
-    "智能巡检",
+    "智能巡检系统",
     "爱物管",
     "启盟科技",
   ],
@@ -71,26 +75,30 @@ const compare: { k: string; old: string; now: React.ReactNode }[] = [
   },
 ];
 
-// 人单合一:一次巡检的四步
-const steps = [
+// 人单合一:一次巡检的四道闸门——每一步通过,才解锁下一步
+const gates = [
   {
-    n: "01", h: "到场核验",
-    p: "巡检人员到达指定机房,IoT 核验当前位置。核验通过,才能开始巡检——从机制上杜绝漏签、补签、冒签。",
+    n: "01", h: "到场核验", gk: "IoT 位置核验",
+    p: "巡检人员到达指定机房,IoT 核验当前位置。不在现场,巡检单根本打不开——从机制上杜绝漏签、补签、冒签。",
+    lock: "位置核验通过,才解锁巡检单",
     ag: "设备巡检管理", href: "/solutions/inspection",
   },
   {
-    n: "02", h: "智能巡检单",
-    p: "系统按机房类型自动调出巡检表:该查哪些设备、记录哪些参数。巡检表可配置,新人到岗也知道该干什么。",
+    n: "02", h: "智能巡检单", gk: "按机房类型自动调出",
+    p: "系统按当前机房类型自动调出巡检表:该查哪些设备、记录哪些参数,一项项给出。巡检表可配置,新人到岗也知道该干什么。",
+    lock: "逐项完成,才能提交",
     ag: "运营管理 Agent", href: "/solutions/operations",
   },
   {
-    n: "03", h: "拍照识读",
-    p: "对着仪表拍一张照,AI 自动识别读数、填进记录,准确率 99%+。不靠手抄,不靠经验判断,数据从源头就是真的。",
+    n: "03", h: "拍照识读", gk: "AI 读数 99%+",
+    p: "对着仪表拍一张照,AI 自动识别读数、填进记录。不靠手抄,不靠经验判断,数据从源头就是真的。",
+    lock: "读数入库,自动比对历史数据",
     ag: "质量评估 Agent", href: "/solutions/assessment",
   },
   {
-    n: "04", h: "异常与趋势",
-    p: "现场异常当场上报、自动派单;电压、电流等关键指标做同比环比分析,趋势变差提前提示,维护走在故障前面。",
+    n: "04", h: "异常与趋势", gk: "同比环比预警",
+    p: "现场异常当场上报、自动派单;电压、电流等关键指标做同比环比分析,趋势变差提前提示——维护走在故障前面。",
+    lock: null,
     ag: "服务优化 Agent", href: "/solutions/optimization",
   },
 ];
@@ -151,7 +159,7 @@ const BREADCRUMB_LD = {
 
 export default function Page() {
   return (
-    <main className="aisv avtrade">
+    <main className="aisv avtrade avfac">
       <JsonLd data={[SERVICE_LD, BREADCRUMB_LD]} />
 
       {/* HERO */}
@@ -216,19 +224,32 @@ export default function Page() {
         </div>
       </section>
 
-      {/* 人单合一:一次巡检的四步 */}
+      {/* 人单合一:四道闸门,逐步解锁 */}
       <section className="av-band mist">
         <div className="wrap">
           <span className="av-eyebrow reveal">什么是人单合一</span>
-          <h2 className="av-h2 reveal">一次巡检，在系统里怎么走完</h2>
-          <div className="avc-steps">
-            {steps.map((s) => (
-              <article className="avc-step reveal" key={s.n}>
-                <span className="n">{s.n}</span>
-                <h3>{s.h}</h3>
-                <p>{s.p}</p>
-                <Link className="ag" href={s.href}>{s.ag} <Arrow s={13} /></Link>
-              </article>
+          <h2 className="av-h2 reveal">一次巡检，要过四道闸门</h2>
+          <p className="av-sub reveal">
+            每一步核验通过，才能解锁下一步——想跳过任何一步，系统都不给你机会。
+          </p>
+          <div className="fac-flow">
+            {gates.map((g) => (
+              <div key={g.n}>
+                <div className="fac-gate reveal">
+                  <div className="fac-gate__dot">{g.n}</div>
+                  <div className="fac-gate__card">
+                    <h3>{g.h} <span className="gk">{g.gk}</span></h3>
+                    <p>{g.p}</p>
+                    <Link className="ag" href={g.href}>{g.ag} <Arrow s={13} /></Link>
+                  </div>
+                </div>
+                {g.lock && (
+                  <div className="fac-lock reveal" aria-hidden="true">
+                    <svg width="13" height="13" viewBox="0 0 16 16"><path d="M4 7V5a4 4 0 118 0v2m-9 0h10v7H3V7z" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinejoin="round"/></svg>
+                    {g.lock}
+                  </div>
+                )}
+              </div>
             ))}
           </div>
           <p className="avc-note reveal">人与巡检单一一对应、单单可核——这就是<em>人单合一</em>。</p>
@@ -263,21 +284,31 @@ export default function Page() {
         </div>
       </section>
 
-      {/* 工时账 */}
+      {/* 工时账 · 算式卡 */}
       <section className="av-band mist">
         <div className="wrap">
           <span className="av-eyebrow reveal">一笔很多业主没算过的账</span>
           <h2 className="av-h2 reveal">该配几个人，可以算出来</h2>
           <p className="av-sub reveal">
-            设施设备该配多少人，大多数项目从来没算过——反正一直是这么配的。而系统记录给出了另一种算法：
+            设施设备该配多少人，大多数项目从来没算过——反正一直是这么配的。系统记录给出了另一种算法：
           </p>
-          <div className="avc-stand reveal" style={{ marginTop: 30 }}>
-            <p>
-              真实项目里，单次机房巡检通常只要 <b>3–4 分钟</b>。按每天 600 次巡检算，总巡检时长约 1,800 分钟——30 个小时。即便把路途时间翻倍计入，也远小于很多项目现场实际投入的人力工时。
-            </p>
-            <p>
-              我们不替你下结论。<b>每一次巡检的实际时长都在系统里，这笔账双方一起算。</b>
-            </p>
+          <div className="fac-math reveal">
+            <div className="fac-math__eq">
+              <div className="row">
+                <span className="item"><span className="big">3–4 分钟</span><span className="lb">单次机房巡检实测时长</span></span>
+                <span className="op">×</span>
+                <span className="item"><span className="big">600 次</span><span className="lb">每天巡检任务量(示例)</span></span>
+              </div>
+              <div className="res">
+                <span className="big">≈ 30 小时 / 天</span>
+                <span className="lb">总巡检工时——把路途时间翻倍计入，也远小于很多项目实际投入的人力工时</span>
+              </div>
+            </div>
+            <div className="fac-math__note">
+              <p>这不是估算——<b>每一次巡检的实际时长，系统里都有记录。</b></p>
+              <p>我们不替你下结论。人配多了还是配少了，数据摆出来，这笔账双方一起算。</p>
+              <p className="fine">巡检频次与任务量因项目而异，以上为真实项目的示例测算。</p>
+            </div>
           </div>
         </div>
       </section>

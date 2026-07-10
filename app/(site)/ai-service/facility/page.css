@@ -1,0 +1,60 @@
+/* ============================================================
+   AI 设施设备服务 — 页面专属区块样式(.avfac 作用域)。
+   共享标准(对照表/态度块/案例卡/爱物管/合作方式/CTA)在 ../trade.css,
+   本文件只放本页差异化设计:
+   1. 人单合一「闸门流」— 每一步核验通过才解锁下一步
+   2. 工时账「算式卡」— 把一笔账直接摆成算式
+   ============================================================ */
+
+/* ---------- 人单合一 · 闸门流 ---------- */
+.avfac .fac-flow{margin-top:48px;position:relative}
+.avfac .fac-flow::before{content:"";position:absolute;left:27px;top:34px;bottom:34px;width:2px;
+  background:linear-gradient(180deg,#0070FF,#12B98A)}
+.avfac .fac-gate{position:relative;display:grid;grid-template-columns:56px 1fr;gap:22px;padding:20px 0}
+.avfac .fac-gate__dot{position:relative;z-index:1;width:56px;height:56px;border-radius:50%;
+  background:var(--av-paper);border:2px solid var(--av-line);
+  display:flex;align-items:center;justify-content:center;
+  font-weight:800;font-size:15px;color:var(--av-green)}
+.avfac .fac-gate:first-child .fac-gate__dot,
+.avfac .fac-gate:hover .fac-gate__dot{border-color:var(--av-green);box-shadow:0 0 0 5px rgba(18,185,138,.10)}
+.avfac .fac-gate__card{background:var(--av-paper);border:1px solid var(--av-line);border-radius:14px;
+  padding:20px 24px;transition:border-color .25s,transform .25s}
+.avfac .fac-gate:hover .fac-gate__card{border-color:rgba(18,185,138,.45);transform:translateX(4px)}
+.avfac .fac-gate__card h3{margin:0;font-size:17px;font-weight:800;color:var(--av-ink);display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+.avfac .fac-gate__card h3 .gk{font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;
+  color:var(--av-green);background:rgba(18,185,138,.10);border-radius:99px;padding:3px 10px}
+.avfac .fac-gate__card p{margin:9px 0 0;font-size:14.5px;line-height:1.7;color:var(--av-mut)}
+.avfac .fac-gate__card .ag{margin-top:12px;display:inline-flex;align-items:center;gap:6px;
+  font-size:13px;font-weight:700;color:var(--av-blue);text-decoration:none}
+.avfac .fac-gate__card .ag:hover{color:var(--av-green)}
+/* 步与步之间的「闸门」标签 */
+.avfac .fac-lock{position:relative;z-index:1;margin-left:12px;padding:2px 0 2px 44px;
+  font-size:12px;font-weight:700;letter-spacing:.05em;color:var(--av-mut);display:flex;align-items:center;gap:7px}
+.avfac .fac-lock svg{flex:none}
+@media(max-width:640px){
+  .avfac .fac-flow::before{left:21px}
+  .avfac .fac-gate{grid-template-columns:44px 1fr;gap:14px}
+  .avfac .fac-gate__dot{width:44px;height:44px;font-size:13px}
+  .avfac .fac-lock{padding-left:34px}
+}
+
+/* ---------- 工时账 · 算式卡 ---------- */
+.avfac .fac-math{margin-top:44px;display:grid;grid-template-columns:1.25fr 1fr;gap:16px;align-items:stretch}
+@media(max-width:880px){.avfac .fac-math{grid-template-columns:1fr}}
+.avfac .fac-math__eq{background:var(--av-core);border-radius:18px;padding:34px 36px;position:relative;overflow:hidden}
+.avfac .fac-math__eq::after{content:"";position:absolute;right:-70px;top:-70px;width:230px;height:230px;border-radius:50%;
+  background:radial-gradient(circle,rgba(18,185,138,.22),transparent 65%)}
+.avfac .fac-math__eq .row{display:flex;align-items:baseline;gap:14px;flex-wrap:wrap}
+.avfac .fac-math__eq .big{font-size:clamp(30px,4.2vw,44px);font-weight:800;letter-spacing:-.02em;
+  background:var(--av-grad);-webkit-background-clip:text;background-clip:text;color:transparent}
+.avfac .fac-math__eq .op{font-size:clamp(20px,2.6vw,28px);font-weight:700;color:rgba(255,255,255,.45)}
+.avfac .fac-math__eq .lb{display:block;margin-top:2px;font-size:12.5px;color:#9FB4AC;letter-spacing:.02em}
+.avfac .fac-math__eq .item{min-width:120px}
+.avfac .fac-math__eq .res{margin-top:22px;padding-top:20px;border-top:1px solid rgba(255,255,255,.12)}
+.avfac .fac-math__eq .res .big{font-size:clamp(36px,5vw,54px)}
+.avfac .fac-math__note{background:var(--av-paper);border:1px solid var(--av-line);border-radius:18px;
+  padding:28px 30px;display:flex;flex-direction:column;justify-content:center}
+.avfac .fac-math__note p{margin:0;font-size:15px;line-height:1.75;color:var(--av-ink)}
+.avfac .fac-math__note p+p{margin-top:12px}
+.avfac .fac-math__note b{font-weight:800}
+.avfac .fac-math__note .fine{font-size:13px;color:var(--av-mut)}
