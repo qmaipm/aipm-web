@@ -134,7 +134,10 @@
 .isd-cta h2{margin:0 auto;font-weight:800;font-size:clamp(28px,4.4vw,48px);line-height:1.14;letter-spacing:-.025em;color:var(--d-ink);max-width:none;white-space:nowrap}
 @media(max-width:560px){.isd-cta h2{white-space:normal;font-size:clamp(26px,7vw,34px)}}
 .isd-cta p{margin:22px auto 0;font-size:clamp(16px,1.8vw,19px);line-height:1.6;color:var(--d-ink-2);max-width:42ch}
-.isd-cta .cta-row{margin-top:40px;display:flex;justify-content:center}
+.isd-cta .cta-row{margin-top:40px;display:flex;flex-direction:column;align-items:center;gap:18px}
+.isd-cta-alt{font-size:14px;color:var(--d-mut,#7C857F)}
+.isd-cta-alt a{color:var(--d-ink,#14201C);text-decoration:underline;text-underline-offset:3px}
+.isd-cta-alt a:hover{color:var(--d-green,#12B98A)}
 
 /* 可访问性 / 动效降级 */
 .isd a:focus-visible,.isd .btn:focus-visible{outline:2px solid var(--d-green);outline-offset:3px;border-radius:10px}

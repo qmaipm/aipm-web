@@ -76,9 +76,27 @@ export function CaseQuote({ children, by }: { children: React.ReactNode; by: str
   );
 }
 
+// 案例 → AI 物业服务工种页回链(内链闭环:案例页把读者引向对应服务页)
+const TRADE_LINKS: Record<string, { href: string; label: string }[]> = {
+  "aipm-property-ai-transformation": [{ href: "/ai-service", label: "AI 物业服务总览" }],
+  "south-china-mixed-use-6-to-1": [
+    { href: "/ai-service/facility", label: "AI 设施设备服务" },
+    { href: "/ai-service", label: "AI 物业服务总览" },
+  ],
+  "30w-park-ai-property-manager-robot": [
+    { href: "/ai-service/cleaning", label: "AI 清洁服务" },
+    { href: "/ai-service", label: "AI 物业服务总览" },
+  ],
+  "property-group-chat-ai-service": [{ href: "/ai-service/customer-service", label: "AI 客服管家" }],
+  "coworking-supplier-reconciliation": [{ href: "/ai-service/cleaning", label: "AI 清洁服务" }],
+  "restroom-quality": [{ href: "/ai-service/cleaning", label: "AI 清洁服务" }],
+  "fmclaw-equipment-inspection": [{ href: "/ai-service/facility", label: "AI 设施设备服务" }],
+};
+
 export default function CaseShell({ slug, children }: { slug: string; children: React.ReactNode }) {
   const c = getCase(slug);
   const related = getRelated(slug, 3);
+  const trades = TRADE_LINKS[slug] || [];
   const pageUrl = `${SITE_URL}/cases/${c.slug}`;
 
   const articleLd = {
@@ -179,6 +197,17 @@ export default function CaseShell({ slug, children }: { slug: string; children: 
           <p className="reveal">从你的一个真实业务开始。</p>
           <div className="cta-row reveal">
             <Link href="/workshop" className="btn btn-primary">预约 FMClaw™ 加速营 <Arrow s={16} /></Link>
+            {trades.length > 0 && (
+              <span className="alt">
+                或看对应的服务:
+                {trades.map((t, i) => (
+                  <span key={t.href}>
+                    {i > 0 && " · "}
+                    <Link href={t.href}>{t.label}</Link>
+                  </span>
+                ))}
+              </span>
+            )}
           </div>
         </div>
       </section>

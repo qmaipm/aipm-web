@@ -140,6 +140,7 @@ export default function Page() {
           <p className="reveal">从你的一个真实业务开始。</p>
           <div className="cta-row reveal">
             <Link href="/workshop" className="btn btn-primary">预约 FMClaw™ 加速营 <Arrow s={16} /></Link>
+            <span className="alt">想直接让爱物管来交付? 看 <Link href="/ai-service/customer-service">AI 客服管家</Link></span>
           </div>
         </div>
       </section>

@@ -51,6 +51,15 @@ export function FigRow({
   );
 }
 
+// 文章 → AI 物业服务工种页回链(内链闭环:研究文章把读者引向对应服务页)
+const TRADE_LINKS: Record<string, { href: string; label: string }[]> = {
+  "property-management-second-half-ai-company": [{ href: "/ai-service", label: "AI 物业服务总览" }],
+  "ai-property-staff-optimization": [{ href: "/ai-service", label: "AI 物业服务总览" }],
+  "how-to-choose-cleaning-robot-roi": [{ href: "/ai-service/cleaning", label: "AI 清洁服务" }],
+  "digital-labor": [{ href: "/ai-service", label: "AI 物业服务总览" }],
+  "digital-labor-trends": [{ href: "/ai-service", label: "AI 物业服务总览" }],
+};
+
 export default function ArticleShell({
   slug,
   children,
@@ -60,6 +69,7 @@ export default function ArticleShell({
 }) {
   const a = getArticle(slug);
   const recs = getRecommended(slug, 3);
+  const trades = TRADE_LINKS[slug] || [];
   const pageUrl = `${SITE_URL}/insights/${a.slug}`;
 
   // 结构化数据:Article(+ FAQPage,若有 faq)——供搜索引擎与 AI 生成引擎解析/引用
@@ -170,6 +180,17 @@ export default function ArticleShell({
             <Link href="/workshop" className="btn btn-primary" style={{ padding: "16px 32px", fontSize: "16.5px" }}>
               预约 FMClaw™ 加速营 <Arrow />
             </Link>
+            {trades.length > 0 && (
+              <span className="isd-cta-alt">
+                或看对应的服务:
+                {trades.map((t, i) => (
+                  <span key={t.href}>
+                    {i > 0 && " · "}
+                    <Link href={t.href}>{t.label}</Link>
+                  </span>
+                ))}
+              </span>
+            )}
           </div>
         </div>
       </section>

@@ -79,12 +79,12 @@ export default function Home() {
             <p className="h-sub reveal">四类人来这儿想搞明白的事不一样。挑一个最像你的，往下走。</p>
           </div>
           <div className="h-tri">
-            <Link href="/solutions/inspection" className="h-t reveal">
+            <Link href="/ai-service" className="h-t reveal">
               <div className="accent" style={{ background: "var(--vi-blue)" }} />
               <div className="who">业主 · 行政负责人</div>
               <h3>我管着一批楼宇或园区</h3>
-              <p>把 AI 接入日常运营里的判断与对账，人只做最后那个决定。</p>
-              <span className="go">设施管理解决方案 <ArrowR s={14} /></span>
+              <p>清洁、设施、安保、客服，由 AI 接管的物业服务——指标写进合同。</p>
+              <span className="go">AI 物业服务 <ArrowR s={14} /></span>
             </Link>
             <Link href="/agents" className="h-t reveal">
               <div className="accent" style={{ background: "var(--vi-green)" }} />
