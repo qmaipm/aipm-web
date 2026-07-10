@@ -157,7 +157,7 @@ export default function Page() {
 
       {/* HERO */}
       <section className="av-hero">
-        <div className="av-hero__bg" style={{ backgroundImage: "url(/ai-service/env.jpg)" }} aria-hidden="true" />
+        <div className="av-hero__bg" style={{ backgroundImage: "url(/ai-service/cleaning-hero.jpg)" }} aria-hidden="true" />
         <div className="av-grid" aria-hidden="true" />
         <div className="wrap av-hero-top">
           <span className="av-kicker">
