@@ -22,8 +22,8 @@
 .cm-hero{position:relative;overflow:hidden;color:#fff;background:var(--cm-core);padding:186px 0 76px;min-height:680px;display:flex;align-items:flex-end}
 .cm-hero__bg{position:absolute;inset:0;z-index:0;background:url(/company/hero.jpg) center/cover no-repeat}
 .cm-hero__bg::after{content:"";position:absolute;inset:0;
-  background:linear-gradient(180deg,rgba(7,15,13,.60) 0%,rgba(7,15,13,.34) 40%,rgba(7,15,13,.90) 100%),
-             linear-gradient(100deg,rgba(7,15,13,.55) 0%,rgba(7,15,13,.18) 55%,transparent 80%)}
+  background:linear-gradient(180deg,rgba(7,15,13,.42) 0%,rgba(7,15,13,.22) 42%,rgba(7,15,13,.86) 100%),
+             linear-gradient(100deg,rgba(7,15,13,.50) 0%,rgba(7,15,13,.14) 55%,transparent 80%)}
 .cm-hero-top{position:relative;z-index:2;width:100%}
 .cm-kicker{display:inline-flex;align-items:center;flex-wrap:wrap;font-size:12px;font-weight:600;letter-spacing:.14em;
   text-transform:uppercase;color:#9fded0}
