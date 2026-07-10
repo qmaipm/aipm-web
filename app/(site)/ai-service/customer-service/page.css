@@ -1,0 +1,92 @@
+/* ============================================================
+   AI 客服管家 — 页面专属区块样式(.avcs 作用域)。
+   共享标准在 ../trade.css。本文件只放本页差异化设计:
+   1. 专属管家名片卡(cs-id)
+   2. 报修自动闭环五步流(cs-flow)
+   3. 透明问答演示 · 暗场聊天(cs-chat)
+   4. 数据来源三卡(cs-src) + 浅底案例卡变体
+   ============================================================ */
+
+/* ---------- 专属管家名片卡 ---------- */
+.avcs .cs-id{margin-top:44px;display:grid;grid-template-columns:.92fr 1.08fr;gap:40px;align-items:center}
+@media(max-width:860px){.avcs .cs-id{grid-template-columns:1fr;gap:26px}}
+.avcs .cs-id__card{position:relative;background:var(--av-core);border-radius:20px;padding:30px 32px;overflow:hidden;
+  box-shadow:0 26px 56px rgba(11,23,20,.28)}
+.avcs .cs-id__card::after{content:"";position:absolute;right:-70px;top:-70px;width:220px;height:220px;border-radius:50%;
+  background:radial-gradient(circle,rgba(18,185,138,.22),transparent 65%)}
+.avcs .cs-id__top{position:relative;z-index:1;display:flex;align-items:center;gap:16px}
+.avcs .cs-id__ava{flex:none;width:54px;height:54px;border-radius:16px;background:var(--av-grad);
+  display:flex;align-items:center;justify-content:center}
+.avcs .cs-id__nm{display:block;font-size:19px;font-weight:800;letter-spacing:-.01em;color:#fff}
+.avcs .cs-id__st{display:flex;align-items:center;gap:7px;margin-top:5px;font-size:12.5px;font-weight:600;color:#5fe0c6}
+.avcs .cs-id__st i{width:7px;height:7px;border-radius:50%;background:#3fd9b8;box-shadow:0 0 0 3px rgba(63,217,184,.22);
+  animation:csPulse 2.2s ease-in-out infinite}
+@keyframes csPulse{0%,100%{box-shadow:0 0 0 3px rgba(63,217,184,.22)}50%{box-shadow:0 0 0 6px rgba(63,217,184,.08)}}
+.avcs .cs-id__facts{position:relative;z-index:1;list-style:none;margin:22px 0 0;padding:18px 0 0;border-top:1px solid rgba(255,255,255,.12);
+  display:grid;gap:11px}
+.avcs .cs-id__facts li{display:flex;gap:10px;align-items:flex-start;font-size:14px;line-height:1.6;color:#D7E2DD}
+.avcs .cs-id__facts li::before{content:"";flex:none;width:6px;height:6px;border-radius:50%;background:var(--av-grad);margin-top:8px}
+.avcs .cs-id__facts b{color:#fff;font-weight:700}
+.avcs .cs-id__body p{margin:0;font-size:15.5px;line-height:1.8;color:var(--av-ink-2)}
+.avcs .cs-id__body p+p{margin-top:14px}
+.avcs .cs-id__body b{color:var(--av-ink);font-weight:700}
+
+/* ---------- 报修闭环五步流 ---------- */
+.avcs .cs-flow{margin-top:48px;display:grid;grid-template-columns:repeat(5,1fr);gap:12px}
+@media(max-width:1020px){.avcs .cs-flow{grid-template-columns:1fr 1fr}}
+@media(max-width:560px){.avcs .cs-flow{grid-template-columns:1fr}}
+.avcs .cs-flow__step{position:relative;border:1px solid var(--av-line);border-radius:15px;background:var(--av-paper);
+  padding:22px 20px 18px;transition:border-color .2s,box-shadow .2s,transform .2s}
+.avcs .cs-flow__step:hover{border-color:rgba(12,139,130,.32);box-shadow:0 14px 32px rgba(12,139,130,.1);transform:translateY(-3px)}
+.avcs .cs-flow__step.is-auto{background:linear-gradient(180deg,rgba(18,185,138,.07),var(--av-paper));border-color:rgba(18,185,138,.3)}
+.avcs .cs-flow__step .n{display:flex;align-items:center;gap:8px;font-size:12px;font-weight:800;letter-spacing:.08em;color:var(--av-faint)}
+.avcs .cs-flow__step .au{font-style:normal;font-size:10.5px;font-weight:800;letter-spacing:.1em;color:#fff;
+  background:var(--av-grad);border-radius:999px;padding:2px 8px}
+.avcs .cs-flow__step h3{margin:11px 0 0;font-size:16.5px;font-weight:800;letter-spacing:-.01em;color:var(--av-ink)}
+.avcs .cs-flow__step p{margin:8px 0 0;font-size:13.5px;line-height:1.65;color:var(--av-mut)}
+.avcs .cs-flow__ar{position:absolute;right:-10px;top:50%;transform:translateY(-50%);width:8px;height:8px;z-index:1;
+  border-top:2px solid rgba(12,139,130,.5);border-right:2px solid rgba(12,139,130,.5);rotate:45deg}
+@media(max-width:1020px){.avcs .cs-flow__ar{display:none}}
+
+/* ---------- 透明问答演示(暗场聊天) ---------- */
+.avcs .cs-chat{margin-top:42px;max-width:760px;border:1px solid rgba(255,255,255,.14);border-radius:20px;
+  background:rgba(255,255,255,.04);padding:30px 32px 26px}
+@media(max-width:640px){.avcs .cs-chat{padding:22px 20px 20px}}
+.avcs .cs-chat__pair+.cs-chat__pair{margin-top:22px}
+.avcs .cs-chat__q{display:flex;justify-content:flex-end}
+.avcs .cs-chat__q span{max-width:78%;background:rgba(255,255,255,.12);color:#fff;font-size:14.5px;font-weight:600;line-height:1.6;
+  border-radius:16px 16px 4px 16px;padding:12px 18px}
+.avcs .cs-chat__a{display:flex;justify-content:flex-start;margin-top:10px}
+.avcs .cs-chat__a span{position:relative;max-width:86%;background:rgba(18,185,138,.13);border:1px solid rgba(63,217,184,.28);
+  color:#D7E2DD;font-size:14.5px;line-height:1.7;border-radius:16px 16px 16px 4px;padding:13px 18px}
+.avcs .cs-chat__a b{color:#5fe0c6;font-weight:800}
+.avcs .cs-chat__chips{margin-top:26px;padding-top:20px;border-top:1px solid rgba(255,255,255,.1);
+  display:flex;flex-wrap:wrap;gap:9px}
+.avcs .cs-chat__chips .chip{font-size:12.5px;font-weight:600;color:#9FB4AC;border:1px solid rgba(255,255,255,.16);
+  border-radius:999px;padding:7px 14px;transition:color .2s,border-color .2s}
+.avcs .cs-chat__chips .chip:hover{color:#5fe0c6;border-color:rgba(63,217,184,.5)}
+
+/* 暗场里的态度声明变体 */
+.avcs .cs-stand-dark{margin-top:38px;background:rgba(255,255,255,.05);border-left-color:#3fd9b8}
+.avcs .cs-stand-dark p{color:#D7E2DD}
+.avcs .cs-stand-dark b{color:#fff}
+
+/* ---------- 数据来源三卡 ---------- */
+.avcs .cs-src{margin-top:44px;display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+@media(max-width:860px){.avcs .cs-src{grid-template-columns:1fr}}
+.avcs .cs-src__card{display:flex;flex-direction:column;border:1px solid var(--av-line);border-radius:16px;background:var(--av-paper);
+  padding:24px 24px 20px;transition:border-color .2s,box-shadow .2s,transform .2s}
+.avcs .cs-src__card:hover{border-color:rgba(12,139,130,.35);box-shadow:0 16px 36px rgba(12,139,130,.1);transform:translateY(-3px)}
+.avcs .cs-src__card .lb{font-size:11.5px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--av-green)}
+.avcs .cs-src__card h3{margin:10px 0 0;font-size:16.5px;font-weight:800;letter-spacing:-.01em;line-height:1.4;color:var(--av-ink)}
+.avcs .cs-src__card p{margin:8px 0 0;font-size:13.5px;line-height:1.65;color:var(--av-mut);flex:1}
+.avcs .cs-src__card .go{margin-top:15px;display:inline-flex;align-items:center;gap:6px;font-size:13px;font-weight:600;color:var(--av-green)}
+.avcs .cs-src__card:hover .go .ar{transform:translateX(3px)}
+
+/* 浅底案例卡变体(avc-case 默认为暗场设计) */
+.avcs .avc-case.on-light{border-color:var(--av-line);background:var(--av-paper)}
+.avcs .avc-case.on-light:hover{border-color:rgba(12,139,130,.4);background:var(--av-paper);box-shadow:0 16px 36px rgba(12,139,130,.1)}
+.avcs .avc-case.on-light .tag{color:var(--av-mut)}
+.avcs .avc-case.on-light h3{color:var(--av-ink)}
+.avcs .avc-case.on-light p{color:var(--av-ink-2)}
+.avcs .avc-case.on-light .go{color:var(--av-green)}

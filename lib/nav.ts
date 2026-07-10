@@ -69,11 +69,11 @@ export const MENU: MenuItem[] = [
       },
       {
         heading: "四大工种",
-        // 客服页(/ai-service/customer-service)建成后在此补充。
         items: [
           { label: "AI 清洁服务", href: "/ai-service/cleaning", small: "干没干,数据会说话" },
           { label: "AI 设施设备服务", href: "/ai-service/facility", small: "每一次巡检,都真实发生" },
           { label: "AI 安保服务", href: "/ai-service/security", small: "人看不过来的,交给 AI 看" },
+          { label: "AI 客服管家", href: "/ai-service/customer-service", small: "什么都可以问的物业管家" },
         ],
       },
     ],
