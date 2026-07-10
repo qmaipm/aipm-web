@@ -12,6 +12,7 @@ const ROUTES = [
   "/ai-service",
   "/ai-service/cleaning",
   "/ai-service/facility",
+  "/ai-service/security",
   "/agents",
   "/workshop",
   "/cases",
