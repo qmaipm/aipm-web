@@ -3,7 +3,7 @@ import Link from "next/link";
 import JsonLd from "@/components/JsonLd";
 import SeoFaq from "@/components/SeoFaq";
 import "../page.css";
-import "./page.css";
+import "../trade.css";
 
 const SITE_URL = process.env.SITE_URL || "https://www.aipm.cn";
 
@@ -152,7 +152,7 @@ const BREADCRUMB_LD = {
 
 export default function Page() {
   return (
-    <main className="aisv avclean">
+    <main className="aisv avtrade">
       <JsonLd data={[SERVICE_LD, BREADCRUMB_LD]} />
 
       {/* HERO */}

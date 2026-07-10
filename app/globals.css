@@ -448,7 +448,7 @@ section.band.dark .scenario-quote .sq-detail{color:var(--dark-mut-c)}
 
 /* ---------- footer ---------- */
 footer.ft{background:var(--dark); color:var(--dark-mut-c); padding:80px 0 44px}
-.ft-grid{display:grid; grid-template-columns:1.6fr repeat(4,1fr) auto; gap:40px}
+.ft-grid{display:grid; grid-template-columns:1.5fr repeat(5,1fr) auto; gap:34px}
 @media (max-width:880px){.ft-grid{grid-template-columns:1fr 1fr}}
 @media (max-width:520px){.ft-grid{grid-template-columns:1fr}}
 .ft-qr{display:flex; flex-direction:column; align-items:flex-start}

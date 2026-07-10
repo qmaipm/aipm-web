@@ -64,15 +64,16 @@ export const MENU: MenuItem[] = [
     groups: [
       {
         items: [
-          { label: "AI 物业服务(总览)", href: "/ai-service", small: "「专业 + 数字」一体化 · 省心 周到 主动 智能" },
+          { label: "AI 物业服务(总览)", href: "/ai-service", small: "换物业,先换一种方式" },
         ],
       },
       {
         heading: "四大工种",
-        // 其余三个工种页(设施设备 /ai-service/facility、安保 /ai-service/security、
-        // 客服 /ai-service/customer-service)建成后在此逐个补充。
         items: [
           { label: "AI 清洁服务", href: "/ai-service/cleaning", small: "干没干,数据会说话" },
+          { label: "AI 设施设备服务", href: "/ai-service/facility", small: "每一次巡检,都真实发生" },
+          { label: "AI 安保服务", href: "/ai-service/security", small: "人看不过来的,交给 AI 看" },
+          { label: "AI 客服管家", href: "/ai-service/customer-service", small: "站在你这边的物业管家" },
         ],
       },
     ],
@@ -126,6 +127,16 @@ export const FOOTER_COLS: { title: string; links: DropItem[] }[] = [
       { label: "第三方平台 AI 协同", href: "/products/collaboration" },
       { label: "IoT 物理感知", href: "/products/iot" },
       { label: "机器人装备", href: "/products/robots" },
+    ],
+  },
+  {
+    title: "AI 物业服务",
+    links: [
+      { label: "AI 物业服务总览", href: "/ai-service" },
+      { label: "AI 清洁服务", href: "/ai-service/cleaning" },
+      { label: "AI 设施设备服务", href: "/ai-service/facility" },
+      { label: "AI 安保服务", href: "/ai-service/security" },
+      { label: "AI 客服管家", href: "/ai-service/customer-service" },
     ],
   },
   {

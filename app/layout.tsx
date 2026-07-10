@@ -51,6 +51,18 @@ const ORG_LD = {
   url: SITE_URL,
   logo: `${SITE_URL}/logo-stalliance-clean.png`,
   description: "面向物业与设施管理(FM)的行业级 AI 平台,核心产品 FMClaw™ AI 平台。",
+  foundingDate: "2017",
+  slogan: "让智能走进物理世界",
+  award: [
+    "广州市人工智能百强企业(广州市工业和信息化局认可)",
+    "NVIDIA Inception 全球 AI 加速营成员",
+    "国家高新技术企业",
+  ],
+  subOrganization: {
+    "@type": "Organization",
+    name: "爱物管",
+    description: "启盟科技自营的物业公司,AI 物业服务的履约交付主体。",
+  },
 };
 const SITE_LD = {
   "@context": "https://schema.org",

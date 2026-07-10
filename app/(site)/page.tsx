@@ -75,23 +75,23 @@ export default function Home() {
         <div className="wrap">
           <div className="h-sechead">
             <span className="h-eyebrow reveal">对号入座</span>
-            <h2 className="h-h2 reveal">你从哪儿来，先看哪儿</h2>
-            <p className="h-sub reveal">四类人来这儿想搞明白的事不一样。挑一个最像你的，往下走。</p>
+            <h2 className="h-h2 reveal">你来这儿，想解决什么</h2>
+            <p className="h-sub reveal">四种来意，四条路。挑一个最像你的，往下走。</p>
           </div>
           <div className="h-tri">
-            <Link href="/solutions/inspection" className="h-t reveal">
+            <Link href="/agents" className="h-t reveal">
               <div className="accent" style={{ background: "var(--vi-blue)" }} />
               <div className="who">业主 · 行政负责人</div>
-              <h3>我管着一批楼宇或园区</h3>
-              <p>把 AI 接入日常运营里的判断与对账，人只做最后那个决定。</p>
-              <span className="go">设施管理解决方案 <ArrowR s={14} /></span>
+              <h3>我想用 AI 管好我的楼宇和园区</h3>
+              <p>巡检、对账、工单、报告——日常运营里的判断与流转，交给智能体。</p>
+              <span className="go">智能体解决方案 <ArrowR s={14} /></span>
             </Link>
-            <Link href="/agents" className="h-t reveal">
+            <Link href="/ai-service" className="h-t reveal">
               <div className="accent" style={{ background: "var(--vi-green)" }} />
-              <div className="who">物业 · FM 公司</div>
-              <h3>我经营一家物业 / FM 公司</h3>
-              <p>越来越多的物业服务，正在由 Agent 完成。把它接进你的交付。</p>
-              <span className="go">按职能看解决方案 <ArrowR s={14} /></span>
+              <div className="who">上市公司 · 国企产业园</div>
+              <h3>我想要更省心的物业服务</h3>
+              <p>清洁、设施、安保、客服，由 AI 接管的物业服务——指标写进合同。</p>
+              <span className="go">AI 物业服务 <ArrowR s={14} /></span>
             </Link>
             <Link href="/cobuild" className="h-t reveal">
               <div className="accent" style={{ background: "var(--teal)" }} />
@@ -102,9 +102,9 @@ export default function Home() {
             </Link>
             <Link href="/products/fmclaw" className="h-t reveal">
               <div className="accent" style={{ background: "#18A5C9" }} />
-              <div className="who">开发者 · 集成商</div>
-              <h3>我做智慧楼宇 / 园区集成</h3>
-              <p>一套已经工具化的 AI 基座，配上去就能交付给你的甲方。</p>
+              <div className="who">物业公司 · 集成商</div>
+              <h3>我要给自己的交付装上 AI</h3>
+              <p>同行也在用的 AI 基座——接上你的项目，交付给你的甲方。</p>
               <span className="go">FMClaw™ AI 平台 <ArrowR s={14} /></span>
             </Link>
           </div>
