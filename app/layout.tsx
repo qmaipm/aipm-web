@@ -1,5 +1,6 @@
 import type { Metadata, Viewport } from "next";
 import JsonLd from "@/components/JsonLd";
+import BaiduAnalytics from "@/components/BaiduAnalytics";
 
 // 运行时渲染:让 metadataBase(OG / canonical 绝对地址)按容器注入的 SITE_URL 取值,
 // 测试站显示测试域名、生产站显示生产域名,单镜像适配两套环境。
@@ -77,6 +78,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     <html lang="zh-CN">
       <body className="antialiased">
         <JsonLd data={[ORG_LD, SITE_LD]} />
+        <BaiduAnalytics />
         {children}
       </body>
     </html>
