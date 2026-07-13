@@ -53,6 +53,10 @@ export function FigRow({
 
 // 文章 → AI 物业服务工种页回链(内链闭环:研究文章把读者引向对应服务页)
 const TRADE_LINKS: Record<string, { href: string; label: string }[]> = {
+  "ai-transformation-bottom-up": [
+    { href: "/workshop/competition", label: "AI 应用创新大赛" },
+    { href: "/workshop/fde", label: "FDE 服务" },
+  ],
   "property-management-second-half-ai-company": [{ href: "/ai-service", label: "AI 物业服务总览" }],
   "ai-property-staff-optimization": [{ href: "/ai-service", label: "AI 物业服务总览" }],
   "how-to-choose-cleaning-robot-roi": [{ href: "/ai-service/cleaning", label: "AI 清洁服务" }],
