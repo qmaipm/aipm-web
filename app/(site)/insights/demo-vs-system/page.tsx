@@ -2,7 +2,7 @@ import Link from "next/link";
 import ArticleShell, { Figure } from "../_ArticleShell";
 
 export const metadata = {
-  title: "一个 Demo 和一个系统之间,隔着什么? · 行业研究 — 启盟科技",
+  title: "一个 Demo 和一个系统之间,隔着四道工程鸿沟 · 行业研究 — 启盟科技",
   description:
     "Demo 很容易搭,系统很难做——公开讨论中,大量企业 AI 项目卡在从 POC 到生产的最后一公里。中间隔着的是四道工程鸿沟:数据要治理、数据要分发、智能体要协同(A2A)、输出要一致和确定。尤其在 B 端行业应用里,算一笔账、出一份周报,第一次和第二次的结果必须一样——这种对一致性和确定性的极致要求,是通用智能体平台搭出来的 demo 无法满足的,也是行业级 all in one 平台真正的价值所在。",
 };
@@ -100,7 +100,7 @@ export default function Page() {
         数据治理、数据分发、智能体协同、一致性与确定性——这四种能力有一个共同点:<b>它们都只能长在平台层,而不是单个智能体身上。</b>这就是我们说的 all in one:模型 all in one(统一调度)、软件 all in one(业务操作在平台内完成)、数据 all in one(治理与流转在平台内闭环)、技能 all in one(行业能力内置为积木)。只有所有环节都在一个底座上,整条业务流程才能在高度自动化下,同时获得高的一致性和确定性——这是行业级智能体平台和通用平台的分水岭,也值得我们下次专门写一篇细讲。
       </p>
       <p>
-        所以,回到标题的问题。一个 demo 和一个系统之间隔着什么?隔着数据治理的苦活、数据分发的管道、智能体协同的调度、一致性与确定性的工程分层——一言以蔽之,<b>隔着一整套平台级的工程能力。</b>Demo 帮你看清"值不值得做",这一步很重要,我们甚至专门做了 <Link href="/workshop/demo-day">Demo Day</Link> 来帮企业完成它;但看清之后,请对下一步的分量有清醒的预期:把 demo 做成系统,是一段真正的工程,需要专业的人用专业的方法去走。(这段路怎么走、按什么节奏交付,见我们的 <Link href="/workshop/fde">FDE 服务</Link>。)
+        所以,回到开头的问题。一个 demo 和一个系统之间隔着什么?隔着数据治理的苦活、数据分发的管道、智能体协同的调度、一致性与确定性的工程分层——一言以蔽之,<b>隔着一整套平台级的工程能力。</b>Demo 帮你看清"值不值得做",这一步很重要,我们甚至专门做了 <Link href="/workshop/demo-day">Demo Day</Link> 来帮企业完成它;但看清之后,请对下一步的分量有清醒的预期:把 demo 做成系统,是一段真正的工程,需要专业的人用专业的方法去走。(这段路怎么走、按什么节奏交付,见我们的 <Link href="/workshop/fde">FDE 服务</Link>。)
       </p>
 
       <div className="case">
@@ -110,7 +110,7 @@ export default function Page() {
         </p>
         <ul>
           <li>
-            本文承接<Link href="/insights/what-is-fde">《什么是 FDE》</Link>:FDE 的工作,正是带着工程能力去填这四道鸿沟。场景从哪里来,见<Link href="/insights/ai-transformation-bottom-up">《AI 转型的动力,为什么应该从一线长出来》</Link>和<Link href="/insights/how-to-run-ai-competition">《怎么办好一场 AI 应用创新大赛》</Link>。
+            本文承接<Link href="/insights/what-is-fde">《什么是 FDE》</Link>:FDE 的工作,正是带着工程能力去填这四道鸿沟。场景从哪里来,见<Link href="/insights/ai-transformation-bottom-up">《AI 转型的动力,为什么应该从一线长出来》</Link>和<Link href="/insights/how-to-run-ai-competition">《怎么办好一场企业 AI 应用创新大赛》</Link>。
           </li>
           <li>
             如果你想先眼见为实地判断"值不值得做",从<Link href="/workshop/demo-day">Demo Day</Link>开始;如果场景已经验证、要动真格做成系统,直接聊<Link href="/workshop/fde">FDE 服务</Link>。
