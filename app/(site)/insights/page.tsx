@@ -1,7 +1,7 @@
 import Link from "next/link";
 import "./page.css";
 import PostList from "./_PostList";
-import { getArticle } from "./articles";
+import { ARTICLES } from "./articles";
 
 export const metadata = {
   title: "行业研究 · 启盟科技看物业与 FM 行业 — 启盟科技",
@@ -16,7 +16,11 @@ const Arrow = ({ s = 15 }: { s?: number }) => (
 );
 
 export default function Page() {
-  const featured = getArticle("property-management-second-half-ai-company");
+  // 按周更新:自动取最新发布日期的一批文章作为头条
+  const sorted = [...ARTICLES].sort((a, b) => b.date.localeCompare(a.date));
+  const latestDate = sorted[0].date;
+  const weekly = sorted.filter((a) => a.date === latestDate);
+  const [featured, ...more] = weekly;
 
   return (
     <main className="solis">
@@ -43,25 +47,43 @@ export default function Page() {
         </div>
       </section>
 
-      {/* 头条 */}
+      {/* 本周更新 */}
       <section className="is-band" id="featured">
         <div className="wrap">
-          <span className="is-eyebrow">头条</span>
-          <h2 className="is-h2">这一篇,值得你先读</h2>
-          <p className="is-sub">下半场的真问题不是“物业公司该卖什么”,而是“物业公司该变成一家什么公司”。</p>
+          <span className="is-eyebrow">本周更新</span>
+          <h2 className="is-h2">这周发了什么,从这里开始读</h2>
+          <p className="is-sub">每周的新研究都会放在这里 · 本期更新于 {latestDate},共 {weekly.length} 篇。</p>
 
           <Link className="is-featured" href={`/insights/${featured.slug}`}>
             <div className="is-cover" aria-hidden="true">
-              <img className="is-cover-img" src="/insights/second-half-ai-company-cover.jpg" alt="" />
+              {featured.cover ? <img className="is-cover-img" src={featured.cover} alt="" /> : <div className="is-cover-mesh" />}
               <span className="is-ftag">{featured.theme}</span>
             </div>
             <div className="is-fbody">
-              <div className="is-ftag-tx">FEATURED · {featured.theme}</div>
+              <div className="is-ftag-tx">本周更新 · {featured.theme}</div>
               <h3>{featured.title}</h3>
-              <p>主流答案都在讨论物业公司“该多卖什么、怎么定价”,却默认了同一个前提:它永远是一家物业公司。但当管理 80-90% 由智能体完成、执行层人机协同、空间遍布 IoT,把“物业”两个字拿掉,它本质上已经是一家人工智能公司。下半场的终局,不是更好的物业公司,而是一家 AI 公司。</p>
+              <p>{featured.desc}</p>
               <div className="is-fmeta">{featured.by} <span className="dot" aria-hidden>·</span> {featured.date} <span className="dot" aria-hidden>·</span> {featured.read}阅读 <Arrow s={14} /></div>
             </div>
           </Link>
+
+          {more.length > 0 && (
+            <div className="is-fmore">
+              {more.map((a) => (
+                <Link key={a.slug} className="is-fmore-item" href={`/insights/${a.slug}`}>
+                  {a.cover ? (
+                    <span className="is-fmore-thumb" aria-hidden="true"><img src={a.cover} alt="" loading="lazy" /></span>
+                  ) : null}
+                  <span className="is-fmore-body">
+                    <span className="is-fmore-tag">本周更新 · {a.theme}</span>
+                    <span className="is-fmore-title">{a.title}</span>
+                    <span className="is-fmore-desc">{a.desc}</span>
+                    <span className="is-fmore-meta">{a.by} · {a.date} · {a.read}阅读 <Arrow s={13} /></span>
+                  </span>
+                </Link>
+              ))}
+            </div>
+          )}
         </div>
       </section>
 

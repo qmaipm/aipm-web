@@ -177,6 +177,7 @@ export const ARTICLES: Article[] = [
     by: "启盟科技",
     date: "2026.06.27",
     read: "11 分钟",
+    cover: "/insights/cleaning-robot-cover.jpg",
     faq: [
       {
         q: "物业应该怎么选清洁机器人? 核心标准是什么?",
@@ -212,6 +213,7 @@ export const ARTICLES: Article[] = [
     by: "启盟科技",
     date: "2026.03.04",
     read: "9 分钟",
+    cover: "/insights/why-obc-cover.jpg",
     faq: [
       {
         q: "什么是“数人头”的物业合约模式?",
@@ -243,6 +245,7 @@ export const ARTICLES: Article[] = [
     by: "启盟科技",
     date: "2026.03.12",
     read: "8 分钟",
+    cover: "/insights/about-obc-cover.jpg",
     faq: [
       {
         q: "OBC(Outcome-Based Contracting)是什么?",
@@ -274,6 +277,7 @@ export const ARTICLES: Article[] = [
     by: "启盟科技",
     date: "2026.03.20",
     read: "8 分钟",
+    cover: "/insights/obc-practice-cover.jpg",
     faq: [
       {
         q: "OBC 模式怎么落地到保洁服务?",
@@ -301,6 +305,7 @@ export const ARTICLES: Article[] = [
     by: "启盟科技",
     date: "2026.03.28",
     read: "7 分钟",
+    cover: "/insights/obc-impact-cover.jpg",
     faq: [
       {
         q: "OBC 模式目前应用到什么程度?",
@@ -328,6 +333,7 @@ export const ARTICLES: Article[] = [
     by: "启盟科技",
     date: "2026.04.06",
     read: "12 分钟",
+    cover: "/insights/obc-china-3-case1.jpg",
     faq: [
       {
         q: "OBC 在中国怎么落地考核?",
@@ -347,7 +353,7 @@ export const ARTICLES: Article[] = [
     by: "启盟科技",
     date: "2026.04.18",
     read: "10 分钟",
-    cover: "/insights/industry-llm-6-cover.png",
+    cover: "/insights/industry-llm-cover.jpg",
     faq: [
       {
         q: "物管行业大模型和通用大模型有什么不同?",
@@ -363,6 +369,7 @@ export const ARTICLES: Article[] = [
     by: "启盟科技",
     date: "2026.05.02",
     read: "9 分钟",
+    cover: "/insights/digital-labor-cover.jpg",
     faq: [
       {
         q: "什么是数字劳动力 / 数字员工?",
@@ -378,6 +385,7 @@ export const ARTICLES: Article[] = [
     by: "启盟科技",
     date: "2026.05.14",
     read: "10 分钟",
+    cover: "/insights/digital-labor-trends-cover.jpg",
     faq: [
       {
         q: "数字劳动力的发展趋势是什么?",
