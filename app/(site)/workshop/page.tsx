@@ -167,7 +167,7 @@ const faqs = [
   },
   {
     q: "费用怎么算？",
-    a: "Demo Day 与加速营的费用提前收取，进入正式合作后可按比例抵扣。大赛与 FDE 服务按方案单独报价。",
+    a: "Demo Day 和加速营免费。大赛与 FDE 服务按方案单独报价。",
   },
   {
     q: "数据保密怎么保障？",
@@ -306,7 +306,7 @@ export default function Page() {
         <div className="wrap">
           <span className="ws-eyebrow">关于时间与费用</span>
           <p className="ws-fee">
-            Demo Day 与加速营的费用提前收取，进入正式合作后可按比例抵扣；大赛与 FDE 服务按方案单独约定。
+            Demo Day 和加速营免费；大赛与 FDE 服务按方案单独报价。
             我们更在意的是——结束时，你手上是否留下了能用的东西。
           </p>
         </div>
