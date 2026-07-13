@@ -172,7 +172,7 @@ export default function Page() {
             <b>赛完不散场，获奖课题接着落地。</b>
           </p>
           <div className="ws-cta">
-            <Link href="/workshop#signup" className="btn btn-primary">聊聊办一场大赛 <ArrowR /></Link>
+            <Link href="/workshop?mode=competition#signup" className="btn btn-primary">聊聊办一场大赛 <ArrowR /></Link>
             <a href="#phases" className="btn btn-ghost">看赛程怎么走 <ArrowR /></a>
           </div>
           <div className="ws-proof">
@@ -324,7 +324,7 @@ export default function Page() {
           <h2 className="reveal">给你的一线一个舞台，<br />给转型一个真正的起点</h2>
           <p className="reveal">2–4 周，从发动到颁奖，赛完接着落地。</p>
           <div className="cta-row reveal">
-            <Link href="/workshop#signup" className="btn btn-primary">聊聊办一场大赛 <ArrowR s={16} /></Link>
+            <Link href="/workshop?mode=competition#signup" className="btn btn-primary">聊聊办一场大赛 <ArrowR s={16} /></Link>
           </div>
         </div>
       </section>

@@ -1,10 +1,20 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 const isEmail = (v: string) => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v);
 
 type Status = "idle" | "sending" | "ok" | "error";
+
+const MODES = ["还没想好，帮我判断", "Demo Day（半天–1 天）", "加速营 · Bootcamp（2–3 天）", "办一场 AI 应用创新大赛", "FDE 服务（按阶段交付）"];
+
+// 子页链接预选：/workshop?mode=demo-day|bootcamp|competition|fde#signup
+const MODE_MAP: Record<string, string> = {
+  "demo-day": MODES[1],
+  bootcamp: MODES[2],
+  competition: MODES[3],
+  fde: MODES[4],
+};
 
 export default function WorkshopForm() {
   const [company, setCompany] = useState("");
@@ -13,8 +23,14 @@ export default function WorkshopForm() {
   const [phone, setPhone] = useState("");
   const [email, setEmail] = useState("");
   const [problem, setProblem] = useState("");
+  const [mode, setMode] = useState(MODES[0]);
   const [time, setTime] = useState("");
   const [nda, setNda] = useState("视情况而定");
+
+  useEffect(() => {
+    const m = new URLSearchParams(window.location.search).get("mode");
+    if (m && MODE_MAP[m]) setMode(MODE_MAP[m]);
+  }, []);
 
   const [status, setStatus] = useState<Status>("idle");
   const [err, setErr] = useState("");
@@ -50,6 +66,7 @@ export default function WorkshopForm() {
             { label: "手机", value: phone },
             { label: "邮箱", value: email },
             { label: "最头疼的一个业务问题", value: problem },
+            { label: "感兴趣的形式", value: mode },
             { label: "期望时间", value: time },
             { label: "是否需要保密协议", value: nda },
           ],
@@ -96,10 +113,12 @@ export default function WorkshopForm() {
         <div className="hint">200 字以内即可。这一栏决定了我们能不能帮上忙。</div>
       </div>
       <div className="field-row">
+        <div className="field"><label>感兴趣的形式</label>
+          <select value={mode} onChange={(e) => setMode(e.target.value)}>{MODES.map((m) => <option key={m}>{m}</option>)}</select></div>
         <div className="field"><label>期望时间</label><input type="text" placeholder="如:7 月上旬" value={time} onChange={(e) => setTime(e.target.value)} /></div>
-        <div className="field"><label>是否需要保密协议</label>
-          <select value={nda} onChange={(e) => setNda(e.target.value)}><option>视情况而定</option><option>需要</option><option>不需要</option></select></div>
       </div>
+      <div className="field"><label>是否需要保密协议</label>
+        <select value={nda} onChange={(e) => setNda(e.target.value)}><option>视情况而定</option><option>需要</option><option>不需要</option></select></div>
       {err && <p className="form-err" role="alert">{err}</p>}
       <button className="btn btn-primary" type="submit" style={{ marginTop: "6px" }} disabled={status === "sending"}>
         {status === "sending" ? "提交中…" : <>提交预约 <svg className="ar" width="15" height="15" viewBox="0 0 16 16"><path d="M3 8h10M9 4l4 4-4 4" fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round" /></svg></>}

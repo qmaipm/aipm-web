@@ -169,7 +169,7 @@ export default function Page() {
             <b>跑通的东西，留给你。</b>
           </p>
           <div className="ws-cta">
-            <Link href="/workshop#signup" className="btn btn-primary">预约加速营 <ArrowR /></Link>
+            <Link href="/workshop?mode=bootcamp#signup" className="btn btn-primary">预约加速营 <ArrowR /></Link>
             <a href="#steps" className="btn btn-ghost">看四步怎么走 <ArrowR /></a>
           </div>
           <div className="ws-proof">
@@ -338,7 +338,7 @@ export default function Page() {
           <h2 className="reveal">带对的人和真的问题来，<br />剩下的交给这两三天</h2>
           <p className="reveal">结束时，跑通的东西留给你。免费。</p>
           <div className="cta-row reveal">
-            <Link href="/workshop#signup" className="btn btn-primary">预约加速营 <ArrowR s={16} /></Link>
+            <Link href="/workshop?mode=bootcamp#signup" className="btn btn-primary">预约加速营 <ArrowR s={16} /></Link>
           </div>
         </div>
       </section>

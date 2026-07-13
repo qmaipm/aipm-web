@@ -174,7 +174,7 @@ export default function Page() {
             <b>它交付的是结果，不是人头。它不是驻场外包。</b>
           </p>
           <div className="ws-cta">
-            <Link href="/workshop#signup" className="btn btn-primary">聊聊你的场景 <ArrowR /></Link>
+            <Link href="/workshop?mode=fde#signup" className="btn btn-primary">聊聊你的场景 <ArrowR /></Link>
             <a href="#not-outsourcing" className="btn btn-ghost">FDE ≠ 驻场 <ArrowR /></a>
           </div>
           <div className="ws-proof">
@@ -361,7 +361,7 @@ export default function Page() {
           <h2 className="reveal">验证过的场景，<br />值得被认真做成系统</h2>
           <p className="reveal">按阶段交付，按阶段验收。做完会走。</p>
           <div className="cta-row reveal">
-            <Link href="/workshop#signup" className="btn btn-primary">聊聊你的场景 <ArrowR s={16} /></Link>
+            <Link href="/workshop?mode=fde#signup" className="btn btn-primary">聊聊你的场景 <ArrowR s={16} /></Link>
           </div>
         </div>
       </section>

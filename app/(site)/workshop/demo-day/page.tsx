@@ -166,7 +166,7 @@ export default function Page() {
             <b>它不是交付，是让你亲眼确认：这条路，在你的业务上走得通。</b>
           </p>
           <div className="ws-cta">
-            <Link href="/workshop#signup" className="btn btn-primary">预约 Demo Day <ArrowR /></Link>
+            <Link href="/workshop?mode=demo-day#signup" className="btn btn-primary">预约 Demo Day <ArrowR /></Link>
             <a href="#boundary" className="btn btn-ghost">先看边界 <ArrowR /></a>
           </div>
           <div className="ws-proof">
@@ -333,7 +333,7 @@ export default function Page() {
           <h2 className="reveal">带一份数据来，<br />亲眼看它跑起来</h2>
           <p className="reveal">半天时间，换一个可靠的判断。免费。</p>
           <div className="cta-row reveal">
-            <Link href="/workshop#signup" className="btn btn-primary">预约 Demo Day <ArrowR s={16} /></Link>
+            <Link href="/workshop?mode=demo-day#signup" className="btn btn-primary">预约 Demo Day <ArrowR s={16} /></Link>
           </div>
         </div>
       </section>
