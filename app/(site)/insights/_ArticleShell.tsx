@@ -53,11 +53,48 @@ export function FigRow({
 
 // 文章 → AI 物业服务工种页回链(内链闭环:研究文章把读者引向对应服务页)
 const TRADE_LINKS: Record<string, { href: string; label: string }[]> = {
+  "how-to-run-ai-competition": [
+    { href: "/workshop/competition", label: "AI 应用创新大赛" },
+    { href: "/workshop/bootcamp", label: "FMClaw™ 加速营" },
+  ],
+  "demo-vs-system": [
+    { href: "/workshop/demo-day", label: "Demo Day" },
+    { href: "/workshop/fde", label: "FDE 服务" },
+  ],
+  "what-is-fde": [
+    { href: "/workshop/fde", label: "FDE 服务" },
+    { href: "/workshop/demo-day", label: "Demo Day" },
+  ],
+  "ai-transformation-bottom-up": [
+    { href: "/workshop/competition", label: "AI 应用创新大赛" },
+    { href: "/workshop/fde", label: "FDE 服务" },
+  ],
   "property-management-second-half-ai-company": [{ href: "/ai-service", label: "AI 物业服务总览" }],
   "ai-property-staff-optimization": [{ href: "/ai-service", label: "AI 物业服务总览" }],
-  "how-to-choose-cleaning-robot-roi": [{ href: "/ai-service/cleaning", label: "AI 清洁服务" }],
-  "digital-labor": [{ href: "/ai-service", label: "AI 物业服务总览" }],
-  "digital-labor-trends": [{ href: "/ai-service", label: "AI 物业服务总览" }],
+  "how-to-choose-cleaning-robot-roi": [
+    { href: "/ai-service/cleaning", label: "AI 清洁服务" },
+    { href: "/workshop/demo-day", label: "Demo Day" },
+  ],
+  "digital-labor": [
+    { href: "/ai-service", label: "AI 物业服务总览" },
+    { href: "/workshop/bootcamp", label: "FMClaw™ 加速营" },
+  ],
+  "digital-labor-trends": [
+    { href: "/ai-service", label: "AI 物业服务总览" },
+    { href: "/workshop/bootcamp", label: "FMClaw™ 加速营" },
+  ],
+  "industry-llm": [
+    { href: "/workshop/demo-day", label: "Demo Day" },
+    { href: "/ai-service", label: "AI 物业服务总览" },
+  ],
+  "why-obc": [{ href: "/ai-service", label: "AI 物业服务总览" }],
+  "about-obc": [{ href: "/ai-service", label: "AI 物业服务总览" }],
+  "obc-practice": [{ href: "/ai-service/cleaning", label: "AI 清洁服务" }],
+  "obc-impact": [{ href: "/ai-service", label: "AI 物业服务总览" }],
+  "obc-in-china": [
+    { href: "/ai-service", label: "AI 物业服务总览" },
+    { href: "/workshop/fde", label: "FDE 服务" },
+  ],
 };
 
 export default function ArticleShell({
@@ -80,6 +117,8 @@ export default function ArticleShell({
     description: a.desc,
     inLanguage: "zh-CN",
     datePublished: a.date.replace(/\./g, "-"),
+    // 封面图:Google 富结果与 AI 引擎摘要均会读取 image 字段
+    ...(a.cover ? { image: `${SITE_URL}${a.cover}` } : {}),
     author: { "@type": "Organization", name: "启盟科技" },
     publisher: {
       "@type": "Organization",
@@ -92,6 +131,16 @@ export default function ArticleShell({
     ...(a.series
       ? { isPartOf: { "@type": "CreativeWorkSeries", name: a.series, url: `${SITE_URL}/insights` } }
       : {}),
+  };
+  // 面包屑:帮搜索/AI 引擎理解页面在站点内的层级(与页面上的面包屑 UI 对应)
+  const breadcrumbLd = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      { "@type": "ListItem", position: 1, name: "首页", item: SITE_URL },
+      { "@type": "ListItem", position: 2, name: "行业研究", item: `${SITE_URL}/insights` },
+      { "@type": "ListItem", position: 3, name: a.title, item: pageUrl },
+    ],
   };
   const faqLd = a.faq?.length
     ? {
@@ -107,7 +156,7 @@ export default function ArticleShell({
 
   return (
     <main className="isd">
-      <JsonLd data={faqLd ? [articleLd, faqLd] : articleLd} />
+      <JsonLd data={faqLd ? [articleLd, breadcrumbLd, faqLd] : [articleLd, breadcrumbLd]} />
       {/* HERO */}
       <section className="isd-hero">
         <div className="isd-grid" aria-hidden="true" />

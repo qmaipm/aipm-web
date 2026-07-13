@@ -1,0 +1,103 @@
+/* ============================================================
+   加速营子页共用样式（demo-day / bootcamp / competition / fde）
+   在父级 page.css 的 .solws 体系上补充：
+   议程时间轴 / 做与不做边界 / 数据量说明 / 下一步分流 / 图注
+   ============================================================ */
+
+/* ---------- 议程 · 编号时间轴 ---------- */
+.solws .ws-agenda{margin-top:48px;max-width:840px;border-top:1px solid var(--ws-line)}
+.solws .ws-arow{display:flex;gap:26px;align-items:flex-start;padding:26px 0;border-bottom:1px solid var(--ws-line)}
+@media(max-width:520px){.solws .ws-arow{gap:16px;padding:22px 0}}
+.solws .ws-ano{flex:none;font-size:clamp(24px,2.8vw,30px);font-weight:800;line-height:1.05;letter-spacing:-.02em;font-variant-numeric:tabular-nums;min-width:46px}
+.solws .ws-arow h4{margin:0 0 6px;font-size:clamp(17px,2vw,20px);font-weight:700;letter-spacing:-.015em;color:var(--ws-ink);line-height:1.3;display:flex;align-items:baseline;gap:12px;flex-wrap:wrap}
+.solws .ws-arow h4 .t{font-size:12.5px;font-weight:700;letter-spacing:.04em;color:var(--ws-green);white-space:nowrap}
+.solws .ws-arow p{margin:0;font-size:15px;line-height:1.7;color:var(--ws-ink-2);max-width:56ch}
+.solws .ws-anote{margin:26px 0 0;font-size:14.5px;line-height:1.7;color:var(--ws-mut);max-width:60ch}
+
+/* ---------- 做什么 / 不做什么 ---------- */
+.solws .ws-bound{margin-top:48px;display:grid;grid-template-columns:1fr 1fr;gap:18px}
+@media(max-width:760px){.solws .ws-bound{grid-template-columns:1fr}}
+.solws .ws-bcol{border:1px solid var(--ws-line);border-radius:16px;background:var(--ws-paper);padding:30px 28px}
+.solws .ws-bcol.no{background:var(--ws-mist);border-color:transparent}
+.solws .ws-bh{display:flex;align-items:center;gap:11px;font-size:18px;font-weight:800;letter-spacing:-.015em;color:var(--ws-ink);margin-bottom:20px}
+.solws .ws-bh .bic{flex:none;display:grid;place-items:center;width:30px;height:30px;border-radius:50%;color:#fff;background:var(--ws-grad)}
+.solws .ws-bcol.no .ws-bh .bic{background:#8A948F}
+.solws .ws-bh .bic svg{width:15px;height:15px}
+.solws .ws-bcol ul{margin:0;padding:0;list-style:none}
+.solws .ws-bcol li{position:relative;padding:11px 0 11px 20px;font-size:15px;line-height:1.65;color:var(--ws-ink-2);border-bottom:1px solid var(--ws-line)}
+.solws .ws-bcol li:last-child{border-bottom:none;padding-bottom:0}
+.solws .ws-bcol li::before{content:"";position:absolute;left:2px;top:19px;width:6px;height:6px;border-radius:50%;background:var(--ws-green)}
+.solws .ws-bcol.no li::before{background:#A7AFAB}
+.solws .ws-bcol li b{color:var(--ws-ink);font-weight:600}
+.solws .ws-bnote{margin:26px 0 0;font-size:15px;line-height:1.7;color:var(--ws-ink-2);max-width:none}
+.solws .ws-bnote a{font-weight:600;color:var(--ws-green);text-decoration:underline;text-underline-offset:3px}
+
+/* ---------- 图文两栏（说明 + 插图） ---------- */
+.solws .ws-duo{margin-top:52px;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(30px,4.5vw,64px);align-items:center}
+@media(max-width:820px){.solws .ws-duo{grid-template-columns:1fr;gap:26px}}
+.solws .ws-duo .ws-mimg{cursor:default}
+.solws .ws-spec{border-top:1px solid var(--ws-line)}
+.solws .ws-spec>div{display:flex;gap:18px;padding:16px 0;border-bottom:1px solid var(--ws-line);align-items:baseline}
+.solws .ws-spec dt{flex:none;width:5.5em;font-size:13px;font-weight:700;letter-spacing:.04em;color:var(--ws-mut)}
+.solws .ws-spec dd{margin:0;font-size:15px;line-height:1.65;color:var(--ws-ink-2)}
+.solws .ws-spec dd b{color:var(--ws-ink);font-weight:600}
+
+/* ---------- 谁该来（小卡） ---------- */
+.solws .ws-seats{margin-top:46px;display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+@media(max-width:820px){.solws .ws-seats{grid-template-columns:1fr}}
+.solws .ws-seat{border:1px solid var(--ws-line);border-radius:16px;background:var(--ws-paper);padding:26px 24px;
+  transition:border-color .2s,box-shadow .2s,transform .2s}
+.solws .ws-seat:hover{border-color:rgba(12,139,130,.34);box-shadow:0 14px 34px rgba(12,139,130,.08);transform:translateY(-2px)}
+.solws .ws-seat .role{font-size:12px;font-weight:700;letter-spacing:.05em;color:var(--ws-green);margin-bottom:12px;text-transform:uppercase}
+.solws .ws-seat h4{margin:0 0 8px;font-size:18px;font-weight:700;letter-spacing:-.01em;color:var(--ws-ink)}
+.solws .ws-seat p{margin:0;font-size:14.5px;line-height:1.6;color:var(--ws-ink-2)}
+
+/* ---------- 看完之后 · 下一步分流 ---------- */
+.solws .ws-next{margin-top:46px;display:grid;grid-template-columns:1fr 1fr;gap:16px}
+@media(max-width:720px){.solws .ws-next{grid-template-columns:1fr}}
+.solws .ws-ncard{display:flex;flex-direction:column;border:1px solid var(--ws-line);border-radius:16px;background:var(--ws-paper);
+  padding:30px 28px;transition:border-color .2s,box-shadow .2s,transform .2s}
+.solws .ws-ncard:hover{border-color:rgba(12,139,130,.36);box-shadow:0 16px 38px rgba(12,139,130,.10);transform:translateY(-2px)}
+.solws .ws-ncard .nif{font-size:12.5px;font-weight:700;letter-spacing:.05em;color:var(--ws-mut);margin-bottom:12px}
+.solws .ws-ncard h4{margin:0 0 8px;font-size:clamp(19px,2.2vw,22px);font-weight:800;letter-spacing:-.015em;color:var(--ws-ink)}
+.solws .ws-ncard p{margin:0 0 18px;font-size:14.5px;line-height:1.65;color:var(--ws-ink-2);flex:1}
+
+/* ---------- 大赛 · 赛程时间线（横向五段） ---------- */
+.solws .ws-phases{margin-top:52px;display:grid;grid-template-columns:repeat(5,1fr);gap:14px}
+@media(max-width:960px){.solws .ws-phases{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:520px){.solws .ws-phases{grid-template-columns:1fr}}
+.solws .ws-phase{position:relative;border:1px solid rgba(255,255,255,.12);border-radius:14px;background:rgba(255,255,255,.03);
+  padding:24px 20px;display:flex;flex-direction:column;gap:8px;transition:border-color .2s,transform .2s}
+.solws .ws-phase:hover{border-color:rgba(63,217,184,.34);transform:translateY(-2px)}
+.solws .ws-phase[data-end="true"]{border-color:rgba(63,217,184,.34);background:linear-gradient(180deg,rgba(18,185,138,.10),rgba(255,255,255,.02))}
+.solws .ws-phase .wk{font-size:11.5px;font-weight:700;letter-spacing:.08em;color:#3fd9b8;text-transform:uppercase}
+.solws .ws-phase h4{margin:2px 0 0;font-size:clamp(16px,1.8vw,18.5px);font-weight:700;letter-spacing:-.01em;color:#fff;line-height:1.3}
+.solws .ws-phase p{margin:0;font-size:13.5px;line-height:1.62;color:#AEBAB5}
+
+/* ---------- 大赛 · 五维评分条 ---------- */
+.solws .ws-score{margin-top:48px;max-width:760px}
+.solws .ws-srow{display:grid;grid-template-columns:minmax(0,15em) 1fr 3.2em;gap:16px;align-items:center;padding:13px 0;border-bottom:1px solid var(--ws-line)}
+.solws .ws-srow:first-child{border-top:1px solid var(--ws-line)}
+@media(max-width:600px){.solws .ws-srow{grid-template-columns:minmax(0,10em) 1fr 3em;gap:10px}}
+.solws .ws-srow .lbl{font-size:15px;font-weight:600;color:var(--ws-ink);letter-spacing:-.01em}
+.solws .ws-srow .lbl small{display:block;font-size:12.5px;font-weight:400;color:var(--ws-mut);margin-top:2px}
+.solws .ws-srow .bar{position:relative;height:8px;border-radius:99px;background:var(--ws-mist);overflow:hidden}
+.solws .ws-srow .bar i{position:absolute;left:0;top:0;bottom:0;border-radius:99px;background:var(--ws-grad)}
+.solws .ws-srow .pt{font-size:14.5px;font-weight:800;color:var(--ws-ink);text-align:right;font-variant-numeric:tabular-nums}
+.solws .ws-srow[data-hot="true"] .lbl{color:var(--ws-ink)}
+.solws .ws-srow[data-hot="true"] .pt{background:var(--ws-grad);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+
+/* ---------- 大赛 · 三档合作 ---------- */
+.solws .ws-tiers{margin-top:46px;display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+@media(max-width:860px){.solws .ws-tiers{grid-template-columns:1fr}}
+.solws .ws-tier{display:flex;flex-direction:column;border:1px solid var(--ws-line);border-radius:16px;background:var(--ws-paper);padding:30px 28px;
+  transition:border-color .2s,box-shadow .2s,transform .2s}
+.solws .ws-tier:hover{border-color:rgba(12,139,130,.34);box-shadow:0 14px 34px rgba(12,139,130,.08);transform:translateY(-2px)}
+.solws .ws-tier[data-main="true"]{border-color:rgba(18,185,138,.4);box-shadow:0 14px 40px rgba(12,139,130,.10)}
+.solws .ws-tier .tk{font-size:12px;font-weight:700;letter-spacing:.08em;color:var(--ws-green);text-transform:uppercase;margin-bottom:14px}
+.solws .ws-tier h3{margin:0 0 10px;font-size:clamp(19px,2.2vw,22px);font-weight:800;letter-spacing:-.015em;color:var(--ws-ink)}
+.solws .ws-tier>p{margin:0 0 18px;font-size:14.5px;line-height:1.65;color:var(--ws-ink-2)}
+.solws .ws-tier ul{margin:auto 0 0;padding:0;list-style:none;border-top:1px solid var(--ws-line)}
+.solws .ws-tier li{position:relative;padding:10px 0 10px 18px;font-size:13.5px;line-height:1.55;color:var(--ws-ink-2);border-bottom:1px solid var(--ws-line)}
+.solws .ws-tier li:last-child{border-bottom:none}
+.solws .ws-tier li::before{content:"";position:absolute;left:2px;top:17px;width:5px;height:5px;border-radius:50%;background:var(--ws-green)}

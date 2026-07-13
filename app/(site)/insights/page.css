@@ -82,6 +82,24 @@
 .is-featured:hover .is-fmeta .ar{transform:translateX(3px)}
 @media(max-width:820px){.is-featured{grid-template-columns:1fr}.is-cover{min-height:190px}.is-fbody{padding:32px 28px}}
 
+/* 本周更新 · 其余文章 */
+.is-fmore{display:grid;grid-template-columns:1fr;gap:14px;margin-top:14px}
+.is-fmore-item{display:grid;grid-template-columns:200px 1fr;gap:22px;align-items:center;text-decoration:none;
+  background:var(--is-paper);border:1px solid var(--is-line);border-radius:16px;padding:18px 22px;
+  transition:border-color .2s,box-shadow .25s,transform .25s}
+.is-fmore-item:hover{border-color:rgba(12,139,130,.34);box-shadow:0 16px 40px rgba(12,139,130,.1);transform:translateY(-2px)}
+.is-fmore-thumb{display:block;width:200px;height:126px;border-radius:12px;overflow:hidden;background:var(--is-core)}
+.is-fmore-thumb img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .35s}
+.is-fmore-item:hover .is-fmore-thumb img{transform:scale(1.04)}
+.is-fmore-body{display:flex;flex-direction:column;gap:6px;min-width:0}
+.is-fmore-tag{font-size:12px;font-weight:700;letter-spacing:.06em;color:var(--is-green)}
+.is-fmore-title{font-size:18.5px;font-weight:800;line-height:1.32;letter-spacing:-.01em;color:var(--is-ink)}
+.is-fmore-desc{font-size:14px;color:var(--is-ink-2);line-height:1.65}
+.is-fmore-meta{font-size:12.5px;color:var(--is-mut);display:flex;align-items:center;gap:5px;margin-top:2px}
+.is-fmore-meta .ar{color:var(--is-green);transition:transform .2s}
+.is-fmore-item:hover .is-fmore-meta .ar{transform:translateX(3px)}
+@media(max-width:680px){.is-fmore-item{grid-template-columns:1fr;padding:16px}.is-fmore-thumb{width:100%;height:160px}}
+
 /* 全部文章 */
 .is-listhead{display:flex;align-items:flex-end;justify-content:space-between;gap:24px;flex-wrap:wrap;margin-top:18px}
 .is-listhead .is-h2{margin-top:0}
@@ -109,8 +127,14 @@
 .is-post-by .dot{margin:0 6px;color:var(--is-faint)}
 .is-post-by .ar{color:var(--is-green);transition:transform .2s;margin-left:4px}
 .is-post:hover .is-post-by .ar{transform:translateX(3px)}
+/* 带封面缩略图的列表卡片 */
+.is-post.has-thumb{grid-template-columns:148px 1fr 220px}
+.is-post-thumb{width:148px;height:96px;border-radius:10px;overflow:hidden;background:var(--is-line)}
+.is-post-thumb img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .3s}
+.is-post:hover .is-post-thumb img{transform:scale(1.04)}
 @media(max-width:680px){
-  .is-post{grid-template-columns:1fr;gap:14px;padding:22px 20px}
+  .is-post,.is-post.has-thumb{grid-template-columns:1fr;gap:14px;padding:22px 20px}
+  .is-post-thumb{width:100%;height:150px}
   .is-post-by{text-align:left;justify-content:flex-start}
 }
 

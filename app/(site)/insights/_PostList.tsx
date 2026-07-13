@@ -37,7 +37,12 @@ export default function PostList() {
 
       <div className="is-postlist">
         {list.map((p) => (
-          <Link className="is-post" href={`/insights/${p.slug}`} key={p.slug}>
+          <Link className={`is-post${p.cover ? " has-thumb" : ""}`} href={`/insights/${p.slug}`} key={p.slug}>
+            {p.cover ? (
+              <div className="is-post-thumb" aria-hidden="true">
+                <img src={p.cover} alt="" loading="lazy" />
+              </div>
+            ) : null}
             <div className="is-post-main">
               <span className="is-post-tag">{p.theme}</span>
               <h3>{p.title}</h3>

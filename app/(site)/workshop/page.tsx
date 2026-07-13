@@ -1,6 +1,32 @@
+import type { Metadata } from "next";
 import Link from "next/link";
+import JsonLd from "@/components/JsonLd";
+import SeoFaq from "@/components/SeoFaq";
 import "./page.css";
 import WorkshopForm from "./WorkshopForm";
+import RelatedReading from "./_RelatedReading";
+
+const SITE_URL = process.env.SITE_URL || "https://www.aipm.cn";
+
+export const metadata: Metadata = {
+  title: "FMClaw™ 加速营 · 从 Demo Day 到 AI 应用创新大赛 — 启盟科技",
+  description:
+    "把 AI 落到你的现场，有四种方式：半天–1 天的 Demo Day、2–3 天的加速营 Bootcamp、2–4 周的 AI 应用创新大赛（承办/协办/技术底座），以及按阶段交付的 FDE 前置部署工程师服务。带真问题与真实数据来，跑通的东西留给你。",
+  keywords: [
+    "AI加速营",
+    "AI Bootcamp",
+    "Demo Day",
+    "AI应用创新大赛",
+    "人工智能大赛承办",
+    "FDE",
+    "前置部署工程师",
+    "Forward Deployed Engineer",
+    "企业AI落地",
+    "智能体工作坊",
+    "以赛促用",
+    "物业管理AI",
+  ],
+};
 
 const ArrowR = ({ s = 15 }: { s?: number }) => (
   <svg className="ar" width={s} height={s} viewBox="0 0 16 16">
@@ -14,124 +40,209 @@ const ArrowD = ({ s = 15 }: { s?: number }) => (
   </svg>
 );
 
-const steps = [
-  { no: "01", h: "把问题说清楚", p: "你带来一件真实业务，我们一起把它说成一句话。" },
-  { no: "02", h: "接上数据与工具", p: "把你的数据接进来，钉钉 / 飞书 / 企微 / ERP 一并打通，约 72 小时内可调用。" },
-  { no: "03", h: "现场拼出 Agent", p: "当着你的面，把能帮上这件事的 Agent 搭起来。" },
-  { no: "04", h: "跑通，并留给你", p: "用你的真实流程跑一遍，跑通的东西留下来继续用。" },
+/* ---------- 结构化数据：面包屑 + 四项服务 ---------- */
+const LD = [
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      { "@type": "ListItem", position: 1, name: "首页", item: SITE_URL },
+      { "@type": "ListItem", position: 2, name: "加速营", item: `${SITE_URL}/workshop` },
+    ],
+  },
+  ...[
+    {
+      name: "FMClaw™ Demo Day（AI 演示日）",
+      url: `${SITE_URL}/workshop/demo-day`,
+      description: "半天到一天，用客户的一份真实数据现场跑出可用的 AI demo，验证这条路走得通。",
+    },
+    {
+      name: "FMClaw™ 加速营（AI Bootcamp）",
+      url: `${SITE_URL}/workshop/bootcamp`,
+      description: "2–3 天闭门工作坊，带真问题与真实数据来，现场搭出并跑通一个 AI 智能体，成果留给客户。",
+    },
+    {
+      name: "AI 应用创新大赛（承办 / 协办 / 技术底座）",
+      url: `${SITE_URL}/workshop/competition`,
+      description: "面向央国企、政府与大型组织的 2–4 周 AI 应用创新大赛：赛题设计、评审辅导、决赛路演与赛后落地，可承办、协办或提供 FMClaw™ 技术底座。",
+    },
+    {
+      name: "FDE 前置部署工程师服务",
+      url: `${SITE_URL}/workshop/fde`,
+      description: "按阶段交付的 AI 落地工程服务：数据治理、系统与接口接入，把验证过的场景变成生产系统。",
+    },
+  ].map((s) => ({
+    "@context": "https://schema.org",
+    "@type": "Service",
+    name: s.name,
+    serviceType: s.name,
+    description: s.description,
+    url: s.url,
+    areaServed: "CN",
+    provider: { "@type": "Organization", name: "启盟科技", url: SITE_URL },
+  })),
 ];
 
-const scenes = [
+/* ---------- 四种方式 ---------- */
+const modes = [
   {
-    href: "/scenarios/utility-bill",
-    h: "水电费审批",
-    p: "签字那一刻，AI 已核完表、做完环比同比、标好异常，给出该签 / 不该签的依据。",
-    icon: (
-      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.9"><path d="M13 2L4 14h7l-1 8 9-12h-7z" strokeLinejoin="round" /></svg>
-    ),
+    no: "01",
+    href: "/workshop/demo-day",
+    time: "半天 – 1 天",
+    h: "Demo Day",
+    line: "用你的一份真实数据，当场跑出一个能用的 demo。它不是交付，是眼见为实——让你亲眼确认，这条路在你的业务上走得通。",
+    take: "一个跑在你数据上的 demo，和一个「走得通」的判断。",
+    fit: "还在观望、想先亲眼看看的。",
+    img: "/workshop/demo-day.jpg",
+    alt: "Demo Day：工程师向管理层现场演示跑在真实数据上的 AI demo",
+    go: "了解 Demo Day",
   },
   {
-    href: "/scenarios/repair-bot",
-    h: "报修智能客服",
-    p: "平台 Bot 7×24 守群不漏单，FMClaw 自动派单不到 1 分钟，下单人与接单人双向通知闭环。",
-    icon: (
-      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.9"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z" strokeLinecap="round" strokeLinejoin="round" /></svg>
-    ),
+    no: "02",
+    href: "/workshop/bootcamp",
+    time: "2 – 3 天",
+    h: "加速营 · Bootcamp",
+    line: "带一个真问题和它的真实数据来，闭门两三天，当着你的面把 Agent 搭起来、在你的流程里跑通——跑通的东西，留给你。",
+    take: "一个还在运行的 Agent，一份能复用的工作流。",
+    fit: "有明确痛点、认真要落地的。",
+    img: "/workshop/bootcamp.jpg",
+    alt: "加速营：团队在工作坊现场共同搭建 AI 工作流",
+    go: "了解加速营",
   },
   {
-    href: "/scenarios/exec-query",
-    h: "管理层问询",
-    p: "领导在钉钉里 @ 一句“A 楼上月能耗为什么超标”，AI 秒级给出带原因的回答与简报。",
-    icon: (
-      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.9"><path d="M12 3a9 9 0 1 0 4 17l5 1-1.3-4.5A9 9 0 0 0 12 3z" strokeLinejoin="round" /><path d="M12 8a2.5 2.5 0 0 0-2.5 2.5c0 1.5 2.5 2 2.5 3.5" strokeLinecap="round" /><circle cx="12" cy="17" r=".6" fill="currentColor" /></svg>
-    ),
+    no: "03",
+    href: "/workshop/competition",
+    time: "2 – 4 周",
+    h: "AI 应用创新大赛",
+    line: "一场比赛，让一线的人带着自己的业务痛点动起来。从报名、辅导到决赛路演，两到四周走完——赛完不散场，获奖课题接着落地。",
+    take: "一批从一线长出来的课题，一条赛后落地的路径。我们承办、协办，或提供 FMClaw™ 技术底座。",
+    fit: "央国企、地方政府、集团总部。",
+    img: "/workshop/competition.jpg",
+    alt: "AI 应用创新大赛：员工在决赛现场向评委路演自己的课题",
+    go: "了解大赛",
   },
   {
-    href: "/scenarios/reconciliation",
-    h: "AI 对账",
-    p: "按合同自动核量、对比历史与市场、圈出异常、生成账单草稿，人只需确认或驳回。",
-    icon: (
-      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.9"><rect x="4" y="3" width="16" height="18" rx="2" /><path d="M8 8h8M8 12h8M8 16h5" strokeLinecap="round" /></svg>
-    ),
-  },
-  {
-    href: "/scenarios/inspection",
-    h: "AI 质检",
-    p: "工单照片 / 视频自动采集，AI 视觉按统一标准评分打标，全量留痕证据链，人只看异常。",
-    icon: (
-      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.9"><path d="M3 7h3l2-2h8l2 2h3v12H3z" strokeLinejoin="round" /><circle cx="12" cy="13" r="3.2" /></svg>
-    ),
-  },
-  {
-    href: "/scenarios/dispatch",
-    h: "智能派单",
-    p: "工单进来自动定位、定级，按技能与负载派给合适的人，超时自动升级，人只需确认或改派。",
-    icon: (
-      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.9"><circle cx="6" cy="6" r="2.4" /><circle cx="18" cy="6" r="2.4" /><circle cx="12" cy="18" r="2.4" /><path d="M6 8.4v3a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2v-3M12 13.4v2.2" strokeLinecap="round" /></svg>
-    ),
+    no: "04",
+    href: "/workshop/fde",
+    time: "按阶段",
+    h: "FDE 服务",
+    line: "前置部署工程师进到你的业务现场：数据治理、系统与接口接入，把验证过的场景变成生产系统。按阶段交付，按阶段验收——不是驻场外包。",
+    take: "每个阶段有明确目标与验收标准的工程交付。",
+    fit: "要接系统、接大数据量，动真格的。",
+    img: "/workshop/fde.jpg",
+    alt: "FDE 服务：前置部署工程师与设施负责人在现场核对数据管线",
+    go: "了解 FDE 服务",
   },
 ];
 
-const takeaways = [
-  { h: "一个还在运行的 Agent", p: "不是演示版，是接着你真实数据继续跑的那一个。" },
-  { h: "一份能复用的工作流", p: "这次跑通的路径，下个项目可以照着搬。" },
-  { h: "一套共同语言", p: "中高管与一线，对“AI 到底帮上了什么”对齐了说法。" },
+/* ---------- 行前准备 ---------- */
+const preps = [
+  { no: "01", h: "一个说得清的问题", p: "一句话讲明白：谁、在什么场景、卡在哪。" },
+  { no: "02", h: "拿得出手的数据", p: "脱敏后的真实数据，附一份字段说明。导不出来的，提前告诉我们。" },
+  { no: "03", h: "对的人在场", p: "懂业务的、懂数据的。要拍板的事，请能拍板的人来。" },
+  { no: "04", h: "一段不被打扰的时间", p: "这几天里，关键人不接别的会。" },
+  { no: "05", h: "保密协议，如果需要", p: "开始前签好，数据的处理范围与去向写清楚。" },
 ];
 
-const why = [
-  { h: "带上真问题", p: "从你真正犯难的那件事开始，不从模板开始。" },
-  { h: "用上真数据", p: "用你的数据跑，结果才是你的结果。" },
-  { h: "当面搭出来", p: "Agent 在你眼前长出来，你看得见每一步。" },
-  { h: "跑你的流程", p: "在你真实的业务流里跑通，不是沙盘演练。" },
-  { h: "留下能用的东西", p: "结束时带走的是成果，不是一份 PPT。" },
-  { h: "对齐一套语言", p: "决策层与执行层，从此说同一件事。" },
-];
-
-const who = [
-  { role: "业主 · 行政", p: "管着一批楼宇或园区，想从一件真实业务开始用 AI。" },
-  { role: "物业 · FM 公司", p: "想把一项服务接进 AI，看看交付能变成什么样。" },
-  { role: "政府 · 国企平台", p: "在为本地引入人工智能产业，想先看它真的怎么落。" },
-  { role: "开发者 · 集成商", p: "常年做智慧楼宇 / 园区，想拿到一套能直接交付的基座。" },
-];
-
+/* ---------- FAQ ---------- */
 const faqs = [
-  { q: "我的数据不干净、不齐整，还能来吗?", a: "能。真实数据本来就不干净。把它原样带来，整理是加速营的一部分。" },
-  { q: "一定要带能拍板的人吗?", a: "最好。能拍板的人和真正在一线干活的人都在场，结论才落得下去。" },
-  { q: "这跟看一场 PPT、听一次案例分享有什么不同?", a: "不一样。这里不讲产品参数，只用你的数据跑你的问题。离开时你带走的是一个还在运行的 Agent，不是一份材料。" },
-  { q: "结束之后，搭出来的东西归谁?", a: "归你。跑通的工作流和你自己的数据都留在你这边。" },
-  { q: "我需要提前准备什么?", a: "一个真问题、它的真实数据，以及一两位真正了解这件事的人。其余我们带来。" },
-  { q: "数据保密怎么保障?", a: "可在开始前签保密协议，数据处理范围与去向都会写清楚。" },
-  { q: "1–3 天真的够吗?", a: "够跑通一个真实问题。它不是把所有事做完，而是让你亲眼确认这条路走得通。" },
+  {
+    q: "四种方式怎么选？",
+    a: "看你手里有什么。只有一份数据、想先眼见为实——Demo Day；有真问题和真实数据、要亲手把它跑通——加速营；想让整个组织的人都动起来——办一场 AI 应用创新大赛；已经验证过价值、要接系统接口和大数据量——FDE 服务。拿不准的话，从 Demo Day 开始。",
+  },
+  {
+    q: "半天或一天，能做出什么？",
+    a: "一个跑在你真实数据上的 demo：能问答、能出结果，让你看清这套产品的使用逻辑。但大数据量治理和系统接口接入不在半天里——那是 FDE 服务的事。",
+  },
+  {
+    q: "我带一张几万行的 Excel 来，够吗？",
+    a: "够撑起一次很好的 Demo Day。但加速营需要的不是更多行数，而是更多准备：字段说明、了解这件事的人，和一段不被打扰的时间。",
+  },
+  {
+    q: "什么是 AI 应用创新大赛？",
+    a: "面向央国企、政府和大型组织的另一种打开方式：2–4 周，从一线报名、评审辅导到决赛路演，让员工带着自己的业务痛点参赛。我们可以承办、协办，或为参赛队提供 FMClaw™ 统一技术底座。",
+  },
+  {
+    q: "FDE 是什么？",
+    a: "Forward Deployed Engineer，前置部署工程师。工程师深入你的业务现场做数据治理、系统与接口接入，按阶段交付、按阶段验收——不是驻场外包。",
+  },
+  {
+    q: "费用怎么算？",
+    a: "Demo Day 和加速营免费。大赛与 FDE 服务按方案单独报价。",
+  },
+  {
+    q: "数据保密怎么保障？",
+    a: "可在开始前签保密协议，数据的处理范围与去向都会写清楚。",
+  },
 ];
 
 export default function Page() {
   return (
     <main className="solws">
+      <JsonLd data={LD} />
+
       {/* HERO */}
-      <section className="ws-hero">
+      <section className="ws-hero has-photo">
+        <div className="ws-hero__bg" aria-hidden="true" />
         <div className="ws-grid" aria-hidden="true" />
         <div className="wrap ws-hero-top">
           <span className="ws-kicker">
             <Link href="/products/fmclaw">FMClaw™ 平台</Link>
-            <i>/</i>加速营 · Bootcamp
+            <i>/</i>加速营
           </span>
           <h1 className="ws-h1">
             把你自己的 AI，<span className="grad">亲手搭出来</span>
           </h1>
           <p className="ws-lead">
-            用 <b>1–3 天</b>，带着你的一个真问题来。我们一起把它跑通——<b>跑通的东西，留给你</b>。
+            半天看一个 demo，三天搭一个 Agent，一个月办一场全员参与的比赛，或按阶段把它变成生产系统。
+            <b>四种方式，同一个目的：让 AI 在你的现场真正跑起来。</b>
           </p>
           <div className="ws-cta">
-            <a href="#signup" className="btn btn-primary">预约 FMClaw™ 加速营 <ArrowR /></a>
-            <a href="#how" className="btn btn-ghost">看四步怎么走 <ArrowD /></a>
+            <a href="#modes" className="btn btn-primary">看四种方式 <ArrowD /></a>
+            <a href="#signup" className="btn btn-ghost">直接预约 <ArrowR /></a>
           </div>
           <div className="ws-proof">
-            <span><b>1–3 天</b>跑通</span>
+            <span><b>4 种方式</b></span>
             <span className="sep" />
-            <span>带<b>真问题 + 真数据</b></span>
+            <span>最快<b>半天</b>见到结果</span>
             <span className="sep" />
             <span><b className="grad">跑通的东西留给你</b></span>
           </div>
+        </div>
+      </section>
+
+      {/* 四种方式 */}
+      <section className="ws-band" id="modes">
+        <div className="wrap">
+          <span className="ws-eyebrow">四种方式</span>
+          <h2 className="ws-h2">你有多少时间，就有对应的打开方式</h2>
+          <p className="ws-sub">时间投入不同，目标就不同。先想清楚你要什么，再决定怎么开始。</p>
+          <div className="ws-modes">
+            {modes.map((m, i) => (
+              <div className={`ws-mode${i % 2 === 1 ? " is-flip" : ""}`} key={m.no}>
+                <Link className="ws-mimg" href={m.href} aria-hidden="true" tabIndex={-1}>
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  <img src={m.img} alt={m.alt} loading="lazy" />
+                </Link>
+                <div className="ws-mbody">
+                  <div className="ws-mhead">
+                    <span className="ws-mno grad">{m.no}</span>
+                    <span className="ws-mtime">{m.time}</span>
+                  </div>
+                  <h3>{m.h}</h3>
+                  <p className="ws-mline">{m.line}</p>
+                  <dl className="ws-mrows">
+                    <div><dt>带走</dt><dd>{m.take}</dd></div>
+                    <div><dt>适合</dt><dd>{m.fit}</dd></div>
+                  </dl>
+                  <Link className="ws-go" href={m.href}>{m.go} <ArrowR s={12} /></Link>
+                </div>
+              </div>
+            ))}
+          </div>
+          <p className="ws-verdict light">
+            一张 5 万行的 Excel，能撑起一次很好的 Demo Day——但撑不起一个加速营。<span className="grad">选对方式，比着急动手更重要。</span>
+          </p>
         </div>
       </section>
 
@@ -139,7 +250,7 @@ export default function Page() {
       <section className="ws-band mist">
         <div className="wrap">
           <span className="ws-eyebrow">灵魂前提</span>
-          <h2 className="ws-h2">前提只有一个</h2>
+          <h2 className="ws-h2">不管选哪种，前提只有一个</h2>
           <div className="ws-premise">
             <div className="ws-pcard">
               <span className="ws-pic">
@@ -156,92 +267,25 @@ export default function Page() {
               <p>表格、PDF、IoT、聊天记录都行。有数据，AI 才有得想。</p>
             </div>
           </div>
-          <p className="ws-verdict light">没有这两样，就不是 <span className="grad">FMClaw™ 加速营</span>。</p>
+          <p className="ws-verdict light">没有这两样，<span className="grad">四种方式都帮不了你</span>。</p>
         </div>
       </section>
 
-      {/* FOUR STEPS · 深色签名时刻 */}
-      <section className="ws-core" id="how">
+      {/* 行前准备 · 暗场签名段 */}
+      <section className="ws-core" id="prep">
         <div className="ws-grid dark" aria-hidden="true" />
         <div className="wrap">
-          <span className="ws-eyebrow on-dark">你会经历什么</span>
-          <h2 className="ws-h2 on-dark">四步，从一个问题到一个能用的 Agent</h2>
-          <div className="ws-steps">
-            {steps.map((s, i) => (
-              <div className="ws-step" key={s.no} data-end={s.no === "04"}>
-                <div className="ws-sno grad">{s.no}</div>
-                <h4>{s.h}</h4>
-                <p>{s.p}</p>
-                {i < steps.length - 1 && <span className="ws-sarr" aria-hidden="true">→</span>}
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* 适用场景 */}
-      <section className="ws-band" id="scenes">
-        <div className="wrap">
-          <span className="ws-eyebrow">适用场景</span>
-          <h2 className="ws-h2">不知道带什么问题来？这些是大家最常带来的</h2>
-          <p className="ws-sub">这些场景不是我们替你想象出来的——你带上自己的数据，我们当场把它跑通。</p>
-          <div className="ws-scenes">
-            {scenes.map((s) => (
-              <Link className="ws-scene" href={s.href} key={s.href}>
-                <span className="ws-scene-ic">{s.icon}</span>
-                <h4>{s.h}</h4>
-                <p>{s.p}</p>
-                <span className="ws-go">看这个场景 <ArrowR s={12} /></span>
-              </Link>
-            ))}
-          </div>
-          <p className="ws-verdict light">你的问题不在这几个里？正好，那更值得来跑一次。</p>
-        </div>
-      </section>
-
-      {/* WHAT YOU TAKE AWAY */}
-      <section className="ws-band mist">
-        <div className="wrap">
-          <span className="ws-eyebrow">你会带走什么</span>
-          <h2 className="ws-h2">离开时，东西在你手上</h2>
-          <div className="ws-take">
-            {takeaways.map((t, i) => (
-              <div className="ws-tcard" key={t.h}>
-                <span className="ws-tno grad">{String(i + 1).padStart(2, "0")}</span>
-                <h3>{t.h}</h3>
-                <p>{t.p}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* WHY IT WORKS */}
-      <section className="ws-band">
-        <div className="wrap">
-          <span className="ws-eyebrow">为什么有效</span>
-          <h2 className="ws-h2">它不靠讲，靠做</h2>
-          <div className="ws-why">
-            {why.map((w) => (
-              <div className="ws-w" key={w.h}>
-                <h4>{w.h}</h4>
-                <p>{w.p}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* WHO SHOULD COME */}
-      <section className="ws-band mist">
-        <div className="wrap">
-          <span className="ws-eyebrow">谁适合来</span>
-          <h2 className="ws-h2">带得动决定、也带得来数据的人</h2>
-          <div className="ws-who">
-            {who.map((w) => (
-              <div className="ws-rcard" key={w.role}>
-                <span className="ws-role">{w.role}</span>
-                <p>{w.p}</p>
+          <span className="ws-eyebrow on-dark">行前准备</span>
+          <h2 className="ws-h2 on-dark">来之前，把这五样备齐</h2>
+          <p className="ws-sub on-dark-sub">准备越充分，那几天就越值。这五样，每一样都不难。</p>
+          <div className="ws-prep">
+            {preps.map((p) => (
+              <div className="ws-prow" key={p.no}>
+                <span className="ws-pno grad">{p.no}</span>
+                <div>
+                  <h4>{p.h}</h4>
+                  <p>{p.p}</p>
+                </div>
               </div>
             ))}
           </div>
@@ -253,7 +297,7 @@ export default function Page() {
         <div className="wrap">
           <span className="ws-eyebrow">预约</span>
           <h2 className="ws-h2">把你的问题先告诉我们</h2>
-          <p className="ws-sub">我们会先看一眼这个问题适不适合做加速营，再和你约时间。</p>
+          <p className="ws-sub">我们会先看一眼这个问题适合哪种方式，再和你约时间。</p>
           <WorkshopForm />
         </div>
       </section>
@@ -262,36 +306,30 @@ export default function Page() {
       <section className="ws-band mist">
         <div className="wrap">
           <span className="ws-eyebrow">关于时间与费用</span>
-          <p className="ws-fee">加速营为期 1–3 天，费用提前收取。如果之后进入正式合作，这笔费用可按比例抵扣。我们更在意的是，这几天里你是否真的带走了能用的东西。</p>
+          <p className="ws-fee">
+            Demo Day 和加速营免费；大赛与 FDE 服务按方案单独报价。
+            我们更在意的是——结束时，你手上是否留下了能用的东西。
+          </p>
         </div>
       </section>
 
       {/* FAQ */}
-      <section className="ws-band">
-        <div className="wrap">
-          <span className="ws-eyebrow">常见疑问</span>
-          <h2 className="ws-h2">来之前，你可能想问的</h2>
-          <div className="ws-faq">
-            {faqs.map((f) => (
-              <details key={f.q}>
-                <summary>
-                  {f.q}
-                  <svg className="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M12 5v14M5 12h14" strokeLinecap="round" /></svg>
-                </summary>
-                <div className="ans">{f.a}</div>
-              </details>
-            ))}
-          </div>
-        </div>
-      </section>
+      {/* 延伸阅读 → 行业研究 */}
+      <RelatedReading
+        heading="来之前,先读懂我们怎么想"
+        sub="加速营背后的方法论,这几篇研究讲得最透。"
+        slugs={["ai-transformation-bottom-up", "property-management-second-half-ai-company"]}
+      />
+
+      <SeoFaq heading="来之前，你可能想问的" items={faqs} />
 
       {/* FINAL CTA */}
       <section className="endcta">
         <div className="wrap">
-          <h2 className="reveal">带上一个真问题，<br />1–3 天把它跑通</h2>
+          <h2 className="reveal">带上一个真问题，<br />选一种方式把它跑通</h2>
           <p className="reveal">从你这个月最头疼的那件事开始。</p>
           <div className="cta-row reveal">
-            <a href="#signup" className="btn btn-primary">预约 FMClaw™ 加速营 <ArrowR s={16} /></a>
+            <a href="#signup" className="btn btn-primary">预约加速营 <ArrowR s={16} /></a>
           </div>
         </div>
       </section>
