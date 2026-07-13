@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import JsonLd from "@/components/JsonLd";
 import SeoFaq from "@/components/SeoFaq";
+import RelatedReading from "../_RelatedReading";
 import "../page.css";
 import "../sub.css";
 
@@ -351,6 +352,13 @@ export default function Page() {
           </div>
         </div>
       </section>
+
+      {/* 延伸阅读 → 行业研究 */}
+      <RelatedReading
+        heading="把 FDE 读透,再来聊"
+        sub="FDE 从哪来、为什么有效、和驻场外包差在哪——这几篇研究讲得最透。"
+        slugs={["what-is-fde", "ai-transformation-bottom-up"]}
+      />
 
       {/* FAQ */}
       <SeoFaq heading="关于 FDE，你可能想问的" items={faqs} />

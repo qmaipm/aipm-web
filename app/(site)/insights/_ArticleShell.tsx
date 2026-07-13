@@ -63,9 +63,30 @@ const TRADE_LINKS: Record<string, { href: string; label: string }[]> = {
   ],
   "property-management-second-half-ai-company": [{ href: "/ai-service", label: "AI 物业服务总览" }],
   "ai-property-staff-optimization": [{ href: "/ai-service", label: "AI 物业服务总览" }],
-  "how-to-choose-cleaning-robot-roi": [{ href: "/ai-service/cleaning", label: "AI 清洁服务" }],
-  "digital-labor": [{ href: "/ai-service", label: "AI 物业服务总览" }],
-  "digital-labor-trends": [{ href: "/ai-service", label: "AI 物业服务总览" }],
+  "how-to-choose-cleaning-robot-roi": [
+    { href: "/ai-service/cleaning", label: "AI 清洁服务" },
+    { href: "/workshop/demo-day", label: "Demo Day" },
+  ],
+  "digital-labor": [
+    { href: "/ai-service", label: "AI 物业服务总览" },
+    { href: "/workshop/bootcamp", label: "FMClaw™ 加速营" },
+  ],
+  "digital-labor-trends": [
+    { href: "/ai-service", label: "AI 物业服务总览" },
+    { href: "/workshop/bootcamp", label: "FMClaw™ 加速营" },
+  ],
+  "industry-llm": [
+    { href: "/workshop/demo-day", label: "Demo Day" },
+    { href: "/ai-service", label: "AI 物业服务总览" },
+  ],
+  "why-obc": [{ href: "/ai-service", label: "AI 物业服务总览" }],
+  "about-obc": [{ href: "/ai-service", label: "AI 物业服务总览" }],
+  "obc-practice": [{ href: "/ai-service/cleaning", label: "AI 清洁服务" }],
+  "obc-impact": [{ href: "/ai-service", label: "AI 物业服务总览" }],
+  "obc-in-china": [
+    { href: "/ai-service", label: "AI 物业服务总览" },
+    { href: "/workshop/fde", label: "FDE 服务" },
+  ],
 };
 
 export default function ArticleShell({

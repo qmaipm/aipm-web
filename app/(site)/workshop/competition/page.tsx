@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import JsonLd from "@/components/JsonLd";
 import SeoFaq from "@/components/SeoFaq";
+import RelatedReading from "../_RelatedReading";
 import "../page.css";
 import "../sub.css";
 
@@ -316,6 +317,13 @@ export default function Page() {
       </section>
 
       {/* FAQ */}
+      {/* 延伸阅读 → 行业研究 */}
+      <RelatedReading
+        heading="大赛背后的方法论"
+        sub="为什么用大赛把一线的难题变成选题——这几篇研究是它的理论底座。"
+        slugs={["ai-transformation-bottom-up", "what-is-fde"]}
+      />
+
       <SeoFaq heading="关于办一场 AI 大赛，你可能想问的" items={faqs} />
 
       {/* FINAL CTA */}

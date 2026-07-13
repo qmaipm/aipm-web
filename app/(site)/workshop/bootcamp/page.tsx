@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import JsonLd from "@/components/JsonLd";
 import SeoFaq from "@/components/SeoFaq";
+import RelatedReading from "../_RelatedReading";
 import "../page.css";
 import "../sub.css";
 
@@ -330,6 +331,13 @@ export default function Page() {
       </section>
 
       {/* FAQ */}
+      {/* 延伸阅读 → 行业研究 */}
+      <RelatedReading
+        heading="为什么让一线亲手搭智能体"
+        sub="加速营的底层逻辑:AI 转型的动力为什么应该从一线长出来。"
+        slugs={["ai-transformation-bottom-up", "ai-property-staff-optimization"]}
+      />
+
       <SeoFaq heading="关于加速营，你可能想问的" items={faqs} />
 
       {/* FINAL CTA */}

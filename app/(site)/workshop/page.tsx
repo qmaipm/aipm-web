@@ -4,6 +4,7 @@ import JsonLd from "@/components/JsonLd";
 import SeoFaq from "@/components/SeoFaq";
 import "./page.css";
 import WorkshopForm from "./WorkshopForm";
+import RelatedReading from "./_RelatedReading";
 
 const SITE_URL = process.env.SITE_URL || "https://www.aipm.cn";
 
@@ -313,6 +314,13 @@ export default function Page() {
       </section>
 
       {/* FAQ */}
+      {/* 延伸阅读 → 行业研究 */}
+      <RelatedReading
+        heading="来之前,先读懂我们怎么想"
+        sub="加速营背后的方法论,这几篇研究讲得最透。"
+        slugs={["ai-transformation-bottom-up", "property-management-second-half-ai-company"]}
+      />
+
       <SeoFaq heading="来之前，你可能想问的" items={faqs} />
 
       {/* FINAL CTA */}

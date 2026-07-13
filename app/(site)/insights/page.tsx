@@ -16,11 +16,11 @@ const Arrow = ({ s = 15 }: { s?: number }) => (
 );
 
 export default function Page() {
-  // 按周更新:自动取最新发布日期的一批文章作为头条
+  // 最新发布:自动取最新发布日期的一批文章作为头条
   const sorted = [...ARTICLES].sort((a, b) => b.date.localeCompare(a.date));
   const latestDate = sorted[0].date;
-  const weekly = sorted.filter((a) => a.date === latestDate);
-  const [featured, ...more] = weekly;
+  const latest = sorted.filter((a) => a.date === latestDate);
+  const [featured, ...more] = latest;
 
   return (
     <main className="solis">
@@ -47,12 +47,12 @@ export default function Page() {
         </div>
       </section>
 
-      {/* 本周更新 */}
+      {/* 最新发布 */}
       <section className="is-band" id="featured">
         <div className="wrap">
-          <span className="is-eyebrow">本周更新</span>
-          <h2 className="is-h2">这周发了什么,从这里开始读</h2>
-          <p className="is-sub">每周的新研究都会放在这里 · 本期更新于 {latestDate},共 {weekly.length} 篇。</p>
+          <span className="is-eyebrow">最新发布</span>
+          <h2 className="is-h2">这几篇,值得你先读</h2>
+          <p className="is-sub">最新的研究都会放在这里 · 发布于 {latestDate}。</p>
 
           <Link className="is-featured" href={`/insights/${featured.slug}`}>
             <div className="is-cover" aria-hidden="true">
@@ -60,7 +60,7 @@ export default function Page() {
               <span className="is-ftag">{featured.theme}</span>
             </div>
             <div className="is-fbody">
-              <div className="is-ftag-tx">本周更新 · {featured.theme}</div>
+              <div className="is-ftag-tx">最新发布 · {featured.theme}</div>
               <h3>{featured.title}</h3>
               <p>{featured.desc}</p>
               <div className="is-fmeta">{featured.by} <span className="dot" aria-hidden>·</span> {featured.date} <span className="dot" aria-hidden>·</span> {featured.read}阅读 <Arrow s={14} /></div>
@@ -75,7 +75,7 @@ export default function Page() {
                     <span className="is-fmore-thumb" aria-hidden="true"><img src={a.cover} alt="" loading="lazy" /></span>
                   ) : null}
                   <span className="is-fmore-body">
-                    <span className="is-fmore-tag">本周更新 · {a.theme}</span>
+                    <span className="is-fmore-tag">最新发布 · {a.theme}</span>
                     <span className="is-fmore-title">{a.title}</span>
                     <span className="is-fmore-desc">{a.desc}</span>
                     <span className="is-fmore-meta">{a.by} · {a.date} · {a.read}阅读 <Arrow s={13} /></span>
