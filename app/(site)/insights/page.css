@@ -109,8 +109,14 @@
 .is-post-by .dot{margin:0 6px;color:var(--is-faint)}
 .is-post-by .ar{color:var(--is-green);transition:transform .2s;margin-left:4px}
 .is-post:hover .is-post-by .ar{transform:translateX(3px)}
+/* 带封面缩略图的列表卡片 */
+.is-post.has-thumb{grid-template-columns:148px 1fr 220px}
+.is-post-thumb{width:148px;height:96px;border-radius:10px;overflow:hidden;background:var(--is-line)}
+.is-post-thumb img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .3s}
+.is-post:hover .is-post-thumb img{transform:scale(1.04)}
 @media(max-width:680px){
-  .is-post{grid-template-columns:1fr;gap:14px;padding:22px 20px}
+  .is-post,.is-post.has-thumb{grid-template-columns:1fr;gap:14px;padding:22px 20px}
+  .is-post-thumb{width:100%;height:150px}
   .is-post-by{text-align:left;justify-content:flex-start}
 }
 

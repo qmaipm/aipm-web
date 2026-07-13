@@ -6,7 +6,7 @@ import { getArticle } from "./articles";
 export const metadata = {
   title: "行业研究 · 启盟科技看物业与 FM 行业 — 启盟科技",
   description:
-    "从 OBC 合约模式到数字劳动力,从 AI 物业前瞻到一线落地——启盟科技对物业与设施管理(FM)行业的长期研究。",
+    "从 AI 落地方法到物业 AI 化,再到 OBC 合约模式——启盟科技对物业与设施管理(FM)行业的长期研究:怎么落地、行业会变成什么样、商业模式怎么算账。",
 };
 
 const Arrow = ({ s = 15 }: { s?: number }) => (
@@ -31,14 +31,14 @@ export default function Page() {
             物业与 AI 怎么真正结合,<span className="grad">我们研究得透一点</span>
           </h1>
           <p className="is-lead">
-            从 <b>OBC 合约模式</b>到<b>数字劳动力</b>,从<b>AI 物业前瞻</b>到一线落地——这里是启盟科技把 <b>AI</b> 用进<b>物业与设施管理(FM)</b>的长期研究:不止于趋势判断,更要把每一件事在现场跑通。
+            <b>AI 怎么落地</b>、<b>物业行业会变成什么样</b>、<b>商业模式怎么算账</b>——这里是启盟科技把 <b>AI</b> 用进<b>物业与设施管理(FM)</b>的长期研究:不止于趋势判断,更要把每一件事在现场跑通。
           </p>
           <div className="is-proof">
+            <span><b className="grad">AI 落地方法</b></span>
+            <span className="sep" />
+            <span><b>物业 AI 化</b></span>
+            <span className="sep" />
             <span><b>OBC</b> 合约模式</span>
-            <span className="sep" />
-            <span><b>数字劳动力</b></span>
-            <span className="sep" />
-            <span><b className="grad">AI 物业前瞻</b></span>
           </div>
         </div>
       </section>
