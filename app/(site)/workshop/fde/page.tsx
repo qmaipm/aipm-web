@@ -357,7 +357,7 @@ export default function Page() {
       <RelatedReading
         heading="把 FDE 读透,再来聊"
         sub="FDE 从哪来、为什么有效、和驻场外包差在哪——这几篇研究讲得最透。"
-        slugs={["what-is-fde", "ai-transformation-bottom-up"]}
+        slugs={["what-is-fde", "demo-vs-system"]}
       />
 
       {/* FAQ */}

@@ -321,7 +321,7 @@ export default function Page() {
       <RelatedReading
         heading="大赛背后的方法论"
         sub="为什么用大赛把一线的难题变成选题——这几篇研究是它的理论底座。"
-        slugs={["ai-transformation-bottom-up", "what-is-fde"]}
+        slugs={["how-to-run-ai-competition", "ai-transformation-bottom-up"]}
       />
 
       <SeoFaq heading="关于办一场 AI 大赛，你可能想问的" items={faqs} />

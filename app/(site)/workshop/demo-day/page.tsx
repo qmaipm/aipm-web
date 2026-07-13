@@ -330,7 +330,7 @@ export default function Page() {
       <RelatedReading
         heading="看之前,先看懂行业往哪走"
         sub="Demo 里跑的那些场景,背后是我们对物业下半场的判断。"
-        slugs={["property-management-second-half-ai-company", "how-to-choose-cleaning-robot-roi"]}
+        slugs={["demo-vs-system", "property-management-second-half-ai-company"]}
       />
 
       <SeoFaq heading="关于 Demo Day，你可能想问的" items={faqs} />

@@ -53,6 +53,14 @@ export function FigRow({
 
 // 文章 → AI 物业服务工种页回链(内链闭环:研究文章把读者引向对应服务页)
 const TRADE_LINKS: Record<string, { href: string; label: string }[]> = {
+  "how-to-run-ai-competition": [
+    { href: "/workshop/competition", label: "AI 应用创新大赛" },
+    { href: "/workshop/bootcamp", label: "FMClaw™ 加速营" },
+  ],
+  "demo-vs-system": [
+    { href: "/workshop/demo-day", label: "Demo Day" },
+    { href: "/workshop/fde", label: "FDE 服务" },
+  ],
   "what-is-fde": [
     { href: "/workshop/fde", label: "FDE 服务" },
     { href: "/workshop/demo-day", label: "Demo Day" },

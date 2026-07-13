@@ -51,6 +51,8 @@ const ROUTES = [
 // 行业研究文章(GEO 重点内容,优先级更高)
 const INSIGHTS = [
   "/insights",
+  "/insights/how-to-run-ai-competition",
+  "/insights/demo-vs-system",
   "/insights/what-is-fde",
   "/insights/ai-transformation-bottom-up",
   "/insights/property-management-second-half-ai-company",
