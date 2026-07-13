@@ -28,7 +28,7 @@ export default function Navbar() {
   }, [pathname]);
   const solid = scrolled || open;
   // 深色 hero 页面:顶部未滚动时导航转白字,避免暗底吞掉深色导航
-  const DARK_HERO = ["/ai-service", "/ai-service/cleaning", "/ai-service/facility", "/ai-service/security", "/ai-service/customer-service", "/agents", "/company", "/cases/aipm-property-ai-transformation"];
+  const DARK_HERO = ["/ai-service", "/ai-service/cleaning", "/ai-service/facility", "/ai-service/security", "/ai-service/customer-service", "/agents", "/company", "/workshop", "/cases/aipm-property-ai-transformation"];
   const onDark = !solid && DARK_HERO.includes(pathname);
 
   return (

@@ -28,23 +28,34 @@
 .solws .ws-grid.dark{background-image:linear-gradient(to right,rgba(63,217,184,.10) 1px,transparent 1px),
                    linear-gradient(to bottom,rgba(63,217,184,.10) 1px,transparent 1px)}
 
-/* ---------- HERO ---------- */
-.solws .ws-hero{position:relative;overflow:hidden;padding:150px 0 64px;background:var(--ws-paper)}
-.solws .ws-hero-top{position:relative;z-index:2}
+/* ---------- HERO(摄影底图 · 暗场) ---------- */
+.solws .ws-hero{position:relative;overflow:hidden;padding:186px 0 76px;background:var(--ws-core);color:#fff;
+  min-height:640px;display:flex;align-items:flex-end}
+.solws .ws-hero__bg{position:absolute;inset:0;z-index:0;background:url(/workshop/hero.jpg) center/cover no-repeat}
+.solws .ws-hero__bg::after{content:"";position:absolute;inset:0;
+  background:linear-gradient(180deg,rgba(7,17,14,.46) 0%,rgba(7,17,14,.24) 42%,rgba(7,17,14,.88) 100%),
+             linear-gradient(100deg,rgba(7,17,14,.56) 0%,rgba(7,17,14,.16) 55%,transparent 80%)}
+.solws .ws-hero .ws-grid{background-image:linear-gradient(to right,rgba(63,217,184,.09) 1px,transparent 1px),
+  linear-gradient(to bottom,rgba(63,217,184,.09) 1px,transparent 1px)}
+.solws .ws-hero-top{position:relative;z-index:2;width:100%}
 .solws .ws-kicker{display:inline-flex;align-items:center;flex-wrap:wrap;font-size:12px;font-weight:600;letter-spacing:.14em;
-  text-transform:uppercase;color:var(--ws-mut)}
-.solws .ws-kicker a{color:var(--ws-mut)}.solws .ws-kicker a:hover{color:var(--ws-green)}
+  text-transform:uppercase;color:#9fded0}
+.solws .ws-kicker a{color:#9fded0}.solws .ws-kicker a:hover{color:#fff}
 .solws .ws-kicker i{color:var(--ws-green);font-style:normal;margin:0 9px;font-weight:700}
-.solws .ws-h1{margin:22px 0 0;font-weight:800;font-size:clamp(38px,6vw,72px);line-height:1.06;letter-spacing:-.035em;color:var(--ws-ink);max-width:18ch}
-.solws .ws-lead{margin:26px 0 0;font-size:clamp(16px,1.8vw,19px);line-height:1.6;color:var(--ws-ink-2);max-width:none;font-weight:400}
-.solws .ws-lead b{color:var(--ws-ink);font-weight:600}
+.solws .ws-h1{margin:22px 0 0;font-weight:800;font-size:clamp(38px,6vw,72px);line-height:1.06;letter-spacing:-.035em;color:#fff;max-width:18ch;
+  text-shadow:0 2px 60px rgba(0,112,255,.22)}
+.solws .ws-lead{margin:26px 0 0;font-size:clamp(16px,1.8vw,19px);line-height:1.7;color:#D7E2DD;max-width:54ch;font-weight:400}
+.solws .ws-lead b{color:#fff;font-weight:600}
 .solws .ws-cta{margin-top:38px;display:flex;flex-wrap:wrap;gap:14px;align-items:center}
+.solws .ws-hero .btn-ghost{color:#fff;border-color:rgba(255,255,255,.45);background:rgba(255,255,255,.05)}
+.solws .ws-hero .btn-ghost:hover{border-color:#fff;background:rgba(255,255,255,.12)}
 @media(max-width:560px){.solws .ws-cta{flex-direction:column;align-items:stretch}.solws .ws-cta .btn{width:100%}}
 .solws .ws-proof{position:relative;z-index:2;margin-top:52px;display:flex;flex-wrap:wrap;align-items:center;gap:12px 22px;
-  font-size:clamp(15px,1.9vw,18px);color:var(--ws-mut)}
-.solws .ws-proof b{color:var(--ws-ink);font-weight:600}
+  font-size:clamp(15px,1.9vw,18px);color:#AEBAB5}
+.solws .ws-proof b{color:#fff;font-weight:600}
 .solws .ws-proof b.grad{font-weight:800;letter-spacing:-.01em}
-.solws .ws-proof .sep{width:5px;height:5px;border-radius:50%;background:var(--ws-faint)}
+.solws .ws-proof .sep{width:5px;height:5px;border-radius:50%;background:rgba(255,255,255,.35)}
+@media(max-width:700px){.solws .ws-hero{padding:150px 0 56px;min-height:0}}
 
 /* ---------- 通用 band ---------- */
 .solws .ws-band{position:relative;padding:104px 0;background:var(--ws-paper)}
@@ -62,28 +73,37 @@
 
 .solws .ws-sub.on-dark-sub{color:#AEBAB5}
 
-/* ---------- 四种方式 · 服务大卡 ---------- */
-.solws .ws-modes{margin-top:46px;display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
-@media(max-width:1060px){.solws .ws-modes{grid-template-columns:1fr 1fr}}
-@media(max-width:600px){.solws .ws-modes{grid-template-columns:1fr}}
-.solws .ws-mode{display:flex;flex-direction:column;border:1px solid var(--ws-line);border-radius:16px;background:var(--ws-paper);
-  padding:28px 24px 24px;position:relative;overflow:hidden;
-  transition:border-color .2s,box-shadow .2s,transform .2s}
-.solws .ws-mode::before{content:"";position:absolute;left:0;right:0;top:0;height:3px;background:var(--ws-grad);
-  opacity:0;transition:opacity .2s}
-.solws .ws-mode:hover{border-color:rgba(12,139,130,.36);box-shadow:0 16px 40px rgba(12,139,130,.10);transform:translateY(-3px)}
-.solws .ws-mode:hover::before{opacity:1}
-.solws .ws-mhead{display:flex;align-items:baseline;justify-content:space-between;gap:10px;margin-bottom:14px}
-.solws .ws-mno{font-size:clamp(26px,3vw,34px);font-weight:800;line-height:.9;letter-spacing:-.03em;font-variant-numeric:tabular-nums}
-.solws .ws-mtime{font-size:12px;font-weight:700;letter-spacing:.05em;color:var(--ws-green);
-  border:1px solid rgba(18,185,138,.3);border-radius:999px;padding:4px 11px;white-space:nowrap}
-.solws .ws-mode h3{margin:0 0 8px;font-size:clamp(19px,2vw,22px);font-weight:800;letter-spacing:-.02em;color:var(--ws-ink);line-height:1.25}
-.solws .ws-mline{margin:0 0 18px;font-size:14px;line-height:1.62;color:var(--ws-ink-2);flex:0 0 auto;min-height:3.2em}
-.solws .ws-mrows{margin:0 0 18px;display:flex;flex-direction:column;gap:0;border-top:1px solid var(--ws-line);flex:1}
-.solws .ws-mrows>div{display:flex;gap:10px;padding:9px 0;border-bottom:1px solid var(--ws-line);align-items:baseline}
-.solws .ws-mrows dt{flex:none;width:2.6em;font-size:12px;font-weight:700;letter-spacing:.04em;color:var(--ws-mut)}
-.solws .ws-mrows dd{margin:0;font-size:13px;line-height:1.55;color:var(--ws-ink-2)}
-.solws .ws-mode .ws-go{margin-top:auto}
+/* ---------- 四种方式 · 图文交错横栏 ---------- */
+.solws .ws-modes{margin-top:64px;display:flex;flex-direction:column;gap:72px}
+@media(max-width:860px){.solws .ws-modes{gap:56px}}
+.solws .ws-mode{display:grid;grid-template-columns:minmax(0,1.02fr) minmax(0,1fr);gap:clamp(32px,5vw,72px);align-items:center}
+.solws .ws-mode.is-flip .ws-mimg{order:2}
+.solws .ws-mode.is-flip .ws-mbody{order:1}
+@media(max-width:860px){
+  .solws .ws-mode{grid-template-columns:1fr;gap:24px}
+  .solws .ws-mode.is-flip .ws-mimg{order:0}
+  .solws .ws-mode.is-flip .ws-mbody{order:1}
+}
+.solws .ws-mimg{position:relative;display:block;border-radius:18px;overflow:hidden;
+  box-shadow:0 24px 60px rgba(11,23,20,.16);transform:translateY(0);transition:transform .3s,box-shadow .3s}
+.solws .ws-mimg::after{content:"";position:absolute;inset:0;border-radius:18px;
+  box-shadow:inset 0 0 0 1px rgba(11,23,20,.08)}
+.solws .ws-mimg img{display:block;width:100%;height:auto;aspect-ratio:4/3;object-fit:cover;
+  transform:scale(1);transition:transform .5s}
+.solws .ws-mode:hover .ws-mimg{transform:translateY(-4px);box-shadow:0 30px 70px rgba(11,23,20,.20)}
+.solws .ws-mode:hover .ws-mimg img{transform:scale(1.025)}
+.solws .ws-mbody{max-width:52ch}
+.solws .ws-mhead{display:flex;align-items:center;gap:16px;margin-bottom:18px}
+.solws .ws-mno{font-size:clamp(30px,3.4vw,40px);font-weight:800;line-height:.9;letter-spacing:-.03em;font-variant-numeric:tabular-nums}
+.solws .ws-mtime{font-size:12.5px;font-weight:700;letter-spacing:.05em;color:var(--ws-green);
+  border:1px solid rgba(18,185,138,.3);border-radius:999px;padding:5px 13px;white-space:nowrap}
+.solws .ws-mode h3{margin:0 0 12px;font-size:clamp(23px,2.6vw,30px);font-weight:800;letter-spacing:-.025em;color:var(--ws-ink);line-height:1.22}
+.solws .ws-mline{margin:0 0 22px;font-size:clamp(14.5px,1.6vw,16px);line-height:1.72;color:var(--ws-ink-2)}
+.solws .ws-mrows{margin:0 0 24px;border-top:1px solid var(--ws-line)}
+.solws .ws-mrows>div{display:flex;gap:16px;padding:12px 0;border-bottom:1px solid var(--ws-line);align-items:baseline}
+.solws .ws-mrows dt{flex:none;width:2.6em;font-size:12.5px;font-weight:700;letter-spacing:.06em;color:var(--ws-mut)}
+.solws .ws-mrows dd{margin:0;font-size:14px;line-height:1.6;color:var(--ws-ink-2)}
+.solws .ws-mode .ws-go{font-size:14px}
 .solws .ws-mode:hover .ws-go .ar{transform:translateX(3px)}
 
 /* ---------- 行前准备 · 暗场清单 ---------- */

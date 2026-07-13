@@ -89,12 +89,11 @@ const modes = [
     href: "/workshop/demo-day",
     time: "半天 – 1 天",
     h: "Demo Day",
-    line: "用你的一份真实数据，当场跑出一个能用的 demo。眼见为实，不是交付。",
-    rows: [
-      ["带走", "一个跑在你数据上的 demo，和一个「走得通」的判断"],
-      ["门槛", "一份真实数据，提前三天给我们"],
-      ["适合", "还在观望、想先亲眼看看的"],
-    ],
+    line: "用你的一份真实数据，当场跑出一个能用的 demo。它不是交付，是眼见为实——让你亲眼确认，这条路在你的业务上走得通。",
+    take: "一个跑在你数据上的 demo，和一个「走得通」的判断。",
+    fit: "还在观望、想先亲眼看看的。",
+    img: "/workshop/demo-day.jpg",
+    alt: "Demo Day：工程师向管理层现场演示跑在真实数据上的 AI demo",
     go: "了解 Demo Day",
   },
   {
@@ -102,12 +101,11 @@ const modes = [
     href: "/workshop/bootcamp",
     time: "2 – 3 天",
     h: "加速营 · Bootcamp",
-    line: "带一个真问题来，当着你的面把 Agent 搭起来、跑通、留给你。",
-    rows: [
-      ["带走", "一个还在运行的 Agent，一份能复用的工作流"],
-      ["门槛", "真问题、真实数据，对的人全程在场"],
-      ["适合", "有明确痛点、认真要落地的"],
-    ],
+    line: "带一个真问题和它的真实数据来，闭门两三天，当着你的面把 Agent 搭起来、在你的流程里跑通——跑通的东西，留给你。",
+    take: "一个还在运行的 Agent，一份能复用的工作流。",
+    fit: "有明确痛点、认真要落地的。",
+    img: "/workshop/bootcamp.jpg",
+    alt: "加速营：团队在工作坊现场共同搭建 AI 工作流",
     go: "了解加速营",
   },
   {
@@ -115,12 +113,11 @@ const modes = [
     href: "/workshop/competition",
     time: "2 – 4 周",
     h: "AI 应用创新大赛",
-    line: "一场比赛，让一线的人自己把 AI 用起来。赛完不散场——获奖课题接着落地。",
-    rows: [
-      ["带走", "一批从一线长出来的课题，一条赛后落地的路径"],
-      ["角色", "我们承办、协办，或提供 FMClaw™ 技术底座"],
-      ["适合", "央国企、地方政府、集团总部"],
-    ],
+    line: "一场比赛，让一线的人带着自己的业务痛点动起来。从报名、辅导到决赛路演，两到四周走完——赛完不散场，获奖课题接着落地。",
+    take: "一批从一线长出来的课题，一条赛后落地的路径。我们承办、协办，或提供 FMClaw™ 技术底座。",
+    fit: "央国企、地方政府、集团总部。",
+    img: "/workshop/competition.jpg",
+    alt: "AI 应用创新大赛：员工在决赛现场向评委路演自己的课题",
     go: "了解大赛",
   },
   {
@@ -128,12 +125,11 @@ const modes = [
     href: "/workshop/fde",
     time: "按阶段",
     h: "FDE 服务",
-    line: "前置部署工程师按阶段进场：数据治理、系统接入，把验证过的东西变成生产系统。",
-    rows: [
-      ["带走", "每个阶段有明确目标与验收的工程交付"],
-      ["门槛", "已经跑通过一个场景，或准备认真开始"],
-      ["适合", "要接系统、接大数据量，动真格的"],
-    ],
+    line: "前置部署工程师进到你的业务现场：数据治理、系统与接口接入，把验证过的场景变成生产系统。按阶段交付，按阶段验收——不是驻场外包。",
+    take: "每个阶段有明确目标与验收标准的工程交付。",
+    fit: "要接系统、接大数据量，动真格的。",
+    img: "/workshop/fde.jpg",
+    alt: "FDE 服务：前置部署工程师与设施负责人在现场核对数据管线",
     go: "了解 FDE 服务",
   },
 ];
@@ -185,7 +181,8 @@ export default function Page() {
       <JsonLd data={LD} />
 
       {/* HERO */}
-      <section className="ws-hero">
+      <section className="ws-hero has-photo">
+        <div className="ws-hero__bg" aria-hidden="true" />
         <div className="ws-grid" aria-hidden="true" />
         <div className="wrap ws-hero-top">
           <span className="ws-kicker">
@@ -220,21 +217,26 @@ export default function Page() {
           <h2 className="ws-h2">你有多少时间，就有对应的打开方式</h2>
           <p className="ws-sub">时间投入不同，目标就不同。先想清楚你要什么，再决定怎么开始。</p>
           <div className="ws-modes">
-            {modes.map((m) => (
-              <Link className="ws-mode" href={m.href} key={m.no}>
-                <div className="ws-mhead">
-                  <span className="ws-mno grad">{m.no}</span>
-                  <span className="ws-mtime">{m.time}</span>
+            {modes.map((m, i) => (
+              <div className={`ws-mode${i % 2 === 1 ? " is-flip" : ""}`} key={m.no}>
+                <Link className="ws-mimg" href={m.href} aria-hidden="true" tabIndex={-1}>
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  <img src={m.img} alt={m.alt} loading="lazy" />
+                </Link>
+                <div className="ws-mbody">
+                  <div className="ws-mhead">
+                    <span className="ws-mno grad">{m.no}</span>
+                    <span className="ws-mtime">{m.time}</span>
+                  </div>
+                  <h3>{m.h}</h3>
+                  <p className="ws-mline">{m.line}</p>
+                  <dl className="ws-mrows">
+                    <div><dt>带走</dt><dd>{m.take}</dd></div>
+                    <div><dt>适合</dt><dd>{m.fit}</dd></div>
+                  </dl>
+                  <Link className="ws-go" href={m.href}>{m.go} <ArrowR s={12} /></Link>
                 </div>
-                <h3>{m.h}</h3>
-                <p className="ws-mline">{m.line}</p>
-                <dl className="ws-mrows">
-                  {m.rows.map(([dt, dd]) => (
-                    <div key={dt}><dt>{dt}</dt><dd>{dd}</dd></div>
-                  ))}
-                </dl>
-                <span className="ws-go">{m.go} <ArrowR s={12} /></span>
-              </Link>
+              </div>
             ))}
           </div>
           <p className="ws-verdict light">
