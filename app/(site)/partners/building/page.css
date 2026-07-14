@@ -1,0 +1,202 @@
+/* ============================================================
+   智能建筑伙伴 — 冷调「平台」语言，与 /partners /cobuild 同族
+   hero → 市场在变(政策) → 参考架构六模块(暗场签名段)
+   → 我们提供什么 → 白皮书登记表单 → endcta
+   全部规则收在 .solbd 作用域内。
+   ============================================================ */
+.solbd{
+  --bd-ink:#14201C; --bd-ink-2:#46524D; --bd-mut:#7C857F; --bd-faint:#A7AFAB;
+  --bd-line:#E6EAE8; --bd-mist:#ECF3F1; --bd-paper:#FFFFFF; --bd-core:#0B1714;
+  --bd-blue:#0070FF; --bd-green:#12B98A; --bd-grad:linear-gradient(115deg,#0070FF,#12B98A);
+  --bd-vi-line:rgba(12,139,130,.16);
+  background:var(--bd-paper); color:var(--bd-ink);
+}
+.solbd .wrap{max-width:1160px;margin:0 auto;padding:0 32px}
+@media(max-width:600px){.solbd .wrap{padding:0 22px}}
+.solbd .grad{background:var(--bd-grad);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+@supports not ((-webkit-background-clip:text) or (background-clip:text)){.solbd .grad{color:var(--bd-green);-webkit-text-fill-color:currentColor}}
+
+/* 蓝图网格 */
+.solbd .bd-grid{position:absolute;inset:0;z-index:0;pointer-events:none;
+  background-image:linear-gradient(to right,var(--bd-vi-line) 1px,transparent 1px),
+                   linear-gradient(to bottom,var(--bd-vi-line) 1px,transparent 1px);
+  background-size:54px 54px;
+  -webkit-mask-image:radial-gradient(125% 90% at 80% 0%,#000 0%,transparent 62%);
+          mask-image:radial-gradient(125% 90% at 80% 0%,#000 0%,transparent 62%)}
+.solbd .bd-grid.dark{background-image:linear-gradient(to right,rgba(63,217,184,.10) 1px,transparent 1px),
+                   linear-gradient(to bottom,rgba(63,217,184,.10) 1px,transparent 1px)}
+
+/* HERO：左文右图 */
+.solbd .bd-hero{position:relative;overflow:hidden;padding:138px 0 72px;background:var(--bd-paper)}
+.solbd .bd-hero-cols{position:relative;z-index:2;display:grid;grid-template-columns:1.1fr .9fr;gap:52px;align-items:center}
+@media(max-width:960px){.solbd .bd-hero-cols{grid-template-columns:1fr;gap:40px}}
+.solbd .bd-kicker{display:inline-flex;align-items:center;flex-wrap:wrap;font-size:12px;font-weight:600;letter-spacing:.14em;
+  text-transform:uppercase;color:var(--bd-mut)}
+.solbd .bd-kicker a{color:var(--bd-mut)}.solbd .bd-kicker a:hover{color:var(--bd-green)}
+.solbd .bd-kicker i{color:var(--bd-green);font-style:normal;margin:0 9px;font-weight:700}
+.solbd .bd-h1{margin:22px 0 0;font-weight:800;font-size:clamp(33px,4.4vw,54px);line-height:1.08;letter-spacing:-.035em;color:var(--bd-ink);max-width:22ch}
+.solbd .bd-lead{margin:24px 0 0;font-size:clamp(15.5px,1.7vw,18px);line-height:1.62;color:var(--bd-ink-2);max-width:52ch}
+.solbd .bd-lead b{color:var(--bd-ink);font-weight:600}
+.solbd .bd-cta{margin-top:32px;display:flex;flex-wrap:wrap;gap:13px;align-items:center}
+.solbd .bd-hero-art{position:relative}
+.solbd .bd-hero-art img{width:100%;height:auto;display:block;border-radius:20px;
+  border:1px solid var(--bd-line);box-shadow:0 24px 60px rgba(12,139,130,.13)}
+@media(max-width:960px){.solbd .bd-hero-art{max-width:540px}}
+.solbd .bd-proof{position:relative;z-index:2;margin-top:34px;display:flex;flex-wrap:wrap;align-items:center;gap:10px 20px;
+  font-size:clamp(14px,1.6vw,16px);color:var(--bd-mut)}
+.solbd .bd-proof b{color:var(--bd-ink);font-weight:600}
+.solbd .bd-proof b.grad{font-weight:800;letter-spacing:-.01em}
+.solbd .bd-proof .sep{width:5px;height:5px;border-radius:50%;background:var(--bd-faint)}
+
+/* band */
+.solbd .bd-band{position:relative;padding:104px 0;background:var(--bd-paper)}
+.solbd .bd-band.mist{background:var(--bd-mist)}
+@media(max-width:700px){.solbd .bd-band{padding:76px 0}}
+.solbd .bd-eyebrow{display:inline-flex;align-items:center;gap:10px;font-size:12px;font-weight:600;letter-spacing:.2em;
+  text-transform:uppercase;color:var(--bd-green)}
+.solbd .bd-eyebrow::before{content:"";width:22px;height:2px;border-radius:2px;background:var(--bd-grad)}
+.solbd .bd-eyebrow.on-dark{color:#3fd9b8}
+.solbd .bd-h2{margin:18px 0 0;font-weight:800;font-size:clamp(27px,3.5vw,40px);line-height:1.18;letter-spacing:-.03em;color:var(--bd-ink)}
+.solbd .bd-h2.on-dark{color:#fff}
+.solbd .bd-sub{margin:18px 0 0;font-size:clamp(15px,1.65vw,17px);line-height:1.6;color:var(--bd-ink-2)}
+.solbd .bd-sub.on-dark{color:#AEBAB5}
+.solbd .bd-sub b{color:var(--bd-ink);font-weight:600}
+.solbd .bd-sub.on-dark b{color:#fff}
+
+/* ---------- 市场在变:序号定义列表 ---------- */
+.solbd .bd-shift{margin-top:46px;display:flex;flex-direction:column}
+.solbd .bd-shifti{display:grid;grid-template-columns:64px 1fr;gap:22px;align-items:start;padding:26px 0;border-top:1px solid var(--bd-line)}
+.solbd .bd-shifti:last-child{border-bottom:1px solid var(--bd-line)}
+.solbd .bd-shiftno{font-size:16px;font-weight:800;letter-spacing:.04em;padding-top:5px;font-variant-numeric:tabular-nums}
+.solbd .bd-shiftbody h3{margin:0 0 9px;font-size:clamp(18px,2.1vw,21px);font-weight:700;letter-spacing:-.015em;color:var(--bd-ink)}
+.solbd .bd-shiftbody p{margin:0;color:var(--bd-ink-2);font-size:15.5px;line-height:1.78}
+@media(max-width:560px){.solbd .bd-shifti{grid-template-columns:1fr;gap:8px}}
+.solbd .bd-quote{margin-top:46px;color:var(--bd-ink);font-weight:800;
+  font-size:clamp(24px,3.6vw,40px);line-height:1.28;letter-spacing:-.025em}
+
+/* ---------- 暗场:架构对比（旧智能建筑 vs 智能体园区） ---------- */
+.solbd .bd-core{position:relative;overflow:hidden;background:var(--bd-core);color:#E8EFEC;padding:120px 0}
+@media(max-width:700px){.solbd .bd-core{padding:84px 0}}
+.solbd .bd-core .wrap{position:relative;z-index:1}
+
+.solbd .bd-arch{margin-top:52px;display:grid;grid-template-columns:1fr 56px 1fr;gap:0;align-items:stretch}
+@media(max-width:900px){.solbd .bd-arch{grid-template-columns:1fr;gap:18px}}
+.solbd .bd-arch-col{display:flex;flex-direction:column;border-radius:18px;padding:26px 24px 22px}
+.solbd .bd-arch-col.old{border:1px solid rgba(255,255,255,.12);background:rgba(255,255,255,.025)}
+.solbd .bd-arch-col.new{border:1px solid rgba(63,217,184,.34);background:rgba(18,185,138,.05);
+  box-shadow:0 0 0 1px rgba(63,217,184,.08),0 24px 60px rgba(18,185,138,.10)}
+.solbd .bd-arch-tag{align-self:flex-start;font-size:11.5px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;
+  color:#AEBAB5;padding:6px 13px;border-radius:999px;border:1px solid rgba(255,255,255,.16);white-space:nowrap}
+.solbd .bd-arch-tag.hot{color:#0B1714;background:linear-gradient(115deg,#0070FF,#12B98A);border-color:transparent;font-weight:800}
+.solbd .bd-arch-stack{margin-top:18px;display:flex;flex-direction:column;gap:9px;flex:1}
+.solbd .bd-layer{border:1px solid rgba(255,255,255,.13);border-radius:12px;background:rgba(255,255,255,.03);
+  padding:15px 17px;position:relative;transition:border-color .2s}
+.solbd .bd-layer h3{margin:0;font-size:15.5px;font-weight:700;letter-spacing:-.01em;color:#E8EFEC;line-height:1.35}
+.solbd .bd-layer p{margin:6px 0 0;font-size:12.5px;line-height:1.6;color:#8B9791}
+.solbd .bd-arch-col.old .bd-layer h3{color:#C7D0CC}
+.solbd .bd-layer.hot{border-color:rgba(63,217,184,.42);background:rgba(18,185,138,.09)}
+.solbd .bd-layer.hot h3{color:#fff}
+.solbd .bd-layer.hot p{color:#8FD9C6}
+.solbd .bd-layer.keep{border-style:dashed;border-color:rgba(255,255,255,.22)}
+.solbd .bd-layer-badge{position:absolute;top:-9px;right:14px;font-size:10.5px;font-weight:800;letter-spacing:.06em;
+  color:#0B1714;background:linear-gradient(115deg,#0070FF,#12B98A);padding:3px 10px;border-radius:999px;white-space:nowrap}
+.solbd .bd-arch-foot{margin:16px 0 0;font-size:13px;line-height:1.65;color:#8B9791}
+.solbd .bd-arch-col.new .bd-arch-foot{color:#8FD9C6}
+.solbd .bd-arch-mid{display:flex;align-items:center;justify-content:center;color:#3fd9b8}
+@media(max-width:900px){.solbd .bd-arch-mid{transform:rotate(90deg);padding:2px 0}}
+
+.solbd .bd-deltas{margin-top:22px;display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+@media(max-width:900px){.solbd .bd-deltas{grid-template-columns:1fr}}
+.solbd .bd-delta{border:1px solid rgba(255,255,255,.12);border-radius:14px;background:rgba(255,255,255,.025);padding:20px 20px 18px}
+.solbd .bd-delta h3{margin:0;font-size:14.5px;font-weight:800;letter-spacing:-.01em;color:#fff}
+.solbd .bd-delta p{margin:11px 0 0;font-size:12.8px;line-height:1.62;display:flex;gap:9px;align-items:flex-start}
+.solbd .bd-delta p span{flex:none;font-size:10.5px;font-weight:800;letter-spacing:.08em;padding:3px 8px;border-radius:6px;margin-top:1px;white-space:nowrap}
+.solbd .bd-delta .was{color:#8B9791}
+.solbd .bd-delta .was span{color:#8B9791;border:1px solid rgba(255,255,255,.18)}
+.solbd .bd-delta .now{color:#C9E9DE}
+.solbd .bd-delta .now span{color:#0B1714;background:linear-gradient(115deg,#0070FF,#12B98A)}
+
+.solbd .bd-verdict{position:relative;margin-top:44px;padding-left:22px;
+  font-size:clamp(17px,2vw,22px);font-weight:700;line-height:1.5;letter-spacing:-.015em;color:#fff}
+.solbd .bd-verdict::before{content:"";position:absolute;left:0;top:6px;bottom:6px;width:3px;border-radius:3px;background:var(--bd-grad)}
+.solbd .bd-verdict .grad{font-weight:800}
+
+/* ---------- 合作权益 ---------- */
+.solbd .bd-rights{margin-top:48px;display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+@media(max-width:980px){.solbd .bd-rights{grid-template-columns:1fr 1fr}}
+@media(max-width:640px){.solbd .bd-rights{grid-template-columns:1fr}}
+.solbd .bd-right{border:1px solid var(--bd-line);border-radius:16px;background:var(--bd-paper);padding:27px 25px;
+  display:flex;flex-direction:column;transition:border-color .2s,box-shadow .2s,transform .2s}
+.solbd .bd-right:hover{border-color:rgba(12,139,130,.34);box-shadow:0 14px 34px rgba(12,139,130,.08);transform:translateY(-2px)}
+.solbd .bd-right-head{display:flex;align-items:center;justify-content:space-between;gap:10px}
+.solbd .bd-rno{font-size:16px;font-weight:800;letter-spacing:.04em;font-variant-numeric:tabular-nums}
+.solbd .bd-rwhen{font-size:11.5px;font-weight:600;letter-spacing:.02em;color:var(--bd-green);
+  padding:5px 11px;border-radius:999px;border:1px solid rgba(18,185,138,.32);background:rgba(18,185,138,.06);white-space:nowrap}
+.solbd .bd-right h3{margin:15px 0 0;font-size:clamp(17.5px,2vw,20px);font-weight:700;letter-spacing:-.015em;color:var(--bd-ink)}
+.solbd .bd-right p{margin:10px 0 0;font-size:14.5px;line-height:1.72;color:var(--bd-ink-2)}
+.solbd .bd-policy{margin-top:34px;padding:17px 22px;border-radius:13px;background:var(--bd-paper);border:1px solid var(--bd-line);
+  font-size:14.5px;line-height:1.7;color:var(--bd-ink-2)}
+.solbd .bd-policy a{display:inline-flex;align-items:center;gap:5px;margin-left:8px;font-weight:700;color:var(--bd-ink)}
+.solbd .bd-policy a:hover{color:var(--bd-green)}
+
+/* ---------- 伙伴发展路径 ---------- */
+.solbd .bd-steps{margin-top:48px;display:grid;grid-template-columns:repeat(5,1fr);gap:14px}
+@media(max-width:1000px){.solbd .bd-steps{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:560px){.solbd .bd-steps{grid-template-columns:1fr}}
+.solbd .bd-step{border:1px solid var(--bd-line);border-radius:15px;background:var(--bd-paper);
+  padding:24px 20px 22px;transition:border-color .2s,box-shadow .2s}
+.solbd .bd-step:hover{border-color:rgba(12,139,130,.34);box-shadow:0 12px 30px rgba(12,139,130,.08)}
+.solbd .bd-step-no{display:inline-flex;width:30px;height:30px;border-radius:50%;align-items:center;justify-content:center;
+  font-size:14px;font-weight:800;color:#fff;background:var(--bd-grad)}
+.solbd .bd-step h3{margin:14px 0 0;font-size:16.5px;font-weight:700;letter-spacing:-.01em;color:var(--bd-ink)}
+.solbd .bd-step p{margin:9px 0 0;font-size:13.5px;line-height:1.68;color:var(--bd-ink-2)}
+
+/* ---------- 为什么是现在：一行横条 ---------- */
+.solbd .bd-strip{background:var(--bd-paper);border-top:1px solid var(--bd-line);border-bottom:1px solid var(--bd-line);padding:34px 0}
+.solbd .bd-strip-in{display:flex;align-items:center;gap:26px}
+@media(max-width:760px){.solbd .bd-strip-in{flex-direction:column;align-items:flex-start;gap:14px}}
+.solbd .bd-strip-tag{flex:none;font-size:11.5px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--bd-green);
+  padding:7px 14px;border-radius:999px;border:1px solid rgba(18,185,138,.32);background:rgba(18,185,138,.06);white-space:nowrap}
+.solbd .bd-strip-in p{margin:0;font-size:15px;line-height:1.7;color:var(--bd-ink-2)}
+.solbd .bd-strip-in p b{color:var(--bd-ink);font-weight:700}
+
+/* ---------- 我们提供什么 ---------- */
+.solbd .bd-give{margin-top:48px;display:grid;grid-template-columns:1fr 1fr;gap:16px}
+@media(max-width:760px){.solbd .bd-give{grid-template-columns:1fr}}
+.solbd .bd-gcard{border:1px solid var(--bd-line);border-radius:16px;background:var(--bd-paper);padding:28px 26px;
+  transition:border-color .2s,box-shadow .2s,transform .2s}
+.solbd .bd-gcard:hover{border-color:rgba(12,139,130,.34);box-shadow:0 14px 34px rgba(12,139,130,.08);transform:translateY(-2px)}
+.solbd .bd-gk{display:block;width:28px;height:3px;border-radius:2px;background:var(--bd-grad);margin-bottom:18px}
+.solbd .bd-gcard h3{margin:0 0 10px;font-size:clamp(18px,2vw,20px);font-weight:700;letter-spacing:-.015em;color:var(--bd-ink)}
+.solbd .bd-gcard p{margin:0;font-size:15px;line-height:1.7;color:var(--bd-ink-2)}
+
+/* ---------- 白皮书登记 ---------- */
+.solbd .bd-wp{margin-top:48px;display:grid;grid-template-columns:0.9fr 1.1fr;gap:44px;align-items:start}
+@media(max-width:860px){.solbd .bd-wp{grid-template-columns:1fr}}
+.solbd .bd-wp-card{position:relative;border:1px solid var(--bd-line);border-radius:16px;background:var(--bd-paper);
+  padding:32px 30px;overflow:hidden}
+.solbd .bd-wp-card::before{content:"";position:absolute;left:0;right:0;top:0;height:3px;background:var(--bd-grad)}
+.solbd .bd-wp-tag{font-size:11.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--bd-green);font-weight:700}
+.solbd .bd-wp-card h3{margin:14px 0 0;font-size:clamp(19px,2.2vw,23px);font-weight:800;letter-spacing:-.02em;color:var(--bd-ink);line-height:1.35}
+.solbd .bd-wp-card > p{margin:15px 0 0;font-size:15px;line-height:1.72;color:var(--bd-ink-2)}
+.solbd .bd-wp-list{margin:18px 0 0;padding:0;list-style:none;display:flex;flex-direction:column;gap:10px}
+.solbd .bd-wp-list li{position:relative;padding-left:24px;font-size:14.5px;line-height:1.65;color:var(--bd-ink-2)}
+.solbd .bd-wp-list li::before{content:"";position:absolute;left:2px;top:8px;width:10px;height:5px;
+  border-left:2px solid var(--bd-green);border-bottom:2px solid var(--bd-green);transform:rotate(-45deg)}
+.solbd .bd-wp-faint{margin:20px 0 0;font-size:13px;color:var(--bd-mut);line-height:1.6}
+.solbd .bd-note{font-size:12.5px;color:var(--bd-mut);margin-top:14px;line-height:1.6}
+
+/* 表单冷调(字段样式继承全站 .form/.field) */
+.solbd .form-err{margin:-6px 0 14px;font-size:13.5px;color:var(--bd-green);line-height:1.55}
+.solbd .field input:focus,.solbd .field textarea:focus,.solbd .field select:focus{border-color:var(--bd-green);box-shadow:0 0 0 3px rgba(18,185,138,.10)}
+.solbd .field label .req{color:var(--bd-green)}
+.solbd .btn[disabled]{opacity:.6;cursor:not-allowed;transform:none}
+.solbd .form-done{position:relative;max-width:680px;padding:34px 30px;border:1px solid var(--bd-line);border-radius:16px;background:var(--bd-paper);overflow:hidden}
+.solbd .form-done::before{content:"";position:absolute;left:0;right:0;top:0;height:3px;background:var(--bd-grad)}
+.solbd .form-done-mark{width:48px;height:48px;border-radius:50%;display:grid;place-items:center;color:#fff;background:var(--bd-grad);margin-bottom:18px}
+.solbd .form-done-h{margin:0 0 10px;font-size:22px;font-weight:800;letter-spacing:-.02em;color:var(--bd-ink)}
+.solbd .form-done-p{margin:0;font-size:15.5px;line-height:1.7;color:var(--bd-ink-2);max-width:50ch}
+
+/* 可访问性 / 动效降级 */
+.solbd a:focus-visible,.solbd .btn:focus-visible{outline:2px solid var(--bd-green);outline-offset:3px;border-radius:10px}
+@media(prefers-reduced-motion:reduce){.solbd *{transition:none!important}}

@@ -102,6 +102,25 @@ export const MENU: MenuItem[] = [
   },
   { label: "人工智能产业共建", href: "/cobuild" },
   {
+    label: "生态伙伴",
+    href: "/partners",
+    minWidth: 320,
+    groups: [
+      {
+        items: [
+          { label: "生态伙伴(总览)", href: "/partners", small: "我们做产品和平台，伙伴赢市场" },
+        ],
+      },
+      {
+        heading: "合作方向",
+        items: [
+          { label: "智能建筑伙伴", href: "/partners/building", small: "招标里的智能体要求，带着 FMClaw 去应" },
+          { label: "渠道伙伴", href: "/partners/channel", small: "按项目 / 按区域 / 按产品，三种合作模式" },
+        ],
+      },
+    ],
+  },
+  {
     label: "公司",
     groups: [
       {
@@ -152,6 +171,7 @@ export const FOOTER_COLS: { title: string; links: DropItem[] }[] = [
     links: [
       { label: "FMClaw™ 加速营", href: "/workshop" },
       { label: "人工智能产业共建", href: "/cobuild" },
+      { label: "生态伙伴", href: "/partners" },
       { label: "关于启盟科技 / 团队", href: "/company" },
       { label: "行业研究", href: "/insights" },
     ],
