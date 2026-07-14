@@ -22,6 +22,8 @@ const ROUTES = [
   "/workshop/fde",
   "/cases",
   "/cobuild",
+  "/partners",
+  "/partners/building",
   "/contact",
   "/company",
   "/team",

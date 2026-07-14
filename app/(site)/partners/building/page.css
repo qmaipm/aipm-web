@@ -1,0 +1,132 @@
+/* ============================================================
+   智能建筑伙伴 — 冷调「平台」语言，与 /partners /cobuild 同族
+   hero → 市场在变(政策) → 参考架构六模块(暗场签名段)
+   → 我们提供什么 → 白皮书登记表单 → endcta
+   全部规则收在 .solbd 作用域内。
+   ============================================================ */
+.solbd{
+  --bd-ink:#14201C; --bd-ink-2:#46524D; --bd-mut:#7C857F; --bd-faint:#A7AFAB;
+  --bd-line:#E6EAE8; --bd-mist:#ECF3F1; --bd-paper:#FFFFFF; --bd-core:#0B1714;
+  --bd-blue:#0070FF; --bd-green:#12B98A; --bd-grad:linear-gradient(115deg,#0070FF,#12B98A);
+  --bd-vi-line:rgba(12,139,130,.16);
+  background:var(--bd-paper); color:var(--bd-ink);
+}
+.solbd .wrap{max-width:1160px;margin:0 auto;padding:0 32px}
+@media(max-width:600px){.solbd .wrap{padding:0 22px}}
+.solbd .grad{background:var(--bd-grad);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+@supports not ((-webkit-background-clip:text) or (background-clip:text)){.solbd .grad{color:var(--bd-green);-webkit-text-fill-color:currentColor}}
+
+/* 蓝图网格 */
+.solbd .bd-grid{position:absolute;inset:0;z-index:0;pointer-events:none;
+  background-image:linear-gradient(to right,var(--bd-vi-line) 1px,transparent 1px),
+                   linear-gradient(to bottom,var(--bd-vi-line) 1px,transparent 1px);
+  background-size:54px 54px;
+  -webkit-mask-image:radial-gradient(125% 90% at 80% 0%,#000 0%,transparent 62%);
+          mask-image:radial-gradient(125% 90% at 80% 0%,#000 0%,transparent 62%)}
+.solbd .bd-grid.dark{background-image:linear-gradient(to right,rgba(63,217,184,.10) 1px,transparent 1px),
+                   linear-gradient(to bottom,rgba(63,217,184,.10) 1px,transparent 1px)}
+
+/* HERO */
+.solbd .bd-hero{position:relative;overflow:hidden;padding:150px 0 64px;background:var(--bd-paper)}
+.solbd .bd-hero-top{position:relative;z-index:2}
+.solbd .bd-kicker{display:inline-flex;align-items:center;flex-wrap:wrap;font-size:12px;font-weight:600;letter-spacing:.14em;
+  text-transform:uppercase;color:var(--bd-mut)}
+.solbd .bd-kicker a{color:var(--bd-mut)}.solbd .bd-kicker a:hover{color:var(--bd-green)}
+.solbd .bd-kicker i{color:var(--bd-green);font-style:normal;margin:0 9px;font-weight:700}
+.solbd .bd-h1{margin:22px 0 0;font-weight:800;font-size:clamp(36px,5.6vw,66px);line-height:1.08;letter-spacing:-.035em;color:var(--bd-ink);max-width:22ch}
+.solbd .bd-lead{margin:26px 0 0;font-size:clamp(16px,1.8vw,19px);line-height:1.6;color:var(--bd-ink-2)}
+.solbd .bd-lead b{color:var(--bd-ink);font-weight:600}
+.solbd .bd-cta{margin-top:38px;display:flex;flex-wrap:wrap;gap:14px;align-items:center}
+.solbd .bd-proof{position:relative;z-index:2;margin-top:52px;display:flex;flex-wrap:wrap;align-items:center;gap:12px 22px;
+  font-size:clamp(15px,1.9vw,18px);color:var(--bd-mut)}
+.solbd .bd-proof b{color:var(--bd-ink);font-weight:600}
+.solbd .bd-proof b.grad{font-weight:800;letter-spacing:-.01em}
+.solbd .bd-proof .sep{width:5px;height:5px;border-radius:50%;background:var(--bd-faint)}
+
+/* band */
+.solbd .bd-band{position:relative;padding:104px 0;background:var(--bd-paper)}
+.solbd .bd-band.mist{background:var(--bd-mist)}
+@media(max-width:700px){.solbd .bd-band{padding:76px 0}}
+.solbd .bd-eyebrow{display:inline-flex;align-items:center;gap:10px;font-size:12px;font-weight:600;letter-spacing:.2em;
+  text-transform:uppercase;color:var(--bd-green)}
+.solbd .bd-eyebrow::before{content:"";width:22px;height:2px;border-radius:2px;background:var(--bd-grad)}
+.solbd .bd-eyebrow.on-dark{color:#3fd9b8}
+.solbd .bd-h2{margin:18px 0 0;font-weight:800;font-size:clamp(27px,3.5vw,40px);line-height:1.18;letter-spacing:-.03em;color:var(--bd-ink)}
+.solbd .bd-h2.on-dark{color:#fff}
+.solbd .bd-sub{margin:18px 0 0;font-size:clamp(15px,1.65vw,17px);line-height:1.6;color:var(--bd-ink-2)}
+.solbd .bd-sub.on-dark{color:#AEBAB5}
+.solbd .bd-sub b{color:var(--bd-ink);font-weight:600}
+.solbd .bd-sub.on-dark b{color:#fff}
+
+/* ---------- 市场在变:序号定义列表 ---------- */
+.solbd .bd-shift{margin-top:46px;display:flex;flex-direction:column}
+.solbd .bd-shifti{display:grid;grid-template-columns:64px 1fr;gap:22px;align-items:start;padding:26px 0;border-top:1px solid var(--bd-line)}
+.solbd .bd-shifti:last-child{border-bottom:1px solid var(--bd-line)}
+.solbd .bd-shiftno{font-size:16px;font-weight:800;letter-spacing:.04em;padding-top:5px;font-variant-numeric:tabular-nums}
+.solbd .bd-shiftbody h3{margin:0 0 9px;font-size:clamp(18px,2.1vw,21px);font-weight:700;letter-spacing:-.015em;color:var(--bd-ink)}
+.solbd .bd-shiftbody p{margin:0;color:var(--bd-ink-2);font-size:15.5px;line-height:1.78}
+@media(max-width:560px){.solbd .bd-shifti{grid-template-columns:1fr;gap:8px}}
+.solbd .bd-quote{margin-top:46px;color:var(--bd-ink);font-weight:800;
+  font-size:clamp(24px,3.6vw,40px);line-height:1.28;letter-spacing:-.025em}
+
+/* ---------- 暗场:参考架构六模块 ---------- */
+.solbd .bd-core{position:relative;overflow:hidden;background:var(--bd-core);color:#E8EFEC;padding:120px 0}
+@media(max-width:700px){.solbd .bd-core{padding:84px 0}}
+.solbd .bd-core .wrap{position:relative;z-index:1}
+.solbd .bd-mods{margin-top:46px;display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+@media(max-width:980px){.solbd .bd-mods{grid-template-columns:1fr 1fr}}
+@media(max-width:640px){.solbd .bd-mods{grid-template-columns:1fr}}
+.solbd .bd-mod{position:relative;border:1px solid rgba(255,255,255,.12);border-radius:14px;background:rgba(255,255,255,.03);
+  padding:28px 26px;display:flex;flex-direction:column;gap:10px;transition:border-color .2s,transform .2s}
+.solbd .bd-mod:hover{border-color:rgba(63,217,184,.30);transform:translateY(-2px)}
+.solbd .bd-modno{font-size:clamp(26px,3.2vw,36px);font-weight:800;line-height:.9;letter-spacing:-.03em;font-variant-numeric:tabular-nums}
+.solbd .bd-mod h3{margin:4px 0 0;font-size:clamp(17px,1.9vw,20px);font-weight:700;letter-spacing:-.015em;color:#fff;line-height:1.3}
+.solbd .bd-mod p{margin:0;font-size:14px;line-height:1.7;color:#AEBAB5}
+.solbd .bd-mod .caps{margin-top:4px;display:flex;flex-wrap:wrap;gap:7px}
+.solbd .bd-mod .caps span{font-size:12px;line-height:1;padding:6px 10px;border-radius:999px;
+  border:1px solid rgba(63,217,184,.28);color:#8FD9C6;white-space:nowrap}
+.solbd .bd-verdict{position:relative;margin-top:44px;padding-left:22px;
+  font-size:clamp(17px,2vw,22px);font-weight:700;line-height:1.5;letter-spacing:-.015em;color:#fff}
+.solbd .bd-verdict::before{content:"";position:absolute;left:0;top:6px;bottom:6px;width:3px;border-radius:3px;background:var(--bd-grad)}
+.solbd .bd-verdict .grad{font-weight:800}
+
+/* ---------- 我们提供什么 ---------- */
+.solbd .bd-give{margin-top:48px;display:grid;grid-template-columns:1fr 1fr;gap:16px}
+@media(max-width:760px){.solbd .bd-give{grid-template-columns:1fr}}
+.solbd .bd-gcard{border:1px solid var(--bd-line);border-radius:16px;background:var(--bd-paper);padding:28px 26px;
+  transition:border-color .2s,box-shadow .2s,transform .2s}
+.solbd .bd-gcard:hover{border-color:rgba(12,139,130,.34);box-shadow:0 14px 34px rgba(12,139,130,.08);transform:translateY(-2px)}
+.solbd .bd-gk{display:block;width:28px;height:3px;border-radius:2px;background:var(--bd-grad);margin-bottom:18px}
+.solbd .bd-gcard h3{margin:0 0 10px;font-size:clamp(18px,2vw,20px);font-weight:700;letter-spacing:-.015em;color:var(--bd-ink)}
+.solbd .bd-gcard p{margin:0;font-size:15px;line-height:1.7;color:var(--bd-ink-2)}
+
+/* ---------- 白皮书登记 ---------- */
+.solbd .bd-wp{margin-top:48px;display:grid;grid-template-columns:0.9fr 1.1fr;gap:44px;align-items:start}
+@media(max-width:860px){.solbd .bd-wp{grid-template-columns:1fr}}
+.solbd .bd-wp-card{position:relative;border:1px solid var(--bd-line);border-radius:16px;background:var(--bd-paper);
+  padding:32px 30px;overflow:hidden}
+.solbd .bd-wp-card::before{content:"";position:absolute;left:0;right:0;top:0;height:3px;background:var(--bd-grad)}
+.solbd .bd-wp-tag{font-size:11.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--bd-green);font-weight:700}
+.solbd .bd-wp-card h3{margin:14px 0 0;font-size:clamp(19px,2.2vw,23px);font-weight:800;letter-spacing:-.02em;color:var(--bd-ink);line-height:1.35}
+.solbd .bd-wp-card > p{margin:15px 0 0;font-size:15px;line-height:1.72;color:var(--bd-ink-2)}
+.solbd .bd-wp-list{margin:18px 0 0;padding:0;list-style:none;display:flex;flex-direction:column;gap:10px}
+.solbd .bd-wp-list li{position:relative;padding-left:24px;font-size:14.5px;line-height:1.65;color:var(--bd-ink-2)}
+.solbd .bd-wp-list li::before{content:"";position:absolute;left:2px;top:8px;width:10px;height:5px;
+  border-left:2px solid var(--bd-green);border-bottom:2px solid var(--bd-green);transform:rotate(-45deg)}
+.solbd .bd-wp-faint{margin:20px 0 0;font-size:13px;color:var(--bd-mut);line-height:1.6}
+.solbd .bd-note{font-size:12.5px;color:var(--bd-mut);margin-top:14px;line-height:1.6}
+
+/* 表单冷调(字段样式继承全站 .form/.field) */
+.solbd .form-err{margin:-6px 0 14px;font-size:13.5px;color:var(--bd-green);line-height:1.55}
+.solbd .field input:focus,.solbd .field textarea:focus,.solbd .field select:focus{border-color:var(--bd-green);box-shadow:0 0 0 3px rgba(18,185,138,.10)}
+.solbd .field label .req{color:var(--bd-green)}
+.solbd .btn[disabled]{opacity:.6;cursor:not-allowed;transform:none}
+.solbd .form-done{position:relative;max-width:680px;padding:34px 30px;border:1px solid var(--bd-line);border-radius:16px;background:var(--bd-paper);overflow:hidden}
+.solbd .form-done::before{content:"";position:absolute;left:0;right:0;top:0;height:3px;background:var(--bd-grad)}
+.solbd .form-done-mark{width:48px;height:48px;border-radius:50%;display:grid;place-items:center;color:#fff;background:var(--bd-grad);margin-bottom:18px}
+.solbd .form-done-h{margin:0 0 10px;font-size:22px;font-weight:800;letter-spacing:-.02em;color:var(--bd-ink)}
+.solbd .form-done-p{margin:0;font-size:15.5px;line-height:1.7;color:var(--bd-ink-2);max-width:50ch}
+
+/* 可访问性 / 动效降级 */
+.solbd a:focus-visible,.solbd .btn:focus-visible{outline:2px solid var(--bd-green);outline-offset:3px;border-radius:10px}
+@media(prefers-reduced-motion:reduce){.solbd *{transition:none!important}}
