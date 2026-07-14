@@ -79,14 +79,61 @@ const enables = [
   },
 ];
 
-/* ---------- 参考架构六模块（实力证明，压缩） ---------- */
-const modules = [
-  { no: "01", title: "All-in-One 智能体平台", caps: ["数据接入与治理", "工具网关", "工作流编排", "调度审批工作台", "智能问数", "数据大屏", "多智能体协同", "Skill 中台"] },
-  { no: "02", title: "模型与算力中台", caps: ["大模型网关", "多模型智能路由", "Token 计费与管控"] },
-  { no: "03", title: "园区运营管理系统", caps: ["多子系统统一接入", "跨系统智能体协同", "运营数据沉淀"] },
-  { no: "04", title: "AI 物理感知", caps: ["IoT 传感网络", "视频 AI 分析", "设备状态感知"] },
-  { no: "05", title: "机器人与具身智能", caps: ["室内清洁机器人", "四足巡检机器人", "统一调度"] },
-  { no: "06", title: "运营与服务保障", caps: ["驻场运营", "持续迭代", "服务 SLA"] },
+/* ---------- 架构对比：你熟悉的智能建筑 vs 招标要求的智能体园区 ---------- */
+const oldArch = {
+  tag: "过去二十年 · 你熟悉的智能建筑",
+  layers: [
+    { name: "集中监控 / 组态大屏", note: "人盯着看，人做决策" },
+    { name: "IBMS 集成管理平台", note: "协议转换 + 预设联动规则" },
+    { name: "弱电子系统", note: "BA 楼宇自控 · 安防监控 · 消防 · 一卡通 · 停车 · 能耗 · 综合布线" },
+  ],
+  foot: "系统是「连起来了」，但联动逻辑是预设的——异常靠人判断，处置靠人跑。",
+};
+
+const newArch = {
+  tag: "现在的招标 · 智能体园区",
+  layers: [
+    {
+      name: "FMClaw™ 智能体平台",
+      note: "多智能体协同 · 智能问数 · 工作流编排 · Skill 中台 · 调度审批工作台",
+      hot: true,
+      badge: "会思考、会执行",
+    },
+    {
+      name: "模型与算力中台",
+      note: "大模型网关 · 多模型智能路由 · Token 计费与管控",
+      hot: true,
+      badge: "新增层",
+    },
+    {
+      name: "运营系统 + AI 物理感知 + 机器人",
+      note: "园区运营管理 · 视频 AI 分析 · IoT 传感 · 清洁/巡检机器人统一调度",
+    },
+    {
+      name: "你已有的弱电子系统",
+      note: "BA · 安防 · 消防 · 一卡通 —— 接入，而不是推翻",
+      keep: true,
+    },
+  ],
+  foot: "底层还是你熟悉的工程。上面多了两层 AI——那两层，就是 FMClaw™ 提供的。",
+};
+
+const deltas = [
+  {
+    dim: "谁在做决策",
+    old: "人盯大屏、人下指令，7×24 靠排班",
+    now: "智能体主动预判、自主处置，人只做审批",
+  },
+  {
+    dim: "联动逻辑怎么来",
+    old: "预设规则写死在组态里，改一条要改一次工程",
+    now: "自然语言定义工作流，智能体自己编排执行",
+  },
+  {
+    dim: "甲方验收什么",
+    old: "能不能集成、接了多少点位",
+    now: "AI 能不能干活：问数出答案、工单自动流转、告警自动闭环",
+  },
 ];
 
 export default function Page() {
@@ -111,7 +158,7 @@ export default function Page() {
             </p>
             <div className="bd-cta">
               <a href="#whitepaper" className="btn btn-primary">申请合作 / 索取白皮书 <Arrow /></a>
-              <a href="#rights" className="btn btn-ghost">看合作权益 <Arrow /></a>
+              <a href="#arch" className="btn btn-ghost">架构怎么变了 <Arrow /></a>
             </div>
             <div className="bd-proof">
               <span>方案<b>一起做</b></span>
@@ -192,29 +239,68 @@ export default function Page() {
         </div>
       </section>
 
-      {/* 4 · 参考架构（实力证明，暗场压缩） */}
+      {/* 4 · 架构对比（暗场签名段）：熟悉的智能建筑 vs 智能体园区 */}
       <section className="bd-core" id="arch">
         <div className="bd-grid dark" aria-hidden="true" />
         <div className="wrap">
-          <span className="bd-eyebrow on-dark">技术底座</span>
-          <h2 className="bd-h2 on-dark">你应标时背后站着的，是这套架构</h2>
+          <span className="bd-eyebrow on-dark">架构在变什么</span>
+          <h2 className="bd-h2 on-dark">你熟悉的架构没有被推翻，<br />上面长出了两层 AI</h2>
           <p className="bd-sub on-dark">
-            我们基于 FMClaw™ 平台沉淀的智能体园区参考架构。新项目的技术要求怎么变，都能在这六个模块里找到应答的位置——已在真实楼宇与园区中运行，案例见
-            <Link href="/cases" style={{ color: "#3fd9b8", textDecoration: "underline", textUnderlineOffset: "3px" }}>客户案例</Link>。
+            左边是你做了二十年的东西，右边是新招标要求的东西。<b>差的不是子系统，是顶层</b>——顶层，就是我们合作的位置。
           </p>
-          <div className="bd-mods">
-            {modules.map((m) => (
-              <div className="bd-mod" key={m.no}>
-                <span className="bd-modno grad">{m.no}</span>
-                <h3>{m.title}</h3>
-                <div className="caps">
-                  {m.caps.map((c) => (
-                    <span key={c}>{c}</span>
-                  ))}
-                </div>
+
+          <div className="bd-arch">
+            {/* 旧架构 */}
+            <div className="bd-arch-col old">
+              <span className="bd-arch-tag">{oldArch.tag}</span>
+              <div className="bd-arch-stack">
+                {oldArch.layers.map((l) => (
+                  <div className="bd-layer" key={l.name}>
+                    <h3>{l.name}</h3>
+                    <p>{l.note}</p>
+                  </div>
+                ))}
+              </div>
+              <p className="bd-arch-foot">{oldArch.foot}</p>
+            </div>
+
+            <div className="bd-arch-mid" aria-hidden="true">
+              <svg width="34" height="34" viewBox="0 0 34 34">
+                <path d="M6 17h20M19 9l8 8-8 8" fill="none" stroke="currentColor" strokeWidth="2.6" strokeLinecap="round" strokeLinejoin="round" />
+              </svg>
+            </div>
+
+            {/* 新架构 */}
+            <div className="bd-arch-col new">
+              <span className="bd-arch-tag hot">{newArch.tag}</span>
+              <div className="bd-arch-stack">
+                {newArch.layers.map((l) => (
+                  <div className={`bd-layer${l.hot ? " hot" : ""}${l.keep ? " keep" : ""}`} key={l.name}>
+                    {l.badge && <span className="bd-layer-badge">{l.badge}</span>}
+                    <h3>{l.name}</h3>
+                    <p>{l.note}</p>
+                  </div>
+                ))}
+              </div>
+              <p className="bd-arch-foot">{newArch.foot}</p>
+            </div>
+          </div>
+
+          {/* 三个维度的变化 */}
+          <div className="bd-deltas">
+            {deltas.map((d) => (
+              <div className="bd-delta" key={d.dim}>
+                <h3>{d.dim}</h3>
+                <p className="was"><span>过去</span>{d.old}</p>
+                <p className="now"><span>现在</span>{d.now}</p>
               </div>
             ))}
           </div>
+
+          <p className="bd-verdict">
+            甲方最终验收的不再是「接了多少点位」，而是 <span className="grad">AI 能不能把活干了</span>——这套架构已在真实楼宇与园区中运行，案例见
+            <Link href="/cases" style={{ color: "#3fd9b8", textDecoration: "underline", textUnderlineOffset: "3px" }}>客户案例</Link>。
+          </p>
         </div>
       </section>
 
