@@ -8,9 +8,9 @@ import BuildingForm from "./BuildingForm";
 const SITE_URL = process.env.SITE_URL || "https://www.aipm.cn";
 
 export const metadata: Metadata = {
-  title: "智能体园区伙伴 — 智能体园区招标的 AI 技术要求，怎么应？| 启盟科技",
+  title: "智能体园区伙伴 — 智能体园区项目，和启盟一起做 | 启盟科技",
   description:
-    "智慧园区、智能体园区项目的招标文件里，开始出现智能体平台、大模型网关、AI 物理感知等技术要求。启盟科技面向建筑智能化工程、机电总包与设计咨询企业开放智能体园区伙伴合作：方案支持、标书技术应答、售前工程师随队、Demo 演示环境、联合品牌授权与商机协同。登记索取《智能体园区参考架构与招标技术要求指引》。",
+    "面向建筑智能化工程企业、弱电集成商、机电总包与设计咨询企业的伙伴合作：你熟悉客户、现场和既有系统，启盟提供 FMClaw™ 平台，以及智能体部分的方案、应标与联合交付。3 个工作日提供方案框架，AI 技术条款逐项应答，首个项目联合交付，报备商机进入保护机制。",
   alternates: { canonical: "/partners/agent-park" },
 };
 
@@ -20,123 +20,122 @@ const Arrow = ({ s = 15 }: { s?: number }) => (
   </svg>
 );
 
-/* ---------- 合作权益（页面主体）：给什么、什么时候给、给到什么程度 ---------- */
-const rights = [
+/* ---------- Hero：四项事实 ---------- */
+const heroChips = [
+  "3 个工作日提供方案框架",
+  "AI 技术条款逐项应答",
+  "首个项目联合交付",
+  "报备商机进入保护机制",
+];
+
+/* ---------- 四层架构（自下而上）---------- */
+const stack = [
   {
-    title: "项目方案支持",
-    when: "拿到招标文件后即可发起",
-    body: "针对你在跟的项目做整体方案：架构怎么设计、模块怎么划分、和你原有的智能化工程怎么衔接。我们在 3 个工作日内给出方案框架。",
+    tier: "第四层",
+    name: "运营场景",
+    note: "巡检 · 告警 · 工单 · 问数 · 机器人调度。智能体识别异常并发起处置流程，关键操作由人工审批。",
+    hot: true,
   },
   {
-    title: "标书技术应答",
-    when: "投标阶段",
-    body: "招标文件里的智能体平台、大模型、AI 感知要求，由我们的工程师提供对应的技术应答材料——逐条应，不含糊，直接可入标书。",
+    tier: "第三层",
+    name: "模型与智能体平台",
+    note: "模型接入 · 工作流 · Skill · 权限与审计。通过自然语言配置工作流，并在权限、审批和审计机制下执行。",
+    hot: true,
+    badge: "FMClaw™ · 启盟提供",
   },
   {
-    title: "售前工程师支持",
-    when: "技术交流与述标环节",
-    body: "关键的客户技术交流、答疑与述标环节，售前工程师随队参加。你负责客户关系，技术问题我们来接。",
+    tier: "第二层",
+    name: "数据与接口层",
+    note: "协议接入 · 数据治理 · 系统接口",
+    hot: true,
   },
   {
-    title: "Demo 演示环境",
-    when: "签约后开通，长期可用",
-    body: "面向客户的智能体园区演示环境，随时可开。给客户看真实运行的平台，而不是 PPT 里的架构图。",
-  },
-  {
-    title: "联合品牌与授权",
-    when: "签约后颁发",
-    body: "正式的合作伙伴授权，对客户时名正言顺。经审核的联合方案可使用双方品牌对外输出。",
-  },
-  {
-    title: "商机协同",
-    when: "合作期内持续",
-    body: "双向报备商机：你报备的项目我们不越过你直接触达；我们侧的本地商机，优先协同你去做。客户始终是你的。",
+    tier: "第一层",
+    name: "既有弱电子系统",
+    note: "BA · 安防 · 消防 · 门禁 · 停车 · 能耗",
+    keep: true,
+    badge: "伙伴已有能力",
   },
 ];
 
-/* ---------- 伙伴发展路径 ---------- */
+/* ---------- 项目分工 ---------- */
+const split = {
+  partner: {
+    title: "伙伴负责",
+    items: ["客户关系与项目统筹", "弱电工程与设备接入", "既有系统协调", "本地实施与现场服务"],
+  },
+  qimeng: {
+    title: "启盟负责",
+    items: ["智能体方案与技术选型", "AI 技术条款应答", "FMClaw™ 部署与调试", "智能体场景配置", "首单售前与交付支持"],
+  },
+};
+
+/* ---------- 可承接的项目内容 ---------- */
+const opps = [
+  { title: "弱电与机电工程", body: "原有工程业务不变，仍由伙伴承接与实施。" },
+  { title: "AIoT 感知网络", body: "视频、传感与感知设备的部署与接入。" },
+  { title: "系统接口与集成", body: "既有子系统的协议接入与接口开发。" },
+  { title: "FMClaw™ 平台", body: "智能体平台部分，纳入项目整体报价。" },
+  { title: "场景实施与定制", body: "巡检、告警、工单等场景的落地配置。" },
+  { title: "运维、扩容与运营服务", body: "上线后的运维、点位扩容与运营服务。" },
+];
+
+/* ---------- 合作支持 ---------- */
+const supports = [
+  { title: "项目方案", body: "收到脱敏需求后，3 个工作日内提供方案框架。" },
+  { title: "技术应答", body: "智能体、模型和 AI 感知条款逐项回应，可直接用于标书整理。" },
+  { title: "售前支持", body: "关键技术交流和述标环节，由售前工程师共同参与。" },
+  { title: "Demo 环境", body: "提供可运行的演示环境，用于客户沟通与场景验证。" },
+  { title: "联合交付", body: "首个项目共同完成部署、调试和场景配置。" },
+  { title: "商机协同", body: "伙伴报备的商机进入保护机制，具体规则在合作政策中明确。" },
+];
+
+/* ---------- 合作流程 ---------- */
 const steps = [
-  { no: "1", title: "提交申请", body: "登记信息或直接联系我们，说明你的业务与在跟的项目" },
-  { no: "2", title: "沟通评估", body: "3 个工作日内响应，对齐合作方向与首个项目" },
-  { no: "3", title: "签署协议", body: "确定合作等级，同步对应政策与商务条款" },
-  { no: "4", title: "培训赋能", body: "产品与售前培训，Demo 环境与资料库开通" },
-  { no: "5", title: "首单联合作战", body: "第一个项目我们全程随队——方案、应标、交付一起完成" },
+  { no: "1", title: "提交项目", body: "提供一段脱敏招标要求，或说明正在跟进的项目。" },
+  { no: "2", title: "共同评估", body: "3 个工作日内沟通需求，确认方案方向和合作方式。" },
+  { no: "3", title: "联合推进", body: "共同完成方案、技术交流、应标和 Demo 演示。" },
+  { no: "4", title: "交付复盘", body: "中标后按交付清单实施，并在首单完成后沉淀标准方案。" },
 ];
 
-/* ---------- 赋能支持体系 ---------- */
-const enables = [
-  {
-    title: "产品与售前培训",
-    body: "面向你的技术与售前团队的体系化培训：平台能力、方案讲解、常见技术问题应对——让你的团队能独立讲清方案。",
-  },
-  {
-    title: "方案与应标资料库",
-    body: "标准方案模板、技术应答素材、参考架构文档持续更新，新项目来了不用从零开始写。",
-  },
-  {
-    title: "联合交付",
-    body: "中标后一起干：你负责熟悉的工程与集成部分，FMClaw™ 平台的部署、调试与智能体开发由我们承担。",
-  },
-  {
-    title: "长期运营陪伴",
-    body: "项目上线后持续提供运营支持与版本迭代——不是交完就走，你的客户满意度就是复购。",
-  },
+/* ---------- 技术与交付入口 ---------- */
+const techs = [
+  { title: "兼容与接入", body: "查看支持的系统接口、接入方式和部署条件。" },
+  { title: "部署与安全", body: "了解本地化部署、权限、审批、审计和数据安全机制。" },
+  { title: "交付边界", body: "了解双方在方案、接入、部署、联调和运维中的分工。" },
 ];
 
-/* ---------- 架构对比：你熟悉的智能建筑 vs 招标要求的智能体园区 ---------- */
-const oldArch = {
-  tag: "过去二十年 · 你熟悉的智能建筑",
-  layers: [
-    { name: "集中监控 / 组态大屏", note: "人盯着看，人做决策" },
-    { name: "IBMS 集成管理平台", note: "协议转换 + 预设联动规则" },
-    { name: "弱电子系统", note: "BA 楼宇自控 · 安防监控 · 消防 · 一卡通 · 停车 · 能耗 · 综合布线" },
-  ],
-  foot: "系统是「连起来了」，但联动逻辑是预设的——异常靠人判断，处置靠人跑。",
-};
-
-const newArch = {
-  tag: "现在的招标 · 智能体园区",
-  layers: [
-    {
-      name: "FMClaw™ 智能体平台",
-      note: "多智能体协同 · 智能问数 · 工作流编排 · Skill 中台 · 调度审批工作台",
-      hot: true,
-      badge: "会思考、会执行",
-    },
-    {
-      name: "模型与算力中台",
-      note: "大模型网关 · 多模型智能路由 · Token 计费与管控",
-      hot: true,
-      badge: "新增层",
-    },
-    {
-      name: "运营系统 + AI 物理感知 + 机器人",
-      note: "园区运营管理 · 视频 AI 分析 · IoT 传感 · 清洁/巡检机器人统一调度",
-    },
-    {
-      name: "你已有的弱电子系统",
-      note: "BA · 安防 · 消防 · 一卡通 —— 接入，而不是推翻",
-      keep: true,
-    },
-  ],
-  foot: "底层还是你熟悉的工程。上面多了两层 AI——那两层，就是 FMClaw™ 提供的。",
-};
-
-const deltas = [
+/* ---------- 项目证明（数据均来自站内已发布案例）---------- */
+const cases = [
   {
-    dim: "谁在做决策",
-    old: "人盯大屏、人下指令，7×24 靠排班",
-    now: "智能体主动预判、自主处置，人只做审批",
+    tag: "智慧园区",
+    scale: "约 30 万㎡",
+    problem: "1000 多个点位、每天 4 万次服务交付，原有团队看不全、管不过来。",
+    results: [
+      { value: "+66.6%", label: "管理效率提升" },
+      { value: "-80%+", label: "园区物业相关投诉下降" },
+    ],
+    href: "/cases/30w-park-ai-property-manager-robot",
   },
   {
-    dim: "联动逻辑怎么来",
-    old: "预设规则写死在组态里，改一条要改一次工程",
-    now: "自然语言定义工作流，智能体自己编排执行",
+    tag: "大型企业总部",
+    scale: "设施设备巡检",
+    problem: "巡检单填了，人到底去没去，事后难以核验。",
+    results: [
+      { value: "99%", label: "整体巡检签到率" },
+      { value: "35% → 98%", label: "运行班组达标率" },
+    ],
+    href: "/cases/fmclaw-equipment-inspection",
   },
   {
-    dim: "甲方验收什么",
-    old: "能不能集成、接了多少点位",
-    now: "AI 能不能干活：问数出答案、工单自动流转、告警自动闭环",
+    tag: "商业综合体",
+    scale: "约 6 万㎡",
+    problem: "34 人、6 层管理架构、6 个专职管理岗，项目持续亏损。",
+    results: [
+      { value: "6 → 1", label: "专职管理岗" },
+      { value: "99%", label: "住户缴费率（行业约 71%）" },
+    ],
+    href: "/cases/south-china-mixed-use-6-to-1",
   },
 ];
 
@@ -145,16 +144,16 @@ const SERVICE_LD = {
   "@context": "https://schema.org",
   "@type": "Service",
   name: "智能体园区伙伴合作计划",
-  serviceType: "智能体园区 / 智慧园区项目投标与交付支持",
+  serviceType: "智能体园区 / 智慧园区项目投标与联合交付支持",
   description:
-    "面向建筑智能化工程、机电总包与设计咨询企业的合作计划：针对招标文件中的智能体平台、大模型网关、AI 物理感知等技术要求，提供项目方案支持、标书技术应答、售前工程师随队、Demo 演示环境、联合品牌授权与商机协同。",
+    "面向建筑智能化工程企业、弱电集成商、机电总包与设计咨询企业的合作计划：伙伴负责客户关系、弱电工程与本地实施，启盟提供 FMClaw™ 智能体平台，以及智能体部分的方案、AI 技术条款应答、售前支持、Demo 环境与首单联合交付。",
   areaServed: "CN",
   url: `${SITE_URL}/partners/agent-park`,
   provider: { "@type": "Organization", name: "启盟科技", url: SITE_URL },
   hasOfferCatalog: {
     "@type": "OfferCatalog",
-    name: "智能体园区伙伴合作权益",
-    itemListElement: rights.map((r) => ({
+    name: "智能体园区伙伴合作支持",
+    itemListElement: supports.map((r) => ({
       "@type": "Offer",
       name: r.title,
       description: r.body,
@@ -175,7 +174,8 @@ export default function Page() {
   return (
     <main className="solbd">
       <JsonLd data={[SERVICE_LD, BREADCRUMB_LD]} />
-      {/* HERO：左文右图 */}
+
+      {/* 1 · HERO：左文右图 */}
       <section className="bd-hero">
         <div className="bd-grid" aria-hidden="true" />
         <div className="wrap bd-hero-cols">
@@ -187,27 +187,26 @@ export default function Page() {
               <i>/</i>智能体园区伙伴
             </span>
             <h1 className="bd-h1">
-              招标里的智能体要求，<br /><span className="grad">带着 FMClaw™ 去应</span>
+              智能体园区项目，<br /><span className="grad">和启盟一起做</span>
             </h1>
             <p className="bd-lead">
-              面向建筑智能化工程、机电总包与设计咨询企业的合作计划。你熟悉楼宇和客户，我们提供<b>方案、技术应答与联合交付</b>——这一页写清楚：加入之后，你拿到什么。
+              你熟悉客户、现场和既有系统。<br />
+              启盟提供 FMClaw™ 平台，以及智能体部分的<b>方案、应标与联合交付</b>。
             </p>
             <div className="bd-cta">
-              <a href="#whitepaper" className="btn btn-primary">申请合作 / 索取白皮书 <Arrow /></a>
-              <a href="#arch" className="btn btn-ghost">架构怎么变了 <Arrow /></a>
+              <a href="#contact" className="btn btn-primary">带一个项目来聊 <Arrow /></a>
+              <a href="#contact" className="btn btn-ghost">索取参考架构 <Arrow /></a>
             </div>
-            <div className="bd-proof">
-              <span>方案<b>一起做</b></span>
-              <span className="sep" />
-              <span>技术应答<b>逐条应</b></span>
-              <span className="sep" />
-              <span><b className="grad">客户是你的</b></span>
-            </div>
+            <ul className="bd-chips">
+              {heroChips.map((c) => (
+                <li key={c}>{c}</li>
+              ))}
+            </ul>
           </div>
           <div className="bd-hero-art">
             <Image
               src="/images/partners/agent-park.png"
-              alt="智能建筑与 AI 感知网络插画"
+              alt="智能体园区与 AI 感知网络插画"
               width={600}
               height={448}
               priority
@@ -217,35 +216,107 @@ export default function Page() {
         </div>
       </section>
 
-      {/* 1 · 合作权益（页面主体） */}
-      <section className="bd-band mist" id="rights">
+      {/* 2 · 架构变化：四层架构（暗场） */}
+      <section className="bd-core" id="arch">
+        <div className="bd-grid dark" aria-hidden="true" />
         <div className="wrap">
-          <span className="bd-eyebrow">合作权益</span>
-          <h2 className="bd-h2">成为伙伴后，你拿到这六项</h2>
-          <p className="bd-sub">每一项都写清楚<b>什么时候给、给到什么程度</b>。签约前，逐条当面对。</p>
-          <div className="bd-rights">
-            {rights.map((r, i) => (
-              <div className="bd-right" key={r.title}>
-                <div className="bd-right-head">
-                  <span className="bd-rno grad">{String(i + 1).padStart(2, "0")}</span>
-                  <span className="bd-rwhen">{r.when}</span>
+          <span className="bd-eyebrow on-dark">架构变化</span>
+          <h2 className="bd-h2 on-dark">弱电系统不需要推翻，<br />项目上方多了一层 AI</h2>
+          <p className="bd-sub on-dark">
+            BA、安防、消防、门禁、停车和能耗系统仍是项目基础。<br />
+            新的招标文件开始增加智能体平台、模型管理、AI 感知和流程闭环要求。<br />
+            <b>启盟负责新增的 AI 部分，并与既有系统连接。</b>
+          </p>
+
+          <div className="bd-stack" role="img" aria-label="智能体园区四层架构：自下而上为既有弱电子系统、数据与接口层、模型与智能体平台、运营场景">
+            {stack.map((l) => (
+              <div className={`bd-layer${l.hot ? " hot" : ""}${l.keep ? " keep" : ""}`} key={l.name}>
+                {l.badge && <span className="bd-layer-badge">{l.badge}</span>}
+                <span className="bd-tier">{l.tier}</span>
+                <div className="bd-layer-body">
+                  <h3>{l.name}</h3>
+                  <p>{l.note}</p>
                 </div>
+              </div>
+            ))}
+          </div>
+
+          <p className="bd-verdict">
+            合作发生在新增的 AI 层，<span className="grad">不替代伙伴已有的工程能力</span>。除了系统接入和点位数量，部分项目开始关注 AI 是否真正参与运营闭环。
+          </p>
+        </div>
+      </section>
+
+      {/* 3 · 项目分工 */}
+      <section className="bd-band" id="split">
+        <div className="wrap">
+          <span className="bd-eyebrow">项目分工</span>
+          <h2 className="bd-h2">各自做擅长的部分</h2>
+          <div className="bd-split">
+            <div className="bd-split-col">
+              <h3>{split.partner.title}</h3>
+              <ul>
+                {split.partner.items.map((it) => (
+                  <li key={it}>{it}</li>
+                ))}
+              </ul>
+            </div>
+            <div className="bd-split-col qm">
+              <h3>{split.qimeng.title}</h3>
+              <ul>
+                {split.qimeng.items.map((it) => (
+                  <li key={it}>{it}</li>
+                ))}
+              </ul>
+            </div>
+          </div>
+          <p className="bd-policy">具体边界在项目启动前确认，并形成双方认可的交付清单。</p>
+        </div>
+      </section>
+
+      {/* 4 · 可承接的项目内容 */}
+      <section className="bd-band mist" id="opps">
+        <div className="wrap">
+          <span className="bd-eyebrow">项目内容</span>
+          <h2 className="bd-h2">原有工程继续做，新增 AI 相关机会</h2>
+          <div className="bd-opps">
+            {opps.map((o) => (
+              <div className="bd-ocard" key={o.title}>
+                <span className="bd-gk" aria-hidden="true" />
+                <h3>{o.title}</h3>
+                <p>{o.body}</p>
+              </div>
+            ))}
+          </div>
+          <p className="bd-policy">商务模式根据伙伴类型和项目情况确定，双方在签约前确认。</p>
+        </div>
+      </section>
+
+      {/* 5 · 合作支持 */}
+      <section className="bd-band" id="supports">
+        <div className="wrap">
+          <span className="bd-eyebrow">合作支持</span>
+          <h2 className="bd-h2">从方案到交付，我们提供这些支持</h2>
+          <div className="bd-rights">
+            {supports.map((r, i) => (
+              <div className="bd-right" key={r.title}>
+                <span className="bd-rno grad">{String(i + 1).padStart(2, "0")}</span>
                 <h3>{r.title}</h3>
                 <p>{r.body}</p>
               </div>
             ))}
           </div>
           <p className="bd-policy">
-            合作等级与对应政策（含商务条款），签署协议后同步。有在跟的项目？<Link href="/contact">直接带着项目来聊 <Arrow s={13} /></Link>
+            伙伴报备的商机进入保护机制。未经伙伴同意，启盟不绕过伙伴单独推进。完成伙伴评估后，我们会提供对应的合作政策与商务方案，双方在签约前确认。
           </p>
         </div>
       </section>
 
-      {/* 2 · 伙伴发展路径 */}
-      <section className="bd-band">
+      {/* 6 · 合作流程 */}
+      <section className="bd-band mist" id="flow">
         <div className="wrap">
-          <span className="bd-eyebrow">伙伴发展路径</span>
-          <h2 className="bd-h2">从申请到首单，五步走完</h2>
+          <span className="bd-eyebrow">合作流程</span>
+          <h2 className="bd-h2">先把一个项目做成</h2>
           <div className="bd-steps">
             {steps.map((s) => (
               <div className="bd-step" key={s.no}>
@@ -255,134 +326,97 @@ export default function Page() {
               </div>
             ))}
           </div>
+          <div className="bd-flow-foot">
+            <p>不要求先做大范围承诺。可以从一个明确场景、一个项目开始。</p>
+            <a href="#contact" className="btn btn-primary">带一个项目来聊 <Arrow /></a>
+          </div>
         </div>
       </section>
 
-      {/* 3 · 赋能支持体系 */}
-      <section className="bd-band mist">
+      {/* 7 · 技术与交付入口 */}
+      <section className="bd-band" id="tech">
         <div className="wrap">
-          <span className="bd-eyebrow">赋能支持</span>
-          <h2 className="bd-h2">不止签个协议，把你的团队带起来</h2>
-          <div className="bd-give">
-            {enables.map((g) => (
-              <div className="bd-gcard" key={g.title}>
+          <span className="bd-eyebrow">技术与交付</span>
+          <h2 className="bd-h2">项目开始前，把关键问题说清楚</h2>
+          <div className="bd-techs">
+            {techs.map((t) => (
+              <div className="bd-ocard" key={t.title}>
                 <span className="bd-gk" aria-hidden="true" />
-                <h3>{g.title}</h3>
-                <p>{g.body}</p>
+                <h3>{t.title}</h3>
+                <p>{t.body}</p>
               </div>
             ))}
           </div>
+          <div className="bd-tech-cta">
+            <a href="#contact" className="btn btn-ghost">索取技术说明 <Arrow /></a>
+            <Link href="/contact" className="btn btn-ghost">与架构师沟通 <Arrow /></Link>
+          </div>
         </div>
       </section>
 
-      {/* 4 · 架构对比（暗场签名段）：熟悉的智能建筑 vs 智能体园区 */}
-      <section className="bd-core" id="arch">
-        <div className="bd-grid dark" aria-hidden="true" />
+      {/* 8 · 项目证明 */}
+      <section className="bd-band mist" id="proof">
         <div className="wrap">
-          <span className="bd-eyebrow on-dark">架构在变什么</span>
-          <h2 className="bd-h2 on-dark">你熟悉的架构没有被推翻，<br />上面长出了两层 AI</h2>
-          <p className="bd-sub on-dark">
-            左边是你做了二十年的东西，右边是新招标要求的东西。<b>差的不是子系统，是顶层</b>——顶层，就是我们合作的位置。
-          </p>
-
-          <div className="bd-arch">
-            {/* 旧架构 */}
-            <div className="bd-arch-col old">
-              <span className="bd-arch-tag">{oldArch.tag}</span>
-              <div className="bd-arch-stack">
-                {oldArch.layers.map((l) => (
-                  <div className="bd-layer" key={l.name}>
-                    <h3>{l.name}</h3>
-                    <p>{l.note}</p>
-                  </div>
-                ))}
-              </div>
-              <p className="bd-arch-foot">{oldArch.foot}</p>
-            </div>
-
-            <div className="bd-arch-mid" aria-hidden="true">
-              <svg width="34" height="34" viewBox="0 0 34 34">
-                <path d="M6 17h20M19 9l8 8-8 8" fill="none" stroke="currentColor" strokeWidth="2.6" strokeLinecap="round" strokeLinejoin="round" />
-              </svg>
-            </div>
-
-            {/* 新架构 */}
-            <div className="bd-arch-col new">
-              <span className="bd-arch-tag hot">{newArch.tag}</span>
-              <div className="bd-arch-stack">
-                {newArch.layers.map((l) => (
-                  <div className={`bd-layer${l.hot ? " hot" : ""}${l.keep ? " keep" : ""}`} key={l.name}>
-                    {l.badge && <span className="bd-layer-badge">{l.badge}</span>}
-                    <h3>{l.name}</h3>
-                    <p>{l.note}</p>
-                  </div>
-                ))}
-              </div>
-              <p className="bd-arch-foot">{newArch.foot}</p>
-            </div>
-          </div>
-
-          {/* 三个维度的变化 */}
-          <div className="bd-deltas">
-            {deltas.map((d) => (
-              <div className="bd-delta" key={d.dim}>
-                <h3>{d.dim}</h3>
-                <p className="was"><span>过去</span>{d.old}</p>
-                <p className="now"><span>现在</span>{d.now}</p>
-              </div>
+          <span className="bd-eyebrow">项目证明</span>
+          <h2 className="bd-h2">已经运行的项目</h2>
+          <div className="bd-cases">
+            {cases.map((c) => (
+              <Link className="bd-case" href={c.href} key={c.href}>
+                <div className="bd-case-head">
+                  <span className="bd-case-tag">{c.tag}</span>
+                  <span className="bd-case-scale">{c.scale}</span>
+                </div>
+                <p className="bd-case-problem">{c.problem}</p>
+                <div className="bd-case-metrics">
+                  {c.results.map((m) => (
+                    <div className="bd-case-metric" key={m.label}>
+                      <b className="grad">{m.value}</b>
+                      <span>{m.label}</span>
+                    </div>
+                  ))}
+                </div>
+                <span className="bd-case-link">查看案例 <Arrow s={13} /></span>
+              </Link>
             ))}
           </div>
-
-          <p className="bd-verdict">
-            甲方最终验收的不再是「接了多少点位」，而是 <span className="grad">AI 能不能把活干了</span>——这套架构已在真实楼宇与园区中运行，案例见
-            <Link href="/cases" style={{ color: "#3fd9b8", textDecoration: "underline", textUnderlineOffset: "3px" }}>客户案例</Link>。
+          <p className="bd-disclaim">
+            数据来自具体项目，不代表所有项目都能获得相同结果。实际效果取决于现场基础、接入范围和实施方式。
           </p>
         </div>
       </section>
 
-      {/* 5 · 为什么是现在（压成一行横条） */}
-      <section className="bd-strip">
-        <div className="wrap bd-strip-in">
-          <span className="bd-strip-tag">为什么是现在</span>
-          <p>
-            智能体服务已纳入政府采购范围，多地「十五五」规划提出建设智能体园区——园区与楼宇项目的招标口径正在改写。
-            <b>下一个项目来的时候，你手里要有答案。</b>
-          </p>
-        </div>
-      </section>
-
-      {/* 6 · 白皮书登记 + 合作申请 */}
-      <section className="bd-band mist" id="whitepaper">
+      {/* 9 · 最终 CTA 与表单 */}
+      <section className="bd-band" id="contact">
         <div className="wrap">
-          <span className="bd-eyebrow">白皮书</span>
-          <h2 className="bd-h2">《智能体园区参考架构与招标技术要求指引》</h2>
-          <p className="bd-sub">留下信息即可索取。如果你手头正好有在跟的项目，写在留言里——会有熟悉招投标的同事直接联系你。</p>
+          <span className="bd-eyebrow">下一步</span>
+          <h2 className="bd-h2">有项目，可以从一段招标要求开始</h2>
+          <p className="bd-sub">提供脱敏技术要求，我们会先判断：</p>
           <div className="bd-wp">
             <div className="bd-wp-card">
-              <span className="bd-wp-tag">Whitepaper</span>
-              <h3>智能体园区参考架构<br />与招标技术要求指引</h3>
-              <p>一份写给工程与咨询企业的实操文档，帮你在下一个项目里看懂、应对新的技术要求：</p>
+              <span className="bd-wp-tag">先判断，再合作</span>
+              <h3>四个问题，先说清楚</h3>
               <ul className="bd-wp-list">
-                <li>智能体园区的六模块参考架构与逐模块说明</li>
-                <li>新一代招标文件里高频出现的 AI 技术要求解读</li>
-                <li>传统智能化工程与智能体平台的衔接方式</li>
-                <li>技术应答的组织思路与常见误区</li>
+                <li>FMClaw™ 是否适合</li>
+                <li>既有系统如何接入</li>
+                <li>双方如何分工</li>
+                <li>下一步需要准备什么</li>
               </ul>
-              <p className="bd-wp-faint">登记后我们会将白皮书发送给你，并同步后续的更新版本。</p>
+              <p>也可以在留言中注明「索取参考架构」，我们会将《智能体园区参考架构》发送给你。</p>
+              <p className="bd-wp-faint">提交信息后，3 个工作日内会有熟悉招投标的同事与你联系。</p>
             </div>
             <BuildingForm />
           </div>
         </div>
       </section>
 
-      {/* CTA */}
+      {/* 尾部 CTA */}
       <section className="endcta">
         <div className="wrap">
-          <h2 className="reveal">下一次投标，<br />让标书里有完整的智能体应答</h2>
-          <p className="reveal">从索取一份白皮书开始，或者直接带着项目来聊。</p>
+          <h2 className="reveal">下一个智能体园区项目，<br />可以一起做</h2>
+          <p className="reveal">从一段脱敏的招标要求开始，或直接与我们沟通。</p>
           <div className="cta-row reveal">
-            <a href="#whitepaper" className="btn btn-primary">登记索取白皮书 <Arrow s={16} /></a>
-            <Link href="/contact" className="btn btn-light">带着项目来聊 <Arrow s={16} /></Link>
+            <a href="#contact" className="btn btn-primary">带一个项目来聊 <Arrow s={16} /></a>
+            <a href="#contact" className="btn btn-light">索取《智能体园区参考架构》 <Arrow s={16} /></a>
           </div>
         </div>
       </section>
