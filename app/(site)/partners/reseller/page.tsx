@@ -208,7 +208,7 @@ export default function Page() {
           </div>
           <div className="ch-hero-art">
             <Image
-              src="/images/partners/regional.png"
+              src="/images/partners/reseller.png"
               alt="代理商合作：FMClaw 平台连接区域市场与本地客户网络插画"
               width={600}
               height={448}

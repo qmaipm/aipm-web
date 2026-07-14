@@ -9,7 +9,7 @@ const SITE_URL = process.env.SITE_URL || "https://www.aipm.cn";
 export const metadata: Metadata = {
   title: "生态伙伴 — 智能体园区 · 智慧园区 AI 合作 | 启盟科技",
   description:
-    "启盟科技生态伙伴计划：我们做产品和平台，伙伴赢市场。面向智能体园区与智慧园区工程企业、代理商与产业投资方，提供方案支持、标书技术应答、售前工程师、Demo 环境、联合品牌与商机协同——帮助伙伴赢下他们的客户。",
+    "启盟科技生态伙伴计划：我们做产品和平台，伙伴赢市场。面向智能体园区与智慧园区工程企业、代理商与软件企业，提供方案支持、标书技术应答、售前工程师、Demo 环境、联合品牌与商机协同——帮助伙伴赢下他们的客户。",
   alternates: { canonical: "/partners" },
 };
 
@@ -49,7 +49,7 @@ const partnerTypes = [
     no: "02",
     tag: "Channel Partner",
     title: "代理商合作",
-    img: "/images/partners/regional.png",
+    img: "/images/partners/reseller.png",
     alt: "代理商合作：FMClaw 平台连接区域市场与本地客户网络插画",
     who: "建筑智能化工程企业、软件企业与拥有政企客户资源的机构。当前招募集中在经济发达地区。",
     gets: [
@@ -61,23 +61,6 @@ const partnerTypes = [
     href: "/partners/reseller",
     cta: "了解三种合作模式",
     live: true,
-  },
-  {
-    no: "03",
-    tag: "Investment Partner",
-    title: "产业投资伙伴",
-    img: "/images/partners/investment.png",
-    alt: "产业投资伙伴：存量园区智能化升级与增长插画",
-    who: "城投、国有物业与产业资本——手里有园区、楼宇等存量资产，在找 AI 时代的运营答案。",
-    gets: [
-      "存量资产 AI 化方案 — 不必重资产投算力，用 AI 运营能力盘活存量园区与楼宇",
-      "联合运营模式设计 — 从技术方案到运营分成，一起设计可持续的模式",
-      "产业共建参与 — 可协助参与我们主导的人工智能产业共建项目",
-      "决策层深度对接 — 由创始团队直接对接，不走销售流程",
-    ],
-    href: "/contact",
-    cta: "约一次深度交流",
-    live: false,
   },
 ];
 
@@ -112,7 +95,7 @@ const PAGE_LD = {
   "@type": "CollectionPage",
   name: "启盟科技生态伙伴计划",
   description:
-    "面向智能体园区与智慧园区工程企业、代理商与产业投资方的生态合作计划。",
+    "面向智能体园区与智慧园区工程企业、代理商与软件企业的生态合作计划。",
   url: `${SITE_URL}/partners`,
   hasPart: [
     {
@@ -186,7 +169,7 @@ export default function Page() {
       <section className="pt-band mist">
         <div className="wrap">
           <span className="pt-eyebrow">合作方向</span>
-          <h2 className="pt-h2">三种伙伴，每一类拿到什么</h2>
+          <h2 className="pt-h2">两类伙伴，每一类拿到什么</h2>
           <p className="pt-sub">找到说的是你的那一类。权益写清楚，什么时候给、给到什么程度，签约前都可以当面对。</p>
         </div>
         <div className="wrap pt-types">
