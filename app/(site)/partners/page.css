@@ -1,6 +1,7 @@
 /* ============================================================
-   生态伙伴 · 总览 — 冷调「平台」语言，与 /cobuild 同族
-   hero(蓝图网格) → 三类伙伴分流卡 → 为什么是现在 → 联系 CTA
+   生态伙伴 · 总览 — 服务页版（含插图）
+   hero(文字+插画) → 三类伙伴(画像+权益+配图交替) → 合作流程 →
+   为什么是现在(压缩) → 联系 CTA
    全部规则收在 .solpt 作用域内。
    ============================================================ */
 .solpt{
@@ -23,23 +24,29 @@
   -webkit-mask-image:radial-gradient(125% 90% at 80% 0%,#000 0%,transparent 62%);
           mask-image:radial-gradient(125% 90% at 80% 0%,#000 0%,transparent 62%)}
 
-/* HERO */
-.solpt .pt-hero{position:relative;overflow:hidden;padding:150px 0 64px;background:var(--pt-paper)}
-.solpt .pt-hero-top{position:relative;z-index:2}
+/* ---------- HERO：左文右图 ---------- */
+.solpt .pt-hero{position:relative;overflow:hidden;padding:138px 0 72px;background:var(--pt-paper)}
+.solpt .pt-hero-cols{position:relative;z-index:2;display:grid;grid-template-columns:1.05fr .95fr;gap:52px;align-items:center}
+@media(max-width:960px){.solpt .pt-hero-cols{grid-template-columns:1fr;gap:40px}}
 .solpt .pt-kicker{display:inline-flex;align-items:center;flex-wrap:wrap;font-size:12px;font-weight:600;letter-spacing:.14em;
   text-transform:uppercase;color:var(--pt-mut)}
 .solpt .pt-kicker a{color:var(--pt-mut)}.solpt .pt-kicker a:hover{color:var(--pt-green)}
 .solpt .pt-kicker i{color:var(--pt-green);font-style:normal;margin:0 9px;font-weight:700}
-.solpt .pt-h1{margin:22px 0 0;font-weight:800;font-size:clamp(38px,6vw,72px);line-height:1.06;letter-spacing:-.035em;color:var(--pt-ink);max-width:20ch}
-.solpt .pt-lead{margin:26px 0 0;font-size:clamp(16px,1.8vw,19px);line-height:1.6;color:var(--pt-ink-2)}
+.solpt .pt-h1{margin:22px 0 0;font-weight:800;font-size:clamp(34px,4.6vw,56px);line-height:1.08;letter-spacing:-.035em;color:var(--pt-ink)}
+.solpt .pt-lead{margin:24px 0 0;font-size:clamp(15.5px,1.7vw,18px);line-height:1.62;color:var(--pt-ink-2);max-width:52ch}
 .solpt .pt-lead b{color:var(--pt-ink);font-weight:600}
-.solpt .pt-proof{position:relative;z-index:2;margin-top:52px;display:flex;flex-wrap:wrap;align-items:center;gap:12px 22px;
-  font-size:clamp(15px,1.9vw,18px);color:var(--pt-mut)}
+.solpt .pt-hero-cta{margin-top:32px;display:flex;flex-wrap:wrap;gap:12px}
+.solpt .pt-proof{margin-top:34px;display:flex;flex-wrap:wrap;align-items:center;gap:10px 20px;
+  font-size:clamp(14px,1.6vw,16px);color:var(--pt-mut)}
 .solpt .pt-proof b{color:var(--pt-ink);font-weight:600}
 .solpt .pt-proof b.grad{font-weight:800;letter-spacing:-.01em}
 .solpt .pt-proof .sep{width:5px;height:5px;border-radius:50%;background:var(--pt-faint)}
+.solpt .pt-hero-art{position:relative}
+.solpt .pt-hero-art img{width:100%;height:auto;display:block;border-radius:20px;
+  border:1px solid var(--pt-line);box-shadow:0 24px 60px rgba(12,139,130,.13)}
+@media(max-width:960px){.solpt .pt-hero-art{max-width:560px}}
 
-/* band */
+/* ---------- band ---------- */
 .solpt .pt-band{position:relative;padding:104px 0;background:var(--pt-paper)}
 .solpt .pt-band.mist{background:var(--pt-mist)}
 @media(max-width:700px){.solpt .pt-band{padding:76px 0}}
@@ -47,30 +54,64 @@
   text-transform:uppercase;color:var(--pt-green)}
 .solpt .pt-eyebrow::before{content:"";width:22px;height:2px;border-radius:2px;background:var(--pt-grad)}
 .solpt .pt-h2{margin:18px 0 0;font-weight:800;font-size:clamp(27px,3.5vw,40px);line-height:1.18;letter-spacing:-.03em;color:var(--pt-ink)}
-.solpt .pt-sub{margin:18px 0 0;font-size:clamp(15px,1.65vw,17px);line-height:1.6;color:var(--pt-ink-2)}
+.solpt .pt-sub{margin:18px 0 0;font-size:clamp(15px,1.65vw,17px);line-height:1.6;color:var(--pt-ink-2);max-width:64ch}
 .solpt .pt-sub b{color:var(--pt-ink);font-weight:600}
 
-/* ---------- 三类伙伴分流卡 ---------- */
-.solpt .pt-cards{margin-top:48px;display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
-@media(max-width:860px){.solpt .pt-cards{grid-template-columns:1fr}}
-.solpt .pt-card{display:flex;flex-direction:column;border:1px solid var(--pt-line);border-radius:16px;background:var(--pt-paper);
-  padding:30px 28px;transition:border-color .2s,box-shadow .2s,transform .2s}
-.solpt .pt-card:hover{border-color:rgba(12,139,130,.34);box-shadow:0 14px 34px rgba(12,139,130,.08);transform:translateY(-2px)}
+/* ---------- 三类伙伴：图文交替 ---------- */
+.solpt .pt-types{margin-top:56px;display:flex;flex-direction:column;gap:26px}
+.solpt .pt-type{display:grid;grid-template-columns:.92fr 1.08fr;gap:0;overflow:hidden;
+  border:1px solid var(--pt-line);border-radius:22px;background:var(--pt-paper);
+  box-shadow:0 4px 18px rgba(11,23,20,.04);transition:box-shadow .25s,transform .25s}
+.solpt .pt-type:hover{box-shadow:0 22px 52px rgba(12,139,130,.11);transform:translateY(-2px)}
+.solpt .pt-type.flip{grid-template-columns:1.08fr .92fr}
+.solpt .pt-type.flip .pt-type-art{order:2}
+.solpt .pt-type-art{position:relative;display:flex;align-items:center;justify-content:center;
+  background:linear-gradient(150deg,#F4FAF8,#EAF4F1);padding:34px 30px;min-height:100%}
+.solpt .pt-type-art img{width:100%;max-width:470px;height:auto;display:block;border-radius:14px;
+  box-shadow:0 16px 40px rgba(12,139,130,.12)}
+.solpt .pt-type-txt{padding:42px 44px 40px;display:flex;flex-direction:column}
+@media(max-width:960px){
+  .solpt .pt-type,.solpt .pt-type.flip{grid-template-columns:1fr}
+  .solpt .pt-type.flip .pt-type-art{order:0}
+  .solpt .pt-type-art{padding:28px 24px}
+  .solpt .pt-type-txt{padding:30px 26px 32px}
+}
+.solpt .pt-type-head{display:flex;align-items:center;gap:14px}
+.solpt .pt-type-no{font-size:15px;font-weight:800;letter-spacing:.05em;font-variant-numeric:tabular-nums}
 .solpt .pt-card-tag{font-size:11.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--pt-green);font-weight:700}
-.solpt .pt-card h3{margin:13px 0 0;font-size:clamp(19px,2.2vw,23px);font-weight:800;letter-spacing:-.02em;color:var(--pt-ink)}
-.solpt .pt-card .who{margin:14px 0 0;padding:13px 15px;border-radius:11px;background:var(--pt-mist);
-  font-size:14px;line-height:1.7;color:var(--pt-ink-2)}
-.solpt .pt-card .who b{color:var(--pt-ink);font-weight:600}
-.solpt .pt-card > p{margin:15px 0 0;font-size:15px;line-height:1.72;color:var(--pt-ink-2);flex:1}
-.solpt .pt-card-cta{margin-top:22px;display:inline-flex;align-items:center;gap:7px;font-size:15px;font-weight:700;color:var(--pt-ink)}
+.solpt .pt-type-txt h3{margin:14px 0 0;font-size:clamp(21px,2.5vw,27px);font-weight:800;letter-spacing:-.02em;color:var(--pt-ink)}
+.solpt .pt-type-txt .who{margin:15px 0 0;padding:13px 16px;border-radius:12px;background:var(--pt-mist);
+  font-size:14px;line-height:1.72;color:var(--pt-ink-2)}
+.solpt .pt-gets{margin:20px 0 0;padding:0;list-style:none;display:flex;flex-direction:column;gap:11px;flex:1}
+.solpt .pt-gets li{display:flex;gap:11px;align-items:flex-start;font-size:14.5px;line-height:1.66;color:var(--pt-ink-2)}
+.solpt .pt-gets li b{color:var(--pt-ink);font-weight:700}
+.solpt .pt-gets .tick{flex:none;margin-top:3px;width:19px;height:19px;border-radius:6px;display:inline-flex;
+  align-items:center;justify-content:center;color:#fff;background:var(--pt-grad)}
+.solpt .pt-card-cta{margin-top:26px;display:inline-flex;align-items:center;gap:7px;font-size:15px;font-weight:700;color:var(--pt-ink)}
 .solpt .pt-card-cta:hover{color:var(--pt-green)}
 .solpt .pt-card-cta.soon{color:var(--pt-mut);font-weight:600}
 .solpt .pt-card-cta.soon:hover{color:var(--pt-green)}
 
+/* ---------- 合作流程 ---------- */
+.solpt .pt-steps{margin-top:48px;display:grid;grid-template-columns:repeat(5,1fr);gap:14px}
+@media(max-width:1000px){.solpt .pt-steps{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:560px){.solpt .pt-steps{grid-template-columns:1fr}}
+.solpt .pt-step{position:relative;border:1px solid var(--pt-line);border-radius:15px;background:var(--pt-paper);
+  padding:24px 20px 22px;transition:border-color .2s,box-shadow .2s}
+.solpt .pt-step:hover{border-color:rgba(12,139,130,.34);box-shadow:0 12px 30px rgba(12,139,130,.08)}
+.solpt .pt-step-no{display:inline-flex;width:30px;height:30px;border-radius:50%;align-items:center;justify-content:center;
+  font-size:14px;font-weight:800;color:#fff;background:var(--pt-grad)}
+.solpt .pt-step h3{margin:14px 0 0;font-size:16.5px;font-weight:700;letter-spacing:-.01em;color:var(--pt-ink)}
+.solpt .pt-step p{margin:9px 0 0;font-size:13.5px;line-height:1.68;color:var(--pt-ink-2)}
+.solpt .pt-policy{margin-top:34px;padding:17px 22px;border-radius:13px;background:var(--pt-mist);
+  font-size:14.5px;line-height:1.7;color:var(--pt-ink-2)}
+.solpt .pt-policy a{display:inline-flex;align-items:center;gap:5px;margin-left:8px;font-weight:700;color:var(--pt-ink)}
+.solpt .pt-policy a:hover{color:var(--pt-green)}
+
 /* ---------- 为什么是现在 ---------- */
 .solpt .pt-now{margin-top:46px;display:flex;flex-direction:column}
-.solpt .pt-nowi{display:grid;grid-template-columns:64px 1fr;gap:22px;align-items:start;padding:26px 0;border-top:1px solid var(--pt-line)}
-.solpt .pt-nowi:last-child{border-bottom:1px solid var(--pt-line)}
+.solpt .pt-nowi{display:grid;grid-template-columns:64px 1fr;gap:22px;align-items:start;padding:26px 0;border-top:1px solid rgba(11,23,20,.1)}
+.solpt .pt-nowi:last-child{border-bottom:1px solid rgba(11,23,20,.1)}
 .solpt .pt-nowno{font-size:16px;font-weight:800;letter-spacing:.04em;padding-top:5px;font-variant-numeric:tabular-nums}
 .solpt .pt-nowbody h3{margin:0 0 9px;font-size:clamp(18px,2.1vw,21px);font-weight:700;letter-spacing:-.015em;color:var(--pt-ink)}
 .solpt .pt-nowbody p{margin:0;color:var(--pt-ink-2);font-size:15.5px;line-height:1.78}

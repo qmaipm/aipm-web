@@ -26,19 +26,24 @@
 .solbd .bd-grid.dark{background-image:linear-gradient(to right,rgba(63,217,184,.10) 1px,transparent 1px),
                    linear-gradient(to bottom,rgba(63,217,184,.10) 1px,transparent 1px)}
 
-/* HERO */
-.solbd .bd-hero{position:relative;overflow:hidden;padding:150px 0 64px;background:var(--bd-paper)}
-.solbd .bd-hero-top{position:relative;z-index:2}
+/* HERO：左文右图 */
+.solbd .bd-hero{position:relative;overflow:hidden;padding:138px 0 72px;background:var(--bd-paper)}
+.solbd .bd-hero-cols{position:relative;z-index:2;display:grid;grid-template-columns:1.1fr .9fr;gap:52px;align-items:center}
+@media(max-width:960px){.solbd .bd-hero-cols{grid-template-columns:1fr;gap:40px}}
 .solbd .bd-kicker{display:inline-flex;align-items:center;flex-wrap:wrap;font-size:12px;font-weight:600;letter-spacing:.14em;
   text-transform:uppercase;color:var(--bd-mut)}
 .solbd .bd-kicker a{color:var(--bd-mut)}.solbd .bd-kicker a:hover{color:var(--bd-green)}
 .solbd .bd-kicker i{color:var(--bd-green);font-style:normal;margin:0 9px;font-weight:700}
-.solbd .bd-h1{margin:22px 0 0;font-weight:800;font-size:clamp(36px,5.6vw,66px);line-height:1.08;letter-spacing:-.035em;color:var(--bd-ink);max-width:22ch}
-.solbd .bd-lead{margin:26px 0 0;font-size:clamp(16px,1.8vw,19px);line-height:1.6;color:var(--bd-ink-2)}
+.solbd .bd-h1{margin:22px 0 0;font-weight:800;font-size:clamp(33px,4.4vw,54px);line-height:1.08;letter-spacing:-.035em;color:var(--bd-ink);max-width:22ch}
+.solbd .bd-lead{margin:24px 0 0;font-size:clamp(15.5px,1.7vw,18px);line-height:1.62;color:var(--bd-ink-2);max-width:52ch}
 .solbd .bd-lead b{color:var(--bd-ink);font-weight:600}
-.solbd .bd-cta{margin-top:38px;display:flex;flex-wrap:wrap;gap:14px;align-items:center}
-.solbd .bd-proof{position:relative;z-index:2;margin-top:52px;display:flex;flex-wrap:wrap;align-items:center;gap:12px 22px;
-  font-size:clamp(15px,1.9vw,18px);color:var(--bd-mut)}
+.solbd .bd-cta{margin-top:32px;display:flex;flex-wrap:wrap;gap:13px;align-items:center}
+.solbd .bd-hero-art{position:relative}
+.solbd .bd-hero-art img{width:100%;height:auto;display:block;border-radius:20px;
+  border:1px solid var(--bd-line);box-shadow:0 24px 60px rgba(12,139,130,.13)}
+@media(max-width:960px){.solbd .bd-hero-art{max-width:540px}}
+.solbd .bd-proof{position:relative;z-index:2;margin-top:34px;display:flex;flex-wrap:wrap;align-items:center;gap:10px 20px;
+  font-size:clamp(14px,1.6vw,16px);color:var(--bd-mut)}
 .solbd .bd-proof b{color:var(--bd-ink);font-weight:600}
 .solbd .bd-proof b.grad{font-weight:800;letter-spacing:-.01em}
 .solbd .bd-proof .sep{width:5px;height:5px;border-radius:50%;background:var(--bd-faint)}
@@ -89,6 +94,45 @@
   font-size:clamp(17px,2vw,22px);font-weight:700;line-height:1.5;letter-spacing:-.015em;color:#fff}
 .solbd .bd-verdict::before{content:"";position:absolute;left:0;top:6px;bottom:6px;width:3px;border-radius:3px;background:var(--bd-grad)}
 .solbd .bd-verdict .grad{font-weight:800}
+
+/* ---------- 合作权益 ---------- */
+.solbd .bd-rights{margin-top:48px;display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+@media(max-width:980px){.solbd .bd-rights{grid-template-columns:1fr 1fr}}
+@media(max-width:640px){.solbd .bd-rights{grid-template-columns:1fr}}
+.solbd .bd-right{border:1px solid var(--bd-line);border-radius:16px;background:var(--bd-paper);padding:27px 25px;
+  display:flex;flex-direction:column;transition:border-color .2s,box-shadow .2s,transform .2s}
+.solbd .bd-right:hover{border-color:rgba(12,139,130,.34);box-shadow:0 14px 34px rgba(12,139,130,.08);transform:translateY(-2px)}
+.solbd .bd-right-head{display:flex;align-items:center;justify-content:space-between;gap:10px}
+.solbd .bd-rno{font-size:16px;font-weight:800;letter-spacing:.04em;font-variant-numeric:tabular-nums}
+.solbd .bd-rwhen{font-size:11.5px;font-weight:600;letter-spacing:.02em;color:var(--bd-green);
+  padding:5px 11px;border-radius:999px;border:1px solid rgba(18,185,138,.32);background:rgba(18,185,138,.06);white-space:nowrap}
+.solbd .bd-right h3{margin:15px 0 0;font-size:clamp(17.5px,2vw,20px);font-weight:700;letter-spacing:-.015em;color:var(--bd-ink)}
+.solbd .bd-right p{margin:10px 0 0;font-size:14.5px;line-height:1.72;color:var(--bd-ink-2)}
+.solbd .bd-policy{margin-top:34px;padding:17px 22px;border-radius:13px;background:var(--bd-paper);border:1px solid var(--bd-line);
+  font-size:14.5px;line-height:1.7;color:var(--bd-ink-2)}
+.solbd .bd-policy a{display:inline-flex;align-items:center;gap:5px;margin-left:8px;font-weight:700;color:var(--bd-ink)}
+.solbd .bd-policy a:hover{color:var(--bd-green)}
+
+/* ---------- 伙伴发展路径 ---------- */
+.solbd .bd-steps{margin-top:48px;display:grid;grid-template-columns:repeat(5,1fr);gap:14px}
+@media(max-width:1000px){.solbd .bd-steps{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:560px){.solbd .bd-steps{grid-template-columns:1fr}}
+.solbd .bd-step{border:1px solid var(--bd-line);border-radius:15px;background:var(--bd-paper);
+  padding:24px 20px 22px;transition:border-color .2s,box-shadow .2s}
+.solbd .bd-step:hover{border-color:rgba(12,139,130,.34);box-shadow:0 12px 30px rgba(12,139,130,.08)}
+.solbd .bd-step-no{display:inline-flex;width:30px;height:30px;border-radius:50%;align-items:center;justify-content:center;
+  font-size:14px;font-weight:800;color:#fff;background:var(--bd-grad)}
+.solbd .bd-step h3{margin:14px 0 0;font-size:16.5px;font-weight:700;letter-spacing:-.01em;color:var(--bd-ink)}
+.solbd .bd-step p{margin:9px 0 0;font-size:13.5px;line-height:1.68;color:var(--bd-ink-2)}
+
+/* ---------- 为什么是现在：一行横条 ---------- */
+.solbd .bd-strip{background:var(--bd-paper);border-top:1px solid var(--bd-line);border-bottom:1px solid var(--bd-line);padding:34px 0}
+.solbd .bd-strip-in{display:flex;align-items:center;gap:26px}
+@media(max-width:760px){.solbd .bd-strip-in{flex-direction:column;align-items:flex-start;gap:14px}}
+.solbd .bd-strip-tag{flex:none;font-size:11.5px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--bd-green);
+  padding:7px 14px;border-radius:999px;border:1px solid rgba(18,185,138,.32);background:rgba(18,185,138,.06);white-space:nowrap}
+.solbd .bd-strip-in p{margin:0;font-size:15px;line-height:1.7;color:var(--bd-ink-2)}
+.solbd .bd-strip-in p b{color:var(--bd-ink);font-weight:700}
 
 /* ---------- 我们提供什么 ---------- */
 .solbd .bd-give{margin-top:48px;display:grid;grid-template-columns:1fr 1fr;gap:16px}
