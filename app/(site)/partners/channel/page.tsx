@@ -1,12 +1,16 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import Image from "next/image";
+import JsonLd from "@/components/JsonLd";
 import "./page.css";
+
+const SITE_URL = process.env.SITE_URL || "https://www.aipm.cn";
 
 export const metadata: Metadata = {
   title: "渠道伙伴 — FMClaw™ 智能体平台渠道合作 | 启盟科技",
   description:
     "启盟科技渠道合作计划：面向建筑智能化工程企业、软件企业与拥有政企客户资源的机构，提供三种合作模式——项目推荐（按项目支付佣金）、区域代理（协议底价与授权区域）、能力嵌入（将 FMClaw™ 智能体能力嵌入自有系统）。商机报备写入协议，提供培训与售前支持，当前招募集中在经济发达地区。",
+  alternates: { canonical: "/partners/channel" },
 };
 
 const Arrow = ({ s = 15 }: { s?: number }) => (
@@ -129,9 +133,50 @@ const faqs = [
   },
 ];
 
+/* ---------- 结构化数据（SEO / GEO）---------- */
+const SERVICE_LD = {
+  "@context": "https://schema.org",
+  "@type": "Service",
+  name: "FMClaw™ 渠道合作计划",
+  serviceType: "AI 智能体平台渠道合作（项目推荐 / 区域代理 / 能力嵌入）",
+  description:
+    "面向建筑智能化工程企业、软件企业与拥有政企客户资源的机构的渠道合作计划：项目推荐按项目支付佣金；区域代理以协议底价供货并授权区域；能力嵌入将 FMClaw™ 智能体能力嵌入伙伴自有系统。商机报备写入协议，提供培训与售前支持。",
+  areaServed: "CN",
+  url: `${SITE_URL}/partners/channel`,
+  provider: { "@type": "Organization", name: "启盟科技", url: SITE_URL },
+  hasOfferCatalog: {
+    "@type": "OfferCatalog",
+    name: "渠道合作模式",
+    itemListElement: modes.map((m) => ({
+      "@type": "Offer",
+      name: m.title,
+      description: m.how,
+    })),
+  },
+};
+const FAQ_LD = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: faqs.map((f) => ({
+    "@type": "Question",
+    name: f.q,
+    acceptedAnswer: { "@type": "Answer", text: f.a },
+  })),
+};
+const BREADCRUMB_LD = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  itemListElement: [
+    { "@type": "ListItem", position: 1, name: "启盟科技", item: SITE_URL },
+    { "@type": "ListItem", position: 2, name: "生态伙伴", item: `${SITE_URL}/partners` },
+    { "@type": "ListItem", position: 3, name: "渠道伙伴", item: `${SITE_URL}/partners/channel` },
+  ],
+};
+
 export default function Page() {
   return (
     <main className="solch">
+      <JsonLd data={[SERVICE_LD, FAQ_LD, BREADCRUMB_LD]} />
       {/* HERO：左文右图 */}
       <section className="ch-hero">
         <div className="ch-grid" aria-hidden="true" />

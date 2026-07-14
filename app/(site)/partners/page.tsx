@@ -1,12 +1,16 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import Image from "next/image";
+import JsonLd from "@/components/JsonLd";
 import "./page.css";
+
+const SITE_URL = process.env.SITE_URL || "https://www.aipm.cn";
 
 export const metadata: Metadata = {
   title: "生态伙伴 — 智能体园区 · 智慧园区 AI 合作 | 启盟科技",
   description:
     "启盟科技生态伙伴计划：我们做产品和平台，伙伴赢市场。面向智能建筑与智慧园区工程企业、渠道代理伙伴与产业投资方，提供方案支持、标书技术应答、售前工程师、Demo 环境、联合品牌与商机协同——帮助伙伴赢下他们的客户。",
+  alternates: { canonical: "/partners" },
 };
 
 const Arrow = ({ s = 15 }: { s?: number }) => (
@@ -102,9 +106,42 @@ const nowItems = [
   },
 ];
 
+/* ---------- 结构化数据（SEO / GEO）---------- */
+const PAGE_LD = {
+  "@context": "https://schema.org",
+  "@type": "CollectionPage",
+  name: "启盟科技生态伙伴计划",
+  description:
+    "面向智能建筑与智慧园区工程企业、渠道代理伙伴与产业投资方的生态合作计划。",
+  url: `${SITE_URL}/partners`,
+  hasPart: [
+    {
+      "@type": "WebPage",
+      name: "智能建筑伙伴",
+      url: `${SITE_URL}/partners/building`,
+      description: "面向建筑智能化工程、机电总包与设计咨询企业：智能体园区项目的投标与交付支持。",
+    },
+    {
+      "@type": "WebPage",
+      name: "渠道伙伴",
+      url: `${SITE_URL}/partners/channel`,
+      description: "三种合作模式：项目推荐（按项目佣金）、区域代理（协议底价与授权区域）、能力嵌入（FMClaw™ 能力嵌入自有系统）。",
+    },
+  ],
+};
+const BREADCRUMB_LD = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  itemListElement: [
+    { "@type": "ListItem", position: 1, name: "启盟科技", item: SITE_URL },
+    { "@type": "ListItem", position: 2, name: "生态伙伴", item: `${SITE_URL}/partners` },
+  ],
+};
+
 export default function Page() {
   return (
     <main className="solpt">
+      <JsonLd data={[PAGE_LD, BREADCRUMB_LD]} />
       {/* HERO：文字 + 插画 */}
       <section className="pt-hero">
         <div className="pt-grid" aria-hidden="true" />

@@ -1,13 +1,17 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import Image from "next/image";
+import JsonLd from "@/components/JsonLd";
 import "./page.css";
 import BuildingForm from "./BuildingForm";
+
+const SITE_URL = process.env.SITE_URL || "https://www.aipm.cn";
 
 export const metadata: Metadata = {
   title: "智能建筑伙伴 — 智能体园区招标的 AI 技术要求，怎么应？| 启盟科技",
   description:
     "智慧园区、智能体园区项目的招标文件里，开始出现智能体平台、大模型网关、AI 物理感知等技术要求。启盟科技面向建筑智能化工程、机电总包与设计咨询企业开放智能建筑伙伴合作：方案支持、标书技术应答、售前工程师随队、Demo 演示环境、联合品牌授权与商机协同。登记索取《智能体园区参考架构与招标技术要求指引》。",
+  alternates: { canonical: "/partners/building" },
 };
 
 const Arrow = ({ s = 15 }: { s?: number }) => (
@@ -136,9 +140,41 @@ const deltas = [
   },
 ];
 
+/* ---------- 结构化数据（SEO / GEO）---------- */
+const SERVICE_LD = {
+  "@context": "https://schema.org",
+  "@type": "Service",
+  name: "智能建筑伙伴合作计划",
+  serviceType: "智能体园区 / 智慧园区项目投标与交付支持",
+  description:
+    "面向建筑智能化工程、机电总包与设计咨询企业的合作计划：针对招标文件中的智能体平台、大模型网关、AI 物理感知等技术要求，提供项目方案支持、标书技术应答、售前工程师随队、Demo 演示环境、联合品牌授权与商机协同。",
+  areaServed: "CN",
+  url: `${SITE_URL}/partners/building`,
+  provider: { "@type": "Organization", name: "启盟科技", url: SITE_URL },
+  hasOfferCatalog: {
+    "@type": "OfferCatalog",
+    name: "智能建筑伙伴合作权益",
+    itemListElement: rights.map((r) => ({
+      "@type": "Offer",
+      name: r.title,
+      description: r.body,
+    })),
+  },
+};
+const BREADCRUMB_LD = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  itemListElement: [
+    { "@type": "ListItem", position: 1, name: "启盟科技", item: SITE_URL },
+    { "@type": "ListItem", position: 2, name: "生态伙伴", item: `${SITE_URL}/partners` },
+    { "@type": "ListItem", position: 3, name: "智能建筑伙伴", item: `${SITE_URL}/partners/building` },
+  ],
+};
+
 export default function Page() {
   return (
     <main className="solbd">
+      <JsonLd data={[SERVICE_LD, BREADCRUMB_LD]} />
       {/* HERO：左文右图 */}
       <section className="bd-hero">
         <div className="bd-grid" aria-hidden="true" />
