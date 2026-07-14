@@ -24,6 +24,7 @@ const ROUTES = [
   "/cobuild",
   "/partners",
   "/partners/building",
+  "/partners/channel",
   "/contact",
   "/company",
   "/team",
