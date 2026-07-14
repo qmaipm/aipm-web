@@ -1,0 +1,220 @@
+/* ============================================================
+   启盟行业智能体伙伴计划 1.0 — 克制的制度型页面
+   白/浅灰背景 · 深灰正文 · 品牌色仅用于 CTA 与少量重点
+   无大面积渐变 / 发光边框 / 玻璃拟态 / 招商海报视觉
+   全部规则收在 .solpg 作用域内。
+   ============================================================ */
+.solpg{
+  --pg-ink:#14201C; --pg-ink-2:#46524D; --pg-mut:#7C857F; --pg-faint:#A7AFAB;
+  --pg-line:#E6EAE8; --pg-mist:#F4F7F6; --pg-paper:#FFFFFF;
+  --pg-blue:#0070FF; --pg-green:#12B98A;
+  --pg-grad:linear-gradient(115deg,#0070FF,#12B98A);
+  background:var(--pg-paper); color:var(--pg-ink);
+}
+.solpg .wrap{max-width:1120px;margin:0 auto;padding:0 32px}
+@media(max-width:600px){.solpg .wrap{padding:0 22px}}
+.solpg .grad{background:var(--pg-grad);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+@supports not ((-webkit-background-clip:text) or (background-clip:text)){.solpg .grad{color:var(--pg-green);-webkit-text-fill-color:currentColor}}
+
+/* 极淡蓝图网格（仅首屏，弱化） */
+.solpg .pg-grid{position:absolute;inset:0;z-index:0;pointer-events:none;
+  background-image:linear-gradient(to right,rgba(12,139,130,.09) 1px,transparent 1px),
+                   linear-gradient(to bottom,rgba(12,139,130,.09) 1px,transparent 1px);
+  background-size:54px 54px;
+  -webkit-mask-image:radial-gradient(120% 85% at 82% 0%,#000 0%,transparent 58%);
+          mask-image:radial-gradient(120% 85% at 82% 0%,#000 0%,transparent 58%)}
+
+/* ---------- 模块1 · 首屏 ---------- */
+.solpg .pg-hero{position:relative;overflow:hidden;padding:136px 0 76px;background:var(--pg-paper)}
+.solpg .pg-hero-cols{position:relative;z-index:2;display:grid;grid-template-columns:1.15fr .85fr;gap:52px;align-items:center}
+@media(max-width:960px){.solpg .pg-hero-cols{grid-template-columns:1fr;gap:38px}}
+.solpg .pg-kicker{display:inline-flex;align-items:center;flex-wrap:wrap;font-size:12px;font-weight:600;letter-spacing:.14em;
+  text-transform:uppercase;color:var(--pg-mut)}
+.solpg .pg-kicker a{color:var(--pg-mut)}.solpg .pg-kicker a:hover{color:var(--pg-green)}
+.solpg .pg-kicker i{color:var(--pg-green);font-style:normal;margin:0 9px;font-weight:700}
+.solpg .pg-h1{margin:22px 0 0;font-weight:800;font-size:clamp(31px,4.2vw,50px);line-height:1.14;letter-spacing:-.035em;color:var(--pg-ink);max-width:24ch}
+.solpg .pg-lead{margin:22px 0 0;font-size:clamp(15.5px,1.7vw,17.5px);line-height:1.68;color:var(--pg-ink-2);max-width:54ch}
+.solpg .pg-lead a{color:var(--pg-ink);font-weight:600;text-decoration:underline;text-underline-offset:3px}
+.solpg .pg-lead a:hover{color:var(--pg-green)}
+.solpg .pg-cta{margin-top:30px;display:flex;flex-wrap:wrap;gap:13px;align-items:center}
+.solpg .pg-hero-art{position:relative}
+.solpg .pg-hero-art img{width:100%;height:auto;display:block;border-radius:18px;border:1px solid var(--pg-line)}
+@media(max-width:960px){.solpg .pg-hero-art{max-width:520px}}
+.solpg .pg-facts{position:relative;z-index:2;margin:32px 0 0;padding:0;list-style:none;
+  display:flex;flex-wrap:wrap;gap:10px 26px}
+.solpg .pg-facts li{position:relative;padding-left:20px;font-size:14px;font-weight:500;color:var(--pg-ink-2)}
+.solpg .pg-facts li::before{content:"";position:absolute;left:1px;top:7px;width:9px;height:5px;
+  border-left:2px solid var(--pg-green);border-bottom:2px solid var(--pg-green);transform:rotate(-45deg)}
+
+/* ---------- 通用 band 与标题 ---------- */
+.solpg .pg-band{position:relative;padding:96px 0;background:var(--pg-paper)}
+.solpg .pg-band.mist{background:var(--pg-mist)}
+@media(max-width:700px){.solpg .pg-band{padding:70px 0}}
+.solpg .pg-eyebrow{display:inline-flex;align-items:center;gap:10px;font-size:12px;font-weight:600;letter-spacing:.2em;
+  text-transform:uppercase;color:var(--pg-green)}
+.solpg .pg-eyebrow::before{content:"";width:22px;height:2px;border-radius:2px;background:var(--pg-green)}
+.solpg .pg-h2{margin:18px 0 0;font-weight:800;font-size:clamp(25px,3.2vw,36px);line-height:1.22;letter-spacing:-.03em;color:var(--pg-ink);max-width:30ch}
+.solpg .pg-sub{margin:18px 0 0;font-size:clamp(15px,1.65vw,16.5px);line-height:1.7;color:var(--pg-ink-2);max-width:72ch}
+.solpg .pg-sub a{color:var(--pg-ink);font-weight:600;text-decoration:underline;text-underline-offset:3px}
+.solpg .pg-sub a:hover{color:var(--pg-green)}
+
+/* 通用说明框 / 直答句 / 小字 */
+.solpg .pg-note-box{margin-top:34px;padding:17px 22px;border-radius:12px;background:var(--pg-paper);
+  border:1px solid var(--pg-line);font-size:14px;line-height:1.72;color:var(--pg-ink-2)}
+.solpg .pg-band.mist .pg-note-box{background:#fff}
+.solpg .pg-tlink{display:inline-flex;align-items:center;gap:5px;margin-left:10px;font-weight:700;color:var(--pg-ink)}
+.solpg .pg-tlink:hover{color:var(--pg-green)}
+.solpg .pg-answer{margin:26px 0 0;padding-left:20px;border-left:3px solid var(--pg-green);
+  font-size:clamp(15.5px,1.8vw,17.5px);line-height:1.72;color:var(--pg-ink);font-weight:500;max-width:66ch}
+.solpg .pg-answer.sm{font-size:15px;font-weight:400;color:var(--pg-ink-2)}
+.solpg .pg-fine{margin:18px 0 0;font-size:13px;color:var(--pg-mut);line-height:1.6}
+
+/* ---------- 模块2 · 四路径卡片 ---------- */
+.solpg .pg-paths{margin-top:46px;display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+@media(max-width:1020px){.solpg .pg-paths{grid-template-columns:1fr 1fr}}
+@media(max-width:600px){.solpg .pg-paths{grid-template-columns:1fr}}
+.solpg .pg-path{display:flex;flex-direction:column;border:1px solid var(--pg-line);border-radius:14px;background:var(--pg-paper);padding:24px 22px}
+.solpg .pg-path-head{display:flex;align-items:baseline;gap:9px}
+.solpg .pg-path-en{font-size:19px;font-weight:800;letter-spacing:-.01em;color:var(--pg-ink)}
+.solpg .pg-path-zh{font-size:13px;font-weight:600;color:var(--pg-green)}
+.solpg .pg-path-body{margin:13px 0 0;font-size:13.8px;line-height:1.68;color:var(--pg-ink-2);flex:1}
+.solpg .pg-path-dl{margin:18px 0 0;padding-top:16px;border-top:1px solid var(--pg-line);display:flex;flex-direction:column;gap:11px}
+.solpg .pg-path-dl div{display:flex;flex-direction:column;gap:3px}
+.solpg .pg-path-dl dt{font-size:11.5px;font-weight:700;letter-spacing:.05em;color:var(--pg-mut)}
+.solpg .pg-path-dl dd{margin:0;font-size:13.5px;line-height:1.55;color:var(--pg-ink)}
+
+/* ---------- 模块3 · 责任矩阵 ---------- */
+.solpg .pg-split{margin-top:46px;display:grid;grid-template-columns:1fr 1fr;gap:14px}
+@media(max-width:720px){.solpg .pg-split{grid-template-columns:1fr}}
+.solpg .pg-split-col{border:1px solid var(--pg-line);border-radius:14px;background:var(--pg-paper);padding:28px 26px}
+.solpg .pg-split-col.qm{border-color:rgba(18,185,138,.4)}
+.solpg .pg-split-col h3{margin:0;font-size:clamp(17px,2vw,19px);font-weight:800;letter-spacing:-.015em;color:var(--pg-ink)}
+.solpg .pg-split-col ul{margin:16px 0 0;padding:0;list-style:none;display:flex;flex-direction:column;gap:10px}
+.solpg .pg-split-col li{position:relative;padding-left:22px;font-size:14.5px;line-height:1.6;color:var(--pg-ink-2)}
+.solpg .pg-split-col li::before{content:"";position:absolute;left:2px;top:8px;width:9px;height:5px;
+  border-left:2px solid var(--pg-green);border-bottom:2px solid var(--pg-green);transform:rotate(-45deg)}
+
+/* ---------- 模块4 · 等级表 ---------- */
+.solpg .pg-table-scroll{margin-top:44px;overflow-x:auto;-webkit-overflow-scrolling:touch;
+  border:1px solid var(--pg-line);border-radius:14px;background:var(--pg-paper)}
+.solpg .pg-table{width:100%;min-width:640px;border-collapse:collapse;font-size:14px}
+.solpg .pg-table thead th{padding:15px 18px;text-align:left;font-size:12.5px;font-weight:700;letter-spacing:.05em;
+  color:var(--pg-mut);border-bottom:1px solid var(--pg-line);background:var(--pg-mist);white-space:nowrap}
+.solpg .pg-table tbody th,.solpg .pg-table tbody td{padding:16px 18px;text-align:left;border-bottom:1px solid var(--pg-line);color:var(--pg-ink-2)}
+.solpg .pg-table tbody tr:last-child th,.solpg .pg-table tbody tr:last-child td{border-bottom:none}
+.solpg .pg-table tbody th{font-weight:400}
+.solpg .pg-table tbody th b{display:block;font-size:15px;font-weight:800;letter-spacing:-.01em;color:var(--pg-ink)}
+.solpg .pg-table tbody th span{display:block;margin-top:2px;font-size:12.5px;color:var(--pg-mut)}
+
+/* ---------- 模块5 · 工作流示例 ---------- */
+.solpg .pg-flow{margin-top:34px;display:flex;flex-wrap:wrap;align-items:center;gap:10px}
+.solpg .pg-flow-node{display:inline-flex;align-items:center;gap:10px;font-size:13.5px;font-weight:600;color:var(--pg-ink)}
+.solpg .pg-flow-node{border:1px solid var(--pg-line);border-radius:999px;background:var(--pg-paper);padding:9px 16px}
+.solpg .pg-flow-node .ar{color:var(--pg-green);margin-right:-6px}
+@media(max-width:640px){.solpg .pg-flow{flex-direction:column;align-items:flex-start}}
+
+/* ---------- 模块6 · FDE ---------- */
+.solpg .pg-fde-steps{margin-top:40px;display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+@media(max-width:720px){.solpg .pg-fde-steps{grid-template-columns:1fr}}
+.solpg .pg-fde-step{display:flex;align-items:center;gap:14px;border:1px solid var(--pg-line);border-radius:14px;background:var(--pg-paper);padding:20px 20px}
+.solpg .pg-step-no{flex:none;display:inline-flex;width:30px;height:30px;border-radius:50%;align-items:center;justify-content:center;
+  font-size:14px;font-weight:800;color:#fff;background:var(--pg-ink)}
+.solpg .pg-fde-step h3{margin:0;font-size:15.5px;font-weight:700;letter-spacing:-.01em;color:var(--pg-ink)}
+.solpg .pg-fde-states{margin-top:26px;display:grid;grid-template-columns:1fr 1fr;gap:14px}
+@media(max-width:720px){.solpg .pg-fde-states{grid-template-columns:1fr}}
+.solpg .pg-fde-state{border:1px solid var(--pg-line);border-radius:14px;background:var(--pg-paper);padding:24px 24px}
+.solpg .pg-fde-state.ok{border-color:rgba(18,185,138,.4)}
+.solpg .pg-fde-state h3{margin:0;font-size:15.5px;font-weight:800;letter-spacing:-.01em;color:var(--pg-ink)}
+.solpg .pg-fde-state p{margin:10px 0 0;font-size:14px;line-height:1.7;color:var(--pg-ink-2)}
+.solpg .pg-tech-cta{margin-top:32px;display:flex;flex-wrap:wrap;gap:13px}
+
+/* ---------- 模块7 · 首单五步 ---------- */
+.solpg .pg-first-steps{margin-top:44px;display:grid;grid-template-columns:repeat(5,1fr);gap:12px}
+@media(max-width:960px){.solpg .pg-first-steps{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:520px){.solpg .pg-first-steps{grid-template-columns:1fr}}
+.solpg .pg-first-step{display:flex;align-items:center;gap:12px;border:1px solid var(--pg-line);border-radius:13px;background:var(--pg-paper);padding:18px 16px}
+.solpg .pg-first-step h3{margin:0;font-size:15px;font-weight:700;letter-spacing:-.01em;color:var(--pg-ink)}
+
+/* ---------- 模块8 · 商机保护 ---------- */
+.solpg .pg-protects{margin-top:44px;display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+@media(max-width:860px){.solpg .pg-protects{grid-template-columns:1fr}}
+.solpg .pg-protect{border:1px solid var(--pg-line);border-radius:14px;background:var(--pg-paper);padding:26px 24px}
+.solpg .pg-pno{font-size:15px;font-weight:800;letter-spacing:.04em;font-variant-numeric:tabular-nums}
+.solpg .pg-protect h3{margin:13px 0 0;font-size:16.5px;font-weight:700;letter-spacing:-.015em;color:var(--pg-ink)}
+.solpg .pg-protect p{margin:9px 0 0;font-size:14px;line-height:1.7;color:var(--pg-ink-2)}
+
+/* ---------- 模块9 · 伙伴支持三列 ---------- */
+.solpg .pg-supports{margin-top:44px;display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+@media(max-width:860px){.solpg .pg-supports{grid-template-columns:1fr}}
+.solpg .pg-support{border:1px solid var(--pg-line);border-radius:14px;background:var(--pg-paper);padding:26px 24px}
+.solpg .pg-support h3{margin:0;font-size:16.5px;font-weight:800;letter-spacing:-.015em;color:var(--pg-ink)}
+.solpg .pg-support ul{margin:16px 0 0;padding:0;list-style:none;display:flex;flex-direction:column;gap:10px}
+.solpg .pg-support li{position:relative;padding-left:20px;font-size:14px;line-height:1.6;color:var(--pg-ink-2)}
+.solpg .pg-support li::before{content:"";position:absolute;left:1px;top:8px;width:8px;height:4px;
+  border-left:2px solid var(--pg-green);border-bottom:2px solid var(--pg-green);transform:rotate(-45deg)}
+
+/* ---------- 模块10 · 七步流程 ---------- */
+.solpg .pg-apply-steps{margin:44px 0 0;padding:0;list-style:none;
+  display:grid;grid-template-columns:repeat(7,1fr);gap:10px;counter-reset:step}
+@media(max-width:1100px){.solpg .pg-apply-steps{grid-template-columns:repeat(4,1fr)}}
+@media(max-width:760px){.solpg .pg-apply-steps{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:460px){.solpg .pg-apply-steps{grid-template-columns:1fr}}
+.solpg .pg-apply-step{display:flex;flex-direction:column;gap:12px;border:1px solid var(--pg-line);border-radius:13px;background:var(--pg-paper);padding:18px 16px}
+.solpg .pg-apply-step h3{margin:0;font-size:14.5px;font-weight:700;letter-spacing:-.01em;color:var(--pg-ink)}
+.solpg .pg-apply-step p{margin:5px 0 0;font-size:12.5px;line-height:1.6;color:var(--pg-mut)}
+
+/* ---------- 模块11 · FAQ ---------- */
+.solpg .pg-faqs{margin-top:44px;border:1px solid var(--pg-line);border-radius:14px;background:var(--pg-paper);overflow:hidden}
+.solpg .pg-faq{border-bottom:1px solid var(--pg-line)}
+.solpg .pg-faq:last-child{border-bottom:none}
+.solpg .pg-faq summary{display:flex;align-items:center;justify-content:space-between;gap:16px;cursor:pointer;
+  padding:19px 24px;font-size:15.5px;font-weight:700;letter-spacing:-.01em;color:var(--pg-ink);list-style:none}
+.solpg .pg-faq summary::-webkit-details-marker{display:none}
+.solpg .pg-faq summary:hover{color:var(--pg-green)}
+.solpg .pg-faq-ic{flex:none;color:var(--pg-mut);transition:transform .2s}
+.solpg .pg-faq[open] .pg-faq-ic{transform:rotate(180deg)}
+.solpg .pg-faq p{margin:0;padding:0 24px 20px;font-size:14.5px;line-height:1.75;color:var(--pg-ink-2);max-width:78ch}
+
+/* ---------- 模块12 · 表单区 ---------- */
+.solpg .pg-forms{margin-top:44px;scroll-margin-top:90px}
+.solpg .pg-tabs{display:flex;flex-wrap:wrap;gap:8px}
+.solpg .pg-tabs button{appearance:none;cursor:pointer;font:inherit;font-size:14px;font-weight:600;color:var(--pg-ink-2);
+  padding:11px 18px;border-radius:999px;border:1px solid var(--pg-line);background:var(--pg-paper);transition:border-color .2s,color .2s;scroll-margin-top:110px}
+.solpg .pg-tabs button:hover{border-color:var(--pg-green);color:var(--pg-ink)}
+.solpg .pg-tabs button.on{border-color:var(--pg-ink);background:var(--pg-ink);color:#fff}
+.solpg .pg-tabpanel{margin-top:26px;max-width:760px}
+.solpg .pg-checks{margin:0 0 18px;padding:0;border:none}
+.solpg .pg-checks legend{padding:0;margin-bottom:10px;font-size:13.5px;font-weight:600;color:var(--pg-ink)}
+.solpg .pg-checks-row{display:flex;flex-wrap:wrap;gap:8px}
+.solpg .pg-checks-row label{display:inline-flex;align-items:center;gap:7px;cursor:pointer;font-size:13.5px;color:var(--pg-ink-2);
+  padding:9px 14px;border-radius:999px;border:1px solid var(--pg-line);background:var(--pg-paper);transition:border-color .2s,color .2s}
+.solpg .pg-checks-row label:hover{border-color:var(--pg-green)}
+.solpg .pg-checks-row label.on{border-color:var(--pg-green);color:var(--pg-ink);background:rgba(18,185,138,.06)}
+.solpg .pg-checks-row input{accent-color:var(--pg-green);width:15px;height:15px;margin:0}
+.solpg .pg-more{margin:4px 0 18px;border:1px dashed var(--pg-line);border-radius:12px;padding:0 16px}
+.solpg .pg-more summary{cursor:pointer;padding:13px 0;font-size:13.5px;font-weight:600;color:var(--pg-ink-2);list-style:none}
+.solpg .pg-more summary::-webkit-details-marker{display:none}
+.solpg .pg-more summary:hover{color:var(--pg-green)}
+.solpg .pg-more[open]{padding-bottom:16px}
+.solpg .pg-consent{display:flex;align-items:flex-start;gap:9px;margin:2px 0 16px;font-size:13px;line-height:1.6;color:var(--pg-ink-2);cursor:pointer}
+.solpg .pg-consent input{flex:none;margin-top:3px;width:15px;height:15px;accent-color:var(--pg-green)}
+.solpg .pg-consent a{color:var(--pg-ink);font-weight:600;text-decoration:underline;text-underline-offset:2px}
+.solpg .pg-consent a:hover{color:var(--pg-green)}
+.solpg .pg-fnote{font-size:12.5px;color:var(--pg-mut);margin-top:14px;line-height:1.6}
+.solpg .form-err{margin:-4px 0 14px;font-size:13.5px;color:#C2452D;line-height:1.55}
+.solpg .field input:focus,.solpg .field textarea:focus,.solpg .field select:focus{border-color:var(--pg-green);box-shadow:0 0 0 3px rgba(18,185,138,.10)}
+.solpg .field label .req{color:var(--pg-green)}
+.solpg .btn[disabled]{opacity:.6;cursor:not-allowed;transform:none}
+.solpg .form-done{position:relative;max-width:680px;padding:34px 30px;border:1px solid var(--pg-line);border-radius:16px;background:var(--pg-paper)}
+.solpg .form-done-mark{width:48px;height:48px;border-radius:50%;display:grid;place-items:center;color:#fff;background:var(--pg-green);margin-bottom:18px}
+.solpg .form-done-h{margin:0 0 10px;font-size:22px;font-weight:800;letter-spacing:-.02em;color:var(--pg-ink)}
+.solpg .form-done-p{margin:0;font-size:15.5px;line-height:1.7;color:var(--pg-ink-2);max-width:52ch}
+
+/* ---------- 版本信息 ---------- */
+.solpg .pg-meta{border-top:1px solid var(--pg-line);padding:22px 0;background:var(--pg-paper)}
+.solpg .pg-meta p{margin:0;font-size:12.5px;color:var(--pg-mut)}
+
+/* ---------- 可访问性 / 动效降级 ---------- */
+.solpg a:focus-visible,.solpg .btn:focus-visible,.solpg button:focus-visible{outline:2px solid var(--pg-green);outline-offset:3px;border-radius:10px}
+.solpg [id]{scroll-margin-top:90px}
+@media(prefers-reduced-motion:reduce){.solpg *{transition:none!important}}

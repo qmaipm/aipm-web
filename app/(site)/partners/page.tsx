@@ -9,7 +9,7 @@ const SITE_URL = process.env.SITE_URL || "https://www.aipm.cn";
 export const metadata: Metadata = {
   title: "生态伙伴 — 智能体园区 · 智慧园区 AI 合作 | 启盟科技",
   description:
-    "启盟科技生态伙伴计划：我们做产品和平台，伙伴赢市场。面向智能体园区与智慧园区工程企业、代理商与软件企业，提供方案支持、标书技术应答、售前工程师、Demo 环境、联合品牌与商机协同——帮助伙伴赢下他们的客户。",
+    "启盟科技生态伙伴计划：我们做产品和平台，伙伴赢市场。面向智能体园区工程企业、系统集成商、物业科技与软件企业：智能体园区伙伴提供方案与应标支持，行业智能体伙伴计划提供 Refer、Sell、Deliver、Build 四种合作路径与 FMClaw™ FDE 能力认证。",
   alternates: { canonical: "/partners" },
 };
 
@@ -47,19 +47,19 @@ const partnerTypes = [
   },
   {
     no: "02",
-    tag: "Channel Partner",
-    title: "代理商合作",
-    img: "/images/partners/reseller.png",
-    alt: "代理商合作：FMClaw 平台连接区域市场与本地客户网络插画",
-    who: "建筑智能化工程企业、软件企业与拥有政企客户资源的机构。当前招募集中在经济发达地区。",
+    tag: "Partner Program",
+    title: "行业智能体伙伴计划",
+    img: "/images/partners/program.png",
+    alt: "行业智能体伙伴计划：FMClaw 平台连接伙伴与行业客户的合作网络插画",
+    who: "系统集成商、建筑智能化企业、物业科技公司和行业软件企业。免费申请，按自身能力选择参与方式。",
     gets: [
-      "项目推荐 · 佣金模式 — 推荐客户促成签约，按项目结算佣金，无需备货",
-      "区域代理 · 底价模式 — 授权区域 + 协议底价，对应年度最低采购承诺",
-      "能力嵌入 · 集成模式 — 智能体能力嵌入自有系统，产品与品牌归属伙伴",
-      "商机报备保护 — 已报备的客户与项目，保护期内我们不直接接触",
+      "四种合作路径 — Refer 推荐 · Sell 销售 · Deliver 交付 · Build 构建，可多选",
+      "公开的伙伴等级 — 依据认证人员、生产项目和公开案例评定，不只看销售额",
+      "FMClaw™ FDE能力认证 — 取得资格后可独立交付标准项目",
+      "商机报备保护 — 经确认的商机获得 90 日初始保护期，可续期一次",
     ],
-    href: "/partners/reseller",
-    cta: "了解三种合作模式",
+    href: "/partners/program",
+    cta: "了解完整伙伴计划",
     live: true,
   },
 ];
@@ -95,7 +95,7 @@ const PAGE_LD = {
   "@type": "CollectionPage",
   name: "启盟科技生态伙伴计划",
   description:
-    "面向智能体园区与智慧园区工程企业、代理商与软件企业的生态合作计划。",
+    "面向智能体园区工程企业、系统集成商、物业科技与软件企业的生态合作计划。",
   url: `${SITE_URL}/partners`,
   hasPart: [
     {
@@ -106,9 +106,9 @@ const PAGE_LD = {
     },
     {
       "@type": "WebPage",
-      name: "代理商合作",
-      url: `${SITE_URL}/partners/reseller`,
-      description: "三种合作模式：项目推荐（按项目佣金）、区域代理（协议底价与授权区域）、能力嵌入（FMClaw™ 能力嵌入自有系统）。",
+      name: "行业智能体伙伴计划",
+      url: `${SITE_URL}/partners/program`,
+      description: "Refer、Sell、Deliver、Build四种合作路径；公开伙伴等级、生产项目和FMClaw™ FDE基础标准；免费申请，提供商机报备保护和首单联合交付。",
     },
   ],
 };

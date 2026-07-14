@@ -273,6 +273,7 @@ export default function Page() {
           <p className="reveal">从你的一个真实业务开始。</p>
           <div className="cta-row reveal">
             <Link href="/workshop" className="btn btn-primary">预约 FMClaw™ 加速营 <Arrow s={16} /></Link>
+            <Link href="/partners/program" className="btn btn-light">行业智能体伙伴计划 <Arrow s={16} /></Link>
           </div>
         </div>
       </section>
