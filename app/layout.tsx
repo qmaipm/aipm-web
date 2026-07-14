@@ -36,6 +36,14 @@ export const metadata: Metadata = {
     siteName: "启盟科技 FMClaw™",
     url: SITE_URL,
   },
+  // 站长平台所有权验证(百度搜索资源平台 / Bing Webmaster / Google Search Console)
+  verification: {
+    google: "Ei8C1GcLjRnZsAikJlrct0xmWSg7yo__vkSNAEVqmvw",
+    other: {
+      "baidu-site-verification": "codeva-GDMLfeGWcL",
+      "msvalidate.01": "906A1B0D178FBC7293830791D6B22B6F",
+    },
+  },
 };
 
 export const viewport: Viewport = {
