@@ -42,7 +42,7 @@ export default function BuildingForm() {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
-          page: "智能建筑伙伴 · 白皮书索取",
+          page: "智能体园区伙伴 · 白皮书索取",
           fields: [
             { label: "公司 / 单位", value: company },
             { label: "姓名", value: name },

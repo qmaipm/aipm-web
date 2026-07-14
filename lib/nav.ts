@@ -114,8 +114,8 @@ export const MENU: MenuItem[] = [
       {
         heading: "合作方向",
         items: [
-          { label: "智能建筑伙伴", href: "/partners/building", small: "招标里的智能体要求，带着 FMClaw 去应" },
-          { label: "渠道伙伴", href: "/partners/channel", small: "项目推荐 · 区域代理 · 能力嵌入" },
+          { label: "智能体园区伙伴", href: "/partners/building", small: "智能体园区招标，带着 FMClaw 去应" },
+          { label: "代理商合作", href: "/partners/channel", small: "项目推荐 · 区域代理 · 能力嵌入" },
         ],
       },
     ],

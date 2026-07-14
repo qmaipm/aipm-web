@@ -7,9 +7,9 @@ import "./page.css";
 const SITE_URL = process.env.SITE_URL || "https://www.aipm.cn";
 
 export const metadata: Metadata = {
-  title: "渠道伙伴 — FMClaw™ 智能体平台渠道合作 | 启盟科技",
+  title: "代理商合作 — AI 智能体平台代理 · FMClaw™ 渠道招募 | 启盟科技",
   description:
-    "启盟科技渠道合作计划：面向建筑智能化工程企业、软件企业与拥有政企客户资源的机构，提供三种合作模式——项目推荐（按项目支付佣金）、区域代理（协议底价与授权区域）、能力嵌入（将 FMClaw™ 智能体能力嵌入自有系统）。商机报备写入协议，提供培训与售前支持，当前招募集中在经济发达地区。",
+    "启盟科技代理商合作计划：面向建筑智能化工程企业、软件企业与拥有政企客户资源的机构，提供三种合作模式——项目推荐（按项目支付佣金）、区域代理（协议底价与授权区域）、能力嵌入（将 FMClaw™ 智能体能力嵌入自有系统）。商机报备写入协议，提供培训与售前支持，当前招募集中在经济发达地区。",
   alternates: { canonical: "/partners/channel" },
 };
 
@@ -88,7 +88,7 @@ const worth = [
 const promises = [
   {
     title: "不与伙伴竞争客户",
-    body: "商机报备制度写入协议：已报备的客户与项目，保护期内我们不直接接触。这一条对建筑伙伴有效，对渠道伙伴同样有效。",
+    body: "商机报备制度写入协议：已报备的客户与项目，保护期内我们不直接接触。这一条对智能体园区伙伴有效，对代理商同样有效。",
   },
   {
     title: "售前与交付支持",
@@ -137,8 +137,8 @@ const faqs = [
 const SERVICE_LD = {
   "@context": "https://schema.org",
   "@type": "Service",
-  name: "FMClaw™ 渠道合作计划",
-  serviceType: "AI 智能体平台渠道合作（项目推荐 / 区域代理 / 能力嵌入）",
+  name: "FMClaw™ 代理商合作计划",
+  serviceType: "AI 智能体平台代理（项目推荐 / 区域代理 / 能力嵌入）",
   description:
     "面向建筑智能化工程企业、软件企业与拥有政企客户资源的机构的渠道合作计划：项目推荐按项目支付佣金；区域代理以协议底价供货并授权区域；能力嵌入将 FMClaw™ 智能体能力嵌入伙伴自有系统。商机报备写入协议，提供培训与售前支持。",
   areaServed: "CN",
@@ -169,7 +169,7 @@ const BREADCRUMB_LD = {
   itemListElement: [
     { "@type": "ListItem", position: 1, name: "启盟科技", item: SITE_URL },
     { "@type": "ListItem", position: 2, name: "生态伙伴", item: `${SITE_URL}/partners` },
-    { "@type": "ListItem", position: 3, name: "渠道伙伴", item: `${SITE_URL}/partners/channel` },
+    { "@type": "ListItem", position: 3, name: "代理商合作", item: `${SITE_URL}/partners/channel` },
   ],
 };
 
@@ -186,16 +186,16 @@ export default function Page() {
               <Link href="/">启盟科技</Link>
               <i>/</i>
               <Link href="/partners">生态伙伴</Link>
-              <i>/</i>渠道伙伴
+              <i>/</i>代理商合作
             </span>
             <h1 className="ch-h1">
-              FMClaw™ <br /><span className="grad">渠道合作计划</span>
+              FMClaw™ <br /><span className="grad">代理商合作计划</span>
             </h1>
             <p className="ch-lead">
               面向建筑智能化工程企业、软件企业与拥有政企客户资源的机构。三种合作模式——<b>按项目、按区域、按产品</b>——分别对应不同的资源与能力结构。
             </p>
             <div className="ch-hero-cta">
-              <Link href="/contact" className="btn btn-primary">申请成为渠道伙伴 <Arrow s={16} /></Link>
+              <Link href="/contact" className="btn btn-primary">申请成为代理商 <Arrow s={16} /></Link>
               <a href="#modes" className="btn btn-ghost">了解三种合作模式 <Arrow s={16} /></a>
             </div>
             <div className="ch-proof">
@@ -209,7 +209,7 @@ export default function Page() {
           <div className="ch-hero-art">
             <Image
               src="/images/partners/regional.png"
-              alt="渠道伙伴：FMClaw 平台连接区域市场与本地客户网络插画"
+              alt="代理商合作：FMClaw 平台连接区域市场与本地客户网络插画"
               width={600}
               height={448}
               priority
@@ -344,7 +344,7 @@ export default function Page() {
           <h2 className="reveal">一次沟通，<br />确定合适的合作模式</h2>
           <p className="reveal">说明你的客户资源与能力结构，我们据此确认合作模式与第一个项目的起点。</p>
           <div className="cta-row reveal">
-            <Link href="/contact" className="btn btn-primary">申请成为渠道伙伴 <Arrow s={16} /></Link>
+            <Link href="/contact" className="btn btn-primary">申请成为代理商 <Arrow s={16} /></Link>
             <Link href="/partners" className="btn btn-light">了解其他合作方向 <Arrow s={16} /></Link>
           </div>
         </div>

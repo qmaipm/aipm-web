@@ -9,7 +9,7 @@ const SITE_URL = process.env.SITE_URL || "https://www.aipm.cn";
 export const metadata: Metadata = {
   title: "生态伙伴 — 智能体园区 · 智慧园区 AI 合作 | 启盟科技",
   description:
-    "启盟科技生态伙伴计划：我们做产品和平台，伙伴赢市场。面向智能建筑与智慧园区工程企业、渠道代理伙伴与产业投资方，提供方案支持、标书技术应答、售前工程师、Demo 环境、联合品牌与商机协同——帮助伙伴赢下他们的客户。",
+    "启盟科技生态伙伴计划：我们做产品和平台，伙伴赢市场。面向智能体园区与智慧园区工程企业、代理商与产业投资方，提供方案支持、标书技术应答、售前工程师、Demo 环境、联合品牌与商机协同——帮助伙伴赢下他们的客户。",
   alternates: { canonical: "/partners" },
 };
 
@@ -30,9 +30,9 @@ const partnerTypes = [
   {
     no: "01",
     tag: "Building Partner",
-    title: "智能建筑伙伴",
+    title: "智能体园区伙伴",
     img: "/images/partners/building.png",
-    alt: "智能建筑伙伴：智能楼宇与 AI 感知网络插画",
+    alt: "智能体园区伙伴：智能楼宇与 AI 感知网络插画",
     who: "从事建筑智能化工程、机电总包、设计咨询的企业。招标文件里开始出现智能体平台、大模型、AI 感知的技术要求——带着 FMClaw™ 去应。",
     gets: [
       "项目方案支持 — 拿到招标文件后，方案架构与技术选型我们一起定",
@@ -48,18 +48,18 @@ const partnerTypes = [
   {
     no: "02",
     tag: "Channel Partner",
-    title: "渠道伙伴",
+    title: "代理商合作",
     img: "/images/partners/regional.png",
-    alt: "渠道伙伴：FMClaw 平台连接区域市场与本地客户网络插画",
-    who: "系统集成商、软件公司与有政企客户资源的团队——想把 FMClaw™ 卖进自己的市场。当前招募集中在经济发达地区。",
+    alt: "代理商合作：FMClaw 平台连接区域市场与本地客户网络插画",
+    who: "建筑智能化工程企业、软件企业与拥有政企客户资源的机构。当前招募集中在经济发达地区。",
     gets: [
-      "项目推荐 · 佣金模式 — 介绍客户促成签约，按项目结算佣金，不压货",
+      "项目推荐 · 佣金模式 — 推荐客户促成签约，按项目结算佣金，无需备货",
       "区域代理 · 底价模式 — 授权区域 + 协议底价，对应年度最低采购承诺",
-      "能力嵌入 · 集成模式 — 智能体能力嵌入你的系统，你的产品你的品牌",
-      "商机报备保护 — 报备的客户与项目，保护期内我们不直接触达",
+      "能力嵌入 · 集成模式 — 智能体能力嵌入自有系统，产品与品牌归属伙伴",
+      "商机报备保护 — 已报备的客户与项目，保护期内我们不直接接触",
     ],
     href: "/partners/channel",
-    cta: "看三种合作模式",
+    cta: "了解三种合作模式",
     live: true,
   },
   {
@@ -112,18 +112,18 @@ const PAGE_LD = {
   "@type": "CollectionPage",
   name: "启盟科技生态伙伴计划",
   description:
-    "面向智能建筑与智慧园区工程企业、渠道代理伙伴与产业投资方的生态合作计划。",
+    "面向智能体园区与智慧园区工程企业、代理商与产业投资方的生态合作计划。",
   url: `${SITE_URL}/partners`,
   hasPart: [
     {
       "@type": "WebPage",
-      name: "智能建筑伙伴",
+      name: "智能体园区伙伴",
       url: `${SITE_URL}/partners/building`,
       description: "面向建筑智能化工程、机电总包与设计咨询企业：智能体园区项目的投标与交付支持。",
     },
     {
       "@type": "WebPage",
-      name: "渠道伙伴",
+      name: "代理商合作",
       url: `${SITE_URL}/partners/channel`,
       description: "三种合作模式：项目推荐（按项目佣金）、区域代理（协议底价与授权区域）、能力嵌入（FMClaw™ 能力嵌入自有系统）。",
     },
@@ -158,7 +158,7 @@ export default function Page() {
               FMClaw™ 是为楼宇、园区与物业场景而生的行业级智能体平台。我们不做你的竞争对手——<b>我们帮你赢下你的客户</b>。
             </p>
             <div className="pt-hero-cta">
-              <Link href="/partners/building" className="btn btn-primary">智能建筑伙伴 <Arrow s={16} /></Link>
+              <Link href="/partners/building" className="btn btn-primary">智能体园区伙伴 <Arrow s={16} /></Link>
               <Link href="/contact" className="btn btn-ghost">申请成为伙伴 <Arrow s={16} /></Link>
             </div>
             <div className="pt-proof">
@@ -268,7 +268,7 @@ export default function Page() {
           <h2 className="reveal">一起把下一个项目拿下来</h2>
           <p className="reveal">从一次沟通开始。说清楚你的资源与场景，我们把合作方式对到实处。</p>
           <div className="cta-row reveal">
-            <Link href="/partners/building" className="btn btn-primary">智能建筑伙伴 <Arrow s={16} /></Link>
+            <Link href="/partners/building" className="btn btn-primary">智能体园区伙伴 <Arrow s={16} /></Link>
             <Link href="/contact" className="btn btn-light">申请成为伙伴 <Arrow s={16} /></Link>
           </div>
         </div>
