@@ -10,7 +10,7 @@ export const metadata: Metadata = {
   title: "代理商合作 — AI 智能体平台代理 · FMClaw™ 渠道招募 | 启盟科技",
   description:
     "启盟科技代理商合作计划：面向建筑智能化工程企业、软件企业与拥有政企客户资源的机构，提供三种合作模式——项目推荐（按项目支付佣金）、区域代理（协议底价与授权区域）、能力嵌入（将 FMClaw™ 智能体能力嵌入自有系统）。商机报备写入协议，提供培训与售前支持，当前招募集中在经济发达地区。",
-  alternates: { canonical: "/partners/channel" },
+  alternates: { canonical: "/partners/reseller" },
 };
 
 const Arrow = ({ s = 15 }: { s?: number }) => (
@@ -142,7 +142,7 @@ const SERVICE_LD = {
   description:
     "面向建筑智能化工程企业、软件企业与拥有政企客户资源的机构的渠道合作计划：项目推荐按项目支付佣金；区域代理以协议底价供货并授权区域；能力嵌入将 FMClaw™ 智能体能力嵌入伙伴自有系统。商机报备写入协议，提供培训与售前支持。",
   areaServed: "CN",
-  url: `${SITE_URL}/partners/channel`,
+  url: `${SITE_URL}/partners/reseller`,
   provider: { "@type": "Organization", name: "启盟科技", url: SITE_URL },
   hasOfferCatalog: {
     "@type": "OfferCatalog",
@@ -169,7 +169,7 @@ const BREADCRUMB_LD = {
   itemListElement: [
     { "@type": "ListItem", position: 1, name: "启盟科技", item: SITE_URL },
     { "@type": "ListItem", position: 2, name: "生态伙伴", item: `${SITE_URL}/partners` },
-    { "@type": "ListItem", position: 3, name: "代理商合作", item: `${SITE_URL}/partners/channel` },
+    { "@type": "ListItem", position: 3, name: "代理商合作", item: `${SITE_URL}/partners/reseller` },
   ],
 };
 

@@ -31,7 +31,7 @@ const partnerTypes = [
     no: "01",
     tag: "Building Partner",
     title: "智能体园区伙伴",
-    img: "/images/partners/building.png",
+    img: "/images/partners/agent-park.png",
     alt: "智能体园区伙伴：智能楼宇与 AI 感知网络插画",
     who: "从事建筑智能化工程、机电总包、设计咨询的企业。招标文件里开始出现智能体平台、大模型、AI 感知的技术要求——带着 FMClaw™ 去应。",
     gets: [
@@ -41,7 +41,7 @@ const partnerTypes = [
       "Demo 演示环境 — 面向客户的智能体园区演示环境，随时可开",
       "联合交付 — 平台部署、模型接入与智能体调试，交付一起扛",
     ],
-    href: "/partners/building",
+    href: "/partners/agent-park",
     cta: "看完整合作方式",
     live: true,
   },
@@ -58,7 +58,7 @@ const partnerTypes = [
       "能力嵌入 · 集成模式 — 智能体能力嵌入自有系统，产品与品牌归属伙伴",
       "商机报备保护 — 已报备的客户与项目，保护期内我们不直接接触",
     ],
-    href: "/partners/channel",
+    href: "/partners/reseller",
     cta: "了解三种合作模式",
     live: true,
   },
@@ -118,13 +118,13 @@ const PAGE_LD = {
     {
       "@type": "WebPage",
       name: "智能体园区伙伴",
-      url: `${SITE_URL}/partners/building`,
+      url: `${SITE_URL}/partners/agent-park`,
       description: "面向建筑智能化工程、机电总包与设计咨询企业：智能体园区项目的投标与交付支持。",
     },
     {
       "@type": "WebPage",
       name: "代理商合作",
-      url: `${SITE_URL}/partners/channel`,
+      url: `${SITE_URL}/partners/reseller`,
       description: "三种合作模式：项目推荐（按项目佣金）、区域代理（协议底价与授权区域）、能力嵌入（FMClaw™ 能力嵌入自有系统）。",
     },
   ],
@@ -158,7 +158,7 @@ export default function Page() {
               FMClaw™ 是为楼宇、园区与物业场景而生的行业级智能体平台。我们不做你的竞争对手——<b>我们帮你赢下你的客户</b>。
             </p>
             <div className="pt-hero-cta">
-              <Link href="/partners/building" className="btn btn-primary">智能体园区伙伴 <Arrow s={16} /></Link>
+              <Link href="/partners/agent-park" className="btn btn-primary">智能体园区伙伴 <Arrow s={16} /></Link>
               <Link href="/contact" className="btn btn-ghost">申请成为伙伴 <Arrow s={16} /></Link>
             </div>
             <div className="pt-proof">
@@ -268,7 +268,7 @@ export default function Page() {
           <h2 className="reveal">一起把下一个项目拿下来</h2>
           <p className="reveal">从一次沟通开始。说清楚你的资源与场景，我们把合作方式对到实处。</p>
           <div className="cta-row reveal">
-            <Link href="/partners/building" className="btn btn-primary">智能体园区伙伴 <Arrow s={16} /></Link>
+            <Link href="/partners/agent-park" className="btn btn-primary">智能体园区伙伴 <Arrow s={16} /></Link>
             <Link href="/contact" className="btn btn-light">申请成为伙伴 <Arrow s={16} /></Link>
           </div>
         </div>
