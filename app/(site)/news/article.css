@@ -33,9 +33,9 @@
 .nwd-h1{margin:18px 0 0;font-weight:800;font-size:clamp(30px,4.6vw,52px);line-height:1.12;letter-spacing:-.03em;color:var(--d-ink);max-width:24ch}
 .nwd-meta{margin-top:22px;font-size:13px;letter-spacing:.02em;color:var(--d-mut)}
 
-/* ---------- 封面图 ---------- */
+/* ---------- 封面图:与正文栏同宽拉齐,比例统一裁切 ---------- */
 .nwd-coverwrap{position:relative;z-index:2;margin-top:40px}
-.nwd-cover{display:block;width:100%;max-width:860px;height:auto;border:1px solid var(--d-line);
+.nwd-cover{display:block;width:100%;aspect-ratio:2.35/1;object-fit:cover;border:1px solid var(--d-line);
   border-radius:18px;background:var(--d-mist)}
 
 /* ---------- 正文 ---------- */
