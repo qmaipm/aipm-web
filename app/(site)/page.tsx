@@ -12,6 +12,10 @@ export const metadata = pageMetadata("/", {
   title: "启盟科技 · 物业与设施管理的 AI 操作系统 — FMClaw™",
   description:
     "物业与设施管理,正在被 AI 重写。FMClaw™ 把 AI 接入日常运营。带着你的一个真实业务,在 FMClaw™ 加速营里用 1–3 天把它跑通。",
+  openGraph: {
+    // 品牌分享图:源文件 scripts/og/og-home.html,用 Playwright 1200×630 截图生成
+    images: [{ url: "/og/og-home.png", width: 1200, height: 630, alt: "启盟科技 Stalliance × FMClaw™ — 让智能，走进物理世界" }],
+  },
 });
 
 const ArrowR = ({ s = 15 }: { s?: number }) => (
