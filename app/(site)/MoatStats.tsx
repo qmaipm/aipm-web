@@ -4,9 +4,9 @@ import { useEffect, useRef, useState } from "react";
 
 /**
  * 数据护城河 · 4 个大数。
- * - 前三个(客户/面积/传感器):滚动进入视口时从 0 累加到目标值(ease-out)。
- * - 第四个(数据吞吐):持续累加的实时计数器,永不停止 —— 呼应「数据持续沉淀」。
- * 性能:rAF 驱动;IntersectionObserver 触发;prefers-reduced-motion 直接显示终值/静止。
+ * SSR 修复：初始 state 即为终值 —— 服务端 HTML、无 JS、爬虫、reduced-motion
+ * 均直接看到真实数字，绝不出现 0。动画仅作为挂载后的视觉增强（从 0 补间到终值）。
+ * 数字口径：现有已确认数据，未新造。TODO(待业务方核验)：定期复核四项数值与口径说明。
  */
 export default function MoatStats() {
   const ref = useRef<HTMLDivElement>(null);
@@ -43,8 +43,9 @@ function reduced() {
 }
 
 function CountStat({ inView, target, suffix, label, plus }: { inView: boolean; target: number; suffix: string; label: string; plus?: boolean }) {
-  const [val, setVal] = useState(0);
-  const [done, setDone] = useState(false);
+  // SSR/无JS/爬虫直接渲染终值；动画只在挂载后作为增强。
+  const [val, setVal] = useState(target);
+  const [done, setDone] = useState(true);
 
   useEffect(() => {
     if (!inView) return;
@@ -53,6 +54,7 @@ function CountStat({ inView, target, suffix, label, plus }: { inView: boolean; t
       setDone(true);
       return;
     }
+    setDone(false);
     let raf = 0;
     let start = 0;
     const dur = 1700;

@@ -30,7 +30,7 @@ export const ARTICLES: Article[] = [
     title: "怎么办好一场企业 AI 应用创新大赛?别让它停在 PPT 上",
     desc: "评的是 PPT 还是能跑的东西,是大赛有没有价值的分水岭。每一组用真实数据搭出智能体、向领导现场演示,再在 all in one 的行业平台上让成果长成系统。",
     by: "启盟科技",
-    date: "2026.07.20",
+    date: "2026.07",
     read: "10 分钟",
     cover: "/insights/ai-competition-cover.jpg",
     faq: [
@@ -66,7 +66,7 @@ export const ARTICLES: Article[] = [
     title: "一个 Demo 和一个系统之间,隔着四道工程鸿沟",
     desc: "Demo 证明的是'技术上可能',系统要回答的是'业务上可靠'。从 POC 到生产,中间隔着四道工程鸿沟:数据要治理、数据要分发、智能体要协同(A2A)、输出要一致和确定。",
     by: "启盟科技",
-    date: "2026.07.20",
+    date: "2026.07",
     read: "11 分钟",
     cover: "/insights/demo-vs-system-cover.jpg",
     faq: [
@@ -103,7 +103,7 @@ export const ARTICLES: Article[] = [
     title: "什么是 FDE——不懂业务的,都不配做 FDE",
     desc: "FDE 是今年最火的岗位,但这个词在国内正在被用烂。真正的 FDE:先懂业务,再懂数据,最后才是一丢丢技术。",
     by: "启盟科技",
-    date: "2026.07.20",
+    date: "2026.07",
     read: "10 分钟",
     cover: "/insights/what-is-fde-cover.jpg",
     faq: [
@@ -140,7 +140,7 @@ export const ARTICLES: Article[] = [
     title: "AI 转型的动力,为什么应该从一线长出来",
     desc: "领导拍脑袋定的 AI 场景,大多会失败。真正该被 AI 替代的事,只有一线知道。",
     by: "启盟科技",
-    date: "2026.07.20",
+    date: "2026.07",
     read: "11 分钟",
     cover: "/insights/ai-bottom-up-cover.jpg",
     faq: [
