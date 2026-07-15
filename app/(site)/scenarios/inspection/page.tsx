@@ -1,12 +1,13 @@
 import Link from "next/link";
 import BeforeAfter from "../BeforeAfter";
 import "../scenarios.css";
+import { pageMetadata } from "@/lib/pageMetadata";
 
-export const metadata = {
+export const metadata = pageMetadata("/scenarios/inspection", {
   title: "物业 AI 质检 · 视觉评分全量留痕 — FMClaw™ 加速营场景",
   description:
     "工单照片视频自动采集，AI 视觉按统一标准评分打标，结构化标签全量留痕证据链，人只看异常。",
-};
+});
 
 export default function Page() {
   return (

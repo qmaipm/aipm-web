@@ -5,13 +5,14 @@ import MissionBackdrop from "./MissionBackdrop";
 import MoatStats from "./MoatStats";
 import HeroAgentShowcase from "./HeroAgentShowcase";
 import { getArticle } from "./insights/articles";
+import { pageMetadata } from "@/lib/pageMetadata";
 
-export const metadata: Metadata = {
-  title: "启盟科技｜FMClaw™物业与设施管理AI操作系统",
+// 标题/描述与根布局一致;单独声明是为了首页也有指向自身的 canonical 与 og:url
+export const metadata = pageMetadata("/", {
+  title: "启盟科技 · 物业与设施管理的 AI 操作系统 — FMClaw™",
   description:
-    "启盟科技专注物业与设施管理AI。通过FMClaw™智能体平台、爱物管AI物业服务、FDE生产交付与产业共建，让AI进入巡检、工单、客服、品质、结算及日常运营。能力已在真实项目中部署运行。",
-  alternates: { canonical: "/" },
-};
+    "物业与设施管理,正在被 AI 重写。FMClaw™ 把 AI 接入日常运营。带着你的一个真实业务,在 FMClaw™ 加速营里用 1–3 天把它跑通。",
+});
 
 const ArrowR = ({ s = 15 }: { s?: number }) => (
   <svg className="ar" width={s} height={s} viewBox="0 0 16 16">

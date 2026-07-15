@@ -3,9 +3,10 @@
 // 淡化实现细节(Bot 与 FMClaw 的分工),避免同一批结论被重复三遍。原页面保持不动。
 import CaseShell, { CaseFlow, CaseSection, CaseQuote } from "../_CaseShell";
 import { getCase } from "../cases";
+import { pageMetadata } from "@/lib/pageMetadata";
 
 const c = getCase("property-group-chat-ai-service");
-export const metadata = { title: `${c.seoTitle} — 启盟科技`, description: c.metaDescription };
+export const metadata = pageMetadata("/cases/property-group-chat-ai-service-v2", { title: `${c.seoTitle} — 启盟科技`, description: c.metaDescription });
 
 export default function Page() {
   return (

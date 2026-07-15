@@ -2,12 +2,13 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import "./page.css";
 import SeoFaq from "@/components/SeoFaq";
+import { pageMetadata } from "@/lib/pageMetadata";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMetadata("/solutions/subcontract", {
   title: "服务分包管理 · 智能体解决方案 — 启盟科技",
   description:
     "出勤、服务、质量考核不再靠人一项项算。系统在多维度上自动考核,支持飞书、钉钉、企微与原有业务系统的自定义数据源,AI 结合所有数据按你的规则,通过 FMClaw 工作流自动输出服务账单。",
-};
+});
 
 const Arrow = ({ s = 15 }: { s?: number }) => (
   <svg className="ar" width={s} height={s} viewBox="0 0 16 16">

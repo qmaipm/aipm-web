@@ -1,12 +1,13 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import "./page.css";
+import { pageMetadata } from "@/lib/pageMetadata";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMetadata("/products/collaboration", {
   title: "第三方平台 AI 协同 · 钉钉飞书企业微信接进 FMClaw — 启盟科技",
   description:
     "客户已有的协作平台不替换。通用平台是协作入口，FMClaw 是行业业务大脑——两者互相接入、互相成就。三种接入方式按 FMClaw 与平台的相对位置区分：接在它之后、住进它内部、接在它之前。",
-};
+});
 
 const Arrow = ({ s = 15 }: { s?: number }) => (
   <svg className="ar" width={s} height={s} viewBox="0 0 16 16">

@@ -1,11 +1,12 @@
 import Link from "next/link";
 import ArticleShell, { Figure } from "../_ArticleShell";
+import { articleMetadata } from "../articles";
 
-export const metadata = {
+export const metadata = articleMetadata("how-to-run-ai-competition", {
   title: "怎么办好一场企业 AI 应用创新大赛?别让它停在 PPT 上 · 行业研究 — 启盟科技",
   description:
     "很多企业的 AI 创新大赛,评的是 PPT 而不是能跑的东西——为了比赛而比赛。办好一场 AI 应用创新大赛的关键有两个:一是评审标准从'讲得好'换成'跑得通',每一组都要用真实数据搭出能现场演示的智能体;二是比赛要在一个 all in one 的行业智能体平台上办,模型、软件、数据、技能都在一处,赛后的成果才能长成系统,而不是散落在各处的孤立 demo。",
-};
+});
 
 export default function Page() {
   return (

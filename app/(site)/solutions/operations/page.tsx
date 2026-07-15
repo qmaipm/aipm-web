@@ -2,12 +2,13 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import Image from "next/image";
 import "./page.css";
+import { pageMetadata } from "@/lib/pageMetadata";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMetadata("/solutions/operations", {
   title: "运营管理 · 智能体解决方案 — 启盟科技",
   description:
     "运营管理 Agent 把服务标准转成每天可执行的工作流,实时调度、自动响应异常;管理者只在交互界面里审批与确认。把每天的调度与派单,变成可追溯的实时运营。",
-};
+});
 
 const Arrow = ({ s = 15 }: { s?: number }) => (
   <svg className="ar" width={s} height={s} viewBox="0 0 16 16">

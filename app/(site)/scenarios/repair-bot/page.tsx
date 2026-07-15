@@ -1,12 +1,13 @@
 import Link from "next/link";
 import BeforeAfter from "../BeforeAfter";
 import "../scenarios.css";
+import { pageMetadata } from "@/lib/pageMetadata";
 
-export const metadata = {
+export const metadata = pageMetadata("/scenarios/repair-bot", {
   title: "AI 报修客服 · 7×24 守群自动派单 — FMClaw™ 加速营场景",
   description:
     "报修消息进群，平台 Bot 7×24 守群不漏单，FMClaw 自动派单不到 1 分钟，下单人与接单人双向通知，闭环可追溯。",
-};
+});
 
 export default function Page() {
   return (

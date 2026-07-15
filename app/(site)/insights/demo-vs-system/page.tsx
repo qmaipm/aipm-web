@@ -1,11 +1,12 @@
 import Link from "next/link";
 import ArticleShell, { Figure } from "../_ArticleShell";
+import { articleMetadata } from "../articles";
 
-export const metadata = {
+export const metadata = articleMetadata("demo-vs-system", {
   title: "一个 Demo 和一个系统之间,隔着四道工程鸿沟 · 行业研究 — 启盟科技",
   description:
     "Demo 很容易搭,系统很难做——公开讨论中,大量企业 AI 项目卡在从 POC 到生产的最后一公里。中间隔着的是四道工程鸿沟:数据要治理、数据要分发、智能体要协同(A2A)、输出要一致和确定。尤其在 B 端行业应用里,算一笔账、出一份周报,第一次和第二次的结果必须一样——这种对一致性和确定性的极致要求,是通用智能体平台搭出来的 demo 无法满足的,也是行业级 all in one 平台真正的价值所在。",
-};
+});
 
 export default function Page() {
   return (

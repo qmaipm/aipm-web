@@ -1,12 +1,13 @@
 import Link from "next/link";
 import BeforeAfter from "../BeforeAfter";
 import "../scenarios.css";
+import { pageMetadata } from "@/lib/pageMetadata";
 
-export const metadata = {
+export const metadata = pageMetadata("/scenarios/dispatch", {
   title: "物业智能派单 · 自动定级按负载派单 — FMClaw™ 加速营场景",
   description:
     "工单进来自动定位、定级，按技能与负载派给合适的人，超时自动升级，人只需确认或改派。",
-};
+});
 
 export default function Page() {
   return (

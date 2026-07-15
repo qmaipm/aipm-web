@@ -3,15 +3,17 @@ import Link from "next/link";
 import Image from "next/image";
 import JsonLd from "@/components/JsonLd";
 import "./page.css";
+import { pageMetadata } from "@/lib/pageMetadata";
 
 const SITE_URL = process.env.SITE_URL || "https://www.aipm.cn";
 
-export const metadata: Metadata = {
+// 用 pageMetadata 保证 canonical 与 og:url 指向页面自身（main 的 SEO 修复机制）；
+// 文案沿用本分支较新的两板块口径（智能体园区伙伴 / 行业智能体伙伴计划）
+export const metadata: Metadata = pageMetadata("/partners", {
   title: "生态伙伴 — 智能体园区 · 智慧园区 AI 合作 | 启盟科技",
   description:
     "启盟科技生态伙伴计划：我们做产品和平台，伙伴赢市场。面向智能体园区工程企业、系统集成商、物业科技与软件企业：智能体园区伙伴提供方案与应标支持，行业智能体伙伴计划提供 Refer、Sell、Deliver、Build 四种合作路径与 FMClaw™ FDE 能力认证。",
-  alternates: { canonical: "/partners" },
-};
+});
 
 const Arrow = ({ s = 15 }: { s?: number }) => (
   <svg className="ar" width={s} height={s} viewBox="0 0 16 16">

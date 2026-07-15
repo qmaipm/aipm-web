@@ -1,9 +1,10 @@
 // app/(site)/cases/south-china-mixed-use-6-to-1/page.tsx
 import CaseShell, { CaseWins, CaseSection, CaseQuote } from "../_CaseShell";
 import { getCase } from "../cases";
+import { pageMetadata } from "@/lib/pageMetadata";
 
 const c = getCase("south-china-mixed-use-6-to-1");
-export const metadata = { title: `${c.seoTitle} — 启盟科技`, description: c.metaDescription };
+export const metadata = pageMetadata("/cases/south-china-mixed-use-6-to-1", { title: `${c.seoTitle} — 启盟科技`, description: c.metaDescription });
 
 export default function Page() {
   return (
