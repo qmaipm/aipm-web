@@ -8,12 +8,25 @@ export const dynamic = "force-dynamic";
 const isProd = process.env.SITE_ENV === "production";
 const SITE_URL = process.env.SITE_URL || "https://www.aipm.cn";
 
+// 主流中英文搜索引擎爬虫逐个显式放行(部分站长平台按 UA 精确匹配校验 robots)。
+const ALLOWED_BOTS = [
+  "Bytespider",
+  "Baiduspider",
+  "Bingbot",
+  "Googlebot",
+  "Sogou Spider",
+  "360Spider",
+];
+
 export default function robots(): MetadataRoute.Robots {
   if (!isProd) {
     return { rules: [{ userAgent: "*", disallow: "/" }] };
   }
   return {
-    rules: [{ userAgent: "*", allow: "/" }],
+    rules: [
+      ...ALLOWED_BOTS.map((userAgent) => ({ userAgent, allow: "/" })),
+      { userAgent: "*", allow: "/" },
+    ],
     sitemap: `${SITE_URL}/sitemap.xml`,
     host: SITE_URL,
   };

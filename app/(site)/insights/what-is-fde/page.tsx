@@ -1,11 +1,12 @@
 import Link from "next/link";
 import ArticleShell, { Figure } from "../_ArticleShell";
+import { articleMetadata } from "../articles";
 
-export const metadata = {
+export const metadata = articleMetadata("what-is-fde", {
   title: "什么是 FDE?为什么说国内的 FDE 大多不配叫 FDE · 行业研究 — 启盟科技",
   description:
     "FDE(前线部署工程师)是今年最火的岗位,据 Indeed 数据美国招聘量一年涨了 729%。但国内的 FDE 大多被用烂了:搭个 demo、教客户做 PPT 就自称 FDE。真正的 FDE 有三个硬门槛——先懂业务、再懂数据、最后才是一丢丢技术,而且交付必须是结果导向,不是按人头驻场。",
-};
+});
 
 export default function Page() {
   return (

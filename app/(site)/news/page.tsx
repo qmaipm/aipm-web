@@ -1,11 +1,12 @@
 import Link from "next/link";
 import "./page.css";
 import { getWechatArticles } from "@/lib/wechat";
+import { pageMetadata } from "@/lib/pageMetadata";
 
-export const metadata = {
+export const metadata = pageMetadata("/news", {
   title: "新闻动态 — 启盟科技",
   description: "启盟科技的融资、签约、媒体报道、获奖与发布会动态。",
-};
+});
 
 // 每小时重新拉取一次公众号文章
 export const revalidate = 3600;

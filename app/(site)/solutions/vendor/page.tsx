@@ -1,12 +1,13 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import "./page.css";
+import { pageMetadata } from "@/lib/pageMetadata";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMetadata("/solutions/vendor", {
   title: "供应商管理与自动对账 · 智能体解决方案 — 启盟科技",
   description:
     "对账周期长、口径不一、合同条款散落,甲方与物业公司都在这件事上耗人。我们让 Agent 按合同自动核量、对比历史与市场、圈出异常并生成账单草稿,付款这一步留给人。",
-};
+});
 
 export default function VendorPage() {
   return (

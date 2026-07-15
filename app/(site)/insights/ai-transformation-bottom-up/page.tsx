@@ -1,11 +1,12 @@
 import Link from "next/link";
 import ArticleShell, { Figure } from "../_ArticleShell";
+import { articleMetadata } from "../articles";
 
-export const metadata = {
+export const metadata = articleMetadata("ai-transformation-bottom-up", {
   title: "AI 转型为什么大多失败?动力必须从一线长出来 · 行业研究 — 启盟科技",
   description:
     "MIT 研究显示约 95% 的企业生成式 AI 试点失败,核心原因不是技术,而是方向错了——AI 场景被自上而下拍脑袋决定,而非从一线的真实痛点长出来。本文讲清为什么 AI 转型的动力必须自下而上:一线人员最知道哪些重复劳动该被替代,而 AI 应用大赛、Demo Day、FDE 都是让场景从下往上涌现的机制。",
-};
+});
 
 export default function Page() {
   return (

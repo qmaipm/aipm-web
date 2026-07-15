@@ -2,12 +2,13 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import "./page.css";
 import SeoFaq from "@/components/SeoFaq";
+import { pageMetadata } from "@/lib/pageMetadata";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMetadata("/solutions/quality", {
   title: "服务质量管理 · 智能体解决方案 — 启盟科技",
   description:
     "服务质量靠一套体系管出来:过程管控、智能调度、质量评估、考核机制四个维度,由运营管理 Agent 与质量评估 Agent 两大 Agent 协作,把质量从事后打分变成全程在管。",
-};
+});
 
 const Arrow = ({ s = 15 }: { s?: number }) => (
   <svg className="ar" width={s} height={s} viewBox="0 0 16 16">

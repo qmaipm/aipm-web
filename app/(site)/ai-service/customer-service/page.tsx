@@ -5,10 +5,11 @@ import SeoFaq from "@/components/SeoFaq";
 import "../page.css";
 import "../trade.css";
 import "./page.css";
+import { pageMetadata } from "@/lib/pageMetadata";
 
 const SITE_URL = process.env.SITE_URL || "https://www.aipm.cn";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMetadata("/ai-service/customer-service", {
   title: "AI 客服管家 · 站在你这边的物业管家 — 启盟科技",
   description:
     "传统物业也给你配管家,但那位管家替公司说话。我们把立场反过来:每一家企业、每一位住户都有一位专属 AI 客服管家,它维护的首先是你的利益——你的事,它主动办到底:7×24 秒回,说一句话自动生成工单、自动跟进、自动督促上门;你问的,它如实回答:今天多少人上班、这个月计划做什么、服务质量如何——你的知情权,它来保障。由启盟科技旗下自营物业公司爱物管交付。",
@@ -27,7 +28,7 @@ export const metadata: Metadata = {
     "爱物管",
     "启盟科技",
   ],
-};
+});
 
 const Arrow = ({ s = 15 }: { s?: number }) => (
   <svg className="ar" width={s} height={s} viewBox="0 0 16 16">

@@ -1,10 +1,11 @@
 import ArticleShell, { Figure, FigRow } from "../_ArticleShell";
+import { articleMetadata } from "../articles";
 
-export const metadata = {
+export const metadata = articleMetadata("obc-impact", {
   title: "OBC 模式的影响力和应用进度 · 行业研究 — 启盟科技",
   description:
     "OBC 提升行业标准、增强客户满意度、推动可持续发展。新加坡已有超 110 家机构采用,并向商业领域与海外地区扩散。",
-};
+});
 
 export default function Page() {
   return (

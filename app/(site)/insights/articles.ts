@@ -1,6 +1,8 @@
 // 行业研究文章登记表 — 索引页列表、头条、文末"推荐阅读"与结构化数据(Article/FAQPage)共用一份数据。
 // theme 用于分组与同主题优先的推荐排序;faq 用于正文末 FAQ 区块 + GEO 的 FAQPage 结构化数据。
 
+import type { Metadata } from "next";
+
 export type Theme = "AI 落地方法" | "物业 AI 化" | "OBC 模式";
 export type Faq = { q: string; a: string };
 
@@ -30,7 +32,7 @@ export const ARTICLES: Article[] = [
     title: "怎么办好一场企业 AI 应用创新大赛?别让它停在 PPT 上",
     desc: "评的是 PPT 还是能跑的东西,是大赛有没有价值的分水岭。每一组用真实数据搭出智能体、向领导现场演示,再在 all in one 的行业平台上让成果长成系统。",
     by: "启盟科技",
-    date: "2026.07.20",
+    date: "2026.07.14",
     read: "10 分钟",
     cover: "/insights/ai-competition-cover.jpg",
     faq: [
@@ -66,7 +68,7 @@ export const ARTICLES: Article[] = [
     title: "一个 Demo 和一个系统之间,隔着四道工程鸿沟",
     desc: "Demo 证明的是'技术上可能',系统要回答的是'业务上可靠'。从 POC 到生产,中间隔着四道工程鸿沟:数据要治理、数据要分发、智能体要协同(A2A)、输出要一致和确定。",
     by: "启盟科技",
-    date: "2026.07.20",
+    date: "2026.07.14",
     read: "11 分钟",
     cover: "/insights/demo-vs-system-cover.jpg",
     faq: [
@@ -103,7 +105,7 @@ export const ARTICLES: Article[] = [
     title: "什么是 FDE——不懂业务的,都不配做 FDE",
     desc: "FDE 是今年最火的岗位,但这个词在国内正在被用烂。真正的 FDE:先懂业务,再懂数据,最后才是一丢丢技术。",
     by: "启盟科技",
-    date: "2026.07.20",
+    date: "2026.07.14",
     read: "10 分钟",
     cover: "/insights/what-is-fde-cover.jpg",
     faq: [
@@ -140,7 +142,7 @@ export const ARTICLES: Article[] = [
     title: "AI 转型的动力,为什么应该从一线长出来",
     desc: "领导拍脑袋定的 AI 场景,大多会失败。真正该被 AI 替代的事,只有一线知道。",
     by: "启盟科技",
-    date: "2026.07.20",
+    date: "2026.07.14",
     read: "11 分钟",
     cover: "/insights/ai-bottom-up-cover.jpg",
     faq: [
@@ -473,6 +475,38 @@ export function getArticle(slug: string): Article {
   const a = ARTICLES.find((x) => x.slug === slug);
   if (!a) throw new Error(`未知文章: ${slug}`);
   return a;
+}
+
+// 文章页共享 metadata:canonical 指向文章自身、og:type=article 并带
+// published_time / author / section / tag(og:url、canonical 为相对路径,
+// 由根布局的 metadataBase 按当前环境解析成绝对地址)。
+// title/description 由各文章页传入(页面 SEO 文案与登记表 desc 口径不同)。
+export function articleMetadata(
+  slug: string,
+  page: { title: string; description: string }
+): Metadata {
+  const a = getArticle(slug);
+  const url = `/insights/${slug}`;
+  const publishedISO = a.date.replace(/\./g, "-");
+  return {
+    title: page.title,
+    description: page.description,
+    alternates: { canonical: url },
+    openGraph: {
+      type: "article",
+      locale: "zh_CN",
+      siteName: "启盟科技 FMClaw™",
+      url,
+      title: page.title,
+      description: page.description,
+      publishedTime: publishedISO,
+      modifiedTime: publishedISO,
+      authors: [a.by],
+      section: a.theme,
+      tags: a.series ? [a.theme, a.series] : [a.theme],
+      ...(a.cover ? { images: [a.cover] } : {}),
+    },
+  };
 }
 
 // 同主题优先,补足到 n 篇

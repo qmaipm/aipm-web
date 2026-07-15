@@ -2,12 +2,13 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import Image from "next/image";
 import "./page.css";
+import { pageMetadata } from "@/lib/pageMetadata";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMetadata("/partners/channel", {
   title: "渠道伙伴 — AI 产品代理 · FMClaw™ 智能体平台渠道合作 | 启盟科技",
   description:
     "启盟科技渠道伙伴招募：面向系统集成商、软件公司与有政企客户资源的团队，开放三种 AI 产品合作模式——项目推荐（按项目返佣）、区域代理（协议底价 + 授权区域）、能力嵌入（FMClaw™ 智能体能力嵌入你的系统）。商机报备保护，培训与售前支撑，当前招募集中在经济发达地区。",
-};
+});
 
 const Arrow = ({ s = 15 }: { s?: number }) => (
   <svg className="ar" width={s} height={s} viewBox="0 0 16 16">

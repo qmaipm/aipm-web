@@ -2,12 +2,13 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import Image from "next/image";
 import "./page.css";
+import { pageMetadata } from "@/lib/pageMetadata";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMetadata("/solutions/optimization", {
   title: "服务优化 · 智能体解决方案 — 启盟科技",
   description:
     "服务优化 Agent 汇总质检与运营数据,做聚类分析定位高频问题,给出改进建议,并回灌服务设计——这是闭环的收尾,也是下一轮的起点。",
-};
+});
 
 const Arrow = ({ s = 15 }: { s?: number }) => (
   <svg className="ar" width={s} height={s} viewBox="0 0 16 16">

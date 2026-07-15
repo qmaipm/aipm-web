@@ -1,5 +1,12 @@
 import "./page.css";
 import ContactForm from "./ContactForm";
+import { pageMetadata } from "@/lib/pageMetadata";
+
+export const metadata = pageMetadata("/contact", {
+  title: "联系我们 · 填表 / 电话 / 邮件 — 启盟科技",
+  description:
+    "联系启盟科技:预约 FMClaw™ 加速营、洽谈 AI 物业服务与生态合作,或了解产品详情。填表、打电话、发邮件都行,我们会认真读、尽快回。",
+});
 
 export default function Page() {
   return (

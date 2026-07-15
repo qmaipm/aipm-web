@@ -5,10 +5,11 @@ import SeoFaq from "@/components/SeoFaq";
 import "../page.css";
 import "../trade.css";
 import "./page.css";
+import { pageMetadata } from "@/lib/pageMetadata";
 
 const SITE_URL = process.env.SITE_URL || "https://www.aipm.cn";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMetadata("/ai-service/security", {
   title: "AI 安保服务 · 用计算升级人防的安保服务 — 启盟科技",
   description:
     "AI 安保服务不讲概念,只做三件具体的事:接入现有 CCTV,用 AI 预审每天上千条视频预警,让每一条都真正被看过;消防巡检按人单合一执行,IoT 在场核验,守住安全红线;巡检狗承担园区巡逻,顺带消防、卫生与车辆违停检查。配合无人值守停车与门禁联动,安保成本结构同步优化。由启盟科技旗下自营物业公司爱物管交付。",
@@ -27,7 +28,7 @@ export const metadata: Metadata = {
     "爱物管",
     "启盟科技",
   ],
-};
+});
 
 const Arrow = ({ s = 15 }: { s?: number }) => (
   <svg className="ar" width={s} height={s} viewBox="0 0 16 16">

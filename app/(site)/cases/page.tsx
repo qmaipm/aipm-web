@@ -2,6 +2,7 @@ import Link from "next/link";
 import "./page.css";
 import { getFlagship } from "./cases";
 import CaseList from "./CaseList";
+import { pageMetadata } from "@/lib/pageMetadata";
 
 const Arrow = ({ s = 14 }: { s?: number }) => (
   <svg className="ar" width={s} height={s} viewBox="0 0 16 16" aria-hidden="true">
@@ -9,11 +10,11 @@ const Arrow = ({ s = 14 }: { s?: number }) => (
   </svg>
 );
 
-export const metadata = {
+export const metadata = pageMetadata("/cases", {
   title: "客户案例 · 谁在用，哪个项目在用 — 启盟科技",
   description:
     "这里列出的每一个，都不是演示，而是已经在真实项目里运行的部署——综合体、智慧园区、集团总部、联合办公，把日常运营里的判断交给 FMClaw 物业智能体。",
-};
+});
 
 // 板块通用问答(草稿:无专稿,内容取自各案例的共性口径,供审阅)
 const BOARD_FAQ = [
