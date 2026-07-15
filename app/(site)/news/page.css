@@ -80,9 +80,9 @@
 .nw-tag{display:inline-block;font-size:11px;font-weight:600;letter-spacing:.08em;
   color:var(--nw-green);background:rgba(18,185,138,.10);border:1px solid rgba(12,139,130,.20);
   border-radius:999px;padding:4px 11px}
-/* 标题行:分类标签放标题右侧,标题折行时标签对齐首行 */
+/* 标题行:分类标签靠行尾右对齐,标题折行时标签对齐首行 */
 .nw-titlerow{display:flex;align-items:flex-start;gap:12px}
-.nw-titlerow .nw-tag{flex:none;margin-top:3px}
+.nw-titlerow .nw-tag{flex:none;margin-left:auto;margin-top:3px}
 .nw-item h3{font-size:21px;font-weight:700;line-height:1.34;letter-spacing:-.015em;color:var(--nw-ink);margin:0 0 8px;transition:color .2s}
 .nw-item:hover h3{color:var(--nw-green)}
 .nw-item p{font-size:15px;line-height:1.6;color:var(--nw-ink-2);max-width:62ch;margin:0}
