@@ -96,7 +96,7 @@ export default function Page() {
             <span className="sep" />
             <span>覆盖<b>几十个</b>工作岗位</span>
             <span className="sep" />
-            <span>七八年现场<b>一条条跑出来</b></span>
+            <span>自 2017 年的现场<b>一条条跑出来</b></span>
           </div>
         </div>
       </section>
@@ -128,7 +128,7 @@ export default function Page() {
           <div className="fm-caphead">
             <span className="fm-capno">能力 01</span>
             <h2 className="fm-h2">100+ 条工作流，覆盖几十个工作岗位</h2>
-            <p className="fm-sub">这是七八年在真实现场里一条条跑出来的积累，不是设想。既宽——覆盖的岗位多；又深——每一条都打到行业细节。</p>
+            <p className="fm-sub">这是自 2017 年在真实现场里一条条跑出来的积累，不是设想。既宽——覆盖的岗位多；又深——每一条都打到行业细节。</p>
           </div>
 
           {/* 真实工作流编辑器截图(眼见为实) */}
@@ -274,6 +274,7 @@ export default function Page() {
           <p className="reveal">从你的一个真实业务开始。</p>
           <div className="cta-row reveal">
             <Link href="/workshop" className="btn btn-primary">预约 FMClaw™ 加速营 <Arrow s={16} /></Link>
+            <Link href="/partners/program" className="btn btn-light">行业智能体伙伴计划 <Arrow s={16} /></Link>
           </div>
         </div>
       </section>

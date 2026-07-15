@@ -102,7 +102,7 @@ const entries = [
   },
 ];
 
-/* ---------- 八年大事记 ---------- */
+/* ---------- 公司大事记(2017 至今) ---------- */
 const phases = [
   { tag: "2017 — 2021", label: "在真实运营中积累", kind: "biz" },
   { tag: "2023 — 至今", label: "让智能体真正干活", kind: "tech" },
@@ -230,7 +230,7 @@ const faqs = [
   },
   {
     q: "爱物管和启盟科技是什么关系?",
-    a: "爱物管是启盟科技自营的物业公司,2019 年创办。它既是我们八年一线数据与工作流的来源,也是 AI 物业服务的履约交付主体——全部项目由 FMClaw™ 平台接管运营,管理效率达到 51:1,净利率从 3.4% 提升到 14%。",
+    a: "爱物管是启盟科技自营的物业公司,2019 年创办。它既是我们自 2019 年以来一线数据与工作流的来源,也是 AI 物业服务的履约交付主体——全部项目由 FMClaw™ 平台接管运营,管理效率达到 51:1,净利率从 3.4% 提升到 14%。",
   },
   {
     q: "与启盟科技合作,有哪几种方式?",
@@ -258,16 +258,16 @@ export default function Page() {
           <p className="cm-hero-en">Make intelligence ambient in the physical world</p>
           <h1 className="cm-h1">让智能,走进<br />物理世界</h1>
           <p className="cm-lead">
-            智能正在走出屏幕,走进真实的楼宇、园区与街区。<b>物业管理,是这一步最天然的入口</b>——我们为此,已经准备了八年。
+            智能正在走出屏幕,走进真实的楼宇、园区与街区。<b>物业管理,是这一步最天然的入口</b>——我们为此,从 2017 年准备至今。
           </p>
           <div className="cm-cta">
             <Link href="/workshop" className="btn btn-primary">预约 FMClaw™ 加速营 <Arrow /></Link>
-            <a href="#evolution" className="btn btn-ghost">看八年大事记 <Arrow /></a>
+            <a href="#evolution" className="btn btn-ghost">看公司大事记 <Arrow /></a>
           </div>
           <div className="cm-proof">
             <span>创立于 <b>2017</b></span>
             <span className="sep" />
-            <span><b className="grad">八年</b>自营物业</span>
+            <span><b className="grad">2019 年起</b>自营物业</span>
             <span className="sep" />
             <span>广州市<b>人工智能百强</b></span>
             <span className="sep" />
@@ -304,11 +304,11 @@ export default function Page() {
         </div>
       </section>
 
-      {/* 公司演进 · 八年大事记 */}
+      {/* 公司演进 · 大事记(2017 至今) */}
       <section className="cm-band mist" id="evolution">
         <div className="wrap">
           <span className="cm-eyebrow">公司演进 · 大事记</span>
-          <h2 className="cm-h2">八年,做同一件事</h2>
+          <h2 className="cm-h2">自 2017 年,做同一件事</h2>
           <p className="cm-sub">自 2017 年至今,启盟科技始终专注一件事:让智能走进物业与设施管理的真实运营。这条路分为两个阶段——先在一线积累数据与工作流,再让智能体真正承担工作。</p>
 
           <div className="cm-rail">
@@ -357,7 +357,7 @@ export default function Page() {
               <span className="cm-eyebrow">大事记里反复出现的名字</span>
               <h2 className="cm-h2">爱物管,我们自己的物业公司</h2>
               <p>
-                2019 年,我们没有先做软件,而是先创办了一家物业公司——爱物管。八年里,它让我们亲历每一次保洁、每一张工单、每一份分包结算,也让每一个智能体在上线给客户之前,先在自己的项目里跑通。
+                2019 年,我们没有先做软件,而是先创办了一家物业公司——爱物管。创办至今,它让我们亲历每一次保洁、每一张工单、每一份分包结算,也让每一个智能体在上线给客户之前,先在自己的项目里跑通。
               </p>
               <p>
                 今天,爱物管的全部项目由 FMClaw™ 平台接管运营,是 AI 物业服务的履约交付主体——<b>我们卖给你的每一项能力,自己都先用了很多年。</b>
@@ -391,7 +391,7 @@ export default function Page() {
           <div className="cm-moat">
             <div className="cm-moat__say">
               <p>模型谁都能用上。但要让 AI 在你的项目里真正干活,靠的是另一层东西——物业的每一件工作里,都藏着数据、技能与工具的特定组合。</p>
-              <p>巡检一台水泵先看哪个读数,结算一份分包账要对哪几张表——这些没写在任何手册里,只能在真实现场一件件跑通。我们在爱物管的项目里,跑了八年。</p>
+              <p>巡检一台水泵先看哪个读数,结算一份分包账要对哪几张表——这些没写在任何手册里,只能在真实现场一件件跑通。我们在爱物管的项目里,从 2019 年跑到今天。</p>
               <p className="cm-moat__verdict">所以我们交付给你的不是「一个模型」,<span className="grad">是已经跑通的工作方式</span>。</p>
             </div>
             <aside className="cm-moat__panel" aria-hidden="true">
@@ -414,7 +414,7 @@ export default function Page() {
               </div>
               <div className="cm-moat__down" />
               <div className="cm-moat__result">又宽又深的工作流</div>
-              <div className="cm-moat__foot">八年,在真实现场一件件跑通</div>
+              <div className="cm-moat__foot">自 2019 年,在真实现场一件件跑通</div>
             </aside>
           </div>
         </div>

@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 const Arrow = ({ s = 15 }: { s?: number }) => (
   <svg className="ar" width={s} height={s} viewBox="0 0 16 16">
@@ -17,8 +17,25 @@ export default function ContactForm() {
   const [phone, setPhone] = useState("");
   const [message, setMessage] = useState("");
 
+  const [source, setSource] = useState("");
+
   const [status, setStatus] = useState<Status>("idle");
   const [err, setErr] = useState("");
+
+  // 读取 URL 参数预填：/contact?type=partner|partner-guide&source=partner-program
+  useEffect(() => {
+    const p = new URLSearchParams(window.location.search);
+    const t = p.get("type");
+    if (t === "partner" || t === "partner-guide") {
+      setType("生态伙伴合作");
+    }
+    if (t === "partner-guide") {
+      setMessage((m) => m || "希望获取《伙伴计划手册1.0》。");
+    }
+    if (p.get("source") === "partner-program") {
+      setSource("启盟行业智能体伙伴计划");
+    }
+  }, []);
 
   function validate(): string | null {
     if (!type) return "请选择咨询类型。";
@@ -49,6 +66,7 @@ export default function ContactForm() {
             { label: "姓名", value: name },
             { label: "手机号", value: phone },
             { label: "留言", value: message },
+            ...(source ? [{ label: "来源页面", value: source }] : []),
           ],
         }),
       });
@@ -84,6 +102,7 @@ export default function ContactForm() {
           <select required value={type} onChange={(e) => setType(e.target.value)}>
             <option value="" disabled>请选择</option>
             <option>产品咨询</option>
+            <option>生态伙伴合作</option>
             <option>商务合作</option>
             <option>媒体采访</option>
             <option>投资交流</option>
@@ -96,6 +115,7 @@ export default function ContactForm() {
         <div className="field"><label>手机号<span className="req">*</span></label><input type="tel" required placeholder="方便我们尽快联系你" value={phone} onChange={(e) => setPhone(e.target.value)} /></div>
       </div>
       <div className="field"><label>留言</label><textarea placeholder="简单说说你的需求或问题。" value={message} onChange={(e) => setMessage(e.target.value)}></textarea></div>
+      {source && <p className="cf-note">来源页面：{source}</p>}
       {err && <p className="form-err" role="alert">{err}</p>}
       <button className="btn btn-primary cx-submit" type="submit" disabled={status === "sending"}>
         {status === "sending" ? "提交中…" : <>提交 <Arrow /></>}

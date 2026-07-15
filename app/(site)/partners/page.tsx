@@ -1,13 +1,18 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import Image from "next/image";
+import JsonLd from "@/components/JsonLd";
 import "./page.css";
 import { pageMetadata } from "@/lib/pageMetadata";
 
+const SITE_URL = process.env.SITE_URL || "https://www.aipm.cn";
+
+// 用 pageMetadata 保证 canonical 与 og:url 指向页面自身（main 的 SEO 修复机制）；
+// 文案沿用本分支较新的两板块口径（智能体园区伙伴 / 行业智能体伙伴计划）
 export const metadata: Metadata = pageMetadata("/partners", {
   title: "生态伙伴 — 智能体园区 · 智慧园区 AI 合作 | 启盟科技",
   description:
-    "启盟科技生态伙伴计划：我们做产品和平台，伙伴赢市场。面向智能建筑与智慧园区工程企业、渠道代理伙伴与产业投资方，提供方案支持、标书技术应答、售前工程师、Demo 环境、联合品牌与商机协同——帮助伙伴赢下他们的客户。",
+    "启盟科技生态伙伴计划：我们做产品和平台，伙伴赢市场。面向智能体园区工程企业、系统集成商、物业科技与软件企业：智能体园区伙伴提供方案与应标支持，行业智能体伙伴计划提供 Refer、Sell、Deliver、Build 四种合作路径与 FMClaw™ FDE 能力认证。",
 });
 
 const Arrow = ({ s = 15 }: { s?: number }) => (
@@ -27,9 +32,9 @@ const partnerTypes = [
   {
     no: "01",
     tag: "Building Partner",
-    title: "智能建筑伙伴",
-    img: "/images/partners/building.png",
-    alt: "智能建筑伙伴：智能楼宇与 AI 感知网络插画",
+    title: "智能体园区伙伴",
+    img: "/images/partners/agent-park.png",
+    alt: "智能体园区伙伴：智能楼宇与 AI 感知网络插画",
     who: "从事建筑智能化工程、机电总包、设计咨询的企业。招标文件里开始出现智能体平台、大模型、AI 感知的技术要求——带着 FMClaw™ 去应。",
     gets: [
       "项目方案支持 — 拿到招标文件后，方案架构与技术选型我们一起定",
@@ -38,43 +43,26 @@ const partnerTypes = [
       "Demo 演示环境 — 面向客户的智能体园区演示环境，随时可开",
       "联合交付 — 平台部署、模型接入与智能体调试，交付一起扛",
     ],
-    href: "/partners/building",
+    href: "/partners/agent-park",
     cta: "看完整合作方式",
     live: true,
   },
   {
     no: "02",
-    tag: "Channel Partner",
-    title: "渠道伙伴",
-    img: "/images/partners/regional.png",
-    alt: "渠道伙伴：FMClaw 平台连接区域市场与本地客户网络插画",
-    who: "系统集成商、软件公司与有政企客户资源的团队——想把 FMClaw™ 卖进自己的市场。当前招募集中在经济发达地区。",
+    tag: "Partner Program",
+    title: "行业智能体伙伴计划",
+    img: "/images/partners/program.png",
+    alt: "行业智能体伙伴计划：FMClaw 平台连接伙伴与行业客户的合作网络插画",
+    who: "系统集成商、建筑智能化企业、物业科技公司和行业软件企业。免费申请，按自身能力选择参与方式。",
     gets: [
-      "项目推荐 · 佣金模式 — 介绍客户促成签约，按项目结算佣金，不压货",
-      "区域代理 · 底价模式 — 授权区域 + 协议底价，对应年度最低采购承诺",
-      "能力嵌入 · 集成模式 — 智能体能力嵌入你的系统，你的产品你的品牌",
-      "商机报备保护 — 报备的客户与项目，保护期内我们不直接触达",
+      "四种合作路径 — Refer 推荐 · Sell 销售 · Deliver 交付 · Build 构建，可多选",
+      "公开的伙伴等级 — 依据认证人员、生产项目和公开案例评定，不只看销售额",
+      "FMClaw™ FDE能力认证 — 面向个人的交付能力认证；企业独立交付资格单独评审",
+      "商机报备保护 — 经确认的商机获得 90 日初始保护期，可续期一次",
     ],
-    href: "/partners/channel",
-    cta: "看三种合作模式",
+    href: "/partners/program",
+    cta: "了解完整伙伴计划",
     live: true,
-  },
-  {
-    no: "03",
-    tag: "Investment Partner",
-    title: "产业投资伙伴",
-    img: "/images/partners/investment.png",
-    alt: "产业投资伙伴：存量园区智能化升级与增长插画",
-    who: "城投、国有物业与产业资本——手里有园区、楼宇等存量资产，在找 AI 时代的运营答案。",
-    gets: [
-      "存量资产 AI 化方案 — 不必重资产投算力，用 AI 运营能力盘活存量园区与楼宇",
-      "联合运营模式设计 — 从技术方案到运营分成，一起设计可持续的模式",
-      "产业共建参与 — 可协助参与我们主导的人工智能产业共建项目",
-      "决策层深度对接 — 由创始团队直接对接，不走销售流程",
-    ],
-    href: "/contact",
-    cta: "约一次深度交流",
-    live: false,
   },
 ];
 
@@ -103,9 +91,42 @@ const nowItems = [
   },
 ];
 
+/* ---------- 结构化数据（SEO / GEO）---------- */
+const PAGE_LD = {
+  "@context": "https://schema.org",
+  "@type": "CollectionPage",
+  name: "启盟科技生态伙伴计划",
+  description:
+    "面向智能体园区工程企业、系统集成商、物业科技与软件企业的生态合作计划。",
+  url: `${SITE_URL}/partners`,
+  hasPart: [
+    {
+      "@type": "WebPage",
+      name: "智能体园区伙伴",
+      url: `${SITE_URL}/partners/agent-park`,
+      description: "面向建筑智能化工程、机电总包与设计咨询企业：智能体园区项目的投标与交付支持。",
+    },
+    {
+      "@type": "WebPage",
+      name: "行业智能体伙伴计划",
+      url: `${SITE_URL}/partners/program`,
+      description: "Refer、Sell、Deliver、Build四种合作路径；公开伙伴等级、生产项目和FMClaw™ FDE基础标准；免费申请，提供商机报备保护和首单联合交付。",
+    },
+  ],
+};
+const BREADCRUMB_LD = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  itemListElement: [
+    { "@type": "ListItem", position: 1, name: "启盟科技", item: SITE_URL },
+    { "@type": "ListItem", position: 2, name: "生态伙伴", item: `${SITE_URL}/partners` },
+  ],
+};
+
 export default function Page() {
   return (
     <main className="solpt">
+      <JsonLd data={[PAGE_LD, BREADCRUMB_LD]} />
       {/* HERO：文字 + 插画 */}
       <section className="pt-hero">
         <div className="pt-grid" aria-hidden="true" />
@@ -122,7 +143,7 @@ export default function Page() {
               FMClaw™ 是为楼宇、园区与物业场景而生的行业级智能体平台。我们不做你的竞争对手——<b>我们帮你赢下你的客户</b>。
             </p>
             <div className="pt-hero-cta">
-              <Link href="/partners/building" className="btn btn-primary">智能建筑伙伴 <Arrow s={16} /></Link>
+              <Link href="/partners/agent-park" className="btn btn-primary">智能体园区伙伴 <Arrow s={16} /></Link>
               <Link href="/contact" className="btn btn-ghost">申请成为伙伴 <Arrow s={16} /></Link>
             </div>
             <div className="pt-proof">
@@ -150,7 +171,7 @@ export default function Page() {
       <section className="pt-band mist">
         <div className="wrap">
           <span className="pt-eyebrow">合作方向</span>
-          <h2 className="pt-h2">三种伙伴，每一类拿到什么</h2>
+          <h2 className="pt-h2">两类伙伴，每一类拿到什么</h2>
           <p className="pt-sub">找到说的是你的那一类。权益写清楚，什么时候给、给到什么程度，签约前都可以当面对。</p>
         </div>
         <div className="wrap pt-types">
@@ -232,7 +253,7 @@ export default function Page() {
           <h2 className="reveal">一起把下一个项目拿下来</h2>
           <p className="reveal">从一次沟通开始。说清楚你的资源与场景，我们把合作方式对到实处。</p>
           <div className="cta-row reveal">
-            <Link href="/partners/building" className="btn btn-primary">智能建筑伙伴 <Arrow s={16} /></Link>
+            <Link href="/partners/agent-park" className="btn btn-primary">智能体园区伙伴 <Arrow s={16} /></Link>
             <Link href="/contact" className="btn btn-light">申请成为伙伴 <Arrow s={16} /></Link>
           </div>
         </div>

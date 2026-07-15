@@ -8,6 +8,15 @@ const nextConfig: NextConfig = {
       { protocol: "https", hostname: "images.unsplash.com" },
     ],
   },
+  // 伙伴板块路由重命名(2026-07):旧路径 308 到新路径,保住已被抓取的收录与外链
+  // /partners/channel → /partners/reseller → /partners/program 两代旧路径均直接指向最终 URL
+  async redirects() {
+    return [
+      { source: "/partners/building", destination: "/partners/agent-park", permanent: true },
+      { source: "/partners/channel", destination: "/partners/program", permanent: true },
+      { source: "/partners/reseller", destination: "/partners/program", permanent: true },
+    ];
+  },
 };
 
 export default nextConfig;
