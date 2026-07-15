@@ -89,8 +89,8 @@ export default function Page() {
               面向系统集成商、建筑智能化企业、物业科技公司和行业软件企业。启盟提供<Link href="/products/fmclaw">FMClaw™ 平台</Link>、产品方法和技术支持；伙伴提供客户关系、行业经验、本地交付或产品研发能力。
             </p>
             <div className="pg-cta">
-              <a href="#apply" className="btn btn-primary">申请成为伙伴 <Arrow /></a>
-              <a href="#guide" className="btn btn-ghost">获取伙伴计划手册1.0 <Arrow /></a>
+              <Link href="/contact?type=partner&source=partner-program" className="btn btn-primary">申请成为伙伴 <Arrow /></Link>
+              <Link href="/contact?type=partner-guide&source=partner-program" className="btn btn-ghost">获取伙伴计划手册1.0 <Arrow /></Link>
             </div>
             <ul className="pg-facts">
               {heroFacts.map((f) => (
@@ -162,7 +162,7 @@ export default function Page() {
             </div>
           </div>
           <p className="pg-note-box">
-            具体项目责任在签约或启动前通过合同、工作说明书或责任边界表确认。首个项目由启盟联合支持；伙伴取得FMClaw™ FDE独立交付资格后，可以独立交付标准项目。
+            具体项目责任在签约或启动前通过合同、工作说明书或责任边界表确认。首个项目由启盟联合支持；伙伴企业通过独立交付能力评审后，可以在经授权的标准范围内独立交付。
           </p>
         </div>
       </section>
@@ -204,7 +204,7 @@ export default function Page() {
           </div>
           <p className="pg-note-box">
             正式伙伴等级每半年评审一次。伙伴申请和Registered注册不受半年评审周期限制。
-            <a href="#guide" className="pg-tlink">查看完整伙伴等级规则 <Arrow s={13} /></a>
+            <Link href="/contact?type=partner-guide&source=partner-program" className="pg-tlink">获取完整伙伴计划手册 <Arrow s={13} /></Link>
           </p>
         </div>
       </section>
@@ -233,9 +233,9 @@ export default function Page() {
       <section className="pg-band mist" id="fde">
         <div className="wrap">
           <span className="pg-eyebrow">交付能力</span>
-          <h2 className="pg-h2">具备FMClaw™ FDE能力后，伙伴可以独立交付</h2>
+          <h2 className="pg-h2">从个人FDE认证到企业独立交付</h2>
           <p className="pg-sub">
-            FMClaw™ FDE（启盟现场部署工程师）负责将客户业务需求转化为可以在生产环境中稳定运行的智能体工作流。
+            FMClaw™ FDE（启盟现场部署工程师）是面向个人的交付能力认证，负责将客户业务需求转化为可以在生产环境中稳定运行的智能体工作流。
           </p>
           <div className="pg-fde-steps">
             {fdeSteps.map((s) => (
@@ -246,16 +246,22 @@ export default function Page() {
             ))}
           </div>
           <p className="pg-answer sm">
-            FMClaw™ FDE不能只通过理论考试获得。正式资格需要参与至少1个生产项目，项目至少包含2条完整工作流，并稳定运行不少于60日。
+            FMClaw™ FDE不能只通过理论考试获得。个人完成培训、参与至少1个生产项目，并通过工作流实操和项目评审后，可以取得FMClaw™ FDE资格。该生产项目应至少包含2条完整的端到端工作流，并通过客户验收或连续稳定运行不少于60日。
           </p>
+          <div className="pg-ent-qual">
+            <h3 className="pg-h3">企业独立交付资格</h3>
+            <p>
+              FMClaw™ FDE是个人认证，企业独立交付资格需要单独评审。伙伴企业原则上应至少拥有2名有效技术认证人员，其中至少1名取得FMClaw™ FDE资格，并完成至少1个符合标准的生产项目。最终授权范围以启盟的企业级交付能力评审结果为准。
+            </p>
+          </div>
           <div className="pg-fde-states">
             <div className="pg-fde-state">
-              <h3>未取得FMClaw™ FDE资格</h3>
-              <p>伙伴可以与客户签署合同，但涉及FMClaw™的实施范围需要经过启盟评审，并采用联合交付方式。</p>
+              <h3>未取得企业独立交付资格</h3>
+              <p>伙伴可以与最终客户签署合同，但涉及FMClaw™的实施范围需要经过启盟评审，并采用联合交付方式。</p>
             </div>
             <div className="pg-fde-state ok">
-              <h3>已取得FMClaw™ FDE资格</h3>
-              <p>伙伴可以独立签署和交付标准范围内的FMClaw™项目，并对自身交付范围负责。</p>
+              <h3>已取得企业独立交付资格</h3>
+              <p>伙伴可以在经授权的标准范围内独立签署和交付FMClaw™项目，并对自身合同、实施、验收和服务范围负责。复杂项目、非标准定制和私有化项目仍需单独评审。</p>
             </div>
           </div>
           <div className="pg-tech-cta">

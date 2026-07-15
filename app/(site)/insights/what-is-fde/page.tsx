@@ -136,7 +136,7 @@ export default function Page() {
             启盟科技的 <Link href="/workshop/fde">FDE 服务</Link>按本文所述的方式交付:按阶段交付、数据治理第一、结果验收,不做按人头驻场。如果你想先低成本验证,可以从免费的 <Link href="/workshop/demo-day">Demo Day</Link> 或<Link href="/workshop/competition">AI 应用创新大赛</Link>开始。
           </li>
           <li>
-            合作伙伴可以通过<Link href="/partners/program">启盟行业智能体伙伴计划</Link>获得 FMClaw™ FDE(启盟现场部署工程师)能力认证:完成培训、参与至少 1 个生产项目并通过评审后,可独立交付标准范围内的 FMClaw™ 项目。
+            合作伙伴可以通过<Link href="/partners/program">启盟行业智能体伙伴计划</Link>获得 FMClaw™ FDE(启盟现场部署工程师)能力认证——一项面向个人的交付能力认证:完成培训、参与至少 1 个生产项目并通过评审后取得。伙伴企业的独立交付资格需要单独评审,通过后可在经授权的标准范围内独立交付 FMClaw™ 项目。
           </li>
         </ul>
       </div>

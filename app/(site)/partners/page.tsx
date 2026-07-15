@@ -55,7 +55,7 @@ const partnerTypes = [
     gets: [
       "四种合作路径 — Refer 推荐 · Sell 销售 · Deliver 交付 · Build 构建，可多选",
       "公开的伙伴等级 — 依据认证人员、生产项目和公开案例评定，不只看销售额",
-      "FMClaw™ FDE能力认证 — 取得资格后可独立交付标准项目",
+      "FMClaw™ FDE能力认证 — 面向个人的交付能力认证；企业独立交付资格单独评审",
       "商机报备保护 — 经确认的商机获得 90 日初始保护期，可续期一次",
     ],
     href: "/partners/program",

@@ -375,7 +375,8 @@ function ProjectForm() {
 export default function ProgramForms() {
   const [tab, setTab] = useState<Tab>("apply");
 
-  /* 首屏 CTA 以 #apply/#guide/#project 锚点进入时，同步切换到对应 Tab */
+  /* 以 #apply/#guide/#project 锚点直达时（如外部深链），同步切换到对应 Tab。
+     首屏与等级表 CTA 已按 P0 要求统一指向 /contact?type=…&source=partner-program。 */
   useEffect(() => {
     function syncFromHash() {
       const h = window.location.hash.replace("#", "");
