@@ -1,6 +1,8 @@
 // 行业研究文章登记表 — 索引页列表、头条、文末"推荐阅读"与结构化数据(Article/FAQPage)共用一份数据。
 // theme 用于分组与同主题优先的推荐排序;faq 用于正文末 FAQ 区块 + GEO 的 FAQPage 结构化数据。
 
+import type { Metadata } from "next";
+
 export type Theme = "AI 落地方法" | "物业 AI 化" | "OBC 模式";
 export type Faq = { q: string; a: string };
 
@@ -473,6 +475,38 @@ export function getArticle(slug: string): Article {
   const a = ARTICLES.find((x) => x.slug === slug);
   if (!a) throw new Error(`未知文章: ${slug}`);
   return a;
+}
+
+// 文章页共享 metadata:canonical 指向文章自身、og:type=article 并带
+// published_time / author / section / tag(og:url、canonical 为相对路径,
+// 由根布局的 metadataBase 按当前环境解析成绝对地址)。
+// title/description 由各文章页传入(页面 SEO 文案与登记表 desc 口径不同)。
+export function articleMetadata(
+  slug: string,
+  page: { title: string; description: string }
+): Metadata {
+  const a = getArticle(slug);
+  const url = `/insights/${slug}`;
+  const publishedISO = a.date.replace(/\./g, "-");
+  return {
+    title: page.title,
+    description: page.description,
+    alternates: { canonical: url },
+    openGraph: {
+      type: "article",
+      locale: "zh_CN",
+      siteName: "启盟科技 FMClaw™",
+      url,
+      title: page.title,
+      description: page.description,
+      publishedTime: publishedISO,
+      modifiedTime: publishedISO,
+      authors: [a.by],
+      section: a.theme,
+      tags: a.series ? [a.theme, a.series] : [a.theme],
+      ...(a.cover ? { images: [a.cover] } : {}),
+    },
+  };
 }
 
 // 同主题优先,补足到 n 篇

@@ -1,10 +1,11 @@
 import ArticleShell, { Figure } from "../_ArticleShell";
+import { articleMetadata } from "../articles";
 
-export const metadata = {
+export const metadata = articleMetadata("obc-practice", {
   title: "OBC 模式保洁服务管理的落地做法 · 行业研究 — 启盟科技",
   description:
     "把成果导向落到地上的三步:明确目标和结果、建立绩效监控与反馈机制、让报酬与实际结果有效挂钩。",
-};
+});
 
 export default function Page() {
   return (

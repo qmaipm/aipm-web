@@ -1,10 +1,11 @@
 import ArticleShell, { Figure } from "../_ArticleShell";
+import { articleMetadata } from "../articles";
 
-export const metadata = {
+export const metadata = articleMetadata("digital-labor", {
   title: "关于数字劳动力 · 第四种用工模式 — 启盟科技",
   description:
     "数字化劳动力,也称数字员工,是打破人机边界、以数字化技术赋予“活力”的第四种企业用工模式。八大优势与到 2030 年 1.73 万亿元的市场前景。",
-};
+});
 
 export default function Page() {
   return (

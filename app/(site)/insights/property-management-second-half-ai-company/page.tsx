@@ -1,11 +1,12 @@
 import Link from "next/link";
 import ArticleShell from "../_ArticleShell";
+import { articleMetadata } from "../articles";
 
-export const metadata = {
+export const metadata = articleMetadata("property-management-second-half-ai-company", {
   title: "物业管理的下半场,到底该走向哪里? · 行业研究 — 启盟科技",
   description:
     "关于物业管理下半场,主流说法是“从管理到服务”“找第二增长曲线”“弹性定价”。但这些叙事都默认一个错误前提:物业公司永远是物业公司。真正的答案是:当管理 80-90% 由智能体完成、执行层人机协同、空间遍布 IoT 时,物业公司本质上已经是一家人工智能公司。本文提出物业下半场的第三种答案。",
-};
+});
 
 export default function Page() {
   return (

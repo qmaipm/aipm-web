@@ -1,10 +1,11 @@
 import ArticleShell, { FigRow } from "../_ArticleShell";
+import { articleMetadata } from "../articles";
 
-export const metadata = {
+export const metadata = articleMetadata("digital-labor-trends", {
   title: "数字劳动力的发展趋势 · 行业研究 — 启盟科技",
   description:
     "AI Agent 让“人机协同”成为新常态,个人与企业步入 AI 助理时代。来自埃森哲、IDC、易观分析的研判与数字员工八大趋势。",
-};
+});
 
 const trends = [1, 2, 3, 4, 5, 6, 7, 8].map((i) => ({
   src: `/insights/digital-labor-trends-${i}.${i === 6 ? "jpg" : "png"}`,
