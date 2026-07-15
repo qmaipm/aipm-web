@@ -14,6 +14,7 @@ export default function Page() {
       <p>
         本届大会主题“从数字走向物理世界”，恰好契合启盟科技“软件+硬件+AI”三位一体的产品理念——FM Claw 不仅是一套 AI 系统，更具备连接数字世界与物理世界的实际执行能力。
       </p>
+      <figure className="fig"><img src="/news/beyond-expo-2026-01.jpg" alt="启盟科技展位现场" loading="lazy" /></figure>
 
       <h2>FM Claw：设施管理行业的 AI 操作系统</h2>
       <p>
@@ -22,6 +23,7 @@ export default function Page() {
       <p>
         吸引现场不少观众驻足的，是这套体系背后实打实的落地数据。启盟科技自 2019 年起亲自下场运营物业管理公司，服务过腾讯、特斯拉、字节跳动、顺丰、索迪斯、WeWork 等企业的真实项目，累计覆盖管理面积超过 2000 万平方米，沉淀结构化行业数据资产 20 万 G，在线 IoT 传感器超过 10 万台，日均新增数据记录达 4 亿条。在华南某 6 万平方米综合项目中，FM Claw 落地后实现团队减少 50%、管理岗从6人降至1人、IoT 覆盖率 100%、住户缴费率高达 99%——高出行业平均水平约 28 个百分点。
       </p>
+      <figure className="fig"><img src="/news/beyond-expo-2026-02.jpg" alt="展会现场交流" loading="lazy" /></figure>
 
       <h2>资本长期看好</h2>
       <p>

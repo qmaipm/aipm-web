@@ -10,6 +10,7 @@ export default function Page() {
       <p className="lede">
         8月12日，启盟科技（品牌：爱物管）成功入围“2025 NVIDIA创业企业展示-广州站”和“NVIDIA 初创加速计划”，并于现场获颁“优秀企业”证书。公司创始人&CEO滕一帆出席活动，向与会投资人、行业专家及合作伙伴生动展示了启盟科技打造的深度赋能物业现场管理的“AI智能体”——AI现场管理助理，引发广泛关注。
       </p>
+      <figure className="fig"><img src="/news/nvidia-startup-showcase-2025-01.jpg" alt="滕一帆现场路演" loading="lazy" /></figure>
 
       <h2>跻身顶尖生态，共筑AI未来</h2>
       <p>NVIDIA 创业企业展示是NVIDIA主办的系列活动，自2017年启动以来，已连续举办9年，累计为上千家企业提供了支持，在中国科技创业生态中具有重要影响力。</p>
@@ -18,6 +19,7 @@ export default function Page() {
       </p>
 
       <h2>首创AI现场管理助理，释放物业项目管理潜能，实现一人管多项目</h2>
+      <figure className="fig"><img src="/news/nvidia-startup-showcase-2025-02.jpg" alt="获颁优秀企业证书" loading="lazy" /></figure>
       <p>
         在路演环节中，启盟科技展示了AI现场管理助理，如何帮助物管公司突破“一个管理团队”高效、高质量地管理“多项目”的瓶颈，用“超级项目经理”模式，加速落地企业“降本、提质”的目标。
       </p>

@@ -17,6 +17,7 @@ export default function Page() {
       <p>
         滕一帆在会上提出，AI物业正在把住宅从“冰冷的设备集合体”，变成能感知、会学习、能主动服务的“智慧生命体”。而在他看来，物业是当下AI大模型与物业智能体落地最快的产业场景之一。
       </p>
+      <figure className="fig"><img src="/news/china-build-expo-2026-01.png" alt="滕一帆在峰会上分享" loading="lazy" /></figure>
 
       <h2>为什么物业是AI落地最快的场景</h2>
       <p>滕一帆说，物业适合AI优先落地，原因有两个。</p>
@@ -30,6 +31,7 @@ export default function Page() {
       <p>
         而物业中基层每天做的巡检、抽查、算工资、调度、跨层级协调，大多是高频、标准、可量化的重复动作，恰好是AI最擅长的部分。
       </p>
+      <figure className="fig"><img src="/news/china-build-expo-2026-02.jpg" alt="峰会现场" loading="lazy" /></figure>
 
       <h2>“人”解决不了的两个结构性问题</h2>
       <p>物业行业的老大难，可以归成两个人力解不开的结构性问题。</p>
@@ -103,6 +105,7 @@ export default function Page() {
       </p>
       <p>“加速营之后留下的，是真能用、能扩、能持续运营的Agent。”</p>
       <p>“Not Demo，Not Pilot，是Deployed。”</p>
+      <figure className="fig"><img src="/news/china-build-expo-2026-03.png" alt="FMClaw 加速营邀请" loading="lazy" /></figure>
     </NewsShell>
   );
 }

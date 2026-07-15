@@ -14,12 +14,14 @@ export default function Page() {
         此前，在建博会期间由主办方特别策划的“AI赋能全龄共生住宅峰会”上，启盟科技创始人 & CEO 滕一帆分享的 AI 物业管理实践，引起了现场这支台湾参访团的浓厚兴趣。
       </p>
       <p>为促成双方更深入的了解，主办方知刻传媒专门组织了此次座谈，邀请启盟科技与台湾企业参访团展开进一步交流。</p>
+      <figure className="fig"><img src="/news/taiwan-delegation-exchange-01.jpg" alt="座谈现场" loading="lazy" /></figure>
 
       <h2>从峰会分享到深度对接</h2>
       <p>如果说峰会上的分享让台湾企业家们初步认识了这套 AI 物业经理，那么此次座谈则是一次更系统、更全面的深度对接。</p>
       <p>
         交流中，滕一帆详细介绍了核心产品 AI 物业智能体 FMClaw 的技术架构与落地逻辑——从全域 IoT 感知，到服务设计、运营管理、质量评估、服务优化四个 AI Agent 的协同分工，再到“机器处理流程、人处理情感”的人机协作理念。
       </p>
+      <figure className="fig"><img src="/news/taiwan-delegation-exchange-02.jpg" alt="滕一帆介绍 FMClaw" loading="lazy" /></figure>
 
       <h2>现场演示AI物业经理的实际运转</h2>
       <p>
@@ -29,6 +31,7 @@ export default function Page() {
         据介绍，在启盟自营的物业公司“爱物管”的真实运营中，AI 已接管其80%-90%的日常管理动作，全年真实处理住户对话超过 100万条。
       </p>
       <p>看到 AI 物业经理在真实数据下运转的过程，多位企业家表示，这与他们此前对“智慧物业”的认知不在一个量级。</p>
+      <figure className="fig"><img src="/news/taiwan-delegation-exchange-03.jpg" alt="系统实操演示" loading="lazy" /></figure>
 
       <h2>交流热烈，达成初步合作意向</h2>
       <p>

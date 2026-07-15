@@ -12,12 +12,14 @@ export default function Page() {
         4月11日，一场关于“智能体AI时代”的深度闭门分享会在广州成功举行。本次活动由《智干》CEO训练营、广州启盟信息科技有限公司（爱物管）、PCI佳都｜未来社区、中山大学EDP校友联合会·数智生态联盟、学加、行政联盟联合组织举办，汇聚了物业管理、物流、互联网等十多个行业的数十位CEO和核心管理者，围绕智能体企业的战略认知、方法论与实战路径展开了高密度分享与深度互动。
       </p>
       <p>本文将选取其中核心内容，从趋势判断、智能体企业模型、物业管理实战案例、CEO行动框架四个维度，还原这场闭门分享的关键洞察。</p>
+      <figure className="fig"><img src="/news/agentic-ai-ceo-salon-01.jpg" alt="闭门分享会现场" loading="lazy" /></figure>
 
       <h2>不可逆的趋势：AI正在重写一切规则</h2>
       <p>
         石建平（Jimmy）老师以其横跨技术、创业与投资的复合背景开场。他曾在美国硅谷甲骨文公司担任研发高管超过十年，回国后创办了多米音乐，随后加入顶级投资机构蓝驰创投，主导投资了月之暗面和通用智能体公司Genspark。
       </p>
       <p>从技术研发、到CEO一线创业、再到顶层投资决策——多重视角让石老师对AI浪潮有着极为犀利的判断。</p>
+      <figure className="fig"><img src="/news/agentic-ai-ceo-salon-02.jpg" alt="石建平分享" loading="lazy" /></figure>
       <p>他首先抛出了一个核心论断：</p>
       <p>不管短期震荡如何，AI的趋势是绝对不可逆的。</p>
       <p>
@@ -39,6 +41,7 @@ export default function Page() {
       </p>
 
       <h2>智能体企业：未来企业的唯一形态</h2>
+      <figure className="fig"><img src="/news/agentic-ai-ceo-salon-03.jpg" alt="分享现场" loading="lazy" /></figure>
       <p>石老师以埃隆·马斯克的特斯拉为标杆，提出了“智能体企业”的两大核心特征：</p>
       <p>
         <b>第一，开发智能体形态的产品。</b>
@@ -74,6 +77,7 @@ export default function Page() {
       <p>你没有物理世界的界面，就不能改变物理世界。没有主动感知，人是很懒的，你让人天天从物理世界把数据搬给AI，不持久。</p>
 
       <h2>实战案例：启盟科技（爱物管）——物业管理行业的百倍效率革命</h2>
+      <figure className="fig"><img src="/news/agentic-ai-ceo-salon-04.jpg" alt="滕一帆实战案例分享" loading="lazy" /></figure>
       <p>实战案例环节由启盟科技（下文以品牌“爱物管”指代）创始人&CEO滕一帆先生分享了他们在物业管理领域的AI实战路径。</p>
       <p>滕一帆首先重新定义了AI时代的“效率”：</p>
       <p>
@@ -135,6 +139,12 @@ export default function Page() {
       <p>
         活动的问答环节气氛极为热烈。在场的CEO们围绕SaaS行业的未来出路、物流行业非标业务如何AI化、餐饮行业的智能报价与菜单定制、企业内部AI推广的节奏、数据隐私保护等实际问题，与石老师和滕一帆展开了密集的交锋。
       </p>
+      <div className="figrow c2">
+        <figure className="fig"><img src="/news/agentic-ai-ceo-salon-05.jpg" alt="问答环节现场" loading="lazy" /></figure>
+        <figure className="fig"><img src="/news/agentic-ai-ceo-salon-06.jpg" alt="问答环节现场" loading="lazy" /></figure>
+        <figure className="fig"><img src="/news/agentic-ai-ceo-salon-07.jpg" alt="问答环节现场" loading="lazy" /></figure>
+        <figure className="fig"><img src="/news/agentic-ai-ceo-salon-08.jpg" alt="问答环节现场" loading="lazy" /></figure>
+      </div>
       <p>石老师对每一个问题都给出了极其直接的回应。几个高频出现的关键判断：</p>
       <p>你不革自己的命，别人就革你。</p>
       <p>你最大的误区，就是认为自己是非标。用起来再说。</p>

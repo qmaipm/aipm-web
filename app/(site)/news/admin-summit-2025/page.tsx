@@ -13,6 +13,10 @@ export default function Page() {
       <p>
         作为非住宅FM领域的数字先锋，启盟科技（品牌：爱物管）携FM重点场景智能品控解决方案亮相峰会。公司大客户总监陆洁瑜在主题分享中深入剖析了当前行政物管行业面临的挑战与机遇，并展示了如何通过AIoT技术与AI赋能，实现服务品质与成本控制的双赢。
       </p>
+      <div className="figrow c2">
+        <figure className="fig"><img src="/news/admin-summit-2025-01.jpg" alt="峰会现场" loading="lazy" /></figure>
+        <figure className="fig"><img src="/news/admin-summit-2025-02.jpg" alt="陆洁瑜主题分享" loading="lazy" /></figure>
+      </div>
 
       <h2>01 行业核心问题</h2>
       <p>FM行业严重缺乏服务过程数据的采集与使用，从而让甲乙双方都在品质与成本的平衡中消耗了大量的精力。</p>
@@ -21,11 +25,13 @@ export default function Page() {
         然而，传统FM服务中，服务品质与人员数量高度绑定，导致甲方在预算压缩与品质保障之间陷入两难，而乙方则疲于通过“人盯人”的方式证明服务交付，成本高企且效率低下。
       </p>
       <p>她强调，“核心问题在于FM行业严重缺乏服务过程数据的采集与使用”，而数字化技术正是破解这一难题的关键。</p>
+      <figure className="fig"><img src="/news/admin-summit-2025-03.png" alt="FM 行业核心问题" loading="lazy" /></figure>
 
       <h2>02 重点场景应用故事分享及收益</h2>
       <p>品质提升了，服务签到纸都省了，品质巡检轻松了。为生动展现数字化如何破解行业痛点，陆洁瑜分享了三个真实案例：</p>
 
       <h2>经典场景一：世界级通信巨头的“卫生间革命”</h2>
+      <figure className="fig"><img src="/news/admin-summit-2025-04.jpg" alt="卫生间智能品控场景" loading="lazy" /></figure>
       <p>
         该企业曾因2000多个卫生间的服务品质参差不齐饱受投诉，传统纸质签到存在代签、漏签等问题，为此而增加的巡检人员又推高了成本。启盟科技通过智能服务记录系统（SSR），用IoT传感器追踪保洁人员到岗与作业轨迹，管理者可远程查看每个卫生间的服务状态。上线后：
       </p>
@@ -37,6 +43,7 @@ export default function Page() {
       </ul>
 
       <h2>经典场景二：速递龙头的“设备零漏检”攻坚战</h2>
+      <figure className="fig"><img src="/news/admin-summit-2025-05.png" alt="设备巡检智能化场景" loading="lazy" /></figure>
       <p>
         某物流巨头覆盖全国70多个园区，十数万台关键设备的漏检风险曾让企业如临大敌。传统“人盯人”巡检无法覆盖庞大区域，一旦故障停运，损失严重。启盟科技“人单合一”系统通过高精准定位与AI算法，确保巡检人员必须到岗才能调取检查单，上线后：
       </p>
@@ -48,6 +55,7 @@ export default function Page() {
       </ul>
 
       <h2>经典场景三：联合办公品牌的“百区如一”管理术</h2>
+      <figure className="fig"><img src="/news/admin-summit-2025-06.png" alt="联合办公数字化管理场景" loading="lazy" /></figure>
       <p>某联合办公品牌在全国80多个社区的服务标准长期难以统一，对账成本居高不下。启盟的数字化SOP+自动对账系统将服务流程全链路数字化：</p>
       <ul>
         <li>用户满意度一致性提高：不仅服务标准全部量化建模进入系统，在执行过程中也很轻松知道执行差异</li>
@@ -59,6 +67,7 @@ export default function Page() {
 
       <h2>03 “数据-智能-机器人”三层技术生态</h2>
       <p>专为解决“过程数据缺失，管理人盯人”所构建的“数据-智能-机器人”三层技术生态。</p>
+      <figure className="fig"><img src="/news/admin-summit-2025-07.png" alt="数据-智能-机器人三层技术生态" loading="lazy" /></figure>
 
       <h2>请联系</h2>
       <p>

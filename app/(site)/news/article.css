@@ -63,6 +63,15 @@
 @supports not ((-webkit-background-clip:text) or (background-clip:text)){.nwd .prose .statrow b{color:var(--d-green);-webkit-text-fill-color:currentColor}}
 .nwd .prose .statrow span{display:block;margin-top:8px;font-size:13px;line-height:1.5;color:var(--d-ink-2)}
 
+/* ---------- 正文配图(转载原图) ---------- */
+.nwd .prose figure{margin:34px 0}
+.nwd .prose .fig img{display:block;width:100%;height:auto;border:1px solid var(--d-line);border-radius:16px;background:var(--d-mist)}
+.nwd .prose figcaption{margin-top:12px;font-size:13.5px;line-height:1.6;color:var(--d-mut);text-align:center}
+.nwd .prose .figrow{display:grid;gap:16px;margin:34px 0}
+.nwd .prose .figrow figure{margin:0}
+.nwd .prose .figrow.c2{grid-template-columns:repeat(2,1fr)}
+@media(max-width:680px){.nwd .prose .figrow.c2{grid-template-columns:1fr}}
+
 /* ---------- 更多动态 ---------- */
 .nwd-rec{position:relative;padding:104px 0;background:var(--d-mist)}
 @media(max-width:700px){.nwd-rec{padding:76px 0}}
