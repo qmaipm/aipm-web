@@ -37,8 +37,10 @@ export default function Page() {
           <Link className="nw-feat" href={`/news/${latest.slug}`}>
             <img className="nw-feat-cover" src={latest.cover} alt="" loading="eager" />
             <div className="nw-feat-body">
-              <span className="nw-tag">{latest.category}</span>
-              <h2>{latest.title}</h2>
+              <div className="nw-titlerow">
+                <h2>{latest.title}</h2>
+                <span className="nw-tag">{latest.category}</span>
+              </div>
               <p>{latest.desc}</p>
               <div className="nw-feat-meta">
                 {latest.date}
@@ -55,8 +57,10 @@ export default function Page() {
                 <div className="nw-date">{n.date}</div>
                 <img className="nw-cover" src={n.cover} alt="" loading="lazy" />
                 <div className="nw-body">
-                  <span className="nw-tag">{n.category}</span>
-                  <h3>{n.title}</h3>
+                  <div className="nw-titlerow">
+                    <h3>{n.title}</h3>
+                    <span className="nw-tag">{n.category}</span>
+                  </div>
                   <p>{n.desc}</p>
                 </div>
                 <Arrow />
