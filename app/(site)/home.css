@@ -284,97 +284,12 @@
 @media(max-width:1080px){.h-hero-cols{grid-template-columns:1fr}
   .h-hero-cols .hw-wrap{max-width:560px;margin:44px auto 0}}
 
-/* ---------- HeroWorkflow · 报修工单闭环演示 ----------
-   三层:背景楼宇 SVG(极低对比)/ 业主消息 + 流程轨 / FMClaw 工单卡。
-   动效全部由 .on/.now class 驱动的 CSS 过渡实现;
-   reduced-motion 下组件停在终态 + 全局 transition:none 兜底。 */
-.hw{position:relative;z-index:2;display:flex;flex-direction:column;gap:13px;
-  padding:22px 22px 18px;min-height:460px;border:1px solid var(--h-line);border-radius:20px;
-  background:linear-gradient(180deg,#F7FBFA 0%,#FFFFFF 62%);overflow:hidden;
-  box-shadow:0 24px 64px rgba(12,139,130,.08)}
-@media(max-width:520px){.hw{padding:18px 16px 15px;min-height:0}}
-
-/* 背景层 · 楼宇 */
-.hw-bg{position:absolute;inset:0;width:100%;height:100%;z-index:0;pointer-events:none}
-.hw-bldg rect{fill:#EDF3F1;stroke:var(--h-line);stroke-width:1}
-.hw-bldg-t{fill:var(--h-faint);font-size:12px;font-weight:600;letter-spacing:.06em}
-.hw-floor{stroke:#E1E9E6;stroke-width:1}
-.hw-mark rect{fill:rgba(18,185,138,0);stroke:rgba(18,185,138,0);stroke-width:1.2;transition:fill .45s,stroke .45s}
-.hw-mark text{fill:var(--h-green);font-size:11px;font-weight:700;opacity:0;transition:opacity .45s}
-.hw-mark.on rect{fill:rgba(18,185,138,.12);stroke:rgba(18,185,138,.45)}
-.hw-mark.on text{opacity:1}
-.hw-crew{opacity:0;transition:opacity .5s}
-.hw-crew.on{opacity:1}
-.hw-crew circle{fill:var(--h-blue)}
-.hw-crew text{fill:var(--h-ink-2);font-size:11px;font-weight:600}
-.hw-route{fill:none;stroke:var(--h-blue);stroke-width:1.7;stroke-linecap:round;stroke-dasharray:6 6}
-
-/* 业主消息(企业微信) */
-.hw-msg{position:relative;z-index:1;align-self:flex-start;max-width:300px;
-  background:var(--h-paper);border:1px solid var(--h-line);border-radius:13px;border-top-left-radius:4px;
-  padding:11px 14px 12px;box-shadow:0 8px 24px rgba(20,32,28,.07);
-  opacity:0;transform:translateY(6px);transition:opacity .5s,transform .5s}
-.hw-msg.on{opacity:1;transform:none}
-.hw-msg-head{display:flex;align-items:center;gap:8px;font-size:11.5px;color:var(--h-mut)}
-.hw-msg-av{display:grid;place-items:center;width:20px;height:20px;border-radius:6px;flex:none;
-  background:#2E7D5B;color:#fff;font-size:11px;font-weight:700}
-.hw-msg-src{font-weight:600;color:var(--h-ink-2)}
-.hw-msg-time{margin-left:auto}
-.hw-msg-body{margin:8px 0 0;font-size:13px;line-height:1.55;color:var(--h-ink)}
-.hw-msg-img{margin-top:8px;display:inline-flex;align-items:center;gap:6px;font-size:11.5px;color:var(--h-mut);
-  border:1px solid var(--h-line);border-radius:8px;padding:5px 10px;background:var(--h-mist)}
-
-/* 流程轨 · 8 节点 */
-.hw-rail{position:relative;z-index:1;padding:2px 2px 0}
-.hw-rail-line{height:3px;border-radius:3px;background:var(--h-line);overflow:hidden}
-.hw-rail-line i{display:block;height:100%;border-radius:3px;background:var(--h-grad);transition:width .55s ease}
-.hw-nodes{list-style:none;margin:9px 0 0;padding:0;display:grid;grid-template-columns:repeat(8,1fr);gap:2px}
-.hw-node{display:flex;flex-direction:column;align-items:center;gap:5px;text-align:center}
-.hw-dot{position:relative;width:9px;height:9px;border-radius:50%;background:var(--h-paper);
-  border:1.5px solid var(--h-faint);transition:background .35s,border-color .35s}
-.hw-node.on .hw-dot{background:var(--h-green);border-color:var(--h-green)}
-.hw-node.now .hw-dot::after{content:"";position:absolute;inset:-5px;border-radius:50%;
-  border:1.5px solid var(--h-green);opacity:.55;animation:hwping 1.5s ease-out infinite}
-@keyframes hwping{0%{transform:scale(.5);opacity:.7}100%{transform:scale(1.35);opacity:0}}
-.hw-nlab{font-size:10px;line-height:1.25;color:var(--h-faint);transition:color .35s;letter-spacing:0}
-.hw-node.on .hw-nlab{color:var(--h-ink-2)}
-.hw-node.now .hw-nlab{color:var(--h-green);font-weight:700}
-@media(max-width:520px){.hw-nlab{font-size:9px}}
-
-/* FMClaw 工单 Agent 卡 */
-.hw-card{position:relative;z-index:1;background:var(--h-paper);border:1px solid var(--h-line);border-radius:14px;
-  padding:15px 17px 15px;box-shadow:0 14px 40px rgba(20,32,28,.09)}
-.hw-card-head{display:flex;align-items:center;gap:9px}
-.hw-card-logo{display:grid;place-items:center;width:24px;height:24px;border-radius:7px;flex:none;
-  background:var(--h-grad);color:#fff}
-.hw-card-name{font-size:13px;font-weight:700;letter-spacing:-.01em;color:var(--h-ink)}
-.hw-status{margin-left:auto;display:inline-flex;align-items:center;gap:6px;flex:none;
-  font-size:11.5px;font-weight:600;color:var(--h-blue);background:rgba(0,112,255,.07);
-  border-radius:999px;padding:4px 10px;transition:color .35s,background .35s}
-.hw-status.ok{color:var(--h-green);background:rgba(18,185,138,.10)}
-.hw-status-dot{width:6px;height:6px;border-radius:50%;background:currentColor;animation:hwblink 1.4s ease-in-out infinite}
-.hw-status.ok .hw-status-dot{animation:none}
-@keyframes hwblink{0%,100%{opacity:1}50%{opacity:.35}}
-@media(prefers-reduced-motion:reduce){.hw-status-dot,.hw-node.now .hw-dot::after{animation:none!important}}
-.hw-ev{margin-top:10px;font-size:12px;font-weight:600;color:var(--h-mut)}
-.hw-fields{margin:9px 0 0;display:grid;grid-template-columns:1fr 1fr;gap:7px 14px}
-.hw-f{display:flex;align-items:baseline;gap:8px;opacity:0;transform:translateY(4px);transition:opacity .45s,transform .45s}
-.hw-f.on{opacity:1;transform:none}
-.hw-f dt{font-size:11px;color:var(--h-mut);flex:none}
-.hw-f dd{margin:0;font-size:12.5px;font-weight:600;color:var(--h-ink)}
-.hw-f dd.hi{color:#C2661B}
-.hw-judge{margin:11px 0 0;padding-left:11px;position:relative;font-size:12px;line-height:1.55;color:var(--h-ink-2);
-  opacity:0;transition:opacity .45s}
-.hw-judge::before{content:"";position:absolute;left:0;top:2px;bottom:2px;width:2.5px;border-radius:3px;background:var(--h-grad)}
-.hw-judge.on{opacity:1}
-.hw-ticket{margin-top:12px;display:flex;align-items:center;gap:7px;font-size:12.5px;font-weight:700;color:var(--h-green);
-  background:rgba(18,185,138,.08);border:1px solid rgba(18,185,138,.22);border-radius:9px;padding:8px 12px;
-  opacity:0;transform:translateY(4px);transition:opacity .45s,transform .45s}
-.hw-ticket.on{opacity:1;transform:none}
-@media(max-width:400px){.hw-fields{grid-template-columns:1fr}}
-
-/* 图注 */
-.hw-cap{margin:2px 0 0;position:relative;z-index:1;text-align:center;font-size:12.5px;color:var(--h-mut)}
+/* ---------- HeroAgentShowcase · Agentic 套件动效改造 ----------
+   动画逻辑与卡片视觉全部为组件内联样式(沿用服务优化 Agent 模块);
+   此处仅提供其依赖的 hpulse 呼吸点 keyframe 与降级规则。 */
+.hw-wrap{position:relative;z-index:2;width:100%}
+@keyframes hpulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.6;transform:scale(1.3)}}
+@media(prefers-reduced-motion:reduce){.solhome .hw-wrap *{animation:none!important}}
 
 /* ---------- 可访问性 / 动效降级 ---------- */
 .solhome a:focus-visible,.solhome .btn:focus-visible{outline:2px solid var(--h-green);outline-offset:3px;border-radius:10px}

@@ -3,7 +3,7 @@ import Link from "next/link";
 import "./home.css";
 import MissionBackdrop from "./MissionBackdrop";
 import MoatStats from "./MoatStats";
-import HeroWorkflow from "./HeroWorkflow";
+import HeroAgentShowcase from "./HeroAgentShowcase";
 import { getArticle } from "./insights/articles";
 
 export const metadata: Metadata = {
@@ -31,7 +31,7 @@ export default function Home() {
   const research = RESEARCH_SLUGS.map((s) => getArticle(s));
   return (
     <main className="solhome">
-      {/* ① HERO — 公司级开场:左文案 + 右「AI 正在处理真实工作」工作流 */}
+      {/* ① HERO — 公司级开场:左文案 + 右「AI 正在处理真实工作」演示(改造自 Agentic 套件服务优化 Agent 动效) */}
       <section className="h-hero">
         <div className="h-grid" aria-hidden="true" />
         <div className="wrap h-hero-top">
@@ -54,7 +54,7 @@ export default function Home() {
               </p>
             </div>
             <div className="hw-wrap reveal">
-              <HeroWorkflow />
+              <HeroAgentShowcase />
             </div>
           </div>
         </div>
