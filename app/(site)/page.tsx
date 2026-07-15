@@ -136,6 +136,7 @@ export default function Home() {
           <div className="h-tri">
             <Link href="/products/fmclaw" className="h-t reveal">
               <div className="accent" style={{ background: "var(--h-blue)" }} />
+              <div className="h-cardimg"><img src="/home/audience-pm.webp" alt="大型综合体中庭，清洁机器人与一线人员在作业动线上工作" loading="lazy" width={900} height={600} /></div>
               <div className="who">物业公司 · 设施管理方</div>
               <h3>把 AI 接进现有运营</h3>
               <p>减少重复管理工作，让巡检、工单、结算里的判断与流转交给智能体。</p>
@@ -143,6 +144,7 @@ export default function Home() {
             </Link>
             <Link href="/ai-service" className="h-t reveal">
               <div className="accent" style={{ background: "var(--h-green)" }} />
+              <div className="h-cardimg"><img src="/home/audience-owner.webp" alt="清晨航拍：机场、码头与物流园区等重资产基础设施" loading="lazy" width={900} height={600} /></div>
               <div className="who">业主 · 资产管理方</div>
               <h3>让物业服务透明、主动、可量化</h3>
               <p>由 AI 接管的物业服务——指标写进合同，账目全程可追溯。</p>
@@ -150,6 +152,7 @@ export default function Home() {
             </Link>
             <Link href="/cobuild" className="h-t reveal">
               <div className="accent" style={{ background: "#0C8B82" }} />
+              <div className="h-cardimg"><img src="/home/audience-gov.webp" alt="医院、学校与政府办公建筑组成的公共机构建筑群" loading="lazy" width={900} height={600} /></div>
               <div className="who">政府 · 地方国资</div>
               <h3>推动本地 AI 产业落地</h3>
               <p>从真实场景开始，让技术、团队和产业能力在本地持续运营。</p>
@@ -157,6 +160,7 @@ export default function Home() {
             </Link>
             <Link href="/partners" className="h-t reveal">
               <div className="accent" style={{ background: "#18A5C9" }} />
+              <div className="h-cardimg"><img src="/home/audience-integrator.webp" alt="楼宇设备层：密集的管线、风管与配电柜，工程师在巡检" loading="lazy" width={900} height={600} /></div>
               <div className="who">集成商 · 软件企业</div>
               <h3>给现有项目和产品加上智能体</h3>
               <p>在你的项目和产品上增加智能体能力，交付给你的客户。</p>
@@ -175,6 +179,7 @@ export default function Home() {
           </div>
           <div className="h-dlv">
             <Link href="/products/fmclaw" className="h-dc reveal">
+              <div className="h-cardimg"><img src="/home/deliver-platform.webp" alt="傍晚的园区：清洁机器人与四足巡检机器人在无人广场上自主作业" loading="lazy" width={900} height={600} /></div>
               <div className="dc-num">Ⅰ</div>
               <h3>FMClaw™ 平台与智能体交付</h3>
               <p>客户保留自己的运营团队，启盟提供平台、FDE、数据治理和智能体生产落地。</p>
@@ -182,6 +187,7 @@ export default function Home() {
               <span className="go">了解 FMClaw™ <ArrowR s={14} /></span>
             </Link>
             <Link href="/ai-service" className="h-dc reveal">
+              <div className="h-cardimg"><img src="/home/deliver-managed.webp" alt="一位运营管理者通过多块屏幕同时管理多个物业项目" loading="lazy" width={900} height={600} /></div>
               <div className="dc-num">Ⅱ</div>
               <h3>爱物管 AI 物业运营托管</h3>
               <p>由爱物管作为履约主体，直接交付可量化、可追溯的物业服务结果。</p>
@@ -189,6 +195,7 @@ export default function Home() {
               <span className="go">了解 AI 物业服务 <ArrowR s={14} /></span>
             </Link>
             <Link href="/cobuild" className="h-dc reveal">
+              <div className="h-cardimg"><img src="/home/deliver-cobuild.webp" alt="城区航拍：住宅、产业园与河道交织的地方城市肂理" loading="lazy" width={900} height={600} /></div>
               <div className="dc-num">Ⅲ</div>
               <h3>人工智能产业共建</h3>
               <p>以地方国有物业和园区场景为起点，让技术、团队和产业能力在本地持续运营。</p>
@@ -245,24 +252,28 @@ export default function Home() {
           </div>
           <div className="h-ways">
             <Link href="/workshop/demo-day" className="h-way reveal">
+              <div className="h-cardimg"><img src="/home/way-demo-day.webp" alt="Demo Day 现场：用真实数据验证 AI 工作流" loading="lazy" width={900} height={600} /></div>
               <div className="wy-time">半天 – 1 天</div>
               <h3>Demo Day</h3>
               <p>用一份真实数据，先判断这条路走不走得通。</p>
               <span className="go">了解 Demo Day <ArrowR s={14} /></span>
             </Link>
             <Link href="/workshop/bootcamp" className="h-way reveal">
+              <div className="h-cardimg"><img src="/home/way-bootcamp.webp" alt="Bootcamp 现场：团队动手搭建并跑通 Agent" loading="lazy" width={900} height={600} /></div>
               <div className="wy-time">2 – 3 天</div>
               <h3>Bootcamp</h3>
               <p>团队带着真问题和脱敏数据，亲手搭出并跑通一个 Agent。</p>
               <span className="go">了解 Bootcamp <ArrowR s={14} /></span>
             </Link>
             <Link href="/workshop/competition" className="h-way reveal">
+              <div className="h-cardimg"><img src="/home/way-competition.webp" alt="AI 应用创新大赛现场" loading="lazy" width={900} height={600} /></div>
               <div className="wy-time">2 – 4 周</div>
               <h3>AI 应用创新大赛</h3>
               <p>让一线员工从真实工作中找到 AI 课题，赛后继续落地。</p>
               <span className="go">了解创新大赛 <ArrowR s={14} /></span>
             </Link>
             <Link href="/workshop/fde" className="h-way reveal">
+              <div className="h-cardimg"><img src="/home/way-fde.webp" alt="FDE 服务：数据治理与系统接入现场" loading="lazy" width={900} height={600} /></div>
               <div className="wy-time">按阶段交付</div>
               <h3>FDE 服务</h3>
               <p>完成数据治理、系统接入、生产上线和阶段验收。</p>
