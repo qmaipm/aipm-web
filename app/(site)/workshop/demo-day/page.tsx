@@ -5,10 +5,11 @@ import SeoFaq from "@/components/SeoFaq";
 import RelatedReading from "../_RelatedReading";
 import "../page.css";
 import "../sub.css";
+import { pageMetadata } from "@/lib/pageMetadata";
 
 const SITE_URL = process.env.SITE_URL || "https://www.aipm.cn";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMetadata("/workshop/demo-day", {
   title: "Demo Day · 半天到一天，眼见为实 — FMClaw™ 加速营 | 启盟科技",
   description:
     "带一份你自己的真实业务数据来，半天到一天，我们当场跑出一个能用的 AI demo。不做接口、不碰大数据量——它不是交付，是让你亲眼确认这条路走得通。免费。",
@@ -22,7 +23,7 @@ export const metadata: Metadata = {
     "物业管理AI",
     "AI落地第一步",
   ],
-};
+});
 
 const ArrowR = ({ s = 15 }: { s?: number }) => (
   <svg className="ar" width={s} height={s} viewBox="0 0 16 16">

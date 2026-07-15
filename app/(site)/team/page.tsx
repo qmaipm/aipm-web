@@ -1,12 +1,13 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import "./page.css";
+import { pageMetadata } from "@/lib/pageMetadata";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMetadata("/team", {
   title: "团队 · 创始人滕一帆与 FDE 工程师团队 — 启盟科技",
   description:
     "启盟科技由创始人 & CEO 滕一帆带领,到现场的是行业老兵与 AI 工程师组成的 FDE 前线部署工程师团队,不是来讲方案的销售;背后有蓝驰创投、微光创投支持。",
-};
+});
 
 const Arrow = ({ s = 15 }: { s?: number }) => (
   <svg className="ar" width={s} height={s} viewBox="0 0 16 16">

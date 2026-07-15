@@ -3,6 +3,14 @@ import "./home.css";
 import MissionBackdrop from "./MissionBackdrop";
 import HeroBackdrop from "./HeroBackdrop";
 import MoatStats from "./MoatStats";
+import { pageMetadata } from "@/lib/pageMetadata";
+
+// 标题/描述与根布局一致;单独声明是为了首页也有指向自身的 canonical 与 og:url
+export const metadata = pageMetadata("/", {
+  title: "启盟科技 · 物业与设施管理的 AI 操作系统 — FMClaw™",
+  description:
+    "物业与设施管理,正在被 AI 重写。FMClaw™ 把 AI 接入日常运营。带着你的一个真实业务,在 FMClaw™ 加速营里用 1–3 天把它跑通。",
+});
 
 const ArrowR = ({ s = 15 }: { s?: number }) => (
   <svg className="ar" width={s} height={s} viewBox="0 0 16 16">

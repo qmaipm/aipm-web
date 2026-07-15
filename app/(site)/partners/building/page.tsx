@@ -3,12 +3,13 @@ import Link from "next/link";
 import Image from "next/image";
 import "./page.css";
 import BuildingForm from "./BuildingForm";
+import { pageMetadata } from "@/lib/pageMetadata";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMetadata("/partners/building", {
   title: "智能建筑伙伴 — 智能体园区招标的 AI 技术要求，怎么应？| 启盟科技",
   description:
     "智慧园区、智能体园区项目的招标文件里，开始出现智能体平台、大模型网关、AI 物理感知等技术要求。启盟科技面向建筑智能化工程、机电总包与设计咨询企业开放智能建筑伙伴合作：方案支持、标书技术应答、售前工程师随队、Demo 演示环境、联合品牌授权与商机协同。登记索取《智能体园区参考架构与招标技术要求指引》。",
-};
+});
 
 const Arrow = ({ s = 15 }: { s?: number }) => (
   <svg className="ar" width={s} height={s} viewBox="0 0 16 16">

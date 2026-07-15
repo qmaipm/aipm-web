@@ -3,10 +3,11 @@ import Link from "next/link";
 import JsonLd from "@/components/JsonLd";
 import SeoFaq from "@/components/SeoFaq";
 import "./page.css";
+import { pageMetadata } from "@/lib/pageMetadata";
 
 const SITE_URL = process.env.SITE_URL || "https://www.aipm.cn";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMetadata("/company", {
   title: "关于启盟科技 · 让智能走进物理世界 — 启盟科技",
   description:
     "启盟科技创立于 2017 年,广州市人工智能百强企业、NVIDIA Inception 全球 AI 加速营成员,首期 5 亿产业发展基金。核心产品 FMClaw™ AI 平台,自营物业公司爱物管。愿景:让智能走进物理世界,物业是最大、也最天然的入口。",
@@ -23,7 +24,7 @@ export const metadata: Metadata = {
     "物理AI",
     "物业人工智能产业基金",
   ],
-};
+});
 
 const Arrow = ({ s = 15 }: { s?: number }) => (
   <svg className="ar" width={s} height={s} viewBox="0 0 16 16">

@@ -1,12 +1,13 @@
 import Link from "next/link";
 import "./page.css";
 import SubscribeForm from "../../_components/SubscribeForm";
+import { pageMetadata } from "@/lib/pageMetadata";
 
-export const metadata = {
+export const metadata = pageMetadata("/insights/detail", {
   title: "自建 Agent 平台的四道墙 · 行业研究 — 启盟科技",
   description:
     "自己搭一个 Agent 平台,会先后撞上四堵墙:模型墙、工程墙、数据墙、时间墙。这篇文章把它们一一拆开。",
-};
+});
 
 export default function Page() {
   return (

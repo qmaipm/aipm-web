@@ -5,10 +5,11 @@ import SeoFaq from "@/components/SeoFaq";
 import RelatedReading from "../_RelatedReading";
 import "../page.css";
 import "../sub.css";
+import { pageMetadata } from "@/lib/pageMetadata";
 
 const SITE_URL = process.env.SITE_URL || "https://www.aipm.cn";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMetadata("/workshop/fde", {
   title: "FDE 服务 · 前置部署工程师 — 按阶段交付的 AI 落地工程，不是驻场外包 | 启盟科技",
   description:
     "FDE（Forward Deployed Engineer，前置部署工程师）源自 Palantir，OpenAI、Anthropic 都在采用。启盟科技的 FDE 服务把这套打法带进中国的不动产与设施管理行业：数据治理、系统与接口接入，按阶段交付、按阶段验收——它不是驻场外包，交付的是结果，不是人头。",
@@ -26,7 +27,7 @@ export const metadata: Metadata = {
     "AI系统集成",
     "驻场外包区别",
   ],
-};
+});
 
 const ArrowR = ({ s = 15 }: { s?: number }) => (
   <svg className="ar" width={s} height={s} viewBox="0 0 16 16">

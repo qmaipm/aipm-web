@@ -1,9 +1,10 @@
 // app/(site)/cases/30w-park-ai-property-manager-robot/page.tsx
 import CaseShell, { CaseWins, CaseSection, CaseQuote } from "../_CaseShell";
 import { getCase } from "../cases";
+import { pageMetadata } from "@/lib/pageMetadata";
 
 const c = getCase("30w-park-ai-property-manager-robot");
-export const metadata = { title: `${c.seoTitle} — 启盟科技`, description: c.metaDescription };
+export const metadata = pageMetadata("/cases/30w-park-ai-property-manager-robot", { title: `${c.seoTitle} — 启盟科技`, description: c.metaDescription });
 
 export default function Page() {
   return (

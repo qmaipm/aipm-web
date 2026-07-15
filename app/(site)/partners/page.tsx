@@ -2,12 +2,13 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import Image from "next/image";
 import "./page.css";
+import { pageMetadata } from "@/lib/pageMetadata";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMetadata("/partners", {
   title: "生态伙伴 — 智能体园区 · 智慧园区 AI 合作 | 启盟科技",
   description:
     "启盟科技生态伙伴计划：我们做产品和平台，伙伴赢市场。面向智能建筑与智慧园区工程企业、渠道代理伙伴与产业投资方，提供方案支持、标书技术应答、售前工程师、Demo 环境、联合品牌与商机协同——帮助伙伴赢下他们的客户。",
-};
+});
 
 const Arrow = ({ s = 15 }: { s?: number }) => (
   <svg className="ar" width={s} height={s} viewBox="0 0 16 16">

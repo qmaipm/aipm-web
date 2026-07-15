@@ -5,10 +5,11 @@ import SeoFaq from "@/components/SeoFaq";
 import RelatedReading from "../_RelatedReading";
 import "../page.css";
 import "../sub.css";
+import { pageMetadata } from "@/lib/pageMetadata";
 
 const SITE_URL = process.env.SITE_URL || "https://www.aipm.cn";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMetadata("/workshop/bootcamp", {
   title: "加速营 · Bootcamp — 2–3 天，把你的 AI 智能体亲手搭出来 | FMClaw™ · 启盟科技",
   description:
     "它不是培训。2–3 天闭门加速营，你的团队分成 2–4 组，每组带一个真实业务问题和它的数据，在 FMClaw™ 上亲手把 AI 智能体搭起来、跑通——跑通的东西留给你。不做任何接口，免费。",
@@ -25,7 +26,7 @@ export const metadata: Metadata = {
     "FMClaw",
     "物业管理AI",
   ],
-};
+});
 
 const ArrowR = ({ s = 15 }: { s?: number }) => (
   <svg className="ar" width={s} height={s} viewBox="0 0 16 16">

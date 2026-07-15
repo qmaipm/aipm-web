@@ -1,12 +1,13 @@
 import Link from "next/link";
 import BeforeAfter from "../BeforeAfter";
 import "../scenarios.css";
+import { pageMetadata } from "@/lib/pageMetadata";
 
-export const metadata = {
+export const metadata = pageMetadata("/scenarios/exec-query", {
   title: "管理层 AI 问询 · 能耗归因秒级回答 — FMClaw™ 加速营场景",
   description:
     "领导在钉钉 @ 一句问题，底层由 FMClaw 调数据、模型与 Skill 做能耗归因，秒级给出带原因的回答与简报，不换对话框。",
-};
+});
 
 export default function Page() {
   return (

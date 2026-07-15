@@ -4,10 +4,11 @@ import JsonLd from "@/components/JsonLd";
 import SeoFaq from "@/components/SeoFaq";
 import "../page.css";
 import "../trade.css";
+import { pageMetadata } from "@/lib/pageMetadata";
 
 const SITE_URL = process.env.SITE_URL || "https://www.aipm.cn";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMetadata("/ai-service/cleaning", {
   title: "AI 清洁服务 · 人机协同的写字楼/园区保洁服务 — 启盟科技",
   description:
     "AI 清洁服务把保洁从「数人头」换成「数服务」：服务频次、标准与达标线写进合同，每一次作业系统留痕，质量由 AI 多模态评分，人与清洁机器人协同作业。机器人批量进场不增加预算，综合服务成本年降约 15%。由启盟科技旗下自营物业公司爱物管交付。",
@@ -23,7 +24,7 @@ export const metadata: Metadata = {
     "爱物管",
     "启盟科技",
   ],
-};
+});
 
 const Arrow = ({ s = 15 }: { s?: number }) => (
   <svg className="ar" width={s} height={s} viewBox="0 0 16 16">
