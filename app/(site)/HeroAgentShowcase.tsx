@@ -15,6 +15,7 @@
  */
 
 import { useState, useEffect, useCallback, useRef, ReactNode } from 'react';
+import Link from 'next/link';
 
 // ==========================================
 // 类型定义
@@ -41,6 +42,7 @@ interface IconConfig {
   id: string;
   icon: ReactNode;
   name: string;
+  href: string;
   side: IconSide;
   lineStart: LineStart;
   startColor: string;
@@ -1036,48 +1038,42 @@ const ReviewReportCard = () => {
 // ==========================================
 
 const IconsSVG = {
-  // 服务优化Agent - 循环箭头+图表（数据分析优化）
+  // Agentic 套件 - 四宫格 Agent 矩阵
   review: (
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
-      <path d="M4 12a8 8 0 0 1 8-8" strokeLinecap="round" />
-      <path d="M20 12a8 8 0 0 1-8 8" strokeLinecap="round" />
-      <path d="M12 4l2 2-2 2" strokeLinecap="round" strokeLinejoin="round" />
-      <path d="M12 20l-2-2 2-2" strokeLinecap="round" strokeLinejoin="round" />
-      <path d="M9 12h6" strokeLinecap="round" />
-      <path d="M12 9v6" strokeLinecap="round" />
+      <rect x="3.5" y="3.5" width="7.5" height="7.5" rx="2" />
+      <rect x="13" y="3.5" width="7.5" height="7.5" rx="2" />
+      <rect x="3.5" y="13" width="7.5" height="7.5" rx="2" />
+      <rect x="13" y="13" width="7.5" height="7.5" rx="2" />
+      <circle cx="7.25" cy="7.25" r="1.2" fill="currentColor" stroke="none" />
+      <circle cx="16.75" cy="16.75" r="1.2" fill="currentColor" stroke="none" />
     </svg>
   ),
-  // 计薪系统 - 货币+计算器图标
+  // 数据集市 - 数据库圆柱
   payroll: (
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
-      <rect x="4" y="4" width="16" height="16" rx="2" />
-      <path d="M12 8v8" strokeLinecap="round" />
-      <path d="M9 11h6" strokeLinecap="round" />
-      <path d="M9 14h6" strokeLinecap="round" />
-      <circle cx="12" cy="8" r="1" fill="currentColor" />
+      <ellipse cx="12" cy="6" rx="7" ry="3" />
+      <path d="M5 6v6c0 1.66 3.13 3 7 3s7-1.34 7-3V6" />
+      <path d="M5 12v6c0 1.66 3.13 3 7 3s7-1.34 7-3v-6" />
     </svg>
   ),
-  // 数据大屏 - 仪表盘/屏幕图标
+  // IoT 感知 - 传感波纹+点位
   dashboard: (
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
-      <rect x="3" y="4" width="18" height="14" rx="2" />
-      <path d="M8 18h8" strokeLinecap="round" />
-      <path d="M12 18v2" strokeLinecap="round" />
-      <path d="M7 9h2v5H7z" fill="currentColor" opacity="0.3" />
-      <path d="M11 8h2v6h-2z" fill="currentColor" opacity="0.3" />
-      <path d="M15 10h2v4h-2z" fill="currentColor" opacity="0.3" />
+      <circle cx="12" cy="14" r="2" fill="currentColor" stroke="none" />
+      <path d="M8.5 10.5a5 5 0 0 1 7 0" strokeLinecap="round" />
+      <path d="M6 8a8.5 8.5 0 0 1 12 0" strokeLinecap="round" />
+      <path d="M12 16v4" strokeLinecap="round" />
+      <path d="M8 20h8" strokeLinecap="round" />
     </svg>
   ),
-  // API开放平台 - 连接/接口图标
+  // 机器人 - 四足机器人简形
   api: (
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
-      <path d="M8 9h8" strokeLinecap="round" />
-      <path d="M8 15h8" strokeLinecap="round" />
-      <circle cx="5" cy="9" r="2" />
-      <circle cx="5" cy="15" r="2" />
-      <circle cx="19" cy="9" r="2" />
-      <circle cx="19" cy="15" r="2" />
-      <path d="M12 9v6" strokeLinecap="round" strokeDasharray="2 2" />
+      <rect x="5" y="8" width="14" height="7" rx="2.5" />
+      <path d="M7 15l-1.5 4M11 15l-1 4M13 15l1 4M17 15l1.5 4" strokeLinecap="round" />
+      <path d="M17 8V6.2A1.6 1.6 0 0 1 18.6 4.6" strokeLinecap="round" />
+      <circle cx="19.4" cy="4.4" r="1" fill="currentColor" stroke="none" />
     </svg>
   ),
 };
@@ -1094,18 +1090,19 @@ const IconsSVG = {
 // gradient-purple-pink: #9333EA → #EC4899 (紫罗兰→品红)
 // gradient-pink-gold: #EC4899 → #F59E0B (品红→黄金)
 
-// 图标配置
+// 图标配置（首页适配：四个平台组成部分，均可点击进入对应产品页）
 // 射线触发对应关系：
-// - 服务优化Agent（index=0）→ 触发复盘报告卡片
-// - 计薪系统（index=1）→ 触发员工薪资卡片
-// - 数据大屏（index=2）→ 触发数据大屏卡片
-// - API开放平台（index=3）→ 不触发任何切换（静态展示）
+// - Agentic 套件（index=0）→ 触发服务优化报告卡片
+// - 数据集市（index=1）→ 触发员工薪资卡片
+// - IoT 感知（index=2）→ 触发数据大屏卡片
+// - 机器人（index=3）→ 不触发任何切换（静态展示）
 
 const ICONS: IconConfig[] = [
   {
     id: 'review',
     icon: IconsSVG.review,
-    name: 'FMClaw™ Agent',
+    name: 'Agentic 套件',
+    href: '/agents',
     side: 'top-left',
     lineStart: 'right',
     // 主触发器 - 蓝绿渐变 (gradient-blue-green)
@@ -1115,7 +1112,8 @@ const ICONS: IconConfig[] = [
   {
     id: 'payroll',
     icon: IconsSVG.payroll,
-    name: '计薪系统',
+    name: '数据集市',
+    href: '/products/fmclaw',
     side: 'top-right',
     lineStart: 'left',
     // 蓝金渐变 (gradient-blue-gold)
@@ -1125,7 +1123,8 @@ const ICONS: IconConfig[] = [
   {
     id: 'dashboard',
     icon: IconsSVG.dashboard,
-    name: '数据大屏',
+    name: 'IoT 感知',
+    href: '/products/iot',
     side: 'bottom-left',
     lineStart: 'right',
     // 绿金渐变 (gradient-green-gold)
@@ -1135,7 +1134,8 @@ const ICONS: IconConfig[] = [
   {
     id: 'api',
     icon: IconsSVG.api,
-    name: 'API开放平台',
+    name: '机器人',
+    href: '/products/robots',
     side: 'bottom-right',
     lineStart: 'left',
     // 紫粉渐变 (gradient-purple-pink) - 静态展示，不参与轮播
@@ -1583,6 +1583,19 @@ function ShowcaseCanvas({
         ...style,
       }}
     >
+      {/* 背景辉光：柔化画布下方的网格背景，避免半透明/模糊元素与网格线冲突 */}
+      <div
+        aria-hidden="true"
+        style={{
+          position: 'absolute',
+          inset: 0,
+          zIndex: 0,
+          pointerEvents: 'none',
+          background:
+            'radial-gradient(ellipse 62% 55% at 50% 46%, rgba(255,255,255,0.95) 0%, rgba(255,255,255,0.75) 45%, rgba(255,255,255,0) 78%)',
+        }}
+      />
+
       {/* 四个图标 */}
       {ICONS.map((iconConfig, index) => {
         const pos = getDynamicIconPosition(iconConfig.side);
@@ -1602,16 +1615,27 @@ function ShowcaseCanvas({
           ? getIconActivation(iconProgress, isCurrentIcon)
           : { isActive: isCurrentIcon && entryPhase !== 'idle', progress: entryProgress };
 
-        // 标签在上方，图标在下方
+        // 标签对齐：左侧图标左对齐、右侧图标右对齐，避免长名称超出画布被裁切
+        const isLeftSide = iconConfig.side.endsWith('left');
+        const labelStyle: React.CSSProperties = isLeftSide
+          ? { left: pos.x, textAlign: 'left' }
+          : { left: pos.x + LAYOUT.iconSize, transform: 'translateX(-100%)', textAlign: 'right' };
+
+        // 标签在上方，图标在下方；整体包成链接，可点击进入对应产品页
         return (
-          <div key={iconConfig.id}>
+          <Link
+            key={iconConfig.id}
+            href={iconConfig.href}
+            className="hsc-icon"
+            aria-label={`${iconConfig.name}，查看详情`}
+            style={{ ['--hsc-c' as string]: iconConfig.startColor }}
+          >
             {/* 图标标签（在图标上方） */}
-            <div
+            <span
+              className="hsc-label"
               style={{
                 position: 'absolute',
-                left: pos.x + LAYOUT.iconSize / 2,
-                top: pos.y - 16,
-                transform: 'translateX(-50%)',
+                top: pos.y - 19,
                 fontSize: '10px',
                 fontWeight: activation.isActive ? 600 : 400,
                 color: activation.isActive ? iconConfig.startColor : '#64748b',
@@ -1619,13 +1643,18 @@ function ShowcaseCanvas({
                 transition: 'all 0.3s',
                 opacity: entryPhase === 'icons-enter' ? entryProgress : 1,
                 zIndex: 25,
+                ...labelStyle,
               }}
             >
               {iconConfig.name}
-            </div>
+              <svg className="hsc-go" width="9" height="9" viewBox="0 0 16 16" aria-hidden="true">
+                <path d="M3 8h10M9 4l4 4-4 4" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+              </svg>
+            </span>
 
             {/* 图标（在标签下方） */}
-            <div
+            <span
+              className="hsc-box"
               style={{
                 position: 'absolute',
                 left: pos.x,
@@ -1647,8 +1676,9 @@ function ShowcaseCanvas({
                 opacity: entryPhase === 'icons-enter' ? entryProgress : 1,
               }}
             >
-              <div
+              <span
                 style={{
+                  display: 'block',
                   width: LAYOUT.innerIconSize,
                   height: LAYOUT.innerIconSize,
                   color: activation.isActive ? iconConfig.startColor : '#9CA3AF',
@@ -1656,9 +1686,9 @@ function ShowcaseCanvas({
                 }}
               >
                 {iconConfig.icon}
-              </div>
-            </div>
-          </div>
+              </span>
+            </span>
+          </Link>
         );
       })}
 
@@ -1966,9 +1996,7 @@ function ShowcaseCanvas({
                   const scale = 1 - absPos * 0.04;
                   const zIndex = 30 - Math.round(absPos * 10);
                   
-                  // 模糊效果：非居中卡片添加轻微模糊
-                  const blurAmount = isCenter ? 0 : Math.min(absPos * 2, 3);
-                  
+
                   return (
                     <div
                       key={cardIndex}
@@ -1990,8 +2018,6 @@ function ShowcaseCanvas({
                         // 非居中卡片显示色条边框
                         borderLeft: isLeft ? `4px solid ${cardColors[cardIndex]}` : 'none',
                         borderRight: isRight ? `4px solid ${cardColors[cardIndex]}` : 'none',
-                        // 景深效果
-                        filter: blurAmount > 0 ? `blur(${blurAmount}px)` : 'none',
                       }}
                     >
                       {/* 卡片内容 */}
