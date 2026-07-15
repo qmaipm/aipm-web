@@ -10,7 +10,7 @@
  * 2. 画布 540×660（压缩上下留白），由外层包装按容器宽度等比缩放
  * 3. SSR / 无 JS / prefers-reduced-motion：初始即渲染完成终态
  *    （数据大屏卡居中、射线点亮），不再渲染空 div
- * 4. 轮播 3 图标 × 5s ≈ 15s 一轮，符合首页 12–18s 循环要求
+ * 4. 轮播 4 图标 × 4.5s = 18s 一轮，符合首页 12–18s 循环要求
  * 5. keyframe 依赖改为首页自带 hpulse（home.css）
  */
 
@@ -110,7 +110,7 @@ const ENTRY_ANIMATION_CONFIG = {
 };
 
 const ANIMATION_CONFIG = {
-  iconDuration: 5000,  // 首页 Hero：3 图标 × 5s ≈ 15s 一轮
+  iconDuration: 4500,  // 首页 Hero：4 图标 × 4.5s = 18s 一轮
   phases: {
     iconActivate: { start: 0, end: 0.08 },
     lineDrawing: { start: 0.06, end: 0.20 },
@@ -1034,6 +1034,195 @@ const ReviewReportCard = () => {
 };
 
 // ==========================================
+// 卡片4: 机器人作业中心（模拟数据演示）
+// ==========================================
+
+const RobotCard = () => {
+  // 模拟数据 - 机器人作业列表
+  const robots = [
+    { name: '清洁机器人 C-01', zone: '3F 连廊', status: '清扫中', progress: 78, color: '#9333EA' },
+    { name: '四足巡检 Q-02', zone: '地库 B2', status: '巡检中', progress: 45, color: '#EC4899' },
+    { name: '清洁机器人 C-02', zone: '1F 大堂', status: '清扫中', progress: 62, color: '#9333EA' },
+    { name: '配送机器人 D-03', zone: '充电桩', status: '回充', progress: 100, color: '#94A3B8' },
+  ];
+
+  return (
+    <div style={{
+      width: '100%',
+      height: '100%',
+      background: 'linear-gradient(180deg, #FFFFFF 0%, #FAF8FC 100%)',
+      borderRadius: '12px',
+      padding: '12px',
+      display: 'flex',
+      flexDirection: 'column',
+      gap: '8px',
+      fontFamily: 'system-ui, -apple-system, sans-serif',
+      border: '1px solid #E2E8F0',
+      boxShadow: 'inset 0 1px 0 rgba(255,255,255,0.8)',
+    }}>
+      {/* 标题栏 */}
+      <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+        <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+          <div style={{
+            width: '28px',
+            height: '28px',
+            background: 'linear-gradient(135deg, #9333EA 0%, #EC4899 100%)',
+            borderRadius: '8px',
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+            boxShadow: '0 2px 8px rgba(147,51,234,0.25)',
+          }}>
+            <span style={{ fontSize: '12px' }}>🤖</span>
+          </div>
+          <div>
+            <div style={{ fontSize: '13px', fontWeight: 700, color: '#1E293B' }}>机器人作业中心</div>
+            <div style={{ fontSize: '8px', color: '#64748B' }}>启盟广场 · 今日调度看板</div>
+          </div>
+        </div>
+        <div style={{
+          display: 'flex',
+          alignItems: 'center',
+          gap: '4px',
+          fontSize: '8px',
+          color: '#9333EA',
+          background: '#FAF5FF',
+          padding: '3px 8px',
+          borderRadius: '10px',
+          border: '1px solid #F3E8FF',
+        }}>
+          <span style={{
+            width: '5px',
+            height: '5px',
+            borderRadius: '50%',
+            background: '#9333EA',
+            animation: 'hpulse 2s infinite',
+          }} />
+          6 台在线
+        </div>
+      </div>
+
+      {/* 第一行：任务完成率环形图 + 今日作业概况 */}
+      <div style={{ display: 'flex', gap: '8px' }}>
+        <div style={{
+          width: '90px',
+          background: 'linear-gradient(135deg, #FAF5FF 0%, #F3E8FF 100%)',
+          borderRadius: '10px',
+          padding: '10px',
+          display: 'flex',
+          flexDirection: 'column',
+          alignItems: 'center',
+          border: '1px solid #E9D5FF',
+        }}>
+          <div style={{ position: 'relative' }}>
+            <MiniRingChart percent={92} color="#9333EA" size={52} strokeWidth={6} />
+            <div style={{
+              position: 'absolute',
+              top: '50%',
+              left: '50%',
+              transform: 'translate(-50%, -50%)',
+              fontSize: '11px',
+              fontWeight: 700,
+              color: '#7E22CE',
+            }}>92%</div>
+          </div>
+          <div style={{ fontSize: '8px', color: '#6B21A8', marginTop: '4px', fontWeight: 600 }}>任务完成率</div>
+        </div>
+
+        <div style={{
+          flex: 1,
+          background: 'white',
+          borderRadius: '10px',
+          padding: '10px',
+          border: '1px solid #F1F5F9',
+          display: 'flex',
+          flexDirection: 'column',
+          justifyContent: 'space-between',
+        }}>
+          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start' }}>
+            <div>
+              <div style={{ fontSize: '8px', color: '#64748B' }}>今日清扫面积</div>
+              <div style={{ display: 'flex', alignItems: 'baseline', gap: '2px' }}>
+                <span style={{ fontSize: '22px', fontWeight: 800, color: '#1E293B' }}>12,400</span>
+                <span style={{ fontSize: '9px', color: '#64748B' }}>㎡</span>
+              </div>
+            </div>
+            <div style={{
+              display: 'flex',
+              alignItems: 'center',
+              gap: '2px',
+              background: '#FAF5FF',
+              padding: '2px 6px',
+              borderRadius: '8px',
+            }}>
+              <span style={{ fontSize: '10px', color: '#9333EA' }}>↗</span>
+              <span style={{ fontSize: '9px', fontWeight: 600, color: '#9333EA' }}>8.3%</span>
+            </div>
+          </div>
+          <div style={{ display: 'flex', gap: '10px', fontSize: '8px', color: '#64748B' }}>
+            <span>巡检点位 <b style={{ color: '#1E293B' }}>86</b> 处</span>
+            <span>异常上报 <b style={{ color: '#EC4899' }}>2</b> 条</span>
+            <span>人工介入 <b style={{ color: '#1E293B' }}>0</b> 次</span>
+          </div>
+        </div>
+      </div>
+
+      {/* 第二行：机器人作业列表 */}
+      <div style={{
+        flex: 1,
+        background: 'white',
+        borderRadius: '10px',
+        padding: '10px',
+        border: '1px solid #F1F5F9',
+        display: 'flex',
+        flexDirection: 'column',
+        gap: '8px',
+      }}>
+        <div style={{ fontSize: '9px', color: '#64748B', fontWeight: 600 }}>实时作业队列</div>
+        {robots.map((r) => (
+          <div key={r.name} style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+            <div style={{ width: '108px', fontSize: '9px', fontWeight: 600, color: '#1E293B', whiteSpace: 'nowrap' }}>{r.name}</div>
+            <div style={{ width: '48px', fontSize: '8px', color: '#64748B', whiteSpace: 'nowrap' }}>{r.zone}</div>
+            <div style={{ flex: 1, height: '6px', background: '#F1F5F9', borderRadius: '3px', overflow: 'hidden' }}>
+              <div style={{
+                width: `${r.progress}%`,
+                height: '100%',
+                background: `linear-gradient(90deg, ${r.color} 0%, ${r.color}CC 100%)`,
+                borderRadius: '3px',
+              }} />
+            </div>
+            <div style={{
+              width: '44px',
+              fontSize: '8px',
+              fontWeight: 600,
+              color: r.color,
+              textAlign: 'right',
+              whiteSpace: 'nowrap',
+            }}>{r.status} {r.progress < 100 ? `${r.progress}%` : ''}</div>
+          </div>
+        ))}
+      </div>
+
+      {/* 底部信息栏 */}
+      <div style={{
+        display: 'flex',
+        justifyContent: 'space-between',
+        alignItems: 'center',
+        padding: '6px 10px',
+        background: '#F8FAFC',
+        borderRadius: '6px',
+        fontSize: '8px',
+        color: '#64748B',
+      }}>
+        <span>调度模式：AI 自动排班</span>
+        <span>下一班次 14:00</span>
+        <span style={{ color: '#9333EA' }}>IoT 联动中</span>
+      </div>
+    </div>
+  );
+};
+
+// ==========================================
 // SVG 图标定义
 // ==========================================
 
@@ -1095,7 +1284,7 @@ const IconsSVG = {
 // - Agentic 套件（index=0）→ 触发服务优化报告卡片
 // - 数据集市（index=1）→ 触发员工薪资卡片
 // - IoT 感知（index=2）→ 触发数据大屏卡片
-// - 机器人（index=3）→ 不触发任何切换（静态展示）
+// - 机器人（index=3）→ 触发机器人作业中心卡片
 
 const ICONS: IconConfig[] = [
   {
@@ -1138,20 +1327,21 @@ const ICONS: IconConfig[] = [
     href: '/products/robots',
     side: 'bottom-right',
     lineStart: 'left',
-    // 紫粉渐变 (gradient-purple-pink) - 静态展示，不参与轮播
+    // 紫粉渐变 (gradient-purple-pink)
     startColor: '#9333EA',
     endColor: '#EC4899',
   },
 ];
 
 // 卡片类型
-type CardType = 'dashboard' | 'payroll' | 'report';
+type CardType = 'dashboard' | 'payroll' | 'report' | 'robot';
 
 // 卡片配置：定义每张卡片的标题（用于堆叠时显示）
 const CARDS_CONFIG: { id: CardType; title: string; color: string }[] = [
   { id: 'dashboard', title: '数据大屏', color: '#10B981' },
   { id: 'payroll', title: '员工薪资', color: '#0070FF' },
   { id: 'report', title: '复盘报告', color: '#F59E0B' },
+  { id: 'robot', title: '机器人作业', color: '#9333EA' },
 ];
 
 // ==========================================
@@ -1426,11 +1616,9 @@ function ShowcaseCanvas({
         setEntryPhase('line-fade-out');
         setEntryLineFadeOut((elapsed - phase6End) / durations.lineFadeOut);
       } else {
-        // 入场完成，从数据大屏(index=2)开始轮播
-        // 因为入场时服务优化Agent射线已经触发，所以复盘报告已显示
-        // 下一个轮播应该是数据大屏
+        // 入场完成，轮播从机器人(index=3)开始（见轮播 effect 中 carouselIconIndices 的说明）
         setEntryPhase('complete');
-        setCurrentIconIndex(2);  // 从数据大屏开始
+        setCurrentIconIndex(3);  // 从机器人开始
         setCarouselStep(0);  // 数据大屏卡片在最前
         startTimeRef.current = null;
         return;
@@ -1447,34 +1635,37 @@ function ShowcaseCanvas({
 
   // 轮播动画（图标+卡片）
   // 重要规则：
-  // 1. 只有3个图标参与轮播：服务优化Agent(0) → 计薪系统(1) → 数据大屏(2) → 循环
-  // 2. API开放平台(3) 不参与轮播，只静态展示
-  // 3. 射线触发对应关系：
-  //    - 服务优化Agent 射线 → 复盘报告卡片滑到最前
-  //    - 计薪系统 射线 → 员工薪资卡片滑到最前
-  //    - 数据大屏 射线 → 数据大屏卡片滑到最前
-  // 4. 卡片顺序: dashboard(0) → payroll(1) → report(2)
+  // 1. 4 个图标全部参与轮播：Agentic套件(0) → 数据集市(1) → IoT感知(2) → 机器人(3) → 循环
+  // 2. 射线触发对应关系：
+  //    - Agentic套件 射线 → 服务优化报告卡片滑到最前
+  //    - 数据集市 射线 → 员工薪资卡片滑到最前
+  //    - IoT感知 射线 → 数据大屏卡片滑到最前
+  //    - 机器人 射线 → 机器人作业中心卡片滑到最前
+  // 3. 卡片顺序: dashboard(0) → payroll(1) → report(2) → robot(3)
   //    初始显示: dashboard在最前
   useEffect(() => {
     if (!motionOn || entryPhase !== 'complete') return;
 
     const { iconDuration } = ANIMATION_CONFIG;
-    // 轮播图标：只有前3个参与（index 0, 1, 2）- API开放平台(3)不参与
-    const carouselIconIndices = [0, 1, 2];  // 服务优化Agent, 计薪系统, 数据大屏
-    const carouselLength = carouselIconIndices.length;  // 3
+    // 轮播图标：4 个全部参与。
+    // 顺序从机器人(3)开始：入场结束时 dashboard 卡片在最前，
+    // 而机器人的「上一张卡片」恰好是 dashboard（IoT感知→dashboard），
+    // 这样首次轮播不会出现卡片瞬间跳变。
+    const carouselIconIndices = [3, 0, 1, 2];  // 机器人, Agentic套件, 数据集市, IoT感知
+    const carouselLength = carouselIconIndices.length;  // 4
 
     const animate = (timestamp: number) => {
       if (!startTimeRef.current) startTimeRef.current = timestamp;
       const elapsed = timestamp - startTimeRef.current;
 
-      // 图标轮播 - 只有前3个图标参与
+      // 图标轮播 - 4 个图标依次参与
       const totalIconTime = iconDuration * carouselLength;
       const iconTime = elapsed % totalIconTime;
-      const carouselIndex = Math.floor(iconTime / iconDuration);  // 0, 1, 2
+      const carouselIndex = Math.floor(iconTime / iconDuration);  // 0, 1, 2, 3
       const newIconProgress = (iconTime % iconDuration) / iconDuration;
       
-      // 映射到实际图标索引（这里刚好相等）
-      const newIconIndex = carouselIconIndices[carouselIndex];  // 0, 1, 2
+      // 映射到实际图标索引
+      const newIconIndex = carouselIconIndices[carouselIndex];  // 3, 0, 1, 2
 
       setCurrentIconIndex(newIconIndex);
       setIconProgress(newIconProgress);
@@ -1483,18 +1674,13 @@ function ShowcaseCanvas({
       // 射线到达边框的时机是 lineDrawing 阶段结束（progress = 0.20）
       // 
       // 射线触发对应关系：
-      // - carouselIndex=0 (服务优化Agent) → 复盘报告卡片(2)滑到最前
-      // - carouselIndex=1 (计薪系统) → 员工薪资卡片(1)滑到最前
-      // - carouselIndex=2 (数据大屏) → 数据大屏卡片(0)滑到最前
+      // - carouselIndex=0 (Agentic套件) → 服务优化报告卡片(2)滑到最前
+      // - carouselIndex=1 (数据集市) → 员工薪资卡片(1)滑到最前
+      // - carouselIndex=2 (IoT感知) → 数据大屏卡片(0)滑到最前
+      // - carouselIndex=3 (机器人) → 机器人作业中心卡片(3)滑到最前
       //
-      // carouselStep 表示当前最前面的卡片索引：0=dashboard, 1=payroll, 2=report
+      // carouselStep 表示当前最前面的卡片索引：0=dashboard, 1=payroll, 2=report, 3=robot
       // 初始状态(入场后): carouselStep=0 (dashboard在最前)
-      // 
-      // 时序：
-      // - 数据大屏射线触发时，dashboard已在最前，不需要切换
-      // - 计薪系统射线触发时，切换到payroll
-      // - 服务优化Agent射线触发时，切换到report
-      // - 然后回到数据大屏射线，切换回dashboard
       
       const lineDrawingEnd = ANIMATION_CONFIG.phases.lineDrawing.end;  // 0.20
       const slideDuration = CAROUSEL_CONFIG.slideDuration;  // 800ms
@@ -1503,16 +1689,17 @@ function ShowcaseCanvas({
       // 当前图标的射线是否已到达边框
       const lineReached = newIconProgress >= lineDrawingEnd;
       
-      // 卡片目标状态：根据当前图标决定要显示哪张卡片
-      // carouselIndex=0(服务优化Agent) → targetCard=2(report)
-      // carouselIndex=1(计薪系统) → targetCard=1(payroll)  
-      // carouselIndex=2(数据大屏) → targetCard=0(dashboard)
-      const iconToCardMap = [2, 1, 0];  // 图标索引 → 卡片索引
-      const targetCardIndex = iconToCardMap[carouselIndex];
+      // 卡片目标状态：根据当前图标决定要显示哪张卡片（按图标索引映射）
+      // icon 0(Agentic套件) → card 2(report)
+      // icon 1(数据集市) → card 1(payroll)
+      // icon 2(IoT感知) → card 0(dashboard)
+      // icon 3(机器人) → card 3(robot)
+      const iconToCardMap = [2, 1, 0, 3];  // 图标索引 → 卡片索引
+      const targetCardIndex = iconToCardMap[newIconIndex];
       
       // 上一个图标对应的卡片（用于确定切换前的状态）
       const prevCarouselIndex = (carouselIndex + carouselLength - 1) % carouselLength;
-      const prevCardIndex = iconToCardMap[prevCarouselIndex];
+      const prevCardIndex = iconToCardMap[carouselIconIndices[prevCarouselIndex]];
       
       let newCarouselStep = prevCardIndex;  // 切换前的状态
       let newSlideProgress = 0;
@@ -1600,12 +1787,11 @@ function ShowcaseCanvas({
       {ICONS.map((iconConfig, index) => {
         const pos = getDynamicIconPosition(iconConfig.side);
         
-        // 轮播阶段：前3个图标参与(0,1,2)，API开放平台(3)不参与
-        // 入场阶段：只有服务优化Agent（index=0）激活
+        // 轮播阶段：4 个图标全部参与
+        // 入场阶段：只有 Agentic 套件（index=0）激活
         let isCurrentIcon: boolean;
         if (entryPhase === 'complete') {
-          // 轮播阶段：index=3(API开放平台) 不参与，前3个参与
-          isCurrentIcon = index !== 3 && index === currentIconIndex;
+          isCurrentIcon = index === currentIconIndex;
         } else {
           // 入场阶段：只有 index=0 参与
           isCurrentIcon = index === 0;
@@ -1705,10 +1891,7 @@ function ShowcaseCanvas({
           }}
         >
           <defs>
-            {ICONS.map((icon, index) => {
-              // API开放平台(index=3)不参与，跳过
-              if (index === 3) return null;
-              
+            {ICONS.map((icon) => {
               const pathData = getDynamicLinePath(icon.side, icon.lineStart);
               
               // 轮播阶段使用动态渐变（脉冲效果）
@@ -1749,15 +1932,12 @@ function ShowcaseCanvas({
           </defs>
 
           {ICONS.map((iconConfig, index) => {
-            // 轮播阶段：前3个图标参与(0,1,2)，API开放平台(3)不参与
-            // 入场阶段：只有服务优化Agent（index=0）显示射线
+            // 轮播阶段：4 个图标全部参与射线绘制
+            // 入场阶段：只有 Agentic 套件（index=0）显示射线
             const isCurrentIcon = entryPhase === 'complete' ? index === currentIconIndex : index === 0;
             
             // 入场阶段只显示第一个图标的射线
             if (entryPhase !== 'complete' && index !== 0) return null;
-            
-            // 轮播阶段：API开放平台（index=3）不显示射线
-            if (entryPhase === 'complete' && index === 3) return null;
             
             const lineState = entryPhase === 'complete'
               ? getLineState(iconProgress, isCurrentIcon)
@@ -1882,11 +2062,12 @@ function ShowcaseCanvas({
             const cardComponents = [
               <DashboardCard key="dashboard" />, 
               <PayrollCard key="payroll" />, 
-              <ReviewReportCard key="report" />
+              <ReviewReportCard key="report" />,
+              <RobotCard key="robot" />
             ];
             
-            const cardColors = ['#10B981', '#0070FF', '#F59E0B'];
-            const cardTitles = ['数据大屏', '员工薪资', '复盘报告'];
+            const cardColors = ['#10B981', '#0070FF', '#F59E0B', '#9333EA'];
+            const cardTitles = ['数据大屏', '员工薪资', '复盘报告', '机器人作业'];
             
             // 计算主卡片居中位置
             const mainCardLeft = (pcWidth - CARD_LAYOUT.cardWidth) / 2;
@@ -1896,30 +2077,28 @@ function ShowcaseCanvas({
             const easedSlide = easeOut(slideProgress);
             
             // 当前显示的卡片索引和目标卡片索引
-            const iconToCardMap = [2, 1, 0];  // 复盘Agent→报告, 计薪→薪资, 大屏→大屏
+            const iconToCardMap = [2, 1, 0, 3];  // Agentic套件→报告, 数据集市→薪资, IoT感知→大屏, 机器人→机器人作业
             const targetCardIndex = slideProgress > 0 ? iconToCardMap[currentIconIndex] : carouselStep;
             
-            // 计算每张卡片的位置
-            // position: -1=左预览, 0=居中, 1=右预览
-            const getCardPosition = (cardIndex: number): number => {
-              const diff = cardIndex - carouselStep;
-              // 处理循环：-2 → 1, 2 → -1
-              if (diff === 2) return -1;
-              if (diff === -2) return 1;
-              return diff;
+            // 计算每张卡片的位置（4 卡循环）
+            // position: -2=左侧隐藏, -1=左预览, 0=居中, 1=右预览
+            // 归一到 [-2, 1]：切换方向为「左预览→居中→右预览→滑出」，
+            // 隐藏卡片停在 -2（透明），下一步淡入为左预览
+            const normalizePosition = (diff: number): number => {
+              const mod = ((diff % 4) + 4) % 4;  // 0..3
+              return mod > 1 ? mod - 4 : mod;    // -2, -1, 0, 1
             };
             
-            const getTargetPosition = (cardIndex: number): number => {
-              const diff = cardIndex - targetCardIndex;
-              if (diff === 2) return -1;
-              if (diff === -2) return 1;
-              return diff;
-            };
+            const getCardPosition = (cardIndex: number): number =>
+              normalizePosition(cardIndex - carouselStep);
+            
+            const getTargetPosition = (cardIndex: number): number =>
+              normalizePosition(cardIndex - targetCardIndex);
             
             // 渲染所有卡片
             return (
               <>
-                {[0, 1, 2].map((cardIndex) => {
+                {[0, 1, 2, 3].map((cardIndex) => {
                   const currentPos = getCardPosition(cardIndex);
                   const targetPos = getTargetPosition(cardIndex);
                   
@@ -1986,8 +2165,10 @@ function ShowcaseCanvas({
                   
                   // 透明度和缩放 - 增强淡入淡出效果
                   const absPos = Math.abs(pos);
-                  // 使用更柔和的透明度曲线
-                  const baseOpacity = absPos > 1 ? 0 : 1 - absPos * 0.4;
+                  // 连续的透明度曲线：中心 1 → 预览位 0.6 → 隐藏位(|pos|=2) 0
+                  const baseOpacity = absPos <= 1
+                    ? 1 - absPos * 0.4
+                    : Math.max(0, 0.6 * (2 - absPos));
                   // 淡入淡出效果：在切换过程中增加额外的透明度变化
                   const fadeEffect = slideProgress > 0 && slideProgress < 1 
                     ? Math.sin(slideProgress * Math.PI) * 0.1  // 正弦曲线，中间最亮
