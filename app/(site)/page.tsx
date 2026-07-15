@@ -392,21 +392,61 @@ export default function Home() {
             </div>
           </div>
           <div className="h-cred-block reveal">
-            <div className="h-cred-blab">资质</div>
-            <div className="h-qual">
-              <div className="h-qual-card">
-                <div className="h-qual-img"><img src="/honors/gaoxin.png" alt="国家高新技术企业证书" loading="lazy" /></div>
-                <div className="h-qual-name">国家高新技术企业</div>
+            <div className="h-cred-blab">资质与认可</div>
+            <p className="h-cred-intro">技术、生态与资金，三个维度的认可，逐项可查。</p>
+            <div className="h-hcore">
+              <div className="h-hcore-card">
+                <div className="h-hcore-top">
+                  <span className="h-hcore-ic" aria-hidden="true">
+                    <svg viewBox="0 0 24 24" fill="none"><path d="M12 3l2.5 5.1 5.6.8-4 3.9.9 5.6-5-2.6-5 2.6.9-5.6-4-3.9 5.6-.8z" stroke="currentColor" strokeWidth="1.6" strokeLinejoin="round" /></svg>
+                  </span>
+                  <span className="h-hcore-tag">广州市工业和信息化局认可</span>
+                </div>
+                <h3>广州市人工智能百强</h3>
+                <p>在广州全市人工智能企业中入选百强——官方对我们技术与落地能力的认定。</p>
               </div>
-              <div className="h-qual-card">
-                <div className="h-qual-img"><img src="/honors/zjtx.png" alt="专精特新企业证书" loading="lazy" /></div>
-                <div className="h-qual-name">专精特新企业</div>
+              <div className="h-hcore-card">
+                <div className="h-hcore-top">
+                  <span className="h-hcore-logo"><img src="/honors/nvidia.jpg" alt="NVIDIA Inception" loading="lazy" /></span>
+                  <span className="h-hcore-tag">NVIDIA Inception 成员</span>
+                </div>
+                <h3>NVIDIA 全球 AI 加速营</h3>
+                <p>加入英伟达面向全球 AI 公司的加速计划，与全球最前沿的 AI 生态同行。</p>
               </div>
-              <div className="h-qual-card">
-                <div className="h-qual-img"><img src="/honors/nvidia.jpg" alt="英伟达 AI 加速营成员" loading="lazy" /></div>
-                <div className="h-qual-name">英伟达 AI 加速营成员</div>
+              <div className="h-hcore-card">
+                <div className="h-hcore-top">
+                  <span className="h-hcore-ic" aria-hidden="true">
+                    <svg viewBox="0 0 24 24" fill="none"><path d="M4 10 12 4l8 6" stroke="currentColor" strokeWidth="1.6" strokeLinejoin="round" /><path d="M6 10v8M10 10v8M14 10v8M18 10v8" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" /><path d="M4 20h16" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" /></svg>
+                  </span>
+                  <span className="h-hcore-tag">交付有资金保障</span>
+                </div>
+                <h3>首期 5 亿发展基金</h3>
+                <p>国有物业人工智能发展基金，定向投入物业管理 AI 与具身智能——你的项目背后，有长线资金托底。</p>
               </div>
             </div>
+            <div className="h-hmore">
+              <div className="h-hmore-item">
+                <span className="h-hmore-logo"><img src="/honors/gaoxin.png" alt="国家高新技术企业" loading="lazy" /></span>
+                <div className="h-hmore-txt"><b>国家高新技术企业</b><span>国家级资质认证</span></div>
+              </div>
+              <div className="h-hmore-item">
+                <span className="h-hmore-logo"><img src="/honors/zjtx.png" alt="专精特新企业" loading="lazy" /></span>
+                <div className="h-hmore-txt"><b>专精特新企业</b><span>专业化、精细化中小企业</span></div>
+              </div>
+              <div className="h-hmore-item">
+                <span className="h-hmore-logo"><img src="/honors/huangpu.png" alt="具身智能双链主" loading="lazy" /></span>
+                <div className="h-hmore-txt"><b>具身智能双链主</b><span>黄埔区「算力+应用」双链主</span></div>
+              </div>
+              <div className="h-hmore-item">
+                <span className="h-hmore-logo"><img src="/honors/patent.png" alt="近百项发明专利与软著" loading="lazy" /></span>
+                <div className="h-hmore-txt"><b>近百项发明专利与软著</b><span>覆盖 AI 调度、IoT 感知等方向</span></div>
+              </div>
+              <div className="h-hmore-item">
+                <span className="h-hmore-logo"><img src="/honors/iso.png" alt="ISO 9001 / 27001" loading="lazy" /></span>
+                <div className="h-hmore-txt"><b>ISO 9001 / 27001</b><span>质量与信息安全国际认证</span></div>
+              </div>
+            </div>
+            <p className="h-hmore-link"><Link href="/company#honors">查看全部资质与认可 <ArrowR s={13} /></Link></p>
           </div>
         </div>
       </section>
