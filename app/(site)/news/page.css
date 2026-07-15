@@ -95,12 +95,6 @@
   .nw-item .arr{display:none}
 }
 
-/* 底部关注公众号 */
-.nw-subline{margin-top:46px;font-size:13.5px;color:var(--nw-mut);letter-spacing:.02em;text-align:center}
-.nw-subline a{color:var(--nw-green);font-weight:600;text-decoration:underline;text-underline-offset:3px;
-  text-decoration-color:rgba(12,139,130,.34)}
-.nw-subline a:hover{text-decoration-color:var(--nw-green)}
-
 /* 可访问性 / 动效降级 */
 .solnw a:focus-visible{outline:2px solid var(--nw-green);outline-offset:3px;border-radius:10px}
 @media(prefers-reduced-motion:reduce){.solnw *{transition:none!important}}

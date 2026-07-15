@@ -67,8 +67,6 @@ export default function Page() {
               </Link>
             ))}
           </div>
-
-          <p className="nw-subline">想及时收到这些动态,可关注我们的 <Link href="/contact">微信公众号</Link>。</p>
         </div>
       </section>
     </main>
