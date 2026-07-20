@@ -191,7 +191,7 @@ export default function Page() {
           { label: "查看第三方平台 AI 协同", href: "/products/collaboration" },
           { label: "查看 IoT 物理世界感知", href: "/products/iot" },
           { label: "查看机器人与智能装备", href: "/products/robots" },
-          { label: "查看智能体运行与治理中心", href: "/products/fmclaw/agent-runtime" },
+          { label: "查看运行与治理", href: "/products/fmclaw/agent-runtime" },
         ]}
       />
     </main>

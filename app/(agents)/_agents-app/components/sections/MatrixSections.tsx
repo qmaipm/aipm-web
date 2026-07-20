@@ -81,7 +81,7 @@ const Icons = {
 const PLATFORM = [
   {
     rel: "数据来自",
-    name: "行业数据本体与指标中心",
+    name: "行业数据本体",
     href: "/products/fmclaw/ontology",
     d: "项目、空间、设备、人员、工单与账单,映射为统一的行业对象与指标。",
     icon: Icons.ontology,
@@ -89,7 +89,7 @@ const PLATFORM = [
   },
   {
     rel: "流程运行在",
-    name: "行业级智能体工作流引擎",
+    name: "工作流引擎",
     href: "/products/fmclaw/workflow-engine",
     d: "触发、取数、判断、审批与反馈,组织为可持续运行的业务工作流。",
     icon: Icons.workflow,
@@ -97,7 +97,7 @@ const PLATFORM = [
   },
   {
     rel: "动作通过",
-    name: "行业工具与系统连接",
+    name: "工具与系统连接",
     href: "/products/fmclaw/connectors",
     d: "在获得授权后,查询、通知、派单、写回企业现有业务系统。",
     icon: Icons.connect,
@@ -105,7 +105,7 @@ const PLATFORM = [
   },
   {
     rel: "运行受控于",
-    name: "智能体运行与治理中心",
+    name: "运行与治理",
     href: "/products/fmclaw/agent-runtime",
     d: "统一管理组织身份、项目权限、人工介入与审计记录。",
     icon: Icons.governance,

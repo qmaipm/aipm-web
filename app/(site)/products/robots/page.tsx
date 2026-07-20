@@ -111,7 +111,7 @@ export default function Page() {
           <h2 className="reveal">把 AI 接入物业与设施管理的日常运营</h2>
           <p className="reveal">从你的一个真实业务开始。</p>
           <p className="reveal" style={{ fontSize: 14 }}>
-            <Link href="/products/fmclaw/connectors" style={{ color: "#3fd9b8", fontWeight: 600 }}>查看行业工具与系统连接 →</Link>
+            <Link href="/products/fmclaw/connectors" style={{ color: "#3fd9b8", fontWeight: 600 }}>查看工具与系统连接 →</Link>
             {" · "}
             <Link href="/products/fmclaw" style={{ color: "#3fd9b8", fontWeight: 600 }}>查看 FMClaw 产品总览 →</Link>
           </p>

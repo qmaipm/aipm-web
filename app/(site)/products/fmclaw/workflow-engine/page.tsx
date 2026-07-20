@@ -202,8 +202,8 @@ export default function Page() {
       <FmRelated
         updated="2026-07-20"
         links={[
-          { label: "查看智能体运行与治理中心", href: "/products/fmclaw/agent-runtime" },
-          { label: "查看行业工具与系统连接", href: "/products/fmclaw/connectors" },
+          { label: "查看运行与治理", href: "/products/fmclaw/agent-runtime" },
+          { label: "查看工具与系统连接", href: "/products/fmclaw/connectors" },
           { label: "查看全部客户案例", href: "/cases" },
         ]}
       />

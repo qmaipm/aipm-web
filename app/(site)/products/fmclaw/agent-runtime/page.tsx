@@ -212,7 +212,7 @@ export default function Page() {
       <FmRelated
         updated="2026-07-20"
         links={[
-          { label: "查看行业级智能体工作流引擎", href: "/products/fmclaw/workflow-engine" },
+          { label: "查看工作流引擎", href: "/products/fmclaw/workflow-engine" },
           { label: "查看物业管理智能体矩阵", href: "/agents" },
           { label: "阅读 Demo 与生产系统的区别", href: "/insights/demo-vs-system" },
         ]}

@@ -203,7 +203,7 @@ export default function Page() {
       <FmRelated
         updated="2026-07-20"
         links={[
-          { label: "查看行业级智能体工作流引擎", href: "/products/fmclaw/workflow-engine" },
+          { label: "查看工作流引擎", href: "/products/fmclaw/workflow-engine" },
           { label: "查看 IoT 物理世界感知", href: "/products/iot" },
           { label: "查看管理层问询场景", href: "/scenarios/exec-query" },
         ]}
