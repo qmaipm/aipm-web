@@ -83,6 +83,10 @@ const TRADE_LINKS: Record<string, { href: string; label: string }[]> = {
     { href: "/ai-service", label: "AI 物业服务总览" },
     { href: "/workshop/bootcamp", label: "FMClaw™ 加速营" },
   ],
+  "agentic-ai-property-management": [
+    { href: "/agents", label: "物业管理智能体矩阵" },
+    { href: "/products/fmclaw", label: "FMClaw™ 产品总览" },
+  ],
   "industry-llm": [
     { href: "/workshop/demo-day", label: "Demo Day" },
     { href: "/ai-service", label: "AI 物业服务总览" },

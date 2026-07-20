@@ -45,7 +45,7 @@ export default function Page() {
         <div className="wrap">
           <h2 className="reveal">想在你自己的数据上,跑通这个场景?</h2>
           <p className="reveal">带上你的真实数据，来一次 FMClaw™ 加速营，当场把它跑通。</p>
-          <div className="cta-row reveal"><Link href="/workshop" className="btn btn-primary">预约 FMClaw™ 加速营 →</Link></div>
+          <div className="cta-row reveal"><Link href="/workshop" className="btn btn-primary">预约 FMClaw™ 加速营 →</Link><Link href="/agents" className="btn btn-ghost">了解 FMClaw 的 Agentic AI 产品套件</Link></div>
         </div>
       </section>
     </main>

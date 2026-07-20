@@ -175,7 +175,7 @@ export default function OperationsPage() {
             <span className="op-rt">↻ 回灌服务设计</span>
           </div>
           <p className="op-foot">
-            <Link href="/agents" className="op-link">回到四 Agent 闭环总览 <Arrow s={13} /></Link>
+            <Link href="/agents" className="op-link">查看四个行业智能体 <Arrow s={13} /></Link>
           </p>
         </div>
       </section>

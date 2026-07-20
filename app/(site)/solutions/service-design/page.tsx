@@ -162,7 +162,7 @@ export default function ServiceDesignPage() {
             <span className="sd-rt">↻ 回灌服务设计</span>
           </div>
           <p className="sd-foot">
-            <Link href="/agents" className="sd-link">回到四 Agent 闭环总览 <Arrow s={13} /></Link>
+            <Link href="/agents" className="sd-link">回到物业管理智能体矩阵 <Arrow s={13} /></Link>
           </p>
         </div>
       </section>
