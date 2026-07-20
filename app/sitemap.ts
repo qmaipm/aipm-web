@@ -1,4 +1,5 @@
 import type { MetadataRoute } from "next";
+import { NEWS } from "./(site)/news/articles";
 
 // 运行时渲染:URL 用容器注入的 SITE_URL,按当前环境输出测试/生产域名。
 export const dynamic = "force-dynamic";
@@ -108,5 +109,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
     changeFrequency: "monthly" as const,
     priority: 0.8,
   }));
-  return [...main, ...insights, ...cases];
+  // 新闻正文页:直接读登记表,新增新闻自动进 sitemap
+  const news = NEWS.map((n) => ({
+    url: `${SITE_URL}/news/${n.slug}`,
+    lastModified: n.date,
+    changeFrequency: "monthly" as const,
+    priority: 0.7,
+  }));
+  return [...main, ...insights, ...cases, ...news];
 }
