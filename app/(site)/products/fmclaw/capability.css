@@ -251,6 +251,22 @@
 .fmo-howcase b{color:var(--c-ink);font-weight:800}
 .fmo-howside .fmo-verdict{margin-top:26px}
 .fmo-hownote{margin:22px 0 0;font-size:13.5px;line-height:1.7;color:var(--c-mut)}
+.fmc-sec.dark .fmo-howcase{color:#C9D5D0}
+.fmc-sec.dark .fmo-howcase b{color:#fff}
+.fmc-sec.dark .fmo-hownote{color:#8fa39c}
+
+/* 权限分级卡(暗场:直接执行 / 先问过人 / 全程留痕) */
+.fmo-tiers{display:grid;gap:14px}
+.fmo-tier{padding:22px 24px;border-radius:16px;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.1)}
+.fmo-tier-tag{display:inline-flex;align-items:center;font-size:10.5px;font-weight:800;letter-spacing:.14em;
+  text-transform:uppercase;color:#3fd9b8;background:rgba(63,217,184,.09);
+  border:1px solid rgba(63,217,184,.25);border-radius:999px;padding:4px 12px}
+.fmo-tier.human{background:rgba(63,217,184,.06);border-color:rgba(63,217,184,.22)}
+.fmo-tier.human .fmo-tier-tag{color:#fff;background:var(--c-grad);border-color:transparent}
+.fmo-tier p{margin:13px 0 0;font-size:14.5px;line-height:1.7;color:#C9D5D0}
+.fmo-tier p b{color:#fff;font-weight:800}
+.fmo-tier .ex{display:block;margin-top:13px;padding-top:12px;border-top:1px dashed rgba(255,255,255,.1);
+  font-size:12.5px;line-height:1.65;color:#8fa39c}
 
 /* 竖向流程轨(渐变轨道 · 圆形节点 · 角色徽章 · 人工节点高亮) */
 .fmo-flow{position:relative;padding-left:2px}

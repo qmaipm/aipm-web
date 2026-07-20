@@ -38,6 +38,10 @@ const FAQ = [
     a: "不需要。API、MCP、CLI、数据库、文件、消息接口和设备协议,已有系统原样接入。",
   },
   {
+    q: "智能体会不会乱用工具?",
+    a: "不会。谁能用哪个工具,接入时就定好;查信息可以直接做,发出去、扣到钱、动到设备的动作,先经人批准;每一次调用都有记录,可复核。",
+  },
+  {
     q: "机器人和 IoT 设备也能接吗?",
     a: "能。清洁机器人、巡检机器人、无人机,以及 BA、能源仪表、视频安防,都以工具形式接入。工作流发出任务,设备执行并回传结果。",
   },
@@ -54,12 +58,6 @@ const SOFTWARE = [
 ];
 
 const METHODS = ["MCP", "API", "CLI", "数据库", "文件", "消息接口", "设备协议"];
-
-const Check = () => (
-  <svg width="12" height="12" viewBox="0 0 16 16" aria-hidden="true">
-    <path d="M3 8.5l3.2 3.2L13 4.5" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-  </svg>
-);
 
 export default function Page() {
   return (
@@ -156,42 +154,48 @@ export default function Page() {
               </div>
             ))}
           </div>
-        </div>
-      </section>
-
-      {/* ===== 03 接入方式 ===== */}
-      <section className="fmc-sec">
-        <div className="wrap">
-          <p className="fmc-num">03</p>
-          <h2>已有系统,原样接入</h2>
-          <div className="fmc-tags">
+          <div className="fmc-tags" aria-label="接入方式">
             {METHODS.map((m) => <span key={m}>{m}</span>)}
           </div>
           <p className="fmo-verdict">
-            你在用的软件,接进来就能用。不替换。
+            你在用的软件,原样接进来就能用。不替换。
           </p>
         </div>
       </section>
 
-      {/* ===== 04 权限(暗场收口) ===== */}
+      {/* ===== 03 权限(暗场) ===== */}
       <section className="fmc-sec dark">
         <div className="wrap">
-          <p className="fmc-num">04</p>
-          <h2>每个工具的权限,决定谁能调用</h2>
-          <ul className="fmo-checks">
-            <li>
-              <span className="ck" aria-hidden="true"><Check /></span>
-              <span><b>范围明确</b><span className="d">每个工具有明确的使用范围,按组织授权。</span></span>
-            </li>
-            <li>
-              <span className="ck" aria-hidden="true"><Check /></span>
-              <span><b>流程门控</b><span className="d">调用发生在业务流程允许的节点,不越界。</span></span>
-            </li>
-            <li>
-              <span className="ck" aria-hidden="true"><Check /></span>
-              <span><b>调用留痕</b><span className="d">每一次调用都有记录,可审计、可复核。</span></span>
-            </li>
-          </ul>
+          <p className="fmc-num">03</p>
+          <h2>该问人的动作,先问人</h2>
+          <div className="fmo-howgrid">
+            <div className="fmo-howside">
+              <p className="fmo-howcase">
+                谁能用哪个工具,接入时就定好。智能体拿到的不是整个系统,
+                是<b>明确授权的几个动作</b>。
+              </p>
+              <p className="fmo-hownote">
+                收回授权,工具立即不可用。已有记录保留,可随时复核。
+              </p>
+            </div>
+            <div className="fmo-tiers">
+              <div className="fmo-tier">
+                <span className="fmo-tier-tag">直接执行</span>
+                <p>查信息、算数据、写草稿——这类动作不产生外部影响,智能体<b>直接做</b>。</p>
+                <span className="ex">例:查某户的缴费记录,汇总本月工单,起草一条群通知。</span>
+              </div>
+              <div className="fmo-tier human">
+                <span className="fmo-tier-tag">先经人批准</span>
+                <p>发出去、扣到钱、动到设备——这类动作影响到人和钱,<b>先经人批准再执行</b>。</p>
+                <span className="ex">例:向业主群发通知,给某户退费,远程停一台设备。</span>
+              </div>
+              <div className="fmo-tier">
+                <span className="fmo-tier-tag">全程有记录</span>
+                <p>无论直接执行还是人批准后执行,<b>每一次调用都有记录</b>:谁发起、调了什么、结果如何。</p>
+                <span className="ex">出了问题,能查到那一步;要复核,翻记录就行。</span>
+              </div>
+            </div>
+          </div>
           <LinkCards items={[
             { href: "/cases/property-group-chat-ai-service", lab: "客户案例", t: "业主群报事", d: "识别、建单、派工、通知——全程用的都是企业已有的系统。", icon: IC.chat },
           ]} />
