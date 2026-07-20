@@ -24,6 +24,18 @@
    **尤其是 Anthropic、Palantir、OpenAI** 三家:看它们的页面结构、命名、信息密度、CTA 设计。
 最后落地时,wording 一律是**务实克制、陈述事实的 Anthropic 风格,加一点 Palantir 的留白与不啰嗦**。
 
+**已完成的调研结论(2026-07,后续直接复用,不必重查):**
+- GEO 有效手段(Google 官方指南 + Princeton 研究):非同质化内容(独家已验证数字、第一手案例)、
+  每节首句直接给答案(passage 检索按段取)、FAQ 问答对、干净标题层级、
+  正文中可独立引用的定义块(`.fmc-defbox`)、「最后更新」时间戳、robots 显式放行 AI 爬虫
+  (GPTBot/OAI-SearchBot/ClaudeBot/anthropic-ai/PerplexityBot/Google-Extended,已入 app/robots.ts)。
+- GEO 伪需求(Google 官方辟谣,不要做):llms.txt、为 AI 拆碎内容(chunking)、
+  为 AI 改写文案、堆长尾变体页、刻意刷外部 mentions。
+- 对标实证:Palantir Foundry 产品页 = 4 组「判断短句标题 + 两句解释」零形容词;
+  OpenAI Business = 客户案例前置首屏、卖点配真实产品截图、全页单一 CTA 反复出现。
+- 数字纪律的 GEO 理由:独家数字最招 AI 引用;未核实数字被引用后是负资产;
+  同一数字全站口径必须逐字一致(AI 会跨页交叉核对)。
+
 ---
 
 ## 0. 调性(一切判断的根)
@@ -44,7 +56,10 @@
 
 - **全角标点**:中文文案一律用全角 ，：（）(参照页统计:首页 56:0、workshop 65:0、agent-park 47:0,全角:半角)。
   半角 ,:() 只出现在代码、纯英文句和 CSS 里。批量转换时正则的 lookbehind 只认汉字类,**不要把引号并入字符类**(会误伤代码里字符串后的逗号,曾造成 16 个 TS1127)。
-- **标题**:句子当标题、平实中文、不带句号。h2 尽量一行(`white-space:nowrap` + 窄屏兜底)。
+- **标题**:句子当标题、平实中文。h2 尽量一行(`white-space:nowrap` + 窄屏兜底)。
+  句号规则:名词短语式 h2 不带句号;**判断句式双短句 h2 可带句号**(Palantir Foundry 实证:
+  "No Duplication." "Collaboration, Supercharged."——判断句+句号是这个流派的签名。
+  例:「跑通一次不难。难的是每天稳定地跑。」)。
 - **正文**:中文行高 ≥1.7,正文 ≥16px,每行 ≤66 字符。`<b>` 只加在真正的结论句上。
 - **FAQ 写法**:用买家的真实问题当 q(出了错谁负责?怎么防越权?能查到哪一步?数据会不会串?能不能随时叫停?),
   a 第一句先给直接答案(人负责。/能。/不会。/可以。),再展开一两句。

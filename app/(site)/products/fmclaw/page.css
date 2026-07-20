@@ -34,6 +34,9 @@ figure.fmo-app{margin-left:0;margin-right:0}
 .fmo-after-console{padding-top:188px}
 @media(max-width:700px){.fmo-after-console{padding-top:160px}}
 
+/* 定义块（GEO 可引用一句话定义），紧跟产品截图之后 */
+.fmo-defbox{margin:0 0 56px}
+
 /* 对比表/判词/链接卡/流程轨 已上移至 capability.css(能力页共用) */
 .fmo{--cmp-old-label:"通用工作台 · "}
 

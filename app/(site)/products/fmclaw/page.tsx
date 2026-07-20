@@ -28,35 +28,35 @@ const WEBPAGE_LD = {
 
 const FAQ = [
   {
-    q: "FMClaw 是什么?",
+    q: "FMClaw 是什么？",
     a: "FMClaw 是面向物业与设施管理的生产级 AI 智能体平台。它统一企业数据、行业指标、业务工作流、系统工具和组织权限，让 AI 能够进入核心业务并持续完成工作。",
   },
   {
-    q: "FMClaw 与通用 AI 智能体平台有什么不同?",
+    q: "FMClaw 与通用 AI 智能体平台有什么不同？",
     a: "通用平台主要提供模型、智能体和工具的通用能力。FMClaw 进一步提供物业与设施管理的行业数据本体、统一指标、预制业务工作流、行业工具和项目级运行治理能力。",
   },
   {
-    q: "什么是行业数据本体?",
+    q: "什么是行业数据本体？",
     a: "行业数据本体是对项目、空间、设备、人员、工单、合同等业务对象，以及对象关系、指标和权限的统一描述。它让 AI 不只是读取数据，还能理解数据在业务中代表什么。",
   },
   {
-    q: "什么是行业级智能体工作流引擎?",
+    q: "什么是行业级智能体工作流引擎？",
     a: "它将数据、行业能力、工具、审批和执行反馈组织成可持续运行的业务流程。一个项目跑通后，可以在更多项目中按统一口径复用。",
   },
   {
-    q: "FMClaw 如何保证关键结果一致?",
-    a: "FMClaw 对关键指标、计算结果、报告结构和管理口径进行统一控制。在同一工作流和口径下，同一份数据重复运行，关键业务结果保持一致并可以复核。",
+    q: "FMClaw 如何保证关键结果一致？",
+    a: "关键指标、计算结果、报告结构和管理口径用同一套定义。在同一工作流和口径下，同一份数据重复运行，关键业务结果保持一致并可以复核。",
   },
   {
-    q: "FMClaw 是否需要替换钉钉、飞书或企业微信?",
+    q: "FMClaw 是否需要替换钉钉、飞书或企业微信？",
     a: "不需要。现有协作平台继续承担沟通、审批和组织协同，FMClaw 接入其背后的行业数据与业务流程，补上物业与设施管理的专业环节。",
   },
   {
-    q: "FMClaw 如何处理权限与审计?",
+    q: "FMClaw 如何处理权限与审计？",
     a: "智能体在明确的组织身份、项目范围和工具权限下工作。每一次数据读取、工作流运行、工具调用、人工确认和最终结果都会留下记录。",
   },
   {
-    q: "如何开始使用 FMClaw?",
+    q: "如何开始使用 FMClaw？",
     a: "建议从一个真实业务问题和一份真实数据开始。可以先通过 Demo Day 验证可行性，再通过加速营或 FDE 服务进入系统接入和生产部署。",
   },
 ];
@@ -112,12 +112,12 @@ const HOW_STEPS = [
   { n: "03", t: "工作流运行", d: "自动核量、对比历史、识别异常并生成账单草稿。", who: "AI" },
   { n: "04", t: "工具执行", d: "查询原有业务系统，发送确认通知，准备写回结果。", who: "AI · 系统" },
   { n: "05", t: "人工确认", d: "负责人确认、驳回或要求重新核对。", who: "人", human: true },
-  { n: "06", t: "留痕与写回", d: "结果写回原系统，数据来源、处理过程和确认记录均可追溯。", who: "系统" },
+  { n: "06", t: "记录与写回", d: "结果写回原系统，数据来源、处理过程和确认记录均可追溯。", who: "系统" },
 ];
 
 /* 从一个真实问题开始：三段式路径（时长为 workshop 页已确认口径） */
 const PATHS = [
-  { n: "01", t: "Demo Day", time: "半天 – 1 天", d: "用一份真实数据，当场跑出一个能用的 demo,确认这条路走得通。", href: "/workshop/demo-day" },
+  { n: "01", t: "Demo Day", time: "半天 – 1 天", d: "用一份真实数据，当场跑出一个能用的 demo，确认这条路走得通。", href: "/workshop/demo-day" },
   { n: "02", t: "加速营", time: "2 – 3 天", d: "带一个真问题闭门几天，把一条业务工作流现场跑通，跑通的留给你。", href: "/workshop/bootcamp" },
   { n: "03", t: "FDE 服务", time: "按阶段", d: "工程师进到业务现场：数据治理、系统接入、试运行与生产验收。", href: "/workshop/fde" },
 ];
@@ -149,7 +149,7 @@ const CASES = [
     img: "/products/fmclaw/case-chat-service.webp",
     alt: "对话式 AI 客服插画：业主消息进入 AI 处理中心，自动生成工单并派发到现场",
     t: "业主群里的投诉报事，自动成单、派单",
-    facts: [["派单", "少于 1 分钟"], ["运行", "7×24"]],
+    facts: [["派单", "不到 1 分钟"], ["运行", "7×24"]],
     href: "/cases/property-group-chat-ai-service",
   },
   {
@@ -189,7 +189,7 @@ export default function Page() {
               </div>
               <ul className="fmo-facts">
                 <li><b>100+</b>&nbsp;条预制业务工作流</li>
-                <li>覆盖<b>几十个</b>物业与设施管理岗位</li>
+                <li><b>500</b> 个项目同一平台运行</li>
                 <li>自 <b>2017</b> 年持续在真实现场验证</li>
               </ul>
             </div>
@@ -229,10 +229,18 @@ export default function Page() {
       {/* ===== 02 产品差异 ===== */}
       <section className="fmc-sec mist fmo-after-console" id="why-fmclaw">
         <div className="wrap">
+          {/* 定义块：正文中可独立引用的一句话定义（GEO） */}
+          <div className="fmc-defbox fmo-defbox">
+            <p className="fmc-deflab">WHAT IS FMCLAW</p>
+            <p>
+              FMClaw™ 是面向物业与设施管理的生产级 AI 智能体平台，以行业数据本体为底座，
+              统一企业数据、指标、工作流、工具与权限，让 AI 进入核心业务并稳定运行。
+            </p>
+          </div>
           <p className="fmc-num">FROM PERSONAL AI TO OPERATIONAL AI</p>
-          <h2>从一个人使用 AI,到一个组织把工作交给 AI</h2>
+          <h2>从一个人使用 AI，到一个组织把工作交给 AI</h2>
           <p className="fmc-p">
-            个人 AI 工具擅长帮人完成一次任务。企业把工作交给 AI,需要的不止这些。
+            个人 AI 工具擅长帮人完成一次任务。企业把工作交给 AI，需要的不止这些。
           </p>
           <div className="fmo-cmp" role="table" aria-label="通用 AI 工作台与 FMClaw 的差异">
             <div className="fmo-cmp-row fmo-cmp-head" role="row">
@@ -262,7 +270,7 @@ export default function Page() {
             </div>
           </div>
           <p className="fmo-verdict">
-            通用平台解决「人如何使用 AI」;FMClaw 解决「企业如何把核心工作交给 AI」。
+            通用平台解决「人如何使用 AI」；FMClaw 解决「企业如何把核心工作交给 AI」。
           </p>
           <LinkCards items={[
             { href: "/insights/demo-vs-system", lab: "延伸阅读", t: "一个 Demo 和生产系统之间，隔着什么", d: "从演示到生产系统，需要补上哪些环节。", icon: IC.doc },
@@ -315,7 +323,7 @@ export default function Page() {
             <div className="fmo-howside">
               <p className="fmo-howcase">以一次真实的<b>供应商对账</b>为例。</p>
               <p className="fmo-verdict">
-                AI 接手核量、比对和起草;付款决定仍由人作出。
+                AI 接手核量、比对和起草；付款决定仍由人作出。
               </p>
               <p className="fmo-hownote">每一步都在同一个运行体系内完成，不需要人在工具之间搬运数据。</p>
             </div>
@@ -449,12 +457,12 @@ export default function Page() {
           <h2>不替换现有平台，只接入专业业务</h2>
           <p className="fmc-p">
             钉钉、飞书和企业微信继续作为协作入口。FMClaw 在底层连接行业数据、业务工作流与系统工具，
-            完成物业与设施管理的专业闭环。
+            补上物业与设施管理的专业环节。
           </p>
           <div className="fmc-cols3">
             <Link className="fmc-cell fmo-wf" href="/products/collaboration">
               <h3>第三方平台 AI 协同</h3>
-              <p>钉钉、飞书和企业微信继续承载消息、审批与日常协作。</p>
+              <p>消息、审批和日常协作，留在你现在的平台里。</p>
               <span className="fmo-wf-go">查看 →</span>
             </Link>
             <Link className="fmc-cell fmo-wf" href="/products/iot">

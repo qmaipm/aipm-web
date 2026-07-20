@@ -42,7 +42,7 @@ export const MENU: MenuItem[] = [
       {
         heading: "解决方案总览",
         items: [
-          { label: "物业管理智能体矩阵", href: "/agents", small: "四个智能体，完成从服务设计到持续优化的管理闭环" },
+          { label: "物业管理智能体矩阵", href: "/agents", small: "四个智能体，覆盖从服务设计到持续优化的完整管理过程" },
         ],
       },
       {
