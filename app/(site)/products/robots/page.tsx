@@ -8,7 +8,7 @@ import ProductCrumb from "../_crumb";
 export const dynamic = "force-dynamic";
 
 export const metadata: Metadata = pageMetadata("/products/robots", {
-  title: "机器人装备 · 室内清洁与四足巡检 — 启盟科技",
+  title: "机器人装备 · 室内清洁与四足巡检 | 启盟科技",
   description:
     "清洁、巡检这些日复一日的重复体力活,交给装备:室内清洁机器人(国内最小)室内公共场景全覆盖;四足巡检机器人适应台阶、斜坡、砂石路等复杂非结构化地形。人留出来,去做需要判断的事。",
 });

@@ -10,13 +10,13 @@ import "./matrix.css";
 const SITE_URL = process.env.SITE_URL || "https://www.aipm.cn";
 
 export const metadata: Metadata = pageMetadata("/agents", {
-  title: "物业管理智能体矩阵｜Agentic AI 产品套件｜FMClaw",
+  title: "物业管理智能体矩阵｜FMClaw™ Agentic AI 产品套件",
   description:
     "FMClaw 物业管理智能体矩阵是一套面向物业与设施管理的行业级 Agentic AI 产品套件,由服务设计、运营管理、质量评估与服务优化智能体组成,在统一的数据、工作流、权限与审计体系下协同运行。",
   keywords:
     "物业管理智能体,物业管理AI,Agentic AI产品套件,物业AI智能体,设施管理AI,AI物业经理,多智能体协同,企业级AI智能体,物业管理Agent,物业智能体平台",
   openGraph: {
-    title: "物业管理智能体矩阵｜FMClaw Agentic AI 产品套件",
+    title: "物业管理智能体矩阵｜FMClaw™ Agentic AI 产品套件",
     description:
       "四个专业智能体——服务设计、运营管理、质量评估、服务优化——在 FMClaw 平台上协同完成物业管理闭环。",
   },

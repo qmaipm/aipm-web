@@ -3,7 +3,7 @@ import "./page.css";
 import { pageMetadata } from "@/lib/pageMetadata";
 
 export const metadata = pageMetadata("/legal/privacy", {
-  title: "隐私政策 — 启盟科技",
+  title: "隐私政策 | 启盟科技",
   description:
     "启盟科技 · FMClaw™ 隐私政策。我们如何收集、使用、共享与保护你的信息,以及你享有的权利。本页为占位文本,最终以正式版本为准。",
 });

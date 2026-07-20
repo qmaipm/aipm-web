@@ -8,7 +8,7 @@ import ProductCrumb from "../_crumb";
 export const dynamic = "force-dynamic";
 
 export const metadata: Metadata = pageMetadata("/products/iot", {
-  title: "IoT 物理世界感知 · 服务感知是头牌 — 启盟科技",
+  title: "IoT 物理世界感知 · 服务感知是头牌 | 启盟科技",
   description:
     "FMClaw 的物理世界感知分四类:服务感知、设备感知、环境感知、视觉感知。其中服务感知——感知一次服务到底有没有做、做了多久、做得到不到位——是启盟科技独有、别人做不到的能力。四类数据统一接进 FMClaw 行业数据本体与数据集市。",
 });

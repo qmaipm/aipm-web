@@ -4,7 +4,7 @@ import "../scenarios.css";
 import { pageMetadata } from "@/lib/pageMetadata";
 
 export const metadata = pageMetadata("/scenarios/utility-bill", {
-  title: "物业水电费 AI 审批 · 抄表核对自动化 — FMClaw™ 加速营场景",
+  title: "物业水电费 AI 审批 · 抄表核对自动化｜FMClaw™ 加速营场景",
   description:
     "水电费审批从 4 个岗位 5–7 天压到半小时：AI 自动核表、做环比同比、标出异常，给出该签 / 不该签的依据，人只做最后确认。",
 });

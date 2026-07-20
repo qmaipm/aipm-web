@@ -3,7 +3,7 @@ import ArticleShell from "../_ArticleShell";
 import { articleMetadata } from "../articles";
 
 export const metadata = articleMetadata("how-to-choose-cleaning-robot-roi", {
-  title: "物业如何选择清洁机器人 · 从工时替代到工序替代 · 行业研究 — 启盟科技",
+  title: "物业如何选择清洁机器人 · 从工时替代到工序替代 · 行业研究 | 启盟科技",
   description:
     "物业选清洁机器人,关键不是看续航和单次面积,而是看它能否降低人机协同成本。本文用一线实测数据讲清:清洁机器人该做“工序替代”而非“工时替代”,洗地是唯一刚需,以及一台保洁机器人能替代多少人力、ROI 怎么算。附启盟科技旗下自营物业“爱物管”一线实测数据。",
 });

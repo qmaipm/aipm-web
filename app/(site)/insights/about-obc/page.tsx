@@ -2,7 +2,7 @@ import ArticleShell, { Figure, FigRow } from "../_ArticleShell";
 import { articleMetadata } from "../articles";
 
 export const metadata = articleMetadata("about-obc", {
-  title: "关于 OBC 模式 · 以成果为导向的合同 — 启盟科技",
+  title: "关于 OBC 模式 · 以成果为导向的合同 | 启盟科技",
   description:
     "OBC(Outcome-Based Contracting)以可衡量的绩效成果作为合同要求,而非人员编制。结果导向、灵活性、创新激励三大特点,以及新加坡 2017 年起的实践。",
 });

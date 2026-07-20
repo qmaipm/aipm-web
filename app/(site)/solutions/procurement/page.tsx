@@ -5,7 +5,7 @@ import SeoFaq from "@/components/SeoFaq";
 import { pageMetadata } from "@/lib/pageMetadata";
 
 export const metadata: Metadata = pageMetadata("/solutions/procurement", {
-  title: "采购管理 · 智能体解决方案 — 启盟科技",
+  title: "采购管理 · 智能体解决方案 | 启盟科技",
   description:
     "FMClaw 智能采购:服务设计阶段对物料科学测算自动生成清单,库存低于阈值自动触发采购,对接 1688、京东企业购多平台 AI 比价匹配,审批通过自动下单推送供应商、全程留痕实时追踪到货。",
 });

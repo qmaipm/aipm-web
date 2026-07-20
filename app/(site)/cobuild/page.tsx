@@ -5,7 +5,7 @@ import CobuildForm from "./CobuildForm";
 import { pageMetadata } from "@/lib/pageMetadata";
 
 export const metadata: Metadata = pageMetadata("/cobuild", {
-  title: "人工智能产业共建 · 以投带产 — 启盟科技",
+  title: "人工智能产业共建 · 以投带产 | 启盟科技",
   description:
     "一套「以投带产」的人工智能产业共建方案：启盟科技带着资金、技术与运营团队在地方落地，以国有物业为切入，合作方零投入、零采购风险——产业、税收、就业与数据资产沉淀在本地。",
 });

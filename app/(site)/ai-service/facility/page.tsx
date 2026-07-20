@@ -10,7 +10,7 @@ import { pageMetadata } from "@/lib/pageMetadata";
 const SITE_URL = process.env.SITE_URL || "https://www.aipm.cn";
 
 export const metadata: Metadata = pageMetadata("/ai-service/facility", {
-  title: "AI 设施设备服务 · 人单合一的设施设备运维 — 启盟科技",
+  title: "AI 设施设备服务 · 人单合一的设施设备运维 | 启盟科技",
   description:
     "AI 设施设备服务用「人单合一」根治漏修漏检:人到达指定机房经 IoT 核验后才能开始巡检,系统按机房类型自动调出巡检表,仪表拍照 AI 识别读数准确率 99%+,异常即时上报、关键指标同比环比预警。预防性维护做实后,某枢纽机场维修工单下降 70%。由启盟科技旗下自营物业公司爱物管交付。",
   keywords: [

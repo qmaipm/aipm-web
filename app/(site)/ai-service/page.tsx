@@ -9,7 +9,7 @@ import { pageMetadata } from "@/lib/pageMetadata";
 const SITE_URL = process.env.SITE_URL || "https://www.aipm.cn";
 
 export const metadata: Metadata = pageMetadata("/ai-service", {
-  title: "AI 物业服务 · 换物业，先换一种方式 — 启盟科技",
+  title: "AI 物业服务 · 换物业，先换一种方式 | 启盟科技",
   description:
     "换一家物业公司,往往只是换一批人——考核方式、透明程度、响应逻辑都没变。我们换的是方式本身:清洁、设施设备、安保、客服四大工种真实交付,干没干数据会说话;客服管家如实回答服务过程的一切问题,保障你的知情权,从来不藏着掖着;服务指标写进合同,接受 100% 量化考核。由启盟科技旗下自营物业公司爱物管交付,服务 WeWork、佳都科技、八马茶业、万益蓝等客户。",
   keywords: [

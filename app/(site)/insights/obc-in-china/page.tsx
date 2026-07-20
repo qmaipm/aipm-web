@@ -2,7 +2,7 @@ import ArticleShell, { Figure } from "../_ArticleShell";
 import { articleMetadata } from "../articles";
 
 export const metadata = articleMetadata("obc-in-china", {
-  title: "OBC 模式在中国的落地和实践 · 行业研究 — 启盟科技",
+  title: "OBC 模式在中国的落地和实践 · 行业研究 | 启盟科技",
   description:
     "不“数人头”,要“看结果”。基于自研智能服务记录(SSR),OBC 模式在联合办公、快递物流、通信制造三个真实项目里的数智化考核与成效。",
 });

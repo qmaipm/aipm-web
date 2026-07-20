@@ -4,7 +4,7 @@ import "../scenarios.css";
 import { pageMetadata } from "@/lib/pageMetadata";
 
 export const metadata = pageMetadata("/scenarios/reconciliation", {
-  title: "物业 AI 对账 · 供应商自动核量对账 — FMClaw™ 加速营场景",
+  title: "物业 AI 对账 · 供应商自动核量对账｜FMClaw™ 加速营场景",
   description:
     "供应商对账：AI 按合同自动核量、对比历史与市场行情、圈出异常、生成账单草稿，人只做确认或驳回。",
 });

@@ -5,7 +5,7 @@ import SeoFaq from "@/components/SeoFaq";
 import { pageMetadata } from "@/lib/pageMetadata";
 
 export const metadata: Metadata = pageMetadata("/solutions/customer", {
-  title: "客户服务 · 智能体解决方案 — 启盟科技",
+  title: "客户服务 · 智能体解决方案 | 启盟科技",
   description:
     "客服 Claw 住在群里,7×24 无间断、极速响应,记住每位业主的偏好,从省心、周到、主动、智能四个维度全面提升客户服务:自动汇总群聊舆情、@一句话发起工单、工单主动反馈、万事通问答。",
 });

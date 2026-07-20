@@ -5,7 +5,7 @@ import SeoFaq from "@/components/SeoFaq";
 import { pageMetadata } from "@/lib/pageMetadata";
 
 export const metadata: Metadata = pageMetadata("/solutions/payroll", {
-  title: "人员薪酬管理 · 智能体解决方案 — 启盟科技",
+  title: "人员薪酬管理 · 智能体解决方案 | 启盟科技",
   description:
     "排班、考勤、算薪不再靠 HR、主管、项目多人协同。主管只配工作模式,人脸+蓝牙核验现场打卡,系统按小时算在场工时,FMClaw 自动拉取考勤、工时、加班、请假、补贴等数据算出薪酬;已有考勤系统可外接飞书、钉钉、企微数据源。",
 });

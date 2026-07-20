@@ -2,7 +2,7 @@ import ArticleShell, { Figure } from "../_ArticleShell";
 import { articleMetadata } from "../articles";
 
 export const metadata = articleMetadata("why-obc", {
-  title: "为什么需要 OBC · 行业研究 — 启盟科技",
+  title: "为什么需要 OBC · 行业研究 | 启盟科技",
   description:
     "“数人头”的合约模式,是禁锢物业服务行业发展的最大顽疾:偷人头、审计风险、降本等于减人头,以及由此带来的同质化与躺平。",
 });

@@ -5,7 +5,7 @@ import "./page.css";
 import { pageMetadata } from "@/lib/pageMetadata";
 
 export const metadata: Metadata = pageMetadata("/solutions/service-design", {
-  title: "服务设计 · 智能体解决方案 — 启盟科技",
+  title: "服务设计 · 智能体解决方案 | 启盟科技",
   description:
     "根据项目业态、面积、设备与需求,服务设计 Agent 自动建模,给出服务标准、人员编制和预算——每一笔都标着数据来源。约 30 分钟给出一版可讨论的方案底稿。",
 });

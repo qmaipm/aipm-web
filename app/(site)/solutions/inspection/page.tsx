@@ -5,7 +5,7 @@ import SeoFaq from "@/components/SeoFaq";
 import { pageMetadata } from "@/lib/pageMetadata";
 
 export const metadata: Metadata = pageMetadata("/solutions/inspection", {
-  title: "设备巡检管理 · 智能体解决方案 — 启盟科技",
+  title: "设备巡检管理 · 智能体解决方案 | 启盟科技",
   description:
     "纸质表、扫码巡检无法保证人到现场,数据不准不全就失去价值。我们用 IOT 人单合一验证到场、巡检单电子化 + 拍照 AI 识别读数、读数超阈值预警与趋势异常分析,把巡检数据做真做全,支撑预防性维护。",
 });

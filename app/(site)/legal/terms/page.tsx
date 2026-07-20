@@ -3,7 +3,7 @@ import "./page.css";
 import { pageMetadata } from "@/lib/pageMetadata";
 
 export const metadata = pageMetadata("/legal/terms", {
-  title: "服务条款 — 启盟科技",
+  title: "服务条款 | 启盟科技",
   description:
     "启盟科技 · FMClaw™ 服务条款。服务范围、使用约定、责任限制、知识产权与变更终止。本页为占位文本,最终以正式版本为准。",
 });

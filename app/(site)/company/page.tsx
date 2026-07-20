@@ -8,7 +8,7 @@ import { pageMetadata } from "@/lib/pageMetadata";
 const SITE_URL = process.env.SITE_URL || "https://www.aipm.cn";
 
 export const metadata: Metadata = pageMetadata("/company", {
-  title: "关于启盟科技 · 让智能走进物理世界 — 启盟科技",
+  title: "关于我们 · 让智能走进物理世界 | 启盟科技",
   description:
     "启盟科技创立于 2017 年,广州市人工智能百强企业、NVIDIA Inception 全球 AI 加速营成员,首期 5 亿产业发展基金。核心产品 FMClaw™ AI 平台,自营物业公司爱物管。愿景:让智能走进物理世界,物业是最大、也最天然的入口。",
   keywords: [

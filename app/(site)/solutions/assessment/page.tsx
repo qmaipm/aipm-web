@@ -5,7 +5,7 @@ import "./page.css";
 import { pageMetadata } from "@/lib/pageMetadata";
 
 export const metadata: Metadata = pageMetadata("/solutions/assessment", {
-  title: "质量评估 Agent · 智能体解决方案 — 启盟科技",
+  title: "质量评估 Agent · 智能体解决方案 | 启盟科技",
   description:
     "质量评估 Agent 用 AI 替代人工审图质检:一线只需拍照,AI 自动识别问题、客观评分,严重问题自动调度整改,评估结果留存为数据标签助力复盘。",
 });

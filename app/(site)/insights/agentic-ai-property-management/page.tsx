@@ -3,7 +3,7 @@ import ArticleShell from "../_ArticleShell";
 import { articleMetadata } from "../articles";
 
 export const metadata = articleMetadata("agentic-ai-property-management", {
-  title: "Agentic AI 如何进入物业与设施管理 · 行业研究 — 启盟科技",
+  title: "Agentic AI 如何进入物业与设施管理 · 行业研究 | 启盟科技",
   description:
     "从单点 AI 工具到可执行、可治理的行业智能体系统：Agentic AI 不只是生成内容，而是在明确的数据、工作流、权限和人工监督下持续完成业务工作。本文解释 Agentic AI 的概念边界、它为什么与物业与设施管理高度匹配，以及企业从一个真实业务问题开始的落地路径。",
 });
