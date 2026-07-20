@@ -42,14 +42,7 @@ figure.fmo-app{margin-left:0;margin-right:0}
 
 /* 图文交替行(.fmo-lrow 家族)已上移至 capability.css(能力页共用) */
 
-/* ---------- 产品截图 ---------- */
-.fmo-shot{margin:44px 0 8px}
-.fmo-shot img{width:100%;height:auto;display:block;border-radius:18px;border:1px solid var(--c-line);
-  box-shadow:0 24px 60px rgba(12,139,130,.13)}
-.fmc-sec.mist .fmo-shot img{border-color:#fff}
-.fmo-shot figcaption{margin-top:12px;font-size:12.5px;color:var(--c-mut);text-align:center}
-
-/* ---------- 可点卡片(工作流/生态/开始方式) ---------- */
+/* ---------- 可点卡片(生态/开始方式) ---------- */
 a.fmc-cell{display:flex;flex-direction:column;text-decoration:none;color:inherit}
 .fmo-wf-go{margin-top:auto;padding-top:16px;font-size:14px;font-weight:700;color:var(--c-deep)}
 a.fmc-cell:hover .fmo-wf-go{text-decoration:underline}
@@ -77,6 +70,72 @@ a.fmc-cell:hover .fmo-wf-go{text-decoration:underline}
 .fmo-case-facts dd{margin:0;font-size:15.5px;font-weight:800;letter-spacing:-.01em;
   background:var(--c-grad);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
 @supports not ((-webkit-background-clip:text) or (background-clip:text)){.fmo-case-facts dd{color:var(--c-deep);-webkit-text-fill-color:currentColor}}
+
+/* ---------- 生产级信任面板(§05:左主张+插图 · 右可核对清单) ---------- */
+.fmo-trust{margin:52px 0 0;display:grid;grid-template-columns:minmax(0,1.06fr) minmax(0,.94fr);
+  gap:clamp(28px,4vw,56px);align-items:start}
+@media(max-width:900px){.fmo-trust{grid-template-columns:1fr;gap:32px}}
+.fmo-trust-claims{display:grid;gap:26px}
+.fmo-claim{position:relative;padding-left:24px}
+.fmo-claim::before{content:"";position:absolute;left:0;top:4px;bottom:4px;width:3px;border-radius:3px;background:var(--c-grad)}
+.fmo-claim-en{display:block;font-size:11px;font-weight:800;letter-spacing:.16em;color:var(--c-mut);text-transform:uppercase}
+.fmo-claim h3{margin:6px 0 0;font-size:clamp(19px,2.2vw,23px);font-weight:800;letter-spacing:-.02em;color:var(--c-ink)}
+.fmo-claim p{margin:8px 0 0;font-size:15px;line-height:1.72;color:var(--c-ink-2);max-width:46ch}
+.fmo-trust-art{margin:10px 0 0;border-radius:18px;overflow:hidden;
+  box-shadow:0 24px 60px rgba(11,23,20,.14);position:relative}
+.fmo-trust-art::after{content:"";position:absolute;inset:0;border-radius:18px;box-shadow:inset 0 0 0 1px rgba(11,23,20,.08)}
+.fmo-trust-art img{display:block;width:100%;height:auto}
+.fmo-trust-panel{background:var(--c-mist);border:1px solid var(--c-line);border-radius:22px;
+  padding:30px 30px 26px;box-shadow:0 24px 60px rgba(12,139,130,.09)}
+@media(max-width:600px){.fmo-trust-panel{padding:24px 20px 20px}}
+.fmo-trust-panel-lab{display:inline-flex;align-items:center;gap:8px;margin:0;
+  font-size:11px;font-weight:800;letter-spacing:.16em;color:var(--c-green);text-transform:uppercase}
+.fmo-trust-panel-lab::before{content:"";width:16px;height:2px;border-radius:2px;background:var(--c-grad)}
+.fmo-trust-panel-t{margin:10px 0 0;font-size:clamp(17px,1.9vw,19.5px);font-weight:800;letter-spacing:-.015em;color:var(--c-ink);line-height:1.35}
+.fmo-trust-list{margin:20px 0 0;padding:0;list-style:none;display:grid}
+.fmo-trust-list li{display:flex;align-items:flex-start;gap:13px;padding:12px 0}
+.fmo-trust-list li+li{border-top:1px solid rgba(11,23,20,.07)}
+.fmo-trust-ck{flex:none;display:inline-flex;align-items:center;justify-content:center;
+  width:22px;height:22px;border-radius:50%;background:var(--c-grad);color:#fff;margin-top:2px;
+  box-shadow:0 4px 10px rgba(12,139,130,.25)}
+.fmo-trust-txt b{display:block;font-size:14.5px;font-weight:800;letter-spacing:-.01em;color:var(--c-ink)}
+.fmo-trust-txt i{display:block;margin-top:2px;font-style:normal;font-size:12.5px;line-height:1.6;color:var(--c-mut)}
+.fmo-trust-foot{margin:20px -8px -4px;display:flex;align-items:center;gap:16px;padding:12px;border-radius:16px;
+  text-decoration:none;color:inherit;background:#fff;border:1px solid var(--c-line);
+  transition:border-color .2s,box-shadow .25s,transform .25s}
+.fmo-trust-foot:hover{border-color:rgba(12,139,130,.35);box-shadow:0 16px 38px rgba(12,139,130,.13);transform:translateY(-2px)}
+.fmo-trust-foot img{flex:none;width:132px;height:auto;border-radius:10px;border:1px solid var(--c-line)}
+@media(max-width:420px){.fmo-trust-foot img{width:96px}}
+.fmo-trust-foot-txt b{display:block;font-size:14px;font-weight:800;letter-spacing:-.01em;color:var(--c-ink)}
+.fmo-trust-foot-txt>span{display:inline-flex;align-items:center;gap:6px;margin-top:4px;
+  font-size:12.5px;font-weight:700;color:var(--c-deep)}
+.fmo-trust-foot-txt svg{transition:transform .25s}
+.fmo-trust-foot:hover .fmo-trust-foot-txt svg{transform:translateX(3px)}
+
+/* ---------- 案例段:更多链接 + 100+ 预制工作流证据带 ---------- */
+.fmo-more{margin:26px 0 0}
+.fmo-more a{display:inline-flex;align-items:center;gap:7px;font-size:14.5px;font-weight:700;
+  color:var(--c-deep);text-decoration:none}
+.fmo-more a:hover{text-decoration:underline}
+.fmo-more svg{transition:transform .25s}
+.fmo-more a:hover svg{transform:translateX(3px)}
+.fmo-wfband{margin:56px 0 0;display:grid;grid-template-columns:minmax(0,1.12fr) minmax(0,.88fr);
+  gap:clamp(28px,4vw,52px);align-items:center;background:#fff;border:1px solid var(--c-line);
+  border-radius:22px;padding:clamp(28px,4vw,44px);box-shadow:0 24px 60px rgba(12,139,130,.08)}
+@media(max-width:900px){.fmo-wfband{grid-template-columns:1fr;gap:28px}}
+.fmo-wfband-lab{display:inline-flex;align-items:center;gap:8px;margin:0;
+  font-size:11px;font-weight:800;letter-spacing:.16em;color:var(--c-green);text-transform:uppercase}
+.fmo-wfband-lab::before{content:"";width:16px;height:2px;border-radius:2px;background:var(--c-grad)}
+.fmo-wfband h3{margin:12px 0 0;font-size:clamp(20px,2.4vw,26px);font-weight:800;letter-spacing:-.02em;color:var(--c-ink);line-height:1.28}
+.fmo-wfband-d{margin:12px 0 0;font-size:14.5px;line-height:1.72;color:var(--c-ink-2);max-width:52ch}
+.fmo-wfchips{margin:20px 0 22px;display:flex;flex-wrap:wrap;gap:9px}
+.fmo-wfchips a{font-size:13px;font-weight:600;color:var(--c-ink-2);text-decoration:none;
+  background:var(--c-mist);border:1px solid var(--c-line);border-radius:999px;padding:7px 15px;
+  transition:border-color .2s,color .2s,background .2s,transform .2s}
+.fmo-wfchips a:hover{border-color:rgba(12,139,130,.4);color:var(--c-deep);background:#fff;transform:translateY(-1px)}
+.fmo-wfband-art{border-radius:16px;overflow:hidden;position:relative;box-shadow:0 20px 48px rgba(11,23,20,.13)}
+.fmo-wfband-art::after{content:"";position:absolute;inset:0;border-radius:16px;box-shadow:inset 0 0 0 1px rgba(11,23,20,.08)}
+.fmo-wfband-art img{display:block;width:100%;height:auto}
 
 /* 暗场内部分隔(生态连接 → 开始方式) */
 .fmo-start-divide{margin:56px 0 52px;height:1px;background:linear-gradient(90deg,transparent,rgba(255,255,255,.22),transparent)}

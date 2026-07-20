@@ -122,14 +122,30 @@ const PATHS = [
   { n: "03", t: "FDE 服务", time: "按阶段", d: "工程师进到业务现场：数据治理、系统接入、试运行与生产验收。", href: "/workshop/fde" },
 ];
 
-/* 预制业务工作流（六条） */
+/* 预制业务工作流（六条，以 chip 形式出现在证据段） */
 const WORKFLOWS = [
-  { t: "运营日报与周报", d: "统一项目指标，定时生成结构一致的运营报告。", href: "/cases/property-group-auto-operation-report" },
-  { t: "投诉报事与自动派单", d: "识别报修、创建工单、派发、跟踪并双向通知。", href: "/cases/property-group-chat-ai-service" },
-  { t: "员工绩效与薪酬", d: "连接排班、考勤、在场工时和薪酬规则，生成可复核结果。", href: "/solutions/payroll" },
-  { t: "供应商账单", d: "核对合同、工作量与服务结果，标出异常并生成账单草稿。", href: "/scenarios/reconciliation" },
-  { t: "水电费核算", d: "归集读数、完成环比同比、识别异常并生成审批依据。", href: "/scenarios/utility-bill" },
-  { t: "现场巡检与质量评估", d: "按统一标准识别问题、评分、建单并保留证据。", href: "/cases/fmclaw-equipment-inspection" },
+  { t: "运营日报与周报", href: "/cases/property-group-auto-operation-report" },
+  { t: "投诉报事与自动派单", href: "/cases/property-group-chat-ai-service" },
+  { t: "员工绩效与薪酬", href: "/solutions/payroll" },
+  { t: "供应商账单", href: "/scenarios/reconciliation" },
+  { t: "水电费核算", href: "/scenarios/utility-bill" },
+  { t: "现场巡检与质量评估", href: "/cases/fmclaw-equipment-inspection" },
+];
+
+/* 生产级三个主张（左列），与控制台可核对能力清单（右栏） */
+const TRUST_CLAIMS = [
+  { en: "ACCURATE", t: "准确", d: "关键指标使用统一定义，报告里的每个事实和计算结果，都可以复核到数据来源。" },
+  { en: "CONSISTENT", t: "一致", d: "同一份数据在同一口径下，运行一次和一千次，关键业务结果相同。" },
+  { en: "SECURE", t: "安全", d: "智能体在明确的身份、项目范围和授权内工作，关键环节先经人批准。" },
+];
+
+const TRUST_CHECKS = [
+  { b: "项目级数据隔离", d: "每个项目的数据只在自己的范围内使用，不会串项。" },
+  { b: "组织身份与角色权限", d: "每个智能体是谁、替谁工作，一开始就定义清楚。" },
+  { b: "工具调用授权范围", d: "能调用哪些系统、做到哪一步，逐项授权。" },
+  { b: "关键环节人工审批", d: "付款、对外发送等动作，先经人批准再执行。" },
+  { b: "数据读取与执行全程有记录", d: "每一步都可以事后查证，出了问题能定位到具体环节。" },
+  { b: "随时查看、暂停和接管", d: "人始终掌握最终控制权，不依赖对模型的信任。" },
 ];
 
 /* 生产案例（三个，数字为已确认口径） */
@@ -344,83 +360,71 @@ export default function Page() {
           </div>
           <LinkCards items={[
             { href: "/scenarios/reconciliation", lab: "场景", t: "供应商自动对账", d: "核量、比对、找异常、起草账单的完整场景。", icon: IC.reconcile },
-            { href: "/solutions/vendor", lab: "解决方案", t: "供应商管理", d: "从合同、服务记录到结算的全链路管理。", icon: IC.vendor },
-            { href: "/cases/coworking-supplier-reconciliation", lab: "客户案例", t: "真实供应商对账案例", d: "联合办公项目中的真实对账运行记录。", icon: IC.folder },
           ]} />
         </div>
       </section>
 
-      {/* ===== 05 生产级能力 ===== */}
+      {/* ===== 05 生产级信任：主张 + 可核对清单 ===== */}
       <section className="fmc-sec" id="production">
         <div className="wrap">
-          <p className="fmc-num">BUILT FOR REPEATED OPERATIONS</p>
-          <h2>跑通一次不难。难的是每天稳定地跑。</h2>
+          <p className="fmc-num">BUILT FOR PRODUCTION</p>
+          <h2>进入核心业务的前提：准确、一致、安全</h2>
           <p className="fmc-p">
             生产系统面对的不是一份挑选过的数据，而是不同项目、不同来源、持续变化的真实业务。
+            FMClaw 把这三件事做成<b>平台能力</b>，而不是对使用者的要求。
           </p>
-          <div className="fmc-cols3">
-            <div className="fmc-cell">
-              <span className="fmc-cell-en">ACCURATE</span>
-              <h3>准确</h3>
-              <p>关键指标使用统一定义，报告中的事实和计算结果可以复核。</p>
+          <div className="fmo-trust">
+            <div className="fmo-trust-claims">
+              {TRUST_CLAIMS.map((c) => (
+                <div className="fmo-claim" key={c.en}>
+                  <span className="fmo-claim-en">{c.en}</span>
+                  <h3>{c.t}</h3>
+                  <p>{c.d}</p>
+                </div>
+              ))}
+              <figure className="fmo-trust-art">
+                <img
+                  src="/products/fmclaw/production-trust.webp"
+                  alt="生产级信任插画：隔离的项目数据、统一的指标口径、授权范围与人工审批，汇入同一条可追溯的运行记录"
+                  width={1376}
+                  height={768}
+                  loading="lazy"
+                />
+              </figure>
             </div>
-            <div className="fmc-cell">
-              <span className="fmc-cell-en">CONSISTENT</span>
-              <h3>一致</h3>
-              <p>同一份数据在同一口径下，运行一次和一千次，结果相同。</p>
-            </div>
-            <div className="fmc-cell">
-              <span className="fmc-cell-en">TRACEABLE</span>
-              <h3>可追溯</h3>
-              <p>数据读取、流程执行、工具调用和人工确认，每一步都有记录。</p>
-            </div>
-          </div>
-          <LinkCards items={[
-            { href: "/products/fmclaw/agent-runtime", lab: "平台能力", t: "控制台", d: "智能体的身份、权限、运行和记录，都在一个地方管理。", icon: IC.shield },
-            { href: "/insights/demo-vs-system", lab: "洞察", t: "为什么 Demo 跑通了，离生产还很远", d: "生产系统面对的是持续变化的真实业务。", icon: IC.doc },
-          ]} />
-        </div>
-      </section>
-
-      {/* ===== 06 预制业务工作流 ===== */}
-      <section className="fmc-sec mist" id="workflows">
-        <div className="wrap">
-          <p className="fmc-num">PREBUILT INDUSTRY WORKFLOWS</p>
-          <h2>已经跑通的业务工作流，从这里开始</h2>
-          <p className="fmc-p">
-            物业与设施管理中的高频工作，FMClaw 已做成预制流程。不必从空白画布开始。
-          </p>
-
-          {/* 真实产品界面：工作流编辑器 */}
-          <figure className="fmo-shot">
-            <img
-              src="/products/fmclaw-workflow.png"
-              alt="FMClaw 工作流编辑器真实界面：左侧为物业业务分类，右侧为一条「现场品质巡检」业务工作流——定时触发、拉取并分类风险点、人工审批、批量创建工单"
-              width={2600}
-              height={1284}
-              loading="lazy"
-            />
-            <figcaption>FMClaw 工作流编辑器（真实产品界面）</figcaption>
-          </figure>
-
-          <div className="fmc-cols3">
-            {WORKFLOWS.map((w) => (
-              <Link className="fmc-cell fmo-wf" key={w.t} href={w.href}>
-                <h3>{w.t}</h3>
-                <p>{w.d}</p>
-                <span className="fmo-wf-go">查看 →</span>
+            <aside className="fmo-trust-panel" aria-label="可在控制台核对的能力清单">
+              <p className="fmo-trust-panel-lab">VERIFIABLE IN CONSOLE</p>
+              <p className="fmo-trust-panel-t">这些能力，都可以在控制台里当场核对</p>
+              <ul className="fmo-trust-list">
+                {TRUST_CHECKS.map((c) => (
+                  <li key={c.b}>
+                    <span className="fmo-trust-ck" aria-hidden="true">
+                      <svg width="11" height="11" viewBox="0 0 12 12" fill="none"><path d="M2 6.2 4.8 9 10 3.4" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/></svg>
+                    </span>
+                    <span className="fmo-trust-txt"><b>{c.b}</b><i>{c.d}</i></span>
+                  </li>
+                ))}
+              </ul>
+              <Link className="fmo-trust-foot" href="/products/fmclaw/agent-runtime">
+                <img
+                  src="/products/fmclaw/console-identity.jpg"
+                  alt="FMClaw 控制台真实界面：智能体身份、项目范围与工具授权的管理面板"
+                  width={1800}
+                  height={1005}
+                  loading="lazy"
+                />
+                <span className="fmo-trust-foot-txt">
+                  <b>在控制台里看它们怎么被管理</b>
+                  <span>智能体的身份、权限、运行和记录 <Arrow s={12} /></span>
+                </span>
               </Link>
-            ))}
+            </aside>
           </div>
-          <LinkCards items={[
-            { href: "/products/fmclaw/workflow-engine", lab: "平台能力", t: "工作流引擎", d: "把一项工作组织成可持续运行的业务流程。", icon: IC.flow },
-            { href: "/agents", lab: "产品套件", t: "物业管理智能体矩阵", d: "对账、派单、巡检等岗位智能体的全景。", icon: IC.grid },
-          ]} />
         </div>
       </section>
 
-      {/* ===== 07 生产案例 ===== */}
-      <section className="fmc-sec" id="cases">
+      {/* ===== 06 证据：生产案例 + 100+ 预制工作流 ===== */}
+      <section className="fmc-sec mist" id="cases">
         <div className="wrap">
           <p className="fmc-num">RUNNING IN PRODUCTION</p>
           <h2>不是演示。已经在真实项目中运行。</h2>
@@ -444,13 +448,40 @@ export default function Page() {
               </Link>
             ))}
           </div>
-          <LinkCards items={[
-            { href: "/cases", lab: "案例库", t: "查看全部客户案例", d: "更多真实项目的运行记录与口径。", icon: IC.folder },
-          ]} />
+          <p className="fmo-more">
+            <Link href="/cases">查看全部客户案例 <Arrow s={13} /></Link>
+          </p>
+
+          {/* 100+ 预制工作流：一条横向证据带，入口指向工作流引擎子页 */}
+          <div className="fmo-wfband">
+            <div className="fmo-wfband-body">
+              <p className="fmo-wfband-lab">100+ PREBUILT WORKFLOWS</p>
+              <h3>高频工作已做成预制流程，不必从空白画布开始</h3>
+              <p className="fmo-wfband-d">
+                上面的案例都来自同一个工作流库：100 多条物业与设施管理的预制业务工作流，
+                在真实项目中跑通后沉淀下来，接上你的数据就能用。
+              </p>
+              <div className="fmo-wfchips">
+                {WORKFLOWS.map((w) => (
+                  <Link key={w.t} href={w.href}>{w.t}</Link>
+                ))}
+              </div>
+              <Link className="fmo-lgo" href="/products/fmclaw/workflow-engine">了解工作流引擎 <Arrow s={13} /></Link>
+            </div>
+            <div className="fmo-wfband-art">
+              <img
+                src="/products/fmclaw/workflow-library.webp"
+                alt="预制工作流库插画：成排的流程蓝图中取出一张，接入一个真实项目开始运行"
+                width={1376}
+                height={768}
+                loading="lazy"
+              />
+            </div>
+          </div>
         </div>
       </section>
 
-      {/* ===== 08 开始方式（暗场收束，含生态连接） ===== */}
+      {/* ===== 07 开始方式（暗场收束，含生态连接） ===== */}
       <section className="fmc-sec dark" id="start">
         <div className="wrap">
           <p className="fmc-num">WORKS WITH WHAT YOU ALREADY USE</p>
@@ -499,7 +530,7 @@ export default function Page() {
         </div>
       </section>
 
-      {/* ===== 09 FAQ ===== */}
+      {/* ===== 08 FAQ ===== */}
       <FmFaq items={FAQ} heading="关于 FMClaw" />
 
       <div className="fmo-upd">
@@ -508,7 +539,7 @@ export default function Page() {
         </div>
       </div>
 
-      {/* ===== 10 收束 CTA ===== */}
+      {/* ===== 09 收束 CTA ===== */}
       <section className="endcta">
         <div className="wrap">
           <h2>把一件真实的工作，交给 AI 试试</h2>
