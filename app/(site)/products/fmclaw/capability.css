@@ -1,0 +1,130 @@
+/* ============================================================
+   FMClaw 核心能力页共享样式(.fmc 作用域)
+   视觉规范:暖白/浅灰/深炭黑 + 克制品牌强调色;细线、节点、
+   对象标签、状态标签;少量等宽字体;无发光/粒子/玻璃拟态。
+   ============================================================ */
+.fmc{
+  --c-ink:#1A1E1C; --c-ink-2:#494F4C; --c-mut:#7C827F; --c-faint:#A9AEAB;
+  --c-line:#E5E8E6; --c-line-2:#EFF1F0; --c-bg:#FAFAF8; --c-paper:#FFFFFF;
+  --c-green:#0C8B82; --c-blue:#0070FF; --c-accent:#12B98A;
+  --c-mono:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
+  background:var(--c-bg); color:var(--c-ink);
+}
+.fmc .wrap{max-width:1080px;margin:0 auto;padding:0 32px}
+@media(max-width:600px){.fmc .wrap{padding:0 22px}}
+
+/* 面包屑 */
+.fmc-crumb{padding:96px 0 0;font-size:13px;color:var(--c-mut)}
+.fmc-crumb a{color:var(--c-mut);text-decoration:none}
+.fmc-crumb a:hover{color:var(--c-green)}
+.fmc-crumb-sep{margin:0 8px;color:var(--c-faint)}
+
+/* HERO(编辑感:大标题 + 定义,无大图) */
+.fmc-hero{padding:36px 0 56px;border-bottom:1px solid var(--c-line)}
+.fmc-kicker{margin:0 0 14px;font-family:var(--c-mono);font-size:12px;font-weight:600;
+  letter-spacing:.14em;text-transform:uppercase;color:var(--c-green)}
+.fmc-hero h1{margin:0;font-size:clamp(30px,4.2vw,46px);font-weight:800;letter-spacing:-.025em;
+  line-height:1.18;max-width:24ch}
+.fmc-def{margin:24px 0 0;font-size:clamp(15.5px,1.7vw,17.5px);line-height:1.8;color:var(--c-ink-2);
+  max-width:64ch;padding-left:18px;border-left:2px solid var(--c-green)}
+.fmc-hero-en{margin:16px 0 0;font-family:var(--c-mono);font-size:12.5px;letter-spacing:.08em;color:var(--c-faint)}
+
+/* 章节 */
+.fmc-sec{padding:56px 0;border-bottom:1px solid var(--c-line-2)}
+.fmc-sec:last-of-type{border-bottom:0}
+.fmc-num{font-family:var(--c-mono);font-size:12px;font-weight:600;letter-spacing:.12em;color:var(--c-faint)}
+.fmc-sec h2{margin:8px 0 16px;font-size:clamp(21px,2.6vw,28px);font-weight:800;letter-spacing:-.02em;line-height:1.3}
+.fmc-sec>.wrap>p,.fmc-p{margin:0 0 14px;font-size:15.5px;line-height:1.85;color:var(--c-ink-2);max-width:68ch}
+.fmc-sec h3{margin:26px 0 10px;font-size:17px;font-weight:700;letter-spacing:-.01em}
+
+/* 对象/能力标签 */
+.fmc-tags{display:flex;flex-wrap:wrap;gap:8px;margin:16px 0 0}
+.fmc-tags span{font-size:13px;font-weight:500;color:var(--c-ink-2);background:var(--c-paper);
+  border:1px solid var(--c-line);border-radius:6px;padding:6px 12px}
+
+/* 定义框(GEO:纯文本定义) */
+.fmc-defbox{margin:18px 0 0;background:var(--c-paper);border:1px solid var(--c-line);border-radius:10px;
+  padding:22px 26px;max-width:760px}
+.fmc-defbox .fmc-deflab{font-family:var(--c-mono);font-size:11px;font-weight:600;letter-spacing:.14em;
+  color:var(--c-green);margin:0 0 8px}
+.fmc-defbox p{margin:0;font-size:15px;line-height:1.8;color:var(--c-ink)}
+
+/* 两列/三列网格 */
+.fmc-cols{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin:22px 0 0}
+.fmc-cols3{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin:22px 0 0}
+@media(max-width:860px){.fmc-cols,.fmc-cols3{grid-template-columns:1fr}}
+.fmc-cell{background:var(--c-paper);border:1px solid var(--c-line);border-radius:10px;padding:20px 22px}
+.fmc-cell h3{margin:0 0 8px;font-size:15.5px;font-weight:700}
+.fmc-cell p{margin:0;font-size:14px;line-height:1.75;color:var(--c-ink-2)}
+.fmc-cell .fmc-cell-en{font-family:var(--c-mono);font-size:10.5px;letter-spacing:.12em;color:var(--c-faint);
+  text-transform:uppercase;display:block;margin-bottom:6px}
+
+/* 流程链(横向节点 → 移动端纵向) */
+.fmc-chain{display:flex;align-items:stretch;gap:0;margin:24px 0 0;flex-wrap:nowrap}
+.fmc-chain-step{flex:1;min-width:0;position:relative;background:var(--c-paper);border:1px solid var(--c-line);
+  border-radius:10px;padding:16px 14px;text-align:center}
+.fmc-chain-step+.fmc-chain-step{margin-left:26px}
+.fmc-chain-step+.fmc-chain-step::before{content:"→";position:absolute;left:-21px;top:50%;
+  transform:translateY(-50%);color:var(--c-faint);font-size:14px}
+.fmc-chain-step b{display:block;font-size:13.5px;font-weight:700;letter-spacing:-.01em}
+.fmc-chain-step span{display:block;margin-top:5px;font-size:11.5px;line-height:1.5;color:var(--c-mut)}
+@media(max-width:860px){
+  .fmc-chain{flex-direction:column}
+  .fmc-chain-step+.fmc-chain-step{margin-left:0;margin-top:26px}
+  .fmc-chain-step+.fmc-chain-step::before{content:"↓";left:50%;top:-22px;transform:translateX(-50%)}
+}
+
+/* 编号步骤列表(01/02/…) */
+.fmc-steps{margin:22px 0 0;display:grid;gap:0;counter-reset:none}
+.fmc-step{display:flex;gap:18px;padding:18px 0;border-top:1px solid var(--c-line-2)}
+.fmc-step:first-child{border-top:0}
+.fmc-step .n{font-family:var(--c-mono);font-size:13px;font-weight:600;color:var(--c-green);flex:none;padding-top:2px}
+.fmc-step b{display:block;font-size:15px;font-weight:700;margin-bottom:4px}
+.fmc-step p{margin:0;font-size:14px;line-height:1.75;color:var(--c-ink-2)}
+
+/* 状态标签行(等宽) */
+.fmc-status{display:flex;flex-wrap:wrap;gap:10px;margin:22px 0 0}
+.fmc-status span{font-family:var(--c-mono);font-size:11px;font-weight:600;letter-spacing:.1em;
+  color:var(--c-green);background:rgba(12,139,130,.06);border:1px solid rgba(12,139,130,.18);
+  border-radius:5px;padding:6px 12px}
+
+/* 关系说明(细线连接的键值) */
+.fmc-map{margin:22px 0 0;border:1px solid var(--c-line);border-radius:10px;background:var(--c-paper);overflow:hidden}
+.fmc-map-row{display:grid;grid-template-columns:220px 1fr;border-top:1px solid var(--c-line-2)}
+.fmc-map-row:first-child{border-top:0}
+.fmc-map-row dt{padding:14px 20px;font-size:13.5px;font-weight:700;background:var(--c-bg);border-right:1px solid var(--c-line-2)}
+.fmc-map-row dd{margin:0;padding:14px 20px;font-size:13.5px;line-height:1.7;color:var(--c-ink-2)}
+.fmc-map-row dd a{color:var(--c-green);text-decoration:none;font-weight:600}
+.fmc-map-row dd a:hover{text-decoration:underline}
+@media(max-width:640px){.fmc-map-row{grid-template-columns:1fr}
+  .fmc-map-row dt{border-right:0;border-bottom:1px solid var(--c-line-2)}}
+
+/* FAQ */
+.fmc-faq{padding:56px 0;border-top:1px solid var(--c-line)}
+.fmc-faq h2{margin:0 0 22px;font-size:clamp(21px,2.6vw,26px);font-weight:800;letter-spacing:-.02em}
+.fmc-faq-item{border-top:1px solid var(--c-line-2)}
+.fmc-faq-item:last-child{border-bottom:1px solid var(--c-line-2)}
+.fmc-faq-item summary{cursor:pointer;padding:16px 0;font-size:15.5px;font-weight:700;list-style:none;position:relative;padding-right:32px}
+.fmc-faq-item summary::-webkit-details-marker{display:none}
+.fmc-faq-item summary::after{content:"+";position:absolute;right:4px;top:50%;transform:translateY(-50%);
+  font-size:18px;font-weight:400;color:var(--c-mut)}
+.fmc-faq-item[open] summary::after{content:"−"}
+.fmc-faq-item p{margin:0 0 18px;font-size:14.5px;line-height:1.85;color:var(--c-ink-2);max-width:66ch}
+
+/* 相关链接 */
+.fmc-rel{padding:48px 0 64px;border-top:1px solid var(--c-line)}
+.fmc-rel h2{margin:0 0 16px;font-size:19px;font-weight:800;letter-spacing:-.015em}
+.fmc-rel-list{margin:0;padding:0;list-style:none;display:grid;gap:10px}
+.fmc-rel-list a{font-size:14.5px;font-weight:600;color:var(--c-green);text-decoration:none}
+.fmc-rel-list a:hover{text-decoration:underline}
+.fmc-rel-back{margin:26px 0 0}
+.fmc-rel-back a{font-size:14px;font-weight:600;color:var(--c-ink-2);text-decoration:none}
+.fmc-rel-back a:hover{color:var(--c-green)}
+.fmc-updated{margin:14px 0 0;font-size:12.5px;color:var(--c-faint)}
+
+/* 正文内联链接 */
+.fmc a.fmc-ln{color:var(--c-green);text-decoration:none;font-weight:600}
+.fmc a.fmc-ln:hover{text-decoration:underline}
+
+/* reduced motion:本组页面无动画,滚动条平滑关闭即可 */
+@media(prefers-reduced-motion:reduce){.fmc *{scroll-behavior:auto!important}}
