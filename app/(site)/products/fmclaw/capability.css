@@ -57,14 +57,14 @@
 .fmc-phero-bg::after{content:"";position:absolute;inset:0;
   background:linear-gradient(180deg,rgba(7,17,14,.44) 0%,rgba(7,17,14,.22) 42%,rgba(7,17,14,.9) 100%),
              linear-gradient(100deg,rgba(7,17,14,.58) 0%,rgba(7,17,14,.16) 55%,transparent 80%)}
-.fmc-phero .wrap{position:relative;z-index:2;min-height:480px;display:flex;flex-direction:column;
-  justify-content:flex-end;padding-top:88px;padding-bottom:68px}
+.fmc-phero .wrap{position:relative;z-index:2;min-height:560px;display:flex;flex-direction:column;
+  justify-content:flex-end;padding-top:186px;padding-bottom:72px}
 .fmc-phero .fmc-kicker{color:#9fded0}
 .fmc-phero h1{margin:10px 0 0;font-size:clamp(32px,4.4vw,52px);font-weight:800;letter-spacing:-.035em;
   line-height:1.1;color:#fff;max-width:22ch;text-shadow:0 2px 60px rgba(0,112,255,.22)}
 .fmc-phero .fmc-def{color:#D7E2DD}
 .fmc-phero .fmc-def b{color:#fff}
-@media(max-width:700px){.fmc-phero .wrap{min-height:400px;padding-top:64px;padding-bottom:52px}}
+@media(max-width:700px){.fmc-phero .wrap{min-height:0;padding-top:150px;padding-bottom:52px}}
 
 /* 章节 band:亮/雾灰/暗 交替 */
 .fmc-sec{position:relative;padding:104px 0;background:var(--c-paper)}
