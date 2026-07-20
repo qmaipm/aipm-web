@@ -1,4 +1,4 @@
-// 全站导航与路由配置(锁定结构 A9)。第二期未建页面暂指向最近的核心页。
+// 全站导航与路由配置（锁定结构 A9）。第二期未建页面暂指向最近的核心页。
 
 export type DropItem = { label: string; href: string; small?: string; links?: { label: string; href: string }[] };
 export type DropGroup = { heading?: string; items: DropItem[] };
@@ -42,7 +42,7 @@ export const MENU: MenuItem[] = [
       {
         heading: "解决方案总览",
         items: [
-          { label: "物业管理智能体矩阵", href: "/agents", small: "四个智能体,完成从服务设计到持续优化的管理闭环" },
+          { label: "物业管理智能体矩阵", href: "/agents", small: "四个智能体，完成从服务设计到持续优化的管理闭环" },
         ],
       },
       {
@@ -75,15 +75,15 @@ export const MENU: MenuItem[] = [
     groups: [
       {
         items: [
-          { label: "AI 物业服务(总览)", href: "/ai-service", small: "换物业,先换一种方式" },
+          { label: "AI 物业服务（总览）", href: "/ai-service", small: "换物业，先换一种方式" },
         ],
       },
       {
         heading: "四大工种",
         items: [
-          { label: "AI 清洁服务", href: "/ai-service/cleaning", small: "干没干,数据会说话" },
-          { label: "AI 设施设备服务", href: "/ai-service/facility", small: "每一次巡检,都真实发生" },
-          { label: "AI 安保服务", href: "/ai-service/security", small: "人看不过来的,交给 AI 看" },
+          { label: "AI 清洁服务", href: "/ai-service/cleaning", small: "干没干，数据会说话" },
+          { label: "AI 设施设备服务", href: "/ai-service/facility", small: "每一次巡检，都真实发生" },
+          { label: "AI 安保服务", href: "/ai-service/security", small: "人看不过来的，交给 AI 看" },
           { label: "AI 客服管家", href: "/ai-service/customer-service", small: "站在你这边的物业管家" },
         ],
       },
@@ -97,7 +97,7 @@ export const MENU: MenuItem[] = [
     groups: [
       {
         items: [
-          { label: "FMClaw™ 加速营(总览)", href: "/workshop", small: "把你自己的 AI，亲手搭出来" },
+          { label: "FMClaw™ 加速营（总览）", href: "/workshop", small: "把你自己的 AI，亲手搭出来" },
         ],
       },
       {
@@ -119,7 +119,7 @@ export const MENU: MenuItem[] = [
     groups: [
       {
         items: [
-          { label: "生态伙伴(总览)", href: "/partners", small: "我们做产品和平台，伙伴赢市场" },
+          { label: "生态伙伴（总览）", href: "/partners", small: "我们做产品和平台，伙伴赢市场" },
         ],
       },
       {

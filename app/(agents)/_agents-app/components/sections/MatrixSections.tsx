@@ -1,9 +1,9 @@
-// /agents 内容补充区块(服务端渲染,无客户端逻辑)
-// 视觉直接复用 _agents-app/globals.css 原版精致卡片体系:
+// /agents 内容补充区块（服务端渲染，无客户端逻辑）
+// 视觉直接复用 _agents-app/globals.css 原版精致卡片体系：
 // product-card + card-glow(渐变发光边框) + card-icon(渐变底图标) + card-arrow(悬停圆形箭头)
 import Link from "next/link";
 
-/* ---------- 内联 SVG 图标(与老代码 AgentShowcase 同语言:1.5 描边线性图标) ---------- */
+/* ---------- 内联 SVG 图标（与老代码 AgentShowcase 同语言：1.5 描边线性图标） ---------- */
 const Icons = {
   ontology: (
     <svg width="26" height="26" viewBox="0 0 24 24" fill="none">
@@ -83,7 +83,7 @@ const PLATFORM = [
     rel: "数据来自",
     name: "行业数据本体",
     href: "/products/fmclaw/ontology",
-    d: "项目、空间、设备、人员、工单与账单,映射为统一的行业对象与指标。",
+    d: "项目、空间、设备、人员、工单与账单，映射为统一的行业对象与指标。",
     icon: Icons.ontology,
     glow: "blue-purple",
   },
@@ -91,7 +91,7 @@ const PLATFORM = [
     rel: "流程运行在",
     name: "工作流引擎",
     href: "/products/fmclaw/workflow-engine",
-    d: "触发、取数、判断、审批与反馈,组织为可持续运行的业务工作流。",
+    d: "触发、取数、判断、审批与反馈，组织为可持续运行的业务工作流。",
     icon: Icons.workflow,
     glow: "green-gold",
   },
@@ -99,7 +99,7 @@ const PLATFORM = [
     rel: "动作通过",
     name: "工具箱",
     href: "/products/fmclaw/connectors",
-    d: "在获得授权后,发通知、建工单、调收费,写回企业现有业务系统。",
+    d: "在获得授权后，发通知、建工单、调收费，写回企业现有业务系统。",
     icon: Icons.connect,
     glow: "blue-green",
   },
@@ -107,53 +107,53 @@ const PLATFORM = [
     rel: "运行受控于",
     name: "控制台",
     href: "/products/fmclaw/agent-runtime",
-    d: "智能体的身份、权限、运行和记录,都在一个地方管理。",
+    d: "智能体的身份、权限、运行和记录，都在一个地方管理。",
     icon: Icons.governance,
     glow: "pink-gold",
   },
 ];
 
 const SCENARIOS = [
-  { name: "供应商自动对账", href: "/scenarios/reconciliation", d: "核对合同、工作量与账单,标记异常并准备确认材料。", icon: Icons.reconciliation, glow: "blue-purple" },
+  { name: "供应商自动对账", href: "/scenarios/reconciliation", d: "核对合同、工作量与账单，标记异常并准备确认材料。", icon: Icons.reconciliation, glow: "blue-purple" },
   { name: "智能派单", href: "/scenarios/dispatch", d: "结合位置、等级与负载形成派单建议并跟踪执行。", icon: Icons.dispatch, glow: "blue-green" },
-  { name: "品质巡检", href: "/scenarios/inspection", d: "依据统一标准检查现场,关联问题、证据与整改任务。", icon: Icons.inspection, glow: "green-gold" },
-  { name: "管理层问询", href: "/scenarios/exec-query", d: "基于统一口径回答运营问题,提供可复核的数据来源。", icon: Icons.execQuery, glow: "blue-purple" },
-  { name: "费用审批", href: "/scenarios/utility-bill", d: "汇总能耗、合同与历史数据,识别异常并辅助审批。", icon: Icons.utilityBill, glow: "pink-gold" },
+  { name: "品质巡检", href: "/scenarios/inspection", d: "依据统一标准检查现场，关联问题、证据与整改任务。", icon: Icons.inspection, glow: "green-gold" },
+  { name: "管理层问询", href: "/scenarios/exec-query", d: "基于统一口径回答运营问题，提供可复核的数据来源。", icon: Icons.execQuery, glow: "blue-purple" },
+  { name: "费用审批", href: "/scenarios/utility-bill", d: "汇总能耗、合同与历史数据，识别异常并辅助审批。", icon: Icons.utilityBill, glow: "pink-gold" },
   { name: "报修客服", href: "/scenarios/repair-bot", d: "识别报修、创建工单、通知相关人员并跟踪处理结果。", icon: Icons.repairBot, glow: "blue-green" },
 ];
 
 export const FAQ = [
   {
     q: "什么是物业管理智能体矩阵?",
-    a: "物业管理智能体矩阵是运行在 FMClaw 平台上的行业级 Agentic AI 产品套件,由服务设计、运营管理、质量评估与服务优化智能体组成。四个智能体共享统一的数据、指标、业务工作流和组织权限,围绕同一管理闭环协同工作。",
+    a: "物业管理智能体矩阵是运行在 FMClaw 平台上的行业级 Agentic AI 产品套件，由服务设计、运营管理、质量评估与服务优化智能体组成。四个智能体共享统一的数据、指标、业务工作流和组织权限，围绕同一管理闭环协同工作。",
   },
   {
     q: "什么是 Agentic AI 产品套件?",
-    a: "Agentic AI 产品套件不仅生成内容,还能够在明确的目标、数据、工作流、权限和人工监督下持续推进业务任务。它可以读取数据、运行流程、调用获准使用的系统工具、处理执行反馈并留下工作记录。",
+    a: "Agentic AI 产品套件不仅生成内容，还能够在明确的目标、数据、工作流、权限和人工监督下持续推进业务任务。它可以读取数据、运行流程、调用获准使用的系统工具、处理执行反馈并留下工作记录。",
   },
   {
     q: "四个智能体是四个独立的聊天机器人吗?",
-    a: "不是。四个智能体分别承担服务设计、运营管理、质量评估和服务优化工作,但共享同一套业务事实、指标口径、工作流和组织权限。上一阶段的结果会成为下一阶段的输入。",
+    a: "不是。四个智能体分别承担服务设计、运营管理、质量评估和服务优化工作，但共享同一套业务事实、指标口径、工作流和组织权限。上一阶段的结果会成为下一阶段的输入。",
   },
   {
     q: "物业管理智能体矩阵与 FMClaw 是什么关系?",
-    a: "FMClaw 是物业与设施管理的生产级 AI 智能体平台,为智能体提供行业数据本体、业务工作流、系统连接、组织权限、运行监控和审计能力。物业管理智能体矩阵是运行在 FMClaw 上的行业应用。",
+    a: "FMClaw 是物业与设施管理的生产级 AI 智能体平台，为智能体提供行业数据本体、业务工作流、系统连接、组织权限、运行监控和审计能力。物业管理智能体矩阵是运行在 FMClaw 上的行业应用。",
   },
   {
     q: "智能体是否会替代管理人员作出最终决定?",
-    a: "不会。智能体可以准备事实、运行流程、识别异常、生成建议和执行获准操作。涉及责任、审批、付款和重要管理决策的环节,仍由具备相应权限的人员确认。",
+    a: "不会。智能体可以准备事实、运行流程、识别异常、生成建议和执行获准操作。涉及责任、审批、付款和重要管理决策的环节，仍由具备相应权限的人员确认。",
   },
   {
     q: "智能体的工作是否可以追溯?",
-    a: "可以。智能体的数据读取、工作流运行、系统调用、人工确认和最终结果都会形成记录,并可以根据组织和项目权限查询。",
+    a: "可以。智能体的数据读取、工作流运行、系统调用、人工确认和最终结果都会形成记录，并可以根据组织和项目权限查询。",
   },
   {
     q: "FMClaw 是否需要替换现有物业管理系统?",
-    a: "不需要。FMClaw 可以连接企业已有的物业 ERP、财务、人力、协同办公、IoT、视频安防和机器人系统,在现有系统之上组织行业数据与业务工作流。",
+    a: "不需要。FMClaw 可以连接企业已有的物业 ERP、财务、人力、协同办公、IoT、视频安防和机器人系统，在现有系统之上组织行业数据与业务工作流。",
   },
   {
     q: "如何开始使用物业管理智能体?",
-    a: "建议从一个真实业务问题和一份真实数据开始,例如供应商对账、品质巡检、智能派单、运营报告或人员薪酬核算。完成验证后,再进入系统连接、流程调整和生产部署。",
+    a: "建议从一个真实业务问题和一份真实数据开始，例如供应商对账、品质巡检、智能派单、运营报告或人员薪酬核算。完成验证后，再进入系统连接、流程调整和生产部署。",
   },
 ];
 
@@ -225,7 +225,7 @@ export default function MatrixSections() {
         </div>
       </section>
 
-      {/* GET STARTED —— 复用原 cta-section 渐变带,作为页面收尾 */}
+      {/* GET STARTED —— 复用原 cta-section 渐变带，作为页面收尾 */}
       <section className="cta-section" id="start">
         <div className="cta-gradient">
           <div className="cta-blob cta-blob-1"></div>

@@ -5,8 +5,8 @@ import JsonLd from "@/components/JsonLd";
 const SITE_URL = process.env.SITE_URL || "https://www.aipm.cn";
 
 /* ============================================================
-   FMClaw 产品专栏共享组件:面包屑、FAQ、相关链接、页脚返回。
-   四个核心能力页 + 总览页共用,保证结构与结构化数据一致。
+   FMClaw 产品专栏共享组件：面包屑、FAQ、相关链接、页脚返回。
+   四个核心能力页 + 总览页共用，保证结构与结构化数据一致。
    ============================================================ */
 
 export type Crumb = { name: string; href: string };
@@ -75,7 +75,7 @@ export function FmFaq({ items, heading = "常见问题" }: { items: QA[]; headin
 
 export type RelLink = { label: string; href: string };
 
-/** 相关链接 + 返回总览 + 最后更新时间(GEO 要求) */
+/** 相关链接 + 返回总览 + 最后更新时间（GEO 要求） */
 export function FmRelated({ links, updated }: { links: RelLink[]; updated: string }) {
   return (
     <section className="fmc-rel">
@@ -91,7 +91,7 @@ export function FmRelated({ links, updated }: { links: RelLink[]; updated: strin
         <p className="fmc-rel-back">
           <Link href="/products/fmclaw">← 返回 FMClaw™ 产品总览</Link>
         </p>
-        <p className="fmc-updated">最后更新:{updated}</p>
+        <p className="fmc-updated">最后更新：{updated}</p>
       </div>
     </section>
   );
@@ -112,14 +112,14 @@ export function techArticleLd(opts: { path: string; headline: string; descriptio
   };
 }
 
-/** 内联箭头(链接卡/CTA 通用) */
+/** 内联箭头（链接卡/CTA 通用） */
 export const Arrow = ({ s = 14 }: { s?: number }) => (
   <svg width={s} height={s} viewBox="0 0 16 16" aria-hidden="true">
     <path d="M3 8h10M9 4l4 4-4 4" fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round" />
   </svg>
 );
 
-/* 链接卡图标(1.5-stroke,与站内插画语言一致) */
+/* 链接卡图标（1.5-stroke,与站内插画语言一致） */
 const ic = (d: ReactNode) => (
   <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">{d}</svg>
 );
@@ -138,7 +138,7 @@ export const IC = {
 
 export type LinkCardItem = { href: string; lab: string; t: string; d: string; icon: ReactNode };
 
-/** 链接卡组(替代纯文字链接行,总览/能力页共用) */
+/** 链接卡组（替代纯文字链接行，总览/能力页共用） */
 export function LinkCards({ items }: { items: LinkCardItem[] }) {
   return (
     <div className={`fmo-linkcards${items.length === 1 ? " one" : items.length === 2 ? " two" : ""}`}>
@@ -157,7 +157,7 @@ export function LinkCards({ items }: { items: LinkCardItem[] }) {
   );
 }
 
-/** 总览页 SoftwareApplication JSON-LD(字段按规格,不加虚构评分/价格) */
+/** 总览页 SoftwareApplication JSON-LD(字段按规格，不加虚构评分/价格) */
 export const FMCLAW_APP_LD = {
   "@context": "https://schema.org",
   "@type": "SoftwareApplication",
@@ -166,6 +166,6 @@ export const FMCLAW_APP_LD = {
   operatingSystem: "Web",
   url: `${SITE_URL}/products/fmclaw`,
   description:
-    "FMClaw™ 是面向物业与设施管理的生产级 AI 智能体平台。它以行业数据本体为底座,把企业数据、行业指标、业务工作流、系统工具和组织权限统一起来,让 AI 能够进入核心业务,并在多个项目中稳定、准确、可追溯地完成工作。",
+    "FMClaw™ 是面向物业与设施管理的生产级 AI 智能体平台。它以行业数据本体为底座，把企业数据、行业指标、业务工作流、系统工具和组织权限统一起来，让 AI 能够进入核心业务，并在多个项目中稳定、准确、可追溯地完成工作。",
   provider: { "@type": "Organization", name: "广州启盟科技有限公司", url: SITE_URL },
 };
