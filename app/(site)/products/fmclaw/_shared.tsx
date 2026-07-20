@@ -1,3 +1,4 @@
+import type { ReactNode } from "react";
 import Link from "next/link";
 import JsonLd from "@/components/JsonLd";
 
@@ -109,6 +110,51 @@ export function techArticleLd(opts: { path: string; headline: string; descriptio
     author: { "@type": "Organization", name: "启盟科技", url: SITE_URL },
     publisher: { "@type": "Organization", name: "广州启盟科技有限公司", url: SITE_URL },
   };
+}
+
+/** 内联箭头(链接卡/CTA 通用) */
+export const Arrow = ({ s = 14 }: { s?: number }) => (
+  <svg width={s} height={s} viewBox="0 0 16 16" aria-hidden="true">
+    <path d="M3 8h10M9 4l4 4-4 4" fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round" />
+  </svg>
+);
+
+/* 链接卡图标(1.5-stroke,与站内插画语言一致) */
+const ic = (d: ReactNode) => (
+  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">{d}</svg>
+);
+export const IC = {
+  doc: ic(<><path d="M7 3h8l4 4v14H7z" /><path d="M15 3v4h4" /><path d="M10 12h6M10 16h6" /></>),
+  reconcile: ic(<><rect x="3" y="5" width="8" height="14" rx="2" /><rect x="13" y="5" width="8" height="14" rx="2" /><path d="M5.3 12.2l1.4 1.4 2.4-2.9" /><path d="M15.3 12.2l1.4 1.4 2.4-2.9" /></>),
+  vendor: ic(<><path d="M4 21V5a2 2 0 0 1 2-2h7v18" /><path d="M13 9h5a2 2 0 0 1 2 2v10" /><path d="M4 21h17" /><path d="M7.5 7h2M7.5 11h2M7.5 15h2M16.5 13h1M16.5 17h1" /></>),
+  folder: ic(<><path d="M3 7a2 2 0 0 1 2-2h4l2 2h8a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" /><path d="M9 13.5l2 2 4-4" /></>),
+  shield: ic(<><path d="M12 3l7 3v5c0 4.5-3 8-7 10-4-2-7-5.5-7-10V6z" /><path d="M9 11.5l2 2 4-4" /></>),
+  flow: ic(<><rect x="3" y="4" width="6" height="5" rx="1.5" /><rect x="15" y="4" width="6" height="5" rx="1.5" /><rect x="9" y="15" width="6" height="5" rx="1.5" /><path d="M6 9v3h12V9M12 12v3" /></>),
+  grid: ic(<><rect x="4" y="4" width="7" height="7" rx="1.5" /><rect x="13" y="4" width="7" height="7" rx="1.5" /><rect x="4" y="13" width="7" height="7" rx="1.5" /><rect x="13" y="13" width="7" height="7" rx="1.5" /></>),
+  layers: ic(<><path d="M12 3l9 5-9 5-9-5z" /><path d="M3 13.5l9 5 9-5" /></>),
+  chart: ic(<><path d="M4 20V4" /><path d="M4 20h16" /><path d="M8 16v-5M12 16V8M16 16v-8" /></>),
+  chat: ic(<><path d="M4 5h16v11H9l-5 4z" /><path d="M8 9h8M8 12h5" /></>),
+};
+
+export type LinkCardItem = { href: string; lab: string; t: string; d: string; icon: ReactNode };
+
+/** 链接卡组(替代纯文字链接行,总览/能力页共用) */
+export function LinkCards({ items }: { items: LinkCardItem[] }) {
+  return (
+    <div className={`fmo-linkcards${items.length === 1 ? " one" : items.length === 2 ? " two" : ""}`}>
+      {items.map((it) => (
+        <Link className="fmo-linkcard" key={it.href + it.t} href={it.href}>
+          <span className="fmo-lc-icon" aria-hidden="true">{it.icon}</span>
+          <span className="fmo-lc-body">
+            <span className="fmo-lc-lab">{it.lab}</span>
+            <b>{it.t}</b>
+            <span className="fmo-lc-d">{it.d}</span>
+          </span>
+          <span className="fmo-lc-arrow" aria-hidden="true"><Arrow s={13} /></span>
+        </Link>
+      ))}
+    </div>
+  );
 }
 
 /** 总览页 SoftwareApplication JSON-LD(字段按规格,不加虚构评分/价格) */
