@@ -61,13 +61,13 @@ export default function Hero() {
         <div className="hero-content">
           {/* 标题 - 简洁两行 */}
           <h1 className="hero-title-dark">
-            一体化物业管理<br/><span className="text-highlight">AI 产品套件</span>
+            四个智能体，完成从<br/><span className="text-highlight">设计到优化的管理闭环</span>
           </h1>
 
           {/* 描述文字 - 深色简洁 */}
           <p className="hero-desc hero-desc-dark">
-            部署专业分工、协同作业的 AI Agent 矩阵，实现从规划、执行、评估到优化的人机协同闭环，
-            实现服务质量和成本的全链路优化。
+            物业管理智能体矩阵，是运行在 FMClaw 平台上的四个行业智能体。它们共享同一套行业数据本体、
+            指标、业务工作流和组织权限，分别负责服务设计、运营管理、质量评估与服务优化。
           </p>
           
           <div className="hero-actions">

@@ -3,6 +3,9 @@ import Link from "next/link";
 import Image from "next/image";
 import "./page.css";
 import { pageMetadata } from "@/lib/pageMetadata";
+import ProductCrumb from "../_crumb";
+
+export const dynamic = "force-dynamic";
 
 export const metadata: Metadata = pageMetadata("/products/robots", {
   title: "机器人装备 · 室内清洁与四足巡检 — 启盟科技",
@@ -23,11 +26,13 @@ export default function Page() {
       <section className="rob-hero">
         <div className="rob-grid" aria-hidden="true" />
         <div className="wrap rob-hero-top">
+          <ProductCrumb name="机器人与智能装备" href="/products/robots" />
           <span className="rob-kicker">机器人装备<i>/</i>把重复的活交给装备</span>
           <h1 className="rob-h1">
             把重复的体力活<br /><span className="grad">交给装备</span>
           </h1>
           <p className="rob-lead">清洁、巡检这些日复一日的活，让装备接手。人留出来，去做那些需要判断的事。</p>
+          <p className="rob-lead">机器人是 FMClaw 行业工具与系统连接中的现场执行能力。业务工作流发出任务，机器人执行并回传结果。</p>
           <div className="rob-cta">
             <Link href="/workshop" className="btn btn-primary">预约 FMClaw™ 加速营 <Arrow /></Link>
             <a href="#eq-1" className="btn btn-ghost">看两台装备 <Arrow /></a>
@@ -105,6 +110,11 @@ export default function Page() {
         <div className="wrap">
           <h2 className="reveal">把 AI 接入物业与设施管理的日常运营</h2>
           <p className="reveal">从你的一个真实业务开始。</p>
+          <p className="reveal" style={{ fontSize: 14 }}>
+            <Link href="/products/fmclaw/connectors" style={{ color: "#3fd9b8", fontWeight: 600 }}>查看行业工具与系统连接 →</Link>
+            {" · "}
+            <Link href="/products/fmclaw" style={{ color: "#3fd9b8", fontWeight: 600 }}>查看 FMClaw 产品总览 →</Link>
+          </p>
           <div className="cta-row reveal">
             <Link href="/workshop" className="btn btn-primary">预约 FMClaw™ 加速营 <Arrow s={16} /></Link>
           </div>
