@@ -276,12 +276,27 @@
 .fmo-upd{padding:28px 0 0;background:var(--c-paper)}
 .fmo-upd .fmc-updated{margin:0}
 
+/* 真实产品界面 console 框(浏览器窗点 + 标题条;总览与能力页共用) */
+.fmo-console{position:relative;z-index:2;border-radius:20px;overflow:hidden;
+  background:#fff;border:1px solid var(--c-line);box-shadow:0 30px 70px rgba(12,139,130,.14)}
+.fmo-console-bar{display:flex;align-items:center;gap:7px;padding:13px 18px;
+  background:var(--c-mist);border-bottom:1px solid var(--c-line)}
+.fmo-dot{width:10px;height:10px;border-radius:50%;background:#D5DDD9}
+.fmo-dot:nth-child(1){background:#F2A9A0}.fmo-dot:nth-child(2){background:#F2D49B}.fmo-dot:nth-child(3){background:#9FD9C3}
+.fmo-console-title{margin-left:8px;font-size:12px;font-weight:700;letter-spacing:.1em;color:var(--c-mut)}
+.fmo-console img{display:block;width:100%;height:auto}
+.fmo-console figcaption{padding:12px 18px;font-size:12.5px;color:var(--c-mut);text-align:center;
+  background:var(--c-mist);border-top:1px solid var(--c-line)}
+.fmc-sec .fmo-console{margin:44px 0 0}
+
 /* 章节插画(带描边圆角与品牌投影) */
 .fmc-art{margin:44px 0 0}
 .fmc-art img{width:100%;height:auto;display:block;border-radius:18px;border:1px solid var(--c-line);
   box-shadow:0 24px 60px rgba(12,139,130,.13)}
 .fmc-sec.mist .fmc-art img{border-color:#fff}
+.fmc-sec.dark .fmc-art img{border-color:rgba(255,255,255,.16);box-shadow:0 24px 60px rgba(0,0,0,.4)}
 .fmc-art figcaption{margin-top:12px;font-size:12.5px;color:var(--c-mut);text-align:center}
+.fmc-sec.dark .fmc-art figcaption{color:#7E8C87}
 
 /* 紧凑能力行(2×N,标题 + 一句能力陈述) */
 .fmo-caps{margin:44px 0 0;display:grid;grid-template-columns:1fr 1fr;gap:14px}

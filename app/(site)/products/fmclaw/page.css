@@ -19,14 +19,8 @@
 .fmo-facts li b{color:var(--c-ink);font-weight:700}
 .fmo-facts li+li::before{content:"";width:5px;height:5px;border-radius:50%;background:var(--c-faint);margin-right:20px}
 
-/* ---------- 真实产品界面(hero 下方全宽卡) ---------- */
-.fmo-console{position:relative;z-index:2;margin:0 0 -84px;border-radius:20px;overflow:hidden;
-  background:#fff;border:1px solid var(--c-line);box-shadow:0 30px 70px rgba(12,139,130,.14)}
-.fmo-console-bar{display:flex;align-items:center;gap:7px;padding:13px 18px;
-  background:var(--c-mist);border-bottom:1px solid var(--c-line)}
-.fmo-dot{width:10px;height:10px;border-radius:50%;background:#D5DDD9}
-.fmo-dot:nth-child(1){background:#F2A9A0}.fmo-dot:nth-child(2){background:#F2D49B}.fmo-dot:nth-child(3){background:#9FD9C3}
-.fmo-console-title{margin-left:8px;font-size:12px;font-weight:700;letter-spacing:.1em;color:var(--c-mut)}
+/* ---------- 真实产品界面(hero 下方全宽卡;console 框架样式已上移 capability.css) ---------- */
+.fmo-console{margin:0 0 -84px}
 figure.fmo-app{margin-left:0;margin-right:0}
 .fmo-app img{display:block;width:100%;height:auto}
 .fmo-app-anchors{display:flex;flex-wrap:wrap;gap:8px 22px;padding:14px 20px;
