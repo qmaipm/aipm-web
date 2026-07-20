@@ -15,14 +15,9 @@ export const MENU: MenuItem[] = [
     minWidth: 360,
     groups: [
       {
-        heading: "产品总览",
+        heading: "平台核心能力",
         items: [
           { label: "FMClaw™ 产品总览", href: "/products/fmclaw", small: "物业与设施管理的生产级 AI 智能体平台" },
-        ],
-      },
-      {
-        heading: "核心平台能力",
-        items: [
           { label: "行业数据本体与指标中心", href: "/products/fmclaw/ontology", small: "统一业务对象、指标口径与数据权限" },
           { label: "行业级智能体工作流引擎", href: "/products/fmclaw/workflow-engine", small: "让业务流程稳定、可复制地运行" },
           { label: "行业工具与系统连接", href: "/products/fmclaw/connectors", small: "连接 ERP、协同平台、IoT 与机器人" },
@@ -30,9 +25,8 @@ export const MENU: MenuItem[] = [
         ],
       },
       {
-        heading: "行业应用与扩展",
+        heading: "行业连接与物理执行",
         items: [
-          { label: "物业管理智能体矩阵", href: "/agents", small: "服务设计、运营、质量与服务优化" },
           { label: "第三方平台 AI 协同", href: "/products/collaboration", small: "接入钉钉、飞书与企业微信" },
           { label: "IoT 物理世界感知", href: "/products/iot", small: "让现场状态成为 AI 可用的数据" },
           { label: "机器人与智能装备", href: "/products/robots", small: "把管理指令转化为现场执行" },
@@ -46,22 +40,22 @@ export const MENU: MenuItem[] = [
     minWidth: 320,
     groups: [
       {
-        heading: "产品套件",
+        heading: "解决方案总览",
         items: [
-          {
-            label: "物业管理智能体矩阵",
-            href: "/agents",
-            links: [
-              { label: "服务设计", href: "/solutions/service-design" },
-              { label: "运营管理", href: "/solutions/operations" },
-              { label: "质量评估", href: "/solutions/assessment" },
-              { label: "服务优化", href: "/solutions/optimization" },
-            ],
-          },
+          { label: "物业管理智能体矩阵", href: "/agents", small: "四个智能体,完成从服务设计到持续优化的管理闭环" },
         ],
       },
       {
-        heading: "解决方案",
+        heading: "四个行业智能体",
+        items: [
+          { label: "服务设计智能体", href: "/solutions/service-design" },
+          { label: "运营管理智能体", href: "/solutions/operations" },
+          { label: "质量评估智能体", href: "/solutions/assessment" },
+          { label: "服务优化智能体", href: "/solutions/optimization" },
+        ],
+      },
+      {
+        heading: "业务解决方案",
         items: [
           { label: "人员成本优化", href: "/solutions/cost" },
           { label: "服务质量管理", href: "/solutions/quality" },
@@ -162,7 +156,6 @@ export const FOOTER_COLS: { title: string; links: DropItem[] }[] = [
       { label: "行业级智能体工作流引擎", href: "/products/fmclaw/workflow-engine" },
       { label: "行业工具与系统连接", href: "/products/fmclaw/connectors" },
       { label: "智能体运行与治理中心", href: "/products/fmclaw/agent-runtime" },
-      { label: "物业管理智能体矩阵", href: "/agents" },
       { label: "第三方平台 AI 协同", href: "/products/collaboration" },
       { label: "IoT 物理感知", href: "/products/iot" },
       { label: "机器人与智能装备", href: "/products/robots" },
@@ -182,9 +175,10 @@ export const FOOTER_COLS: { title: string; links: DropItem[] }[] = [
     title: "智能体解决方案",
     links: [
       { label: "物业管理智能体矩阵", href: "/agents" },
-      { label: "人员成本优化", href: "/solutions/cost" },
-      { label: "服务质量管理", href: "/solutions/quality" },
-      { label: "服务分包管理", href: "/solutions/subcontract" },
+      { label: "服务设计智能体", href: "/solutions/service-design" },
+      { label: "运营管理智能体", href: "/solutions/operations" },
+      { label: "质量评估智能体", href: "/solutions/assessment" },
+      { label: "服务优化智能体", href: "/solutions/optimization" },
       { label: "客户案例", href: "/cases" },
     ],
   },

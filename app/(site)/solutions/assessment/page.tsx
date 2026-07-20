@@ -160,7 +160,7 @@ export default function Page() {
             ))}
           </div>
           <p className="qa-foot">
-            <Link href="/agents" className="qa-link">回到四 Agent 闭环总览 <Arrow s={13} /></Link>
+            <Link href="/agents" className="qa-link">查看从设计到优化的智能体管理闭环 <Arrow s={13} /></Link>
           </p>
         </div>
       </section>

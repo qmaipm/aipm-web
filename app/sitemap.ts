@@ -66,6 +66,7 @@ const INSIGHTS = [
   "/insights",
   "/insights/how-to-run-ai-competition",
   "/insights/demo-vs-system",
+  "/insights/agentic-ai-property-management",
   "/insights/what-is-fde",
   "/insights/ai-transformation-bottom-up",
   "/insights/property-management-second-half-ai-company",

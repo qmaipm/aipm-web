@@ -162,7 +162,7 @@ export default function OptimizationPage() {
             <span className="ot-rt">↻ 回灌服务设计</span>
           </div>
           <p className="ot-foot">
-            <Link href="/agents" className="ot-link">回到四 Agent 闭环总览 <Arrow s={13} /></Link>
+            <Link href="/agents" className="ot-link">了解 FMClaw 的 Agentic AI 产品套件 <Arrow s={13} /></Link>
           </p>
         </div>
       </section>
