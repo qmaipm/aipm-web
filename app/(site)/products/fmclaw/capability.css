@@ -51,20 +51,30 @@
   border:1px solid var(--c-line);box-shadow:0 24px 60px rgba(12,139,130,.13)}
 @media(max-width:960px){.fmc-hero-art{max-width:560px}}
 
-/* 照片 hero(控制台页:摄影底图 · 暗场,同 workshop ws-hero 质感) */
-.fmc-phero{position:relative;overflow:hidden;background:var(--c-core);color:#fff}
+/* 照片 hero(控制台页:摄影底图 · 暗场,规格与 workshop ws-hero 一致) */
+.fmc-phero{position:relative;overflow:hidden;padding:186px 0 76px;background:var(--c-core);color:#fff;
+  min-height:640px;display:flex;align-items:flex-end}
 .fmc-phero-bg{position:absolute;inset:0;z-index:0;background:url(/products/fmclaw/console-hero.jpg) center/cover no-repeat}
 .fmc-phero-bg::after{content:"";position:absolute;inset:0;
-  background:linear-gradient(180deg,rgba(7,17,14,.44) 0%,rgba(7,17,14,.22) 42%,rgba(7,17,14,.9) 100%),
-             linear-gradient(100deg,rgba(7,17,14,.58) 0%,rgba(7,17,14,.16) 55%,transparent 80%)}
-.fmc-phero .wrap{position:relative;z-index:2;min-height:560px;display:flex;flex-direction:column;
-  justify-content:flex-end;padding-top:186px;padding-bottom:72px}
-.fmc-phero .fmc-kicker{color:#9fded0}
-.fmc-phero h1{margin:10px 0 0;font-size:clamp(32px,4.4vw,52px);font-weight:800;letter-spacing:-.035em;
-  line-height:1.1;color:#fff;max-width:22ch;text-shadow:0 2px 60px rgba(0,112,255,.22)}
-.fmc-phero .fmc-def{color:#D7E2DD}
-.fmc-phero .fmc-def b{color:#fff}
-@media(max-width:700px){.fmc-phero .wrap{min-height:0;padding-top:150px;padding-bottom:52px}}
+  background:linear-gradient(180deg,rgba(7,17,14,.46) 0%,rgba(7,17,14,.24) 42%,rgba(7,17,14,.88) 100%),
+             linear-gradient(100deg,rgba(7,17,14,.56) 0%,rgba(7,17,14,.16) 55%,transparent 80%)}
+.fmc-phero .fmc-grid{background-image:linear-gradient(to right,rgba(63,217,184,.09) 1px,transparent 1px),
+  linear-gradient(to bottom,rgba(63,217,184,.09) 1px,transparent 1px)}
+.fmc-phero .wrap{position:relative;z-index:2;width:100%}
+.fmc-phero h1{margin:22px 0 0;font-weight:800;font-size:clamp(38px,6vw,72px);line-height:1.06;letter-spacing:-.035em;color:#fff;max-width:18ch;
+  text-shadow:0 2px 60px rgba(0,112,255,.22)}
+.fmc-phero .fmc-plead{margin:26px 0 0;font-size:clamp(16px,1.8vw,19px);line-height:1.7;color:#D7E2DD;max-width:54ch;font-weight:400}
+.fmc-phero .fmc-plead b{color:#fff;font-weight:600}
+.fmc-phero .fmc-pcta{margin-top:38px;display:flex;flex-wrap:wrap;gap:14px;align-items:center}
+.fmc-phero .btn-ghost{color:#fff;border-color:rgba(255,255,255,.45);background:rgba(255,255,255,.05)}
+.fmc-phero .btn-ghost:hover{border-color:#fff;background:rgba(255,255,255,.12)}
+@media(max-width:560px){.fmc-phero .fmc-pcta{flex-direction:column;align-items:stretch}.fmc-phero .fmc-pcta .btn{width:100%}}
+.fmc-phero .fmc-proof{position:relative;z-index:2;margin-top:52px;display:flex;flex-wrap:wrap;align-items:center;gap:12px 22px;
+  font-size:clamp(15px,1.9vw,18px);color:#AEBAB5}
+.fmc-phero .fmc-proof b{color:#fff;font-weight:600}
+.fmc-phero .fmc-proof b.grad{font-weight:800;letter-spacing:-.01em}
+.fmc-phero .fmc-proof .sep{width:5px;height:5px;border-radius:50%;background:rgba(255,255,255,.35)}
+@media(max-width:700px){.fmc-phero{padding:150px 0 56px;min-height:0}}
 
 /* 章节 band:亮/雾灰/暗 交替 */
 .fmc-sec{position:relative;padding:104px 0;background:var(--c-paper)}

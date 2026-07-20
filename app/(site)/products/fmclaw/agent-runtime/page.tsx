@@ -43,28 +43,46 @@ const FAQ = [
   },
 ];
 
+const ArrowD = ({ s = 15 }: { s?: number }) => (
+  <svg width={s} height={s} viewBox="0 0 16 16" aria-hidden="true">
+    <path d="M8 3v10M4 9l4 4 4-4" fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round" />
+  </svg>
+);
+
 export default function Page() {
   return (
     <main className="fmc">
       <JsonLd data={TECH_LD} />
 
-      {/* ===== HERO(真人摄影底图 · 暗场) ===== */}
+      {/* ===== HERO(真人摄影底图 · 暗场,规格同 workshop ws-hero) ===== */}
       <header className="fmc-phero">
         <span className="fmc-phero-bg" aria-hidden="true" />
+        <div className="fmc-grid" aria-hidden="true" />
         <div className="wrap">
-          <div>
-            <FmBreadcrumb
-              onDark
-              trail={[
-                { name: "FMClaw™ 产品总览", href: "/products/fmclaw" },
-                { name: "控制台", href: "/products/fmclaw/agent-runtime" },
-              ]}
-            />
-            <p className="fmc-kicker" style={{ marginTop: 26 }}>L4 · Console</p>
-            <h1>智能体在干活,<br />你看得见、管得住</h1>
-            <p className="fmc-def">
-              每个智能体是谁、在哪个项目、干了什么、谁批准的——都在<b>控制台</b>。
-            </p>
+          <FmBreadcrumb
+            onDark
+            trail={[
+              { name: "FMClaw™ 产品总览", href: "/products/fmclaw" },
+              { name: "控制台", href: "/products/fmclaw/agent-runtime" },
+            ]}
+          />
+          <h1>
+            智能体在干活,<span className="grad">你看得见、管得住</span>
+          </h1>
+          <p className="fmc-plead">
+            每个智能体是谁、在哪个项目、干了什么、谁批准的——都在控制台。
+            <b>敢把业务交给智能体,是因为随时能接管。</b>
+          </p>
+          <div className="fmc-pcta">
+            <a href="#govern" className="btn btn-primary">看怎么管住它 <ArrowD /></a>
+            <Link href="/cases/coworking-supplier-reconciliation" className="btn btn-ghost">看真实案例 <Arrow /></Link>
+          </div>
+          <div className="fmc-proof">
+            <span><b>有身份、有边界</b></span>
+            <span className="sep" />
+            <span>500 个项目<b>同一张面板</b></span>
+            <span className="sep" />
+            <span><b className="grad">每一步都有记录</b></span>
           </div>
         </div>
       </header>
@@ -88,7 +106,7 @@ export default function Page() {
       </section>
 
       {/* ===== 02 身份与权限(真人照片图文行) ===== */}
-      <section className="fmc-sec mist">
+      <section className="fmc-sec mist" id="govern">
         <div className="wrap">
           <p className="fmc-num">02</p>
           <h2>智能体像员工一样管理</h2>
