@@ -245,46 +245,46 @@ export default function Page() {
       {/* ===== 02 产品差异 ===== */}
       <section className="fmc-sec mist fmo-after-console" id="why-fmclaw">
         <div className="wrap">
-          {/* 定义块：正文中可独立引用的一句话定义（GEO） */}
-          <div className="fmc-defbox fmo-defbox">
-            <p className="fmc-deflab">WHAT IS FMCLAW</p>
-            <p>
-              FMClaw™ 是面向物业与设施管理的生产级 AI 智能体平台，以行业数据本体为底座，
+          {/* 定义带：正文中可独立引用的一句话定义（GEO），横向大字版式 */}
+          <div className="fmo-defband">
+            <p className="fmo-defband-lab">WHAT IS FMCLAW</p>
+            <p className="fmo-defband-p">
+              FMClaw™ 是面向物业与设施管理的<b>生产级 AI 智能体平台</b>，以行业数据本体为底座，
               统一企业数据、指标、工作流、工具与权限，让 AI 进入核心业务并稳定运行。
             </p>
           </div>
+
           <p className="fmc-num">FROM PERSONAL AI TO OPERATIONAL AI</p>
           <h2>从一个人使用 AI，到一个组织把工作交给 AI</h2>
           <p className="fmc-p">
             个人 AI 工具擅长帮人完成一次任务。企业把工作交给 AI，需要的不止这些。
           </p>
-          <div className="fmo-cmp" role="table" aria-label="通用 AI 工作台与 FMClaw 的差异">
-            <div className="fmo-cmp-row fmo-cmp-head" role="row">
-              <div role="columnheader">维度</div>
-              <div role="columnheader">通用 AI 工作台</div>
-              <div role="columnheader" className="now">FMClaw</div>
+
+          {/* 双面板对峙：灰调旧世界 vs 高亮 FMClaw */}
+          <div className="fmo-vs">
+            <div className="fmo-vs-col old">
+              <p className="fmo-vs-name">通用 AI 工作台</p>
+              <p className="fmo-vs-sub">帮一个人，完成一次任务</p>
+              <ul>
+                <li><span className="fmo-vs-k">服务对象</span><span className="fmo-vs-v">个人的一次任务</span></li>
+                <li><span className="fmo-vs-k">数据来源</span><span className="fmo-vs-v">用户手动上传文件</span></li>
+                <li><span className="fmo-vs-k">运行方式</span><span className="fmo-vs-v">一次会话，一次结果</span></li>
+                <li><span className="fmo-vs-k">解决的问题</span><span className="fmo-vs-v">人如何用好 AI</span></li>
+              </ul>
             </div>
-            <div className="fmo-cmp-row" role="row">
-              <div className="fmo-cmp-k" role="cell">服务对象</div>
-              <div className="fmo-cmp-old" role="cell">个人的一次任务</div>
-              <div className="fmo-cmp-new" role="cell"><b>组织的业务流程</b></div>
-            </div>
-            <div className="fmo-cmp-row" role="row">
-              <div className="fmo-cmp-k" role="cell">数据来源</div>
-              <div className="fmo-cmp-old" role="cell">用户手动上传文件</div>
-              <div className="fmo-cmp-new" role="cell">持续连接<b>业务系统与现场数据</b></div>
-            </div>
-            <div className="fmo-cmp-row" role="row">
-              <div className="fmo-cmp-k" role="cell">运行方式</div>
-              <div className="fmo-cmp-old" role="cell">一次会话，一次结果</div>
-              <div className="fmo-cmp-new" role="cell">多项目、<b>统一口径</b>、长期运行</div>
-            </div>
-            <div className="fmo-cmp-row" role="row">
-              <div className="fmo-cmp-k" role="cell">解决的问题</div>
-              <div className="fmo-cmp-old" role="cell">人如何用好 AI</div>
-              <div className="fmo-cmp-new" role="cell"><b>企业如何把工作交给 AI</b></div>
+            <div className="fmo-vs-mid" aria-hidden="true"><span>VS</span></div>
+            <div className="fmo-vs-col now">
+              <p className="fmo-vs-name">FMClaw</p>
+              <p className="fmo-vs-sub">替一个组织，把工作长期干下去</p>
+              <ul>
+                <li><span className="fmo-vs-k">服务对象</span><span className="fmo-vs-v"><b>组织的业务流程</b></span></li>
+                <li><span className="fmo-vs-k">数据来源</span><span className="fmo-vs-v">持续连接<b>业务系统与现场数据</b></span></li>
+                <li><span className="fmo-vs-k">运行方式</span><span className="fmo-vs-v">多项目、<b>统一口径</b>、长期运行</span></li>
+                <li><span className="fmo-vs-k">解决的问题</span><span className="fmo-vs-v"><b>企业如何把工作交给 AI</b></span></li>
+              </ul>
             </div>
           </div>
+
           <p className="fmo-verdict">
             通用平台解决「人如何使用 AI」；FMClaw 解决「企业如何把核心工作交给 AI」。
           </p>

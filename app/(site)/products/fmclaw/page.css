@@ -34,8 +34,55 @@ figure.fmo-app{margin-left:0;margin-right:0}
 .fmo-after-console{padding-top:188px}
 @media(max-width:700px){.fmo-after-console{padding-top:160px}}
 
-/* 定义块（GEO 可引用一句话定义），紧跟产品截图之后 */
-.fmo-defbox{margin:0 0 56px}
+/* ---------- 定义带（GEO 可引用一句话定义）：横向大字版式，紧跟产品截图之后 ---------- */
+.fmo-defband{margin:0 0 88px;display:grid;grid-template-columns:200px 1fr;gap:clamp(24px,4vw,56px);
+  align-items:start;padding:38px 0 42px;border-top:1px solid rgba(11,23,20,.1);border-bottom:1px solid rgba(11,23,20,.1)}
+@media(max-width:760px){.fmo-defband{grid-template-columns:1fr;gap:14px;padding:30px 0 34px;margin-bottom:64px}}
+.fmo-defband-lab{position:relative;margin:0;padding-top:14px;font-size:12px;font-weight:800;
+  letter-spacing:.18em;color:var(--c-green);text-transform:uppercase}
+.fmo-defband-lab::before{content:"";position:absolute;left:0;top:0;width:30px;height:3px;border-radius:3px;background:var(--c-grad)}
+.fmo-defband-p{margin:0;font-size:clamp(17px,2.1vw,21px);line-height:1.72;letter-spacing:-.01em;
+  color:var(--c-ink);max-width:44ch;font-weight:500}
+.fmo-defband-p b{font-weight:800}
+
+/* ---------- 双面板对峙（通用工作台 vs FMClaw） ---------- */
+.fmo-vs{margin:48px 0 0;display:grid;grid-template-columns:minmax(0,1fr) 64px minmax(0,1.08fr);align-items:stretch}
+@media(max-width:860px){.fmo-vs{grid-template-columns:1fr;gap:0}}
+.fmo-vs-col{border-radius:20px;padding:30px 32px 26px}
+@media(max-width:600px){.fmo-vs-col{padding:24px 22px 20px}}
+.fmo-vs-col.old{background:rgba(11,23,20,.035);border:1px solid rgba(11,23,20,.09)}
+.fmo-vs-col.now{position:relative;background:#fff;border:1px solid rgba(12,139,130,.22);
+  box-shadow:0 28px 64px rgba(12,139,130,.13);overflow:hidden}
+.fmo-vs-col.now::before{content:"";position:absolute;left:0;right:0;top:0;height:4px;background:var(--c-grad)}
+.fmo-vs-name{margin:0;font-size:clamp(17px,2vw,20px);font-weight:800;letter-spacing:-.015em;color:var(--c-ink)}
+.fmo-vs-col.old .fmo-vs-name{color:var(--c-ink-2)}
+.fmo-vs-col.now .fmo-vs-name{background:var(--c-grad);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;display:inline-block}
+@supports not ((-webkit-background-clip:text) or (background-clip:text)){.fmo-vs-col.now .fmo-vs-name{color:var(--c-deep);-webkit-text-fill-color:currentColor}}
+.fmo-vs-sub{margin:5px 0 0;font-size:13.5px;line-height:1.6;color:var(--c-mut)}
+.fmo-vs-col.now .fmo-vs-sub{color:var(--c-ink-2);font-weight:600}
+.fmo-vs-col ul{margin:22px 0 0;padding:0;list-style:none;display:grid}
+.fmo-vs-col li{padding:15px 0 14px}
+.fmo-vs-col li+li{border-top:1px solid rgba(11,23,20,.07)}
+.fmo-vs-col.now li+li{border-top-color:rgba(12,139,130,.12)}
+.fmo-vs-k{display:block;font-size:11px;font-weight:800;letter-spacing:.14em;color:var(--c-mut);
+  text-transform:uppercase;margin-bottom:5px}
+.fmo-vs-col.now .fmo-vs-k{color:var(--c-deep)}
+.fmo-vs-v{display:block;font-size:15px;line-height:1.6}
+.fmo-vs-col.old .fmo-vs-v{color:var(--c-mut)}
+.fmo-vs-col.now .fmo-vs-v{color:var(--c-ink);font-weight:500}
+.fmo-vs-col.now .fmo-vs-v b{font-weight:800}
+.fmo-vs-mid{position:relative;display:flex;align-items:center;justify-content:center}
+.fmo-vs-mid::before{content:"";position:absolute;top:14%;bottom:14%;left:50%;width:1px;
+  background:linear-gradient(180deg,transparent,rgba(12,139,130,.3),transparent)}
+.fmo-vs-mid span{position:relative;z-index:1;display:inline-flex;align-items:center;justify-content:center;
+  width:44px;height:44px;border-radius:50%;font-size:11px;font-weight:800;letter-spacing:.08em;
+  color:var(--c-deep);background:#fff;border:1px solid rgba(12,139,130,.28);
+  box-shadow:0 8px 22px rgba(12,139,130,.14)}
+@media(max-width:860px){
+  .fmo-vs-mid{padding:16px 0}
+  .fmo-vs-mid::before{top:50%;bottom:auto;left:14%;right:14%;width:auto;height:1px;
+    background:linear-gradient(90deg,transparent,rgba(12,139,130,.3),transparent)}
+}
 
 /* 对比表/判词/链接卡/流程轨 已上移至 capability.css(能力页共用) */
 .fmo{--cmp-old-label:"通用工作台 · "}
