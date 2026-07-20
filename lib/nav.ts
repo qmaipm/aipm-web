@@ -12,13 +12,30 @@ export type MenuItem = {
 export const MENU: MenuItem[] = [
   {
     label: "产品",
+    minWidth: 360,
     groups: [
       {
+        heading: "产品总览",
         items: [
-          { label: "FMClaw™ AI 平台", href: "/products/fmclaw", small: "All-in-One · Agentic 架构 · 五大模块" },
-          { label: "第三方平台 AI 协同", href: "/products/collaboration", small: "钉钉 / 飞书 / 企业微信 · 不替换，只接入" },
-          { label: "IoT 物理世界感知系统", href: "/products/iot" },
-          { label: "机器人装备", href: "/products/robots", small: "室内清洁 · 四足巡检" },
+          { label: "FMClaw™ 产品总览", href: "/products/fmclaw", small: "物业与设施管理的生产级 AI 智能体平台" },
+        ],
+      },
+      {
+        heading: "核心平台能力",
+        items: [
+          { label: "行业数据本体与指标中心", href: "/products/fmclaw/ontology", small: "统一业务对象、指标口径与数据权限" },
+          { label: "行业级智能体工作流引擎", href: "/products/fmclaw/workflow-engine", small: "让业务流程稳定、可复制地运行" },
+          { label: "行业工具与系统连接", href: "/products/fmclaw/connectors", small: "连接 ERP、协同平台、IoT 与机器人" },
+          { label: "智能体运行与治理中心", href: "/products/fmclaw/agent-runtime", small: "运行、权限、监控、审计与人工介入" },
+        ],
+      },
+      {
+        heading: "行业应用与扩展",
+        items: [
+          { label: "物业管理智能体矩阵", href: "/agents", small: "服务设计、运营、质量与服务优化" },
+          { label: "第三方平台 AI 协同", href: "/products/collaboration", small: "接入钉钉、飞书与企业微信" },
+          { label: "IoT 物理世界感知", href: "/products/iot", small: "让现场状态成为 AI 可用的数据" },
+          { label: "机器人与智能装备", href: "/products/robots", small: "把管理指令转化为现场执行" },
         ],
       },
     ],
@@ -32,7 +49,7 @@ export const MENU: MenuItem[] = [
         heading: "产品套件",
         items: [
           {
-            label: "Agentic 产品套件",
+            label: "物业管理智能体矩阵",
             href: "/agents",
             links: [
               { label: "服务设计", href: "/solutions/service-design" },
@@ -140,10 +157,15 @@ export const FOOTER_COLS: { title: string; links: DropItem[] }[] = [
   {
     title: "产品",
     links: [
-      { label: "FMClaw™ AI 平台", href: "/products/fmclaw" },
+      { label: "FMClaw™ 产品总览", href: "/products/fmclaw" },
+      { label: "行业数据本体与指标中心", href: "/products/fmclaw/ontology" },
+      { label: "行业级智能体工作流引擎", href: "/products/fmclaw/workflow-engine" },
+      { label: "行业工具与系统连接", href: "/products/fmclaw/connectors" },
+      { label: "智能体运行与治理中心", href: "/products/fmclaw/agent-runtime" },
+      { label: "物业管理智能体矩阵", href: "/agents" },
       { label: "第三方平台 AI 协同", href: "/products/collaboration" },
       { label: "IoT 物理感知", href: "/products/iot" },
-      { label: "机器人装备", href: "/products/robots" },
+      { label: "机器人与智能装备", href: "/products/robots" },
     ],
   },
   {
@@ -159,7 +181,7 @@ export const FOOTER_COLS: { title: string; links: DropItem[] }[] = [
   {
     title: "智能体解决方案",
     links: [
-      { label: "Agentic 产品套件", href: "/agents" },
+      { label: "物业管理智能体矩阵", href: "/agents" },
       { label: "人员成本优化", href: "/solutions/cost" },
       { label: "服务质量管理", href: "/solutions/quality" },
       { label: "服务分包管理", href: "/solutions/subcontract" },
