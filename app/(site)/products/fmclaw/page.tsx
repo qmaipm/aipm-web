@@ -106,14 +106,21 @@ const LAYERS = [
   },
 ];
 
-/* 如何完成一项工作(供应商对账) */
+/* 如何完成一项工作(供应商对账)。who: 该环节的承担者 */
 const HOW_STEPS = [
-  { n: "01", t: "数据进入", d: "合同、工作量、服务记录和历史账单进入行业数据本体。" },
-  { n: "02", t: "口径统一", d: "使用同一套项目对象、合同字段和指标口径。" },
-  { n: "03", t: "工作流运行", d: "自动核量、对比历史、识别异常并生成账单草稿。" },
-  { n: "04", t: "工具执行", d: "查询原有业务系统,发送确认通知,准备写回结果。" },
-  { n: "05", t: "人工确认", d: "负责人确认、驳回或要求重新核对。" },
-  { n: "06", t: "留痕与写回", d: "结果写回原系统,数据来源、处理过程和确认记录均可追溯。" },
+  { n: "01", t: "数据进入", d: "合同、工作量、服务记录和历史账单进入行业数据本体。", who: "数据本体" },
+  { n: "02", t: "口径统一", d: "使用同一套项目对象、合同字段和指标口径。", who: "数据本体" },
+  { n: "03", t: "工作流运行", d: "自动核量、对比历史、识别异常并生成账单草稿。", who: "AI" },
+  { n: "04", t: "工具执行", d: "查询原有业务系统,发送确认通知,准备写回结果。", who: "AI · 系统" },
+  { n: "05", t: "人工确认", d: "负责人确认、驳回或要求重新核对。", who: "人", human: true },
+  { n: "06", t: "留痕与写回", d: "结果写回原系统,数据来源、处理过程和确认记录均可追溯。", who: "系统" },
+];
+
+/* 从一个真实问题开始:三段式路径(时长为 workshop 页已确认口径) */
+const PATHS = [
+  { n: "01", t: "Demo Day", time: "半天 – 1 天", d: "用一份真实数据,当场跑出一个能用的 demo,确认这条路走得通。", href: "/workshop/demo-day" },
+  { n: "02", t: "加速营", time: "2 – 3 天", d: "带一个真问题闭门几天,把一条业务工作流现场跑通,跑通的留给你。", href: "/workshop/bootcamp" },
+  { n: "03", t: "FDE 服务", time: "按阶段", d: "工程师进到业务现场:数据治理、系统接入、试运行与生产验收。", href: "/workshop/fde" },
 ];
 
 /* 预制业务工作流(六条) */
@@ -343,18 +350,29 @@ export default function Page() {
         <div className="wrap">
           <p className="fmc-num">ONE PROCESS, END TO END</p>
           <h2>不是回答一个问题,而是把一件事接着干完</h2>
-          <p className="fmc-p">以供应商对账为例:</p>
-          <div className="fmo-hrows">
-            {HOW_STEPS.map((s) => (
-              <div className="fmo-hrow" key={s.n}>
-                <span className="fmo-hno">{s.n}</span>
-                <div><h3>{s.t}</h3><p>{s.d}</p></div>
-              </div>
-            ))}
+          <div className="fmo-howgrid">
+            <div className="fmo-howside">
+              <p className="fmo-howcase">以一次真实的<b>供应商对账</b>为例。</p>
+              <p className="fmo-verdict">
+                AI 接手核量、比对和起草;付款决定仍由人作出。
+              </p>
+              <p className="fmo-hownote">每一步都在同一个运行体系内完成,不需要人在工具之间搬运数据。</p>
+            </div>
+            <div className="fmo-flow">
+              {HOW_STEPS.map((s) => (
+                <div className={`fmo-fstep${s.human ? " human" : ""}`} key={s.n}>
+                  <span className="fmo-fno">{s.n}</span>
+                  <div className="fmo-fbody">
+                    <div className="fmo-fhead">
+                      <h3>{s.t}</h3>
+                      <span className="fmo-fwho">{s.who}</span>
+                    </div>
+                    <p>{s.d}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
           </div>
-          <p className="fmo-verdict">
-            AI 接手核量、比对和起草;付款决定仍由人作出。
-          </p>
           <LinkCards items={[
             { href: "/scenarios/reconciliation", lab: "场景", t: "供应商自动对账", d: "核量、比对、找异常、起草账单的完整场景。", icon: IC.reconcile },
             { href: "/solutions/vendor", lab: "解决方案", t: "供应商管理", d: "从合同、服务记录到结算的全链路管理。", icon: IC.vendor },
@@ -496,22 +514,18 @@ export default function Page() {
           <p className="fmc-p">
             先用真实数据验证一项业务工作流。确认值得做,再进入数据治理、系统接入和生产部署。
           </p>
-          <div className="fmc-cols3">
-            <Link className="fmc-cell fmo-wf" href="/workshop/demo-day">
-              <h3>Demo Day</h3>
-              <p>用一份真实数据,确认这条路是否走得通。</p>
-              <span className="fmo-wf-go">了解 →</span>
-            </Link>
-            <Link className="fmc-cell fmo-wf" href="/workshop/bootcamp">
-              <h3>加速营</h3>
-              <p>带一个真实问题,把一条业务工作流现场跑通。</p>
-              <span className="fmo-wf-go">了解 →</span>
-            </Link>
-            <Link className="fmc-cell fmo-wf" href="/workshop/fde">
-              <h3>FDE 服务</h3>
-              <p>完成数据治理、系统接入、试运行与生产验收。</p>
-              <span className="fmo-wf-go">了解 →</span>
-            </Link>
+          <div className="fmo-paths">
+            {PATHS.map((p) => (
+              <Link className="fmo-path" key={p.href} href={p.href}>
+                <span className="fmo-path-head">
+                  <span className="fmo-path-no">{p.n}</span>
+                  <span className="fmo-path-time">{p.time}</span>
+                </span>
+                <h3>{p.t}</h3>
+                <p>{p.d}</p>
+                <span className="fmo-path-go">了解 <Arrow s={13} /></span>
+              </Link>
+            ))}
           </div>
         </div>
       </section>
