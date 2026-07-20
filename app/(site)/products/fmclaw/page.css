@@ -1,7 +1,8 @@
 /* ============================================================
    FMClaw™ 产品总览(.fmo 作用域,叠加在 capability.css 的 .fmc 之上)
-   站点 VI 版:蓝图格网 hero(左文右插画) → 亮/雾/暗 band 交替 →
-   暗场 L1-L4 平台分层(页面视觉重心) → 渐变卡片。
+   与 /workshop /ai-service /partners 同一套设计语言:
+   大图图文交替行 · 大号渐变编号 · 结构化对比表 ·
+   渐变左条判词 · 全页唯一暗场(start) · endcta 收束。
    ============================================================ */
 
 /* ---------- HERO ---------- */
@@ -39,21 +40,34 @@ figure.fmo-app{margin-left:0;margin-right:0}
 .fmo-after-console{padding-top:188px}
 @media(max-width:700px){.fmo-after-console{padding-top:160px}}
 
-/* ---------- 通用列表(卡片内) ---------- */
-.fmo-list{margin:14px 0 0;padding:0;list-style:none;display:flex;flex-direction:column;gap:10px}
-.fmo-list li{position:relative;padding-left:18px;font-size:14.5px;line-height:1.6;color:var(--c-ink-2)}
-.fmo-list li::before{content:"";position:absolute;left:0;top:8px;width:7px;height:7px;border-radius:2px;background:var(--c-grad)}
+/* ---------- 对比表(通用工作台 vs FMClaw,同 ai-service avc-cmp 语言) ---------- */
+.fmo-cmp{margin-top:44px;border:1px solid var(--c-line);border-radius:16px;overflow:hidden;background:#fff}
+.fmo-cmp-row{display:grid;grid-template-columns:.62fr 1fr 1.18fr}
+.fmo-cmp-row+.fmo-cmp-row{border-top:1px solid var(--c-line)}
+.fmo-cmp-row>div{padding:17px 20px;font-size:14.5px;line-height:1.6}
+.fmo-cmp-head>div{font-size:12px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--c-mut);padding:13px 20px}
+.fmo-cmp-head .now{color:var(--c-green)}
+.fmo-cmp-k{font-weight:700;color:var(--c-ink)}
+.fmo-cmp-old{color:var(--c-mut)}
+.fmo-cmp-new{color:var(--c-ink);font-weight:500;background:rgba(18,185,138,.06);position:relative}
+.fmo-cmp-new::before{content:"";position:absolute;left:0;top:0;bottom:0;width:2px;background:var(--c-grad)}
+.fmo-cmp-new b{color:var(--c-ink);font-weight:700}
+@media(max-width:760px){
+  .fmo-cmp-row{grid-template-columns:1fr}
+  .fmo-cmp-row>div{padding:12px 16px}
+  .fmo-cmp-head{display:none}
+  .fmo-cmp-k{padding-bottom:2px;font-size:13px;letter-spacing:.04em;text-transform:uppercase;color:var(--c-green)}
+  .fmo-cmp-old{padding-top:0}
+  .fmo-cmp-old::before{content:"通用工作台 · ";font-weight:700;font-size:12px}
+  .fmo-cmp-new::before{display:none}
+  .fmo-cmp-new{border-left:2px solid var(--c-green)}
+}
 
-/* 高亮卡(FMClaw 一侧) */
-.fmo-cell-hl{border-color:rgba(18,185,138,.42);
-  background:linear-gradient(180deg,rgba(18,185,138,.08),rgba(255,255,255,.9))}
-.fmo-cell-hl .fmc-cell-en{color:var(--c-deep)}
-
-/* 结论句 */
-.fmo-verdict{margin:34px 0 0;padding:18px 22px;border-radius:13px;background:var(--c-mist);
-  font-size:15.5px;line-height:1.7;color:var(--c-ink);font-weight:600;max-width:none}
-.fmc-sec.mist .fmo-verdict{background:#fff}
-.fmc-sec.dark .fmo-verdict{background:rgba(255,255,255,.06);color:#EDF3F0}
+/* 结论句:渐变左条(同 workshop ws-verdict 语言) */
+.fmo-verdict{position:relative;margin:44px 0 0;padding-left:22px;max-width:none;
+  font-size:clamp(16px,1.9vw,20px);font-weight:700;line-height:1.5;letter-spacing:-.015em;color:var(--c-ink)}
+.fmo-verdict::before{content:"";position:absolute;left:0;top:5px;bottom:5px;width:3px;border-radius:3px;background:var(--c-grad)}
+.fmc-sec.dark .fmo-verdict{color:#fff}
 /* ---------- 链接卡(替代纯文字链接行) ---------- */
 .fmo-linkcards{margin:34px 0 0;display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
 .fmo-linkcards.two{grid-template-columns:repeat(2,1fr)}
@@ -77,24 +91,49 @@ figure.fmo-app{margin-left:0;margin-right:0}
 .fmc-sec.mist .fmo-lc-arrow{background:var(--c-mist)}
 .fmo-linkcard:hover .fmo-lc-arrow{background:var(--c-grad);border-color:transparent;color:#fff;transform:translateX(3px)}
 
-/* ---------- 暗场 L1-L4 平台分层 ---------- */
-.fmo-layers{margin:48px 0 0;display:grid;grid-template-columns:1fr 1fr;gap:16px}
-@media(max-width:860px){.fmo-layers{grid-template-columns:1fr}}
-.fmo-layer{position:relative;border-radius:18px;padding:28px 28px 26px;
-  background:rgba(255,255,255,.045);border:1px solid rgba(255,255,255,.12);
-  transition:border-color .2s,box-shadow .25s,transform .25s}
-.fmo-layer:hover{border-color:rgba(63,217,184,.45);box-shadow:0 22px 52px rgba(0,0,0,.35);transform:translateY(-3px)}
-.fmo-layer-head{display:flex;align-items:flex-start;gap:16px}
-.fmo-layer-no{flex:none;display:inline-flex;width:38px;height:38px;border-radius:11px;align-items:center;justify-content:center;
-  font-size:14px;font-weight:800;color:#fff;background:var(--c-grad)}
-.fmo-layer .fmc-cell-en{color:#7fa79c;margin-bottom:5px}
-.fmo-layer h3{margin:0;font-size:18.5px;font-weight:800;letter-spacing:-.015em;color:#fff}
-.fmo-layer>p{margin:16px 0 0;font-size:14.5px;line-height:1.72;color:#AEBAB5}
-.fmo-layer-tags{margin-top:16px}
-.fmo-layer-tags span{background:rgba(255,255,255,.05);border-color:rgba(255,255,255,.14);color:#C9D5D0;font-size:12px;padding:6px 12px}
-.fmo-layer-link{display:inline-flex;margin-top:18px;font-size:14px;font-weight:700;color:#3fd9b8!important}
-.fmo-layer-link:hover{text-decoration:underline}
-.fmo-relation{margin:36px 0 0;font-size:14.5px;line-height:1.8;color:#8fa39c;max-width:none}
+/* ---------- L1-L4 平台分层:大图图文交替行(同 workshop ws-mode 语言) ---------- */
+.fmo-lrows{margin:56px 0 0;display:flex;flex-direction:column;gap:clamp(56px,7vw,88px)}
+.fmo-lrow{display:grid;grid-template-columns:minmax(0,1.02fr) minmax(0,1fr);gap:clamp(32px,5vw,72px);align-items:center}
+.fmo-lrow.flip .fmo-limg{order:2}
+.fmo-lrow.flip .fmo-lbody{order:1}
+@media(max-width:860px){
+  .fmo-lrow{grid-template-columns:1fr;gap:24px}
+  .fmo-lrow.flip .fmo-limg{order:0}
+  .fmo-lrow.flip .fmo-lbody{order:1}
+}
+.fmo-limg{position:relative;display:block;border-radius:18px;overflow:hidden;
+  box-shadow:0 24px 60px rgba(11,23,20,.16);transform:translateY(0);transition:transform .3s,box-shadow .3s}
+.fmo-limg::after{content:"";position:absolute;inset:0;border-radius:18px;
+  box-shadow:inset 0 0 0 1px rgba(11,23,20,.08)}
+.fmo-limg img{display:block;width:100%;height:auto;transform:scale(1);transition:transform .5s}
+.fmo-lrow:hover .fmo-limg{transform:translateY(-4px);box-shadow:0 30px 70px rgba(11,23,20,.20)}
+.fmo-lrow:hover .fmo-limg img{transform:scale(1.025)}
+.fmo-lbody{max-width:52ch}
+.fmo-lhead{display:flex;align-items:baseline;gap:16px;margin-bottom:16px}
+.fmo-lno{font-size:clamp(30px,3.4vw,40px);font-weight:800;line-height:.9;letter-spacing:-.03em;font-variant-numeric:tabular-nums;
+  background:var(--c-grad);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+@supports not ((-webkit-background-clip:text) or (background-clip:text)){.fmo-lno{color:var(--c-deep);-webkit-text-fill-color:currentColor}}
+.fmo-len{font-size:11px;font-weight:700;letter-spacing:.14em;color:var(--c-mut);text-transform:uppercase}
+.fmo-lrow h3{margin:0 0 12px;font-size:clamp(22px,2.6vw,29px);font-weight:800;letter-spacing:-.025em;color:var(--c-ink);line-height:1.22}
+.fmo-ldesc{margin:0 0 18px;font-size:clamp(14.5px,1.6vw,16px);line-height:1.72;color:var(--c-ink-2)}
+.fmo-ltags{display:flex;flex-wrap:wrap;gap:8px;margin:0 0 20px}
+.fmo-ltags span{font-size:12.5px;font-weight:600;color:var(--c-ink-2);background:var(--c-mist);
+  border:1px solid var(--c-line);border-radius:999px;padding:5px 13px}
+.fmo-lgo{display:inline-flex;align-items:center;gap:7px;font-size:14px;font-weight:700;color:var(--c-deep);text-decoration:none}
+.fmo-lgo svg{transition:transform .25s}
+.fmo-lrow:hover .fmo-lgo svg{transform:translateX(3px)}
+.fmo-lgo:hover{text-decoration:underline}
+
+/* ---------- 如何完成一项工作:大号编号叙事列表(同 workshop ws-prep 语言) ---------- */
+.fmo-hrows{margin-top:44px;max-width:820px;border-top:1px solid var(--c-line)}
+.fmo-hrow{display:flex;gap:24px;align-items:flex-start;padding:24px 0;border-bottom:1px solid var(--c-line)}
+@media(max-width:520px){.fmo-hrow{gap:16px;padding:20px 0}}
+.fmo-hno{flex:none;font-size:clamp(22px,2.6vw,28px);font-weight:800;line-height:1.1;letter-spacing:-.02em;
+  font-variant-numeric:tabular-nums;min-width:44px;
+  background:var(--c-grad);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+@supports not ((-webkit-background-clip:text) or (background-clip:text)){.fmo-hno{color:var(--c-deep);-webkit-text-fill-color:currentColor}}
+.fmo-hrow h3{margin:0 0 6px;font-size:clamp(16px,1.9vw,19px);font-weight:700;letter-spacing:-.015em;color:var(--c-ink);line-height:1.3}
+.fmo-hrow p{margin:0;font-size:14.5px;line-height:1.65;color:var(--c-ink-2)}
 
 /* ---------- 产品截图 ---------- */
 .fmo-shot{margin:44px 0 8px}
@@ -134,6 +173,10 @@ a.fmc-cell:hover .fmo-wf-go{text-decoration:underline}
 
 /* 暗场内部分隔(生态连接 → 开始方式) */
 .fmo-start-divide{margin:56px 0 52px;height:1px;background:linear-gradient(90deg,transparent,rgba(255,255,255,.22),transparent)}
+
+/* FAQ 与 endcta 之间的更新日期小字 */
+.fmo-upd{padding:28px 0 0;background:var(--c-paper)}
+.fmo-upd .fmc-updated{margin:0}
 
 /* 暗场里的 ghost 按钮与白卡 */
 .fmc-sec.dark .btn-ghost{color:#fff;border-color:rgba(255,255,255,.45);background:rgba(255,255,255,.05)}

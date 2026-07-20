@@ -62,43 +62,47 @@ const FAQ = [
   },
 ];
 
-/* 平台能力地图:四层 */
+/* 平台能力地图:四层(展示层用短名,规范全称保留在各能力页与 JSON-LD) */
 const LAYERS = [
   {
     no: "L1",
-    name: "行业数据本体与指标中心",
-    en: "INDUSTRY ONTOLOGY & METRICS",
-    desc: "将 Excel、PDF、业务系统和 IoT 数据映射为项目、空间、设备、人员、工单、合同、供应商和账单等行业对象,并统一指标口径与访问权限。",
-    tags: ["业务对象", "对象关系", "指标口径", "数据权限", "数据集市", "Data Agent"],
+    name: "行业数据本体",
+    en: "ONTOLOGY & METRICS",
+    desc: "把 Excel、PDF、业务系统和 IoT 数据,映射为项目、空间、设备、工单、合同等行业对象,统一指标口径与数据权限。AI 不只是读到数据,还知道它在业务里代表什么。",
+    tags: ["业务对象", "指标口径", "数据权限"],
+    img: "/products/fmclaw/ontology-hero.png",
+    alt: "行业数据本体插画:项目、空间、设备、工单等业务对象及其关系构成的行业数据底座",
     href: "/products/fmclaw/ontology",
-    link: "查看行业数据本体与指标中心",
   },
   {
     no: "L2",
-    name: "行业级智能体工作流引擎",
+    name: "工作流引擎",
     en: "AGENTIC WORKFLOW ENGINE",
-    desc: "将一项工作从触发、取数、判断、审批到执行,组织成可以持续运行和跨项目复用的业务工作流。",
-    tags: ["预制流程", "流程编排", "事件触发", "人工审批", "异常处理", "跨项目复用"],
+    desc: "把一项工作从触发、取数、判断、审批到执行,组织成可持续运行的业务流程。一个项目跑通,更多项目按同一口径复用。",
+    tags: ["预制流程", "事件触发", "人工审批"],
+    img: "/products/fmclaw/workflow-engine-hero.png",
+    alt: "智能体工作流引擎插画:触发、取数、判断、审批、执行组成的业务流程链",
     href: "/products/fmclaw/workflow-engine",
-    link: "查看行业级智能体工作流引擎",
   },
   {
     no: "L3",
-    name: "行业工具与系统连接",
-    en: "INDUSTRY TOOLS & CONNECTIVITY",
-    desc: "通过 API、MCP、CLI 和现有系统接口,让智能体可以查询、写入、通知、派单、控制和执行。",
-    tags: ["物业 ERP", "财务与人力", "协同平台", "BA 与 IoT", "视频安防", "机器人"],
+    name: "工具与系统连接",
+    en: "TOOLS & CONNECTIVITY",
+    desc: "通过 API、MCP 和现有系统接口,让智能体可以查询、写入、通知、派单和执行,而不是停在建议上。",
+    tags: ["物业 ERP", "BA 与 IoT", "机器人"],
+    img: "/products/fmclaw/connectors-hero.png",
+    alt: "行业工具与系统连接插画:智能体通过接口连接 ERP、IoT、视频与机器人等系统",
     href: "/products/fmclaw/connectors",
-    link: "查看行业工具与系统连接",
   },
   {
     no: "L4",
-    name: "智能体运行与治理中心",
-    en: "AGENT RUNTIME & GOVERNANCE",
-    desc: "统一管理智能体的组织身份、项目权限、运行状态、人工介入、工作日志和审计记录。",
-    tags: ["组织身份", "项目隔离", "角色权限", "运行监控", "人工介入", "审计追溯"],
+    name: "运行与治理",
+    en: "RUNTIME & GOVERNANCE",
+    desc: "统一管理智能体的组织身份、项目权限、运行状态、人工介入和审计记录。每一步都有记录,可以复核。",
+    tags: ["项目隔离", "运行监控", "审计追溯"],
+    img: "/products/fmclaw/agent-runtime-hero.png",
+    alt: "智能体运行与治理插画:身份、权限、监控与审计构成的治理面板",
     href: "/products/fmclaw/agent-runtime",
-    link: "查看智能体运行与治理中心",
   },
 ];
 
@@ -208,8 +212,8 @@ export default function Page() {
               <p className="fmc-kicker">FMClaw™ · 物业与设施管理的生产级 AI 智能体平台</p>
               <h1>让 AI 进入物业与设施管理的<span className="grad">核心工作</span></h1>
               <p className="fmo-sub">
-                FMClaw 以<b>行业数据本体</b>为底座,将企业数据、行业指标、业务工作流、系统工具和组织权限统一起来,
-                让智能体能够<b>稳定、准确、可追溯</b>地完成工作。
+                FMClaw 以<b>行业数据本体</b>为底座,统一数据、工作流、工具和权限,
+                让 AI <b>稳定接手真实业务</b>。
               </p>
               <div className="fmo-cta">
                 <a href="#how-it-works" className="btn btn-primary">查看 FMClaw 如何工作 <Arrow /></a>
@@ -260,33 +264,37 @@ export default function Page() {
           <p className="fmc-num">FROM PERSONAL AI TO OPERATIONAL AI</p>
           <h2>从一个人使用 AI,到一个组织把工作交给 AI</h2>
           <p className="fmc-p">
-            个人 AI 工具擅长帮助人完成一次任务。企业把工作交给 AI,还需要持续的数据、统一的管理口径、
-            明确的权限,以及可以长期运行的业务工作流。
+            个人 AI 工具擅长帮人完成一次任务。企业把工作交给 AI,需要的不止这些。
           </p>
-          <div className="fmc-cols">
-            <div className="fmc-cell">
-              <span className="fmc-cell-en">GENERAL AI WORKSPACE</span>
-              <h3>通用 AI 工作台</h3>
-              <ul className="fmo-list">
-                <li>围绕个人任务</li>
-                <li>由用户提供文件和指令</li>
-                <li>适合调研、写作、演示和知识工作</li>
-                <li>重点是帮助每个人更好地使用 AI</li>
-              </ul>
+          <div className="fmo-cmp" role="table" aria-label="通用 AI 工作台与 FMClaw 的差异">
+            <div className="fmo-cmp-row fmo-cmp-head" role="row">
+              <div role="columnheader">维度</div>
+              <div role="columnheader">通用 AI 工作台</div>
+              <div role="columnheader" className="now">FMClaw</div>
             </div>
-            <div className="fmc-cell fmo-cell-hl">
-              <span className="fmc-cell-en">FMCLAW</span>
-              <h3>FMClaw</h3>
-              <ul className="fmo-list">
-                <li>围绕组织业务流程</li>
-                <li>持续连接业务系统与现场数据</li>
-                <li>在多个项目中按统一口径运行</li>
-                <li>重点是让 AI 稳定承担业务工作</li>
-              </ul>
+            <div className="fmo-cmp-row" role="row">
+              <div className="fmo-cmp-k" role="cell">服务对象</div>
+              <div className="fmo-cmp-old" role="cell">个人的一次任务</div>
+              <div className="fmo-cmp-new" role="cell"><b>组织的业务流程</b></div>
+            </div>
+            <div className="fmo-cmp-row" role="row">
+              <div className="fmo-cmp-k" role="cell">数据来源</div>
+              <div className="fmo-cmp-old" role="cell">用户手动上传文件</div>
+              <div className="fmo-cmp-new" role="cell">持续连接<b>业务系统与现场数据</b></div>
+            </div>
+            <div className="fmo-cmp-row" role="row">
+              <div className="fmo-cmp-k" role="cell">运行方式</div>
+              <div className="fmo-cmp-old" role="cell">一次会话,一次结果</div>
+              <div className="fmo-cmp-new" role="cell">多项目、<b>统一口径</b>、长期运行</div>
+            </div>
+            <div className="fmo-cmp-row" role="row">
+              <div className="fmo-cmp-k" role="cell">解决的问题</div>
+              <div className="fmo-cmp-old" role="cell">人如何用好 AI</div>
+              <div className="fmo-cmp-new" role="cell"><b>企业如何把工作交给 AI</b></div>
             </div>
           </div>
           <p className="fmo-verdict">
-            通用平台解决「人如何使用 AI」;FMClaw 解决「企业如何把核心工作稳定地交给 AI」。
+            通用平台解决「人如何使用 AI」;FMClaw 解决「企业如何把核心工作交给 AI」。
           </p>
           <LinkCards items={[
             { href: "/insights/demo-vs-system", lab: "延伸阅读", t: "一个 Demo 和生产系统之间,隔着什么", d: "从演示到生产系统,需要补上哪些环节。", icon: IC.doc },
@@ -294,56 +302,58 @@ export default function Page() {
         </div>
       </section>
 
-      {/* ===== 03 平台能力地图(暗场,页面视觉重心) ===== */}
-      <section className="fmc-sec dark" id="platform">
+      {/* ===== 03 平台能力地图(图文交替) ===== */}
+      <section className="fmc-sec" id="platform">
         <div className="wrap">
           <p className="fmc-num">ALL IN ONE OPERATING LAYER</p>
           <h2>一套平台,统一 AI 工作所需的一切</h2>
           <p className="fmc-p">
-            业务流程不能靠人在多个 AI 工具之间搬运数据。FMClaw 将数据、指标、工作流、
-            系统工具与组织治理放在同一个运行体系中。
+            业务不能靠人在多个 AI 工具之间搬运数据。FMClaw 把数据、工作流、工具和治理,
+            放进同一个运行体系。
           </p>
-          <div className="fmo-layers">
-            {LAYERS.map((l) => (
-              <div className="fmo-layer" key={l.no}>
-                <div className="fmo-layer-head">
-                  <span className="fmo-layer-no">{l.no}</span>
-                  <div>
-                    <span className="fmc-cell-en">{l.en}</span>
-                    <h3>{l.name}</h3>
+          <div className="fmo-lrows">
+            {LAYERS.map((l, i) => (
+              <div className={`fmo-lrow${i % 2 === 1 ? " flip" : ""}`} key={l.no}>
+                <Link className="fmo-limg" href={l.href} aria-label={l.name}>
+                  <img src={l.img} alt={l.alt} width={1376} height={768} loading="lazy" />
+                </Link>
+                <div className="fmo-lbody">
+                  <div className="fmo-lhead">
+                    <span className="fmo-lno">{l.no}</span>
+                    <span className="fmo-len">{l.en}</span>
                   </div>
+                  <h3>{l.name}</h3>
+                  <p className="fmo-ldesc">{l.desc}</p>
+                  <div className="fmo-ltags">
+                    {l.tags.map((t) => <span key={t}>{t}</span>)}
+                  </div>
+                  <Link className="fmo-lgo" href={l.href}>了解{l.name} <Arrow s={13} /></Link>
                 </div>
-                <p>{l.desc}</p>
-                <div className="fmc-tags fmo-layer-tags">
-                  {l.tags.map((t) => <span key={t}>{t}</span>)}
-                </div>
-                <Link className="fmc-ln fmo-layer-link" href={l.href}>{l.link} →</Link>
               </div>
             ))}
           </div>
-          <p className="fmo-relation">
-            行业数据本体提供业务事实;工作流引擎组织工作;系统连接完成动作;
-            运行与治理中心控制身份、权限、监控和审计。
+          <p className="fmo-verdict">
+            数据本体提供业务事实,工作流引擎组织工作,系统连接完成动作,运行与治理控制权限和审计。
           </p>
         </div>
       </section>
 
       {/* ===== 04 如何完成一项工作 ===== */}
-      <section className="fmc-sec" id="how-it-works">
+      <section className="fmc-sec mist" id="how-it-works">
         <div className="wrap">
           <p className="fmc-num">ONE PROCESS, END TO END</p>
           <h2>不是回答一个问题,而是把一件事接着干完</h2>
           <p className="fmc-p">以供应商对账为例:</p>
-          <div className="fmc-steps">
+          <div className="fmo-hrows">
             {HOW_STEPS.map((s) => (
-              <div className="fmc-step" key={s.n}>
-                <span className="n">{s.n}</span>
-                <div><b>{s.t}</b><p>{s.d}</p></div>
+              <div className="fmo-hrow" key={s.n}>
+                <span className="fmo-hno">{s.n}</span>
+                <div><h3>{s.t}</h3><p>{s.d}</p></div>
               </div>
             ))}
           </div>
           <p className="fmo-verdict">
-            AI 接手核量、比对、找异常和起草;最终付款决定仍然由人作出。
+            AI 接手核量、比对和起草;付款决定仍由人作出。
           </p>
           <LinkCards items={[
             { href: "/scenarios/reconciliation", lab: "场景", t: "供应商自动对账", d: "核量、比对、找异常、起草账单的完整场景。", icon: IC.reconcile },
@@ -354,50 +364,44 @@ export default function Page() {
       </section>
 
       {/* ===== 05 生产级能力 ===== */}
-      <section className="fmc-sec mist" id="production">
+      <section className="fmc-sec" id="production">
         <div className="wrap">
           <p className="fmc-num">BUILT FOR REPEATED OPERATIONS</p>
           <h2>跑通一次不难。难的是每天稳定地跑。</h2>
           <p className="fmc-p">
-            生产系统面对的不是一份挑选过的数据,而是不同项目、不同来源和持续变化的真实业务。
+            生产系统面对的不是一份挑选过的数据,而是不同项目、不同来源、持续变化的真实业务。
           </p>
           <div className="fmc-cols3">
             <div className="fmc-cell">
               <span className="fmc-cell-en">ACCURATE</span>
               <h3>准确</h3>
-              <p>关键指标和业务结果使用统一定义。报告中的事实、指标和计算结果可以复核。</p>
+              <p>关键指标使用统一定义,报告中的事实和计算结果可以复核。</p>
             </div>
             <div className="fmc-cell">
               <span className="fmc-cell-en">CONSISTENT</span>
               <h3>一致</h3>
-              <p>在同一工作流和管理口径下,同一份数据无论运行一次还是一千次,关键指标、计算结果和管理口径保持一致。</p>
+              <p>同一份数据在同一口径下,运行一次和一千次,结果相同。</p>
             </div>
             <div className="fmc-cell">
               <span className="fmc-cell-en">TRACEABLE</span>
               <h3>可追溯</h3>
-              <p>每个智能体的工作日程和运行日志都可以查看。数据读取、流程执行、工具调用、人工确认和最终结果均有记录。</p>
+              <p>数据读取、流程执行、工具调用和人工确认,每一步都有记录。</p>
             </div>
           </div>
-          <div className="fmc-tags" style={{ marginTop: 22 }}>
-            {["批量运行", "跨项目复用", "统一模板", "异常处理", "人工介入", "版本管理", "运行监控", "操作审计"].map((t) => (
-              <span key={t}>{t}</span>
-            ))}
-          </div>
           <LinkCards items={[
-            { href: "/products/fmclaw/agent-runtime", lab: "平台能力", t: "智能体运行与治理中心", d: "身份、权限、监控、人工介入与审计的统一管理。", icon: IC.shield },
-            { href: "/insights/demo-vs-system", lab: "洞察", t: "为什么 Demo 跑通了,离生产系统仍然很远", d: "生产系统面对的是持续变化的真实业务。", icon: IC.doc },
+            { href: "/products/fmclaw/agent-runtime", lab: "平台能力", t: "运行与治理", d: "身份、权限、监控、人工介入与审计的统一管理。", icon: IC.shield },
+            { href: "/insights/demo-vs-system", lab: "洞察", t: "为什么 Demo 跑通了,离生产还很远", d: "生产系统面对的是持续变化的真实业务。", icon: IC.doc },
           ]} />
         </div>
       </section>
 
       {/* ===== 06 预制业务工作流 ===== */}
-      <section className="fmc-sec" id="workflows">
+      <section className="fmc-sec mist" id="workflows">
         <div className="wrap">
           <p className="fmc-num">PREBUILT INDUSTRY WORKFLOWS</p>
           <h2>已经跑通的业务工作流,从这里开始</h2>
           <p className="fmc-p">
-            FMClaw 已将物业与设施管理中的高频工作组织为预制流程。客户不必从空白画布开始,
-            也可以根据自己的管理要求调整。
+            物业与设施管理中的高频工作,FMClaw 已做成预制流程。不必从空白画布开始。
           </p>
 
           {/* 真实产品界面:工作流编辑器 */}
@@ -422,14 +426,14 @@ export default function Page() {
             ))}
           </div>
           <LinkCards items={[
-            { href: "/products/fmclaw/workflow-engine", lab: "平台能力", t: "行业级智能体工作流引擎", d: "把一项工作组织成可持续运行的业务流程。", icon: IC.flow },
+            { href: "/products/fmclaw/workflow-engine", lab: "平台能力", t: "工作流引擎", d: "把一项工作组织成可持续运行的业务流程。", icon: IC.flow },
             { href: "/agents", lab: "产品套件", t: "物业管理智能体矩阵", d: "对账、派单、巡检等岗位智能体的全景。", icon: IC.grid },
           ]} />
         </div>
       </section>
 
       {/* ===== 07 生产案例 ===== */}
-      <section className="fmc-sec mist" id="cases">
+      <section className="fmc-sec" id="cases">
         <div className="wrap">
           <p className="fmc-num">RUNNING IN PRODUCTION</p>
           <h2>不是演示。已经在真实项目中运行。</h2>
@@ -509,19 +513,27 @@ export default function Page() {
               <span className="fmo-wf-go">了解 →</span>
             </Link>
           </div>
-          <div className="fmo-cta" style={{ marginTop: 36 }}>
-            <Link href="/workshop" className="btn btn-primary">预约 FMClaw™ 加速营 <Arrow /></Link>
-            <Link href="/cases" className="btn btn-ghost on-dark">查看客户案例 <Arrow /></Link>
-          </div>
         </div>
       </section>
 
-      {/* ===== 10 FAQ ===== */}
+      {/* ===== 09 FAQ ===== */}
       <FmFaq items={FAQ} heading="关于 FMClaw" />
 
-      <section className="fmc-rel">
+      <div className="fmo-upd">
         <div className="wrap">
           <p className="fmc-updated">最后更新:2026-07-20</p>
+        </div>
+      </div>
+
+      {/* ===== 10 收束 CTA ===== */}
+      <section className="endcta">
+        <div className="wrap">
+          <h2>把一件真实的工作,交给 AI 试试</h2>
+          <p>从你这个月最头疼的那个流程开始。</p>
+          <div className="cta-row">
+            <Link href="/workshop" className="btn btn-primary">预约 FMClaw™ 加速营 <Arrow s={16} /></Link>
+            <p className="alt">或先看看<Link href="/cases">已经在生产中运行的案例</Link></p>
+          </div>
         </div>
       </section>
     </main>
