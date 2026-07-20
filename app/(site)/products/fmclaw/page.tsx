@@ -85,12 +85,12 @@ const LAYERS = [
   },
   {
     no: "L3",
-    name: "工具与系统连接",
-    en: "TOOLS & CONNECTIVITY",
-    desc: "通过 API、MCP 和现有系统接口,让智能体可以查询、写入、通知、派单和执行,而不是停在建议上。",
+    name: "工具箱",
+    en: "TOOLBOX",
+    desc: "把物业在用的软件封装为智能体可调用的工具:发邮件、打电话、建工单、调收费,智能体在授权范围内执行,而不是停在建议上。",
     tags: ["物业 ERP", "BA 与 IoT", "机器人"],
     img: "/products/fmclaw/connectors-hero.png",
-    alt: "行业工具与系统连接插画:智能体通过接口连接 ERP、IoT、视频与机器人等系统",
+    alt: "工具箱插画:智能体通过工具调用 ERP、IoT、视频与机器人等系统",
     href: "/products/fmclaw/connectors",
   },
   {
@@ -196,7 +196,7 @@ export default function Page() {
             <div className="fmc-hero-art">
               <img
                 src="/products/fmclaw/overview-hero.png"
-                alt="FMClaw 平台四层架构插画:行业数据本体、智能体工作流引擎、行业工具与系统连接、智能体运行与治理"
+                alt="FMClaw 平台四层架构插画:行业数据本体、智能体工作流引擎、工具箱、智能体运行与治理"
                 width={1376}
                 height={768}
               />

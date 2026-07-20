@@ -222,6 +222,13 @@
   text-decoration:none;color:inherit;transition:border-color .2s,box-shadow .25s,transform .25s}
 .fmc-sec.mist .fmo-linkcard{background:#fff}
 .fmo-linkcard:hover{border-color:rgba(12,139,130,.35);box-shadow:0 16px 38px rgba(12,139,130,.12);transform:translateY(-3px)}
+.fmc-sec.dark .fmo-linkcard{background:rgba(255,255,255,.05);border-color:rgba(255,255,255,.13)}
+.fmc-sec.dark .fmo-linkcard:hover{border-color:rgba(63,217,184,.4);box-shadow:0 16px 38px rgba(0,0,0,.35)}
+.fmc-sec.dark .fmo-lc-icon{color:#3fd9b8;background:rgba(63,217,184,.1);border-color:rgba(63,217,184,.22)}
+.fmc-sec.dark .fmo-lc-lab{color:#8fa39c}
+.fmc-sec.dark .fmo-lc-body b{color:#fff}
+.fmc-sec.dark .fmo-lc-d{color:#AEBAB5}
+.fmc-sec.dark .fmo-lc-arrow{color:#3fd9b8;background:rgba(255,255,255,.06);border-color:rgba(255,255,255,.14)}
 .fmo-lc-icon{flex:none;display:inline-flex;align-items:center;justify-content:center;width:40px;height:40px;
   border-radius:12px;color:var(--c-deep);background:linear-gradient(135deg,rgba(0,112,255,.09),rgba(18,185,138,.12));
   border:1px solid rgba(12,139,130,.16)}

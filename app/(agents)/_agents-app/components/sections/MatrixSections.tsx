@@ -97,9 +97,9 @@ const PLATFORM = [
   },
   {
     rel: "动作通过",
-    name: "工具与系统连接",
+    name: "工具箱",
     href: "/products/fmclaw/connectors",
-    d: "在获得授权后,查询、通知、派单、写回企业现有业务系统。",
+    d: "在获得授权后,发通知、建工单、调收费,写回企业现有业务系统。",
     icon: Icons.connect,
     glow: "blue-green",
   },

@@ -327,7 +327,7 @@ export default function Page() {
             工作流引擎组织工作,连接层供给工具,运行层保证可控。
           </p>
           <LinkCards items={[
-            { href: "/products/fmclaw/connectors", lab: "平台能力 · L3", t: "工具与系统连接", d: "工作流节点调用的系统、工具与数据,从这里接入。", icon: IC.grid },
+            { href: "/products/fmclaw/connectors", lab: "平台能力 · L3", t: "工具箱", d: "工作流节点要调用的软件工具,从这里接入。", icon: IC.grid },
             { href: "/products/fmclaw/agent-runtime", lab: "平台能力 · L4", t: "运行与治理", d: "运行记录、版本管理与权限控制,让流程长期可控。", icon: IC.shield },
           ]} />
           <p className="fmc-rel-back">

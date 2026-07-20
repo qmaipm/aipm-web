@@ -139,7 +139,7 @@ export default function Page() {
           <p className="col-verdict" style={{ fontSize: 14 }}>
             <Link href="/products/fmclaw" style={{ color: "#3fd9b8", fontWeight: 600 }}>了解 FMClaw 如何统一数据、工作流、工具和组织权限 →</Link>
             <br />
-            <Link href="/products/fmclaw/connectors" style={{ color: "#3fd9b8", fontWeight: 600 }}>查看工具与系统连接 →</Link>
+            <Link href="/products/fmclaw/connectors" style={{ color: "#3fd9b8", fontWeight: 600 }}>查看工具箱 →</Link>
           </p>
         </div>
       </section>
