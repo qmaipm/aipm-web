@@ -33,6 +33,9 @@
 .fmc-crumb a:hover{color:var(--c-green)}
 .fmc-crumb-sep{margin:0 9px;color:var(--c-green);font-weight:700}
 @media(max-width:600px){.fmc-crumb{padding-top:118px}}
+.fmc-crumb.on-dark{padding-top:0}
+.fmc-crumb.on-dark a{color:#9fded0}
+.fmc-crumb.on-dark a:hover{color:#fff}
 
 /* HERO:左文右插画 */
 .fmc-hero{position:relative;overflow:hidden;padding:22px 0 72px;background:var(--c-paper)}
@@ -47,6 +50,21 @@
 .fmc-hero-art img{width:100%;height:auto;display:block;border-radius:20px;
   border:1px solid var(--c-line);box-shadow:0 24px 60px rgba(12,139,130,.13)}
 @media(max-width:960px){.fmc-hero-art{max-width:560px}}
+
+/* 照片 hero(控制台页:摄影底图 · 暗场,同 workshop ws-hero 质感) */
+.fmc-phero{position:relative;overflow:hidden;background:var(--c-core);color:#fff}
+.fmc-phero-bg{position:absolute;inset:0;z-index:0;background:url(/products/fmclaw/console-hero.jpg) center/cover no-repeat}
+.fmc-phero-bg::after{content:"";position:absolute;inset:0;
+  background:linear-gradient(180deg,rgba(7,17,14,.44) 0%,rgba(7,17,14,.22) 42%,rgba(7,17,14,.9) 100%),
+             linear-gradient(100deg,rgba(7,17,14,.58) 0%,rgba(7,17,14,.16) 55%,transparent 80%)}
+.fmc-phero .wrap{position:relative;z-index:2;min-height:480px;display:flex;flex-direction:column;
+  justify-content:flex-end;padding-top:88px;padding-bottom:68px}
+.fmc-phero .fmc-kicker{color:#9fded0}
+.fmc-phero h1{margin:10px 0 0;font-size:clamp(32px,4.4vw,52px);font-weight:800;letter-spacing:-.035em;
+  line-height:1.1;color:#fff;max-width:22ch;text-shadow:0 2px 60px rgba(0,112,255,.22)}
+.fmc-phero .fmc-def{color:#D7E2DD}
+.fmc-phero .fmc-def b{color:#fff}
+@media(max-width:700px){.fmc-phero .wrap{min-height:400px;padding-top:64px;padding-bottom:52px}}
 
 /* 章节 band:亮/雾灰/暗 交替 */
 .fmc-sec{position:relative;padding:104px 0;background:var(--c-paper)}

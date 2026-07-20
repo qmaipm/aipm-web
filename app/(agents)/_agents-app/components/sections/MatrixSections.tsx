@@ -105,9 +105,9 @@ const PLATFORM = [
   },
   {
     rel: "运行受控于",
-    name: "运行与治理",
+    name: "控制台",
     href: "/products/fmclaw/agent-runtime",
-    d: "统一管理组织身份、项目权限、人工介入与审计记录。",
+    d: "智能体的身份、权限、运行和记录,都在一个地方管理。",
     icon: Icons.governance,
     glow: "pink-gold",
   },

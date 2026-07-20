@@ -21,7 +21,7 @@ export const MENU: MenuItem[] = [
           { label: "行业数据本体", href: "/products/fmclaw/ontology", small: "统一业务对象、指标口径与数据权限" },
           { label: "工作流引擎", href: "/products/fmclaw/workflow-engine", small: "让业务流程稳定、可复制地运行" },
           { label: "工具箱", href: "/products/fmclaw/connectors", small: "把在用的软件接为智能体可调用的工具" },
-          { label: "运行与治理", href: "/products/fmclaw/agent-runtime", small: "运行、权限、监控、审计与人工介入" },
+          { label: "控制台", href: "/products/fmclaw/agent-runtime", small: "智能体的身份、权限、运行和记录" },
         ],
       },
       {
@@ -155,7 +155,7 @@ export const FOOTER_COLS: { title: string; links: DropItem[] }[] = [
       { label: "行业数据本体", href: "/products/fmclaw/ontology" },
       { label: "工作流引擎", href: "/products/fmclaw/workflow-engine" },
       { label: "工具箱", href: "/products/fmclaw/connectors" },
-      { label: "运行与治理", href: "/products/fmclaw/agent-runtime" },
+      { label: "控制台", href: "/products/fmclaw/agent-runtime" },
       { label: "第三方平台 AI 协同", href: "/products/collaboration" },
       { label: "IoT 物理感知", href: "/products/iot" },
       { label: "机器人与智能装备", href: "/products/robots" },

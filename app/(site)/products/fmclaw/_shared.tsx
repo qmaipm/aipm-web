@@ -12,7 +12,7 @@ const SITE_URL = process.env.SITE_URL || "https://www.aipm.cn";
 export type Crumb = { name: string; href: string };
 
 /** 可见面包屑 + BreadcrumbList JSON-LD(item 为绝对地址) */
-export function FmBreadcrumb({ trail }: { trail: Crumb[] }) {
+export function FmBreadcrumb({ trail, onDark }: { trail: Crumb[]; onDark?: boolean }) {
   const ld = {
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
@@ -29,7 +29,7 @@ export function FmBreadcrumb({ trail }: { trail: Crumb[] }) {
   return (
     <>
       <JsonLd data={ld} />
-      <nav className="fmc-crumb" aria-label="面包屑">
+      <nav className={`fmc-crumb${onDark ? " on-dark" : ""}`} aria-label="面包屑">
         <Link href="/products/fmclaw">产品</Link>
         {trail.slice(1).map((c) => (
           <span key={c.href}>

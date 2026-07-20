@@ -95,12 +95,12 @@ const LAYERS = [
   },
   {
     no: "L4",
-    name: "运行与治理",
-    en: "RUNTIME & GOVERNANCE",
-    desc: "统一管理智能体的组织身份、项目权限、运行状态、人工介入和审计记录。每一步都有记录,可以复核。",
-    tags: ["项目隔离", "运行监控", "审计追溯"],
+    name: "控制台",
+    en: "CONSOLE",
+    desc: "每个智能体是谁、在哪个项目、能做什么、做了什么,都在这里管理。人可以随时查看、暂停和接管。",
+    tags: ["项目隔离", "运行监控", "审计记录"],
     img: "/products/fmclaw/agent-runtime-hero.png",
-    alt: "智能体运行与治理插画:身份、权限、监控与审计构成的治理面板",
+    alt: "控制台插画:智能体身份、权限、运行状态与审计记录的管理面板",
     href: "/products/fmclaw/agent-runtime",
   },
 ];
@@ -196,7 +196,7 @@ export default function Page() {
             <div className="fmc-hero-art">
               <img
                 src="/products/fmclaw/overview-hero.png"
-                alt="FMClaw 平台四层架构插画:行业数据本体、智能体工作流引擎、工具箱、智能体运行与治理"
+                alt="FMClaw 平台四层架构插画:行业数据本体、智能体工作流引擎、工具箱、控制台"
                 width={1376}
                 height={768}
               />
@@ -301,7 +301,7 @@ export default function Page() {
             ))}
           </div>
           <p className="fmo-verdict">
-            数据本体提供业务事实,工作流引擎组织工作,系统连接完成动作,运行与治理控制权限和审计。
+            数据本体提供业务事实,工作流引擎组织工作,工具箱完成动作,控制台管理权限和记录。
           </p>
         </div>
       </section>
@@ -368,7 +368,7 @@ export default function Page() {
             </div>
           </div>
           <LinkCards items={[
-            { href: "/products/fmclaw/agent-runtime", lab: "平台能力", t: "运行与治理", d: "身份、权限、监控、人工介入与审计的统一管理。", icon: IC.shield },
+            { href: "/products/fmclaw/agent-runtime", lab: "平台能力", t: "控制台", d: "智能体的身份、权限、运行和记录,都在一个地方管理。", icon: IC.shield },
             { href: "/insights/demo-vs-system", lab: "洞察", t: "为什么 Demo 跑通了,离生产还很远", d: "生产系统面对的是持续变化的真实业务。", icon: IC.doc },
           ]} />
         </div>

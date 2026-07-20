@@ -214,7 +214,7 @@ export default function Page() {
           </p>
           <LinkCards items={[
             { href: "/products/fmclaw/workflow-engine", lab: "平台能力 · L2", t: "工作流引擎", d: "把管理流程,交给智能体运行。", icon: IC.flow },
-            { href: "/products/fmclaw/agent-runtime", lab: "平台能力 · L4", t: "运行与治理", d: "身份、权限、运行状态与审计记录的统一管理。", icon: IC.shield },
+            { href: "/products/fmclaw/agent-runtime", lab: "平台能力 · L4", t: "控制台", d: "智能体的身份、权限、运行和记录,都在一个地方管理。", icon: IC.shield },
           ]} />
           <p className="fmc-rel-back">
             <Link href="/products/fmclaw">← 返回 FMClaw™ 产品总览</Link>
