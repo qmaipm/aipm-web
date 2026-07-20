@@ -1,0 +1,170 @@
+/* /agents 内容补充区块 — 仅布局，视觉完全复用 _agents-app/globals.css 的 VI 变量与卡片语言 */
+
+.agents-app .mx-section {
+    padding: 100px 24px;
+}
+
+.agents-app .mx-white {
+    background: var(--white);
+}
+
+.agents-app .mx-gray {
+    background: var(--gray-50);
+}
+
+/* ---- 卡片网格 ---- */
+.agents-app .mx-grid-4 {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 24px;
+}
+
+.agents-app .mx-grid-3 {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+}
+
+/* ---- 卡片：与 .product-card 同语言 ---- */
+.agents-app .mx-card {
+    padding: 32px 24px;
+    background: var(--white);
+    border: 2px solid var(--gray-200);
+    border-radius: var(--radius-lg);
+    transition: all var(--transition-base);
+}
+
+.agents-app .mx-card:hover {
+    transform: translateY(-6px);
+    border-color: transparent;
+    box-shadow: var(--shadow-xl);
+}
+
+.agents-app .mx-card h3 {
+    font-size: 17px;
+    font-weight: 700;
+    color: var(--gray-900);
+    margin: 0 0 10px;
+}
+
+.agents-app .mx-card p {
+    font-size: 14.5px;
+    line-height: 1.7;
+    color: var(--gray-600);
+    margin: 0;
+}
+
+.agents-app .mx-rel {
+    display: inline-block;
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--vi-green);
+    background: rgba(18, 185, 138, 0.08);
+    padding: 4px 10px;
+    border-radius: var(--radius-full);
+    margin-bottom: 14px;
+}
+
+.agents-app a.mx-card {
+    display: block;
+    text-decoration: none;
+}
+
+.agents-app .mx-card .mx-go {
+    display: inline-block;
+    margin-top: 14px;
+    font-size: 13.5px;
+    font-weight: 600;
+    color: var(--vi-blue);
+}
+
+/* ---- FAQ ---- */
+.agents-app .mx-faq-list {
+    max-width: 820px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.agents-app .mx-faq-item {
+    background: var(--white);
+    border: 1px solid var(--gray-200);
+    border-radius: var(--radius-md);
+    padding: 0 24px;
+    transition: box-shadow var(--transition-base);
+}
+
+.agents-app .mx-faq-item[open] {
+    box-shadow: var(--shadow-xl);
+}
+
+.agents-app .mx-faq-item summary {
+    cursor: pointer;
+    list-style: none;
+    padding: 20px 0;
+    font-size: 15.5px;
+    font-weight: 600;
+    color: var(--gray-900);
+    position: relative;
+    padding-right: 28px;
+}
+
+.agents-app .mx-faq-item summary::-webkit-details-marker {
+    display: none;
+}
+
+.agents-app .mx-faq-item summary::after {
+    content: "+";
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 20px;
+    font-weight: 400;
+    color: var(--vi-blue);
+    transition: transform var(--transition-base);
+}
+
+.agents-app .mx-faq-item[open] summary::after {
+    content: "−";
+}
+
+.agents-app .mx-faq-item p {
+    padding: 0 0 20px;
+    margin: 0;
+    font-size: 14.5px;
+    line-height: 1.8;
+    color: var(--gray-600);
+}
+
+/* ---- GET STARTED 眉标（复用 .cta-section 渐变带） ---- */
+.agents-app .mx-cta-eyebrow {
+    display: inline-block;
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    color: rgba(255, 255, 255, 0.85);
+    background: rgba(255, 255, 255, 0.14);
+    padding: 6px 16px;
+    border-radius: var(--radius-full);
+    margin-bottom: 20px;
+}
+
+/* ---- 响应式 ---- */
+@media (max-width: 1024px) {
+    .agents-app .mx-grid-4 {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    .agents-app .mx-section {
+        padding: 64px 20px;
+    }
+
+    .agents-app .mx-grid-4,
+    .agents-app .mx-grid-3 {
+        grid-template-columns: 1fr;
+    }
+}
