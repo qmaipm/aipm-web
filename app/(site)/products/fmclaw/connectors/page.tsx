@@ -68,14 +68,27 @@ export default function Page() {
       </div>
 
       <header className="fmc-hero">
+        <span className="fmc-grid" aria-hidden="true" />
         <div className="wrap">
-          <p className="fmc-kicker">Industry Tools &amp; System Connectivity</p>
-          <h1>连接已有系统,让智能体真正完成工作</h1>
-          <p className="fmc-def">
-            行业工具与系统连接是 FMClaw™ 的执行层。它通过 API、MCP、CLI 和现有系统接口,
-            把物业 ERP、财务人力、协同平台、IoT 和机器人接入同一个运行体系,
-            让智能体不只是回答问题,而是查询、写入、通知、派单、控制和执行。
-          </p>
+          <div className="fmc-hero-cols">
+            <div>
+              <p className="fmc-kicker">Industry Tools &amp; System Connectivity</p>
+              <h1>连接已有系统,让智能体<span className="grad">真正完成工作</span></h1>
+              <p className="fmc-def">
+                行业工具与系统连接是 FMClaw™ 的<b>执行层</b>。它通过 API、MCP、CLI 和现有系统接口,
+                把物业 ERP、财务人力、协同平台、IoT 和机器人接入同一个运行体系,
+                让智能体不只是回答问题,而是<b>查询、写入、通知、派单、控制和执行</b>。
+              </p>
+            </div>
+            <div className="fmc-hero-art">
+              <img
+                src="/products/fmclaw/connectors-hero.png"
+                alt="行业工具与系统连接插画:中枢向外连接手机、IoT 传感器、业务系统、云端与机器人"
+                width={1200}
+                height={896}
+              />
+            </div>
+          </div>
         </div>
       </header>
 
@@ -97,7 +110,7 @@ export default function Page() {
         </div>
       </section>
 
-      <section className="fmc-sec">
+      <section className="fmc-sec mist">
         <div className="wrap">
           <p className="fmc-num">02</p>
           <h2>支持的连接方式</h2>
@@ -123,7 +136,7 @@ export default function Page() {
         </div>
       </section>
 
-      <section className="fmc-sec">
+      <section className="fmc-sec mist">
         <div className="wrap">
           <p className="fmc-num">04</p>
           <h2>从连接到动作</h2>
@@ -154,7 +167,7 @@ export default function Page() {
         </div>
       </section>
 
-      <section className="fmc-sec">
+      <section className="fmc-sec mist">
         <div className="wrap">
           <p className="fmc-num">06</p>
           <h2>不替换现有系统</h2>

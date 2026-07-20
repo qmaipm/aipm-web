@@ -156,22 +156,35 @@ export default function Page() {
 
       {/* ===== 01 HERO ===== */}
       <header className="fmo-hero">
+        <span className="fmc-grid" aria-hidden="true" />
         <div className="wrap">
-          <p className="fmc-kicker">FMClaw™ · 物业与设施管理的生产级 AI 智能体平台</p>
-          <h1>让 AI 进入物业与设施管理的核心工作</h1>
-          <p className="fmo-sub">
-            FMClaw 以行业数据本体为底座,将企业数据、行业指标、业务工作流、系统工具和组织权限统一起来,
-            让智能体能够稳定、准确、可追溯地完成工作。
-          </p>
-          <div className="fmo-cta">
-            <a href="#how-it-works" className="fmo-btn fmo-btn-pri">查看 FMClaw 如何工作 <Arrow /></a>
-            <Link href="/workshop" className="fmo-btn fmo-btn-sec">从一个真实问题开始 <Arrow /></Link>
+          <div className="fmc-hero-cols">
+            <div>
+              <p className="fmc-kicker">FMClaw™ · 物业与设施管理的生产级 AI 智能体平台</p>
+              <h1>让 AI 进入物业与设施管理的<span className="grad">核心工作</span></h1>
+              <p className="fmo-sub">
+                FMClaw 以<b>行业数据本体</b>为底座,将企业数据、行业指标、业务工作流、系统工具和组织权限统一起来,
+                让智能体能够<b>稳定、准确、可追溯</b>地完成工作。
+              </p>
+              <div className="fmo-cta">
+                <a href="#how-it-works" className="btn btn-primary">查看 FMClaw 如何工作 <Arrow /></a>
+                <Link href="/workshop" className="btn btn-ghost">从一个真实问题开始 <Arrow /></Link>
+              </div>
+              <ul className="fmo-facts">
+                <li><b>100+</b>&nbsp;条预制业务工作流</li>
+                <li>覆盖<b>几十个</b>物业与设施管理岗位</li>
+                <li>自 <b>2017</b> 年持续在真实现场验证</li>
+              </ul>
+            </div>
+            <div className="fmc-hero-art">
+              <img
+                src="/products/fmclaw/overview-hero.png"
+                alt="FMClaw 平台四层架构插画:行业数据本体、智能体工作流引擎、行业工具与系统连接、智能体运行与治理"
+                width={1376}
+                height={768}
+              />
+            </div>
           </div>
-          <ul className="fmo-facts">
-            <li>100+ 条预制业务工作流</li>
-            <li>覆盖几十个物业与设施管理岗位</li>
-            <li>自 2017 年持续在真实现场验证</li>
-          </ul>
 
           {/* 拟真产品操作台:输入框 + 运行路径 + 状态标签 */}
           <div className="fmo-console" role="img" aria-label="FMClaw 操作台:输入业务需求,平台读取项目数据、使用统一指标、运行业务工作流、调用业务系统、人工确认、写回与留痕">
@@ -210,7 +223,7 @@ export default function Page() {
       </header>
 
       {/* ===== 02 产品差异 ===== */}
-      <section className="fmc-sec fmo-sec" id="why-fmclaw">
+      <section className="fmc-sec mist fmo-after-console" id="why-fmclaw">
         <div className="wrap">
           <p className="fmc-num">FROM PERSONAL AI TO OPERATIONAL AI</p>
           <h2>从一个人使用 AI,到一个组织把工作交给 AI</h2>
@@ -249,8 +262,8 @@ export default function Page() {
         </div>
       </section>
 
-      {/* ===== 03 平台能力地图 ===== */}
-      <section className="fmc-sec fmo-sec" id="platform">
+      {/* ===== 03 平台能力地图(暗场,页面视觉重心) ===== */}
+      <section className="fmc-sec dark" id="platform">
         <div className="wrap">
           <p className="fmc-num">ALL IN ONE OPERATING LAYER</p>
           <h2>一套平台,统一 AI 工作所需的一切</h2>
@@ -284,7 +297,7 @@ export default function Page() {
       </section>
 
       {/* ===== 04 如何完成一项工作 ===== */}
-      <section className="fmc-sec fmo-sec" id="how-it-works">
+      <section className="fmc-sec" id="how-it-works">
         <div className="wrap">
           <p className="fmc-num">ONE PROCESS, END TO END</p>
           <h2>不是回答一个问题,而是把一件事接着干完</h2>
@@ -309,7 +322,7 @@ export default function Page() {
       </section>
 
       {/* ===== 05 生产级能力 ===== */}
-      <section className="fmc-sec fmo-sec" id="production">
+      <section className="fmc-sec mist" id="production">
         <div className="wrap">
           <p className="fmc-num">BUILT FOR REPEATED OPERATIONS</p>
           <h2>跑通一次不难。难的是每天稳定地跑。</h2>
@@ -346,7 +359,7 @@ export default function Page() {
       </section>
 
       {/* ===== 06 预制业务工作流 ===== */}
-      <section className="fmc-sec fmo-sec" id="workflows">
+      <section className="fmc-sec" id="workflows">
         <div className="wrap">
           <p className="fmc-num">PREBUILT INDUSTRY WORKFLOWS</p>
           <h2>已经跑通的业务工作流,从这里开始</h2>
@@ -384,7 +397,7 @@ export default function Page() {
       </section>
 
       {/* ===== 07 生产案例 ===== */}
-      <section className="fmc-sec fmo-sec" id="cases">
+      <section className="fmc-sec mist" id="cases">
         <div className="wrap">
           <p className="fmc-num">RUNNING IN PRODUCTION</p>
           <h2>不是演示。已经在真实项目中运行。</h2>
@@ -408,7 +421,7 @@ export default function Page() {
       </section>
 
       {/* ===== 08 生态连接 ===== */}
-      <section className="fmc-sec fmo-sec" id="ecosystem">
+      <section className="fmc-sec" id="ecosystem">
         <div className="wrap">
           <p className="fmc-num">WORKS WITH WHAT YOU ALREADY USE</p>
           <h2>不替换现有平台,只接入专业业务</h2>
@@ -439,8 +452,8 @@ export default function Page() {
         </div>
       </section>
 
-      {/* ===== 09 开始方式 ===== */}
-      <section className="fmc-sec fmo-sec" id="start">
+      {/* ===== 09 开始方式(暗场收束,与站内 endcta 呼应) ===== */}
+      <section className="fmc-sec dark" id="start">
         <div className="wrap">
           <p className="fmc-num">START WITH ONE REAL PROCESS</p>
           <h2>从一个真实问题开始</h2>
@@ -464,9 +477,9 @@ export default function Page() {
               <span className="fmo-wf-go">了解 →</span>
             </Link>
           </div>
-          <div className="fmo-cta" style={{ marginTop: 30 }}>
-            <Link href="/workshop" className="fmo-btn fmo-btn-pri">预约 FMClaw™ 加速营 <Arrow /></Link>
-            <Link href="/cases" className="fmo-btn fmo-btn-sec">查看客户案例 <Arrow /></Link>
+          <div className="fmo-cta" style={{ marginTop: 36 }}>
+            <Link href="/workshop" className="btn btn-primary">预约 FMClaw™ 加速营 <Arrow /></Link>
+            <Link href="/cases" className="btn btn-ghost on-dark">查看客户案例 <Arrow /></Link>
           </div>
         </div>
       </section>
