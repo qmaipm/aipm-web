@@ -2,6 +2,9 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import "./page.css";
 import { pageMetadata } from "@/lib/pageMetadata";
+import ProductCrumb from "../_crumb";
+
+export const dynamic = "force-dynamic";
 
 export const metadata: Metadata = pageMetadata("/products/collaboration", {
   title: "第三方平台 AI 协同 · 钉钉飞书企业微信接进 FMClaw — 启盟科技",
@@ -22,6 +25,7 @@ export default function Page() {
       <section className="col-hero">
         <div className="col-grid" aria-hidden="true" />
         <div className="wrap col-hero-top">
+          <ProductCrumb name="第三方平台 AI 协同" href="/products/collaboration" />
           <span className="col-kicker">第三方平台 AI 协同<i>/</i>不替换，只接入</span>
           <h1 className="col-h1">
             钉钉、飞书、企业微信继续用<br /><span className="grad">FMClaw 接进去就好</span>
@@ -131,6 +135,12 @@ export default function Page() {
             </div>
           </div>
           <p className="col-verdict">三种方式可以单独用，也可以叠加用；原有平台<span className="grad">不替换</span>，FMClaw 只补上专业那一段。</p>
+          <p className="col-verdict">钉钉、飞书和企业微信负责协作入口；FMClaw 负责行业数据、业务工作流与系统动作。</p>
+          <p className="col-verdict" style={{ fontSize: 14 }}>
+            <Link href="/products/fmclaw" style={{ color: "#3fd9b8", fontWeight: 600 }}>了解 FMClaw 如何统一数据、工作流、工具和组织权限 →</Link>
+            <br />
+            <Link href="/products/fmclaw/connectors" style={{ color: "#3fd9b8", fontWeight: 600 }}>查看行业工具与系统连接 →</Link>
+          </p>
         </div>
       </section>
 

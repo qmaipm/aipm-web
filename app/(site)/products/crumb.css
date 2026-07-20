@@ -1,0 +1,7 @@
+/* 产品扩展页面包屑(collaboration / iot / robots 共用) */
+.px-crumb{font-size:13px;color:#7C827F;margin:0 0 18px}
+.px-crumb a{color:#7C827F;text-decoration:none}
+.px-crumb a:hover{color:#0C8B82}
+.px-crumb-sep{margin:0 8px;color:#A9AEAB}
+.px-crumb-dark,.px-crumb-dark a{color:rgba(255,255,255,.6)}
+.px-crumb-dark a:hover{color:#fff}

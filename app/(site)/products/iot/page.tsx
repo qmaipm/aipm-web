@@ -3,11 +3,14 @@ import Link from "next/link";
 import Image from "next/image";
 import "./page.css";
 import { pageMetadata } from "@/lib/pageMetadata";
+import ProductCrumb from "../_crumb";
+
+export const dynamic = "force-dynamic";
 
 export const metadata: Metadata = pageMetadata("/products/iot", {
   title: "IoT 物理世界感知 · 服务感知是头牌 — 启盟科技",
   description:
-    "FMClaw 的物理世界感知分四类:服务感知、设备感知、环境感知、视觉感知。其中服务感知——感知一次服务到底有没有做、做了多久、做得到不到位——是启盟科技独有、别人做不到的能力。四类数据统一接进 FMClaw 平台数据集市。",
+    "FMClaw 的物理世界感知分四类:服务感知、设备感知、环境感知、视觉感知。其中服务感知——感知一次服务到底有没有做、做了多久、做得到不到位——是启盟科技独有、别人做不到的能力。四类数据统一接进 FMClaw 行业数据本体与数据集市。",
 });
 
 const Arrow = ({ s = 15 }: { s?: number }) => (
@@ -23,6 +26,7 @@ export default function Page() {
       <section className="iot-hero">
         <div className="iot-grid" aria-hidden="true" />
         <div className="wrap iot-hero-top">
+          <ProductCrumb name="IoT 物理世界感知" href="/products/iot" />
           <span className="iot-kicker">IoT 物理世界感知系统<i>/</i>越靠近物理世界越难</span>
           <h1 className="iot-h1">
             懂语言、懂数据<br /><span className="grad">更懂物理世界</span>
@@ -229,7 +233,7 @@ export default function Page() {
         <div className="wrap">
           <span className="iot-eyebrow">怎么接入平台</span>
           <h2 className="iot-h2">设备只管感知，怎么用交给平台</h2>
-          <p className="iot-sub iot-ingest-lead">四类感知采到的数据，统一接进 <Link href="/products/fmclaw">FMClaw™ 平台</Link> 的数据集市，成为日常运营可查、可调的资产。</p>
+          <p className="iot-sub iot-ingest-lead">四类感知采到的数据，统一接进 <Link href="/products/fmclaw/ontology">FMClaw™ 行业数据本体与数据集市</Link>，成为日常运营可查、可调的资产。IoT 提供物理世界的事实，行业数据本体将这些事实映射为项目、空间、设备、服务和指标。</p>
 
           <div className="iot-pipe">
             {/* 源 · 物理感知 */}
@@ -255,8 +259,8 @@ export default function Page() {
             <div className="iot-pipe-stage hub">
               <span className="iot-pipe-lab on">FMClaw™ 平台</span>
               <div>
-                <span className="iot-hub-en">DATA MART</span>
-                <p className="iot-hub-zh">数据集市</p>
+                <span className="iot-hub-en">ONTOLOGY & DATA MART</span>
+                <p className="iot-hub-zh">行业数据本体与数据集市</p>
                 <p className="iot-hub-note">物理世界的事实，统一接进一处</p>
               </div>
             </div>
@@ -281,7 +285,7 @@ export default function Page() {
       <section className="endcta">
         <div className="wrap">
           <h2 className="reveal">把 AI 接入物业与设施管理的日常运营</h2>
-          <p className="reveal">从你的一个真实业务开始。</p>
+          <p className="reveal">从你的一个真实业务开始。<Link href="/products/fmclaw/workflow-engine" style={{ color: "#3fd9b8", fontWeight: 600 }}>了解物理数据如何进入业务工作流 →</Link></p>
           <div className="cta-row reveal">
             <Link href="/workshop" className="btn btn-primary">预约 FMClaw™ 加速营 <Arrow s={16} /></Link>
           </div>
