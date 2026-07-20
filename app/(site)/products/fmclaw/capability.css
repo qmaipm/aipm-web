@@ -289,14 +289,48 @@
   background:var(--c-mist);border-top:1px solid var(--c-line)}
 .fmc-sec .fmo-console{margin:44px 0 0}
 
-/* 章节插画(带描边圆角与品牌投影) */
-.fmc-art{margin:44px 0 0}
-.fmc-art img{width:100%;height:auto;display:block;border-radius:18px;border:1px solid var(--c-line);
-  box-shadow:0 24px 60px rgba(12,139,130,.13)}
-.fmc-sec.mist .fmc-art img{border-color:#fff}
-.fmc-sec.dark .fmc-art img{border-color:rgba(255,255,255,.16);box-shadow:0 24px 60px rgba(0,0,0,.4)}
-.fmc-art figcaption{margin-top:12px;font-size:12.5px;color:var(--c-mut);text-align:center}
-.fmc-sec.dark .fmc-art figcaption{color:#7E8C87}
+/* 图文交替行(全站正文插图标准版式:图占一半,文字占一半,左右交替;同 workshop ws-mode) */
+.fmo-lrows{margin:56px 0 0;display:flex;flex-direction:column;gap:clamp(56px,7vw,88px)}
+.fmo-lrow{display:grid;grid-template-columns:minmax(0,1.02fr) minmax(0,1fr);gap:clamp(32px,5vw,72px);align-items:center}
+.fmo-lrow.flip .fmo-limg{order:2}
+.fmo-lrow.flip .fmo-lbody{order:1}
+@media(max-width:860px){
+  .fmo-lrow{grid-template-columns:1fr;gap:24px}
+  .fmo-lrow.flip .fmo-limg{order:0}
+  .fmo-lrow.flip .fmo-lbody{order:1}
+}
+.fmo-limg{position:relative;display:block;border-radius:18px;overflow:hidden;
+  box-shadow:0 24px 60px rgba(11,23,20,.16);transform:translateY(0);transition:transform .3s,box-shadow .3s}
+.fmo-limg::after{content:"";position:absolute;inset:0;border-radius:18px;
+  box-shadow:inset 0 0 0 1px rgba(11,23,20,.08)}
+.fmo-limg img{display:block;width:100%;height:auto;transform:scale(1);transition:transform .5s}
+.fmo-lrow:hover .fmo-limg{transform:translateY(-4px);box-shadow:0 30px 70px rgba(11,23,20,.20)}
+.fmo-lrow:hover .fmo-limg img{transform:scale(1.025)}
+.fmc-sec.dark .fmo-limg{box-shadow:0 24px 60px rgba(0,0,0,.4)}
+.fmc-sec.dark .fmo-limg::after{box-shadow:inset 0 0 0 1px rgba(255,255,255,.14)}
+.fmo-lbody{max-width:52ch}
+.fmo-lhead{display:flex;align-items:baseline;gap:16px;margin-bottom:16px}
+.fmo-lno{font-size:clamp(30px,3.4vw,40px);font-weight:800;line-height:.9;letter-spacing:-.03em;font-variant-numeric:tabular-nums;
+  background:var(--c-grad);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+@supports not ((-webkit-background-clip:text) or (background-clip:text)){.fmo-lno{color:var(--c-deep);-webkit-text-fill-color:currentColor}}
+.fmo-len{font-size:11px;font-weight:700;letter-spacing:.14em;color:var(--c-mut);text-transform:uppercase}
+.fmo-lrow h3{margin:0 0 12px;font-size:clamp(22px,2.6vw,29px);font-weight:800;letter-spacing:-.025em;color:var(--c-ink);line-height:1.22}
+.fmc-sec.dark .fmo-lrow h3{color:#fff}
+.fmo-ldesc{margin:0 0 18px;font-size:clamp(14.5px,1.6vw,16px);line-height:1.72;color:var(--c-ink-2)}
+.fmc-sec.dark .fmo-ldesc{color:#AEBAB5}
+.fmo-ltags{display:flex;flex-wrap:wrap;gap:8px;margin:0 0 20px}
+.fmo-ltags span{font-size:12.5px;font-weight:600;color:var(--c-ink-2);background:var(--c-mist);
+  border:1px solid var(--c-line);border-radius:999px;padding:5px 13px}
+.fmo-lgo{display:inline-flex;align-items:center;gap:7px;font-size:14px;font-weight:700;color:var(--c-deep);text-decoration:none}
+.fmo-lgo svg{transition:transform .25s}
+.fmo-lrow:hover .fmo-lgo svg{transform:translateX(3px)}
+.fmo-lgo:hover{text-decoration:underline}
+/* 行内子清单(图文行右栏中的多条能力) */
+.fmo-lsub{margin:0;padding:0;list-style:none;display:grid;gap:16px}
+.fmo-lsub li{display:flex;gap:14px;align-items:flex-start}
+.fmo-lsub .fmo-cap-no{margin-top:3px}
+.fmo-lsub b{display:block;font-size:16px;font-weight:800;letter-spacing:-.01em;color:var(--c-ink)}
+.fmo-lsub p{margin:4px 0 0;font-size:14px;line-height:1.66;color:var(--c-ink-2)}
 
 /* 紧凑能力行(2×N,标题 + 一句能力陈述) */
 .fmo-caps{margin:44px 0 0;display:grid;grid-template-columns:1fr 1fr;gap:14px}

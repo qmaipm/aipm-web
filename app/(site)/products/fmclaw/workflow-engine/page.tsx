@@ -61,14 +61,6 @@ const PREBUILT = [
   { n: "10", t: "能耗分析", d: "逐项目比对,标出异常。" },
 ];
 
-/* 引擎的四项能力(能力陈述,不含实现方式) */
-const ENGINE = [
-  { n: "01", t: "自然语言生成", d: "一句话描述要求,生成可检查的流程。" },
-  { n: "02", t: "多种触发", d: "定时、事件、消息、人工。该跑的时候自己跑。" },
-  { n: "03", t: "节点级配置", d: "每个节点可配置取数、判断、生成、执行。" },
-  { n: "04", t: "Multi-agent 协同", d: "多个岗位智能体,一个班组,一份成果。" },
-];
-
 /* 一条流程怎么跑(人工节点高亮) */
 const FLOW = [
   { n: "01", t: "触发", who: "引擎", d: "定时、事件、消息或人工发起。" },
@@ -176,45 +168,59 @@ export default function Page() {
         </div>
       </section>
 
-      {/* ===== 03 引擎能力 ===== */}
+      {/* ===== 03 引擎能力(图文交替行,同总览 L1-L4 版式) ===== */}
       <section className="fmc-sec">
         <div className="wrap">
           <p className="fmc-num">03</p>
           <h2>从一句话,到一条流程</h2>
-          <p className="fmc-p">
-            业务人员用自然语言描述要求,引擎生成可检查、可调整的流程。
-          </p>
-          <figure className="fmc-art">
-            <img
-              src="/products/fmclaw/workflow-nl.webp"
-              alt="自然语言生成工作流插画:一句话输入展开为节点式流程平台"
-              width={1376}
-              height={768}
-              loading="lazy"
-            />
-            <figcaption>一句话描述要求,生成可检查的流程</figcaption>
-          </figure>
-          <div className="fmo-caps">
-            {ENGINE.map((c) => (
-              <div className="fmo-cap" key={c.n}>
-                <span className="fmo-cap-no">{c.n}</span>
-                <div>
-                  <b>{c.t}</b>
-                  <p>{c.d}</p>
-                </div>
+          <div className="fmo-lrows">
+            <div className="fmo-lrow">
+              <span className="fmo-limg">
+                <img
+                  src="/products/fmclaw/workflow-nl.webp"
+                  alt="自然语言生成工作流插画:一句话输入展开为节点式流程平台"
+                  width={1376}
+                  height={768}
+                  loading="lazy"
+                />
+              </span>
+              <div className="fmo-lbody">
+                <ul className="fmo-lsub">
+                  <li>
+                    <span className="fmo-cap-no">01</span>
+                    <div><b>自然语言生成</b><p>一句话描述要求,生成可检查的流程。</p></div>
+                  </li>
+                  <li>
+                    <span className="fmo-cap-no">02</span>
+                    <div><b>多种触发</b><p>定时、事件、消息、人工。该跑的时候自己跑。</p></div>
+                  </li>
+                </ul>
               </div>
-            ))}
+            </div>
+            <div className="fmo-lrow flip">
+              <span className="fmo-limg">
+                <img
+                  src="/products/fmclaw/workflow-agents.webp"
+                  alt="Multi-agent 协同插画:多个岗位智能体沿流程轨道分工协作,输出一份成果"
+                  width={1376}
+                  height={768}
+                  loading="lazy"
+                />
+              </span>
+              <div className="fmo-lbody">
+                <ul className="fmo-lsub">
+                  <li>
+                    <span className="fmo-cap-no">03</span>
+                    <div><b>节点级配置</b><p>每个节点可配置取数、判断、生成、执行。</p></div>
+                  </li>
+                  <li>
+                    <span className="fmo-cap-no">04</span>
+                    <div><b>Multi-agent 协同</b><p>多个岗位智能体,一个班组,一份成果。</p></div>
+                  </li>
+                </ul>
+              </div>
+            </div>
           </div>
-          <figure className="fmc-art">
-            <img
-              src="/products/fmclaw/workflow-agents.webp"
-              alt="Multi-agent 协同插画:多个岗位智能体沿流程轨道分工协作,输出一份成果"
-              width={1376}
-              height={768}
-              loading="lazy"
-            />
-            <figcaption>多个岗位智能体,一个班组,一份成果</figcaption>
-          </figure>
         </div>
       </section>
 
@@ -261,29 +267,35 @@ export default function Page() {
           <p className="fmc-p">
             项目间数据隔离,口径统一。
           </p>
-          <figure className="fmc-art">
-            <img
-              src="/products/fmclaw/workflow-replicate.webp"
-              alt="集团复制插画:中心的主工作流向多个项目平台辐射复制"
-              width={1376}
-              height={768}
-              loading="lazy"
-            />
-          </figure>
-          <ul className="fmo-checks">
-            <li>
-              <span className="ck" aria-hidden="true"><Check /></span>
-              <span><b>多项目复制</b><span className="d">一条流程验证后,复制到更多项目,不重新搭建。</span></span>
-            </li>
-            <li>
-              <span className="ck" aria-hidden="true"><Check /></span>
-              <span><b>口径一致</b><span className="d">指标定义与管理要求全集团统一,一处修改,处处生效。</span></span>
-            </li>
-            <li>
-              <span className="ck" aria-hidden="true"><Check /></span>
-              <span><b>结果确定</b><span className="d">同样的输入,同样的口径,同样的结果。可复核。</span></span>
-            </li>
-          </ul>
+          <div className="fmo-lrows">
+            <div className="fmo-lrow">
+              <span className="fmo-limg">
+                <img
+                  src="/products/fmclaw/workflow-replicate.webp"
+                  alt="集团复制插画:中心的主工作流向多个项目平台辐射复制"
+                  width={1376}
+                  height={768}
+                  loading="lazy"
+                />
+              </span>
+              <div className="fmo-lbody">
+                <ul className="fmo-checks" style={{ marginTop: 0 }}>
+                  <li>
+                    <span className="ck" aria-hidden="true"><Check /></span>
+                    <span><b>多项目复制</b><span className="d">一条流程验证后,复制到更多项目,不重新搭建。</span></span>
+                  </li>
+                  <li>
+                    <span className="ck" aria-hidden="true"><Check /></span>
+                    <span><b>口径一致</b><span className="d">指标定义与管理要求全集团统一,一处修改,处处生效。</span></span>
+                  </li>
+                  <li>
+                    <span className="ck" aria-hidden="true"><Check /></span>
+                    <span><b>结果确定</b><span className="d">同样的输入,同样的口径,同样的结果。可复核。</span></span>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
           <p className="fmo-verdict">
             500 个项目的周报口径,和 1 个项目一样。
           </p>

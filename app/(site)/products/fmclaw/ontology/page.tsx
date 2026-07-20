@@ -166,16 +166,26 @@ export default function Page() {
               <div className="fmo-cmp-new" role="cell">在<b>数据集市</b>中查找、订阅、调用</div>
             </div>
           </div>
-          <figure className="fmc-art">
-            <img
-              src="/products/fmclaw/ontology-marts.webp"
-              alt="AI 原生架构插画:企业已有的服务器、数据库、IoT 与业务系统通过连接器接入中央的行业数据本体,治理后的数据以数据集市的形式交付给使用者"
-              width={1376}
-              height={768}
-              loading="lazy"
-            />
-            <figcaption>存量系统经连接器接入本体,治理后以数据集市交付</figcaption>
-          </figure>
+          <div className="fmo-lrows">
+            <div className="fmo-lrow">
+              <span className="fmo-limg">
+                <img
+                  src="/products/fmclaw/ontology-marts.webp"
+                  alt="AI 原生架构插画:企业已有的服务器、数据库、IoT 与业务系统通过连接器接入中央的行业数据本体,治理后的数据以数据集市的形式交付给使用者"
+                  width={1376}
+                  height={768}
+                  loading="lazy"
+                />
+              </span>
+              <div className="fmo-lbody">
+                <h3>存量系统,原样接入</h3>
+                <p className="fmo-ldesc">
+                  数据中台、IoT 中台和业务系统经连接器接入,本体在其之上统一描述。
+                  治理后的数据以数据集市交付——人和智能体用的是同一份口径。
+                </p>
+              </div>
+            </div>
+          </div>
           <p className="fmo-verdict">
             不替换数据中台,不重建 IoT 中台——连接器接入存量系统,本体让 AI 读懂它们。
           </p>
