@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import type { ReactNode } from "react";
 import Link from "next/link";
 import JsonLd from "@/components/JsonLd";
 import { pageMetadata } from "@/lib/pageMetadata";
@@ -124,16 +125,28 @@ const WORKFLOWS = [
 /* 生产案例(三个,数字为已确认口径) */
 const CASES = [
   {
+    no: "01",
+    tag: "物业集团",
+    img: "/products/fmclaw/case-auto-report.webp",
+    alt: "运营报告自动生成插画:数据从项目底座逐层汇聚,生成结构一致的运营报告",
     t: "500 多个项目,每天自动生成运营报告",
     facts: [["每份报告", "约 3 分钟"], ["人工投入", "0"]],
     href: "/cases/property-group-auto-operation-report",
   },
   {
+    no: "02",
+    tag: "物业集团",
+    img: "/products/fmclaw/case-chat-service.webp",
+    alt: "对话式 AI 客服插画:业主消息进入 AI 处理中心,自动生成工单并派发到现场",
     t: "业主群里的投诉报事,自动成单、派单",
     facts: [["派单", "少于 1 分钟"], ["运行", "7×24"]],
     href: "/cases/property-group-chat-ai-service",
   },
   {
+    no: "03",
+    tag: "设施设备",
+    img: "/products/fmclaw/case-inspection.webp",
+    alt: "设备巡检插画:巡检路线连接各类设施设备,传感器与核对清单实时反馈状态",
     t: "设施设备巡检,交给 AI 智能体",
     facts: [["签到率", "99%"], ["达标率", "35% → 98%"]],
     href: "/cases/fmclaw-equipment-inspection",
@@ -144,6 +157,38 @@ const Arrow = ({ s = 14 }: { s?: number }) => (
   <svg width={s} height={s} viewBox="0 0 16 16" aria-hidden="true">
     <path d="M3 8h10M9 4l4 4-4 4" fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round" />
   </svg>
+);
+
+/* 链接卡图标(1.5-stroke,与站内插画语言一致) */
+const ic = (d: ReactNode) => (
+  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">{d}</svg>
+);
+const IC = {
+  doc: ic(<><path d="M7 3h8l4 4v14H7z" /><path d="M15 3v4h4" /><path d="M10 12h6M10 16h6" /></>),
+  reconcile: ic(<><rect x="3" y="5" width="8" height="14" rx="2" /><rect x="13" y="5" width="8" height="14" rx="2" /><path d="M5.3 12.2l1.4 1.4 2.4-2.9" /><path d="M15.3 12.2l1.4 1.4 2.4-2.9" /></>),
+  vendor: ic(<><path d="M4 21V5a2 2 0 0 1 2-2h7v18" /><path d="M13 9h5a2 2 0 0 1 2 2v10" /><path d="M4 21h17" /><path d="M7.5 7h2M7.5 11h2M7.5 15h2M16.5 13h1M16.5 17h1" /></>),
+  folder: ic(<><path d="M3 7a2 2 0 0 1 2-2h4l2 2h8a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" /><path d="M9 13.5l2 2 4-4" /></>),
+  shield: ic(<><path d="M12 3l7 3v5c0 4.5-3 8-7 10-4-2-7-5.5-7-10V6z" /><path d="M9 11.5l2 2 4-4" /></>),
+  flow: ic(<><rect x="3" y="4" width="6" height="5" rx="1.5" /><rect x="15" y="4" width="6" height="5" rx="1.5" /><rect x="9" y="15" width="6" height="5" rx="1.5" /><path d="M6 9v3h12V9M12 12v3" /></>),
+  grid: ic(<><rect x="4" y="4" width="7" height="7" rx="1.5" /><rect x="13" y="4" width="7" height="7" rx="1.5" /><rect x="4" y="13" width="7" height="7" rx="1.5" /><rect x="13" y="13" width="7" height="7" rx="1.5" /></>),
+  layers: ic(<><path d="M12 3l9 5-9 5-9-5z" /><path d="M3 13.5l9 5 9-5" /></>),
+};
+
+type Lc = { href: string; lab: string; t: string; d: string; icon: ReactNode };
+const LinkCards = ({ items }: { items: Lc[] }) => (
+  <div className={`fmo-linkcards${items.length === 1 ? " one" : items.length === 2 ? " two" : ""}`}>
+    {items.map((it) => (
+      <Link className="fmo-linkcard" key={it.href + it.t} href={it.href}>
+        <span className="fmo-lc-icon" aria-hidden="true">{it.icon}</span>
+        <span className="fmo-lc-body">
+          <span className="fmo-lc-lab">{it.lab}</span>
+          <b>{it.t}</b>
+          <span className="fmo-lc-d">{it.d}</span>
+        </span>
+        <span className="fmo-lc-arrow" aria-hidden="true"><Arrow s={13} /></span>
+      </Link>
+    ))}
+  </div>
 );
 
 export default function Page() {
@@ -186,39 +231,26 @@ export default function Page() {
             </div>
           </div>
 
-          {/* 拟真产品操作台:输入框 + 运行路径 + 状态标签 */}
-          <div className="fmo-console" role="img" aria-label="FMClaw 操作台:输入业务需求,平台读取项目数据、使用统一指标、运行业务工作流、调用业务系统、人工确认、写回与留痕">
+          {/* 真实产品界面:物理感知与数据接入面板第一眼可见 */}
+          <figure className="fmo-console fmo-app">
             <div className="fmo-console-bar">
               <span className="fmo-dot" /><span className="fmo-dot" /><span className="fmo-dot" />
-              <span className="fmo-console-title">FMClaw™ Console</span>
+              <span className="fmo-console-title">FMClaw™ 智能物业空间 · 真实产品界面(beta 1.0.1)</span>
             </div>
-            <div className="fmo-console-body">
-              <p className="fmo-console-slogan">搭建任何流程,升级所有服务</p>
-              <div className="fmo-input">
-                <span className="fmo-input-caret" aria-hidden="true" />
-                <span className="fmo-input-ph">描述你要完成的一项业务……</span>
-              </div>
-              <div className="fmo-examples">
-                <span>生成 500 个项目的本周运营报告</span>
-                <span>核算本月员工绩效与薪酬</span>
-                <span>核对供应商账单并标出异常</span>
-              </div>
-              <div className="fmo-runpath">
-                <span>读取项目数据</span><i>→</i>
-                <span>使用统一指标</span><i>→</i>
-                <span>运行业务工作流</span><i>→</i>
-                <span>调用业务系统</span><i>→</i>
-                <span>人工确认</span><i>→</i>
-                <span>写回与留痕</span>
-              </div>
-              <div className="fmc-status fmo-console-status">
-                <span>SYSTEM READY</span>
-                <span>DATA CONNECTED</span>
-                <span>WORKFLOW CONTROLLED</span>
-                <span>AUDIT ON</span>
-              </div>
-            </div>
-          </div>
+            <img
+              src="/products/fmclaw/app-screenshot.jpg"
+              alt="FMClaw 智能物业空间真实界面:AI 对话入口与 AI 员工,下方为服务感知、设备感知、环境感知、视觉感知、机器人与数据接入六个物理感知面板及实时事件流"
+              width={1024}
+              height={506}
+              fetchPriority="high"
+            />
+            <figcaption className="fmo-app-anchors" aria-label="界面关键区域">
+              <span><i aria-hidden="true" />物理感知 ×6 面板</span>
+              <span><i aria-hidden="true" />数据接入</span>
+              <span><i aria-hidden="true" />AI 员工</span>
+              <span><i aria-hidden="true" />实时事件流</span>
+            </figcaption>
+          </figure>
         </div>
       </header>
 
@@ -256,9 +288,9 @@ export default function Page() {
           <p className="fmo-verdict">
             通用平台解决「人如何使用 AI」;FMClaw 解决「企业如何把核心工作稳定地交给 AI」。
           </p>
-          <p className="fmo-more">
-            延伸阅读:<Link className="fmc-ln" href="/insights/demo-vs-system">一个 Demo 和生产系统之间,隔着什么 →</Link>
-          </p>
+          <LinkCards items={[
+            { href: "/insights/demo-vs-system", lab: "延伸阅读", t: "一个 Demo 和生产系统之间,隔着什么", d: "从演示到生产系统,需要补上哪些环节。", icon: IC.doc },
+          ]} />
         </div>
       </section>
 
@@ -313,11 +345,11 @@ export default function Page() {
           <p className="fmo-verdict">
             AI 接手核量、比对、找异常和起草;最终付款决定仍然由人作出。
           </p>
-          <ul className="fmo-links">
-            <li><Link className="fmc-ln" href="/scenarios/reconciliation">查看供应商自动对账场景 →</Link></li>
-            <li><Link className="fmc-ln" href="/solutions/vendor">查看供应商管理解决方案 →</Link></li>
-            <li><Link className="fmc-ln" href="/cases/coworking-supplier-reconciliation">查看真实供应商对账案例 →</Link></li>
-          </ul>
+          <LinkCards items={[
+            { href: "/scenarios/reconciliation", lab: "场景", t: "供应商自动对账", d: "核量、比对、找异常、起草账单的完整场景。", icon: IC.reconcile },
+            { href: "/solutions/vendor", lab: "解决方案", t: "供应商管理", d: "从合同、服务记录到结算的全链路管理。", icon: IC.vendor },
+            { href: "/cases/coworking-supplier-reconciliation", lab: "客户案例", t: "真实供应商对账案例", d: "联合办公项目中的真实对账运行记录。", icon: IC.folder },
+          ]} />
         </div>
       </section>
 
@@ -351,10 +383,10 @@ export default function Page() {
               <span key={t}>{t}</span>
             ))}
           </div>
-          <ul className="fmo-links">
-            <li><Link className="fmc-ln" href="/products/fmclaw/agent-runtime">了解智能体如何稳定运行和接受治理 →</Link></li>
-            <li><Link className="fmc-ln" href="/insights/demo-vs-system">为什么 Demo 跑通了,离生产系统仍然很远 →</Link></li>
-          </ul>
+          <LinkCards items={[
+            { href: "/products/fmclaw/agent-runtime", lab: "平台能力", t: "智能体运行与治理中心", d: "身份、权限、监控、人工介入与审计的统一管理。", icon: IC.shield },
+            { href: "/insights/demo-vs-system", lab: "洞察", t: "为什么 Demo 跑通了,离生产系统仍然很远", d: "生产系统面对的是持续变化的真实业务。", icon: IC.doc },
+          ]} />
         </div>
       </section>
 
@@ -389,10 +421,10 @@ export default function Page() {
               </Link>
             ))}
           </div>
-          <ul className="fmo-links">
-            <li><Link className="fmc-ln" href="/products/fmclaw/workflow-engine">查看行业级智能体工作流引擎 →</Link></li>
-            <li><Link className="fmc-ln" href="/agents">查看物业管理智能体矩阵 →</Link></li>
-          </ul>
+          <LinkCards items={[
+            { href: "/products/fmclaw/workflow-engine", lab: "平台能力", t: "行业级智能体工作流引擎", d: "把一项工作组织成可持续运行的业务流程。", icon: IC.flow },
+            { href: "/agents", lab: "产品套件", t: "物业管理智能体矩阵", d: "对账、派单、巡检等岗位智能体的全景。", icon: IC.grid },
+          ]} />
         </div>
       </section>
 
@@ -404,24 +436,31 @@ export default function Page() {
           <div className="fmc-cols3">
             {CASES.map((c) => (
               <Link className="fmc-cell fmo-case" key={c.href} href={c.href}>
-                <h3>{c.t}</h3>
-                <dl className="fmo-case-facts">
-                  {c.facts.map(([k, v]) => (
-                    <div key={k}><dt>{k}</dt><dd>{v}</dd></div>
-                  ))}
-                </dl>
-                <span className="fmo-wf-go">查看案例 →</span>
+                <span className="fmo-case-media">
+                  <img src={c.img} alt={c.alt} width={1100} height={614} loading="lazy" />
+                  <span className="fmo-case-no">CASE {c.no}</span>
+                  <span className="fmo-case-tag">{c.tag}</span>
+                </span>
+                <span className="fmo-case-body">
+                  <h3>{c.t}</h3>
+                  <dl className="fmo-case-facts">
+                    {c.facts.map(([k, v]) => (
+                      <div key={k}><dt>{k}</dt><dd>{v}</dd></div>
+                    ))}
+                  </dl>
+                  <span className="fmo-wf-go">查看案例 →</span>
+                </span>
               </Link>
             ))}
           </div>
-          <p className="fmo-more">
-            <Link className="fmc-ln" href="/cases">查看全部客户案例 →</Link>
-          </p>
+          <LinkCards items={[
+            { href: "/cases", lab: "案例库", t: "查看全部客户案例", d: "更多真实项目的运行记录与口径。", icon: IC.folder },
+          ]} />
         </div>
       </section>
 
-      {/* ===== 08 生态连接 ===== */}
-      <section className="fmc-sec" id="ecosystem">
+      {/* ===== 08 开始方式(暗场收束,含生态连接) ===== */}
+      <section className="fmc-sec dark" id="start">
         <div className="wrap">
           <p className="fmc-num">WORKS WITH WHAT YOU ALREADY USE</p>
           <h2>不替换现有平台,只接入专业业务</h2>
@@ -446,15 +485,8 @@ export default function Page() {
               <span className="fmo-wf-go">查看 →</span>
             </Link>
           </div>
-          <p className="fmo-verdict">
-            协作平台负责人与组织的连接;FMClaw 负责行业业务的理解与执行。
-          </p>
-        </div>
-      </section>
 
-      {/* ===== 09 开始方式(暗场收束,与站内 endcta 呼应) ===== */}
-      <section className="fmc-sec dark" id="start">
-        <div className="wrap">
+          <div className="fmo-start-divide" id="ecosystem" aria-hidden="true" />
           <p className="fmc-num">START WITH ONE REAL PROCESS</p>
           <h2>从一个真实问题开始</h2>
           <p className="fmc-p">
