@@ -60,14 +60,27 @@ export default function Page() {
       </div>
 
       <header className="fmc-hero">
+        <span className="fmc-grid" aria-hidden="true" />
         <div className="wrap">
-          <p className="fmc-kicker">Agentic Workflow Engine</p>
-          <h1>把物业管理流程,变成可持续运行的智能体工作流</h1>
-          <p className="fmc-def">
-            行业级智能体工作流引擎是 FMClaw™ 组织工作的方式。它把一项业务从触发、取数、
-            判断、审批到执行组织成完整的业务工作流(Agentic Workflow),
-            让同一件事可以在多个项目中稳定、可复核地反复运行。
-          </p>
+          <div className="fmc-hero-cols">
+            <div>
+              <p className="fmc-kicker">Agentic Workflow Engine</p>
+              <h1>把物业管理流程,变成<span className="grad">可持续运行的智能体工作流</span></h1>
+              <p className="fmc-def">
+                行业级智能体工作流引擎是 FMClaw™ 组织工作的方式。它把一项业务从触发、取数、
+                判断、审批到执行组织成完整的<b>业务工作流(Agentic Workflow)</b>,
+                让同一件事可以在多个项目中<b>稳定、可复核</b>地反复运行。
+              </p>
+            </div>
+            <div className="fmc-hero-art">
+              <img
+                src="/products/fmclaw/workflow-engine-hero.png"
+                alt="智能体工作流引擎插画:节点式流程板,包含人工审批节点与分支路径"
+                width={1200}
+                height={896}
+              />
+            </div>
+          </div>
         </div>
       </header>
 
@@ -89,7 +102,7 @@ export default function Page() {
         </div>
       </section>
 
-      <section className="fmc-sec">
+      <section className="fmc-sec mist">
         <div className="wrap">
           <p className="fmc-num">02</p>
           <h2>从管理要求到可运行流程</h2>
@@ -122,7 +135,7 @@ export default function Page() {
         </div>
       </section>
 
-      <section className="fmc-sec">
+      <section className="fmc-sec mist">
         <div className="wrap">
           <p className="fmc-num">04</p>
           <h2>用自然语言生成工作流</h2>
@@ -144,7 +157,7 @@ export default function Page() {
         </div>
       </section>
 
-      <section className="fmc-sec">
+      <section className="fmc-sec mist">
         <div className="wrap">
           <p className="fmc-num">06</p>
           <h2>人工节点:人保留决定权</h2>
@@ -171,7 +184,7 @@ export default function Page() {
         </div>
       </section>
 
-      <section className="fmc-sec">
+      <section className="fmc-sec mist">
         <div className="wrap">
           <p className="fmc-num">08</p>
           <h2>看这些流程实际怎么跑</h2>

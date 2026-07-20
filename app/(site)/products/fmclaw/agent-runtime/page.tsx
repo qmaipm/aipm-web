@@ -61,14 +61,27 @@ export default function Page() {
       </div>
 
       <header className="fmc-hero">
+        <span className="fmc-grid" aria-hidden="true" />
         <div className="wrap">
-          <p className="fmc-kicker">Agent Runtime &amp; Governance</p>
-          <h1>让每个智能体都可运行、可管理、可追溯</h1>
-          <p className="fmc-def">
-            智能体运行与治理中心是 FMClaw™ 的控制层。它统一管理智能体的组织身份、
-            项目权限、任务调度、人工介入、工作日志与审计记录——回答的是同一个问题:
-            企业为什么敢让智能体进入核心业务。
-          </p>
+          <div className="fmc-hero-cols">
+            <div>
+              <p className="fmc-kicker">Agent Runtime &amp; Governance</p>
+              <h1>让每个智能体都<span className="grad">可运行、可管理、可追溯</span></h1>
+              <p className="fmc-def">
+                智能体运行与治理中心是 FMClaw™ 的<b>控制层</b>。它统一管理智能体的组织身份、
+                项目权限、任务调度、人工介入、工作日志与审计记录——回答的是同一个问题:
+                <b>企业为什么敢让智能体进入核心业务</b>。
+              </p>
+            </div>
+            <div className="fmc-hero-art">
+              <img
+                src="/products/fmclaw/agent-runtime-hero.png"
+                alt="智能体运行与治理插画:智能体在执行轨道上运行,旁有监控面板与审计视图"
+                width={1200}
+                height={896}
+              />
+            </div>
+          </div>
         </div>
       </header>
 
@@ -86,7 +99,7 @@ export default function Page() {
         </div>
       </section>
 
-      <section className="fmc-sec">
+      <section className="fmc-sec mist">
         <div className="wrap">
           <p className="fmc-num">02</p>
           <h2>组织身份:智能体不是匿名的</h2>
@@ -110,7 +123,7 @@ export default function Page() {
         </div>
       </section>
 
-      <section className="fmc-sec">
+      <section className="fmc-sec mist">
         <div className="wrap">
           <p className="fmc-num">04</p>
           <h2>多项目运行</h2>
@@ -131,7 +144,7 @@ export default function Page() {
         </div>
       </section>
 
-      <section className="fmc-sec">
+      <section className="fmc-sec mist">
         <div className="wrap">
           <p className="fmc-num">06</p>
           <h2>工作日志</h2>
@@ -158,7 +171,7 @@ export default function Page() {
         </div>
       </section>
 
-      <section className="fmc-sec">
+      <section className="fmc-sec mist">
         <div className="wrap">
           <p className="fmc-num">08</p>
           <h2>人工介入:决定权在人手中</h2>

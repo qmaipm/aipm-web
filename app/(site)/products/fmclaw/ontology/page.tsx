@@ -61,14 +61,27 @@ export default function Page() {
       </div>
 
       <header className="fmc-hero">
+        <span className="fmc-grid" aria-hidden="true" />
         <div className="wrap">
-          <p className="fmc-kicker">Industry Ontology &amp; Metrics</p>
-          <h1>让 AI 理解物业业务中的对象、关系与指标</h1>
-          <p className="fmc-def">
-            行业数据本体与指标中心是 FMClaw™ 的数据底座。它把散落在
-            Excel、业务系统和现场设备里的数据,映射为统一的行业对象和指标,
-            并按组织与项目管理访问权限——让 AI 读到的不是一堆字段,而是业务事实。
-          </p>
+          <div className="fmc-hero-cols">
+            <div>
+              <p className="fmc-kicker">Industry Ontology &amp; Metrics</p>
+              <h1>让 AI 理解物业业务中的<span className="grad">对象、关系与指标</span></h1>
+              <p className="fmc-def">
+                行业数据本体与指标中心是 FMClaw™ 的<b>数据底座</b>。它把散落在
+                Excel、业务系统和现场设备里的数据,映射为统一的行业对象和指标,
+                并按组织与项目管理访问权限——让 AI 读到的不是一堆字段,而是<b>业务事实</b>。
+              </p>
+            </div>
+            <div className="fmc-hero-art">
+              <img
+                src="/products/fmclaw/ontology-hero.png"
+                alt="行业数据本体插画:楼宇剖面中的设备与空间数据节点,连接成统一的知识图谱"
+                width={1200}
+                height={896}
+              />
+            </div>
+          </div>
         </div>
       </header>
 
@@ -89,7 +102,7 @@ export default function Page() {
         </div>
       </section>
 
-      <section className="fmc-sec">
+      <section className="fmc-sec mist">
         <div className="wrap">
           <p className="fmc-num">02</p>
           <h2>从原始数据到业务对象</h2>
@@ -119,7 +132,7 @@ export default function Page() {
         </div>
       </section>
 
-      <section className="fmc-sec">
+      <section className="fmc-sec mist">
         <div className="wrap">
           <p className="fmc-num">04</p>
           <h2>指标中心:统一定义与口径</h2>
@@ -148,7 +161,7 @@ export default function Page() {
         </div>
       </section>
 
-      <section className="fmc-sec">
+      <section className="fmc-sec mist">
         <div className="wrap">
           <p className="fmc-num">06</p>
           <h2>数据权限:只读取完成工作所需的数据</h2>

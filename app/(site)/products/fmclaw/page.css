@@ -1,116 +1,128 @@
 /* ============================================================
-   FMClaw 产品总览页样式(.fmo 作用域,叠加在 .fmc 基础之上)
-   视觉规范:暖白/浅灰/深炭黑 + 克制强调色;细线、节点、
-   状态标签、少量等宽字体;无发光/粒子/玻璃拟态。
+   FMClaw™ 产品总览(.fmo 作用域,叠加在 capability.css 的 .fmc 之上)
+   站点 VI 版:蓝图格网 hero(左文右插画) → 亮/雾/暗 band 交替 →
+   暗场 L1-L4 平台分层(页面视觉重心) → 渐变卡片。
    ============================================================ */
 
-/* ---------- 01 HERO ---------- */
-.fmo-hero{padding:40px 0 60px;border-bottom:1px solid var(--c-line)}
-.fmo-hero h1{margin:0;font-size:clamp(32px,4.8vw,52px);font-weight:800;letter-spacing:-.028em;
-  line-height:1.14;max-width:22ch}
-.fmo-sub{margin:20px 0 0;font-size:clamp(15.5px,1.7vw,17.5px);line-height:1.85;color:var(--c-ink-2);max-width:62ch}
+/* ---------- HERO ---------- */
+.fmo-hero{position:relative;padding:22px 0 0;background:var(--c-paper)}
+.fmo-hero .fmc-grid{overflow:hidden;border-radius:0}
+.fmo-hero h1{margin:10px 0 0;font-size:clamp(34px,4.6vw,56px);font-weight:800;letter-spacing:-.035em;line-height:1.1;color:var(--c-ink)}
+.fmo-hero .fmc-hero-cols{padding-bottom:64px}
+.fmo-sub{margin:22px 0 0;font-size:clamp(15.5px,1.7vw,18px);line-height:1.66;color:var(--c-ink-2);max-width:52ch}
+.fmo-sub b{color:var(--c-ink);font-weight:600}
+.fmo-cta{margin-top:32px;display:flex;flex-wrap:wrap;gap:12px}
+.fmo-facts{margin:30px 0 0;padding:0;list-style:none;display:flex;flex-wrap:wrap;align-items:center;
+  gap:10px 20px;font-size:clamp(14px,1.6vw,15.5px);color:var(--c-mut)}
+.fmo-facts li{display:flex;align-items:center;white-space:nowrap}
+.fmo-facts li b{color:var(--c-ink);font-weight:700}
+.fmo-facts li+li::before{content:"";width:5px;height:5px;border-radius:50%;background:var(--c-faint);margin-right:20px}
 
-.fmo-cta{display:flex;flex-wrap:wrap;gap:12px;margin:28px 0 0}
-.fmo-btn{display:inline-flex;align-items:center;gap:8px;font-size:14.5px;font-weight:700;
-  letter-spacing:-.01em;text-decoration:none;border-radius:8px;padding:12px 22px;
-  transition:background-color .15s ease,border-color .15s ease,color .15s ease}
-.fmo-btn svg{flex:none}
-.fmo-btn-pri{background:var(--c-ink);color:#fff;border:1px solid var(--c-ink)}
-.fmo-btn-pri:hover{background:#000;border-color:#000}
-.fmo-btn-sec{background:var(--c-paper);color:var(--c-ink);border:1px solid var(--c-line)}
-.fmo-btn-sec:hover{border-color:var(--c-ink-2)}
-
-.fmo-facts{margin:26px 0 0;padding:0;list-style:none;display:flex;flex-wrap:wrap;gap:8px 26px}
-.fmo-facts li{position:relative;padding-left:16px;font-size:13.5px;font-weight:600;color:var(--c-ink-2)}
-.fmo-facts li::before{content:"";position:absolute;left:0;top:50%;transform:translateY(-50%);
-  width:7px;height:7px;border-radius:50%;background:var(--c-accent)}
-
-/* 拟真操作台 */
-.fmo-console{margin:40px 0 0;background:var(--c-paper);border:1px solid var(--c-line);border-radius:14px;
-  box-shadow:0 1px 2px rgba(26,30,28,.04),0 12px 32px -18px rgba(26,30,28,.12);overflow:hidden}
-.fmo-console-bar{display:flex;align-items:center;gap:7px;padding:12px 18px;
-  background:var(--c-bg);border-bottom:1px solid var(--c-line-2)}
-.fmo-dot{width:10px;height:10px;border-radius:50%;background:var(--c-line);flex:none}
-.fmo-console-title{margin-left:8px;font-family:var(--c-mono);font-size:11.5px;font-weight:600;
-  letter-spacing:.1em;color:var(--c-mut)}
-.fmo-console-body{padding:30px 34px 28px}
-.fmo-console-slogan{margin:0 0 18px;font-size:clamp(17px,2.2vw,21px);font-weight:800;
-  letter-spacing:-.02em;color:var(--c-ink)}
-.fmo-input{display:flex;align-items:center;gap:10px;border:1px solid var(--c-line);border-radius:10px;
-  background:var(--c-bg);padding:15px 18px}
-.fmo-input-caret{width:2px;height:18px;background:var(--c-green);flex:none;animation:fmo-blink 1.1s steps(1) infinite}
-@keyframes fmo-blink{50%{opacity:0}}
-.fmo-input-ph{font-size:14.5px;color:var(--c-mut)}
-.fmo-examples{display:flex;flex-wrap:wrap;gap:8px;margin:14px 0 0}
-.fmo-examples span{font-size:12.5px;font-weight:500;color:var(--c-ink-2);background:var(--c-paper);
-  border:1px solid var(--c-line);border-radius:999px;padding:6px 14px}
-.fmo-runpath{display:flex;flex-wrap:wrap;align-items:center;gap:6px 8px;margin:24px 0 0;
-  padding-top:22px;border-top:1px dashed var(--c-line)}
-.fmo-runpath span{font-size:12.5px;font-weight:600;color:var(--c-ink-2);background:var(--c-bg);
-  border:1px solid var(--c-line);border-radius:6px;padding:6px 11px;white-space:nowrap}
-.fmo-runpath i{font-style:normal;color:var(--c-faint);font-size:12px}
-.fmo-console-status{margin-top:20px}
-@media(max-width:600px){
-  .fmo-console-body{padding:22px 20px 22px}
-  .fmo-runpath i{display:none}
-  .fmo-runpath{flex-direction:column;align-items:stretch}
-  .fmo-runpath span{text-align:center}
-  .fmo-runpath span+span{position:relative;margin-top:14px}
-  .fmo-runpath span+span::before{content:"↓";position:absolute;top:-16px;left:50%;
-    transform:translateX(-50%);color:var(--c-faint);font-size:11px;border:0;background:none}
+/* ---------- 操作台(hero 下方全宽卡) ---------- */
+.fmo-console{position:relative;z-index:2;margin:0 0 -84px;border-radius:20px;overflow:hidden;
+  background:#fff;border:1px solid var(--c-line);box-shadow:0 30px 70px rgba(12,139,130,.14)}
+.fmo-console-bar{display:flex;align-items:center;gap:7px;padding:13px 18px;
+  background:var(--c-mist);border-bottom:1px solid var(--c-line)}
+.fmo-dot{width:10px;height:10px;border-radius:50%;background:#D5DDD9}
+.fmo-dot:nth-child(1){background:#F2A9A0}.fmo-dot:nth-child(2){background:#F2D49B}.fmo-dot:nth-child(3){background:#9FD9C3}
+.fmo-console-title{margin-left:8px;font-size:12px;font-weight:700;letter-spacing:.1em;color:var(--c-mut)}
+.fmo-console-body{padding:34px 36px 30px}
+@media(max-width:640px){.fmo-console-body{padding:26px 20px 24px}}
+.fmo-console-slogan{margin:0 0 18px;font-size:clamp(19px,2.4vw,26px);font-weight:800;letter-spacing:-.02em;
+  background:var(--c-grad);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;width:max-content;max-width:100%}
+@supports not ((-webkit-background-clip:text) or (background-clip:text)){.fmo-console-slogan{color:var(--c-green);-webkit-text-fill-color:currentColor}}
+.fmo-input{display:flex;align-items:center;gap:10px;border:1.5px solid rgba(12,139,130,.35);border-radius:14px;
+  padding:16px 18px;background:#fff;box-shadow:0 6px 22px rgba(12,139,130,.08)}
+.fmo-input-caret{width:2px;height:20px;background:var(--c-green);animation:fmoBlink 1.1s steps(1) infinite}
+@keyframes fmoBlink{50%{opacity:0}}
+.fmo-input-ph{font-size:15px;color:var(--c-mut)}
+.fmo-examples{margin-top:14px;display:flex;flex-wrap:wrap;gap:9px}
+.fmo-examples span{font-size:12.5px;font-weight:600;color:var(--c-ink-2);background:var(--c-mist);
+  border:1px solid var(--c-line);border-radius:999px;padding:7px 14px}
+.fmo-runpath{margin-top:22px;display:flex;flex-wrap:wrap;align-items:center;gap:8px 0;
+  font-size:12.5px;font-weight:700;color:var(--c-ink-2)}
+.fmo-runpath span{background:#fff;border:1px solid var(--c-line);border-radius:999px;padding:7px 13px;white-space:nowrap}
+.fmo-runpath i{margin:0 8px;font-style:normal;color:var(--c-green);font-weight:800}
+@media(max-width:640px){
+  .fmo-runpath{flex-direction:column;align-items:flex-start}
+  .fmo-runpath i{margin:2px 0 2px 18px}
+  .fmo-runpath i::before{content:"↓"}
+  .fmo-runpath i{font-size:0}
+  .fmo-runpath i::before{font-size:12.5px}
 }
+.fmo-console-status{margin-top:22px}
 
-/* ---------- 章节通用 ---------- */
-.fmo-sec h2{max-width:30ch}
-.fmo-list{margin:0;padding:0;list-style:none;display:grid;gap:8px}
-.fmo-list li{position:relative;padding-left:16px;font-size:14px;line-height:1.7;color:var(--c-ink-2)}
-.fmo-list li::before{content:"";position:absolute;left:0;top:.62em;width:6px;height:1.5px;background:var(--c-faint)}
-.fmo-cell-hl{border-color:rgba(12,139,130,.35);box-shadow:0 0 0 1px rgba(12,139,130,.12)}
-.fmo-cell-hl .fmc-cell-en{color:var(--c-green)}
-.fmo-verdict{margin:24px 0 0;padding:16px 20px;font-size:15px;font-weight:600;line-height:1.75;
-  color:var(--c-ink);background:var(--c-paper);border:1px solid var(--c-line);border-left:3px solid var(--c-green);
-  border-radius:8px;max-width:64ch}
-.fmo-more{margin:18px 0 0;font-size:14px;color:var(--c-ink-2)}
-.fmo-links{margin:22px 0 0;padding:0;list-style:none;display:grid;gap:9px}
-.fmo-links li{font-size:14px}
-.fmo-relation{margin:22px 0 0;font-family:var(--c-mono);font-size:12.5px;line-height:1.9;
-  color:var(--c-mut);max-width:72ch}
+/* console 之后第一个 band 让位 */
+.fmo-after-console{padding-top:188px}
+@media(max-width:700px){.fmo-after-console{padding-top:160px}}
 
-/* ---------- 03 平台四层地图 ---------- */
-.fmo-layers{display:grid;gap:14px;margin:24px 0 0}
-.fmo-layer{background:var(--c-paper);border:1px solid var(--c-line);border-radius:12px;padding:22px 26px}
+/* ---------- 通用列表(卡片内) ---------- */
+.fmo-list{margin:14px 0 0;padding:0;list-style:none;display:flex;flex-direction:column;gap:10px}
+.fmo-list li{position:relative;padding-left:18px;font-size:14.5px;line-height:1.6;color:var(--c-ink-2)}
+.fmo-list li::before{content:"";position:absolute;left:0;top:8px;width:7px;height:7px;border-radius:2px;background:var(--c-grad)}
+
+/* 高亮卡(FMClaw 一侧) */
+.fmo-cell-hl{border-color:rgba(18,185,138,.42);
+  background:linear-gradient(180deg,rgba(18,185,138,.08),rgba(255,255,255,.9))}
+.fmo-cell-hl .fmc-cell-en{color:var(--c-deep)}
+
+/* 结论句 */
+.fmo-verdict{margin:34px 0 0;padding:18px 22px;border-radius:13px;background:var(--c-mist);
+  font-size:15.5px;line-height:1.7;color:var(--c-ink);font-weight:600;max-width:none}
+.fmc-sec.mist .fmo-verdict{background:#fff}
+.fmc-sec.dark .fmo-verdict{background:rgba(255,255,255,.06);color:#EDF3F0}
+.fmo-more{margin:22px 0 0;font-size:14.5px}
+.fmo-links{margin:30px 0 0;padding:0;list-style:none;display:flex;flex-direction:column;gap:10px;font-size:14.5px}
+
+/* ---------- 暗场 L1-L4 平台分层 ---------- */
+.fmo-layers{margin:48px 0 0;display:grid;grid-template-columns:1fr 1fr;gap:16px}
+@media(max-width:860px){.fmo-layers{grid-template-columns:1fr}}
+.fmo-layer{position:relative;border-radius:18px;padding:28px 28px 26px;
+  background:rgba(255,255,255,.045);border:1px solid rgba(255,255,255,.12);
+  transition:border-color .2s,box-shadow .25s,transform .25s}
+.fmo-layer:hover{border-color:rgba(63,217,184,.45);box-shadow:0 22px 52px rgba(0,0,0,.35);transform:translateY(-3px)}
 .fmo-layer-head{display:flex;align-items:flex-start;gap:16px}
-.fmo-layer-no{flex:none;font-family:var(--c-mono);font-size:12px;font-weight:700;letter-spacing:.06em;
-  color:var(--c-green);background:rgba(12,139,130,.07);border:1px solid rgba(12,139,130,.2);
-  border-radius:6px;padding:5px 9px;margin-top:2px}
-.fmo-layer-head h3{margin:2px 0 0;font-size:16.5px;font-weight:700;letter-spacing:-.01em}
-.fmo-layer>p{margin:12px 0 0;font-size:14px;line-height:1.75;color:var(--c-ink-2);max-width:70ch}
-.fmo-layer-tags{margin-top:14px}
-.fmo-layer-tags span{font-size:12px;padding:5px 10px}
-.fmo-layer-link{display:inline-block;margin-top:14px;font-size:13.5px}
+.fmo-layer-no{flex:none;display:inline-flex;width:38px;height:38px;border-radius:11px;align-items:center;justify-content:center;
+  font-size:14px;font-weight:800;color:#fff;background:var(--c-grad)}
+.fmo-layer .fmc-cell-en{color:#7fa79c;margin-bottom:5px}
+.fmo-layer h3{margin:0;font-size:18.5px;font-weight:800;letter-spacing:-.015em;color:#fff}
+.fmo-layer>p{margin:16px 0 0;font-size:14.5px;line-height:1.72;color:#AEBAB5}
+.fmo-layer-tags{margin-top:16px}
+.fmo-layer-tags span{background:rgba(255,255,255,.05);border-color:rgba(255,255,255,.14);color:#C9D5D0;font-size:12px;padding:6px 12px}
+.fmo-layer-link{display:inline-flex;margin-top:18px;font-size:14px;font-weight:700;color:#3fd9b8!important}
+.fmo-layer-link:hover{text-decoration:underline}
+.fmo-relation{margin:36px 0 0;font-size:14.5px;line-height:1.8;color:#8fa39c;max-width:none}
 
-/* ---------- 06 产品截图 ---------- */
-.fmo-shot{margin:26px 0 0;padding:0}
-.fmo-shot img{display:block;width:100%;height:auto;border:1px solid var(--c-line);border-radius:12px;
-  box-shadow:0 1px 2px rgba(26,30,28,.04),0 14px 36px -20px rgba(26,30,28,.14)}
-.fmo-shot figcaption{margin:10px 0 0;font-size:12.5px;color:var(--c-mut);text-align:center}
+/* ---------- 产品截图 ---------- */
+.fmo-shot{margin:44px 0 8px}
+.fmo-shot img{width:100%;height:auto;display:block;border-radius:18px;border:1px solid var(--c-line);
+  box-shadow:0 24px 60px rgba(12,139,130,.13)}
+.fmc-sec.mist .fmo-shot img{border-color:#fff}
+.fmo-shot figcaption{margin-top:12px;font-size:12.5px;color:var(--c-mut);text-align:center}
 
-/* ---------- 06/08/09 链接卡片 ---------- */
-a.fmc-cell{text-decoration:none;color:inherit;display:flex;flex-direction:column;
-  transition:border-color .15s ease,box-shadow .15s ease}
-a.fmc-cell:hover{border-color:var(--c-ink-2);box-shadow:0 6px 18px -12px rgba(26,30,28,.2)}
-.fmo-wf p{flex:1}
-.fmo-wf-go{display:inline-block;margin-top:14px;font-size:13px;font-weight:700;color:var(--c-green)}
+/* ---------- 可点卡片(工作流/生态/开始方式) ---------- */
+a.fmc-cell{display:flex;flex-direction:column;text-decoration:none;color:inherit}
+.fmo-wf-go{margin-top:auto;padding-top:16px;font-size:14px;font-weight:700;color:var(--c-deep)}
 a.fmc-cell:hover .fmo-wf-go{text-decoration:underline}
 
-/* ---------- 07 案例卡片事实 ---------- */
-.fmo-case-facts{margin:12px 0 0;display:grid;gap:8px;flex:1}
-.fmo-case-facts>div{display:flex;align-items:baseline;justify-content:space-between;gap:12px;
-  border-top:1px solid var(--c-line-2);padding-top:8px}
-.fmo-case-facts dt{font-size:12.5px;color:var(--c-mut)}
-.fmo-case-facts dd{margin:0;font-family:var(--c-mono);font-size:13.5px;font-weight:700;color:var(--c-ink)}
+/* 案例卡 facts */
+.fmo-case-facts{margin:16px 0 0;display:grid;gap:9px}
+.fmo-case-facts div{display:flex;align-items:baseline;justify-content:space-between;gap:12px;
+  border-top:1px solid var(--c-line-2);padding-top:9px}
+.fmo-case-facts dt{font-size:13px;color:var(--c-mut)}
+.fmo-case-facts dd{margin:0;font-size:15.5px;font-weight:800;letter-spacing:-.01em;
+  background:var(--c-grad);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+@supports not ((-webkit-background-clip:text) or (background-clip:text)){.fmo-case-facts dd{color:var(--c-deep);-webkit-text-fill-color:currentColor}}
 
-/* ---------- reduced motion ---------- */
+/* 暗场里的 ghost 按钮与白卡 */
+.fmc-sec.dark .btn-ghost{color:#fff;border-color:rgba(255,255,255,.45);background:rgba(255,255,255,.05)}
+.fmc-sec.dark .btn-ghost:hover{border-color:#fff;background:rgba(255,255,255,.12)}
+.fmc-sec.dark .fmc-cell{border-color:rgba(255,255,255,.14);background:rgba(255,255,255,.05)}
+.fmc-sec.dark .fmc-cell:hover{border-color:rgba(63,217,184,.45);box-shadow:0 22px 52px rgba(0,0,0,.35)}
+.fmc-sec.dark .fmc-cell h3{color:#fff}
+.fmc-sec.dark .fmc-cell p{color:#AEBAB5}
+.fmc-sec.dark .fmo-wf-go{color:#3fd9b8}
+
 @media(prefers-reduced-motion:reduce){
   .fmo-input-caret{animation:none}
   .fmo *{transition:none!important}
