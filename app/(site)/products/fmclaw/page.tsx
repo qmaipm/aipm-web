@@ -69,7 +69,7 @@ const LAYERS = [
     en: "ONTOLOGY & METRICS",
     desc: "把 Excel、PDF、业务系统和 IoT 数据，映射为项目、空间、设备、工单、合同等行业对象，统一指标口径与数据权限。AI 不只是读到数据，还知道它在业务里代表什么。",
     tags: ["业务对象", "指标口径", "数据权限"],
-    img: "/products/fmclaw/ontology-hero.png",
+    img: "/products/fmclaw/ontology-hero.webp",
     alt: "行业数据本体插画：项目、空间、设备、工单等业务对象及其关系构成的行业数据底座",
     href: "/products/fmclaw/ontology",
   },
