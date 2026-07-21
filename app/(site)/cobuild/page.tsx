@@ -23,28 +23,26 @@ const ArrowD = ({ s = 15 }: { s?: number }) => (
   </svg>
 );
 
-/* ---------- 01 · 政策坐标(产业线 + 场景线，四条，均注明出处) ---------- */
-const policies = [
+/* ---------- 01 · 政策坐标(产业线 / 场景线，双线交汇) ---------- */
+const polIndustry = [
   {
-    tag: "产业",
     doc: "《关于深入实施「人工智能+」行动的意见》",
     p: "要求各地区各部门结合实际、因地制宜抓好贯彻落实。",
     src: "国务院 · 2025 年 8 月",
   },
   {
-    tag: "产业",
     doc: "人工智能相关产业规模目标 10 万亿元",
     p: "「十五五」末的全国目标。目标最终要靠一个个地方项目落成。",
     src: "国家发展改革委 · 2026 年全国两会",
   },
+];
+const polScene = [
   {
-    tag: "场景",
     doc: "「好房子」建设与物业服务质量提升行动",
     p: "两项行动并列写入政府工作报告，物业服务质量提升上升为国家层面行动。",
     src: "政府工作报告 · 2026 年 3 月",
   },
   {
-    tag: "场景",
     doc: "「智慧」是「好房子」的四个特征之一",
     p: "安全、舒适、绿色、智慧——智慧被明确为服务能力的升级路径。",
     src: "住建部《关于提升住房品质的意见》 · 2026 年 1 月",
@@ -53,7 +51,7 @@ const policies = [
 
 /* ---------- 02 · 华东案例(四字段档案；项目级实账) ---------- */
 const caseFields = [
-  { k: "合作方", v: "华东某 AI 示范科技园区。" },
+  { k: "合作方", v: "华东某经济发达城市。" },
   {
     k: "此前",
     v: "传统外包模式，月综合成本 ¥34.1 万——运营 ¥28.5 万，智能化 ¥5.6 万。",
@@ -64,15 +62,38 @@ const caseFields = [
   },
   {
     k: "现状",
-    v: "月综合成本 ¥23.8 万，运行至今。一线岗位保留，平均薪酬提升 6–8%；运行数据持续反哺技术迭代。",
+    v: "月综合成本 ¥23.8 万，稳定运行至今。",
   },
 ];
 
-/* ---------- 02 · 技术底盘(为什么敢先投) ---------- */
-const stats = [
-  { v: "上千台", k: "设备", p: "机器人与物联网设备在一线运行。" },
-  { v: "数千套", k: "智能体系统", p: "覆盖办公、园区、公寓等十余类业态。" },
-  { v: "数十亿条", k: "一线数据", p: "真实运营场景中持续产生。" },
+/* ---------- 02 · 合作期内(账目披露，白描) ---------- */
+const yields = [
+  { side: "政府侧", k: "培育人工智能产业", v: "约 ¥2,300 万" },
+  { side: "国企侧", k: "节省智能化采购预算", v: "约 ¥460 万" },
+  { side: "国企侧", k: "降低园区运营服务成本", v: "约 ¥340 万" },
+];
+
+/* ---------- 02 · 为什么敢先投(技术 / 运营 / 资本) ---------- */
+const bases = [
+  {
+    k: "技术",
+    title: "FMClaw™ 软硬件一体",
+    p: "自研软硬件栈，500 个项目验证；上千台设备、数千套智能体系统、数十亿条一线数据。",
+    href: "/products/fmclaw",
+    link: "了解 FMClaw™",
+  },
+  {
+    k: "运营",
+    title: "五年一线运营",
+    p: "驻场团队用 AI 工作流承接日常运营，效率与服务质量由我们自己保障。",
+    href: "/ai-service",
+    link: "查看 AI 物业服务",
+  },
+  {
+    k: "资本",
+    title: "亿元规模专项基金",
+    p: "2025 年 6 月设立，设备与系统投入全额承担，形成本地固定资产。",
+  },
 ];
 
 /* ---------- 03 · 兜底(投入分工) ---------- */
@@ -110,41 +131,60 @@ const pacts = [
   },
 ];
 
-/* ---------- 04 · 三步走(贵区是每一步的主语) ---------- */
+/* ---------- 04 · 三步走 ---------- */
 const steps = [
   {
     ph: "第一步",
-    title: "确定场景",
-    body: "贵区选定首批公共建筑与国企物业场景，明确评估口径与跨部门工作机制。",
+    title: "首批样板",
+    body: "子公司在贵区落地，打造首批样板项目。",
   },
   {
     ph: "第二步",
-    title: "首批项目运行",
-    body: "首批项目上线运行，账目与运行情况公开可查，作为贵区决定是否进入下一阶段的依据。",
+    title: "合资共建",
+    body: "与贵区指定的国资平台合资，共建产业主体。",
   },
   {
     ph: "第三步",
-    title: "产业主体落地",
-    body: "贵区指定的国资平台与我方设立合资公司，承接区域内国有物业的智能化运营——产业沉淀本地。",
+    title: "产业辐射",
+    body: "以合资公司为主体进行推广，产业沉淀本地。",
   },
 ];
 
 /* ---------- 04 · 第三步接住的三个政策方向 ---------- */
 const dirs = [
   {
-    k: "具身智能",
-    p: "上千台设备在真实公共场景常态运行，是具身智能的落地场景与数据来源。",
-    src: "《未来产业发展行动方案》 · 2025 年 12 月",
+    k: "人工智能",
+    p: "上千台设备与数千套智能体在真实公共场景常态运行，是人工智能应用落地的直接载体。",
+    src: "国务院「人工智能+」行动 · 2025 年 8 月",
   },
   {
     k: "数据要素",
-    p: "运行中沉淀的一线数据形成区内数据资产，可对接数据流通与词元交易的新机制。",
+    p: "运行中沉淀的一线数据形成区内数据资产，对接数据流通的新机制。",
     src: "国家数据局 · 2026 年 4 月",
   },
   {
-    k: "就业转型",
-    p: "一线员工在真实项目中转型为 AI 运维岗位，就业总量不减。",
-    src: "国务院「人工智能+」行动 · 2025 年 8 月",
+    k: "词元经济",
+    p: "持续运行的智能体与机器人产生稳定的模型调用，词元可量化、可定价、可流通。",
+    src: "人民日报「词元出海」报道 · 2026 年 7 月",
+  },
+];
+
+/* ---------- 05 · 五年之后(共建目标，产业辐射的终局) ---------- */
+const goals = [
+  {
+    v: ">1,500 台",
+    k: "机器人 · 具身智能",
+    p: "区域领先的商用运营载体。",
+  },
+  {
+    v: "5,000–8,000 套",
+    k: "AI 智能体",
+    p: "区域领先的多业态部署载体，覆盖办公、园区、公寓等十余类业态。",
+  },
+  {
+    v: "40–50 亿条 / 天",
+    k: "数据要素 · 词元经济",
+    p: "区域领先的流通源头。",
   },
 ];
 
@@ -160,10 +200,10 @@ const faq = [
   },
   {
     q: "这个合作对应哪些政策方向？",
-    a: "国务院《关于深入实施「人工智能+」行动的意见》（2025 年 8 月）；2026 年政府工作报告的「好房子」建设与物业服务质量提升行动；《未来产业发展行动方案》（2025 年 12 月）的具身智能方向；以及国家数据局提出的词元交易等数据要素新机制（2026 年 4 月）。",
+    a: "国务院《关于深入实施「人工智能+」行动的意见》（2025 年 8 月）；2026 年政府工作报告的「好房子」建设与物业服务质量提升行动；以及国家数据局提出的词元交易等数据要素新机制（2026 年 4 月）。",
   },
   {
-    q: "产业怎么统计？",
+    q: "产业转化路径是什么？",
     a: "物业支出归口 K 类「房地产业」。当服务由本地注册的人工智能企业以智能系统与机器人交付，对应营收计入 I 类「信息技术服务业」——企业注册、税收与就业均在本地统计。",
   },
   {
@@ -210,29 +250,57 @@ export default function Page() {
         </div>
       </section>
 
-      {/* ===== 01 · 政策坐标 ===== */}
+      {/* ===== 01 · 政策坐标(双线交汇) ===== */}
       <section className="cb-band">
         <div className="wrap">
           <span className="cb-eyebrow">01 · 政策坐标</span>
           <h2 className="cb-h2">两条国家议程，在同一个场景交汇</h2>
-          <p className="cb-sub">
-            一条是产业线：人工智能产业培育已列入国家议程。一条是场景线：「好房子」与物业服务质量提升写入政府工作报告。
-          </p>
 
-          <div className="cb-pol">
-            {policies.map((r) => (
-              <div className="cb-pol-row" key={r.doc}>
-                <span className={`cb-pol-tag${r.tag === "场景" ? " alt" : ""}`}>{r.tag}</span>
-                <div className="cb-pol-main">
-                  <h3>{r.doc}</h3>
+          <div className="cb-conv">
+            <div className="cb-conv-col">
+              <h3 className="cb-conv-h ind"><i />产业线</h3>
+              {polIndustry.map((r) => (
+                <div className="cb-conv-card" key={r.doc}>
+                  <h4>{r.doc}</h4>
                   <p>{r.p}</p>
+                  <span>{r.src}</span>
                 </div>
-                <span className="cb-pol-src">{r.src}</span>
-              </div>
-            ))}
+              ))}
+            </div>
+            <div className="cb-conv-col">
+              <h3 className="cb-conv-h scn"><i />场景线</h3>
+              {polScene.map((r) => (
+                <div className="cb-conv-card" key={r.doc}>
+                  <h4>{r.doc}</h4>
+                  <p>{r.p}</p>
+                  <span>{r.src}</span>
+                </div>
+              ))}
+            </div>
           </div>
 
-          <p className="cb-pol-sum">贵区手里的这两项议程，在物业这个场景<span className="grad">交汇</span>。</p>
+          <div className="cb-conv-merge" aria-hidden="true">
+            <svg viewBox="0 0 800 110" preserveAspectRatio="none">
+              <defs>
+                <linearGradient id="cbml" x1="0" y1="0" x2="1" y2="1">
+                  <stop offset="0" stopColor="#0070FF" />
+                  <stop offset="1" stopColor="#12B98A" />
+                </linearGradient>
+                <linearGradient id="cbmr" x1="1" y1="0" x2="0" y2="1">
+                  <stop offset="0" stopColor="#12B98A" />
+                  <stop offset="1" stopColor="#0070FF" />
+                </linearGradient>
+              </defs>
+              <path d="M200 0 C200 60, 400 40, 400 100" fill="none" stroke="url(#cbml)" strokeWidth="2" />
+              <path d="M600 0 C600 60, 400 40, 400 100" fill="none" stroke="url(#cbmr)" strokeWidth="2" />
+              <circle cx="400" cy="102" r="5" fill="#12B98A" />
+            </svg>
+          </div>
+
+          <p className="cb-conv-sum">
+            人工智能产业要场景，「好房子」要智慧——<br />
+            <b>国有物业，正是两项国策的<span className="grad">交汇点</span>。</b>
+          </p>
 
           <figure className="cb-photo">
             <Image src="/cobuild/district.jpg" alt="医院、学校与机场等公共建筑集群航拍" width={1800} height={1208} sizes="(max-width:1160px) 100vw, 1096px" />
@@ -262,17 +330,33 @@ export default function Page() {
             </dl>
           </div>
 
+          <div className="cb-yield">
+            <div className="cb-yield-cap">合作期内</div>
+            <div className="cb-yield-grid">
+              {yields.map((y) => (
+                <div className="cb-yield-item" key={y.k}>
+                  <span className="cb-yield-side">{y.side}</span>
+                  <p>{y.k}</p>
+                  <strong className="grad">{y.v}</strong>
+                </div>
+              ))}
+            </div>
+          </div>
+
           <div className="cb-base">
             <h3>为什么敢先投</h3>
             <p>
-              技术是自己的，并且已经被验证：自研软硬件栈，五年迭代，500 个项目。投入的每一台设备、每一套系统，都在真实场景里运行。
+              用 AI 工作流重构物业运营，实现提质增效——这是一门技术活。敢先投，是因为三样东西都在我们手里，缺一不可。
             </p>
-            <div className="cb-stats">
-              {stats.map((s) => (
-                <div className="cb-stat" key={s.k}>
-                  <strong className="grad">{s.v}</strong>
-                  <h4>{s.k}</h4>
-                  <p>{s.p}</p>
+            <div className="cb-bases">
+              {bases.map((b) => (
+                <div className="cb-base-col" key={b.k}>
+                  <span className="cb-base-k grad">{b.k}</span>
+                  <h4>{b.title}</h4>
+                  <p>{b.p}</p>
+                  {b.href && (
+                    <Link className="cb-base-link" href={b.href}>{b.link} <Arrow s={13} /></Link>
+                  )}
                 </div>
               ))}
             </div>
@@ -357,13 +441,43 @@ export default function Page() {
           </div>
 
           <figure className="cb-photo">
-            <Image src="/cobuild/vision.jpg" alt="服务机器人在公共建筑中庭作业" width={1800} height={1208} sizes="(max-width:1160px) 100vw, 1096px" />
-            <figcaption>服务机器人在公共建筑内常态化作业。（图为场景示意）</figcaption>
+            <Image src="/cobuild/robots.jpg" alt="巡检机器狗、人形机器人与清洁机器人在公共建筑中庭协同作业" width={1800} height={1208} sizes="(max-width:1160px) 100vw, 1096px" />
+            <figcaption>巡检、接待、清洁——多种形态的机器人在公共建筑内协同作业。（图为场景示意）</figcaption>
           </figure>
 
           <p className="cb-note">
             这条路径已在华东进入实施：与某省会城市区级国有资产平台的合作框架定稿，跨国资、招商、财务、审计的专项工作组组建完成，首期园区部署进入排期。
           </p>
+        </div>
+      </section>
+
+      {/* ===== 05 · 共建目标 ===== */}
+      <section className="cb-band">
+        <div className="wrap">
+          <span className="cb-eyebrow">05 · 共建目标</span>
+          <h2 className="cb-h2">五年之后，贵区会有一家什么样的企业</h2>
+          <p className="cb-sub">这是产业辐射的终局，也是写进协议的培育方向。</p>
+
+          <div className="cb-goals">
+            {goals.map((g, i) => (
+              <div className="cb-goal" key={g.k}>
+                <span className="cb-goal-n">{String(i + 1).padStart(2, "0")}</span>
+                <strong className="grad">{g.v}</strong>
+                <h3>{g.k}</h3>
+                <p>{g.p}</p>
+              </div>
+            ))}
+          </div>
+
+          <p className="cb-goal-bar">
+            覆盖面积 <b>500 万㎡</b>以上；我方投入 <b>1.5–2 亿元</b>；这家企业每年贡献的人工智能产业规模：<b>3–5 亿元</b>。
+          </p>
+
+          <figure className="cb-photo">
+            <Image src="/cobuild/dawn.jpg" alt="黎明时分的现代城市新区天际线" width={1800} height={1208} sizes="(max-width:1160px) 100vw, 1096px" />
+            <figcaption>从第一个样板项目，到一家扎根本地的人工智能企业。（图为场景示意）</figcaption>
+          </figure>
+
           <p className="cb-more">
             延伸阅读：<Link href="/insights/property-management-second-half-ai-company">《物业行业的下半场》</Link>
             <span className="dot" />
@@ -376,7 +490,7 @@ export default function Page() {
       <FmFaq items={faq} heading="常见问题" />
 
       {/* ===== 联系 ===== */}
-      <section className="cb-band mist" id="contact">
+      <section className="cb-band" id="contact">
         <div className="wrap">
           <span className="cb-eyebrow">联系</span>
           <h2 className="cb-h2">欢迎实地考察</h2>
