@@ -10,7 +10,7 @@ import { pageMetadata } from "@/lib/pageMetadata";
 const SITE_URL = process.env.SITE_URL || "https://www.aipm.cn";
 
 export const metadata: Metadata = pageMetadata("/workshop/demo-day", {
-  title: "Demo Day · 半天到一天，眼见为实 — FMClaw™ 加速营 | 启盟科技",
+  title: "Demo Day · 半天到一天，眼见为实 | 启盟科技",
   description:
     "带一份你自己的真实业务数据来，半天到一天，我们当场跑出一个能用的 AI demo。不做接口、不碰大数据量——它不是交付，是让你亲眼确认这条路走得通。免费。",
   keywords: [

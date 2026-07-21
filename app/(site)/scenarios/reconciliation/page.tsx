@@ -4,7 +4,7 @@ import "../scenarios.css";
 import { pageMetadata } from "@/lib/pageMetadata";
 
 export const metadata = pageMetadata("/scenarios/reconciliation", {
-  title: "物业 AI 对账 · 供应商自动核量对账 — FMClaw™ 加速营场景",
+  title: "物业 AI 对账 · 供应商自动核量对账｜FMClaw™ 加速营场景",
   description:
     "供应商对账：AI 按合同自动核量、对比历史与市场行情、圈出异常、生成账单草稿，人只做确认或驳回。",
 });
@@ -46,7 +46,7 @@ export default function Page() {
         <div className="wrap">
           <h2 className="reveal">想在你自己的数据上,跑通这个场景?</h2>
           <p className="reveal">带上你的真实数据，来一次 FMClaw™ 加速营，当场把它跑通。</p>
-          <div className="cta-row reveal"><Link href="/workshop" className="btn btn-primary">预约 FMClaw™ 加速营 →</Link></div>
+          <div className="cta-row reveal"><Link href="/workshop" className="btn btn-primary">预约 FMClaw™ 加速营 →</Link><Link href="/agents" className="btn btn-ghost">物业管理智能体矩阵</Link></div>
         </div>
       </section>
     </main>

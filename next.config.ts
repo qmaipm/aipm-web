@@ -13,6 +13,8 @@ const nextConfig: NextConfig = {
   async redirects() {
     return [
       { source: "/partners/building", destination: "/partners/agent-park", permanent: true },
+      // 第三方平台 AI 协同已并入工具箱页（2026-07）：内容整体迁移，保住收录与外链
+      { source: "/products/collaboration", destination: "/products/fmclaw/connectors", permanent: true },
       { source: "/partners/channel", destination: "/partners/program", permanent: true },
       { source: "/partners/reseller", destination: "/partners/program", permanent: true },
     ];

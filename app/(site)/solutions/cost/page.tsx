@@ -5,7 +5,7 @@ import SeoFaq from "@/components/SeoFaq";
 import { pageMetadata } from "@/lib/pageMetadata";
 
 export const metadata: Metadata = pageMetadata("/solutions/cost", {
-  title: "成本控制 · 智能体解决方案 — 启盟科技",
+  title: "成本控制 · 智能体解决方案 | 启盟科技",
   description:
     "成本控制分源头、过程、持续三个递进阶段，分别由服务设计、运营管理、服务优化三个 Agent 承担。以「产品 + 顾问服务」的形式，帮你把降本真正落到项目里。",
 });

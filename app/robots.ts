@@ -9,6 +9,7 @@ const isProd = process.env.SITE_ENV === "production";
 const SITE_URL = process.env.SITE_URL || "https://www.aipm.cn";
 
 // 主流中英文搜索引擎爬虫逐个显式放行(部分站长平台按 UA 精确匹配校验 robots)。
+// AI 引擎爬虫(GEO):显式放行,确保内容可被 ChatGPT/Claude/Perplexity/Gemini 检索与引用。
 const ALLOWED_BOTS = [
   "Bytespider",
   "Baiduspider",
@@ -16,6 +17,12 @@ const ALLOWED_BOTS = [
   "Googlebot",
   "Sogou Spider",
   "360Spider",
+  "GPTBot",
+  "OAI-SearchBot",
+  "ClaudeBot",
+  "anthropic-ai",
+  "PerplexityBot",
+  "Google-Extended",
 ];
 
 export default function robots(): MetadataRoute.Robots {

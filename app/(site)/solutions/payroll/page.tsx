@@ -5,7 +5,7 @@ import SeoFaq from "@/components/SeoFaq";
 import { pageMetadata } from "@/lib/pageMetadata";
 
 export const metadata: Metadata = pageMetadata("/solutions/payroll", {
-  title: "人员薪酬管理 · 智能体解决方案 — 启盟科技",
+  title: "人员薪酬管理 · 智能体解决方案 | 启盟科技",
   description:
     "排班、考勤、算薪不再靠 HR、主管、项目多人协同。主管只配工作模式,人脸+蓝牙核验现场打卡,系统按小时算在场工时,FMClaw 自动拉取考勤、工时、加班、请假、补贴等数据算出薪酬;已有考勤系统可外接飞书、钉钉、企微数据源。",
 });
@@ -110,11 +110,11 @@ export default function Page() {
             ))}
           </div>
 
-          <Link className="pay-srcnote" href="/products/collaboration">
+          <Link className="pay-srcnote" href="/products/fmclaw/connectors#platforms">
             <div className="pay-srcnote-h">
               <h3>已有自己的考勤系统？</h3>
               <p>外接自定义数据源补充，照样自动算薪：</p>
-              <span className="pay-srclink">第三方平台 AI 协同，了解更多 <Arrow s={13} /></span>
+              <span className="pay-srclink">钉钉、飞书、企业微信怎么接，了解更多 <Arrow s={13} /></span>
             </div>
             <div className="pay-src-chips">
               <span className="pay-src">飞书</span>

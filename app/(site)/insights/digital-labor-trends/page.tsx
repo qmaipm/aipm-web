@@ -2,7 +2,7 @@ import ArticleShell, { FigRow } from "../_ArticleShell";
 import { articleMetadata } from "../articles";
 
 export const metadata = articleMetadata("digital-labor-trends", {
-  title: "数字劳动力的发展趋势 · 行业研究 — 启盟科技",
+  title: "数字劳动力的发展趋势 · 行业研究 | 启盟科技",
   description:
     "AI Agent 让“人机协同”成为新常态,个人与企业步入 AI 助理时代。来自埃森哲、IDC、易观分析的研判与数字员工八大趋势。",
 });

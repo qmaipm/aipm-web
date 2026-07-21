@@ -10,7 +10,7 @@ import { pageMetadata } from "@/lib/pageMetadata";
 const SITE_URL = process.env.SITE_URL || "https://www.aipm.cn";
 
 export const metadata: Metadata = pageMetadata("/workshop", {
-  title: "FMClaw™ 加速营 · 从 Demo Day 到 AI 应用创新大赛 — 启盟科技",
+  title: "FMClaw™ 加速营 · 从 Demo Day 到 AI 应用创新大赛 | 启盟科技",
   description:
     "把 AI 落到你的现场，有四种方式：半天–1 天的 Demo Day、2–3 天的加速营 Bootcamp、2–4 周的 AI 应用创新大赛（承办/协办/技术底座），以及按阶段交付的 FDE 前置部署工程师服务。带真问题与真实数据来，跑通的东西留给你。",
   keywords: [

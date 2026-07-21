@@ -5,7 +5,7 @@ import SeoFaq from "@/components/SeoFaq";
 import { pageMetadata } from "@/lib/pageMetadata";
 
 export const metadata: Metadata = pageMetadata("/solutions/subcontract", {
-  title: "服务分包管理 · 智能体解决方案 — 启盟科技",
+  title: "服务分包管理 · 智能体解决方案 | 启盟科技",
   description:
     "出勤、服务、质量考核不再靠人一项项算。系统在多维度上自动考核,支持飞书、钉钉、企微与原有业务系统的自定义数据源,AI 结合所有数据按你的规则,通过 FMClaw 工作流自动输出服务账单。",
 });
@@ -111,11 +111,11 @@ export default function Page() {
             ))}
           </div>
 
-          <Link className="sc-sources" href="/products/collaboration">
+          <Link className="sc-sources" href="/products/fmclaw/connectors#platforms">
             <div className="sc-sources-h">
               <h3>嵌入自定义数据源</h3>
               <p>需要更多维度？接入自定义数据源补充考核内容，覆盖到这些渠道：</p>
-              <span className="sc-source-link">第三方平台 AI 协同，了解更多 <Arrow s={13} /></span>
+              <span className="sc-source-link">钉钉、飞书、企业微信怎么接，了解更多 <Arrow s={13} /></span>
             </div>
             <div className="sc-source-chips">
               {sources.map((s) => (

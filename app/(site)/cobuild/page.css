@@ -1,10 +1,13 @@
 /* ============================================================
-   人工智能产业共建 · 以投带产 — 重设计(冷调「平台」语言)
-   参考 /products/fmclaw 与 /solutions/* :蓝图网格 hero(proof)
-   → 一页读懂(序号定义列表)→ 为什么是国有物业(图标卡)
-   → 暗场签名段:以投带产(编号卡 + 投资闭环 + 渐变判词)
-   → 五年沉淀(阶段叙事 + 资产卡)→ 联系(表单)→ endcta
-   全部规则收在 .solcb 作用域内,不泄漏全站。单一字族,蓝绿 VI。
+   政企共建人工智能产业 — v3.1「可被转发的尽调材料」(2026-07)
+   结构:实景暗场 hero(规格 4a，事实条)
+   → 01 政策坐标(产业线/场景线双列卡 + Y 形交汇 SVG + 交汇句 + 公共建筑实景)
+   → 02 已经在运行的项目(四字段案例档案 + 合作期内账目 + 技术/运营/资本三柱)
+   → 03 合作框架(四方投入清单 + 白纸黑字协议三条)
+   → 04 推进节奏(三步走 + 三个政策方向 + 机器人实景 + 华东进展白描)
+   → 05 共建目标(三张终局卡 + 目标横条 + 黎明实景)
+   → FAQ(FmFaq,样式在本文件内接管,雾底) → 联系(表单,白底)
+   斑马纹白/雾交替;全页仅 hero 一处暗场。规则收在 .solcb 内。
    ============================================================ */
 .solcb{
   --cb-ink:#14201C; --cb-ink-2:#46524D; --cb-mut:#7C857F; --cb-faint:#A7AFAB;
@@ -18,119 +21,229 @@
 .solcb .grad{background:var(--cb-grad);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
 @supports not ((-webkit-background-clip:text) or (background-clip:text)){.solcb .grad{color:var(--cb-green);-webkit-text-fill-color:currentColor}}
 
-/* 蓝图网格 */
-.solcb .cb-grid{position:absolute;inset:0;z-index:0;pointer-events:none;
+/* 蓝图网格(暗) */
+.solcb .cb-grid{position:absolute;inset:0;z-index:1;pointer-events:none;
   background-image:linear-gradient(to right,var(--cb-vi-line) 1px,transparent 1px),
                    linear-gradient(to bottom,var(--cb-vi-line) 1px,transparent 1px);
   background-size:54px 54px;
   -webkit-mask-image:radial-gradient(125% 90% at 80% 0%,#000 0%,transparent 62%);
           mask-image:radial-gradient(125% 90% at 80% 0%,#000 0%,transparent 62%)}
-.solcb .cb-grid.dark{background-image:linear-gradient(to right,rgba(63,217,184,.10) 1px,transparent 1px),
-                   linear-gradient(to bottom,rgba(63,217,184,.10) 1px,transparent 1px)}
+.solcb .cb-grid.dark{background-image:linear-gradient(to right,rgba(63,217,184,.09) 1px,transparent 1px),
+                   linear-gradient(to bottom,rgba(63,217,184,.09) 1px,transparent 1px)}
 
-/* HERO */
-.solcb .cb-hero{position:relative;overflow:hidden;padding:150px 0 64px;background:var(--cb-paper)}
-.solcb .cb-hero-top{position:relative;z-index:2}
+/* ---------- HERO · 实景暗场(规格 4a) ---------- */
+.solcb .cb-hero{position:relative;overflow:hidden;color:#fff;background:var(--cb-core);
+  padding:186px 0 76px;min-height:640px;display:flex;align-items:flex-end}
+.solcb .cb-hero__bg{position:absolute;inset:0;z-index:0;background:url(/cobuild/hero.jpg) center/cover no-repeat}
+.solcb .cb-hero__bg::after{content:"";position:absolute;inset:0;
+  background:linear-gradient(180deg,rgba(7,15,13,.44) 0%,rgba(7,15,13,.24) 42%,rgba(7,15,13,.88) 100%),
+             linear-gradient(100deg,rgba(7,15,13,.52) 0%,rgba(7,15,13,.16) 55%,transparent 80%)}
+.solcb .cb-hero-top{position:relative;z-index:2;width:100%}
 .solcb .cb-kicker{display:inline-flex;align-items:center;flex-wrap:wrap;font-size:12px;font-weight:600;letter-spacing:.14em;
-  text-transform:uppercase;color:var(--cb-mut)}
-.solcb .cb-kicker a{color:var(--cb-mut)}.solcb .cb-kicker a:hover{color:var(--cb-green)}
+  text-transform:uppercase;color:#9fded0}
+.solcb .cb-kicker a{color:#9fded0}.solcb .cb-kicker a:hover{color:#fff}
 .solcb .cb-kicker i{color:var(--cb-green);font-style:normal;margin:0 9px;font-weight:700}
-.solcb .cb-h1{margin:22px 0 0;font-weight:800;font-size:clamp(38px,6vw,72px);line-height:1.06;letter-spacing:-.035em;color:var(--cb-ink);max-width:20ch}
-.solcb .cb-lead{margin:26px 0 0;font-size:clamp(16px,1.8vw,19px);line-height:1.6;color:var(--cb-ink-2);max-width:none;font-weight:400}
-.solcb .cb-lead b{color:var(--cb-ink);font-weight:600}
+.solcb .cb-h1{margin:18px 0 0;font-weight:800;font-size:clamp(40px,6.4vw,76px);line-height:1.08;letter-spacing:-.035em;color:#fff;max-width:18ch;
+  text-shadow:0 2px 60px rgba(0,112,255,.22)}
+.solcb .cb-lead{margin:26px 0 0;font-size:clamp(16px,1.8vw,19px);line-height:1.7;color:#D7E2DD;max-width:56ch;font-weight:400}
+.solcb .cb-lead b{color:#fff;font-weight:600}
 .solcb .cb-cta{margin-top:38px;display:flex;flex-wrap:wrap;gap:14px;align-items:center}
-.solcb .cb-proof{position:relative;z-index:2;margin-top:52px;display:flex;flex-wrap:wrap;align-items:center;gap:12px 22px;
-  font-size:clamp(15px,1.9vw,18px);color:var(--cb-mut)}
-.solcb .cb-proof b{color:var(--cb-ink);font-weight:600}
-.solcb .cb-proof b.grad{font-weight:800;letter-spacing:-.01em}
-.solcb .cb-proof .sep{width:5px;height:5px;border-radius:50%;background:var(--cb-faint)}
+.solcb .cb-hero .btn-ghost{color:#fff;border-color:rgba(255,255,255,.45);background:rgba(255,255,255,.05)}
+.solcb .cb-hero .btn-ghost:hover{border-color:#fff;background:rgba(255,255,255,.12)}
+/* 事实条:可核验的履历白描 */
+.solcb .cb-proof{position:relative;z-index:2;margin-top:50px;padding-top:22px;border-top:1px solid rgba(255,255,255,.16);
+  display:flex;flex-wrap:wrap;align-items:center;gap:12px 22px;
+  font-size:clamp(14px,1.7vw,16.5px);color:#B7C6C0}
+.solcb .cb-proof b{color:#fff;font-weight:700}
+.solcb .cb-proof .sep{width:5px;height:5px;border-radius:50%;background:rgba(255,255,255,.4)}
 
-/* band */
+/* ---------- band(斑马纹) ---------- */
 .solcb .cb-band{position:relative;padding:104px 0;background:var(--cb-paper)}
 .solcb .cb-band.mist{background:var(--cb-mist)}
 @media(max-width:700px){.solcb .cb-band{padding:76px 0}}
 .solcb .cb-eyebrow{display:inline-flex;align-items:center;gap:10px;font-size:12px;font-weight:600;letter-spacing:.2em;
   text-transform:uppercase;color:var(--cb-green)}
 .solcb .cb-eyebrow::before{content:"";width:22px;height:2px;border-radius:2px;background:var(--cb-grad)}
-.solcb .cb-eyebrow.on-dark{color:#3fd9b8}
-.solcb .cb-h2{margin:18px 0 0;font-weight:800;font-size:clamp(27px,3.5vw,40px);line-height:1.18;letter-spacing:-.03em;color:var(--cb-ink);max-width:none;white-space:nowrap}
-.solcb .cb-h2.on-dark{color:#fff}
-@media(max-width:1024px){.solcb .cb-h2{white-space:normal}}
-.solcb .cb-sub{margin:18px 0 0;font-size:clamp(15px,1.65vw,17px);line-height:1.6;color:var(--cb-ink-2);max-width:none}
+.solcb .cb-h2{margin:18px 0 0;font-weight:800;font-size:clamp(26px,3.4vw,40px);line-height:1.18;letter-spacing:-.03em;color:var(--cb-ink)}
+.solcb .cb-sub{margin:18px 0 0;font-size:clamp(15px,1.65vw,17px);line-height:1.7;color:var(--cb-ink-2);max-width:62ch}
 .solcb .cb-sub b{color:var(--cb-ink);font-weight:600}
+.solcb .cb-note{margin:28px 0 0;font-size:14px;line-height:1.75;color:var(--cb-mut);max-width:70ch}
 
-/* ---------- 一页读懂:序号定义列表 ---------- */
-.solcb .cb-onepage{margin-top:46px;display:flex;flex-direction:column}
-.solcb .cb-opi{display:grid;grid-template-columns:64px 1fr;gap:22px;align-items:start;padding:26px 0;border-top:1px solid var(--cb-line)}
-.solcb .cb-opi:last-child{border-bottom:1px solid var(--cb-line)}
-.solcb .cb-opno{font-size:16px;font-weight:800;letter-spacing:.04em;padding-top:5px;font-variant-numeric:tabular-nums}
-.solcb .cb-opbody h3{margin:0 0 9px;font-size:clamp(18px,2.1vw,21px);font-weight:700;letter-spacing:-.015em;color:var(--cb-ink)}
-.solcb .cb-opbody p{margin:0;color:var(--cb-ink-2);font-size:15.5px;line-height:1.78}
-@media(max-width:560px){.solcb .cb-opi{grid-template-columns:1fr;gap:8px}}
+/* ---------- 01 · 政策坐标:双线交汇 ---------- */
+.solcb .cb-conv{margin-top:46px;display:grid;grid-template-columns:1fr 1fr;gap:22px}
+@media(max-width:860px){.solcb .cb-conv{grid-template-columns:1fr;gap:28px}}
+.solcb .cb-conv-col{display:flex;flex-direction:column;gap:14px}
+.solcb .cb-conv-h{margin:0 0 4px;display:inline-flex;align-items:center;gap:10px;
+  font-size:13.5px;font-weight:800;letter-spacing:.16em;color:var(--cb-ink)}
+.solcb .cb-conv-h i{width:10px;height:10px;border-radius:50%;flex:none}
+.solcb .cb-conv-h.ind i{background:var(--cb-blue);box-shadow:0 0 0 4px rgba(0,112,255,.12)}
+.solcb .cb-conv-h.scn i{background:var(--cb-green);box-shadow:0 0 0 4px rgba(18,185,138,.14)}
+.solcb .cb-conv-card{flex:1;display:flex;flex-direction:column;border:1px solid var(--cb-line);border-radius:16px;
+  background:var(--cb-paper);padding:24px 24px 20px;transition:border-color .2s,box-shadow .2s}
+.solcb .cb-conv-card:hover{border-color:rgba(12,139,130,.3);box-shadow:0 12px 30px rgba(12,139,130,.07)}
+.solcb .cb-conv-card h4{margin:0 0 9px;font-size:clamp(15.5px,1.8vw,17.5px);font-weight:700;letter-spacing:-.01em;
+  color:var(--cb-ink);line-height:1.5}
+.solcb .cb-conv-card p{margin:0 0 14px;font-size:14px;line-height:1.72;color:var(--cb-ink-2)}
+.solcb .cb-conv-card span{margin-top:auto;padding-top:11px;border-top:1px dashed var(--cb-line);
+  font-size:12.5px;line-height:1.5;color:var(--cb-mut)}
+/* 交汇线(正交细线,工程制图语言;落点对齐两列卡中轴) */
+.solcb .cb-conv-merge{margin:0}
+.solcb .cb-conv-merge svg{display:block;width:100%;height:96px}
+@media(max-width:860px){.solcb .cb-conv-merge{display:none}}
+/* 交汇句 */
+.solcb .cb-conv-sum{margin:18px 0 0;font-weight:800;font-size:clamp(21px,2.9vw,31px);line-height:1.42;
+  letter-spacing:-.02em;color:var(--cb-ink);text-align:center}
+@media(max-width:860px){.solcb .cb-conv-sum{margin-top:34px;text-align:left}
+  .solcb .cb-conv-sum br{display:none}}
 
-/* 大字判词 */
-.solcb .cb-quote{margin-top:46px;max-width:none;color:var(--cb-ink);font-weight:800;
-  font-size:clamp(24px,3.6vw,40px);line-height:1.28;letter-spacing:-.025em}
+/* ---------- 实景配图(通栏) ---------- */
+.solcb .cb-photo{margin:48px 0 0}
+.solcb .cb-photo img{display:block;width:100%;height:auto;border-radius:18px;border:1px solid var(--cb-line)}
+.solcb .cb-photo figcaption{margin-top:12px;font-size:13px;color:var(--cb-mut);line-height:1.6}
 
-/* ---------- 图标卡网格(为什么是国有物业 / 资产) ---------- */
-.solcb .cb-grid-cards{margin-top:48px;display:grid;gap:16px}
-.solcb .cb-grid-cards.c2{grid-template-columns:1fr 1fr}
-.solcb .cb-grid-cards.c3{grid-template-columns:repeat(3,1fr);margin-top:40px}
-@media(max-width:760px){.solcb .cb-grid-cards.c2,.solcb .cb-grid-cards.c3{grid-template-columns:1fr}}
-.solcb .cb-card{border:1px solid var(--cb-line);border-radius:16px;background:var(--cb-paper);padding:28px 26px;
-  transition:border-color .2s,box-shadow .2s,transform .2s}
-.solcb .cb-card:hover{border-color:rgba(12,139,130,.34);box-shadow:0 14px 34px rgba(12,139,130,.08);transform:translateY(-2px)}
-.solcb .cb-ic{display:grid;place-items:center;width:48px;height:48px;border-radius:13px;background:var(--cb-grad);color:#fff;margin-bottom:18px}
-.solcb .cb-ic svg{width:25px;height:25px}
-.solcb .cb-k{display:block;width:28px;height:3px;border-radius:2px;background:var(--cb-grad);margin-bottom:18px}
-.solcb .cb-card h3{margin:0 0 10px;font-size:clamp(18px,2vw,20px);font-weight:700;letter-spacing:-.015em;color:var(--cb-ink)}
-.solcb .cb-card p{margin:0;font-size:15px;line-height:1.7;color:var(--cb-ink-2)}
+/* ---------- 02 · 案例档案(照片 + 四字段) ---------- */
+.solcb .cb-case{margin-top:44px;display:grid;grid-template-columns:minmax(0,44%) 1fr;gap:0;
+  border:1px solid var(--cb-line);border-radius:18px;background:var(--cb-paper);overflow:hidden}
+@media(max-width:900px){.solcb .cb-case{grid-template-columns:1fr}}
+.solcb .cb-case-photo{position:relative;min-height:320px}
+.solcb .cb-case-photo img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+@media(max-width:900px){.solcb .cb-case-photo{min-height:0;aspect-ratio:3/2}}
+.solcb .cb-case-fields{margin:0;padding:14px 34px;display:flex;flex-direction:column;justify-content:center}
+@media(max-width:600px){.solcb .cb-case-fields{padding:8px 22px}}
+.solcb .cb-case-row{display:grid;grid-template-columns:72px 1fr;gap:18px;padding:18px 0;border-top:1px solid var(--cb-line)}
+.solcb .cb-case-row:first-child{border-top:none}
+.solcb .cb-case-row dt{font-size:13px;font-weight:800;letter-spacing:.1em;color:var(--cb-green);padding-top:2px}
+.solcb .cb-case-row dd{margin:0;font-size:14.5px;line-height:1.75;color:var(--cb-ink-2)}
+.solcb .cb-case-row dd,.solcb .cb-case-row dt{font-variant-numeric:tabular-nums}
 
-/* ---------- 暗场:以投带产(全页唯一签名段) ---------- */
-.solcb .cb-core{position:relative;overflow:hidden;background:var(--cb-core);color:#E8EFEC;padding:120px 0}
-@media(max-width:700px){.solcb .cb-core{padding:84px 0}}
-.solcb .cb-core .wrap{position:relative;z-index:1}
+/* ---------- 02 · 合作期内(账目披露) ---------- */
+.solcb .cb-yield{margin-top:22px;border:1px solid var(--cb-line);border-radius:18px;background:var(--cb-paper);
+  padding:28px 34px 30px}
+@media(max-width:600px){.solcb .cb-yield{padding:24px 22px 26px}}
+.solcb .cb-yield-cap{display:inline-flex;align-items:center;gap:10px;font-size:12.5px;font-weight:800;
+  letter-spacing:.18em;color:var(--cb-green)}
+.solcb .cb-yield-cap::after{content:"";width:22px;height:2px;border-radius:2px;background:var(--cb-grad)}
+.solcb .cb-yield-grid{margin-top:24px;display:grid;grid-template-columns:repeat(3,1fr);gap:0}
+@media(max-width:760px){.solcb .cb-yield-grid{grid-template-columns:1fr}}
+.solcb .cb-yield-item{padding:0 28px;border-left:1px solid var(--cb-line)}
+.solcb .cb-yield-item:first-child{padding-left:0;border-left:none}
+@media(max-width:760px){.solcb .cb-yield-item{padding:20px 0 0;border-left:none;border-top:1px solid var(--cb-line)}
+  .solcb .cb-yield-item:first-child{border-top:none;padding-top:0}}
+.solcb .cb-yield-side{display:inline-grid;place-items:center;height:24px;padding:0 11px;border-radius:999px;
+  font-size:12px;font-weight:700;letter-spacing:.1em;color:var(--cb-green);border:1px solid rgba(18,185,138,.42)}
+.solcb .cb-yield-item p{margin:14px 0 8px;font-size:14.5px;font-weight:600;color:var(--cb-ink);line-height:1.5}
+.solcb .cb-yield-item strong{display:block;font-size:clamp(25px,3.1vw,36px);font-weight:800;letter-spacing:-.03em;
+  line-height:1.1;font-variant-numeric:tabular-nums}
 
-.solcb .cb-dcards{margin-top:46px;display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
-@media(max-width:820px){.solcb .cb-dcards{grid-template-columns:1fr}}
-.solcb .cb-dcard{position:relative;border:1px solid rgba(255,255,255,.12);border-radius:14px;background:rgba(255,255,255,.03);
-  padding:28px 26px;display:flex;flex-direction:column;gap:9px;transition:border-color .2s,transform .2s}
-.solcb .cb-dcard:hover{border-color:rgba(63,217,184,.30);transform:translateY(-2px)}
-.solcb .cb-dcard[data-end="true"]{border-color:rgba(63,217,184,.34);background:linear-gradient(180deg,rgba(18,185,138,.10),rgba(255,255,255,.02))}
-.solcb .cb-dno{font-size:clamp(30px,3.8vw,44px);font-weight:800;line-height:.9;letter-spacing:-.03em;font-variant-numeric:tabular-nums}
-.solcb .cb-dcard h3{margin:4px 0 0;font-size:clamp(18px,2vw,21px);font-weight:700;letter-spacing:-.015em;color:#fff;line-height:1.28}
-.solcb .cb-dcard p{margin:0;font-size:clamp(13.5px,1.5vw,15px);line-height:1.7;color:#AEBAB5}
+/* ---------- 02 · 为什么敢先投(技术/运营/资本) ---------- */
+.solcb .cb-base{margin-top:64px}
+.solcb .cb-base>h3{margin:0;font-size:clamp(19px,2.2vw,24px);font-weight:800;letter-spacing:-.02em;color:var(--cb-ink)}
+.solcb .cb-base>p{margin:14px 0 0;font-size:15px;line-height:1.75;color:var(--cb-ink-2);max-width:62ch}
+.solcb .cb-bases{margin-top:38px;display:grid;grid-template-columns:repeat(3,1fr);gap:0}
+@media(max-width:760px){.solcb .cb-bases{grid-template-columns:1fr}}
+.solcb .cb-base-col{display:flex;flex-direction:column;padding:0 30px;border-left:1px solid var(--cb-line)}
+.solcb .cb-base-col:first-child{padding-left:0;border-left:none}
+@media(max-width:760px){.solcb .cb-base-col{padding:22px 0 0;border-left:none;border-top:1px solid var(--cb-line)}
+  .solcb .cb-base-col:first-child{border-top:none;padding-top:0}}
+.solcb .cb-base-k{font-size:clamp(20px,2.4vw,26px);font-weight:800;letter-spacing:.02em;line-height:1}
+.solcb .cb-base-col h4{margin:14px 0 9px;font-size:clamp(16px,1.8vw,18px);font-weight:700;letter-spacing:-.01em;color:var(--cb-ink)}
+.solcb .cb-base-col p{margin:0;color:var(--cb-ink-2);font-size:14px;line-height:1.72}
+.solcb .cb-base-link{margin-top:16px;display:inline-flex;align-items:center;gap:6px;
+  font-size:14px;font-weight:700;color:var(--cb-ink);text-decoration:none;transition:color .2s}
+.solcb .cb-base-link .ar{transition:transform .2s}
+.solcb .cb-base-link:hover{color:var(--cb-green)}
+.solcb .cb-base-link:hover .ar{transform:translateX(3px)}
 
-/* 投资闭环 */
-.solcb .cb-cycle{display:grid;grid-template-columns:1fr 40px 1fr 40px 1fr;align-items:stretch;margin-top:48px}
-@media(max-width:820px){.solcb .cb-cycle{grid-template-columns:1fr}}
-.solcb .cb-cyc{border:1px solid rgba(255,255,255,.12);border-radius:14px;background:rgba(255,255,255,.03);padding:28px 26px}
-.solcb .cb-cyc-lab{font-size:11.5px;letter-spacing:.16em;text-transform:uppercase;color:#3fd9b8;font-weight:700}
-.solcb .cb-cyc h4{margin:13px 0 11px;color:#fff;font-size:19px;font-weight:700;letter-spacing:-.01em}
-.solcb .cb-cyc p{margin:0;color:#AEBAB5;font-size:14px;line-height:1.7}
-.solcb .cb-cyc-ar{display:grid;place-items:center;color:#3fd9b8}
-@media(max-width:820px){.solcb .cb-cyc-ar{transform:rotate(90deg);height:42px}}
+/* ---------- 03 · 投入清单(我方三行 + 贵区一行) ---------- */
+.solcb .cb-inputs{margin-top:42px;display:flex;flex-direction:column}
+.solcb .cb-input{display:grid;grid-template-columns:96px 1fr;gap:22px;align-items:start;padding:26px 0;border-top:1px solid var(--cb-line)}
+.solcb .cb-input:last-child{border-bottom:1px solid var(--cb-line)}
+@media(max-width:560px){.solcb .cb-input{grid-template-columns:1fr;gap:8px}}
+.solcb .cb-input-k{font-size:clamp(17px,1.9vw,20px);font-weight:800;letter-spacing:.02em;padding-top:2px}
+.solcb .cb-input h3{margin:0 0 9px;font-size:clamp(17px,2vw,20px);font-weight:700;letter-spacing:-.015em;color:var(--cb-ink)}
+.solcb .cb-input p{margin:0;color:var(--cb-ink-2);font-size:15px;line-height:1.75}
+.solcb .cb-input.gov{background:var(--cb-mist);border-radius:14px;padding:26px 24px;border-top:none;margin-top:14px}
+.solcb .cb-input.gov .cb-input-k{color:var(--cb-ink)}
+.solcb .cb-input.gov:last-child{border-bottom:none}
 
-/* 渐变判词 + 脚注 */
-.solcb .cb-verdict{position:relative;margin-top:44px;max-width:none;padding-left:22px;
-  font-size:clamp(17px,2vw,22px);font-weight:700;line-height:1.4;letter-spacing:-.015em;color:#fff}
-.solcb .cb-verdict::before{content:"";position:absolute;left:0;top:6px;bottom:6px;width:3px;border-radius:3px;background:var(--cb-grad)}
-.solcb .cb-faint{margin-top:18px;color:#7E8A85;font-size:13.5px;letter-spacing:.04em}
+/* ---------- 03 · 白纸黑字(协议三条) ---------- */
+.solcb .cb-pact{position:relative;margin-top:52px;padding:38px 38px 34px;border-radius:18px;color:#fff;overflow:hidden;
+  background:linear-gradient(115deg,#0B1714,#10251F 60%,#0d2f26)}
+@media(max-width:600px){.solcb .cb-pact{padding:28px 24px 26px}}
+.solcb .cb-pact::before{content:"";position:absolute;left:0;top:0;bottom:0;width:4px;background:var(--cb-grad)}
+.solcb .cb-pact>h3{margin:0;font-size:clamp(19px,2.3vw,25px);font-weight:800;letter-spacing:-.02em;color:#fff}
+.solcb .cb-pact-grid{margin-top:28px;display:grid;grid-template-columns:repeat(3,1fr);gap:26px}
+@media(max-width:820px){.solcb .cb-pact-grid{grid-template-columns:1fr;gap:20px}}
+.solcb .cb-pact-item span{display:block;font-size:15px;font-weight:800;letter-spacing:.02em;
+  background:linear-gradient(115deg,#5db2ff,#3fd9b8);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+.solcb .cb-pact-item p{margin:10px 0 0;font-size:14px;line-height:1.75;color:#C3D2CC}
 
-/* ---------- 五年沉淀:阶段叙事 ---------- */
-.solcb .cb-stages{margin-top:46px;display:grid;grid-template-columns:repeat(3,1fr);gap:0}
-@media(max-width:760px){.solcb .cb-stages{grid-template-columns:1fr}}
-.solcb .cb-stage{position:relative;padding:0 30px;border-left:1px solid var(--cb-line)}
-.solcb .cb-stage:first-child{padding-left:0;border-left:none}
-@media(max-width:760px){.solcb .cb-stage{padding:24px 0 0;border-left:none;border-top:1px solid var(--cb-line)}.solcb .cb-stage:first-child{border-top:none;padding-top:0}}
-.solcb .cb-stage-ph{font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--cb-green);font-weight:700}
-.solcb .cb-stage h3{margin:14px 0 12px;font-size:clamp(20px,2.3vw,23px);font-weight:700;letter-spacing:-.015em;color:var(--cb-ink)}
-.solcb .cb-stage p{margin:0;color:var(--cb-ink-2);font-size:15px;line-height:1.72}
-.solcb .cb-stage-ar{position:absolute;right:-12px;top:0;z-index:2;width:24px;height:24px;
+/* ---------- 04 · 三步走 ---------- */
+.solcb .cb-steps{margin-top:46px;display:grid;grid-template-columns:repeat(3,1fr);gap:0}
+@media(max-width:760px){.solcb .cb-steps{grid-template-columns:1fr}}
+.solcb .cb-step{position:relative;padding:0 30px;border-left:1px solid var(--cb-line)}
+.solcb .cb-step:first-child{padding-left:0;border-left:none}
+@media(max-width:760px){.solcb .cb-step{padding:24px 0 0;border-left:none;border-top:1px solid var(--cb-line)}
+  .solcb .cb-step:first-child{border-top:none;padding-top:0}}
+.solcb .cb-step-ph{font-size:13px;letter-spacing:.12em;text-transform:uppercase;font-weight:800}
+.solcb .cb-step h3{margin:13px 0 12px;font-size:clamp(21px,2.4vw,25px);font-weight:800;letter-spacing:-.02em;color:var(--cb-ink)}
+.solcb .cb-step p{margin:0;color:var(--cb-ink-2);font-size:14.5px;line-height:1.78}
+.solcb .cb-step-ar{position:absolute;right:-12px;top:0;z-index:2;width:24px;height:24px;
   display:grid;place-items:center;font-weight:800;color:#fff;background:var(--cb-grad);border-radius:50%}
-@media(max-width:760px){.solcb .cb-stage-ar{display:none}}
-.solcb .cb-stagebar{display:flex;gap:6px;margin:40px 0 4px}
-.solcb .cb-stagebar i{height:4px;border-radius:4px;flex:1;background:var(--cb-grad)}
+@media(max-width:760px){.solcb .cb-step-ar{display:none}}
+
+/* ---------- 04 · 三个政策方向 ---------- */
+.solcb .cb-dirs{margin-top:60px}
+.solcb .cb-dirs>h3{margin:0;font-size:clamp(19px,2.2vw,24px);font-weight:800;letter-spacing:-.02em;color:var(--cb-ink)}
+.solcb .cb-dirs-grid{margin-top:26px;display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+@media(max-width:820px){.solcb .cb-dirs-grid{grid-template-columns:1fr}}
+.solcb .cb-dir{display:flex;flex-direction:column;border:1px solid var(--cb-line);border-radius:16px;background:var(--cb-paper);padding:26px 24px;
+  transition:border-color .2s,box-shadow .2s,transform .2s}
+.solcb .cb-dir:hover{border-color:rgba(12,139,130,.34);box-shadow:0 14px 34px rgba(12,139,130,.08);transform:translateY(-2px)}
+.solcb .cb-dir h4{margin:0 0 10px;font-size:clamp(16.5px,1.9vw,19px);font-weight:800;letter-spacing:-.015em;color:var(--cb-ink)}
+.solcb .cb-dir p{margin:0 0 16px;font-size:14px;line-height:1.75;color:var(--cb-ink-2)}
+.solcb .cb-dir-src{margin-top:auto;padding-top:12px;border-top:1px dashed var(--cb-line);font-size:12.5px;color:var(--cb-mut);line-height:1.5}
+
+/* ---------- 05 · 共建目标(终局三卡 + 目标横条) ---------- */
+.solcb .cb-goals{margin-top:46px;display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+@media(max-width:820px){.solcb .cb-goals{grid-template-columns:1fr}}
+.solcb .cb-goal{position:relative;display:flex;flex-direction:column;border:1px solid var(--cb-line);border-radius:16px;
+  background:var(--cb-paper);padding:28px 26px 26px;transition:border-color .2s,box-shadow .2s,transform .2s}
+.solcb .cb-goal:hover{border-color:rgba(12,139,130,.34);box-shadow:0 14px 34px rgba(12,139,130,.08);transform:translateY(-2px)}
+.solcb .cb-goal-n{position:absolute;top:24px;right:24px;font-size:13px;font-weight:800;letter-spacing:.08em;
+  color:var(--cb-faint);font-variant-numeric:tabular-nums}
+.solcb .cb-goal strong{display:block;font-size:clamp(27px,3.4vw,38px);font-weight:800;letter-spacing:-.03em;
+  line-height:1.1;font-variant-numeric:tabular-nums}
+.solcb .cb-goal h3{margin:14px 0 9px;font-size:clamp(16px,1.9vw,18.5px);font-weight:700;letter-spacing:-.01em;color:var(--cb-ink)}
+.solcb .cb-goal p{margin:0;font-size:14px;line-height:1.72;color:var(--cb-ink-2)}
+.solcb .cb-goal-bar{position:relative;margin:22px 0 0;padding:26px 32px;border-radius:16px;overflow:hidden;
+  color:#C3D2CC;font-size:clamp(14.5px,1.7vw,16.5px);line-height:1.85;
+  background:linear-gradient(115deg,#0B1714,#10251F 60%,#0d2f26)}
+@media(max-width:600px){.solcb .cb-goal-bar{padding:22px 22px}}
+.solcb .cb-goal-bar::before{content:"";position:absolute;left:0;top:0;bottom:0;width:4px;background:var(--cb-grad)}
+.solcb .cb-goal-bar b{font-weight:800;font-variant-numeric:tabular-nums;
+  background:linear-gradient(115deg,#5db2ff,#3fd9b8);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+
+/* 延伸阅读 */
+.solcb .cb-more{margin:40px 0 0;font-size:15px;color:var(--cb-ink-2);display:flex;flex-wrap:wrap;align-items:center;gap:10px 14px}
+.solcb .cb-more a{font-weight:700;color:var(--cb-ink);text-decoration:none}
+.solcb .cb-more a:hover{color:var(--cb-green)}
+.solcb .cb-more .dot{width:4px;height:4px;border-radius:50%;background:var(--cb-faint)}
+
+/* ---------- FAQ(FmFaq 组件样式在此接管,雾底維持斑马纹) ---------- */
+.solcb .fmc-faq{padding:104px 0;background:var(--cb-mist)}
+@media(max-width:700px){.solcb .fmc-faq{padding:76px 0}}
+.solcb .fmc-faq h2{margin:0 0 30px;font-size:clamp(24px,3vw,34px);font-weight:800;letter-spacing:-.025em;color:var(--cb-ink)}
+.solcb .fmc-faq-list{display:grid;gap:12px}
+.solcb .fmc-faq-item{background:var(--cb-paper);border:1px solid var(--cb-line);border-radius:14px;padding:0 22px;
+  transition:border-color .2s,box-shadow .2s}
+.solcb .fmc-faq-item:hover,.solcb .fmc-faq-item[open]{border-color:rgba(12,139,130,.3);box-shadow:0 10px 26px rgba(12,139,130,.07)}
+.solcb .fmc-faq-item summary{cursor:pointer;padding:18px 0;font-size:15.5px;font-weight:700;list-style:none;position:relative;padding-right:34px;color:var(--cb-ink)}
+.solcb .fmc-faq-item summary::-webkit-details-marker{display:none}
+.solcb .fmc-faq-item summary::after{content:"+";position:absolute;right:2px;top:50%;transform:translateY(-50%);
+  font-size:20px;font-weight:400;color:var(--cb-green)}
+.solcb .fmc-faq-item[open] summary::after{content:"−"}
+.solcb .fmc-faq-item p{margin:0 0 20px;font-size:14.5px;line-height:1.85;color:var(--cb-ink-2);max-width:66ch}
 
 /* ---------- 表单(逻辑/字段不变,仅冷调外观) ---------- */
 .solcb .form-err{margin:-6px 0 14px;font-size:13.5px;color:var(--cb-green);line-height:1.55}

@@ -11,7 +11,7 @@ const Arrow = ({ s = 14 }: { s?: number }) => (
 );
 
 export const metadata = pageMetadata("/cases", {
-  title: "客户案例 · 谁在用，哪个项目在用 — 启盟科技",
+  title: "客户案例 · 谁在用，哪个项目在用 | 启盟科技",
   description:
     "这里列出的每一个，都不是演示，而是已经在真实项目里运行的部署——综合体、智慧园区、集团总部、联合办公，把日常运营里的判断交给 FMClaw 物业智能体。",
 });

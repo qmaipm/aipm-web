@@ -5,7 +5,7 @@ import "./page.css";
 import { pageMetadata } from "@/lib/pageMetadata";
 
 export const metadata: Metadata = pageMetadata("/solutions/operations", {
-  title: "运营管理 · 智能体解决方案 — 启盟科技",
+  title: "运营管理 · 智能体解决方案 | 启盟科技",
   description:
     "运营管理 Agent 把服务标准转成每天可执行的工作流,实时调度、自动响应异常;管理者只在交互界面里审批与确认。把每天的调度与派单,变成可追溯的实时运营。",
 });
@@ -175,7 +175,7 @@ export default function OperationsPage() {
             <span className="op-rt">↻ 回灌服务设计</span>
           </div>
           <p className="op-foot">
-            <Link href="/agents" className="op-link">回到四 Agent 闭环总览 <Arrow s={13} /></Link>
+            <Link href="/agents" className="op-link">查看四个行业智能体 <Arrow s={13} /></Link>
           </p>
         </div>
       </section>

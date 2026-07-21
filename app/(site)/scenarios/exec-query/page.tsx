@@ -4,7 +4,7 @@ import "../scenarios.css";
 import { pageMetadata } from "@/lib/pageMetadata";
 
 export const metadata = pageMetadata("/scenarios/exec-query", {
-  title: "管理层 AI 问询 · 能耗归因秒级回答 — FMClaw™ 加速营场景",
+  title: "管理层 AI 问询 · 能耗归因秒级回答｜FMClaw™ 加速营场景",
   description:
     "领导在钉钉 @ 一句问题，底层由 FMClaw 调数据、模型与 Skill 做能耗归因，秒级给出带原因的回答与简报，不换对话框。",
 });
@@ -45,7 +45,7 @@ export default function Page() {
         <div className="wrap">
           <h2 className="reveal">想在你自己的数据上,跑通这个场景?</h2>
           <p className="reveal">带上你的真实数据，来一次 FMClaw™ 加速营，当场把它跑通。</p>
-          <div className="cta-row reveal"><Link href="/workshop" className="btn btn-primary">预约 FMClaw™ 加速营 →</Link></div>
+          <div className="cta-row reveal"><Link href="/workshop" className="btn btn-primary">预约 FMClaw™ 加速营 →</Link><Link href="/agents" className="btn btn-ghost">了解 FMClaw 的 Agentic AI 产品套件</Link></div>
         </div>
       </section>
     </main>

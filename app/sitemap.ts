@@ -31,7 +31,10 @@ const ROUTES = [
   "/team",
   "/news",
   "/products/fmclaw",
-  "/products/collaboration",
+  "/products/fmclaw/ontology",
+  "/products/fmclaw/workflow-engine",
+  "/products/fmclaw/connectors",
+  "/products/fmclaw/agent-runtime",
   "/products/iot",
   "/products/robots",
   "/solutions/cost",
@@ -60,8 +63,10 @@ const ROUTES = [
 // 行业研究文章(GEO 重点内容,优先级更高)
 const INSIGHTS = [
   "/insights",
+  "/insights/general-platform-vs-industry-agent",
   "/insights/how-to-run-ai-competition",
   "/insights/demo-vs-system",
+  "/insights/agentic-ai-property-management",
   "/insights/what-is-fde",
   "/insights/ai-transformation-bottom-up",
   "/insights/property-management-second-half-ai-company",

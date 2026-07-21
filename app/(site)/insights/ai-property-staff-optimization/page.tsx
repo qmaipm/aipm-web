@@ -3,7 +3,7 @@ import ArticleShell from "../_ArticleShell";
 import { articleMetadata } from "../articles";
 
 export const metadata = articleMetadata("ai-property-staff-optimization", {
-  title: "岗位是怎么消失的 · 从工作流的视角看 AI 物管 · 行业研究 — 启盟科技",
+  title: "岗位是怎么消失的 · 从工作流的视角看 AI 物管 · 行业研究 | 启盟科技",
   description:
     "AI 不替代岗位,它替代工作流。本文讲清启盟科技的物业智能体 FMClaw 如何通过接管抄表、对账、派单、巡检、质检等工作流实现物业减员增效,并附启盟科技自营物业公司爱物管的 0-1 验证数据:管理层从 69 人降到 5 人、净利率从 3.4% 升到 14%。",
 });

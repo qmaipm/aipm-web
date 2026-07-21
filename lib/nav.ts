@@ -1,4 +1,4 @@
-// 全站导航与路由配置(锁定结构 A9)。第二期未建页面暂指向最近的核心页。
+// 全站导航与路由配置（锁定结构 A9）。第二期未建页面暂指向最近的核心页。
 
 export type DropItem = { label: string; href: string; small?: string; links?: { label: string; href: string }[] };
 export type DropGroup = { heading?: string; items: DropItem[] };
@@ -12,13 +12,23 @@ export type MenuItem = {
 export const MENU: MenuItem[] = [
   {
     label: "产品",
+    minWidth: 360,
     groups: [
       {
+        heading: "FMClaw™ 智能体平台",
         items: [
-          { label: "FMClaw™ AI 平台", href: "/products/fmclaw", small: "All-in-One · Agentic 架构 · 五大模块" },
-          { label: "第三方平台 AI 协同", href: "/products/collaboration", small: "钉钉 / 飞书 / 企业微信 · 不替换，只接入" },
-          { label: "IoT 物理世界感知系统", href: "/products/iot" },
-          { label: "机器人装备", href: "/products/robots", small: "室内清洁 · 四足巡检" },
+          { label: "FMClaw™ 产品总览", href: "/products/fmclaw", small: "物业与设施管理的生产级 AI 智能体平台" },
+          { label: "行业数据本体", href: "/products/fmclaw/ontology", small: "统一业务对象、指标口径与数据权限" },
+          { label: "工作流引擎", href: "/products/fmclaw/workflow-engine", small: "让业务流程稳定、可复制地运行" },
+          { label: "工具箱", href: "/products/fmclaw/connectors", small: "把在用的软件接为智能体可调用的工具" },
+          { label: "控制台", href: "/products/fmclaw/agent-runtime", small: "智能体的身份、权限、运行和记录" },
+        ],
+      },
+      {
+        heading: "IoT 与机器人",
+        items: [
+          { label: "IoT 物理世界感知", href: "/products/iot", small: "让现场状态成为 AI 可用的数据" },
+          { label: "机器人与智能装备", href: "/products/robots", small: "把管理指令转化为现场执行" },
         ],
       },
     ],
@@ -29,22 +39,22 @@ export const MENU: MenuItem[] = [
     minWidth: 320,
     groups: [
       {
-        heading: "产品套件",
+        heading: "解决方案总览",
         items: [
-          {
-            label: "Agentic 产品套件",
-            href: "/agents",
-            links: [
-              { label: "服务设计", href: "/solutions/service-design" },
-              { label: "运营管理", href: "/solutions/operations" },
-              { label: "质量评估", href: "/solutions/assessment" },
-              { label: "服务优化", href: "/solutions/optimization" },
-            ],
-          },
+          { label: "物业管理智能体矩阵", href: "/agents", small: "四个智能体，覆盖从服务设计到持续优化的完整管理过程" },
         ],
       },
       {
-        heading: "解决方案",
+        heading: "四个行业智能体",
+        items: [
+          { label: "服务设计智能体", href: "/solutions/service-design" },
+          { label: "运营管理智能体", href: "/solutions/operations" },
+          { label: "质量评估智能体", href: "/solutions/assessment" },
+          { label: "服务优化智能体", href: "/solutions/optimization" },
+        ],
+      },
+      {
+        heading: "业务解决方案",
         items: [
           { label: "人员成本优化", href: "/solutions/cost" },
           { label: "服务质量管理", href: "/solutions/quality" },
@@ -64,15 +74,15 @@ export const MENU: MenuItem[] = [
     groups: [
       {
         items: [
-          { label: "AI 物业服务(总览)", href: "/ai-service", small: "换物业,先换一种方式" },
+          { label: "AI 物业服务（总览）", href: "/ai-service", small: "换物业，先换一种方式" },
         ],
       },
       {
         heading: "四大工种",
         items: [
-          { label: "AI 清洁服务", href: "/ai-service/cleaning", small: "干没干,数据会说话" },
-          { label: "AI 设施设备服务", href: "/ai-service/facility", small: "每一次巡检,都真实发生" },
-          { label: "AI 安保服务", href: "/ai-service/security", small: "人看不过来的,交给 AI 看" },
+          { label: "AI 清洁服务", href: "/ai-service/cleaning", small: "干没干，数据会说话" },
+          { label: "AI 设施设备服务", href: "/ai-service/facility", small: "每一次巡检，都真实发生" },
+          { label: "AI 安保服务", href: "/ai-service/security", small: "人看不过来的，交给 AI 看" },
           { label: "AI 客服管家", href: "/ai-service/customer-service", small: "站在你这边的物业管家" },
         ],
       },
@@ -86,7 +96,7 @@ export const MENU: MenuItem[] = [
     groups: [
       {
         items: [
-          { label: "FMClaw™ 加速营(总览)", href: "/workshop", small: "把你自己的 AI，亲手搭出来" },
+          { label: "FMClaw™ 加速营（总览）", href: "/workshop", small: "把你自己的 AI，亲手搭出来" },
         ],
       },
       {
@@ -108,7 +118,7 @@ export const MENU: MenuItem[] = [
     groups: [
       {
         items: [
-          { label: "生态伙伴(总览)", href: "/partners", small: "我们做产品和平台，伙伴赢市场" },
+          { label: "生态伙伴（总览）", href: "/partners", small: "我们做产品和平台，伙伴赢市场" },
         ],
       },
       {
@@ -140,10 +150,13 @@ export const FOOTER_COLS: { title: string; links: DropItem[] }[] = [
   {
     title: "产品",
     links: [
-      { label: "FMClaw™ AI 平台", href: "/products/fmclaw" },
-      { label: "第三方平台 AI 协同", href: "/products/collaboration" },
-      { label: "IoT 物理感知", href: "/products/iot" },
-      { label: "机器人装备", href: "/products/robots" },
+      { label: "FMClaw™ 产品总览", href: "/products/fmclaw" },
+      { label: "行业数据本体", href: "/products/fmclaw/ontology" },
+      { label: "工作流引擎", href: "/products/fmclaw/workflow-engine" },
+      { label: "工具箱", href: "/products/fmclaw/connectors" },
+      { label: "控制台", href: "/products/fmclaw/agent-runtime" },
+      { label: "IoT 物理世界感知", href: "/products/iot" },
+      { label: "机器人与智能装备", href: "/products/robots" },
     ],
   },
   {
@@ -159,10 +172,11 @@ export const FOOTER_COLS: { title: string; links: DropItem[] }[] = [
   {
     title: "智能体解决方案",
     links: [
-      { label: "Agentic 产品套件", href: "/agents" },
-      { label: "人员成本优化", href: "/solutions/cost" },
-      { label: "服务质量管理", href: "/solutions/quality" },
-      { label: "服务分包管理", href: "/solutions/subcontract" },
+      { label: "物业管理智能体矩阵", href: "/agents" },
+      { label: "服务设计智能体", href: "/solutions/service-design" },
+      { label: "运营管理智能体", href: "/solutions/operations" },
+      { label: "质量评估智能体", href: "/solutions/assessment" },
+      { label: "服务优化智能体", href: "/solutions/optimization" },
       { label: "客户案例", href: "/cases" },
     ],
   },

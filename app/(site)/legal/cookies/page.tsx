@@ -3,7 +3,7 @@ import "./page.css";
 import { pageMetadata } from "@/lib/pageMetadata";
 
 export const metadata = pageMetadata("/legal/cookies", {
-  title: "Cookie 声明 — 启盟科技",
+  title: "Cookie 声明 | 启盟科技",
   description:
     "启盟科技 · FMClaw™ Cookie 声明。我们如何使用 Cookie 及同类技术、用途与如何管理。本页为占位文本,最终以正式版本为准。",
 });

@@ -4,7 +4,7 @@ import { newsByDate } from "./articles";
 import { pageMetadata } from "@/lib/pageMetadata";
 
 export const metadata = pageMetadata("/news", {
-  title: "新闻动态 — 启盟科技",
+  title: "新闻动态 | 启盟科技",
   description: "启盟科技的展会、活动、荣誉与合作动态:建博会、BEYOND Expo、NVIDIA 创业企业展示、行业峰会与闭门分享。",
 });
 

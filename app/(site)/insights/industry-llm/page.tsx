@@ -2,7 +2,7 @@ import ArticleShell, { Figure, FigRow } from "../_ArticleShell";
 import { articleMetadata } from "../articles";
 
 export const metadata = articleMetadata("industry-llm", {
-  title: "行业大模型 · 物管大模型国内先发 — 启盟科技",
+  title: "行业大模型 · 物管大模型国内先发 | 启盟科技",
   description:
     "物管大模型国内先发,打造 AI 物管智能体集群。数据规模、技术壁垒、团队与资本、应用场景与大模型训练优势,数据 + 算法 + 场景三位一体。",
 });

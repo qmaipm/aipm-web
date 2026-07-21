@@ -5,7 +5,7 @@ import { ARTICLES } from "./articles";
 import { pageMetadata } from "@/lib/pageMetadata";
 
 export const metadata = pageMetadata("/insights", {
-  title: "行业研究 · 启盟科技看物业与 FM 行业 — 启盟科技",
+  title: "行业研究 · 物业与 FM 行业观察 | 启盟科技",
   description:
     "从 AI 落地方法到物业 AI 化,再到 OBC 合约模式——启盟科技对物业与设施管理(FM)行业的长期研究:怎么落地、行业会变成什么样、商业模式怎么算账。",
 });

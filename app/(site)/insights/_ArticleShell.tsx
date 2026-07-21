@@ -53,6 +53,10 @@ export function FigRow({
 
 // 文章 → AI 物业服务工种页回链(内链闭环:研究文章把读者引向对应服务页)
 const TRADE_LINKS: Record<string, { href: string; label: string }[]> = {
+  "general-platform-vs-industry-agent": [
+    { href: "/products/fmclaw/connectors#platforms", label: "工具箱 · 平台协同" },
+    { href: "/workshop/demo-day", label: "Demo Day" },
+  ],
   "how-to-run-ai-competition": [
     { href: "/workshop/competition", label: "AI 应用创新大赛" },
     { href: "/workshop/bootcamp", label: "FMClaw™ 加速营" },
@@ -81,6 +85,10 @@ const TRADE_LINKS: Record<string, { href: string; label: string }[]> = {
   ],
   "digital-labor-trends": [
     { href: "/ai-service", label: "AI 物业服务总览" },
+    { href: "/workshop/bootcamp", label: "FMClaw™ 加速营" },
+  ],
+  "agentic-ai-property-management": [
+    { href: "/workshop/demo-day", label: "Demo Day" },
     { href: "/workshop/bootcamp", label: "FMClaw™ 加速营" },
   ],
   "industry-llm": [

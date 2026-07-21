@@ -1,0 +1,10 @@
+/* ============================================================
+   行业数据本体页专属模块（依赖 capability.css 的 .fmc 变量域）
+   fmo-darkgrid 暗场左文右图两栏
+   （fmo-pain / fmo-capgrp 已升级为共享组件，见 capability.css）
+   ============================================================ */
+
+/* ---- 暗场：左文右图 ---- */
+.fmo-darkgrid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,.92fr);gap:clamp(36px,5vw,72px);align-items:center}
+@media(max-width:900px){.fmo-darkgrid{grid-template-columns:1fr;gap:36px}}
+.fmo-darkgrid .fmo-checks{max-width:none}

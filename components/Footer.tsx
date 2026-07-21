@@ -9,7 +9,7 @@ export default function Footer() {
         <div className="ft-grid">
           <div>
             <div className="brand"><Image src="/images/logo-white.webp" alt="启盟科技 Stalliance" width={384} height={113} /></div>
-            <p className="tagline">物业与设施管理的 AI 操作系统。把 AI 接进每天的运营,从一个真实业务开始。</p>
+            <p className="tagline">物业与设施管理的 AI 操作系统。把 AI 接进每天的运营，从一个真实业务开始。</p>
           </div>
           {FOOTER_COLS.map((col) => (
             <div key={col.title}>

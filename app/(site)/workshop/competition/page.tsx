@@ -10,7 +10,7 @@ import { pageMetadata } from "@/lib/pageMetadata";
 const SITE_URL = process.env.SITE_URL || "https://www.aipm.cn";
 
 export const metadata: Metadata = pageMetadata("/workshop/competition", {
-  title: "AI 应用创新大赛 · 承办 / 协办 / 技术底座 — 2–4 周以赛促用 | FMClaw™ · 启盟科技",
+  title: "AI 应用创新大赛 · 承办 / 协办 / 技术底座 — 2–4 周以赛促用 | 启盟科技",
   description:
     "面向央国企、政府与大型组织的企业内部 AI 应用创新大赛：2–4 周从组织发动、一线报名、评审辅导到决赛路演闭环。五维评分盯落地不盯表演，赛完不散场——获奖课题接着落地。我们承办、协办，或提供 FMClaw™ 统一技术底座。",
   keywords: [
