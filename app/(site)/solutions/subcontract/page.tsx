@@ -111,11 +111,11 @@ export default function Page() {
             ))}
           </div>
 
-          <Link className="sc-sources" href="/products/collaboration">
+          <Link className="sc-sources" href="/products/fmclaw/connectors#platforms">
             <div className="sc-sources-h">
               <h3>嵌入自定义数据源</h3>
               <p>需要更多维度？接入自定义数据源补充考核内容，覆盖到这些渠道：</p>
-              <span className="sc-source-link">第三方平台 AI 协同，了解更多 <Arrow s={13} /></span>
+              <span className="sc-source-link">钉钉、飞书、企业微信怎么接，了解更多 <Arrow s={13} /></span>
             </div>
             <div className="sc-source-chips">
               {sources.map((s) => (

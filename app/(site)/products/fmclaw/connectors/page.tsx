@@ -8,9 +8,9 @@ import "../capability.css";
 export const dynamic = "force-dynamic";
 
 export const metadata: Metadata = pageMetadata("/products/fmclaw/connectors", {
-  title: "工具箱（ToolBox）｜FMClaw™ 智能体工具调用与物业系统连接",
+  title: "工具箱（ToolBox）｜FMClaw™ 工具调用与钉钉、飞书、企业微信接入",
   description:
-    "工具箱（ToolBox）是 FMClaw 智能体所需软件能力的连接器：物业 ERP、收费、工单、财务人力、协同平台、IoT、视频安防与机器人，经 API、MCP 等方式封装为工具（Tool），智能体在授权范围内调用。",
+    "工具箱（ToolBox）是 FMClaw 智能体所需软件能力的连接器：物业 ERP、收费、工单、财务人力、IoT、视频安防与机器人，经 API、MCP 等方式封装为工具（Tool），智能体在授权范围内调用。钉钉、飞书、企业微信经官方接口接入，不替换、不冲突。",
 });
 
 const TECH_LD = techArticleLd({
@@ -38,6 +38,14 @@ const FAQ = [
     a: "不需要。API、MCP、CLI、数据库、文件、消息接口和设备协议，已有系统原样接入。",
   },
   {
+    q: "已经在用钉钉 AI 助理或飞书 aily，还需要 FMClaw 吗?",
+    a: "看业务。平台的 AI 助理擅长组织协作——总结消息、写文档、查日程;工单、收费、设备、对账这些物业与设施管理的专业环节，需要行业数据和行业工具，这是 FMClaw 补上的那一段。两者经平台官方预留的接口协同，不冲突。",
+  },
+  {
+    q: "会不会和协同平台重复建设?",
+    a: "不会。沟通、审批、通知仍由平台负责，账号和组织架构沿用平台已有配置;FMClaw 只做专业业务那一段。停掉接入，平台照常运行。",
+  },
+  {
     q: "智能体会不会乱用工具?",
     a: "不会。谁能用哪个工具，接入时就定好;查信息可以直接做，发出去、扣到钱、动到设备的动作，先经人批准;每一次调用都有记录，可复核。",
   },
@@ -58,6 +66,12 @@ const SOFTWARE = [
 ];
 
 const METHODS = ["MCP", "API", "CLI", "数据库", "文件", "消息接口", "设备协议"];
+
+const Check = () => (
+  <svg width="12" height="12" viewBox="0 0 16 16" aria-hidden="true">
+    <path d="M3 8.5l3.2 3.2L13 4.5" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+  </svg>
+);
 
 export default function Page() {
   return (
@@ -163,10 +177,129 @@ export default function Page() {
         </div>
       </section>
 
-      {/* ===== 03 权限（暗场） ===== */}
-      <section className="fmc-sec dark">
+      {/* ===== 03 协同平台：钉钉、飞书、企业微信 ===== */}
+      <section className="fmc-sec" id="platforms">
         <div className="wrap">
           <p className="fmc-num">03</p>
+          <h2>已经在用钉钉、飞书、企业微信？正好</h2>
+          <p className="fmc-p" style={{ marginTop: 18 }}>
+            这是被问得最多的一件事。答案是：不用二选一。
+            很多企业已经在用这些平台，FMClaw 与它们产生协同——不是替代，是互补，
+            客户因此多出更灵活的选择。
+          </p>
+          <div className="fmo-lrows" style={{ marginTop: 44 }}>
+            <div className="fmo-lrow">
+              <span className="fmo-limg">
+                <img
+                  src="/products/fmclaw/ecosystem-band.webp"
+                  alt="第三方协作平台接入插画：三个协作应用窗口的数据流汇入同一个平台底座"
+                  width={1376}
+                  height={1027}
+                  loading="lazy"
+                />
+              </span>
+              <div className="fmo-lbody">
+                <h3>协同的位置，平台官方已经留好了</h3>
+                <p className="fmo-ldesc">
+                  钉钉的机器人消息与企业技能、飞书的第三方工具调用与开放 API、企业微信的智能机器人与回调接口——
+                  三家平台都在官方架构里预留了第三方接入的位置。FMClaw 从这些位置接进去：
+                  平台继续负责组织协作，FMClaw 补上物业与设施管理的专业业务。
+                </p>
+              </div>
+            </div>
+          </div>
+          <p className="fmc-p" style={{ marginTop: 44 }}>
+            三种协同方式，按你现在的用法选。可以单独用，也可以叠加用。
+          </p>
+          <div className="fmo-capgrp" style={{ marginTop: 28 }}>
+            <div className="fmo-cg">
+              <div className="fmo-cg-head">
+                <span className="fmo-cg-no">方式 01 · 机器人消息</span>
+                <h3>群里多一个机器人</h3>
+                <p className="fmo-cg-goal">走平台机器人的消息接口。</p>
+              </div>
+              <ul className="fmo-cg-list">
+                <li>
+                  <b>怎么用</b>
+                  <p>业主在群里发一条报修，平台机器人收进来，FMClaw 识别、建单、派工，进度发回群里。对话始终在原来的群里。</p>
+                </li>
+                <li>
+                  <b>常见于</b>
+                  <p>报修、投诉、业主群报事。</p>
+                </li>
+              </ul>
+            </div>
+            <div className="fmo-cg">
+              <div className="fmo-cg-head">
+                <span className="fmo-cg-no">方式 02 · 技能调用</span>
+                <h3>对话入口不变，底层接 FMClaw</h3>
+                <p className="fmo-cg-goal">走平台开放的技能与工具调用接口。</p>
+              </div>
+              <ul className="fmo-cg-list">
+                <li>
+                  <b>怎么用</b>
+                  <p>管理层还在原来的对话框里问「本月哪个项目能耗异常」，答案由 FMClaw 用行业数据和统一口径算出来，带来源。</p>
+                </li>
+                <li>
+                  <b>常见于</b>
+                  <p>管理层问业务、经营数据问询。</p>
+                </li>
+              </ul>
+            </div>
+            <div className="fmo-cg">
+              <div className="fmo-cg-head">
+                <span className="fmo-cg-no">方式 03 · 表格互通</span>
+                <h3>两边看到同一份数</h3>
+                <p className="fmo-cg-goal">走多维表、智能表格的开放 API，双向同步。</p>
+              </div>
+              <ul className="fmo-cg-list">
+                <li>
+                  <b>怎么用</b>
+                  <p>FMClaw 数据集市与平台的多维表双向同步，日报、周报、台账在两边看到的是同一份数。</p>
+                </li>
+                <li>
+                  <b>常见于</b>
+                  <p>运营日报、周报、跨项目台账。</p>
+                </li>
+              </ul>
+            </div>
+          </div>
+          <p className="fmc-p" style={{ marginTop: 52, fontWeight: 700, color: "var(--c-ink)" }}>
+            担心冲突或重复建设？逐条核对：
+          </p>
+          <ul className="fmo-checks lt">
+            <li>
+              <span className="ck" aria-hidden="true"><Check /></span>
+              <span><b>不替换现有平台</b><span className="d">钉钉、飞书、企业微信照常用，员工不换工具、不改习惯。</span></span>
+            </li>
+            <li>
+              <span className="ck" aria-hidden="true"><Check /></span>
+              <span><b>不重复平台已有能力</b><span className="d">沟通、审批、通知仍由平台负责;FMClaw 只补物业与设施管理的专业环节。</span></span>
+            </li>
+            <li>
+              <span className="ck" aria-hidden="true"><Check /></span>
+              <span><b>账号与权限沿用现有体系</b><span className="d">组织架构、身份认证复用平台已有配置，不另建一套。</span></span>
+            </li>
+            <li>
+              <span className="ck" aria-hidden="true"><Check /></span>
+              <span><b>随时可以停</b><span className="d">接入是加一段能力;停掉接入，平台照常运行。</span></span>
+            </li>
+          </ul>
+          <ScenarioCards items={[
+            { href: "/cases/property-group-chat-ai-service", lab: "客户案例", t: "业主群报事", d: "群消息识别、建单、派工、通知，对话始终在原来的群里。",
+              img: "/products/fmclaw/case-chat-service.webp", alt: "业主群报事案例插图：群消息自动识别建单，派工与通知走企业已有系统" },
+            { href: "/scenarios/exec-query", lab: "场景", t: "管理层问询", d: "对话框还是那个对话框，答案带口径和来源。",
+              img: "/products/fmclaw/scenario-exec-query.webp", alt: "管理层问询场景插图：在对话中直接提问业务，智能体返回带口径和来源的答案" },
+            { href: "/cases/property-group-auto-operation-report", lab: "客户案例", t: "运营日报自动生成", d: "500 多个项目的数据，在协同平台里每天准时看到。",
+              img: "/products/fmclaw/case-auto-report.webp", alt: "运营日报自动生成案例插图：多项目数据汇聚为结构一致的日报" },
+          ]} />
+        </div>
+      </section>
+
+      {/* ===== 04 权限（暗场） ===== */}
+      <section className="fmc-sec dark">
+        <div className="wrap">
+          <p className="fmc-num">04</p>
           <h2>该问人的动作，先问人</h2>
           <div className="fmo-howgrid">
             <div className="fmo-howside">
@@ -196,10 +329,6 @@ export default function Page() {
               </div>
             </div>
           </div>
-          <ScenarioCards items={[
-            { href: "/cases/property-group-chat-ai-service", lab: "客户案例", t: "业主群报事", d: "识别、建单、派工、通知——全程用的都是企业已有的系统。",
-              img: "/products/fmclaw/case-chat-service.webp", alt: "业主群报事案例插图：群消息自动识别建单，派工与通知走企业已有系统" },
-          ]} />
         </div>
       </section>
 
@@ -225,7 +354,7 @@ export default function Page() {
 
       <div className="fmo-upd">
         <div className="wrap">
-          <p className="fmc-updated">最后更新：2026-07-20</p>
+          <p className="fmc-updated">最后更新：2026-07-21</p>
         </div>
       </div>
 

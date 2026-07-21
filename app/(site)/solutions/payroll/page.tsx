@@ -110,11 +110,11 @@ export default function Page() {
             ))}
           </div>
 
-          <Link className="pay-srcnote" href="/products/collaboration">
+          <Link className="pay-srcnote" href="/products/fmclaw/connectors#platforms">
             <div className="pay-srcnote-h">
               <h3>已有自己的考勤系统？</h3>
               <p>外接自定义数据源补充，照样自动算薪：</p>
-              <span className="pay-srclink">第三方平台 AI 协同，了解更多 <Arrow s={13} /></span>
+              <span className="pay-srclink">钉钉、飞书、企业微信怎么接，了解更多 <Arrow s={13} /></span>
             </div>
             <div className="pay-src-chips">
               <span className="pay-src">飞书</span>

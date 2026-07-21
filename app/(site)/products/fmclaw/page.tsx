@@ -329,12 +329,12 @@ export default function Page() {
           </p>
 
           {/* 生态兼容带：第三方协作平台属于工具箱（L3）的连接范围，不单设产品板块 */}
-          <Link className="fmo-ecoband" href="/products/collaboration">
+          <Link className="fmo-ecoband" href="/products/fmclaw/connectors#platforms">
             <div className="fmo-ecoband-main">
               <span className="fmo-ecoband-en">WORKS WITH WHAT YOU ALREADY USE</span>
               <h3>不替换现有平台，只接入专业业务</h3>
               <p>钉钉、飞书和企业微信继续作为协作入口，FMClaw 在底层补上物业与设施管理的专业环节。</p>
-              <span className="fmo-ecoband-go">了解第三方平台 AI 协同 <Arrow s={13} /></span>
+              <span className="fmo-ecoband-go">了解三种协同方式 <Arrow s={13} /></span>
             </div>
             <div className="fmo-ecoband-side">
               <img

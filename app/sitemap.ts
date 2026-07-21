@@ -35,7 +35,6 @@ const ROUTES = [
   "/products/fmclaw/workflow-engine",
   "/products/fmclaw/connectors",
   "/products/fmclaw/agent-runtime",
-  "/products/collaboration",
   "/products/iot",
   "/products/robots",
   "/solutions/cost",

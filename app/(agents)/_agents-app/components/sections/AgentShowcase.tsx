@@ -122,13 +122,13 @@ const productModules = [
     relatedProducts: [
       { name: 'SSR 服务记录', desc: '无感记录服务全过程', href: '/products/ssr' },
       { name: '工单调度系统', desc: '数据驱动的任务分配', href: '/products/ticket' },
-      { name: '人机协同引擎', desc: '人与机器人协同服务', href: '/products/collaboration' },
+      { name: '人机协同引擎', desc: '人与机器人协同服务', href: '/products/fmclaw/connectors' },
     ],
     animationConfig: {
       relatedProducts: [
         { name: 'SSR 服务记录', href: '/products/ssr', icon: 'ssr' as const },
         { name: '工单调度系统', href: '/products/ticket', icon: 'ticket' as const },
-        { name: '人机协同引擎', href: '/products/collaboration', icon: 'collaboration' as const },
+        { name: '人机协同引擎', href: '/products/fmclaw/connectors', icon: 'collaboration' as const },
       ],
     },
     isHero: false,
