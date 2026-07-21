@@ -100,7 +100,12 @@
 .pl-dot{fill:#3fd9b8}
 .h-pillar .pl-n{font-size:12px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:#3fd9b8}
 .h-pillar h3{margin:2px 0 0;font-size:clamp(17px,1.9vw,20px);font-weight:700;letter-spacing:-.015em;color:#fff;line-height:1.3}
-.h-pillar p{margin:0;font-size:14px;line-height:1.65;color:#AEBAB5}
+.h-pillar p{margin:0;font-size:14px;line-height:1.65;color:#AEBAB5;flex:1}
+.h-pillar .pl-go{display:inline-flex;align-items:center;gap:6px;margin-top:14px;padding-top:14px;
+  border-top:1px solid rgba(255,255,255,.09);font-size:13.5px;font-weight:700;color:#3fd9b8;text-decoration:none}
+.h-pillar .pl-go svg{transition:transform .25s}
+.h-pillar .pl-go:hover svg{transform:translateX(3px)}
+.h-pillar .pl-go:hover{text-decoration:underline;text-underline-offset:3px}
 .h-mission-close{margin:44px auto 0;max-width:44ch;font-size:clamp(16px,1.9vw,20px);font-weight:700;letter-spacing:-.015em;line-height:1.5;color:#fff}
 
 /* ---------- 对号入座 · 4 卡 ---------- */

@@ -101,6 +101,7 @@ export default function Home() {
               <div className="pl-n">01 管理</div>
               <h3>AI 智能体</h3>
               <p>巡检、工单、客服、品质、结算和运营分析，由 AI 参与执行与判断。</p>
+              <Link className="pl-go" href="/products/fmclaw">FMClaw™ 智能体平台 <ArrowR /></Link>
             </div>
             <div className="h-pillar reveal">
               <svg className="pl-ill" viewBox="0 0 120 56" aria-hidden="true">
@@ -113,6 +114,7 @@ export default function Home() {
               <div className="pl-n">02 劳动</div>
               <h3>机器人与具身智能</h3>
               <p>清洁、巡逻、安防和巡检，由机器人与现场人员协同完成。</p>
+              <Link className="pl-go" href="/products/robots">机器人与智能装备 <ArrowR /></Link>
             </div>
             <div className="h-pillar reveal">
               <svg className="pl-ill" viewBox="0 0 120 56" aria-hidden="true">
@@ -125,6 +127,7 @@ export default function Home() {
               <div className="pl-n">03 感知</div>
               <h3>IoT 与物理 AI</h3>
               <p>设备、环境、能耗、人流和空间状态，被持续感知并转化为 AI 可以理解的数据。</p>
+              <Link className="pl-go" href="/products/iot">IoT 物理世界感知 <ArrowR /></Link>
             </div>
           </div>
           <p className="h-mission-close reveal">物业与设施管理，不是智能的终点，而是智能进入物理世界的起点。</p>

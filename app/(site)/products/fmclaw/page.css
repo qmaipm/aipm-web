@@ -184,9 +184,6 @@ a.fmc-cell:hover .fmo-wf-go{text-decoration:underline}
 .fmo-wfband-art::after{content:"";position:absolute;inset:0;border-radius:16px;box-shadow:inset 0 0 0 1px rgba(11,23,20,.08)}
 .fmo-wfband-art img{display:block;width:100%;height:auto}
 
-/* 暗场内部分隔(生态连接 → 开始方式) */
-.fmo-start-divide{margin:56px 0 52px;height:1px;background:linear-gradient(90deg,transparent,rgba(255,255,255,.22),transparent)}
-
 /* 从一个真实问题开始:三段路径卡(区别于上方生态卡,大号渐变编号 + 时长 pill + 顶部渐变描边) */
 .fmo-paths{margin:40px 0 0;display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
 @media(max-width:860px){.fmo-paths{grid-template-columns:1fr}}
@@ -210,14 +207,39 @@ a.fmc-cell:hover .fmo-wf-go{text-decoration:underline}
 .fmo-path-go svg{transition:transform .25s}
 .fmo-path:hover .fmo-path-go svg{transform:translateX(3px)}
 
-/* 暗场里的 ghost 按钮与白卡 */
+/* 暗场里的 ghost 按钮 */
 .fmc-sec.dark .btn-ghost{color:#fff;border-color:rgba(255,255,255,.45);background:rgba(255,255,255,.05)}
 .fmc-sec.dark .btn-ghost:hover{border-color:#fff;background:rgba(255,255,255,.12)}
-.fmc-sec.dark .fmc-cell{border-color:rgba(255,255,255,.14);background:rgba(255,255,255,.05)}
-.fmc-sec.dark .fmc-cell:hover{border-color:rgba(63,217,184,.45);box-shadow:0 22px 52px rgba(0,0,0,.35)}
-.fmc-sec.dark .fmc-cell h3{color:#fff}
-.fmc-sec.dark .fmc-cell p{color:#AEBAB5}
-.fmc-sec.dark .fmo-wf-go{color:#3fd9b8}
+
+/* ---------- 生态兼容带(§03 末尾:第三方协作平台属于工具箱的连接范围) ---------- */
+.fmo-ecoband{margin:56px 0 0;display:grid;grid-template-columns:minmax(0,1.16fr) minmax(0,.84fr);gap:clamp(24px,4vw,56px);
+  align-items:center;position:relative;overflow:hidden;text-decoration:none;color:inherit;
+  padding:clamp(28px,3.4vw,40px) clamp(26px,3.6vw,48px);border-radius:20px;
+  background:linear-gradient(135deg,#F4FAF8 0%,#EDF5F6 58%,#EAF2F7 100%);
+  border:1px solid var(--c-line);transition:border-color .25s,box-shadow .3s,transform .3s}
+.fmo-ecoband::before{content:"";position:absolute;left:0;top:0;bottom:0;width:4px;background:var(--c-grad)}
+.fmo-ecoband:hover{border-color:rgba(12,139,130,.38);box-shadow:0 26px 60px rgba(12,139,130,.13);transform:translateY(-3px)}
+.fmo-ecoband-en{display:inline-flex;align-items:center;gap:8px;font-size:11.5px;font-weight:800;
+  letter-spacing:.14em;color:var(--c-deep)}
+.fmo-ecoband-en::before{content:"";width:16px;height:2px;border-radius:2px;background:var(--c-grad)}
+.fmo-ecoband h3{margin:12px 0 0;font-size:clamp(20px,2.4vw,26px);font-weight:800;letter-spacing:-.02em;
+  color:var(--c-ink);line-height:1.28}
+.fmo-ecoband-main p{margin:12px 0 0;font-size:15px;line-height:1.72;color:var(--c-ink-2);max-width:46ch}
+.fmo-ecoband-go{display:inline-flex;align-items:center;gap:7px;margin-top:20px;font-size:14px;font-weight:700;color:var(--c-deep)}
+.fmo-ecoband-go svg{transition:transform .25s}
+.fmo-ecoband:hover .fmo-ecoband-go svg{transform:translateX(3px)}
+.fmo-ecoband:hover .fmo-ecoband-go{text-decoration:underline;text-underline-offset:3px}
+.fmo-ecoband-side{position:relative;display:flex;flex-direction:column;align-items:center}
+.fmo-ecoband-side img{display:block;width:100%;max-width:380px;height:auto;
+  filter:drop-shadow(0 18px 36px rgba(12,139,130,.16))}
+.fmo-ecochips{display:flex;flex-wrap:wrap;justify-content:center;gap:10px;margin-top:-12px}
+.fmo-ecochips span{font-size:13.5px;font-weight:700;color:var(--c-ink);letter-spacing:.01em;
+  background:#fff;border:1px solid var(--c-line);border-radius:999px;padding:8px 18px;
+  box-shadow:0 4px 14px rgba(11,23,20,.08)}
+@media(max-width:900px){
+  .fmo-ecoband{grid-template-columns:1fr;gap:24px}
+  .fmo-ecoband-side img{max-width:320px}
+}
 
 @media(prefers-reduced-motion:reduce){
   .fmo *{transition:none!important}

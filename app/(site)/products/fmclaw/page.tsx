@@ -327,6 +327,28 @@ export default function Page() {
           <p className="fmo-verdict">
             数据本体提供业务事实，工作流引擎组织工作，工具箱完成动作，控制台管理权限和记录。
           </p>
+
+          {/* 生态兼容带：第三方协作平台属于工具箱（L3）的连接范围，不单设产品板块 */}
+          <Link className="fmo-ecoband" href="/products/collaboration">
+            <div className="fmo-ecoband-main">
+              <span className="fmo-ecoband-en">WORKS WITH WHAT YOU ALREADY USE</span>
+              <h3>不替换现有平台，只接入专业业务</h3>
+              <p>钉钉、飞书和企业微信继续作为协作入口，FMClaw 在底层补上物业与设施管理的专业环节。</p>
+              <span className="fmo-ecoband-go">了解第三方平台 AI 协同 <Arrow s={13} /></span>
+            </div>
+            <div className="fmo-ecoband-side">
+              <img
+                src="/products/fmclaw/ecosystem-band.webp"
+                alt="第三方协作平台接入插画：三个协作应用窗口的数据流汇入同一个平台底座"
+                width={1376}
+                height={1027}
+                loading="lazy"
+              />
+              <div className="fmo-ecochips" aria-label="已支持的协作平台">
+                <span>钉钉</span><span>飞书</span><span>企业微信</span>
+              </div>
+            </div>
+          </Link>
         </div>
       </section>
 
@@ -481,34 +503,9 @@ export default function Page() {
         </div>
       </section>
 
-      {/* ===== 07 开始方式（暗场收束，含生态连接） ===== */}
+      {/* ===== 07 开始方式（暗场签名段，只讲一件事） ===== */}
       <section className="fmc-sec dark" id="start">
         <div className="wrap">
-          <p className="fmc-num">WORKS WITH WHAT YOU ALREADY USE</p>
-          <h2>不替换现有平台，只接入专业业务</h2>
-          <p className="fmc-p">
-            钉钉、飞书和企业微信继续作为协作入口。FMClaw 在底层连接行业数据、业务工作流与系统工具，
-            补上物业与设施管理的专业环节。
-          </p>
-          <div className="fmc-cols3">
-            <Link className="fmc-cell fmo-wf" href="/products/collaboration">
-              <h3>第三方平台 AI 协同</h3>
-              <p>消息、审批和日常协作，留在你现在的平台里。</p>
-              <span className="fmo-wf-go">查看 →</span>
-            </Link>
-            <Link className="fmc-cell fmo-wf" href="/products/iot">
-              <h3>IoT 物理世界感知</h3>
-              <p>IoT、BA、视频和现场设备持续提供真实世界的数据。</p>
-              <span className="fmo-wf-go">查看 →</span>
-            </Link>
-            <Link className="fmc-cell fmo-wf" href="/products/robots">
-              <h3>机器人与智能装备</h3>
-              <p>机器人和智能装备承担清洁、巡检等标准化工作。</p>
-              <span className="fmo-wf-go">查看 →</span>
-            </Link>
-          </div>
-
-          <div className="fmo-start-divide" id="ecosystem" aria-hidden="true" />
           <p className="fmc-num">START WITH ONE REAL PROCESS</p>
           <h2>从一个真实问题开始</h2>
           <p className="fmc-p">
