@@ -157,6 +157,31 @@ export function LinkCards({ items }: { items: LinkCardItem[] }) {
   );
 }
 
+export type ScenarioCardItem = { href: string; lab: string; t: string; d: string; img: string; alt: string };
+
+/** 场景/案例插图链接卡（全站场景与案例互链一律用它，禁用纯图标卡）
+ *  布局规则：1 张=横向大卡;2 张=一行两列;3 张=一行三列;4 张=两行两列——不允许出现孤儿卡片 */
+export function ScenarioCards({ items }: { items: ScenarioCardItem[] }) {
+  const n = items.length;
+  return (
+    <div className={`fmo-sccards n${n === 4 ? 2 : Math.min(n, 3)}${n === 1 ? " solo" : ""}`}>
+      {items.map((it) => (
+        <Link className="fmo-sccard" key={it.href + it.t} href={it.href}>
+          <span className="fmo-sc-media">
+            <img src={it.img} alt={it.alt} width={1100} height={614} loading="lazy" />
+            <span className="fmo-sc-lab">{it.lab}</span>
+          </span>
+          <span className="fmo-sc-body">
+            <b>{it.t}</b>
+            <span className="fmo-sc-d">{it.d}</span>
+            <span className="fmo-sc-go">查看{it.lab} <Arrow s={12} /></span>
+          </span>
+        </Link>
+      ))}
+    </div>
+  );
+}
+
 /** 总览页 SoftwareApplication JSON-LD(字段按规格，不加虚构评分/价格) */
 export const FMCLAW_APP_LD = {
   "@context": "https://schema.org",

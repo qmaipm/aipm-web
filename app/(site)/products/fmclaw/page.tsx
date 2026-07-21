@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import JsonLd from "@/components/JsonLd";
 import { pageMetadata } from "@/lib/pageMetadata";
-import { FmBreadcrumb, FmFaq, FMCLAW_APP_LD, Arrow, IC, LinkCards } from "./_shared";
+import { FmBreadcrumb, FmFaq, FMCLAW_APP_LD, Arrow, IC, LinkCards, ScenarioCards } from "./_shared";
 import "./capability.css";
 import "./page.css";
 
@@ -380,8 +380,9 @@ export default function Page() {
               ))}
             </div>
           </div>
-          <LinkCards items={[
-            { href: "/scenarios/reconciliation", lab: "场景", t: "供应商自动对账", d: "核量、比对、找异常、起草账单的完整场景。", icon: IC.reconcile },
+          <ScenarioCards items={[
+            { href: "/scenarios/reconciliation", lab: "场景", t: "供应商自动对账", d: "核量、比对、找异常、起草账单的完整场景。",
+              img: "/products/fmclaw/scenario-reconciliation.webp", alt: "供应商对账场景插图：合同与单据双列比对，差异项等待人工确认" },
           ]} />
         </div>
       </section>

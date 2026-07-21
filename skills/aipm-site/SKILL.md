@@ -118,6 +118,15 @@
 6. **配图铁律**:证据用真实产品界面,不用摆拍照片;概念用统一风格的等距 3D 插画
    (蓝绿渐变 #0070FF→#12B98A、浅薄荷底、无文字);重磅页面不吝恾插图,但每张图必须有信息职责,
    装饰性配图一张都不要。
+7. **禁止孤儿卡片**:任何卡片网格,每行只能是 2 张或 3 张,4 张必须走 2×2 两行;
+   **绝不允许 N 张卡片排成 "3+1" "2+1" 这类末行单卡孤悬的版式**(反例,已修:
+   workflow-engine §07 曾 4 卡排成 3+1)。写卡片组前先数数量:1 张→横向大卡(solo),
+   2 张→一行两列,3 张→一行三列,4 张→2×2,5 张以上→重新想信息架构,不是塞网格。
+8. **场景/案例互链必须带插图**:凡是链去 `/scenarios/*`、`/cases/*` 的互链卡,
+   一律用 `_shared.tsx` 的 `ScenarioCards`(插图 + 标签 pill + 标题/描述/箭头),
+   **禁止用纯图标 LinkCards 承载场景或案例链接**。平台层级互链(工具箱/控制台/
+   数据本体等能力页之间)才允许继续用图标 LinkCards。场景插图存
+   `public/products/fmclaw/scenario-*.webp`(1100×614,等距 3D、蓝绿限定色)。
 
 ### 3b. 产品信息架构三分法(2026-07 对标 Anthropic / Palantir 导航后确立)
 
@@ -171,7 +180,8 @@
   `.fmo-tiers/.fmo-tier` 暗场分档卡(带 `.fmo-tier-tag` 和 `.ex` 例句) / `.fmc-cols3/.fmc-cell` 三列
   `.fmc-phero` 照片 hero / `.fmc-crumb(.on-dark)` 面包屑 / `.fmo-upd` 更新时间 / `.fmc-grid` 蓝图网格
 - `_shared.tsx` 公共件:`FmBreadcrumb`(自带 BreadcrumbList JSON-LD,支持 `onDark`)、
-  `FmFaq`(**自动输出 FAQPage JSON-LD,不要再手写一份**)、`techArticleLd`、`Arrow`、`IC` 图标集、`LinkCards`。
+  `FmFaq`(**自动输出 FAQPage JSON-LD,不要再手写一份**)、`techArticleLd`、`Arrow`、`IC` 图标集、`LinkCards`、
+  `ScenarioCards`(场景/案例插图链接卡,布局自适应 1/2/3/4 张,见 §3a 第 7、8 条)。
 - 每页质量底线:`prefers-reduced-motion` 降级、`:focus-visible`、≤600px 无横向溢出、触摸目标 ≥44px。
 - 图片:真人摄影插图用 AI 生成(photorealistic editorial corporate、亚洲面孔、无 logo/可读文字),
   1800px 宽 JPEG q86 progressive,存 `public/` 对应目录;`<img>` 带宽高与 alt(alt 写场景不写"插画感受")。

@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import JsonLd from "@/components/JsonLd";
 import { pageMetadata } from "@/lib/pageMetadata";
-import { FmBreadcrumb, FmFaq, techArticleLd, Arrow, IC, LinkCards } from "../_shared";
+import { FmBreadcrumb, FmFaq, techArticleLd, Arrow, IC, LinkCards, ScenarioCards } from "../_shared";
 import "../capability.css";
 
 export const dynamic = "force-dynamic";
@@ -196,8 +196,9 @@ export default function Page() {
               </div>
             </div>
           </div>
-          <LinkCards items={[
-            { href: "/cases/property-group-chat-ai-service", lab: "客户案例", t: "业主群报事", d: "识别、建单、派工、通知——全程用的都是企业已有的系统。", icon: IC.chat },
+          <ScenarioCards items={[
+            { href: "/cases/property-group-chat-ai-service", lab: "客户案例", t: "业主群报事", d: "识别、建单、派工、通知——全程用的都是企业已有的系统。",
+              img: "/products/fmclaw/case-chat-service.webp", alt: "业主群报事案例插图：群消息自动识别建单，派工与通知走企业已有系统" },
           ]} />
         </div>
       </section>

@@ -3,7 +3,7 @@ import type { CSSProperties } from "react";
 import Link from "next/link";
 import JsonLd from "@/components/JsonLd";
 import { pageMetadata } from "@/lib/pageMetadata";
-import { FmBreadcrumb, FmFaq, techArticleLd, Arrow, IC, LinkCards } from "../_shared";
+import { FmBreadcrumb, FmFaq, techArticleLd, Arrow, IC, LinkCards, ScenarioCards } from "../_shared";
 import "../capability.css";
 import "./page.css";
 
@@ -405,10 +405,13 @@ export default function Page() {
             用指标中心统一的能耗口径逐一比对，给出异常项目、偏差幅度和数据来源。
             答案可以复核，因为口径只有一个。
           </p>
-          <LinkCards items={[
-            { href: "/scenarios/exec-query", lab: "场景", t: "管理层问询", d: "在群里直接问业务，答案带口径和来源。", icon: IC.chat },
-            { href: "/cases/property-group-auto-operation-report", lab: "客户案例", t: "运营日报自动生成", d: "500 多个项目，每天自动产出结构一致的报告。", icon: IC.chart },
-            { href: "/scenarios/reconciliation", lab: "场景", t: "供应商对账", d: "同一套合同对象和指标口径下的自动核对。", icon: IC.reconcile },
+          <ScenarioCards items={[
+            { href: "/scenarios/exec-query", lab: "场景", t: "管理层问询", d: "在群里直接问业务，答案带口径和来源。",
+              img: "/products/fmclaw/scenario-exec-query.webp", alt: "管理层问询场景插图：在对话中直接提问业务，智能体返回带口径和来源的答案" },
+            { href: "/cases/property-group-auto-operation-report", lab: "客户案例", t: "运营日报自动生成", d: "500 多个项目，每天自动产出结构一致的报告。",
+              img: "/products/fmclaw/case-auto-report.webp", alt: "运营日报自动生成案例插图：多项目数据汇聚为结构一致的日报" },
+            { href: "/scenarios/reconciliation", lab: "场景", t: "供应商对账", d: "同一套合同对象和指标口径下的自动核对。",
+              img: "/products/fmclaw/scenario-reconciliation.webp", alt: "供应商对账场景插图：合同与单据双列比对，差异项等待人工确认" },
           ]} />
         </div>
       </section>

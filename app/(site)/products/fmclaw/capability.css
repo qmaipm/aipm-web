@@ -448,3 +448,41 @@
 .fmo-cg-list b{display:block;font-size:14.5px;font-weight:800;letter-spacing:-.01em;color:var(--c-ink)}
 .fmo-cg-list p{margin:4px 0 0;font-size:13px;line-height:1.64;color:var(--c-ink-2)}
 
+/* ---- 场景/案例插图链接卡（ScenarioCards）：全站场景与案例互链统一用它 ----
+   布局规则：n3=一行三列;n2=一行两列(4 张成 2×2);solo=单张横向大卡——不允许孤儿卡片 */
+.fmo-sccards{margin:38px 0 0;display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.fmo-sccards.n2{grid-template-columns:repeat(2,1fr)}
+.fmo-sccards.n1{grid-template-columns:minmax(0,780px)}
+.fmo-sccard{position:relative;display:flex;flex-direction:column;border-radius:18px;background:#fff;
+  border:1px solid var(--c-line);overflow:hidden;text-decoration:none;
+  transition:border-color .2s,box-shadow .25s,transform .25s}
+.fmo-sccard:hover{border-color:rgba(12,139,130,.32);box-shadow:0 20px 44px rgba(12,139,130,.11);transform:translateY(-3px)}
+.fmo-sc-media{position:relative;display:block;aspect-ratio:1100/614;overflow:hidden;
+  border-bottom:1px solid var(--c-line-2);background:var(--c-mist)}
+.fmo-sc-media img{display:block;width:100%;height:100%;object-fit:cover;
+  transition:transform .45s cubic-bezier(.2,.7,.2,1)}
+.fmo-sccard:hover .fmo-sc-media img{transform:scale(1.04)}
+.fmo-sc-lab{position:absolute;top:12px;left:12px;padding:5px 11px;border-radius:999px;
+  font-size:11px;font-weight:700;letter-spacing:.08em;color:var(--c-deep);
+  background:rgba(255,255,255,.9);border:1px solid var(--c-line);backdrop-filter:blur(4px)}
+.fmo-sc-body{display:flex;flex-direction:column;flex:1;padding:18px 20px 18px}
+.fmo-sc-body b{font-size:15.5px;font-weight:800;letter-spacing:-.015em;line-height:1.35;color:var(--c-ink)}
+.fmo-sc-d{margin-top:7px;font-size:13px;line-height:1.66;color:var(--c-ink-2)}
+.fmo-sc-go{display:inline-flex;align-items:center;gap:6px;margin-top:14px;padding-top:13px;
+  border-top:1px solid var(--c-line-2);font-size:12.5px;font-weight:800;letter-spacing:.02em;color:var(--c-deep)}
+.fmo-sc-go svg{transition:transform .2s}
+.fmo-sccard:hover .fmo-sc-go{text-decoration:underline}
+.fmo-sccard:hover .fmo-sc-go svg{transform:translateX(3px)}
+/* solo：横向大卡，插图左、正文右 */
+.fmo-sccards.solo .fmo-sccard{flex-direction:row;align-items:stretch}
+.fmo-sccards.solo .fmo-sc-media{flex:none;width:44%;aspect-ratio:auto;min-height:184px;
+  border-bottom:0;border-right:1px solid var(--c-line-2)}
+.fmo-sccards.solo .fmo-sc-body{justify-content:center;padding:22px 26px}
+.fmo-sccards.solo .fmo-sc-body b{font-size:17px}
+@media(max-width:860px){
+  .fmo-sccards,.fmo-sccards.n2,.fmo-sccards.n1{grid-template-columns:1fr}
+  .fmo-sccards.solo .fmo-sccard{flex-direction:column}
+  .fmo-sccards.solo .fmo-sc-media{width:100%;aspect-ratio:1100/614;min-height:0;
+    border-right:0;border-bottom:1px solid var(--c-line-2)}
+  .fmo-sccards.solo .fmo-sc-body{padding:18px 20px}
+}

@@ -3,7 +3,7 @@ import type { CSSProperties } from "react";
 import Link from "next/link";
 import JsonLd from "@/components/JsonLd";
 import { pageMetadata } from "@/lib/pageMetadata";
-import { FmBreadcrumb, FmFaq, techArticleLd, Arrow, IC, LinkCards } from "../_shared";
+import { FmBreadcrumb, FmFaq, techArticleLd, Arrow, IC, LinkCards, ScenarioCards } from "../_shared";
 import "../capability.css";
 
 export const dynamic = "force-dynamic";
@@ -421,11 +421,15 @@ export default function Page() {
         <div className="wrap">
           <p className="fmc-num">07</p>
           <h2>看这些流程实际怎么跑</h2>
-          <LinkCards items={[
-            { href: "/scenarios/reconciliation", lab: "场景", t: "供应商对账", d: "合同、单据、金额逐项核对，差异待人确认。", icon: IC.reconcile },
-            { href: "/scenarios/utility-bill", lab: "场景", t: "水电费审批", d: "抄表到账单一条线，审批留在人的手里。", icon: IC.doc },
-            { href: "/scenarios/repair-bot", lab: "场景", t: "投诉报事", d: "识别、成单、派发、跟踪，全程有记录。", icon: IC.chat },
-            { href: "/scenarios/dispatch", lab: "场景", t: "智能派单", d: "按技能、位置与负载匹配，派得出也追得回。", icon: IC.flow },
+          <ScenarioCards items={[
+            { href: "/scenarios/reconciliation", lab: "场景", t: "供应商对账", d: "合同、单据、金额逐项核对，差异待人确认。",
+              img: "/products/fmclaw/scenario-reconciliation.webp", alt: "供应商对账场景插图：合同与单据双列比对，差异项等待人工确认" },
+            { href: "/scenarios/utility-bill", lab: "场景", t: "水电费审批", d: "抄表到账单一条线，审批留在人的手里。",
+              img: "/products/fmclaw/scenario-utility-bill.webp", alt: "水电费审批场景插图：从抄表读数到账单生成的一条流水线，中间是人工审批节点" },
+            { href: "/scenarios/repair-bot", lab: "场景", t: "投诉报事", d: "识别、成单、派发、跟踪，全程有记录。",
+              img: "/products/fmclaw/scenario-repair-bot.webp", alt: "投诉报事场景插图：从群消息识别到工单派发跟踪的完整链路" },
+            { href: "/scenarios/dispatch", lab: "场景", t: "智能派单", d: "按技能、位置与负载匹配，派得出也追得回。",
+              img: "/products/fmclaw/scenario-dispatch.webp", alt: "智能派单场景插图：工单按技能、位置与负载匹配到维修人员" },
           ]} />
         </div>
       </section>
