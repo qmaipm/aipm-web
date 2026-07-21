@@ -54,7 +54,7 @@ const caseFields = [
   { k: "合作方", v: "华东某经济发达城市。" },
   {
     k: "此前",
-    v: "传统外包模式，月综合成本 ¥34.1 万——运营 ¥28.5 万，智能化 ¥5.6 万。",
+    v: "传统「园区物业管理服务」模式，月综合服务成本 ¥34.1 万。",
   },
   {
     k: "部署",
@@ -62,7 +62,7 @@ const caseFields = [
   },
   {
     k: "现状",
-    v: "月综合成本 ¥23.8 万，稳定运行至今。",
+    v: "「人工智能服务解决方案」模式，月综合服务成本 ¥23.8 万，稳定运行至今。",
   },
 ];
 
@@ -280,20 +280,16 @@ export default function Page() {
           </div>
 
           <div className="cb-conv-merge" aria-hidden="true">
-            <svg viewBox="0 0 800 110" preserveAspectRatio="none">
+            <svg viewBox="0 0 1096 96" preserveAspectRatio="none">
               <defs>
-                <linearGradient id="cbml" x1="0" y1="0" x2="1" y2="1">
+                <linearGradient id="cbmv" gradientUnits="userSpaceOnUse" x1="548" y1="34" x2="548" y2="92">
                   <stop offset="0" stopColor="#0070FF" />
                   <stop offset="1" stopColor="#12B98A" />
                 </linearGradient>
-                <linearGradient id="cbmr" x1="1" y1="0" x2="0" y2="1">
-                  <stop offset="0" stopColor="#12B98A" />
-                  <stop offset="1" stopColor="#0070FF" />
-                </linearGradient>
               </defs>
-              <path d="M200 0 C200 60, 400 40, 400 100" fill="none" stroke="url(#cbml)" strokeWidth="2" />
-              <path d="M600 0 C600 60, 400 40, 400 100" fill="none" stroke="url(#cbmr)" strokeWidth="2" />
-              <circle cx="400" cy="102" r="5" fill="#12B98A" />
+              <path d="M274 0 V34 M822 0 V34 M274 34 H822" fill="none" stroke="#C9D3CE" strokeWidth="1" vectorEffect="non-scaling-stroke" />
+              <path d="M548 34 V92" fill="none" stroke="url(#cbmv)" strokeWidth="1.5" vectorEffect="non-scaling-stroke" />
+              <rect x="545" y="31" width="6" height="6" fill="#0B1714" />
             </svg>
           </div>
 

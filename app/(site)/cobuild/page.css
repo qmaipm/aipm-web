@@ -86,12 +86,12 @@
 .solcb .cb-conv-card p{margin:0 0 14px;font-size:14px;line-height:1.72;color:var(--cb-ink-2)}
 .solcb .cb-conv-card span{margin-top:auto;padding-top:11px;border-top:1px dashed var(--cb-line);
   font-size:12.5px;line-height:1.5;color:var(--cb-mut)}
-/* Y 形交汇线 */
-.solcb .cb-conv-merge{margin:6px auto 0;max-width:800px}
+/* 交汇线(正交细线,工程制图语言;落点对齐两列卡中轴) */
+.solcb .cb-conv-merge{margin:0}
 .solcb .cb-conv-merge svg{display:block;width:100%;height:96px}
 @media(max-width:860px){.solcb .cb-conv-merge{display:none}}
 /* 交汇句 */
-.solcb .cb-conv-sum{margin:26px 0 0;font-weight:800;font-size:clamp(21px,2.9vw,31px);line-height:1.42;
+.solcb .cb-conv-sum{margin:18px 0 0;font-weight:800;font-size:clamp(21px,2.9vw,31px);line-height:1.42;
   letter-spacing:-.02em;color:var(--cb-ink);text-align:center}
 @media(max-width:860px){.solcb .cb-conv-sum{margin-top:34px;text-align:left}
   .solcb .cb-conv-sum br{display:none}}
