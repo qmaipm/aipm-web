@@ -7,9 +7,9 @@ import { FmFaq } from "../products/fmclaw/_shared";
 import { pageMetadata } from "@/lib/pageMetadata";
 
 export const metadata: Metadata = pageMetadata("/cobuild", {
-  title: "人工智能产业共建 · 与地方共建本地 AI 产业 | 启盟科技",
+  title: "政企共建人工智能产业｜启盟科技",
   description:
-    "启盟科技出资金、技术与运营团队，以「先打样板、再建合资、后做推广」三步与地方共建人工智能产业——产值与降本写入合同，前期建设阶段合作方不承担财政与采购风险，产业、税收、就业与数据资产沉淀本地。",
+    "启盟科技设立亿元规模专项基金（2025 年 6 月），带着资金、技术与运营团队，与地方政府共同培育人工智能产业。五年、500 个项目、上千台设备在一线运行；投资规模、产业培育目标与兜底安排写进合作协议。物业，是这个产业落地的第一个场景。",
 });
 
 const Arrow = ({ s = 15 }: { s?: number }) => (
@@ -22,71 +22,70 @@ const ArrowD = ({ s = 15 }: { s?: number }) => (
     <path d="M8 3v10M4 9l4 4 4-4" fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round" />
   </svg>
 );
-const Check = () => (
-  <svg width="15" height="15" viewBox="0 0 16 16" aria-hidden="true">
-    <path d="M3 8.5l3.2 3L13 4.5" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-  </svg>
-);
-const Cross = () => (
-  <svg width="13" height="13" viewBox="0 0 16 16" aria-hidden="true">
-    <path d="M4 4l8 8M12 4l-8 8" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
-  </svg>
-);
 
-/* ---------- ③ 同一笔预算 · 对比数据(华东某 AI 示范科技园区，项目级实账) ---------- */
-const gains = [
+/* ---------- 01 · 政策坐标(产业线 + 场景线，四条，均注明出处) ---------- */
+const policies = [
   {
-    k: "政府得产业",
-    v: "¥2,323.88 万 / 6 年",
-    p: "一笔物业预算，从 K 类房地产业转入 I 类信息技术服务业。",
+    tag: "产业",
+    doc: "《关于深入实施「人工智能+」行动的意见》",
+    p: "要求各地区各部门结合实际、因地制宜抓好贯彻落实。",
+    src: "国务院 · 2025 年 8 月",
   },
   {
-    k: "国企省预算",
-    v: "¥676.68 万 / 6 年",
-    p: "智能化预算免除 ¥335.78 万＋运营成本优化 ¥340.9 万。",
+    tag: "产业",
+    doc: "人工智能相关产业规模目标 10 万亿元",
+    p: "「十五五」末的全国目标。目标最终要靠一个个地方项目落成。",
+    src: "国家发展改革委 · 2026 年全国两会",
   },
   {
-    k: "蓝领涨工资",
-    v: "+6–8%",
-    p: "一线平均薪酬提升，就业总量不减。",
+    tag: "场景",
+    doc: "「好房子」建设与物业服务质量提升行动",
+    p: "两项行动并列写入政府工作报告，物业服务质量提升上升为国家层面行动。",
+    src: "政府工作报告 · 2026 年 3 月",
   },
   {
-    k: "数据有沉淀",
-    v: "日均结构化数据",
-    p: "项目持续产出多模态运营数据，形成地方数据资产，可对接未来数据要素交易。",
+    tag: "场景",
+    doc: "「智慧」是「好房子」的四个特征之一",
+    p: "安全、舒适、绿色、智慧——智慧被明确为服务能力的升级路径。",
+    src: "住建部《关于提升住房品质的意见》 · 2026 年 1 月",
   },
 ];
 
-/* ---------- ④ 三步走 ---------- */
-const steps = [
+/* ---------- 02 · 华东案例(四字段档案；项目级实账) ---------- */
+const caseFields = [
+  { k: "合作方", v: "华东某 AI 示范科技园区。" },
   {
-    ph: "第一步",
-    title: "先打样板",
-    body: "从少量项目起步，数月内跑出第一个可对外展示的样板。我方先期投入；可中止、可评估，贵区不承担财政与采购风险。",
+    k: "此前",
+    v: "传统外包模式，月综合成本 ¥34.1 万——运营 ¥28.5 万，智能化 ¥5.6 万。",
   },
   {
-    ph: "第二步",
-    title: "再建合资",
-    body: "与贵区指定的国企平台共同出资设立合资公司，承接区域内国有物业的 AI 化改造——覆盖面积上一个量级，年度产值进入亿元区间。设立时点有两条路径，供贵区择优。合资公司，是产业沉淀本地的制度载体。",
+    k: "部署",
+    v: "清洁与巡检机器人、FMClaw™ 数字化系统上线，驻场团队承接日常运营；智能化投入由启盟科技承担。",
   },
   {
-    ph: "第三步",
-    title: "后做推广",
-    body: "两条推广线同时展开：更多园区完成产业转化，为服务机器人、具身智能、物理 AI 备好场景土壤；区域内持续运行的智能体与机器人，产生稳定的模型调用与数据流转，带动本地物业行业的 AI 转型。从一个园区，到一类业态，再到一个区域。",
+    k: "现状",
+    v: "月综合成本 ¥23.8 万，运行至今。一线岗位保留，平均薪酬提升 6–8%；运行数据持续反哺技术迭代。",
   },
 ];
 
-/* ---------- ⑤ 出资与分配 ---------- */
+/* ---------- 02 · 技术底盘(为什么敢先投) ---------- */
+const stats = [
+  { v: "上千台", k: "设备", p: "机器人与物联网设备在一线运行。" },
+  { v: "数千套", k: "智能体系统", p: "覆盖办公、园区、公寓等十余类业态。" },
+  { v: "数十亿条", k: "一线数据", p: "真实运营场景中持续产生。" },
+];
+
+/* ---------- 03 · 兜底(投入分工) ---------- */
 const inputs = [
   {
-    k: "基金",
-    title: "亿元规模 AI+FM 专项基金",
-    body: "2025 年 6 月设立，全额采购 AI 系统、IoT 传感器与服务机器人，形成贵辖区的本地固定资产。",
+    k: "资金",
+    title: "亿元规模专项基金",
+    body: "2025 年 6 月设立，全额承担 AI 系统、物联网传感器与服务机器人投入，形成贵辖区的本地固定资产。",
   },
   {
     k: "技术",
     title: "FMClaw™ 智能设施管理系统",
-    body: "已在 500 个项目运行；四个 AI 智能体接管日常调度、标准制定、质量评估与服务优化，一线服务岗位原则上不动。",
+    body: "自研软硬件栈，已在 500 个项目运行；四个 AI 智能体承担日常调度、标准制定、质量评估与服务优化。",
   },
   {
     k: "运营",
@@ -94,176 +93,244 @@ const inputs = [
     body: "子公司注册在本地，工商税务全在贵辖区；运维与技术团队常驻，服务人员本地招聘。",
   },
 ];
-const parties = [
+
+/* ---------- 03 · 白纸黑字(写进协议的三项) ---------- */
+const pacts = [
   {
-    k: "贵区得到",
-    body: "一家注册在本地的 AI 企业，营收、税收、就业逐年归属本地；以及持续产出的结构化数据资产。",
+    k: "投资承诺",
+    p: "专项基金对辖区项目的投资规模，写入协议。",
   },
   {
-    k: "国企得到",
-    body: "服务费持平或低于现有物业支出；同一笔预算，多得一套 AI 系统、机器人与数据资产；降本空间写入合同。",
+    k: "产业培育承诺",
+    p: "五年目标：一家亿元体量的本地人工智能企业——营收、税收、就业与数据资产归属本地。",
   },
   {
-    k: "我们得到",
-    body: "长期服务合同与运营收益，以及真实场景的数据积累——这是我们愿意先期投入的原因。",
+    k: "兜底安排",
+    p: "每一阶段设评估点，可中止；前期投入由我方承担。国有企业物业支出不高于现有水平，五年运营与采购资金节省以数千万元规模为协议目标。",
   },
 ];
 
-/* ---------- ⑥ 华东实证 ---------- */
-const done = [
-  "合作框架定稿，「先打样板、再建合资、后做推广」的路径双方对齐",
-  "跨国资、招商、财务、审计的专项工作组组建完成",
-  "招采、合同、审计模板同步完成",
-];
-const doing = [
-  "首期试点园区部署进入排期",
-  "合资公司架构方案完成，国资平台牵头",
-  "省、市两级 AI 应用示范申报路径对接中",
+/* ---------- 04 · 三步走(贵区是每一步的主语) ---------- */
+const steps = [
+  {
+    ph: "第一步",
+    title: "确定场景",
+    body: "贵区选定首批公共建筑与国企物业场景，明确评估口径与跨部门工作机制。",
+  },
+  {
+    ph: "第二步",
+    title: "首批项目运行",
+    body: "首批项目上线运行，账目与运行情况公开可查，作为贵区决定是否进入下一阶段的依据。",
+  },
+  {
+    ph: "第三步",
+    title: "产业主体落地",
+    body: "贵区指定的国资平台与我方设立合资公司，承接区域内国有物业的智能化运营——产业沉淀本地。",
+  },
 ];
 
-/* ---------- ⑦ 五年后 ---------- */
-const legacy = [
-  { v: "上千台", k: "服务机器人", p: "含具身智能，在区域内商用运营。" },
-  { v: "数千套", k: "AI 智能体", p: "覆盖办公、园区、公寓等十余类业态。" },
-  { v: "数十亿条 / 日", k: "结构化数据", p: "本地数据要素与词元经济的稳定源头。" },
+/* ---------- 04 · 第三步接住的三个政策方向 ---------- */
+const dirs = [
+  {
+    k: "具身智能",
+    p: "上千台设备在真实公共场景常态运行，是具身智能的落地场景与数据来源。",
+    src: "《未来产业发展行动方案》 · 2025 年 12 月",
+  },
+  {
+    k: "数据要素",
+    p: "运行中沉淀的一线数据形成区内数据资产，可对接数据流通与词元交易的新机制。",
+    src: "国家数据局 · 2026 年 4 月",
+  },
+  {
+    k: "就业转型",
+    p: "一线员工在真实项目中转型为 AI 运维岗位，就业总量不减。",
+    src: "国务院「人工智能+」行动 · 2025 年 8 月",
+  },
 ];
 
-/* ---------- ⑧ FAQ ---------- */
+/* ---------- FAQ(自包含答案；招商干部原话措辞) ---------- */
 const faq = [
   {
-    q: "这和采购一套 AI 系统有什么区别？",
-    a: "不是采购。贵区不出预算、不走采购流程；我方出资金、技术与运营团队，在本地注册企业、长期运营。系统与机器人是我方的投入，产业、税收、就业与数据资产是贵区的沉淀。",
+    q: "企业方承担哪些投入？",
+    a: "资金、技术与运营均由启盟科技承担：亿元规模专项基金（2025 年 6 月设立）负责设备与系统投入，FMClaw™ 系统与驻场运营团队由我方提供，子公司注册在本地。",
   },
   {
-    q: "贵区需要投入什么？",
-    a: "不需要财政投入。需要三件事：对路径的原则性认可；一位牵头领导与跨部门工作机制；首批样板场景的范围。",
+    q: "合作对地方财政有什么要求？",
+    a: "不需要财政投入，不新增采购预算。贵区负责指导方向、给予政策、导入本地资源；投入与运营由启盟科技承担。",
   },
   {
-    q: "多久能看到第一个样板？",
-    a: "数月内。首批样板即可对外展示，作为后续合资与推广的依据。",
+    q: "这个合作对应哪些政策方向？",
+    a: "国务院《关于深入实施「人工智能+」行动的意见》（2025 年 8 月）；2026 年政府工作报告的「好房子」建设与物业服务质量提升行动；《未来产业发展行动方案》（2025 年 12 月）的具身智能方向；以及国家数据局提出的词元交易等数据要素新机制（2026 年 4 月）。",
   },
   {
-    q: "样板不达预期怎么办？",
-    a: "可以中止。三步走的每一步都设评估点，上一步走通才有下一步；前期投入由我方承担。",
+    q: "产业怎么统计？",
+    a: "物业支出归口 K 类「房地产业」。当服务由本地注册的人工智能企业以智能系统与机器人交付，对应营收计入 I 类「信息技术服务业」——企业注册、税收与就业均在本地统计。",
   },
   {
-    q: "「以投带产」和「以投带引」是一回事吗？",
-    a: "方向一致，主体不同。「以投带引」是政府用国资基金投项目、引企业；「以投带产」是企业方出资金、技术与运营，直接在本地把产业做起来——政府不出资，产业照样沉淀本地。",
+    q: "首批项目不达预期怎么办？",
+    a: "可以中止。三步走的每一步都设评估点，上一步走通才有下一步；前期投入由启盟科技承担，兜底安排写入合作协议。",
   },
   {
     q: "数据归谁？",
-    a: "项目运营数据形成本地数据资产，权属与使用边界写入合同，可对接本地数据要素交易平台。",
+    a: "项目运营数据形成本地数据资产，权属与使用边界写入协议，可对接本地数据流通与词元交易机制。",
   },
 ];
 
 export default function Page() {
   return (
     <main className="solcb">
-      {/* ===== ① HERO · 实景暗场 ===== */}
+      {/* ===== HERO · 实景暗场 ===== */}
       <section className="cb-hero">
         <span className="cb-hero__bg" aria-hidden="true" />
         <div className="cb-grid dark" aria-hidden="true" />
         <div className="wrap cb-hero-top">
           <span className="cb-kicker">
             <Link href="/">启盟科技</Link>
-            <i>/</i>人工智能产业共建
+            <i>/</i>政企共建
           </span>
           <h1 className="cb-h1">
-            与贵区共建一个<br /><span className="grad">本地 AI 产业</span>
+            与贵区共同培育<br /><span className="grad">人工智能产业</span>
           </h1>
           <p className="cb-lead">
-            启盟科技出资金、出技术、出运营团队，从第一个样板项目做起：先打样板、再建合资、后做推广。产值与降本空间写进合同；<b>前期建设阶段，贵区不承担财政与采购风险。</b>
+            我们带着资金、技术与运营团队，到贵区投资兴业。<b>物业，是这个产业落地的第一个场景。</b>
           </p>
           <div className="cb-cta">
-            <a href="#path" className="btn btn-primary">看三步怎么走 <ArrowD /></a>
-            <a href="#contact" className="btn btn-ghost">留下联系方式 <Arrow /></a>
+            <a href="#contact" className="btn btn-primary">预约实地考察 <Arrow /></a>
+            <a href="#frame" className="btn btn-ghost">查看合作框架 <ArrowD /></a>
           </div>
           <div className="cb-proof">
-            <span>我方<b>出资金 · 出技术 · 出团队</b></span>
+            <span><b>五年</b></span>
             <span className="sep" />
-            <span>合作方<b>零投入</b></span>
+            <span><b>500 个项目</b></span>
             <span className="sep" />
-            <span><b className="grad">华东省会城市已落地</b></span>
+            <span><b>上千台设备</b>在一线运行</span>
+            <span className="sep" />
+            <span>亿元规模专项基金<b>（2025 年 6 月设立）</b></span>
           </div>
         </div>
       </section>
 
-      {/* ===== ② 01 · 产业口径 ===== */}
+      {/* ===== 01 · 政策坐标 ===== */}
       <section className="cb-band">
         <div className="wrap">
-          <span className="cb-eyebrow">01 · 产业口径</span>
-          <h2 className="cb-h2">一笔物业预算，怎么变成人工智能产业产值</h2>
+          <span className="cb-eyebrow">01 · 政策坐标</span>
+          <h2 className="cb-h2">两条国家议程，在同一个场景交汇</h2>
           <p className="cb-sub">
-            「十五五」末，人工智能相关产业规模的目标是 <b>10 万亿元</b>（国家发展改革委，2026 年全国两会）。目标最终要靠一个个地方项目落成——这套方案给出的路径是：
+            一条是产业线：人工智能产业培育已列入国家议程。一条是场景线：「好房子」与物业服务质量提升写入政府工作报告。
           </p>
-          <div className="cb-def">
-            <p>
-              物业支出归口 <b>K 类「房地产业」</b>。当 AI 系统承担管理协调、机器人与本地注册的 AI 企业交付服务，同一笔支出就成为 <b>I 类「信息技术服务业」</b>的营收——企业注册、税收、就业与数据资产，全部沉淀本地。
-            </p>
-            <p className="cb-def-verdict"><span className="grad">支出不增，产业起来了。</span></p>
-          </div>
-          <p className="cb-note">
-            这条路有先例：国家鼓励企业投资节能技术、帮用能单位降耗，电费最终变成技术服务费——能源行业走了二十年。今天，把「能源」换成「物业」。
-          </p>
-        </div>
-      </section>
 
-      {/* ===== ③ 02 · 实证对比 ===== */}
-      <section className="cb-band mist">
-        <div className="wrap">
-          <span className="cb-eyebrow">02 · 实证</span>
-          <h2 className="cb-h2">同一笔物业预算，两种结果</h2>
-          <p className="cb-sub">以华东某 AI 示范科技园区为例——相同管理范围，不同的成本结构与服务内容。</p>
-
-          <div className="cb-vs">
-            <div className="cb-vs-col">
-              <div className="cb-vs-tag">传统采购</div>
-              <div className="cb-vs-price">¥34.1 万 <em>/ 月</em></div>
-              <div className="cb-vs-split">运营 ¥28.5 万＋智能化 ¥5.6 万</div>
-              <ul className="cb-vs-list">
-                <li className="has"><Check />人工服务（保安 / 保洁）</li>
-                <li className="has"><Check />设备物料消耗</li>
-                <li className="not"><Cross />无智能设备</li>
-                <li className="not"><Cross />无数字化系统</li>
-                <li className="not"><Cross />无数据报告</li>
-              </ul>
-            </div>
-            <div className="cb-vs-col ai">
-              <div className="cb-vs-tag">AI 方案</div>
-              <div className="cb-vs-price">¥23.8 万 <em>/ 月</em></div>
-              <div className="cb-vs-split">运营降至 ¥23.8 万；智能化投入 ¥0，由我方投资</div>
-              <ul className="cb-vs-list">
-                <li className="has"><Check />人工服务（保安 / 保洁）</li>
-                <li className="has"><Check />设备物料消耗</li>
-                <li className="add"><Check />智能机器人（清洁 / 巡检）</li>
-                <li className="add"><Check />AI 数字化系统与数据资产</li>
-                <li className="add"><Check />可视化数据分析平台</li>
-              </ul>
-            </div>
-          </div>
-
-          <div className="cb-gains">
-            {gains.map((g) => (
-              <div className="cb-gain" key={g.k}>
-                <span className="cb-gain-k">{g.k}</span>
-                <strong className="cb-gain-v">{g.v}</strong>
-                <p>{g.p}</p>
+          <div className="cb-pol">
+            {policies.map((r) => (
+              <div className="cb-pol-row" key={r.doc}>
+                <span className={`cb-pol-tag${r.tag === "场景" ? " alt" : ""}`}>{r.tag}</span>
+                <div className="cb-pol-main">
+                  <h3>{r.doc}</h3>
+                  <p>{r.p}</p>
+                </div>
+                <span className="cb-pol-src">{r.src}</span>
               </div>
             ))}
           </div>
 
-          <p className="cb-verdict-bar">
-            运营每月降 <b>¥4.7 万</b>，智能化与前期投入由我方承担——同一笔预算，多出一套 AI 系统和一个本地 AI 产业的起点。
+          <p className="cb-pol-sum">贵区手里的这两项议程，在物业这个场景<span className="grad">交汇</span>。</p>
+
+          <figure className="cb-photo">
+            <Image src="/cobuild/district.jpg" alt="医院、学校与机场等公共建筑集群航拍" width={1800} height={1208} sizes="(max-width:1160px) 100vw, 1096px" />
+            <figcaption>办公园区、医院、学校、场馆——公共建筑，是两项议程共同的落点。（图为场景示意）</figcaption>
+          </figure>
+        </div>
+      </section>
+
+      {/* ===== 02 · 已经在运行的项目 ===== */}
+      <section className="cb-band mist">
+        <div className="wrap">
+          <span className="cb-eyebrow">02 · 已经在运行的项目</span>
+          <h2 className="cb-h2">先看一个已经发生的项目</h2>
+          <p className="cb-sub">客户信息脱敏；具体合作方与项目资料，可在保密框架内实地核验。</p>
+
+          <div className="cb-case">
+            <div className="cb-case-photo">
+              <Image src="/cobuild/park.jpg" alt="现代科技园区办公楼与连廊" width={1800} height={1208} sizes="(max-width:900px) 100vw, 520px" />
+            </div>
+            <dl className="cb-case-fields">
+              {caseFields.map((f) => (
+                <div className="cb-case-row" key={f.k}>
+                  <dt>{f.k}</dt>
+                  <dd>{f.v}</dd>
+                </div>
+              ))}
+            </dl>
+          </div>
+
+          <div className="cb-base">
+            <h3>为什么敢先投</h3>
+            <p>
+              技术是自己的，并且已经被验证：自研软硬件栈，五年迭代，500 个项目。投入的每一台设备、每一套系统，都在真实场景里运行。
+            </p>
+            <div className="cb-stats">
+              {stats.map((s) => (
+                <div className="cb-stat" key={s.k}>
+                  <strong className="grad">{s.v}</strong>
+                  <h4>{s.k}</h4>
+                  <p>{s.p}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ===== 03 · 合作框架(兜底) ===== */}
+      <section className="cb-band" id="frame">
+        <div className="wrap">
+          <span className="cb-eyebrow">03 · 合作框架</span>
+          <h2 className="cb-h2">资金、技术、运营，我们兜底</h2>
+          <p className="cb-sub">
+            贵区负责指导方向、给予政策、导入本地资源——不需要财政投入，不新增采购预算。
+          </p>
+
+          <div className="cb-inputs">
+            {inputs.map((it) => (
+              <div className="cb-input" key={it.k}>
+                <span className="cb-input-k grad">{it.k}</span>
+                <div>
+                  <h3>{it.title}</h3>
+                  <p>{it.body}</p>
+                </div>
+              </div>
+            ))}
+            <div className="cb-input gov">
+              <span className="cb-input-k">贵区</span>
+              <div>
+                <h3>指导方向 · 给予政策 · 导入本地资源</h3>
+                <p>方向与节奏由贵区确定；投入与运营由我们承担。</p>
+              </div>
+            </div>
+          </div>
+
+          <div className="cb-pact">
+            <h3>白纸黑字，写进合作协议</h3>
+            <div className="cb-pact-grid">
+              {pacts.map((p) => (
+                <div className="cb-pact-item" key={p.k}>
+                  <span>{p.k}</span>
+                  <p>{p.p}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+          <p className="cb-note">
+            我们从中得到的，是长期运营收益和一个产业发展的机会——这也是我们愿意先投的原因。
           </p>
         </div>
       </section>
 
-      {/* ===== ④ 03 · 三步走 ===== */}
-      <section className="cb-band" id="path">
+      {/* ===== 04 · 推进节奏 ===== */}
+      <section className="cb-band mist" id="path">
         <div className="wrap">
-          <span className="cb-eyebrow">03 · 路径</span>
-          <h2 className="cb-h2">先打样板，再建合资，后做推广</h2>
-          <p className="cb-sub">每一步可中止、可评估。上一步走通，才有下一步。</p>
+          <span className="cb-eyebrow">04 · 推进节奏</span>
+          <h2 className="cb-h2">三步走，每一步设评估点</h2>
+          <p className="cb-sub">上一步走通，才有下一步；是否往下走，由贵区决定。</p>
 
           <div className="cb-steps">
             {steps.map((s, i) => (
@@ -276,94 +343,17 @@ export default function Page() {
             ))}
           </div>
 
-          <figure className="cb-photo">
-            <Image src="/cobuild/district.jpg" alt="医院、学校与机场等公共建筑集群航拍" width={1800} height={1208} sizes="(max-width:1160px) 100vw, 1096px" />
-            <figcaption>办公园区、医院、学校、机场——一个区域里的公共建筑，都是这条路径的推广底盘。（图为场景示意）</figcaption>
-          </figure>
-          <p className="cb-note">各阶段的覆盖规模、投入与产值测算，我们按辖区实际情况单独出具。</p>
-        </div>
-      </section>
-
-      {/* ===== ⑤ 04 · 出资与分配 ===== */}
-      <section className="cb-band mist">
-        <div className="wrap">
-          <span className="cb-eyebrow">04 · 出资与分配</span>
-          <h2 className="cb-h2">一支基金，一套系统，一个常驻团队</h2>
-
-          <div className="cb-inputs">
-            {inputs.map((it) => (
-              <div className="cb-input" key={it.k}>
-                <span className="cb-input-k grad">{it.k}</span>
-                <div>
-                  <h3>{it.title}</h3>
-                  <p>{it.body}</p>
+          <div className="cb-dirs">
+            <h3>第三步落成后，贵区同时接住三个政策方向</h3>
+            <div className="cb-dirs-grid">
+              {dirs.map((d) => (
+                <div className="cb-dir" key={d.k}>
+                  <h4>{d.k}</h4>
+                  <p>{d.p}</p>
+                  <span className="cb-dir-src">{d.src}</span>
                 </div>
-              </div>
-            ))}
-          </div>
-
-          <div className="cb-parties">
-            {parties.map((p) => (
-              <div className="cb-party" key={p.k}>
-                <span className="cb-k" aria-hidden="true" />
-                <h3>{p.k}</h3>
-                <p>{p.body}</p>
-              </div>
-            ))}
-          </div>
-          <p className="cb-note">结算方式与合规路径，已有全套招采、合同、审计模板；面议时详述。</p>
-        </div>
-      </section>
-
-      {/* ===== ⑥ 05 · 华东实证 ===== */}
-      <section className="cb-band">
-        <div className="wrap">
-          <span className="cb-eyebrow">05 · 进展</span>
-          <h2 className="cb-h2">同一套路径，已在华东落地</h2>
-          <p className="cb-sub">合作对象：华东某省会城市，区级国有资产平台。</p>
-
-          <div className="cb-prog">
-            <div className="cb-prog-photo">
-              <Image src="/cobuild/park.jpg" alt="现代科技园区办公楼与连廊" width={1800} height={1208} sizes="(max-width:900px) 100vw, 520px" />
-              <figcaption>现代科技园区，是首批样板的典型场景。（图为场景示意）</figcaption>
+              ))}
             </div>
-            <div className="cb-prog-lists">
-              <div className="cb-checkpanel">
-                <h3>已落地</h3>
-                <ul>
-                  {done.map((d) => (
-                    <li key={d}><Check />{d}</li>
-                  ))}
-                </ul>
-              </div>
-              <div className="cb-checkpanel doing">
-                <h3>推进中</h3>
-                <ul>
-                  {doing.map((d) => (
-                    <li key={d}><Check />{d}</li>
-                  ))}
-                </ul>
-              </div>
-            </div>
-          </div>
-          <p className="cb-note">客户信息脱敏。具体合作方与详细资料，可在保密框架内单独披露。</p>
-        </div>
-      </section>
-
-      {/* ===== ⑦ 06 · 五年后 ===== */}
-      <section className="cb-band mist">
-        <div className="wrap">
-          <span className="cb-eyebrow">06 · 沉淀</span>
-          <h2 className="cb-h2">五年后，贵区会有一家什么样的公司</h2>
-
-          <div className="cb-legacy">
-            {legacy.map((l) => (
-              <div className="cb-leg" key={l.k}>
-                <strong className="grad">{l.v}</strong>
-                <h3>{l.k}</h3>
-                <p>{l.p}</p>
-              </div>
-            ))}
           </div>
 
           <figure className="cb-photo">
@@ -371,6 +361,9 @@ export default function Page() {
             <figcaption>服务机器人在公共建筑内常态化作业。（图为场景示意）</figcaption>
           </figure>
 
+          <p className="cb-note">
+            这条路径已在华东进入实施：与某省会城市区级国有资产平台的合作框架定稿，跨国资、招商、财务、审计的专项工作组组建完成，首期园区部署进入排期。
+          </p>
           <p className="cb-more">
             延伸阅读：<Link href="/insights/property-management-second-half-ai-company">《物业行业的下半场》</Link>
             <span className="dot" />
@@ -379,27 +372,18 @@ export default function Page() {
         </div>
       </section>
 
-      {/* ===== ⑧ FAQ ===== */}
+      {/* ===== FAQ ===== */}
       <FmFaq items={faq} heading="常见问题" />
 
-      {/* ===== ⑨ 联系 ===== */}
+      {/* ===== 联系 ===== */}
       <section className="cb-band mist" id="contact">
         <div className="wrap">
           <span className="cb-eyebrow">联系</span>
-          <h2 className="cb-h2">想在贵区，从第一个样板开始</h2>
-          <p className="cb-sub">无论你在招商、投资促进、国资还是园区条线——留下联系方式，我们带着完整方案与华东项目细节，当面谈。</p>
+          <h2 className="cb-h2">欢迎实地考察</h2>
+          <p className="cb-sub">
+            华东园区的项目正在运行。留下联系方式，我们安排实地考察，并按贵区实际情况出具合作框架与测算。
+          </p>
           <CobuildForm />
-        </div>
-      </section>
-
-      {/* CTA */}
-      <section className="endcta">
-        <div className="wrap">
-          <h2 className="reveal">把一个 AI 产业，<br />共建到你的地区</h2>
-          <p className="reveal">从一次深入沟通开始。</p>
-          <div className="cta-row reveal">
-            <a href="#contact" className="btn btn-primary">留下联系方式 <Arrow s={16} /></a>
-          </div>
         </div>
       </section>
     </main>
