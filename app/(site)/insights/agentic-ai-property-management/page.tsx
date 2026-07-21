@@ -84,7 +84,7 @@ export default function Page() {
       </p>
       <p>
         平台层解决"智能体凭什么能可靠工作"的问题：行业数据本体与指标中心统一业务对象和指标口径;
-        <Link href="/products/fmclaw/workflow-engine">行业级智能体工作流引擎</Link>让业务流程稳定、可复制地运行;工具箱（ToolBox）让智能体在授权后通知、派单、写回企业现有系统;
+        <Link href="/products/fmclaw/workflow-engine">智能体工作流引擎</Link>让业务流程稳定、可复制地运行;工具箱（ToolBox）让智能体在授权后通知、派单、写回企业现有系统;
         <Link href="/products/fmclaw/agent-runtime">控制台（Console）</Link>管理每个智能体的身份、权限、运行状态和工作记录，人可以随时查看和接管。
       </p>
       <p>

@@ -1,45 +1,8 @@
 /* ============================================================
    行业数据本体页专属模块（依赖 capability.css 的 .fmc 变量域）
-   fmo-pain    问题节：三个生产现场卡片（引语 + 命名 + 说明）
-   fmo-capgrp  能力归组：治理三件事（组头 + 子项清单）
    fmo-darkgrid 暗场左文右图两栏
+   （fmo-pain / fmo-capgrp 已升级为共享组件，见 capability.css）
    ============================================================ */
-
-/* ---- 问题节：生产现场卡片 ---- */
-.fmo-pain{margin:44px 0 0;display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
-@media(max-width:860px){.fmo-pain{grid-template-columns:1fr}}
-.fmo-painc{position:relative;display:flex;flex-direction:column;padding:26px 26px 24px;border-radius:18px;
-  background:#fff;border:1px solid var(--c-line);overflow:hidden;
-  transition:border-color .2s,box-shadow .25s,transform .25s}
-.fmo-painc::before{content:"";position:absolute;left:0;top:0;bottom:0;width:3px;background:var(--c-grad);
-  opacity:0;transition:opacity .25s}
-.fmo-painc:hover{border-color:rgba(12,139,130,.32);box-shadow:0 20px 44px rgba(12,139,130,.11);transform:translateY(-3px)}
-.fmo-painc:hover::before{opacity:1}
-.fmo-pain-q{margin:0;font-size:16.5px;font-weight:800;letter-spacing:-.015em;line-height:1.5;color:var(--c-ink)}
-.fmo-pain-q .qm{background:var(--c-grad);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
-@supports not ((-webkit-background-clip:text) or (background-clip:text)){.fmo-pain-q .qm{color:var(--c-deep);-webkit-text-fill-color:currentColor}}
-.fmo-pain-t{display:inline-flex;align-items:center;gap:8px;margin:16px 0 0;font-size:11px;font-weight:800;
-  letter-spacing:.14em;text-transform:uppercase;color:var(--c-deep)}
-.fmo-pain-t::before{content:"";width:16px;height:2px;border-radius:2px;background:var(--c-grad)}
-.fmo-painc p{margin:9px 0 0;font-size:13.5px;line-height:1.7;color:var(--c-ink-2)}
-
-/* ---- 能力归组：治理三件事 ---- */
-.fmo-capgrp{margin:48px 0 0;display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
-@media(max-width:900px){.fmo-capgrp{grid-template-columns:1fr}}
-.fmo-cg{display:flex;flex-direction:column;border-radius:18px;background:#fff;border:1px solid var(--c-line);
-  overflow:hidden;transition:border-color .2s,box-shadow .25s,transform .25s}
-.fmo-cg:hover{border-color:rgba(12,139,130,.32);box-shadow:0 20px 44px rgba(12,139,130,.11);transform:translateY(-3px)}
-.fmo-cg-head{padding:24px 24px 20px;border-bottom:1px solid var(--c-line-2);background:linear-gradient(180deg,rgba(18,185,138,.05),rgba(18,185,138,0))}
-.fmo-cg-no{display:block;font-size:12px;font-weight:800;letter-spacing:.14em;font-variant-numeric:tabular-nums;
-  background:var(--c-grad);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
-@supports not ((-webkit-background-clip:text) or (background-clip:text)){.fmo-cg-no{color:var(--c-deep);-webkit-text-fill-color:currentColor}}
-.fmo-cg-head h3{margin:9px 0 0;font-size:19px;font-weight:800;letter-spacing:-.02em;color:var(--c-ink);line-height:1.3}
-.fmo-cg-goal{margin:7px 0 0;font-size:13px;line-height:1.6;color:var(--c-mut)}
-.fmo-cg-list{margin:0;padding:8px 24px 22px;list-style:none;display:flex;flex-direction:column;flex:1}
-.fmo-cg-list li{padding:14px 0 13px;border-top:1px solid var(--c-line-2)}
-.fmo-cg-list li:first-child{border-top:0}
-.fmo-cg-list b{display:block;font-size:14.5px;font-weight:800;letter-spacing:-.01em;color:var(--c-ink)}
-.fmo-cg-list p{margin:4px 0 0;font-size:13px;line-height:1.64;color:var(--c-ink-2)}
 
 /* ---- 暗场：左文右图 ---- */
 .fmo-darkgrid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,.92fr);gap:clamp(36px,5vw,72px);align-items:center}
