@@ -210,6 +210,8 @@ export default function Page() {
           </div>
           <p className="fmc-p" style={{ marginTop: 44 }}>
             三种协同方式，按你现在的用法选。可以单独用，也可以叠加用。
+            为什么协同平台和行业智能体平台谁也离不开谁，我们在
+            <Link className="fmc-ln" href="/insights/general-platform-vs-industry-agent">这篇行业研究</Link>里展开讲了。
           </p>
           <div className="fmo-capgrp" style={{ marginTop: 28 }}>
             <div className="fmo-cg">

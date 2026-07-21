@@ -63,6 +63,7 @@ const ROUTES = [
 // 行业研究文章(GEO 重点内容,优先级更高)
 const INSIGHTS = [
   "/insights",
+  "/insights/general-platform-vs-industry-agent",
   "/insights/how-to-run-ai-competition",
   "/insights/demo-vs-system",
   "/insights/agentic-ai-property-management",
