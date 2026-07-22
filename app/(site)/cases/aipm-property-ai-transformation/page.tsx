@@ -11,7 +11,7 @@ const SITE_URL = process.env.SITE_URL || "https://www.aipm.cn";
 const c = getCase("aipm-property-ai-transformation");
 const related = getRelated("aipm-property-ai-transformation", 3);
 
-export const metadata = pageMetadata("/cases/aipm-property-ai-transformation", { title: `${c.seoTitle} — 启盟科技`, description: c.metaDescription });
+export const metadata = pageMetadata("/cases/aipm-property-ai-transformation", { title: `${c.seoTitle} | 启盟科技`, description: c.metaDescription });
 
 const Arrow = ({ s = 14 }: { s?: number }) => (
   <svg className="ar" width={s} height={s} viewBox="0 0 16 16" aria-hidden="true">

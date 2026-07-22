@@ -4,7 +4,7 @@ import { getCase } from "../cases";
 import { pageMetadata } from "@/lib/pageMetadata";
 
 const c = getCase("property-group-auto-operation-report");
-export const metadata = pageMetadata("/cases/property-group-auto-operation-report", { title: `${c.seoTitle} — 启盟科技`, description: c.metaDescription });
+export const metadata = pageMetadata("/cases/property-group-auto-operation-report", { title: `${c.seoTitle} | 启盟科技`, description: c.metaDescription });
 
 export default function Page() {
   return (
@@ -31,10 +31,10 @@ export default function Page() {
       </CaseSection>
 
       <CaseQuote by="该集团 COE 负责人">
-        "以前每天早上我们花大量精力去搞清楚昨天发生了什么，现在每天 8 点，这份东西已经在那儿了。变的不只是快，是我们终于能把精力放在'怎么办'上，而不是'到底怎么了'上。"
+        “以前每天早上我们花大量精力去搞清楚昨天发生了什么，现在每天 8 点，这份东西已经在那儿了。变的不只是快，是我们终于能把精力放在「怎么办」上，而不是「到底怎么了」上。”
       </CaseQuote>
 
-      <CaseSection eyebrow="结果" title={`从"看不清"到每天 8 点看得清`} mist>
+      <CaseSection eyebrow="结果" title="从「看不清」到每天 8 点看得清" mist>
         <p>接入 FMClaw 后，这家百强物业集团全国 500 多个项目的运营报告实现了每天自动生成，每份 3 分钟成稿，每天早 8 点准时送达，人工投入为 0。管理者要做的，不再是催报告、等报告、核报告，而是打开一份已经算好、分析好、标好异常的报告，直接做判断。</p>
         <p>比这更深的变化有两处。一是全貌第一次真的看得见了：过去要么没人做、要么做出来也已过时的项目全貌，如今每天更新，项目、区域、总部三级都能各看各的那一层。二是决策的起点变了：管理者从「先花力气把情况搞清楚」，直接跳到「基于已经搞清楚的情况做决定」，报告从一份需要人去凑的材料，变成了一个稳定运行的决策辅助。</p>
       </CaseSection>

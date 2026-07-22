@@ -4,7 +4,7 @@ import { getCase } from "../cases";
 import { pageMetadata } from "@/lib/pageMetadata";
 
 const c = getCase("south-china-mixed-use-6-to-1");
-export const metadata = pageMetadata("/cases/south-china-mixed-use-6-to-1", { title: `${c.seoTitle} — 启盟科技`, description: c.metaDescription });
+export const metadata = pageMetadata("/cases/south-china-mixed-use-6-to-1", { title: `${c.seoTitle} | 启盟科技`, description: c.metaDescription });
 
 export default function Page() {
   return (
@@ -28,7 +28,7 @@ export default function Page() {
       <CaseSection eyebrow="接入之后" title="不是接了几件事，是把一整套管理工作系统化">
         <p>FMClaw 接的不是零散几件事。它把设施管理整个拆开，分成 18 个管理维度、114 个具体的执行环节，覆盖现场服务、财务与供应链、项目治理三大块——从保洁、设施运维、安全秩序、考勤排班，到收支、经营分析、物资采购，再到签约、合规、应急处置。这个项目跑下来，其中约 76% 的环节实现了数据化追踪，交给了 AI。</p>
         <p>让它跑起来的是三层能力：模型层，十多个顶级大模型接在后面，由一个智能路由层按任务自动选用当下最合适的那个；数据层，项目原来散在收费、工单、能耗、门禁各系统里、格式还都不一样的数据，被自动识别、打标、结构化，接入后约 72 小时就能被调用；工具层，物业 ERP、财务人力、视频安防、楼宇自控等六大类三十多个工具接进来，AI 才既看得到数据、也动得了手。</p>
-        <p>在这三层之上，是四个 AI Agent 首尾相连转成的一个闭环：服务设计 Agent 基于 2000 万㎡的行业数据，把服务标准、人员编制和预算建起来；运营管理 Agent 对接 IoT 与工单，1000 多个点位实时可见，自动派单、排程、异常升级；质量评估 Agent 用计算机视觉自动采集工单照片视频，单项目每月评估影像超过 1000 张，评分标准对每个人一致、可追溯；服务优化 Agent 把高频问题聚类、生成月度复盘，再把优化建议回灌给第一个 Agent。定标准 → 管执行 → 评质量 → 做优化，四步转成一个圈，自己在跑。而项目原在用的 OA、协同工具一个都没换：群里的报修由平台 Bot 汇聚、FMClaw 接过来做派单闭环，领导在原对话框艾特一句就能问业务，用的人不必学任何新工具。</p>
+        <p>在这三层之上，是四个 AI Agent 首尾相连地转起来：服务设计 Agent 基于 2000 万㎡的行业数据，把服务标准、人员编制和预算建起来；运营管理 Agent 对接 IoT 与工单，1000 多个点位实时可见，自动派单、排程、异常升级；质量评估 Agent 用计算机视觉自动采集工单照片视频，单项目每月评估影像超过 1000 张，评分标准对每个人一致、可追溯；服务优化 Agent 把高频问题聚类、生成月度复盘，再把优化建议回灌给第一个 Agent。定标准 → 管执行 → 评质量 → 做优化，四步转成一个圈，自己在跑。而项目原在用的 OA、协同工具一个都没换：群里的报修由平台 Bot 汇聚、FMClaw 接过来把派单流程自动跑完，领导在原对话框艾特一句就能问业务，用的人不必学任何新工具。</p>
       </CaseSection>
 
       <CaseQuote by="该项目运营负责人">

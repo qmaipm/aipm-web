@@ -6,7 +6,7 @@ import { getCase } from "../cases";
 import { pageMetadata } from "@/lib/pageMetadata";
 
 const c = getCase("property-group-chat-ai-service");
-export const metadata = pageMetadata("/cases/property-group-chat-ai-service-v2", { title: `${c.seoTitle} — 启盟科技`, description: c.metaDescription });
+export const metadata = pageMetadata("/cases/property-group-chat-ai-service-v2", { title: `${c.seoTitle} | 启盟科技`, description: c.metaDescription });
 
 export default function Page() {
   return (

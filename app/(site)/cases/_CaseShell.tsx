@@ -20,7 +20,7 @@ export function CaseWins({ items }: { items: string[] }) {
   );
 }
 
-/* 可扫读要点:每条一句话,首段加粗为"抓手",其后为一句补充说明(可选) */
+/* 可扫读要点:每条一句话,首段加粗为「要点」,其后为一句补充说明(可选) */
 export function CasePoints({ items }: { items: { k: string; d?: string }[] }) {
   return (
     <ul className="cf-points">
@@ -76,7 +76,7 @@ export function CaseQuote({ children, by }: { children: React.ReactNode; by: str
   );
 }
 
-// 案例 → AI 物业服务工种页回链(内链闭环:案例页把读者引向对应服务页)
+// 案例 → AI 物业服务工种页回链(内链导流:案例页把读者引向对应服务页)
 const TRADE_LINKS: Record<string, { href: string; label: string }[]> = {
   "aipm-property-ai-transformation": [{ href: "/ai-service", label: "AI 物业服务总览" }],
   "south-china-mixed-use-6-to-1": [

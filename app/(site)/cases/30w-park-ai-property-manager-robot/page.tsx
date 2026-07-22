@@ -4,7 +4,7 @@ import { getCase } from "../cases";
 import { pageMetadata } from "@/lib/pageMetadata";
 
 const c = getCase("30w-park-ai-property-manager-robot");
-export const metadata = pageMetadata("/cases/30w-park-ai-property-manager-robot", { title: `${c.seoTitle} — 启盟科技`, description: c.metaDescription });
+export const metadata = pageMetadata("/cases/30w-park-ai-property-manager-robot", { title: `${c.seoTitle} | 启盟科技`, description: c.metaDescription });
 
 export default function Page() {
   return (
@@ -31,7 +31,7 @@ export default function Page() {
       </CaseSection>
 
       <CaseQuote by="该园区物业负责人">
-        "我原来担心机器人是摆设，后来发现关键根本不是机器人，是背后那套调度——有它把人和机器排明白，机器人才真派上用场。"
+        “我原来担心机器人是摆设，后来发现关键根本不是机器人，是背后那套调度——有它把人和机器排明白，机器人才真派上用场。”
       </CaseQuote>
 
       <CaseSection eyebrow="结果" title="人少了，服务反而更好了" mist>
