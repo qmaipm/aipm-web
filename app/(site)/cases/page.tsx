@@ -1,5 +1,6 @@
 import Link from "next/link";
 import "./page.css";
+import JsonLd from "@/components/JsonLd";
 import { getFlagship } from "./cases";
 import CaseList from "./CaseList";
 import { pageMetadata } from "@/lib/pageMetadata";
@@ -32,11 +33,22 @@ const BOARD_FAQ = [
   },
 ];
 
+const boardFaqLd = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: BOARD_FAQ.map((f) => ({
+    "@type": "Question",
+    name: f.q,
+    acceptedAnswer: { "@type": "Answer", text: f.a },
+  })),
+};
+
 export default function Page() {
   const flagship = getFlagship();
 
   return (
     <main className="solcase">
+      <JsonLd data={boardFaqLd} />
       <section className="ca-hero">
         <div className="ca-grid" aria-hidden="true" />
         <div className="wrap ca-hero-top">

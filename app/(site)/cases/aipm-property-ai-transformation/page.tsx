@@ -31,8 +31,8 @@ const LD = [
     image: `${SITE_URL}/cases/aipm-cover.jpg`,
     author: { "@type": "Organization", name: "启盟科技（AIPM）", url: SITE_URL },
     publisher: { "@type": "Organization", name: "启盟科技（AIPM）", logo: { "@type": "ImageObject", url: `${SITE_URL}/logo-stalliance-clean.png` } },
-    datePublished: "2026-07-08",
-    dateModified: "2026-07-08",
+    datePublished: c.datePublished,
+    dateModified: c.dateModified,
     mainEntityOfPage: { "@type": "WebPage", "@id": `${SITE_URL}/cases/aipm-property-ai-transformation` },
     inLanguage: "zh-CN",
     articleSection: "案例故事",
@@ -106,6 +106,7 @@ export default function Page() {
               <div className="cf-cover-metric" key={m.label}><b>{m.value}</b><span>{m.label}</span></div>
             ))}
           </div>
+          <p className="cf-cover-date">发布于 {c.datePublished} · 更新于 {c.dateModified}</p>
         </div>
       </section>
 
@@ -161,7 +162,7 @@ export default function Page() {
             <p>传统物业公司解决这个问题的唯一办法，就是<b>多招人</b>：抄表、汇总、对账、派单、跟进、验收、质检、写月报——每一环都得有人盯着。这就是为什么它需要 51 个项目经理、69 人的管理层。这些岗位里的人，大部分时间不是在服务住户，而是在“粘合”这些重复的管理动作。</p>
 
             <figure className="cf-fig">
-              <img src="/cases/aipm-data.jpg" alt="数据化管理示意：柱状图、饼图与上升箭头，象征把重复的管理动作交给 AI 后可量化、可提升的运营数据" loading="lazy" />
+              <img src="/cases/aipm-ai-takeover.png" alt="示意插画：抄表、对账、派单、报表等重复管理动作流入 AI 处理中枢，人只在决策节点出现" loading="lazy" />
             </figure>
 
             <p>在爱物管，这些重复的、每天都在跑的管理动作，被 AI 一条条接管了。80%–90% 的日常管理由 AI 完成，人只在真正需要做决策的时候出现。<b>岗位不是被“裁”掉的，是被“腾空”的——当那些重复的管理活儿不再需要人来做，承载它们的岗位自然就空了。</b></p>
@@ -174,7 +175,7 @@ export default function Page() {
             <p>我们的判断正相反。AI 最大的作用，是<b>重塑管理架构、砍掉中间环节</b>。大公司要动组织架构、动几百上千人的管理层，阻力极大；小公司船小好掉头，反而能用更低的成本先跑通。</p>
 
             <figure className="cf-fig">
-              <img src="/cases/aipm-team.jpg" alt="物业管理团队在写字楼大堂对着屏幕讨论——中小物业公司精干的现场管理团队" loading="lazy" />
+              <img src="/cases/aipm-org-flatten.png" alt="示意插画：多层级的管理金字塔，变为 5 人搭配 AI 中枢的扁平架构" loading="lazy" />
             </figure>
 
             <p>爱物管本身就是证据。我们的体量和大量中小物业公司在同一量级，做出来的 14% 净利率，靠的不是砍服务、砍一线，而是砍掉了中间的管理损耗。而且我们是拿自己的公司先趟一遍，把物业里一百多种日常管理动作、老旧系统的接口、一线协同的阻力都踩透了，再封装成标准化的能力对外提供——别的物业公司接入时，不需要大动干戈地二次开发，就能渐进式地走同一条路。</p>

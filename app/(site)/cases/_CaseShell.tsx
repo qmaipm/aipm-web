@@ -113,6 +113,8 @@ export default function CaseShell({ slug, children }: { slug: string; children: 
     },
     mainEntityOfPage: pageUrl,
     articleSection: c.industry,
+    datePublished: c.datePublished,
+    dateModified: c.dateModified,
   };
   const faqLd = c.faq?.length
     ? {
@@ -148,6 +150,7 @@ export default function CaseShell({ slug, children }: { slug: string; children: 
             ))}
           </div>
           <div className="cf-montag" style={{ marginTop: 28 }}>采用产品：{c.product}</div>
+          <div className="cf-montag" style={{ marginTop: 10 }}>发布于 {c.datePublished} · 更新于 {c.dateModified}</div>
         </div>
       </section>
 

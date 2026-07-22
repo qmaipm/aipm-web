@@ -23,6 +23,8 @@ export type Case = {
   metrics: Metric[];  // 详情页 hero 突出大数字(2~3 条)
   seoTitle: string;
   metaDescription: string;
+  datePublished: string;  // 首次发布日（以 git 历史为准，ISO 日期）
+  dateModified: string;   // 最近一次内容修订日（改正文才更新，改样式不更新）
   faq: Faq[];
   // —— 顶层设计规划新增字段 ——
   flagship?: boolean; // 是否旗舰样板:true → 列表页顶部旗舰专属区 + 长版详情页
@@ -63,6 +65,7 @@ export const ALL_CASES: Case[] = [
       { value: "51 → 1", label: "项目经理人数" },
     ],
     seoTitle: "AI 物业管理案例：爱物管把管理层从 69 人减到 5 人",
+    datePublished: "2026-07-08", dateModified: "2026-07-22",
     metaDescription: "爱物管是启盟科技自营的物业公司。2024–2025 年，它把日常的管理动作交给 AI 之后，管理层从 69 人减到 5 人，净利率从 3.4% 做到 14%。本文用一笔真实的账，说明 AI 先替掉的是中间那层重复的管理工作，不是一线服务。",
     faq: [
       { q: "爱物管是谁？和启盟科技是什么关系？", a: "爱物管是广州启盟科技自营的物业公司，专注非住宅设施管理。启盟从 2017 年起就自己下场运营物业、采集真实数据。爱物管不是给客户看的演示，而是启盟把 AI 用在自己公司经营上的一次真实验证。" },
@@ -77,7 +80,7 @@ export const ALL_CASES: Case[] = [
     slug: "south-china-mixed-use-6-to-1",
     industry: "商业综合体", scale: "约 6 万㎡", product: "FMClaw 物业智能体（AI 物业经理）", location: "华南",
     theme: "综合体",
-    cover: "linear-gradient(135deg,rgba(0,112,255,.20),rgba(18,185,138,.20)), url('https://images.unsplash.com/photo-1519567241046-7f570eee3ce6?w=900&q=70&auto=format&fit=crop')",
+    cover: "linear-gradient(135deg,rgba(0,112,255,.08),rgba(18,185,138,.08)), url('/cases/cover-mixed-use.png')",
     title: "华南 6 万㎡商业综合体：专职管理岗从 6 人到 1 人",
     lead: "六个管理岗的活，AI 接了大半。一个人管这个项目，反而比过去六个人加起来更清楚。",
     summary: "华南一个约 6 万㎡的商业综合体，上线前 34 人、6 层管理架构、6 个专职管理岗，账面每月还在亏。接入 FMClaw 物业智能体一年后，专职管理岗只剩 1 个、团队缩减约一半，住户缴费率反而做到 99%，项目从持续亏损转向可控经营。",
@@ -87,8 +90,9 @@ export const ALL_CASES: Case[] = [
       { value: "99%", label: "住户缴费率（行业约 71%）" },
       { value: "100%", label: "IoT 覆盖率，1000+ 点位可见" },
     ],
-    seoTitle: "一个人管一整个6万㎡综合体：AI物业智能体把6个岗减至1个",
-    metaDescription: "华南某6万㎡综合体接入FMClaw物业智能体，AI物业管理接管114个执行环节中约76%的重复管理工作，管理岗从6人变成1人、团队缩减约50%，服务不降反升，住户缴费率达99%。AI物业真实案例。",
+    seoTitle: "AI 物业管理案例：6 万㎡综合体管理岗从 6 人到 1 人",
+    metaDescription: "华南某6万㎡综合体接入FMClaw物业智能体，AI物业管理接管114个执行环节中约76%的重复管理工作，管理岗从6人变成1人、团队缩减约50%，服务不降反升，住户缴费率达99%。",
+    datePublished: "2026-07-09", dateModified: "2026-07-22",
     faq: [
       {
         q: "AI物业管理有没有真实案例，效果怎么样？",
@@ -120,7 +124,7 @@ export const ALL_CASES: Case[] = [
     slug: "30w-park-ai-property-manager-robot",
     industry: "智慧园区 / 物业管理", scale: "约 30 万㎡", product: "FMClaw 物业智能体（AI 物业经理）", location: "粤港澳大湾区",
     theme: "智慧园区",
-    cover: "linear-gradient(135deg,rgba(18,185,138,.22),rgba(0,112,255,.18)), url('https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=900&q=70&auto=format&fit=crop')",
+    cover: "linear-gradient(135deg,rgba(18,185,138,.08),rgba(0,112,255,.08)), url('/cases/cover-tech-park.png')",
     title: "大湾区 30 万㎡科技园：23 人 + 16 台机器人，管住每天 4 万次交付",
     lead: `1000 多个点位、每天 4 万次服务交付，一支曾经「看不全、也管不过来」的全人物业团队，靠一位「AI 物业经理」和「23 人 + 16 台机器人」把活干完了。`,
     cardMetric: "管理效率 +66.6% · 投诉 -80%",
@@ -129,8 +133,9 @@ export const ALL_CASES: Case[] = [
       { value: "-43.9%", label: "一线清洁人力优化" },
       { value: "-80%+", label: "园区物业相关投诉下降" },
     ],
-    seoTitle: "30万㎡园区管理：用一位AI物业经理和23人+16台机器人管住每天4万次服务交付",
-    metaDescription: "广州某30万㎡科技园接入广州启盟科技 FMClaw 物业智能体（AI物业经理），用23人+16台机器人管住每天4万次服务交付，管理效率提升66.6%、一线清洁人力优化43.9%、综合服务成本年降约15%、清洁覆盖率从75%升至95%以上、投诉下降超80%。AI物业管理真实落地案例。",
+    seoTitle: "AI 物业经理案例：23 人 + 16 台机器人管住 30 万㎡园区",
+    metaDescription: "广州某30万㎡科技园接入广州启盟科技 FMClaw 物业智能体（AI物业经理），用23人+16台机器人管住每天4万次服务交付，管理效率提升66.6%、一线清洁人力优化43.9%、综合服务成本年降约15%、清洁覆盖率从75%升至95%以上、投诉下降超80%。",
+    datePublished: "2026-07-09", dateModified: "2026-07-22",
     faq: [
       {
         q: "AI物业管理有没有真实落地案例？效果如何？",
@@ -162,7 +167,7 @@ export const ALL_CASES: Case[] = [
     slug: "property-group-chat-ai-service",
     industry: "物业管理（全国百强集团）", scale: "大型集团", product: "FMClaw 物业智能体—智能客服与报事派单", location: "华南（总部）",
     theme: "集团",
-    cover: "linear-gradient(135deg,rgba(0,112,255,.22),rgba(18,185,138,.16)), url('https://images.unsplash.com/photo-1521737604893-d14cc237f11d?w=900&q=70&auto=format&fit=crop')",
+    cover: "linear-gradient(135deg,rgba(0,112,255,.08),rgba(18,185,138,.06)), url('/cases/cover-chat-dispatch.png')",
     title: "一家全国百强物企：业主群报事，1 分钟内自动成单、派单",
     lead: "消息太多，人总有顾不上的时候——可业主不会体谅这个，漏一条可能就是一次不满。这家百强物企把守群交给了 FMClaw，业主群里的报事一条不漏。",
     cardMetric: "报事派单 < 1 分钟 · 7×24 无人值守",
@@ -171,8 +176,9 @@ export const ALL_CASES: Case[] = [
       { value: "7×24", label: "自动抓取、识别、升级" },
       { value: "0 漏单", label: "不再靠盯屏守群" },
     ],
-    seoTitle: "一家百强物企用物业智能体 FMClaw，让业主群里的投诉报事自动成单、派单",
-    metaDescription: "一家全国百强物企用物业智能体 FMClaw 接管业主群报事：企业微信里的投诉报事被 7×24 自动抓取、识别项目/人/时间/事件、判断情绪并升级，自动成单、派单不到 1 分钟。人不再靠盯屏守群，漏单也不再惹业主不满。AI 物业客服如何落地，看这家百强物企的做法。",
+    seoTitle: "AI 物业客服案例：业主群报事 1 分钟自动成单派单",
+    metaDescription: "一家全国百强物企用物业智能体 FMClaw 接管业主群报事：企业微信里的投诉报事被 7×24 自动抓取、识别项目/人/时间/事件、判断情绪并升级，自动成单、派单不到 1 分钟。人不再靠盯屏守群，漏单也不再惹业主不满。",
+    datePublished: "2026-07-09", dateModified: "2026-07-22",
     faq: [
       {
         q: "业主群消息太多，客服盯不过来、总漏单，怎么办？",
@@ -204,7 +210,7 @@ export const ALL_CASES: Case[] = [
     slug: "property-group-auto-operation-report",
     industry: "物业管理（全国百强集团）", scale: "500+ 项目", product: "FMClaw 物业智能体—项目运营日报/周报/月报", location: "华南（总部）",
     theme: "集团",
-    cover: "linear-gradient(135deg,rgba(18,185,138,.20),rgba(0,112,255,.20)), url('https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=900&q=70&auto=format&fit=crop')",
+    cover: "linear-gradient(135deg,rgba(18,185,138,.08),rgba(0,112,255,.08)), url('/cases/cover-auto-report.png')",
     title: "一家全国百强物业集团：500 多个项目，每天早 8 点自动出运营报告",
     lead: "报告不是没人写，是没人拼得齐——数据散在十几个系统里，人力凑不出全貌。这家全国百强物业集团用 FMClaw 打通各系统，500 多个项目每天自动出报告。",
     cardMetric: "每份报告 3 分钟 · 人工投入 0",
@@ -213,7 +219,8 @@ export const ALL_CASES: Case[] = [
       { value: "500+", label: "在管项目每天自动送达" },
       { value: "0", label: "人工投入，早 8 点到手" },
     ],
-    seoTitle: "一家全国百强物业集团用物业智能体 FMClaw，让 500 多个项目每天自动生成运营报告",
+    seoTitle: "物业运营报告自动化案例：500 个项目每天自动出报告",
+    datePublished: "2026-07-09", dateModified: "2026-07-22",
     metaDescription: "500 多个项目、十几个系统、报表靠人拼，是规模化物业集团看不清运营全貌的通病。本文讲清一家全国百强物业集团如何用广州启盟科技的物业智能体 FMClaw，打通门禁、停车、能耗等系统，让全国 500 多个项目的运营日报、周报、月报每份 3 分钟自动生成、每天早 8 点自动送达，人工投入为 0。",
     faq: [
       {
@@ -246,7 +253,7 @@ export const ALL_CASES: Case[] = [
     slug: "coworking-supplier-reconciliation",
     industry: "联合办公", scale: "全球化 · 大型集团", product: "FMClaw 物业智能体—多项目供应商对账", location: "全国",
     theme: "联合办公",
-    cover: "linear-gradient(135deg,rgba(0,112,255,.18),rgba(18,185,138,.22)), url('https://images.unsplash.com/photo-1524758631624-e2822e304c36?w=900&q=70&auto=format&fit=crop')",
+    cover: "linear-gradient(135deg,rgba(0,112,255,.06),rgba(18,185,138,.08)), url('/cases/cover-reconciliation.png')",
     title: "一家全球化共享办公巨头：跨三方供应商对账，从一周到 10 分钟",
     lead: "供应商多、社区多、账靠人手对——对账慢从来不是算得慢，而是没人算得清。这家共享办公巨头用 FMClaw 把这条链路重做了一遍。",
     cardMetric: "对账 一周 → 10 分钟 · 人力 -90%",
@@ -255,7 +262,8 @@ export const ALL_CASES: Case[] = [
       { value: "-90%", label: "对账人力下降" },
       { value: "可追溯", label: "供应商考核转向过程数据" },
     ],
-    seoTitle: "一家全球化共享办公巨头如何用物业智能体 FMClaw 把跨越三方的供应商对账从一周压到 10 分钟",
+    seoTitle: "物业供应商对账案例：跨三方对账从一周到 10 分钟",
+    datePublished: "2026-07-09", dateModified: "2026-07-22",
     metaDescription: `供应商多、社区多、对账靠人手，是物业与联合办公共同的老大难。本文讲清一家全球化共享办公巨头如何用广州启盟科技的物业智能体 FMClaw，接管服务监督、质检与供应商对账等多条工作流，把跨越三方的月度对账从约一周压到 10 分钟、对账人力下降约 90%，并让供应商考核从「数人头」转向可追溯的过程数据。`,
     faq: [
       {
@@ -288,7 +296,7 @@ export const ALL_CASES: Case[] = [
     slug: "restroom-quality",
     industry: "通信设备制造", scale: "13 城 21 园区 · 2000+ 卫生间", product: "FMClaw 物业智能体—卫生间智能品质管理", location: "华南",
     theme: "集团",
-    cover: "linear-gradient(135deg,rgba(18,185,138,.24),rgba(0,112,255,.16)), url('https://images.unsplash.com/photo-1584622650111-993a426fbf0a?w=900&q=70&auto=format&fit=crop')",
+    cover: "linear-gradient(135deg,rgba(18,185,138,.08),rgba(0,112,255,.06)), url('/cases/cover-restroom.png')",
     title: "一家通信设备龙头：13 城 2000 多个卫生间，达标率稳定在 95% 以上",
     lead: `卫生间是员工体感最直接、投诉也最集中的服务空间。这家通信龙头企业用 FMClaw，把 2000 多个卫生间的清洁与巡查从「人盯人」变成「数据说话」。`,
     cardMetric: "达标率 95%+ · 投诉 -30%",
@@ -297,8 +305,9 @@ export const ALL_CASES: Case[] = [
       { value: "-30%", label: "卫生间相关投诉下降约" },
       { value: "-60%", label: "管理巡检人力投入下降约" },
     ],
-    seoTitle: "卫生间保洁品质怎么管？一家通信龙头企业用AI物业智能体管住了2000个卫生间",
-    metaDescription: "卫生间是园区投诉最集中的地方，投诉多、异味难管、责任说不清。一家通信设备龙头企业用广州启盟科技FMClaw物业智能体管住全国13城21园区2000多个卫生间，各园区服务达标率稳定在95%以上，卫生间相关投诉下降约30%，AI物业管理让品质从波动走向稳定。",
+    seoTitle: "卫生间保洁品质案例：2000 个卫生间达标率 95% 以上",
+    metaDescription: "卫生间是园区投诉最集中的地方，投诉多、异味难管、责任说不清。一家通信设备龙头企业用广州启盟科技FMClaw物业智能体管住全国13城21园区2000多个卫生间，各园区服务达标率稳定在95%以上，卫生间相关投诉下降约30%，品质从波动走向稳定。",
+    datePublished: "2026-07-09", dateModified: "2026-07-22",
     faq: [
       {
         q: "园区、写字楼卫生间投诉多、总不干净，怎么管才有效？",
@@ -334,7 +343,7 @@ export const ALL_CASES: Case[] = [
     slug: "fmclaw-equipment-inspection",
     industry: "互联网 / 科技", scale: "大型集团总部", product: "FMClaw 物业智能体—设施设备智能巡检", location: "华南",
     theme: "集团",
-    cover: "linear-gradient(135deg,rgba(0,112,255,.22),rgba(18,185,138,.22)), url('https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=900&q=70&auto=format&fit=crop')",
+    cover: "linear-gradient(135deg,rgba(0,112,255,.08),rgba(18,185,138,.08)), url('/cases/cover-inspection.png')",
     title: "头部互联网大厂总部：设备巡检达标率从 35% 到 98%",
     lead: "巡检单填了，人到底去没去？一家头部互联网大厂总部，把这件事交给了物业智能体。",
     cardMetric: "签到率 99% · 达标率 35% → 98%",
@@ -343,8 +352,9 @@ export const ALL_CASES: Case[] = [
       { value: "35% → 98%", label: "运行班组达标率" },
       { value: "99%+", label: "AI 拍照识别读数准确率" },
     ],
-    seoTitle: "头部互联网大厂总部的设施设备巡检，交给了一个AI物业智能体：签到率99%、达标率翻倍",
-    metaDescription: `巡检人员到底有没有到场？设备巡检还靠人工签到、事后难核实？国内某头部互联网企业总部引入广州启盟科技 FMClaw 物业智能体后，设施设备巡检全程可追溯，整体签到率达99%、运行班组达标率从35%升到98%、AI拍照识别读数准确率99%+。看 AI物业管理如何让设备巡检"人到、数据真"。`,
+    seoTitle: "设备巡检数字化案例：达标率从 35% 到 98%",
+    datePublished: "2026-07-09", dateModified: "2026-07-22",
+    metaDescription: `巡检人员到底有没有到场？设备巡检还靠人工签到、事后难核实？国内某头部互联网企业总部引入广州启盟科技 FMClaw 物业智能体后，设施设备巡检全程可追溯，整体签到率达99%、运行班组达标率从35%升到98%、AI拍照识别读数准确率99%+，做到人到、数据真。`,
     faq: [
       {
         q: "设备巡检数字化能解决巡检人员脱岗、代签、作假的问题吗？",

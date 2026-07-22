@@ -161,6 +161,7 @@
   background:linear-gradient(115deg,#5AA9FF,#3fd9b8);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;width:max-content}
 @supports not ((-webkit-background-clip:text) or (background-clip:text)){.cf-cover-metric b{color:#3fd9b8;-webkit-text-fill-color:currentColor}}
 .cf-cover-metric span{display:block;margin-top:8px;font-size:12.5px;color:rgba(255,255,255,.72)}
+.cf-cover-date{margin:26px 0 0;font-size:12.5px;font-weight:600;letter-spacing:.06em;color:rgba(255,255,255,.6)}
 
 /* 正文列:与其他案例/文章页一致,占满 wrap 宽度 */
 .cf-article{max-width:none}
