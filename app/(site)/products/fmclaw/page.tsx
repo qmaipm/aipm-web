@@ -226,10 +226,10 @@ export default function Page() {
               <span className="fmo-console-title">FMClaw™ 智能物业空间 · 真实产品界面（1.0.0）</span>
             </div>
             <img
-              src="/products/fmclaw/app-screenshot.jpg"
+              src="/products/fmclaw/app-screenshot.webp"
               alt="FMClaw 智能物业空间真实界面：AI 对话入口与 AI 员工，下方为设备感知、服务感知、环境感知、视觉感知、机器人与数据接入六个物理感知面板"
-              width={1024}
-              height={508}
+              width={3338}
+              height={1650}
               fetchPriority="high"
             />
             <figcaption className="fmo-app-anchors" aria-label="界面关键区域">
