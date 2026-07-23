@@ -10,6 +10,8 @@
  * 2. 画布 540×660（压缩上下留白），由外层包装按容器宽度等比缩放
  * 3. SSR / 无 JS / prefers-reduced-motion：初始即渲染完成终态
  *    （数据大屏卡居中、射线点亮），不再渲染空 div
+ * 3b. 首帧即完成态：水合后不重放入场动画（避免数秒空画布），
+ *     轮播从与静态首帧一致的稳定点（IoT感知 pulse2）直接续跑
  * 4. 轮播 4 图标 × 4.5s = 18s 一轮，符合首页 12–18s 循环要求
  * 5. keyframe 依赖改为首页自带 hpulse（home.css）
  */
@@ -127,6 +129,14 @@ const CAROUSEL_CONFIG = {
   cycleDuration: 6000,   // 增加停留时间
   slideDuration: 1200,   // 更慢的滑动，更优雅
 };
+
+// 首帧即完成态：水合后不重放入场动画，轮播直接从
+// 「IoT感知 图标激活、数据大屏卡片在最前」的稳定点继续，
+// 与 SSR 静态首帧完全一致，消除加载后的空画布窗口。
+// 0.50 位于 pulse2 区间（0.38–0.55）：图标已激活、射线点亮、卡片滑动已完成。
+const CAROUSEL_RESUME_PROGRESS = 0.50;
+// IoT感知（图标索引 2）位于轮播序列 [3,0,1,2] 的第 4 位（carouselIndex=3）
+const CAROUSEL_RESUME_OFFSET = ANIMATION_CONFIG.iconDuration * (3 + CAROUSEL_RESUME_PROGRESS);
 
 // ==========================================
 // 动画阶段类型
@@ -1477,7 +1487,7 @@ function ShowcaseCanvas({
   
   // 轮播状态（初始终态：数据大屏图标激活、射线完整点亮）
   const [currentIconIndex, setCurrentIconIndex] = useState(2);
-  const [iconProgress, setIconProgress] = useState(0.22);
+  const [iconProgress, setIconProgress] = useState(CAROUSEL_RESUME_PROGRESS);
 
   // 动效是否运行（仅在客户端且未开启 reduced-motion 时为 true）
   const [motionOn, setMotionOn] = useState(false);
@@ -1554,7 +1564,7 @@ function ShowcaseCanvas({
       // 复位到终态静帧，避免停在入场/滑动的中间帧
       setEntryPhase('complete');
       setCurrentIconIndex(2);
-      setIconProgress(0.22);
+      setIconProgress(CAROUSEL_RESUME_PROGRESS);
       setCarouselStep(0);
       setSlideProgress(0);
       startTimeRef.current = null;
@@ -1562,17 +1572,15 @@ function ShowcaseCanvas({
     }
     const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
     if (reduced) return;
-    setMotionOn(true);
-    setEntryPhase('icons-enter');
-    setEntryProgress(0);
-    setBorderTraceProgress(0);
-    setLineDrawProgress(0);
-    setEntryLineFadeOut(0);
-    setCurrentIconIndex(0);
-    setIconProgress(0);
+    // 首帧即完成态：不重放入场动画（会产生数秒空画布），
+    // 保持终态并让轮播从与静态首帧一致的稳定点继续。
+    setEntryPhase('complete');
+    setCurrentIconIndex(2);
+    setIconProgress(CAROUSEL_RESUME_PROGRESS);
     setCarouselStep(0);
     setSlideProgress(0);
     startTimeRef.current = null;
+    setMotionOn(true);
   }, [isActive]);
 
   // 入场动画
@@ -1655,7 +1663,8 @@ function ShowcaseCanvas({
     const carouselLength = carouselIconIndices.length;  // 4
 
     const animate = (timestamp: number) => {
-      if (!startTimeRef.current) startTimeRef.current = timestamp;
+      // 从终态稳定点继续（IoT感知 激活、数据大屏卡在最前），首帧与 SSR 静帧一致
+      if (!startTimeRef.current) startTimeRef.current = timestamp - CAROUSEL_RESUME_OFFSET;
       const elapsed = timestamp - startTimeRef.current;
 
       // 图标轮播 - 4 个图标依次参与
@@ -1770,7 +1779,7 @@ function ShowcaseCanvas({
         ...style,
       }}
     >
-      {/* 背景辉光：柔化画布下方的网格背景，避免半透明/模糊元素与网格线冲突 */}
+      {/* 背景聚焦：深色产品面板内的柔光，把视线收向居中卡片 */}
       <div
         aria-hidden="true"
         style={{
@@ -1779,7 +1788,7 @@ function ShowcaseCanvas({
           zIndex: 0,
           pointerEvents: 'none',
           background:
-            'radial-gradient(ellipse 62% 55% at 50% 46%, rgba(255,255,255,0.95) 0%, rgba(255,255,255,0.75) 45%, rgba(255,255,255,0) 78%)',
+            'radial-gradient(ellipse 62% 55% at 50% 46%, rgba(22,58,48,0.85) 0%, rgba(22,58,48,0.4) 45%, rgba(22,58,48,0) 78%)',
         }}
       />
 
@@ -1824,7 +1833,8 @@ function ShowcaseCanvas({
                 top: pos.y - 19,
                 fontSize: '10px',
                 fontWeight: activation.isActive ? 600 : 400,
-                color: activation.isActive ? iconConfig.startColor : '#64748b',
+                // 深色产品面板上的非激活标签用浅灰绿，保证可读
+                color: activation.isActive ? iconConfig.startColor : 'rgba(214,226,221,0.66)',
                 whiteSpace: 'nowrap',
                 transition: 'all 0.3s',
                 opacity: entryPhase === 'icons-enter' ? entryProgress : 1,

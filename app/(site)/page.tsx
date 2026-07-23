@@ -44,7 +44,7 @@ export default function Home() {
           <div className="h-hero-cols">
             <div>
               <p className="h-kicker reveal">物业与设施管理的 AI 操作系统</p>
-              <h1 className="reveal">让 AI，真正在<br />物业与设施管理里<span className="hl">干活</span></h1>
+              <h1 className="reveal">让 AI，真正在<br />物业与设施管理里<br /><span className="hl">干活</span></h1>
               <p className="h-note reveal">
                 不是再加一个工具，而是把巡检、工单、客服、品质、结算等运营工作，一件件交给 AI。
               </p>
@@ -60,24 +60,31 @@ export default function Home() {
               </p>
             </div>
             <div className="hw-wrap reveal">
-              <HeroAgentShowcase />
+              {/* 深色产品面板：浅纸底上的明度反差造纵深（参照 Cohere/OpenAI 的平涂底＋深色产品面做法） */}
+              <div className="hw-panel">
+                <div className="hw-panel-bar" aria-hidden="true">
+                  <span className="hw-panel-name">FMClaw™ 工作台</span>
+                  <span className="hw-panel-live"><i />运行中</span>
+                </div>
+                <HeroAgentShowcase />
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* 信任条：客户 logo 收进首屏底沿（参照 Harvey 首屏内 logo 墙做法） */}
+        <div className="h-clients">
+          <div className="wrap">
+            <p className="h-clients-title reveal">服务过的企业与项目</p>
+            <div className="h-clients-wall reveal">
+              <div className="cell"><img src="/images/clients/tesla.svg" alt="特斯拉 Tesla" loading="lazy" /></div>
+              <div className="cell"><img src="/images/clients/siemens.svg" alt="西门子 Siemens" loading="lazy" /></div>
+              <div className="cell"><img src="/images/clients/tencent.svg" alt="腾讯 Tencent" style={{ maxHeight: "36px" }} loading="lazy" /></div>
+              <div className="cell"><img src="/images/clients/sf.svg" alt="顺丰速运 SF Express" loading="lazy" /></div>
             </div>
           </div>
         </div>
       </section>
-
-      {/* CLIENTS LOGO WALL */}
-      <div className="h-clients">
-        <div className="wrap">
-          <p className="h-clients-title reveal">服务过的企业与项目</p>
-          <div className="h-clients-wall reveal">
-            <div className="cell"><img src="/images/clients/tesla.svg" alt="特斯拉 Tesla" loading="lazy" /></div>
-            <div className="cell"><img src="/images/clients/siemens.svg" alt="西门子 Siemens" loading="lazy" /></div>
-            <div className="cell"><img src="/images/clients/tencent.svg" alt="腾讯 Tencent" style={{ maxHeight: "42px" }} loading="lazy" /></div>
-            <div className="cell"><img src="/images/clients/sf.svg" alt="顺丰速运 SF Express" loading="lazy" /></div>
-          </div>
-        </div>
-      </div>
 
       {/* ② MISSION · 暗场 + 三支柱 */}
       <section className="h-mission mission-dark" id="mission">
