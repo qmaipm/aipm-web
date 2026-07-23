@@ -6,6 +6,7 @@ import MoatStats from "./MoatStats";
 import HeroAgentShowcase from "./HeroAgentShowcase";
 import { getArticle } from "./insights/articles";
 import { pageMetadata } from "@/lib/pageMetadata";
+import SeoFaq from "@/components/SeoFaq";
 
 // 标题/描述与根布局一致;单独声明是为了首页也有指向自身的 canonical 与 og:url
 export const metadata = pageMetadata("/", {
@@ -478,6 +479,29 @@ export default function Home() {
           <p className="h-cases-more light reveal"><Link href="/insights">查看全部研究 <ArrowR s={13} /></Link></p>
         </div>
       </section>
+
+      {/* ⑩ FAQ（决策导向，与 /company 页品牌 FAQ 错开角度，不重复） */}
+      <SeoFaq
+        heading="第一次了解启盟科技，你可能想问"
+        items={[
+          {
+            q: "启盟科技和 FMClaw™ 是什么关系？",
+            a: "FMClaw™ 是启盟科技自研的物业与设施管理 AI 智能体平台。启盟科技是公司主体，旗下还有自营物业公司爱物管——平台先在自己的项目上完整验证，再对外交付。",
+          },
+          {
+            q: "物业公司引入 AI，从哪个业务开始最稳妙？",
+            a: "从一个数据现成、痛点明确的单一业务开始，比如水电费审批、报修派单或供应商对账。先用一场 Demo Day 看可行性，跑通了再决定是否深入，不必一上来就做全盘规划。",
+          },
+          {
+            q: "我们是业主方或园区，不是物业公司，也能合作吗？",
+            a: "能。除了把平台授权给物业公司自用，还有两种方式面向业主方与政企园区：由爱物管端到端托管运营，或以产业基金共建的方式与地方国资合作。",
+          },
+          {
+            q: "AI 物业不是概念吗，有实际跑起来的项目吗？",
+            a: "有。目前 7 个已上线案例公开可查，覆盖 6 万㎡ 商业综合体到 30 万㎡ 产业园区，全部先在自营物业公司完整验证后才对外交付，每个案例都写明了做法与经过核实的结果。",
+          },
+        ]}
+      />
 
       {/* ⑩ 最终 CTA → 加速营 */}
       <section className="endcta">
