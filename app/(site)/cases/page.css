@@ -1,6 +1,6 @@
 /* ============================================================
-   客户案例 — 重设计(参考 /products/fmclaw 冷调平台手法)
-   结构:蓝图网格 hero(proof) → 在运行的项目(案例卡) → CTA
+   客户案例 — 重设计(实景暗场 hero 规格 4a + 三角色分组)
+   结构:照片暗场 hero → 三个读者分组(分组头图文 + 案例卡) → FAQ → CTA
    全部规则收在 .solcase 作用域内,不泄漏全站。单一字族,蓝绿 VI。
    ============================================================ */
 .solcase{
@@ -15,33 +15,42 @@
 .solcase .grad{background:var(--ca-grad);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
 @supports not ((-webkit-background-clip:text) or (background-clip:text)){.solcase .grad{color:var(--ca-green);-webkit-text-fill-color:currentColor}}
 
-/* 蓝图网格 */
-.ca-grid{position:absolute;inset:0;z-index:0;pointer-events:none;
-  background-image:linear-gradient(to right,var(--ca-vi-line) 1px,transparent 1px),
-                   linear-gradient(to bottom,var(--ca-vi-line) 1px,transparent 1px);
+/* 蓝图网格(暗场版) */
+.ca-grid{position:absolute;inset:0;z-index:1;pointer-events:none;
+  background-image:linear-gradient(to right,rgba(63,217,184,.09) 1px,transparent 1px),
+                   linear-gradient(to bottom,rgba(63,217,184,.09) 1px,transparent 1px);
   background-size:54px 54px;
   -webkit-mask-image:radial-gradient(125% 90% at 80% 0%,#000 0%,transparent 62%);
           mask-image:radial-gradient(125% 90% at 80% 0%,#000 0%,transparent 62%)}
 
-/* HERO */
-.ca-hero{position:relative;overflow:hidden;padding:150px 0 64px;background:var(--ca-paper)}
-.ca-hero-top{position:relative;z-index:2}
+/* HERO — 照片暗场(规格 4a,对齐 /workshop .ws-hero) */
+.ca-hero{position:relative;overflow:hidden;padding:186px 0 76px;min-height:640px;display:flex;align-items:flex-end;
+  background:#0B1714;color:#fff}
+.ca-hero__bg{position:absolute;inset:0;z-index:0;background:url(/cases/hero.jpg) center/cover no-repeat}
+.ca-hero__bg::after{content:"";position:absolute;inset:0;
+  background:linear-gradient(180deg,rgba(7,17,14,.46),rgba(7,17,14,.24) 42%,rgba(7,17,14,.88)),
+             linear-gradient(100deg,rgba(7,17,14,.56),rgba(7,17,14,.16) 55%,transparent 80%)}
+.ca-hero-top{position:relative;z-index:2;width:100%}
 .ca-kicker{display:inline-flex;align-items:center;flex-wrap:wrap;font-size:12px;font-weight:600;letter-spacing:.14em;
-  text-transform:uppercase;color:var(--ca-mut)}
-.ca-kicker a{color:var(--ca-mut)}.ca-kicker a:hover{color:var(--ca-green)}
-.ca-kicker i{color:var(--ca-green);font-style:normal;margin:0 9px;font-weight:700}
-.ca-h1{margin:22px 0 0;font-weight:800;font-size:clamp(34px,5vw,64px);line-height:1.07;letter-spacing:-.035em;color:var(--ca-ink);max-width:none}
+  text-transform:uppercase;color:#9fded0}
+.ca-kicker a{color:#9fded0}.ca-kicker a:hover{color:#fff}
+.ca-kicker i{color:#3fd9b8;font-style:normal;margin:0 9px;font-weight:700}
+.ca-h1{margin:22px 0 0;font-weight:800;font-size:clamp(38px,6vw,72px);line-height:1.06;letter-spacing:-.035em;
+  color:#fff;max-width:18ch;text-shadow:0 2px 60px rgba(0,112,255,.22)}
 /* 第二行短语保持单行,窄屏(手机)再允许折行 */
 .ca-h1 .grad{white-space:nowrap}
 @media(max-width:600px){.ca-h1 .grad{white-space:normal}}
-.ca-lead{margin:26px 0 0;font-size:clamp(16px,1.8vw,19px);line-height:1.6;color:var(--ca-ink-2);max-width:none;font-weight:400}
-.ca-lead b{color:var(--ca-ink);font-weight:600}
-.ca-hero-cta{position:relative;z-index:2;margin-top:34px}
-.ca-proof{position:relative;z-index:2;margin-top:38px;display:flex;flex-wrap:wrap;align-items:center;gap:12px 22px;
-  font-size:clamp(15px,1.9vw,18px);color:var(--ca-mut)}
-.ca-proof b{color:var(--ca-ink);font-weight:600}
+.ca-lead{margin:26px 0 0;font-size:clamp(16px,1.8vw,19px);line-height:1.6;color:#D7E2DD;max-width:54ch;font-weight:400}
+.ca-lead b{color:#fff;font-weight:700}
+.ca-hero-cta{position:relative;z-index:2;margin-top:34px;display:flex;flex-wrap:wrap;gap:14px}
+.ca-hero .btn-ghost{color:#fff;border-color:rgba(255,255,255,.45);background:rgba(255,255,255,.05)}
+.ca-hero .btn-ghost:hover{border-color:#fff;background:rgba(255,255,255,.12)}
+.ca-proof{position:relative;z-index:2;margin-top:52px;display:flex;flex-wrap:wrap;align-items:center;gap:12px 22px;
+  font-size:clamp(14px,1.7vw,16px);color:#AEBAB5}
+.ca-proof b{color:#fff;font-weight:600}
 .ca-proof b.grad{font-weight:800;letter-spacing:-.01em}
-.ca-proof .sep{width:5px;height:5px;border-radius:50%;background:var(--ca-faint)}
+.ca-proof .sep{width:5px;height:5px;border-radius:50%;background:rgba(255,255,255,.3)}
+@media(max-width:700px){.ca-hero{padding:150px 0 56px;min-height:0}}
 
 /* band */
 .ca-band{position:relative;padding:104px 0;background:var(--ca-paper)}
@@ -49,17 +58,29 @@
 @media(max-width:700px){.ca-band{padding:76px 0}}
 .ca-h2{margin:0;font-weight:800;font-size:clamp(24px,3vw,34px);line-height:1.18;letter-spacing:-.03em;color:var(--ca-ink)}
 
-/* 列表头 + tabs */
-.ca-listhead{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:16px}
-.ca-tabs{display:flex;flex-wrap:wrap;gap:9px}
-.ca-tab{font-size:13.5px;font-weight:600;color:var(--ca-mut);background:var(--ca-paper);
-  border:1px solid var(--ca-line);border-radius:999px;padding:8px 18px}
-.ca-tab.on{color:#fff;border-color:transparent;background:var(--ca-grad)}
+/* 锚点(补偿固定导航高度) */
+.ca-anchor{position:absolute;top:-72px}
 
-/* 案例卡 — 一行三个 */
-.ca-list{margin-top:32px;display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
-@media(max-width:900px){.ca-list{grid-template-columns:repeat(2,1fr)}}
-@media(max-width:560px){.ca-list{grid-template-columns:1fr}}
+/* 分组头 — 图文行(左图右文,隔组反转) */
+.ca-ghead{display:grid;grid-template-columns:.92fr 1.08fr;gap:44px;align-items:center}
+.ca-ghead.rev{grid-template-columns:1.08fr .92fr}
+.ca-ghead.rev .ca-ghead-media{order:2}
+.ca-ghead.rev .ca-ghead-text{order:1}
+@media(max-width:880px){.ca-ghead,.ca-ghead.rev{grid-template-columns:1fr}
+  .ca-ghead.rev .ca-ghead-media{order:0}.ca-ghead.rev .ca-ghead-text{order:1}}
+.ca-ghead-media{border-radius:16px;overflow:hidden;border:1px solid var(--ca-line);
+  box-shadow:0 18px 44px rgba(11,23,20,.08)}
+.ca-ghead-media img{display:block;width:100%;height:auto;aspect-ratio:4/3;object-fit:cover}
+.ca-eyebrow{display:inline-flex;align-items:center;gap:10px;font-size:12.5px;font-weight:700;letter-spacing:.14em;color:var(--ca-mut)}
+.ca-eyebrow::before{content:"";width:26px;height:3px;border-radius:2px;background:var(--ca-grad)}
+.ca-ghead-text .ca-h2{margin-top:14px}
+.ca-ghead-text p{margin:16px 0 0;font-size:16px;line-height:1.75;color:var(--ca-ink-2);max-width:56ch}
+
+/* 案例卡 — 一行三个(分组内不足三张时用 .two 两列) */
+.ca-list{margin-top:44px;display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.ca-list.two{grid-template-columns:repeat(2,1fr)}
+@media(max-width:900px){.ca-list,.ca-list.two{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:560px){.ca-list,.ca-list.two{grid-template-columns:1fr}}
 .ca-card{display:flex;flex-direction:column;border:1px solid var(--ca-line);border-radius:16px;overflow:hidden;
   background:var(--ca-paper);color:inherit;text-decoration:none;transition:border-color .2s,box-shadow .2s,transform .2s}
 .ca-card:hover{border-color:rgba(12,139,130,.34);box-shadow:0 18px 44px rgba(12,139,130,.10);transform:translateY(-3px)}
@@ -73,41 +94,13 @@
 .ca-go .ar{transition:transform .2s}
 .ca-card:hover .ca-go .ar{transform:translateX(3px)}
 
-/* 卡片关键数字 + 按钮态 tab */
+/* 卡片关键数字 */
 .ca-metric{margin-top:12px;font-size:13px;font-weight:700;letter-spacing:-.01em;color:var(--ca-ink);line-height:1.4}
 .ca-go{margin-top:auto;padding-top:14px}
-.ca-tab{cursor:pointer;font-family:inherit}
-button.ca-tab{appearance:none}
 
-/* ---------- 三角色导览 ---------- */
-.ca-guide{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
-@media(max-width:920px){.ca-guide{grid-template-columns:1fr}}
-.ca-guide-item{display:flex;flex-direction:column;padding:26px 26px 24px;border:1px solid var(--ca-line);
-  border-radius:16px;background:var(--ca-paper);text-decoration:none;color:inherit;
-  transition:border-color .2s,box-shadow .2s,transform .2s}
-.ca-guide-item:hover{border-color:rgba(12,139,130,.34);box-shadow:0 18px 44px rgba(12,139,130,.1);transform:translateY(-2px)}
-.ca-guide-item h2{margin:0;font-size:16.5px;font-weight:800;letter-spacing:-.01em;line-height:1.4;color:var(--ca-ink)}
-.ca-guide-item:hover h2{color:var(--ca-green)}
-.ca-guide-item p{margin:12px 0 0;font-size:14px;line-height:1.66;color:var(--ca-ink-2);flex:1}
-.ca-guide-go{margin-top:18px;display:inline-flex;align-items:center;gap:6px;font-size:13.5px;font-weight:700;color:var(--ca-green)}
-.ca-guide-go .ar{transition:transform .2s}
-.ca-guide-item:hover .ca-guide-go .ar{transform:translateX(3px)}
-
-/* ---------- 筛选器(行业 / 场景·用例 / 客户规模) ---------- */
-.ca-count{font-size:13.5px;color:var(--ca-mut);display:flex;align-items:center;gap:12px}
-.ca-clear{appearance:none;border:0;background:none;cursor:pointer;font-family:inherit;font-size:13px;font-weight:600;
-  color:var(--ca-green);padding:0;text-decoration:underline;text-underline-offset:3px}
-.ca-filters{margin-top:22px;display:flex;flex-direction:column;gap:14px}
-/* 左字段固定列宽 → 三行右侧 chips 起始位置对齐;chips 始终在标签右侧,不掉行 */
-.ca-frow{display:grid;grid-template-columns:96px 1fr;align-items:start;gap:10px 14px}
-.ca-flabel{font-size:12.5px;font-weight:700;letter-spacing:.04em;color:var(--ca-mut);white-space:nowrap;padding-top:8px}
-.ca-chips{display:flex;flex-wrap:wrap;gap:8px}
-@media(max-width:520px){.ca-frow{grid-template-columns:1fr}.ca-flabel{padding-top:0}}
-.ca-chip{appearance:none;cursor:pointer;font-family:inherit;font-size:13px;font-weight:600;color:var(--ca-ink-2);
-  background:var(--ca-paper);border:1px solid var(--ca-line);border-radius:999px;padding:7px 15px;transition:color .15s,border-color .15s,background .15s}
-.ca-chip:hover{border-color:rgba(12,139,130,.4);color:var(--ca-green)}
-.ca-chip.on{color:#fff;border-color:transparent;background:var(--ca-grad)}
-.ca-empty{margin-top:32px;font-size:15px;color:var(--ca-mut);padding:40px 0;text-align:center}
+/* 引导卡(政企共建) — 无封面,雾底 */
+.ca-card-more{background:linear-gradient(160deg,rgba(0,112,255,.05),rgba(18,185,138,.07));justify-content:flex-start}
+.ca-more-p{margin:12px 0 0;font-size:14px;line-height:1.7;color:var(--ca-ink-2)}
 
 /* ---------- 板块问答 ---------- */
 .ca-faq-sub{margin:10px 0 0;font-size:15px;line-height:1.6;color:var(--ca-ink-2)}
@@ -123,5 +116,5 @@ button.ca-tab{appearance:none}
 .ca-faq-item p{margin:0 0 20px;font-size:15px;line-height:1.8;color:var(--ca-ink-2)}
 
 /* 可访问性 / 动效降级 */
-.solcase a:focus-visible,.solcase .btn:focus-visible,.solcase .ca-tab:focus-visible{outline:2px solid var(--ca-green);outline-offset:3px;border-radius:10px}
+.solcase a:focus-visible,.solcase .btn:focus-visible{outline:2px solid var(--ca-green);outline-offset:3px;border-radius:10px}
 @media(prefers-reduced-motion:reduce){.solcase *{transition:none!important}}

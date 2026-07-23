@@ -373,18 +373,6 @@ export function getCase(slug: string): Case {
   return c;
 }
 
-// 卡片流:按受众动线排序——安稳起步的单点场景在前,组织与经营重构的深水区在后
-const CARD_ORDER = [
-  "property-group-auto-operation-report",
-  "restroom-quality",
-  "property-group-chat-ai-service",
-  "fmclaw-equipment-inspection",
-  "coworking-supplier-reconciliation",
-  "30w-park-ai-property-manager-robot",
-  "south-china-mixed-use-6-to-1",
-];
-export const CARD_CASES: Case[] = CARD_ORDER.map((s) => getCase(s));
-
 // 相关案例:同行业优先 → 同场景标签 → 其余;不含自身
 export function getRelated(slug: string, n = 3): Case[] {
   const self = getCase(slug);
@@ -400,19 +388,5 @@ export function getRelated(slug: string, n = 3): Case[] {
   return [...rest].sort((a, b) => score(b) - score(a)).slice(0, n);
 }
 
-// 由已发布案例实际使用的标签动态生成筛选值(某标签被用到才出现)
-const SIZE_ORDER: SizeTag[] = ["初创企业", "中小企业", "大型企业"];
-export function getFacets(cases: Case[] = CARD_CASES) {
-  const industries: string[] = [];
-  const useCases: string[] = [];
-  const sizes: SizeTag[] = [];
-  for (const c of cases) {
-    const t = CASE_TAGS[c.slug];
-    if (!t) continue;
-    if (!industries.includes(t.industryTag)) industries.push(t.industryTag);
-    for (const u of t.useCases) if (!useCases.includes(u)) useCases.push(u);
-    if (!sizes.includes(t.sizeTag)) sizes.push(t.sizeTag);
-  }
-  sizes.sort((a, b) => SIZE_ORDER.indexOf(a) - SIZE_ORDER.indexOf(b));
-  return { industries, useCases, sizes };
-}
+// 说明:列表页已改为按读者角色三分组静态呈现(page.tsx 内 GROUPS),
+// 筛选器与 CARD_ORDER 已移除——7 个案例不需要筛选,案例超过 15 个时再考虑恢复。
