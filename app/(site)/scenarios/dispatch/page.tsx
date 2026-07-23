@@ -2,6 +2,7 @@ import Link from "next/link";
 import BeforeAfter from "../BeforeAfter";
 import "../scenarios.css";
 import { pageMetadata } from "@/lib/pageMetadata";
+import SeoFaq from "@/components/SeoFaq";
 
 export const metadata = pageMetadata("/scenarios/dispatch", {
   title: "物业智能派单 · 自动定级按负载派单｜FMClaw™ 加速营场景",
@@ -39,6 +40,15 @@ export default function Page() {
         ]}
         note={`AI 接了派给谁、为什么是他、超时怎么办；人保留确认与改派的权力。它把散在各人脑子里的调度判断，收拢成一处看得见、可追溯的派单。`}
         solutionHref="/solutions/operations"
+      />
+
+      <SeoFaq
+        heading="关于智能派单，你可能想问"
+        items={[
+          { q: "智能派单会不会派错人？", a: "会有派错的情况，所以人保留确认与改派的权力。AI 按技能与负载给出分派建议并说明理由，主管觉得不合适可以直接改派，改派同样有记录可查。" },
+          { q: "上智能派单，要先换掉现在的工单系统吗？", a: "不用。派单能力接在现有的钉钉／飞书／企微协作流程上，工单从哪里来还从哪里来，变化只发生在「派给谁」这一步。" },
+          { q: "派单规则是固定的，还是可以按项目调？", a: "可以按项目调。技能标签、负载上限、超时升级时限都是项目可配置的规则，先按现状跑一版，再按实际结果微调。" },
+        ]}
       />
 
       {/* 收口 CTA */}

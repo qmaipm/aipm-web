@@ -2,6 +2,7 @@ import Link from "next/link";
 import BeforeAfter from "../BeforeAfter";
 import "../scenarios.css";
 import { pageMetadata } from "@/lib/pageMetadata";
+import SeoFaq from "@/components/SeoFaq";
 
 export const metadata = pageMetadata("/scenarios/inspection", {
   title: "物业 AI 质检 · 视觉评分全量留痕｜FMClaw™ 加速营场景",
@@ -39,6 +40,15 @@ export default function Page() {
         ]}
         note={`AI 接了"全量看一遍、按同一把尺子打分"这件人做不到的事；人把精力收到异常上。它不替代人工判断，而是补上覆盖面，让每一次服务都留下可回看的证据。`}
         solutionHref="/solutions/quality"
+      />
+
+      <SeoFaq
+        heading="关于 AI 质检，你可能想问"
+        items={[
+          { q: "AI 质检会不会误判，员工不服怎么办？", a: "每一个评分背后都挂着照片证据，员工可以逐项申诉，人复核后可以改判。相比凭印象打分，同一把尺子加可回看的证据，争议反而更少。" },
+          { q: "AI 质检能替代人工巡检吗？", a: "不能完全替代，它补的是覆盖面。AI 把每一次服务都看一遍、按统一标准打分，人把精力收到异常上——这件事人工抽检做不到。" },
+          { q: "评分标准能按我们项目的要求定吗？", a: "可以。评分项与权重按项目的服务标准配置，不同业态（写字楼、园区、商业）可以用不同的标准，但同一项目内所有人同一把尺子。" },
+        ]}
       />
 
       {/* 收口 CTA */}

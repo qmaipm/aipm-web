@@ -3,6 +3,7 @@ import Link from "next/link";
 import Image from "next/image";
 import "./page.css";
 import { pageMetadata } from "@/lib/pageMetadata";
+import SeoFaq from "@/components/SeoFaq";
 import ProductCrumb from "../_crumb";
 
 export const dynamic = "force-dynamic";
@@ -280,6 +281,15 @@ export default function Page() {
           </div>
         </div>
       </section>
+
+      <SeoFaq
+        heading="关于 IoT 物理世界感知，你可能想问"
+        items={[
+          { q: "什么是服务感知，和普通 IoT 监测有什么区别？", a: "普通 IoT 监测的是设备和环境状态；服务感知监测的是服务本身——一次保洁或巡检到底有没有做、做了多久、做得到不到位。前者看物，后者看事。" },
+          { q: "楼里已经有一套设备监控系统，还要重建吗？", a: "不用重建。存量传感器与监控系统的数据可以接入 FMClaw 的数据本体与数据集市，新增的只是原来没有的感知能力（比如服务感知），而不是把旧系统推倒重来。" },
+          { q: "IoT 数据采了之后怎么用，会不会只是多一块大屏？", a: "不是看板，是进工作流。四类感知数据统一进数据本体，直接驱动水电费审批、AI 质检、报修派单这些具体业务——数据的去处是动作，不是展示。" },
+        ]}
+      />
 
       {/* ===== END CTA ===== */}
       <section className="endcta">

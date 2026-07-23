@@ -2,6 +2,7 @@ import Link from "next/link";
 import BeforeAfter from "../BeforeAfter";
 import "../scenarios.css";
 import { pageMetadata } from "@/lib/pageMetadata";
+import SeoFaq from "@/components/SeoFaq";
 
 export const metadata = pageMetadata("/scenarios/exec-query", {
   title: "管理层 AI 问询 · 能耗归因秒级回答｜FMClaw™ 加速营场景",
@@ -38,6 +39,15 @@ export default function Page() {
           { k: "权限沿用", b: "数据谁能看靠人把关", a: "按钉钉 / 飞书的组织架构与 IAM" },
         ]}
         note={`问询入口仍是钉钉对话框，用户不换工具；AI 在底层把能耗归因做完。人拿到的是带原因的结论与简报，省掉了中间翻数据、做分析那几天。`}
+      />
+
+      <SeoFaq
+        heading="关于管理层问询，你可能想问"
+        items={[
+          { q: "AI 回答错了怎么办，领导拿错数据做决策怎么办？", a: "每个回答都带数据来源与异常明细，可以逐项核对。回答取自统一的数据集市，不是模型凭空生成；拿不准的问题会说明缺什么数据，而不是编一个答案。" },
+          { q: "数据权限怎么控，谁都能问到经营数据吗？", a: "不会。权限沿用钉钉／飞书的组织架构与 IAM，谁能看什么数据和原来在系统里一致，不会因为换成对话方式而放宽。" },
+          { q: "领导需要学一套新工具吗？", a: "不需要。入口就是现在天天在用的钉钉／飞书对话框，@ 一句就能问，和发消息给同事一样。" },
+        ]}
       />
 
       {/* 收口 CTA */}

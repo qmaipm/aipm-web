@@ -3,6 +3,7 @@ import Link from "next/link";
 import Image from "next/image";
 import "./page.css";
 import { pageMetadata } from "@/lib/pageMetadata";
+import SeoFaq from "@/components/SeoFaq";
 
 export const metadata: Metadata = pageMetadata("/solutions/assessment", {
   title: "质量评估 Agent · 智能体解决方案 | 启盟科技",
@@ -164,6 +165,17 @@ export default function Page() {
           </p>
         </div>
       </section>
+
+      <SeoFaq
+        heading="关于质量评估 Agent，你可能想问"
+        serviceName="质量评估 Agent"
+        serviceDesc="AI 自动审图识别问题、客观评分，严重问题自动调度整改。"
+        items={[
+          { q: "一线员工需要培训多久才会用？", a: "几乎不需要培训。一线只做一件事：按 AI 指引到点位拍照上传，不用填表、不用判断；识别、评分、调度整改都在后台自动完成。" },
+          { q: "AI 评分和人工评分不一致时听谁的？", a: "听人的，但要留记录。AI 评分可以被人复核改判，改判本身会成为校准数据，让评分标准越用越贴合项目实际。" },
+          { q: "评估结果能接到现有的考核体系里吗？", a: "能。评分与问题标签是结构化数据，可以按项目、班组、个人维度汇总导出，对接到你现有的考核表或 BI 报表。" },
+        ]}
+      />
 
       {/* CTA */}
       <section className="endcta">

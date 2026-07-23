@@ -2,6 +2,7 @@ import Link from "next/link";
 import BeforeAfter from "../BeforeAfter";
 import "../scenarios.css";
 import { pageMetadata } from "@/lib/pageMetadata";
+import SeoFaq from "@/components/SeoFaq";
 
 export const metadata = pageMetadata("/scenarios/reconciliation", {
   title: "物业 AI 对账 · 供应商自动核量对账｜FMClaw™ 加速营场景",
@@ -39,6 +40,15 @@ export default function Page() {
         ]}
         note={`AI 接了核量、比对、找异常、起草这几步；人保留对账单的最终确认。它不替换财务流程，只把一份能直接看的草稿和被圈出的异常提前备好。`}
         solutionHref="/solutions/vendor"
+      />
+
+      <SeoFaq
+        heading="关于 AI 对账，你可能想问"
+        items={[
+          { q: "AI 对账算错了谁负责？", a: "人负责。AI 只负责核量、比对、圈出异常和起草，账单的最终确认与付款审批始终由人完成；每一笔核算都能看到对应的合同条款与数据依据，可以逐笔复核。" },
+          { q: "供应商那边的账和我们对不上怎么办？", a: "这正是它解决的问题。双方数据归集到同一份事实上核对，差异被自动圈出并标明原因，争议从「各说各话」变成「对着同一张异常清单逐条确认」。" },
+          { q: "合同条款很复杂，AI 真能看懂吗？", a: "能处理常见的计量计价条款；特殊条款在接入时一次性梳理成核算规则，之后每月自动执行。规则本身可查可改，不是黑盒。" },
+        ]}
       />
 
       {/* 收口 CTA */}

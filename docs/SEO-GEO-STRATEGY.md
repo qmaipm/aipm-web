@@ -120,7 +120,8 @@
 | canonical | 每页指向自身（pageMetadata 助手统一处理） |
 | Open Graph | 每页独立 og:title/description/url，og:type 文章页为 article（带发布时间/作者/栏目/标签） |
 | 结构化数据（JSON-LD） | 已覆盖：Organization、WebSite、BreadcrumbList（19 页）、FAQPage（7 页）、Service（12 处）、Article/TechArticle/NewsArticle、Product、SoftwareApplication、Person、AboutPage 等 |
-| FAQ 结构化数据 | FmFaq 组件自动输出 FAQPage JSON-LD——**站内新增 FAQ 用组件，不要手写** |
+| FAQ 结构化数据 | 站内新增 FAQ 一律用组件（通用页 `SeoFaq`、fmclaw 系 `FmFaq`），自动输出 FAQPage JSON-LD——**禁止手写 LD**（手写会造成可见内容与结构化数据漂移） |
+| FAQ 写作红线 | ① 问题必须是该页买家真实会问的，禁止跨页复制同一组问题换皮（模板化 FAQ 是 Google 2026-05 下线 FAQ 富媒体结果的直接诱因，也是 AI 引擎判定低质的信号）；② 答案首句直接作答；③ Google 已不展示 FAQ 富媒体样式，但 FAQPage 标记对 Bing／ChatGPT 搜索／Perplexity 等 AI 检索仍有效，保留并继续按规范新增 |
 | 标题层级 | 每页唯一 h1，h2/h3 严格分层 |
 | 「最后更新」时间戳 | 产品页已有（.fmo-upd），内容页按需 |
 
