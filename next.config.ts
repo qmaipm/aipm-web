@@ -14,6 +14,8 @@ const nextConfig: NextConfig = {
       { source: "/partners/reseller", destination: "/partners/program", permanent: true },
       // 案例 v2 重写版已合并回正式页（2026-07）：删除重复页，避免同内容双 URL
       { source: "/cases/property-group-chat-ai-service-v2", destination: "/cases/property-group-chat-ai-service", permanent: true },
+      // 旗舰样板（爱物管自营验证）迁至公司板块（2026-07）：案例区只保留客户项目
+      { source: "/cases/aipm-property-ai-transformation", destination: "/company/aipm-validation", permanent: true },
     ];
   },
 };

@@ -328,7 +328,7 @@ export default function Page() {
               <p>管家秒回、工单闭环、进展主动同步——投诉少了，不是嗓门小了，是事真的被办了。</p>
               <span className="go">看这个项目 <Arrow s={13} /></span>
             </Link>
-            <Link className="avc-case on-light reveal" href="/cases/aipm-property-ai-transformation">
+            <Link className="avc-case on-light reveal" href="/company/aipm-validation">
               <span className="tag">爱物管 · 自营项目</span>
               <h3>先给自己的客户配上管家</h3>
               <p>每一个能力都先用在自己身上:被住户问、被企业问、被随便问——经得起,再对外。</p>
@@ -354,7 +354,7 @@ export default function Page() {
                 2019 年，为了把 AI 真正做进物业，我们自己开了一家物业公司：装传感器、跑工单、面对投诉，把每一个 AI 能力先用在自己身上，再对外提供服务。它自己的账本——<b>管理层 69 → 5 人，净利率 3.4% → 14%</b>——就是这套服务方式最直接的证据。
               </p>
               <div className="avc-who__links">
-                <Link className="av-link" href="/cases/aipm-property-ai-transformation">看爱物管自己的故事 <Arrow s={13} /></Link>
+                <Link className="av-link" href="/company/aipm-validation">看爱物管自己的故事 <Arrow s={13} /></Link>
                 <Link className="av-link" href="/company">关于启盟科技 <Arrow s={13} /></Link>
               </div>
             </div>

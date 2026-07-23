@@ -28,6 +28,7 @@ const ROUTES = [
   "/partners/program",
   "/contact",
   "/company",
+  "/company/aipm-validation",
   "/team",
   "/news",
   "/products/fmclaw",
@@ -84,7 +85,6 @@ const INSIGHTS = [
 
 // 客户案例(真实项目,GEO 重点)
 const CASES = [
-  "/cases/aipm-property-ai-transformation",
   "/cases/south-china-mixed-use-6-to-1",
   "/cases/30w-park-ai-property-manager-robot",
   "/cases/property-group-chat-ai-service",

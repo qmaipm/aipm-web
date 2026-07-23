@@ -1,7 +1,6 @@
 import Link from "next/link";
 import "./page.css";
 import JsonLd from "@/components/JsonLd";
-import { getFlagship } from "./cases";
 import CaseList from "./CaseList";
 import { pageMetadata } from "@/lib/pageMetadata";
 
@@ -17,19 +16,38 @@ export const metadata = pageMetadata("/cases", {
     "这里列出的每一个，都不是演示，而是已经在真实项目里运行的部署——综合体、智慧园区、集团总部、联合办公，把日常运营里的判断交给 FMClaw 物业智能体。",
 });
 
-// 板块通用问答(草稿:无专稿,内容取自各案例的共性口径,供审阅)
+// 板块通用问答(内容取自各案例的共性口径)
 const BOARD_FAQ = [
   {
     q: "这些案例是真实项目，还是演示 demo？",
-    a: "都是已经在真实项目里运行的部署——综合体、智慧园区、集团总部、联合办公，以及启盟自营的物业公司爱物管。案例里的数字来自真实经营，其中自营验证数据为小规模 0-1 结果，非行业普遍值。",
+    a: "都是已经在真实项目里运行的部署——商业综合体、智慧园区、企业总部、物业集团、联合办公，每个案例都写明项目规模、做法和结果，数字来自真实经营。在服务客户之前，这套方法还在启盟自营的物业公司完成了完整验证。",
   },
   {
     q: "案例里的效果，我的项目能复制吗？",
-    a: "能，但要讲顺序。可复制的路径是先让现场可见（部署 AIoT 感知）、再让流程自动跑完（AI 巡查、派单、验收），最后才谈人机怎么分工。不同项目起点不同，建议先做一次管理潜力诊断，从最痛的一两个环节切入。",
+    a: "能，但要讲顺序。可复制的路径是先让现场可见（部署 AIoT 感知）、再让流程自动跑完（AI 巡查、派单、验收），最后才谈人机怎么分工。不同项目起点不同，建议从你最痛的一两个环节切入，跑通了再扩展。",
   },
   {
     q: "想开始的话，第一步做什么？",
     a: "带上你自己的一个真实业务场景，预约 FMClaw 加速营，用你的数据在现场跑通第一件事，再决定要不要扩展。",
+  },
+];
+
+// 三角色导览：不同读者关心的事不同，把入口摆在最前面
+const READER_GUIDE = [
+  {
+    who: "如果你在企业里负责行政、IT 或设施",
+    what: "看员工报事报修、设备巡检安全、卫生间品质这几个单点切入的案例——不动现有平台、不换团队，从一个场景开始。",
+    href: "#cases-list",
+  },
+  {
+    who: "如果你在物业集团负责经营或数字化",
+    what: "看智能体集团化落地、供应商对账、扭亏为盈这几个案例——500 个项目的规模化经验，和一个项目的账怎么算平。",
+    href: "#cases-list",
+  },
+  {
+    who: "如果你在规划园区或国有物业的智能化",
+    what: "看 30 万㎡标杆园区——人、AI、机器人、传感器融合运营长什么样，以及智能化升级如何在原预算内启动。",
+    href: "/cobuild",
   },
 ];
 
@@ -44,8 +62,6 @@ const boardFaqLd = {
 };
 
 export default function Page() {
-  const flagship = getFlagship();
-
   return (
     <main className="solcase">
       <JsonLd data={boardFaqLd} />
@@ -66,30 +82,20 @@ export default function Page() {
         </div>
       </section>
 
-      {/* 旗舰样板专属区 */}
-      {flagship ? (
-        <section className="ca-band">
-          <div className="wrap">
-            <span className="ca-flag-eyebrow">旗舰样板 · 自营验证</span>
-            <Link className="ca-flag" href={`/cases/${flagship.slug}`}>
-              <div className="ca-flag-media" style={{ backgroundImage: `url('${flagship.coverImg}')` }} aria-hidden="true">
-                <span className="ca-flag-bar" />
-              </div>
-              <div className="ca-flag-body">
-                <div className="ca-flag-meta">{flagship.industry} · {flagship.location}</div>
-                <h2 className="ca-flag-h">{flagship.listTitle ?? flagship.title}</h2>
-                <p className="ca-flag-lead">{flagship.lead}</p>
-                <div className="ca-flag-metrics">
-                  {flagship.metrics.map((m) => (
-                    <div className="ca-flag-metric" key={m.label}><b>{m.value}</b><span>{m.label}</span></div>
-                  ))}
-                </div>
-                <span className="ca-flag-go">查看完整范例 <Arrow /></span>
-              </div>
-            </Link>
+      {/* 三角色导览 */}
+      <section className="ca-band">
+        <div className="wrap">
+          <div className="ca-guide" role="navigation" aria-label="按读者角色导览">
+            {READER_GUIDE.map((g) => (
+              <Link className="ca-guide-item" href={g.href} key={g.who}>
+                <h2>{g.who}</h2>
+                <p>{g.what}</p>
+                <span className="ca-guide-go">去看 <Arrow /></span>
+              </Link>
+            ))}
           </div>
-        </section>
-      ) : null}
+        </div>
+      </section>
 
       <section className="ca-band mist" id="cases-list">
         <div className="wrap">

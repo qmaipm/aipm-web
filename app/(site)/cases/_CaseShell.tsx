@@ -78,16 +78,22 @@ export function CaseQuote({ children, by }: { children: React.ReactNode; by: str
 
 // 案例 → AI 物业服务工种页回链(内链导流:案例页把读者引向对应服务页)
 const TRADE_LINKS: Record<string, { href: string; label: string }[]> = {
-  "aipm-property-ai-transformation": [{ href: "/ai-service", label: "AI 物业服务总览" }],
   "south-china-mixed-use-6-to-1": [
     { href: "/ai-service/facility", label: "AI 设施设备服务" },
-    { href: "/ai-service", label: "AI 物业服务总览" },
+    { href: "/cobuild", label: "政企共建人工智能产业" },
   ],
   "30w-park-ai-property-manager-robot": [
     { href: "/ai-service/cleaning", label: "AI 清洁服务" },
-    { href: "/ai-service", label: "AI 物业服务总览" },
+    { href: "/cobuild", label: "政企共建人工智能产业" },
   ],
-  "property-group-chat-ai-service": [{ href: "/ai-service/customer-service", label: "AI 客服管家" }],
+  "property-group-chat-ai-service": [
+    { href: "/ai-service/customer-service", label: "AI 客服管家" },
+    { href: "/products/fmclaw/connectors", label: "第三方平台连接器" },
+  ],
+  "property-group-auto-operation-report": [
+    { href: "/products/fmclaw/ontology", label: "FM 数据本体" },
+    { href: "/products/fmclaw/connectors", label: "第三方平台连接器" },
+  ],
   "coworking-supplier-reconciliation": [{ href: "/ai-service/cleaning", label: "AI 清洁服务" }],
   "restroom-quality": [{ href: "/ai-service/cleaning", label: "AI 清洁服务" }],
   "fmclaw-equipment-inspection": [{ href: "/ai-service/facility", label: "AI 设施设备服务" }],

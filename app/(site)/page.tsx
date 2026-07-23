@@ -304,7 +304,7 @@ export default function Home() {
           </div>
 
           {/* 旗舰:爱物管自营验证 */}
-          <Link href="/cases/aipm-property-ai-transformation" className="h-flag reveal">
+          <Link href="/company/aipm-validation" className="h-flag reveal">
             <div className="fl-head">
               <span className="fl-tag">旗舰案例 · 爱物管自营验证</span>
               <span className="cc-live"><i className="liv" />生产运行中</span>
