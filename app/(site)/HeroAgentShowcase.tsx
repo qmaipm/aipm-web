@@ -2282,7 +2282,9 @@ function ShowcaseCanvas({
  */
 export default function HeroAgentShowcase() {
   const wrapRef = useRef<HTMLDivElement>(null);
-  const [scale, setScale] = useState(1);
+  // 初始 0.93 ≈ 505px 深色面板内的实际比例：SSR/无 JS 静帧不裁切画布边缘，
+  // 客户端水合后按容器实测宽度立即校正（桌面端结果与初始值几乎一致）
+  const [scale, setScale] = useState(0.93);
   const [active, setActive] = useState(false);
 
   // 按容器宽度等比缩放固定画布
