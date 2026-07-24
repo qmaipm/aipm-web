@@ -351,10 +351,11 @@
 @media(prefers-reduced-motion:reduce){.solhome .hw-wrap *{animation:none!important}}
 /* 四角图标 = 可点击产品入口（--hsc-c 为各自品牌色，由组件注入） */
 .hsc-icon{display:block;text-decoration:none}
-.hsc-icon .hsc-go{display:inline-block;opacity:0;margin-left:3px;vertical-align:-1px;transition:opacity .2s;color:var(--hsc-c)}
+/* 跳转箭头绝对定位悬挂在标签右侧：出现/消失不改变标签宽度，居中不跳动 */
+.hsc-icon .hsc-go{position:absolute;left:100%;top:50%;margin-left:3px;transform:translateY(-50%);opacity:0;transition:opacity .2s;color:var(--hsc-c)}
 .hsc-icon:hover .hsc-go,.hsc-icon:focus-visible .hsc-go{opacity:1}
-.hsc-icon:hover .hsc-label,.hsc-icon:focus-visible .hsc-label{color:var(--hsc-c)!important;font-weight:600!important}
-.hsc-icon:hover .hsc-box,.hsc-icon:focus-visible .hsc-box{transform:translateY(-3px)!important;box-shadow:0 8px 20px rgba(15,23,42,.14)!important;border-color:var(--hsc-c)!important}
+.hsc-icon:hover .hsc-label,.hsc-icon:focus-visible .hsc-label{color:var(--hsc-c)!important;font-weight:600!important;transform:translate(-50%,-2px)!important}
+.hsc-icon:hover .hsc-box,.hsc-icon:focus-visible .hsc-box{transform:translateY(-2px)!important;box-shadow:0 8px 20px rgba(15,23,42,.14)!important;border-color:var(--hsc-c)!important}
 .hsc-icon:focus-visible{outline:none}
 .hsc-icon:focus-visible .hsc-box{outline:2px solid var(--hsc-c);outline-offset:3px}
 

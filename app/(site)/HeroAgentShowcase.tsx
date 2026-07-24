@@ -1811,12 +1811,6 @@ function ShowcaseCanvas({
           ? getIconActivation(iconProgress, isCurrentIcon)
           : { isActive: isCurrentIcon && entryPhase !== 'idle', progress: entryProgress };
 
-        // 标签对齐：左侧图标左对齐、右侧图标右对齐，避免长名称超出画布被裁切
-        const isLeftSide = iconConfig.side.endsWith('left');
-        const labelStyle: React.CSSProperties = isLeftSide
-          ? { left: pos.x, textAlign: 'left' }
-          : { left: pos.x + LAYOUT.iconSize, transform: 'translateX(-100%)', textAlign: 'right' };
-
         // 标签在上方，图标在下方；整体包成链接，可点击进入对应产品页
         return (
           <Link
@@ -1826,22 +1820,25 @@ function ShowcaseCanvas({
             aria-label={`${iconConfig.name}，查看详情`}
             style={{ ['--hsc-c' as string]: iconConfig.startColor }}
           >
-            {/* 图标标签（在图标上方） */}
+            {/* 图标标签：居中于图标正上方，激活/悬停时跟随图标同步上浮（间距恒定不拥挤）；
+                跳转箭头绝对定位不占宽度，保证居中精确 */}
             <span
               className="hsc-label"
               style={{
                 position: 'absolute',
-                top: pos.y - 19,
-                fontSize: '10px',
-                fontWeight: activation.isActive ? 600 : 400,
+                // 居中于图标中轴；两端夹取 44px，防止最宽标签越出画布被 overflow 裁切
+                left: Math.min(Math.max(pos.x + LAYOUT.iconSize / 2, 44), LAYOUT.canvasWidth - 44),
+                top: pos.y - 25,
+                fontSize: '12px',
+                fontWeight: activation.isActive ? 600 : 500,
                 color: activation.isActive ? iconConfig.startColor : '#64748b',
                 // 直接悬浮在城市底图上：白色柔光晕保证标签压在楼宇纹理上仍可读
                 textShadow: '0 0 6px rgba(255,255,255,.9), 0 0 2px rgba(255,255,255,.9)',
                 whiteSpace: 'nowrap',
                 transition: 'all 0.3s',
                 opacity: entryPhase === 'icons-enter' ? entryProgress : 1,
+                transform: `translate(-50%, ${activation.isActive ? -2 : 0}px)`,
                 zIndex: 25,
-                ...labelStyle,
               }}
             >
               {iconConfig.name}
