@@ -1779,8 +1779,8 @@ function ShowcaseCanvas({
         ...style,
       }}
     >
-      {/* 背景聚焦：毛玻璃面板内的白色柔光，把视线收向居中卡片；
-          边缘透明度逐步降低，让背后模糊城市在面板四周隐约透出 */}
+      {/* 背景聚焦：演示区内的白色柔光，把视线收向居中卡片、并在城市底图上垫出可读区；
+          边缘渐隐，与城市底图自然融合 */}
       <div
         aria-hidden="true"
         style={{
@@ -1835,6 +1835,8 @@ function ShowcaseCanvas({
                 fontSize: '10px',
                 fontWeight: activation.isActive ? 600 : 400,
                 color: activation.isActive ? iconConfig.startColor : '#64748b',
+                // 直接悬浮在城市底图上：白色柔光晕保证标签压在楼宇纹理上仍可读
+                textShadow: '0 0 6px rgba(255,255,255,.9), 0 0 2px rgba(255,255,255,.9)',
                 whiteSpace: 'nowrap',
                 transition: 'all 0.3s',
                 opacity: entryPhase === 'icons-enter' ? entryProgress : 1,
@@ -2282,7 +2284,7 @@ function ShowcaseCanvas({
  */
 export default function HeroAgentShowcase() {
   const wrapRef = useRef<HTMLDivElement>(null);
-  // 初始 0.93 ≈ 505px 毛玻璃面板内的实际比例：SSR/无 JS 静帧不裁切画布边缘，
+  // 初始 0.93 ≈ 505px 演示舞台内的实际比例：SSR/无 JS 静帧不裁切画布边缘，
   // 客户端水合后按容器实测宽度立即校正（桌面端结果与初始值几乎一致）
   const [scale, setScale] = useState(0.93);
   const [active, setActive] = useState(false);

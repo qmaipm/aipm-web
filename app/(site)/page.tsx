@@ -61,12 +61,9 @@ export default function Home() {
               </p>
             </div>
             <div className="hw-wrap reveal">
-              {/* 白色毛玻璃产品面板：浮在城市底图之上，透出模糊楼宇形成真实层次 */}
-              <div className="hw-panel">
-                <div className="hw-panel-bar" aria-hidden="true">
-                  <span className="hw-panel-name">FMClaw™ 工作台</span>
-                  <span className="hw-panel-live"><i />运行中</span>
-                </div>
+              {/* 演示动效直接悬浮在城市底图上：卡片与图标自带白底和投影，
+                  无需窗口框——.hw-stage 只承担宽度约束（画布缩放锚定 505px） */}
+              <div className="hw-stage">
                 <HeroAgentShowcase />
               </div>
             </div>
