@@ -39,7 +39,8 @@ export default function Home() {
     <main className="solhome">
       {/* ① HERO — 公司级开场:左文案 + 右「AI 正在处理真实工作」演示(改造自 Agentic 套件服务优化 Agent 动效) */}
       <section className="h-hero">
-        <div className="h-grid" aria-hidden="true" />
+        {/* 底图：清晨城市实景（楼宇窗格里极淡的智能光点），白色渐变冲刷保证左侧文案对比度 */}
+        <div className="h-hero-bg" aria-hidden="true" />
         <div className="wrap h-hero-top">
           <div className="h-hero-cols">
             <div>
@@ -60,7 +61,7 @@ export default function Home() {
               </p>
             </div>
             <div className="hw-wrap reveal">
-              {/* 深色产品面板：浅纸底上的明度反差造纵深（参照 Cohere/OpenAI 的平涂底＋深色产品面做法） */}
+              {/* 白色毛玻璃产品面板：浮在城市底图之上，透出模糊楼宇形成真实层次 */}
               <div className="hw-panel">
                 <div className="hw-panel-bar" aria-hidden="true">
                   <span className="hw-panel-name">FMClaw™ 工作台</span>
@@ -238,7 +239,7 @@ export default function Home() {
             <div className="h-pc"><div className="pc-k">100+</div><h4>行业工作流</h4>
               <p>覆盖物业与设施管理中的巡检、工单、客服、品质、结算和运营分析。</p></div>
             <div className="h-pc"><div className="pc-k">4</div><h4>专业 Agent 协同</h4>
-              <p>从服务设计、运营执行、质量评估到持续优化，形成完整闭环。</p></div>
+              <p>从服务设计、运营执行、质量评估到持续优化，环节之间自动衔接。</p></div>
             <div className="h-pc"><div className="pc-k">1</div><h4>模型、数据和工具统一调度</h4>
               <p>底层模型可以持续升级，上层工作流和业务体验保持稳定。</p></div>
           </div>

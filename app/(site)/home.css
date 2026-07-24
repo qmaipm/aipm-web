@@ -1,6 +1,6 @@
 /* ============================================================
    HOMEPAGE — 公司级总入口(2026-07 重构)
-   结构:Hero(左文案 + 右 FMClaw 工作台深色面板演示,首屏底沿信任条)
+   结构:Hero(城市实景底图,左文案 + 右 FMClaw 工作台毛玻璃面板演示,首屏底沿信任条)
         → Mission 暗场三支柱 → 访客分流 4 卡 → 三种交付方式(mist)
         → FMClaw 产品暗场 → 加速营四式 → 生产案例暗场(旗舰 + 2)
         → 为什么是启盟(4 证据 + MoatStats)→ 投资资质 → 行业研究 → CTA
@@ -28,7 +28,19 @@
 
 /* ---------- HERO ----------
    列式结构：主内容居中，信任条（客户 logo）钉在首屏底沿——
-   参照 Harvey：首屏不滚动即见客户证据，同时消化 CTA 下方死区。 */
+   参照 Harvey：首屏不滚动即见客户证据，同时消化 CTA 下方死区。
+   背景：摄影级清晨城市实景（参照 Sierra/Palantir/Scale 的实景 hero），
+   楼宇集中右上，左侧白雾留白；白色渐变冲刷层保证左侧文案落在近纯白区。 */
+.h-hero-bg{position:absolute;inset:0;z-index:0;pointer-events:none;
+  background-image:
+    linear-gradient(90deg,rgba(255,255,255,.99) 0%,rgba(255,255,255,.93) 34%,rgba(255,255,255,.52) 58%,rgba(255,255,255,.14) 84%,rgba(255,255,255,.06) 100%),
+    linear-gradient(180deg,rgba(255,255,255,.28) 0%,rgba(255,255,255,0) 26%,rgba(255,255,255,.55) 82%,#fff 100%),
+    url("/home/hero-city-2200.webp");
+  background-size:auto,auto,cover;background-position:0 0,0 0,right top;background-repeat:no-repeat}
+@media(max-width:1080px){.h-hero-bg{background-image:
+    linear-gradient(180deg,rgba(255,255,255,.97) 0%,rgba(255,255,255,.9) 46%,rgba(255,255,255,.72) 78%,#fff 100%),
+    url("/home/hero-city-1100.webp");
+  background-size:auto,cover;background-position:0 0,right top}}
 .h-hero{position:relative;overflow:hidden;min-height:92vh;display:flex;flex-direction:column;
   padding:118px 0 0;background:var(--h-paper)}
 .h-hero .hero-canvas{z-index:0}
@@ -326,13 +338,15 @@
 /* ---------- HeroAgentShowcase · Agentic 套件动效改造 ----------
    动画逻辑与卡片视觉全部为组件内联样式(沿用服务优化 Agent 模块);
    此处提供其依赖的 hpulse 呼吸点 keyframe、降级规则，
-   以及深色产品面板 .hw-panel（浅纸底上的明度反差，
-   参照 Cohere/OpenAI：层次来自真实产品面，不来自装饰）。 */
+   以及白色毛玻璃产品面板 .hw-panel（浮在城市底图之上，
+   backdrop-filter 透出模糊楼宇，层次来自真实图像，不来自装饰）。 */
 .hw-wrap{position:relative;z-index:2;width:100%}
 .hw-panel{position:relative;max-width:505px;margin-left:auto;
-  background:linear-gradient(180deg,#10231D 0%,#0B1714 100%);
-  border:1px solid rgba(255,255,255,.08);border-radius:18px;overflow:hidden;
-  box-shadow:0 32px 70px -30px rgba(11,23,20,.5),0 8px 24px -10px rgba(11,23,20,.3)}
+  background:rgba(255,255,255,.62);
+  -webkit-backdrop-filter:blur(18px) saturate(1.05);backdrop-filter:blur(18px) saturate(1.05);
+  border:1px solid rgba(20,32,28,.09);border-radius:18px;overflow:hidden;
+  box-shadow:0 32px 70px -34px rgba(20,32,28,.3),0 8px 24px -12px rgba(20,32,28,.14)}
+@supports not ((backdrop-filter:blur(1px)) or (-webkit-backdrop-filter:blur(1px))){.hw-panel{background:rgba(255,255,255,.93)}}
 @media(max-width:1080px){.hw-panel{margin:0 auto}}
 /* 短屏笔记本（如 1440×900）：再收一档，保证信任条不出首屏 */
 @media(min-width:1081px) and (max-height:920px){
@@ -340,11 +354,11 @@
   .hw-panel{max-width:465px}
 }
 .hw-panel-bar{display:flex;align-items:center;justify-content:space-between;
-  padding:12px 18px;border-bottom:1px solid rgba(255,255,255,.07)}
-.hw-panel-name{font-size:12px;font-weight:600;letter-spacing:.05em;color:rgba(228,239,235,.85)}
-.hw-panel-live{display:inline-flex;align-items:center;gap:7px;font-size:11px;font-weight:500;color:#3FD9B8}
-.hw-panel-live i{width:6px;height:6px;border-radius:50%;background:#3FD9B8;
-  box-shadow:0 0 8px rgba(63,217,184,.8);animation:hpulse 2.4s ease-in-out infinite}
+  padding:12px 18px;border-bottom:1px solid rgba(20,32,28,.08)}
+.hw-panel-name{font-size:12px;font-weight:600;letter-spacing:.05em;color:rgba(20,32,28,.72)}
+.hw-panel-live{display:inline-flex;align-items:center;gap:7px;font-size:11px;font-weight:500;color:#0FA47A}
+.hw-panel-live i{width:6px;height:6px;border-radius:50%;background:#12B98A;
+  box-shadow:0 0 8px rgba(18,185,138,.7);animation:hpulse 2.4s ease-in-out infinite}
 @keyframes hpulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.6;transform:scale(1.3)}}
 @media(prefers-reduced-motion:reduce){.solhome .hw-wrap *{animation:none!important}}
 /* 四角图标 = 可点击产品入口（--hsc-c 为各自品牌色，由组件注入） */

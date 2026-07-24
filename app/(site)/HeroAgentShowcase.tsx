@@ -1779,7 +1779,8 @@ function ShowcaseCanvas({
         ...style,
       }}
     >
-      {/* 背景聚焦：深色产品面板内的柔光，把视线收向居中卡片 */}
+      {/* 背景聚焦：毛玻璃面板内的白色柔光，把视线收向居中卡片；
+          边缘透明度逐步降低，让背后模糊城市在面板四周隐约透出 */}
       <div
         aria-hidden="true"
         style={{
@@ -1788,7 +1789,7 @@ function ShowcaseCanvas({
           zIndex: 0,
           pointerEvents: 'none',
           background:
-            'radial-gradient(ellipse 62% 55% at 50% 46%, rgba(22,58,48,0.85) 0%, rgba(22,58,48,0.4) 45%, rgba(22,58,48,0) 78%)',
+            'radial-gradient(ellipse 62% 55% at 50% 46%, rgba(255,255,255,0.9) 0%, rgba(255,255,255,0.6) 45%, rgba(255,255,255,0) 78%)',
         }}
       />
 
@@ -1833,8 +1834,7 @@ function ShowcaseCanvas({
                 top: pos.y - 19,
                 fontSize: '10px',
                 fontWeight: activation.isActive ? 600 : 400,
-                // 深色产品面板上的非激活标签用浅灰绿，保证可读
-                color: activation.isActive ? iconConfig.startColor : 'rgba(214,226,221,0.66)',
+                color: activation.isActive ? iconConfig.startColor : '#64748b',
                 whiteSpace: 'nowrap',
                 transition: 'all 0.3s',
                 opacity: entryPhase === 'icons-enter' ? entryProgress : 1,
@@ -2282,7 +2282,7 @@ function ShowcaseCanvas({
  */
 export default function HeroAgentShowcase() {
   const wrapRef = useRef<HTMLDivElement>(null);
-  // 初始 0.93 ≈ 505px 深色面板内的实际比例：SSR/无 JS 静帧不裁切画布边缘，
+  // 初始 0.93 ≈ 505px 毛玻璃面板内的实际比例：SSR/无 JS 静帧不裁切画布边缘，
   // 客户端水合后按容器实测宽度立即校正（桌面端结果与初始值几乎一致）
   const [scale, setScale] = useState(0.93);
   const [active, setActive] = useState(false);
