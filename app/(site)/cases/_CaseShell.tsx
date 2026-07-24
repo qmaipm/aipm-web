@@ -97,6 +97,13 @@ const TRADE_LINKS: Record<string, { href: string; label: string }[]> = {
   "coworking-supplier-reconciliation": [{ href: "/ai-service/cleaning", label: "AI 清洁服务" }],
   "restroom-quality": [{ href: "/ai-service/cleaning", label: "AI 清洁服务" }],
   "fmclaw-equipment-inspection": [{ href: "/ai-service/facility", label: "AI 设施设备服务" }],
+  "intl-hospital-medical-grade-fm": [
+    { href: "/ai-service/facility", label: "AI 设施设备服务" },
+    { href: "/ai-service/cleaning", label: "AI 清洁服务" },
+  ],
+  "metro-3400-rooms-daily-inspection": [{ href: "/ai-service/facility", label: "AI 设施设备服务" }],
+  "hazardous-area-dual-person-patrol": [{ href: "/ai-service/security", label: "AI 安保服务" }],
+  "gigafactory-4-vendor-cleaning": [{ href: "/ai-service/cleaning", label: "AI 清洁服务" }],
 };
 
 export default function CaseShell({ slug, children }: { slug: string; children: React.ReactNode }) {

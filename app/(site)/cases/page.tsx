@@ -13,14 +13,14 @@ const Arrow = ({ s = 14 }: { s?: number }) => (
 export const metadata = pageMetadata("/cases", {
   title: "客户案例 · 谁在用，哪个项目在用 | 启盟科技",
   description:
-    "这里列出的每一个，都不是演示，而是已经在真实项目里运行的部署——综合体、智慧园区、集团总部、联合办公，把日常运营里的判断交给 FMClaw 物业智能体。",
+    "这里列出的每一个，都不是演示，而是已经在真实项目里运行的部署——综合体、智慧园区、集团总部、医院、轨道交通、工厂、联合办公，把日常运营里的判断交给 FMClaw 物业智能体。",
 });
 
 // 板块通用问答(内容取自各案例的共性口径)
 const BOARD_FAQ = [
   {
     q: "这些案例是真实项目，还是演示 demo？",
-    a: "都是已经在真实项目里运行的部署——商业综合体、智慧园区、企业总部、物业集团、联合办公，每个案例都写明项目规模、做法和结果，数字来自真实经营。在服务客户之前，这套方法还在启盟自营的物业公司完成了完整验证。",
+    a: "都是已经在真实项目里运行的部署——商业综合体、智慧园区、企业总部、医院、轨道交通、工厂、物业集团、联合办公，每个案例都写明项目规模、做法和结果，数字来自真实经营。在服务客户之前，这套方法还在启盟自营的物业公司完成了完整验证。",
   },
   {
     q: "案例里的效果，我的项目能复制吗？",
@@ -46,8 +46,16 @@ const GROUPS: {
     img: "/cases/guide-enterprise.jpg",
     imgAlt: "企业总部大堂里，一位负责设施与行政的经理拿着平板走向办公区",
     who: "如果你在企业里负责行政、IT 或设施",
-    what: "从一个场景开始——员工报事报修、设备巡检安全、卫生间品质。不动现有平台、不换团队，先把你最头疼的那件事跑通。",
-    slugs: ["property-group-chat-ai-service", "fmclaw-equipment-inspection", "restroom-quality"],
+    what: "从一个场景开始——员工报事报修、设备巡检安全、卫生间品质、多供应商保洁管理。不动现有平台、不换团队，先把你最头疼的那件事跑通。",
+    slugs: ["property-group-chat-ai-service", "fmclaw-equipment-inspection", "restroom-quality", "gigafactory-4-vendor-cleaning"],
+  },
+  {
+    id: "for-safety",
+    img: "/cases/guide-safety.jpg",
+    imgAlt: "地下设备机房里，一位身穿反光背心的工程师拿着平板巡检设备柜",
+    who: "如果你负责医院、轨道交通或危化区域这类高安全等级场景",
+    what: "这里的共同难题是漏修漏检——看三类场景怎么把「每一次巡检都真实发生」变成可核验的事实：医疗级服务标准、地铁机房日修日检、危化区域双人双岗巡查。",
+    slugs: ["intl-hospital-medical-grade-fm", "metro-3400-rooms-daily-inspection", "hazardous-area-dual-person-patrol"],
   },
   {
     id: "for-group",
@@ -109,7 +117,7 @@ export default function Page() {
             <Link href="/workshop" className="btn btn-ghost">预约 FMClaw™ 加速营</Link>
           </div>
           <div className="ca-proof">
-            <span>覆盖<b>综合体、智慧园区、集团总部、联合办公</b></span>
+            <span>覆盖<b>综合体、园区、医院、轨道交通、工厂、联合办公</b></span>
             <span className="sep" />
             <span>每个案例都有<b>规模、做法和结果</b></span>
             <span className="sep" />
@@ -133,7 +141,8 @@ export default function Page() {
                 <p>{g.what}</p>
               </div>
             </div>
-            <div className={`ca-list${g.slugs.length < 3 ? " two" : ""}`}>
+            {/* 孤儿卡片规则:4 张卡走 2×2,不许 3+1 */}
+            <div className={`ca-list${g.slugs.length < 3 || g.slugs.length === 4 ? " two" : ""}`}>
               {g.slugs.map((s) => <Card key={s} c={getCase(s)} />)}
               {g.id === "for-park" ? (
                 <Link className="ca-card ca-card-more" href="/cobuild">

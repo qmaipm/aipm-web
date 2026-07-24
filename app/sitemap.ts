@@ -92,6 +92,10 @@ const CASES = [
   "/cases/coworking-supplier-reconciliation",
   "/cases/restroom-quality",
   "/cases/fmclaw-equipment-inspection",
+  "/cases/intl-hospital-medical-grade-fm",
+  "/cases/metro-3400-rooms-daily-inspection",
+  "/cases/hazardous-area-dual-person-patrol",
+  "/cases/gigafactory-4-vendor-cleaning",
 ];
 
 export default function sitemap(): MetadataRoute.Sitemap {
