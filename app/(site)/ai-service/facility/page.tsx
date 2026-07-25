@@ -359,7 +359,7 @@ export default function Page() {
                 2019 年，为了把 AI 真正做进物业，我们自己开了一家物业公司：装传感器、跑工单、面对投诉，把每一个 AI 能力先用在自己身上，再对外提供服务。它自己的账本——<b>管理层 69 → 5 人，净利率 3.4% → 14%</b>——就是这套服务方式最直接的证据。
               </p>
               <div className="avc-who__links">
-                <Link className="av-link" href="/cases/aipm-property-ai-transformation">看爱物管自己的故事 <Arrow s={13} /></Link>
+                <Link className="av-link" href="/company/aipm-validation">看爱物管自己的故事 <Arrow s={13} /></Link>
                 <Link className="av-link" href="/company">关于启盟科技 <Arrow s={13} /></Link>
               </div>
             </div>

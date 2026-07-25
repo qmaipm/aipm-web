@@ -362,6 +362,7 @@ export default function Page() {
               <p>
                 今天,爱物管的全部项目由 FMClaw™ 平台接管运营,是 AI 物业服务的履约交付主体——<b>我们卖给你的每一项能力,自己都先用了很多年。</b>
               </p>
+              <Link className="cm-aw__link" href="/company/aipm-validation">看这次自营验证的完整账本 <Arrow /></Link>
               <Link className="cm-aw__link" href="/ai-service">看爱物管交付的 AI 物业服务 <Arrow /></Link>
             </div>
             <aside className="cm-aw__facts" aria-label="爱物管运营数据">

@@ -2,6 +2,7 @@ import Link from "next/link";
 import BeforeAfter from "../BeforeAfter";
 import "../scenarios.css";
 import { pageMetadata } from "@/lib/pageMetadata";
+import SeoFaq from "@/components/SeoFaq";
 
 export const metadata = pageMetadata("/scenarios/repair-bot", {
   title: "AI 报修客服 · 7×24 守群自动派单｜FMClaw™ 加速营场景",
@@ -39,6 +40,15 @@ export default function Page() {
         ]}
         note={`对话还在你原来的钉钉 / 飞书群里，AI 接的是"守群—接单—派单—通知"这一段；人只在派错或异常时介入。原有协作平台不替换，FMClaw 只补上业务闭环那一截。`}
         solutionHref="/solutions/operations"
+      />
+
+      <SeoFaq
+        heading="关于报修智能客服，你可能想问"
+        items={[
+          { q: "业主在群里随口一句，Bot 真能听懂是报修吗？", a: "能识别绝大多数口语化表达，听不准时会在群里追问确认，而不是猜着派单。识别后生成的标准化工单会带上原始对话与现场照片，接单人能看到完整上下文。" },
+          { q: "需要业主换 App 或小程序吗？", a: "不需要。业主还在原来的钉钉／飞书／企微群里说话，报修体验没有任何变化，变化发生在物业这一侧——不再需要人盯群。" },
+          { q: "夜里三点的报修也能处理吗？", a: "能。Bot 7×24 守群，接单与派单不分时段；夜间派单规则可以单独配置，比如紧急工单直接呼叫值班工程，非紧急工单排到次日早班。" },
+        ]}
       />
 
       {/* 收口 CTA */}

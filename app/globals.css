@@ -443,7 +443,13 @@ section.band.dark .scenario-quote .sq-detail{color:var(--dark-mut-c)}
 .endcta h2{font-size:clamp(34px,6vw,68px); letter-spacing:-.025em; max-width:18ch; margin:0 auto}
 .endcta p{margin-top:24px; font-size:20px; color:var(--ink-2)}
 .endcta .cta-row{margin-top:46px; display:flex; flex-direction:column; align-items:center; gap:20px}
-.endcta .alt{font-size:14px; color:var(--mut)}
+/* 一重一轻两个入口并排:重门(加速营)在左,轻门(先问一个问题)在右。
+   窄屏竖排,轻门在下,顺序即优先级。 */
+.endcta .cta-btns{display:flex; flex-wrap:wrap; justify-content:center; gap:14px}
+@media (max-width:520px){.endcta .cta-btns{flex-direction:column; width:100%}
+  .endcta .cta-btns .btn{width:100%}}
+/* 居中长句必须限宽:中文一行超过 40 字就串行,居中排版尤其难回到行首。 */
+.endcta .alt{font-size:14px; color:var(--mut); max-width:34em; line-height:1.7; margin:0 auto}
 .endcta .alt a{color:var(--ink); text-decoration:underline; text-underline-offset:3px; text-decoration-color:var(--line)}
 
 /* ---------- footer ---------- */

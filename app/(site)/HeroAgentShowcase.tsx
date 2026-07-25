@@ -10,6 +10,8 @@
  * 2. 画布 540×660（压缩上下留白），由外层包装按容器宽度等比缩放
  * 3. SSR / 无 JS / prefers-reduced-motion：初始即渲染完成终态
  *    （数据大屏卡居中、射线点亮），不再渲染空 div
+ * 3b. 首帧即完成态：水合后不重放入场动画（避免数秒空画布），
+ *     轮播从与静态首帧一致的稳定点（IoT感知 pulse2）直接续跑
  * 4. 轮播 4 图标 × 4.5s = 18s 一轮，符合首页 12–18s 循环要求
  * 5. keyframe 依赖改为首页自带 hpulse（home.css）
  */
@@ -127,6 +129,14 @@ const CAROUSEL_CONFIG = {
   cycleDuration: 6000,   // 增加停留时间
   slideDuration: 1200,   // 更慢的滑动，更优雅
 };
+
+// 首帧即完成态：水合后不重放入场动画，轮播直接从
+// 「IoT感知 图标激活、数据大屏卡片在最前」的稳定点继续，
+// 与 SSR 静态首帧完全一致，消除加载后的空画布窗口。
+// 0.50 位于 pulse2 区间（0.38–0.55）：图标已激活、射线点亮、卡片滑动已完成。
+const CAROUSEL_RESUME_PROGRESS = 0.50;
+// IoT感知（图标索引 2）位于轮播序列 [3,0,1,2] 的第 4 位（carouselIndex=3）
+const CAROUSEL_RESUME_OFFSET = ANIMATION_CONFIG.iconDuration * (3 + CAROUSEL_RESUME_PROGRESS);
 
 // ==========================================
 // 动画阶段类型
@@ -1238,7 +1248,7 @@ const IconsSVG = {
       <circle cx="16.75" cy="16.75" r="1.2" fill="currentColor" stroke="none" />
     </svg>
   ),
-  // 数据集市 - 数据库圆柱
+  // 数据本体 - 数据库圆柱
   payroll: (
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
       <ellipse cx="12" cy="6" rx="7" ry="3" />
@@ -1282,7 +1292,7 @@ const IconsSVG = {
 // 图标配置（首页适配：四个平台组成部分，均可点击进入对应产品页）
 // 射线触发对应关系：
 // - Agentic 套件（index=0）→ 触发服务优化报告卡片
-// - 数据集市（index=1）→ 触发员工薪资卡片
+// - 数据本体（index=1）→ 触发员工薪资卡片
 // - IoT 感知（index=2）→ 触发数据大屏卡片
 // - 机器人（index=3）→ 触发机器人作业中心卡片
 
@@ -1301,8 +1311,8 @@ const ICONS: IconConfig[] = [
   {
     id: 'payroll',
     icon: IconsSVG.payroll,
-    name: '数据集市',
-    href: '/products/fmclaw',
+    name: '数据本体',
+    href: '/products/fmclaw/ontology',
     side: 'top-right',
     lineStart: 'left',
     // 蓝金渐变 (gradient-blue-gold)
@@ -1477,7 +1487,7 @@ function ShowcaseCanvas({
   
   // 轮播状态（初始终态：数据大屏图标激活、射线完整点亮）
   const [currentIconIndex, setCurrentIconIndex] = useState(2);
-  const [iconProgress, setIconProgress] = useState(0.22);
+  const [iconProgress, setIconProgress] = useState(CAROUSEL_RESUME_PROGRESS);
 
   // 动效是否运行（仅在客户端且未开启 reduced-motion 时为 true）
   const [motionOn, setMotionOn] = useState(false);
@@ -1554,7 +1564,7 @@ function ShowcaseCanvas({
       // 复位到终态静帧，避免停在入场/滑动的中间帧
       setEntryPhase('complete');
       setCurrentIconIndex(2);
-      setIconProgress(0.22);
+      setIconProgress(CAROUSEL_RESUME_PROGRESS);
       setCarouselStep(0);
       setSlideProgress(0);
       startTimeRef.current = null;
@@ -1562,17 +1572,15 @@ function ShowcaseCanvas({
     }
     const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
     if (reduced) return;
-    setMotionOn(true);
-    setEntryPhase('icons-enter');
-    setEntryProgress(0);
-    setBorderTraceProgress(0);
-    setLineDrawProgress(0);
-    setEntryLineFadeOut(0);
-    setCurrentIconIndex(0);
-    setIconProgress(0);
+    // 首帧即完成态：不重放入场动画（会产生数秒空画布），
+    // 保持终态并让轮播从与静态首帧一致的稳定点继续。
+    setEntryPhase('complete');
+    setCurrentIconIndex(2);
+    setIconProgress(CAROUSEL_RESUME_PROGRESS);
     setCarouselStep(0);
     setSlideProgress(0);
     startTimeRef.current = null;
+    setMotionOn(true);
   }, [isActive]);
 
   // 入场动画
@@ -1635,10 +1643,10 @@ function ShowcaseCanvas({
 
   // 轮播动画（图标+卡片）
   // 重要规则：
-  // 1. 4 个图标全部参与轮播：Agentic套件(0) → 数据集市(1) → IoT感知(2) → 机器人(3) → 循环
+  // 1. 4 个图标全部参与轮播：Agentic套件(0) → 数据本体(1) → IoT感知(2) → 机器人(3) → 循环
   // 2. 射线触发对应关系：
   //    - Agentic套件 射线 → 服务优化报告卡片滑到最前
-  //    - 数据集市 射线 → 员工薪资卡片滑到最前
+  //    - 数据本体 射线 → 员工薪资卡片滑到最前
   //    - IoT感知 射线 → 数据大屏卡片滑到最前
   //    - 机器人 射线 → 机器人作业中心卡片滑到最前
   // 3. 卡片顺序: dashboard(0) → payroll(1) → report(2) → robot(3)
@@ -1651,11 +1659,12 @@ function ShowcaseCanvas({
     // 顺序从机器人(3)开始：入场结束时 dashboard 卡片在最前，
     // 而机器人的「上一张卡片」恰好是 dashboard（IoT感知→dashboard），
     // 这样首次轮播不会出现卡片瞬间跳变。
-    const carouselIconIndices = [3, 0, 1, 2];  // 机器人, Agentic套件, 数据集市, IoT感知
+    const carouselIconIndices = [3, 0, 1, 2];  // 机器人, Agentic套件, 数据本体, IoT感知
     const carouselLength = carouselIconIndices.length;  // 4
 
     const animate = (timestamp: number) => {
-      if (!startTimeRef.current) startTimeRef.current = timestamp;
+      // 从终态稳定点继续（IoT感知 激活、数据大屏卡在最前），首帧与 SSR 静帧一致
+      if (!startTimeRef.current) startTimeRef.current = timestamp - CAROUSEL_RESUME_OFFSET;
       const elapsed = timestamp - startTimeRef.current;
 
       // 图标轮播 - 4 个图标依次参与
@@ -1675,7 +1684,7 @@ function ShowcaseCanvas({
       // 
       // 射线触发对应关系：
       // - carouselIndex=0 (Agentic套件) → 服务优化报告卡片(2)滑到最前
-      // - carouselIndex=1 (数据集市) → 员工薪资卡片(1)滑到最前
+      // - carouselIndex=1 (数据本体) → 员工薪资卡片(1)滑到最前
       // - carouselIndex=2 (IoT感知) → 数据大屏卡片(0)滑到最前
       // - carouselIndex=3 (机器人) → 机器人作业中心卡片(3)滑到最前
       //
@@ -1691,7 +1700,7 @@ function ShowcaseCanvas({
       
       // 卡片目标状态：根据当前图标决定要显示哪张卡片（按图标索引映射）
       // icon 0(Agentic套件) → card 2(report)
-      // icon 1(数据集市) → card 1(payroll)
+      // icon 1(数据本体) → card 1(payroll)
       // icon 2(IoT感知) → card 0(dashboard)
       // icon 3(机器人) → card 3(robot)
       const iconToCardMap = [2, 1, 0, 3];  // 图标索引 → 卡片索引
@@ -1770,7 +1779,8 @@ function ShowcaseCanvas({
         ...style,
       }}
     >
-      {/* 背景辉光：柔化画布下方的网格背景，避免半透明/模糊元素与网格线冲突 */}
+      {/* 背景聚焦：演示区内的白色柔光，把视线收向居中卡片、并在城市底图上垫出可读区；
+          边缘渐隐，与城市底图自然融合 */}
       <div
         aria-hidden="true"
         style={{
@@ -1779,7 +1789,7 @@ function ShowcaseCanvas({
           zIndex: 0,
           pointerEvents: 'none',
           background:
-            'radial-gradient(ellipse 62% 55% at 50% 46%, rgba(255,255,255,0.95) 0%, rgba(255,255,255,0.75) 45%, rgba(255,255,255,0) 78%)',
+            'radial-gradient(ellipse 62% 55% at 50% 46%, rgba(255,255,255,0.9) 0%, rgba(255,255,255,0.6) 45%, rgba(255,255,255,0) 78%)',
         }}
       />
 
@@ -1801,12 +1811,6 @@ function ShowcaseCanvas({
           ? getIconActivation(iconProgress, isCurrentIcon)
           : { isActive: isCurrentIcon && entryPhase !== 'idle', progress: entryProgress };
 
-        // 标签对齐：左侧图标左对齐、右侧图标右对齐，避免长名称超出画布被裁切
-        const isLeftSide = iconConfig.side.endsWith('left');
-        const labelStyle: React.CSSProperties = isLeftSide
-          ? { left: pos.x, textAlign: 'left' }
-          : { left: pos.x + LAYOUT.iconSize, transform: 'translateX(-100%)', textAlign: 'right' };
-
         // 标签在上方，图标在下方；整体包成链接，可点击进入对应产品页
         return (
           <Link
@@ -1816,20 +1820,25 @@ function ShowcaseCanvas({
             aria-label={`${iconConfig.name}，查看详情`}
             style={{ ['--hsc-c' as string]: iconConfig.startColor }}
           >
-            {/* 图标标签（在图标上方） */}
+            {/* 图标标签：居中于图标正上方，激活/悬停时跟随图标同步上浮（间距恒定不拥挤）；
+                跳转箭头绝对定位不占宽度，保证居中精确 */}
             <span
               className="hsc-label"
               style={{
                 position: 'absolute',
-                top: pos.y - 19,
-                fontSize: '10px',
-                fontWeight: activation.isActive ? 600 : 400,
+                // 居中于图标中轴；两端夹取 44px，防止最宽标签越出画布被 overflow 裁切
+                left: Math.min(Math.max(pos.x + LAYOUT.iconSize / 2, 44), LAYOUT.canvasWidth - 44),
+                top: pos.y - 25,
+                fontSize: '12px',
+                fontWeight: activation.isActive ? 600 : 500,
                 color: activation.isActive ? iconConfig.startColor : '#64748b',
+                // 直接悬浮在城市底图上：白色柔光晕保证标签压在楼宇纹理上仍可读
+                textShadow: '0 0 6px rgba(255,255,255,.9), 0 0 2px rgba(255,255,255,.9)',
                 whiteSpace: 'nowrap',
                 transition: 'all 0.3s',
                 opacity: entryPhase === 'icons-enter' ? entryProgress : 1,
+                transform: `translate(-50%, ${activation.isActive ? -2 : 0}px)`,
                 zIndex: 25,
-                ...labelStyle,
               }}
             >
               {iconConfig.name}
@@ -2077,7 +2086,7 @@ function ShowcaseCanvas({
             const easedSlide = easeOut(slideProgress);
             
             // 当前显示的卡片索引和目标卡片索引
-            const iconToCardMap = [2, 1, 0, 3];  // Agentic套件→报告, 数据集市→薪资, IoT感知→大屏, 机器人→机器人作业
+            const iconToCardMap = [2, 1, 0, 3];  // Agentic套件→报告, 数据本体→薪资, IoT感知→大屏, 机器人→机器人作业
             const targetCardIndex = slideProgress > 0 ? iconToCardMap[currentIconIndex] : carouselStep;
             
             // 计算每张卡片的位置（4 卡循环）
@@ -2272,7 +2281,9 @@ function ShowcaseCanvas({
  */
 export default function HeroAgentShowcase() {
   const wrapRef = useRef<HTMLDivElement>(null);
-  const [scale, setScale] = useState(1);
+  // 初始 0.93 ≈ 505px 演示舞台内的实际比例：SSR/无 JS 静帧不裁切画布边缘，
+  // 客户端水合后按容器实测宽度立即校正（桌面端结果与初始值几乎一致）
+  const [scale, setScale] = useState(0.93);
   const [active, setActive] = useState(false);
 
   // 按容器宽度等比缩放固定画布

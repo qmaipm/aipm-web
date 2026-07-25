@@ -3,6 +3,7 @@ import Link from "next/link";
 import Image from "next/image";
 import "./page.css";
 import { pageMetadata } from "@/lib/pageMetadata";
+import SeoFaq from "@/components/SeoFaq";
 import ProductCrumb from "../_crumb";
 
 export const dynamic = "force-dynamic";
@@ -104,6 +105,15 @@ export default function Page() {
           </div>
         </div>
       </section>
+
+      <SeoFaq
+        heading="关于机器人装备，你可能想问"
+        items={[
+          { q: "机器人会替代保洁和巡检员工吗？", a: "替代的是重复体力活，不是人。机器人接手日复一日的清洁与巡检路线，人留出来做需要判断的事——异常处置、客户服务、精细清洁。" },
+          { q: "机器人采的数据能进物业管理系统吗？", a: "能。作业记录与巡检影像统一接入 FMClaw 数据本体，和工单、质检、考核用的是同一份数据，不是另外一座孤岛。" },
+          { q: "四足巡检机器人和轮式机器人怎么选？", a: "看地形。室内平面场景用轮式清洁机器人就够；台阶、斜坡、砂石路这类复杂非结构化地形，才需要四足巡检机器人。选型建议带着实际点位图来聊。" },
+        ]}
+      />
 
       {/* ===== END CTA ===== */}
       <section className="endcta">
