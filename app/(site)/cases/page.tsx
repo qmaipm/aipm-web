@@ -46,8 +46,8 @@ const GROUPS: {
     img: "/cases/guide-enterprise.jpg",
     imgAlt: "企业总部大堂里，一位负责设施与行政的经理拿着平板走向办公区",
     who: "如果你在企业里负责行政、IT 或设施",
-    what: "从一个场景开始——员工报事报修、设备巡检安全、卫生间品质、多供应商保洁管理。不动现有平台、不换团队，先把你最头疼的那件事跑通。",
-    slugs: ["property-group-chat-ai-service", "fmclaw-equipment-inspection", "restroom-quality", "gigafactory-4-vendor-cleaning"],
+    what: "从一个场景开始——员工报事报修、设备巡检安全、卫生间品质、服务标准量化、多供应商管理。不动现有平台、不换团队，先把你最头疼的那件事跑通。",
+    slugs: ["property-group-chat-ai-service", "fmclaw-equipment-inspection", "coworking-supplier-reconciliation", "restroom-quality", "gigafactory-4-vendor-cleaning"],
   },
   {
     id: "for-safety",
@@ -62,8 +62,8 @@ const GROUPS: {
     img: "/cases/guide-group.jpg",
     imgAlt: "物业集团办公室里，两位负责人望向窗外的城市商务区",
     who: "如果你在物业集团负责经营或数字化",
-    what: "看规模化的经验——智能体在 500 个项目集团化落地、跨三方的服务对账，以及一个亏损项目的账是怎么重新算平的。",
-    slugs: ["property-group-auto-operation-report", "coworking-supplier-reconciliation", "south-china-mixed-use-6-to-1"],
+    what: "看规模化的经验——智能体在 500 个项目集团化落地，以及一个亏损项目的账是怎么重新算平的。",
+    slugs: ["property-group-auto-operation-report", "south-china-mixed-use-6-to-1"],
   },
   {
     id: "for-park",

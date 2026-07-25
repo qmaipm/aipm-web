@@ -1248,7 +1248,7 @@ const IconsSVG = {
       <circle cx="16.75" cy="16.75" r="1.2" fill="currentColor" stroke="none" />
     </svg>
   ),
-  // 数据集市 - 数据库圆柱
+  // 数据本体 - 数据库圆柱
   payroll: (
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
       <ellipse cx="12" cy="6" rx="7" ry="3" />
@@ -1292,7 +1292,7 @@ const IconsSVG = {
 // 图标配置（首页适配：四个平台组成部分，均可点击进入对应产品页）
 // 射线触发对应关系：
 // - Agentic 套件（index=0）→ 触发服务优化报告卡片
-// - 数据集市（index=1）→ 触发员工薪资卡片
+// - 数据本体（index=1）→ 触发员工薪资卡片
 // - IoT 感知（index=2）→ 触发数据大屏卡片
 // - 机器人（index=3）→ 触发机器人作业中心卡片
 
@@ -1311,8 +1311,8 @@ const ICONS: IconConfig[] = [
   {
     id: 'payroll',
     icon: IconsSVG.payroll,
-    name: '数据集市',
-    href: '/products/fmclaw',
+    name: '数据本体',
+    href: '/products/fmclaw/ontology',
     side: 'top-right',
     lineStart: 'left',
     // 蓝金渐变 (gradient-blue-gold)
@@ -1643,10 +1643,10 @@ function ShowcaseCanvas({
 
   // 轮播动画（图标+卡片）
   // 重要规则：
-  // 1. 4 个图标全部参与轮播：Agentic套件(0) → 数据集市(1) → IoT感知(2) → 机器人(3) → 循环
+  // 1. 4 个图标全部参与轮播：Agentic套件(0) → 数据本体(1) → IoT感知(2) → 机器人(3) → 循环
   // 2. 射线触发对应关系：
   //    - Agentic套件 射线 → 服务优化报告卡片滑到最前
-  //    - 数据集市 射线 → 员工薪资卡片滑到最前
+  //    - 数据本体 射线 → 员工薪资卡片滑到最前
   //    - IoT感知 射线 → 数据大屏卡片滑到最前
   //    - 机器人 射线 → 机器人作业中心卡片滑到最前
   // 3. 卡片顺序: dashboard(0) → payroll(1) → report(2) → robot(3)
@@ -1659,7 +1659,7 @@ function ShowcaseCanvas({
     // 顺序从机器人(3)开始：入场结束时 dashboard 卡片在最前，
     // 而机器人的「上一张卡片」恰好是 dashboard（IoT感知→dashboard），
     // 这样首次轮播不会出现卡片瞬间跳变。
-    const carouselIconIndices = [3, 0, 1, 2];  // 机器人, Agentic套件, 数据集市, IoT感知
+    const carouselIconIndices = [3, 0, 1, 2];  // 机器人, Agentic套件, 数据本体, IoT感知
     const carouselLength = carouselIconIndices.length;  // 4
 
     const animate = (timestamp: number) => {
@@ -1684,7 +1684,7 @@ function ShowcaseCanvas({
       // 
       // 射线触发对应关系：
       // - carouselIndex=0 (Agentic套件) → 服务优化报告卡片(2)滑到最前
-      // - carouselIndex=1 (数据集市) → 员工薪资卡片(1)滑到最前
+      // - carouselIndex=1 (数据本体) → 员工薪资卡片(1)滑到最前
       // - carouselIndex=2 (IoT感知) → 数据大屏卡片(0)滑到最前
       // - carouselIndex=3 (机器人) → 机器人作业中心卡片(3)滑到最前
       //
@@ -1700,7 +1700,7 @@ function ShowcaseCanvas({
       
       // 卡片目标状态：根据当前图标决定要显示哪张卡片（按图标索引映射）
       // icon 0(Agentic套件) → card 2(report)
-      // icon 1(数据集市) → card 1(payroll)
+      // icon 1(数据本体) → card 1(payroll)
       // icon 2(IoT感知) → card 0(dashboard)
       // icon 3(机器人) → card 3(robot)
       const iconToCardMap = [2, 1, 0, 3];  // 图标索引 → 卡片索引
@@ -2086,7 +2086,7 @@ function ShowcaseCanvas({
             const easedSlide = easeOut(slideProgress);
             
             // 当前显示的卡片索引和目标卡片索引
-            const iconToCardMap = [2, 1, 0, 3];  // Agentic套件→报告, 数据集市→薪资, IoT感知→大屏, 机器人→机器人作业
+            const iconToCardMap = [2, 1, 0, 3];  // Agentic套件→报告, 数据本体→薪资, IoT感知→大屏, 机器人→机器人作业
             const targetCardIndex = slideProgress > 0 ? iconToCardMap[currentIconIndex] : carouselStep;
             
             // 计算每张卡片的位置（4 卡循环）
