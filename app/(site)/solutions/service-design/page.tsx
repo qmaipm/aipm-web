@@ -3,6 +3,7 @@ import Link from "next/link";
 import Image from "next/image";
 import "./page.css";
 import { pageMetadata } from "@/lib/pageMetadata";
+import SeoFaq from "@/components/SeoFaq";
 
 export const metadata: Metadata = pageMetadata("/solutions/service-design", {
   title: "服务设计 · 智能体解决方案 | 启盟科技",
@@ -186,6 +187,17 @@ export default function ServiceDesignPage() {
           </figure>
         </div>
       </section>
+
+      <SeoFaq
+        heading="关于服务设计 Agent，你可能想问"
+        serviceName="服务设计 Agent"
+        serviceDesc="根据项目业态与需求自动建模，给出服务标准、人员编制和预算。"
+        items={[
+          { q: "30 分钟出的方案，能直接拿去投标吗？", a: "不建议直接投。它是一版可讨论的方案底稿，把从零开始的几天压成从底稿开始的几小时；经验判断与项目特殊性的调整，仍然由人完成。" },
+          { q: "人员编制和预算的数据从哪来，可信吗？", a: "每一笔都标着数据来源。测算基于业态、面积、设备清单与行业基准数据，不是模型编造；觉得哪项不合理，可以逆着来源逐项核。" },
+          { q: "我们自己的历史项目经验能喴进去吗？", a: "能。历史项目的编制、成本与服务标准可以作为企业自有基准接入，新方案优先参照你自己的数据，行业基准只做补位。" },
+        ]}
+      />
 
       {/* CTA */}
       <section className="endcta">

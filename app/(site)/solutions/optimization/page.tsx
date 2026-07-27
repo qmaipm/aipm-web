@@ -3,6 +3,7 @@ import Link from "next/link";
 import Image from "next/image";
 import "./page.css";
 import { pageMetadata } from "@/lib/pageMetadata";
+import SeoFaq from "@/components/SeoFaq";
 
 export const metadata: Metadata = pageMetadata("/solutions/optimization", {
   title: "服务优化 · 智能体解决方案 | 启盟科技",
@@ -186,6 +187,17 @@ export default function OptimizationPage() {
           </figure>
         </div>
       </section>
+
+      <SeoFaq
+        heading="关于服务优化 Agent，你可能想问"
+        serviceName="服务优化 Agent"
+        serviceDesc="汇总质检与运营数据，聚类定位高频问题，把改进写回服务标准。"
+        items={[
+          { q: "没有积累过质检数据的项目能用吗？", a: "能，但要先跑一段。服务优化吃的是质量评估与运营管理产出的数据，一般先跑一到两个月积累数据，再做第一轮聚类分析。" },
+          { q: "AI 给的改进建议靠谱吗，会不会是正确的废话？", a: "建议都带数据依据：高频问题 Top5、问题环节定位、根因关联，每一条都能点开看到背后的具体工单与照片；采不采纳、怎么改，由人决定。" },
+          { q: "改进怎么回到服务标准里，靠人手工改吗？", a: "由人确认、系统落地。采纳的改进直接更新到服务设计的标准配置，下一轮工作流自动按新标准执行——这正是四个 Agent 环节相接的意义。" },
+        ]}
+      />
 
       {/* CTA */}
       <section className="endcta">

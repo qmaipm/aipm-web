@@ -85,6 +85,10 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="zh-CN">
       <body className="antialiased">
+        {/* 无 JS 降级：.reveal 依赖 JS 加 .in 才显形，无 JS 时直接显示全部内容 */}
+        <noscript>
+          <style>{`.reveal{opacity:1 !important;transform:none !important}`}</style>
+        </noscript>
         <JsonLd data={[ORG_LD, SITE_LD]} />
         <BaiduAnalytics />
         {children}
