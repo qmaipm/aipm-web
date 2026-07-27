@@ -3,6 +3,7 @@ import Link from "next/link";
 import Image from "next/image";
 import "./page.css";
 import { pageMetadata } from "@/lib/pageMetadata";
+import SeoFaq from "@/components/SeoFaq";
 
 export const metadata: Metadata = pageMetadata("/solutions/operations", {
   title: "运营管理 · 智能体解决方案 | 启盟科技",
@@ -199,6 +200,17 @@ export default function OperationsPage() {
           </figure>
         </div>
       </section>
+
+      <SeoFaq
+        heading="关于运营管理 Agent，你可能想问"
+        serviceName="运营管理 Agent"
+        serviceDesc="把服务标准转成每天可执行的工作流，实时调度、自动响应异常。"
+        items={[
+          { q: "Agent 自动调度，管理者还能插手吗？", a: "能，而且必须。重要动作先经人审批确认，日常派单可以随时改派；管理者的角色从逐件安排，变成在交互界面里审批与确认。" },
+          { q: "巡检、保洁、维修、安防能在一套里管吗？", a: "能。四类任务统一编排、同一张负载表派单，不再各自一套排班互不知道；人员跨任务类型的忙闲不均也能被看见。" },
+          { q: "服务标准改了，工作流要重新开发吗？", a: "不用。服务标准是配置不是代码，频次、点位、时限调整后工作流自动按新标准执行，当天生效。" },
+        ]}
+      />
 
       {/* CTA */}
       <section className="endcta">

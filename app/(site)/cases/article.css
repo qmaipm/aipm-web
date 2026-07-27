@@ -9,6 +9,9 @@
   --cf-line:#E6EAE8; --cf-line-2:#EEF2F0; --cf-mist:#ECF3F1; --cf-paper:#FFFFFF; --cf-core:#0B1714;
   --cf-blue:#0070FF; --cf-green:#12B98A; --cf-grad:linear-gradient(115deg,#0070FF,#12B98A);
   --cf-vi-line:rgba(12,139,130,.16);
+  /* 阅读栏宽:约 36 个汉字/行。中文舒适阅读区 30–40 字/行,超过 50 字极易串行。
+     对标 Anthropic 案例页实测 715px / 20px。不要改大。 */
+  --cf-read:36em;
   background:var(--cf-paper); color:var(--cf-ink);
 }
 .casefx .wrap{max-width:1160px;margin:0 auto;padding:0 32px}
@@ -37,7 +40,20 @@
   color:var(--cf-ink);max-width:17ch}
 .cf-lead{margin:26px 0 0;font-size:clamp(16px,1.8vw,19px);line-height:1.6;color:var(--cf-ink-2);max-width:44ch;font-weight:400}
 .cf-lead b{color:var(--cf-ink);font-weight:600}
-/* meta 行(行业·规模·地区 / 采用产品) */
+/* 档案栏 chips(行业 / 规模 / 地区、采用产品 / 发布更新)
+   一行灰色小字读起来像注释,拆成带标签的 chip 才像可查的档案。
+   dt 是维度名(小号大写引导),dd 是值(墨色,可读)。 */
+.cf-facts{margin:26px 0 0;padding:0;display:flex;flex-wrap:wrap;gap:10px}
+.cf-fact{display:flex;flex-direction:column;gap:3px;padding:9px 15px;
+  border:1px solid var(--cf-line);border-radius:11px;background:var(--cf-paper)}
+.cf-fact dt{margin:0;font-size:10.5px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--cf-faint)}
+.cf-fact dd{margin:0;font-size:13.5px;font-weight:600;line-height:1.4;color:var(--cf-ink)}
+.cf-facts-2{margin-top:28px}
+.cf-facts-2 .cf-fact{background:transparent;border-style:dashed}
+.cf-facts-2 .cf-fact dd{font-weight:600;color:var(--cf-ink-2)}
+@media(max-width:600px){.cf-facts{gap:8px}.cf-fact{padding:8px 12px}.cf-fact dd{font-size:12.5px}}
+
+/* meta 行(旧版,其他页面仍在用) */
 .cf-montag{margin-top:34px;font-size:12.5px;font-weight:600;letter-spacing:.06em;color:var(--cf-mut);
   display:flex;flex-wrap:wrap;gap:8px 24px;align-items:center}
 .cf-montag b{color:var(--cf-ink);font-weight:700}
@@ -63,19 +79,33 @@
   text-transform:uppercase;color:var(--cf-green)}
 .cf-eyebrow::before{content:"";width:22px;height:2px;border-radius:2px;background:var(--cf-grad)}
 .cf-eyebrow.on-dark{color:#3fd9b8}
-.cf-h2{margin:18px 0 0;font-weight:800;font-size:clamp(27px,3.4vw,40px);line-height:1.18;letter-spacing:-.03em;color:var(--cf-ink)}
+.cf-h2{margin:18px 0 0;font-weight:800;font-size:clamp(27px,3.4vw,40px);line-height:1.18;letter-spacing:-.03em;color:var(--cf-ink);max-width:24ch}
 .cf-h2.on-dark{color:#fff}
 
 /* 分节:标题在上,内容在下 */
 .cf-sec{display:block}
 .cf-sec-head{margin-bottom:40px}
 .cf-sec-body{max-width:none}
-.cf-sec-body>p{margin:0 0 1.15em;max-width:none;font-size:17px;line-height:1.8;color:var(--cf-ink-2)}
+/* 正文段落走阅读栏宽(--cf-read)。卡片/流程/表格等结构化组件不受限,继续用满宽。 */
+.cf-sec-body>p{margin:0 0 1.15em;max-width:var(--cf-read);font-size:18px;line-height:1.8;color:var(--cf-ink-2)}
 .cf-sec-body>p:last-child{margin-bottom:0}
 .cf-sec-body>p b,.cf-sec-body>p strong{color:var(--cf-ink);font-weight:600}
+/* 段落之间夹结构化组件时,上下留出比段间距更明确的呼吸 */
+.cf-sec-body>.cf-flow,.cf-sec-body>.cf-points,.cf-sec-body>.cf-note,
+.cf-sec-body>.cf-cmp,.cf-sec-body>.cf-fig{margin:34px 0}
+.cf-sec-body>.cf-flow:last-child,.cf-sec-body>.cf-points:last-child,
+.cf-sec-body>.cf-note:last-child,.cf-sec-body>.cf-cmp:last-child,
+.cf-sec-body>.cf-fig:last-child{margin-bottom:0}
+.cf-sec-body>.cf-note{max-width:var(--cf-read)}
 
 /* ---------- 可扫读要点 → 卡片(顶部 VI 渐变条,与 fmx relay 一致) ---------- */
+/* 列数由卡片数量决定,绝不让最后一张卡片单独占一行(§3a 无孤儿卡片)。
+   2 / 4 张走两列(4 张成 2×2);3 张走三列,正好对上正文里「三类…」的说法。
+   5 张以上会重新出现孤儿,已由 scripts/cases-lint.mjs 卡住数量。 */
 .cf-points{margin:0;padding:0;list-style:none;display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.cf-points:has(>li:nth-child(3):last-child){grid-template-columns:repeat(3,minmax(0,1fr))}
+/* 三列在中等屏会挤到读不了,而退成两列又会留孤儿,所以直接单列。 */
+@media(max-width:940px){.cf-points:has(>li:nth-child(3):last-child){grid-template-columns:1fr}}
 @media(max-width:760px){.cf-points{grid-template-columns:1fr}}
 .cf-point{position:relative;border:1px solid var(--cf-line);border-radius:14px;background:var(--cf-paper);
   padding:26px 26px 24px;transition:border-color .2s,box-shadow .2s,transform .2s}
@@ -84,7 +114,59 @@
 .cf-point-k{display:block;font-size:16.5px;font-weight:700;line-height:1.5;color:var(--cf-ink);letter-spacing:-.01em}
 .cf-point-d{display:block;margin-top:8px;font-size:14px;line-height:1.6;color:var(--cf-mut)}
 
+/* ---------- 适用性判断(CaseFit)---------- */
+/* 两栏等高对照:左「可以照这条路径走」,右「这些情况先别急着上」。
+   刻意不用红绿:右栏不是错误提示,是前置条件清单,所以走中性墨色 + 灰竖线。
+   只有左栏带 VI 绿,避免整页出现第三种色系(SKILL 蓝绿双色约束)。 */
+.cf-fit{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin:0 0 30px}
+@media(max-width:860px){.cf-fit{grid-template-columns:1fr}}
+.cf-fit-col{border:1px solid var(--cf-line);border-radius:14px;background:var(--cf-paper);padding:24px 26px 22px}
+.cf-fit-h{display:flex;align-items:center;gap:10px;font-size:15.5px;font-weight:700;
+  letter-spacing:-.01em;color:var(--cf-ink);padding-bottom:14px;margin-bottom:16px;
+  border-bottom:1px solid var(--cf-line-2)}
+.cf-fit-h i{flex:0 0 auto;width:16px;height:16px;border-radius:5px;background:var(--cf-line)}
+.cf-fit-col.yes .cf-fit-h i{background:var(--cf-grad)}
+.cf-fit-col ul{margin:0;padding:0;list-style:none;display:flex;flex-direction:column;gap:13px}
+.cf-fit-col li{position:relative;padding-left:17px;font-size:15.5px;line-height:1.7;color:var(--cf-ink-2)}
+/* 列表符号用短横而非圆点:条目是完整句子,圆点会读成并列名词。 */
+.cf-fit-col li::before{content:"";position:absolute;left:0;top:.72em;width:9px;height:2px;
+  border-radius:2px;background:var(--cf-faint)}
+.cf-fit-col.yes li::before{background:var(--cf-green)}
+
+/* 接入方式:回答「我要付出什么」。横排 chips,一眼扫完,不占正文的注意力。 */
+.cf-cost-wrap{border-top:1px solid var(--cf-line);padding-top:24px}
+.cf-cost-h{font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;
+  color:var(--cf-faint);margin-bottom:16px}
+.cf-cost{margin:0;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
+/* 2 条走两列、1 条走单列:列数跟着条数走,不留孤儿(§3a)。 */
+.cf-cost:has(>.cf-cost-item:nth-child(2):last-child){grid-template-columns:1fr 1fr}
+.cf-cost:has(>.cf-cost-item:first-child:last-child){grid-template-columns:1fr}
+@media(max-width:860px){.cf-cost{grid-template-columns:1fr}}
+.cf-cost-item{padding-left:15px;border-left:2px solid var(--cf-line)}
+.cf-cost-item dt{margin:0;font-size:14.5px;font-weight:700;line-height:1.5;color:var(--cf-ink)}
+.cf-cost-item dd{margin:6px 0 0;font-size:14px;line-height:1.65;color:var(--cf-mut)}
+
 /* ---------- 实现流程 → 信号路径(遥测语言:渐变导轨 + 渐变编号站点) ---------- */
+/* ---------- 过程中的摩擦(CaseFriction)---------- */
+/* 三行定值表:起初以为 / 实际发生 / 后来怎么过的。
+   刻意做成最朴素的样子——不加卡片阴影、不加图标、不用警示色。
+   摩擦一旦被"设计"过,就读成了公关话术;越素越像人在讲实话。
+   限宽走 --cf-read,它是叙事的一部分,不是数据展板。 */
+.cf-fr{margin:0;max-width:var(--cf-read);border-left:2px solid var(--cf-line);padding-left:26px;
+  display:flex;flex-direction:column;gap:22px}
+@media(max-width:640px){.cf-fr{padding-left:18px;gap:18px}}
+/* 标签定宽 5em(「后来怎么过的」是 6 字,给足不折行),正文跟在右侧。
+   窄屏改上下堆叠:并排时中文正文只剩十几字一行,读起来是断的。 */
+.cf-fr-row{display:grid;grid-template-columns:5.6em 1fr;gap:18px;align-items:baseline}
+@media(max-width:640px){.cf-fr-row{grid-template-columns:1fr;gap:6px}}
+.cf-fr-row dt{margin:0;font-size:13px;font-weight:700;line-height:1.7;letter-spacing:.02em;
+  color:var(--cf-faint);white-space:nowrap}
+.cf-fr-row dd{margin:0;font-size:17px;line-height:1.85;color:var(--cf-ink-2)}
+/* 只有「后来怎么过的」一行加重:它是读者真正要抄走的东西。
+   前两行是背景,读者扫过即可,不要三行同权重打架。 */
+.cf-fr-row.is-out dt{color:var(--cf-green)}
+.cf-fr-row.is-out dd{color:var(--cf-ink);font-weight:500}
+
 .cf-flow{list-style:none;margin:0;padding:0;position:relative}
 .cf-step{position:relative;padding:0 0 30px 66px}
 .cf-step:last-child{padding-bottom:0}
@@ -98,7 +180,7 @@
 .cf-step-n span{background:var(--cf-grad);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
 @supports not ((-webkit-background-clip:text) or (background-clip:text)){.cf-step-n span{color:var(--cf-green);-webkit-text-fill-color:currentColor}}
 .cf-step-k{font-size:17px;font-weight:700;line-height:1.4;color:var(--cf-ink);letter-spacing:-.01em;padding-top:9px}
-.cf-step-d{margin:8px 0 0;font-size:15px;line-height:1.75;color:var(--cf-ink-2);max-width:58ch}
+.cf-step-d{margin:8px 0 0;font-size:15.5px;line-height:1.75;color:var(--cf-ink-2);max-width:32em}
 @media(max-width:600px){.cf-step{padding-left:58px}.cf-step-n{width:38px;height:38px}.cf-step:not(:last-child)::before{left:18px}}
 
 /* 成果清单(如仍使用) */
@@ -114,6 +196,8 @@
 .cf-core .wrap{position:relative;z-index:1}
 .cf-voice{margin:26px auto 0;font-size:clamp(22px,2.7vw,32px);font-weight:700;letter-spacing:-.02em;line-height:1.42;color:#fff;max-width:26ch}
 .cf-voice-by{margin-top:30px;font-size:12px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:#8FA39C}
+/* 说话人的可核验职责范围:回答读者「这个人和我处境一样吗」 */
+.cf-voice-scope{margin-top:9px;font-size:13px;line-height:1.6;color:#6F827B;max-width:34em;margin-left:auto;margin-right:auto}
 
 /* ---------- FAQ(可折叠) ---------- */
 .cf-faq-list{margin:0;max-width:none;border-top:1px solid var(--cf-line)}
@@ -125,18 +209,21 @@
   border-right:2px solid var(--cf-faint);border-bottom:2px solid var(--cf-faint);transform:rotate(45deg);transition:transform .2s,border-color .2s}
 .cf-faq-item[open] summary,.cf-faq-item summary:hover{color:var(--cf-green)}
 .cf-faq-item[open] summary::after{transform:rotate(-135deg);border-color:var(--cf-green)}
-.cf-faq-a{margin:0 0 22px;font-size:15px;line-height:1.8;color:var(--cf-ink-2)}
+.cf-faq-a{margin:0 0 22px;font-size:15.5px;line-height:1.8;color:var(--cf-ink-2);max-width:var(--cf-read)}
 
 /* ---------- 相关案例 ---------- */
-.cf-related{margin-top:42px;display:grid;grid-template-columns:1fr 1fr;gap:16px}
-@media(max-width:760px){.cf-related{grid-template-columns:1fr}}
-.cf-rcard{border:1px solid var(--cf-line);border-radius:16px;background:var(--cf-paper);padding:28px 28px 26px;
+/* getRelated 固定给 3 条,所以是三列。两列会让第三张卡片单独占一行(孤儿卡片)。
+   改 getRelated 的条数时必须同步改这里。 */
+.cf-related{margin-top:42px;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
+@media(max-width:940px){.cf-related{grid-template-columns:1fr}}
+.cf-rcard{border:1px solid var(--cf-line);border-radius:16px;background:var(--cf-paper);padding:26px 24px 24px;
   transition:border-color .2s,box-shadow .2s,transform .2s;display:block}
 .cf-rcard:hover{border-color:rgba(12,139,130,.34);box-shadow:0 16px 38px rgba(12,139,130,.08);transform:translateY(-3px)}
 .cf-rcard .rmeta{font-size:11.5px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--cf-mut);margin-bottom:12px}
-.cf-rcard h3{margin:0 0 10px;font-size:19px;font-weight:700;letter-spacing:-.01em;color:var(--cf-ink);line-height:1.3}
+/* 三列比原先的两列窄,标题降一档才不会一张卡片折出五六行 */
+.cf-rcard h3{margin:0 0 10px;font-size:17.5px;font-weight:700;letter-spacing:-.01em;color:var(--cf-ink);line-height:1.4}
 .cf-rcard:hover h3{color:var(--cf-green)}
-.cf-rcard p{margin:0;font-size:14px;line-height:1.6;color:var(--cf-ink-2)}
+.cf-rcard p{margin:0;font-size:13.5px;line-height:1.65;color:var(--cf-ink-2)}
 
 /* ============================================================
    旗舰样板 · 长版叙事详情页(爱物管)—— 沿用 .casefx 视觉系统
@@ -161,6 +248,7 @@
   background:linear-gradient(115deg,#5AA9FF,#3fd9b8);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;width:max-content}
 @supports not ((-webkit-background-clip:text) or (background-clip:text)){.cf-cover-metric b{color:#3fd9b8;-webkit-text-fill-color:currentColor}}
 .cf-cover-metric span{display:block;margin-top:8px;font-size:12.5px;color:rgba(255,255,255,.72)}
+.cf-cover-date{margin:26px 0 0;font-size:12.5px;font-weight:600;letter-spacing:.06em;color:rgba(255,255,255,.6)}
 
 /* 正文列:与其他案例/文章页一致,占满 wrap 宽度 */
 .cf-article{max-width:none}
@@ -173,10 +261,16 @@
 .cf-article a:hover{text-decoration-color:var(--cf-green)}
 .cf-article .cf-fig,.cf-article .cf-cmp,.cf-article .cf-pull,.cf-article .cf-note{margin:28px 0}
 
-/* 章节配图 */
+/* 章节配图 —— 产品界面截图,不是装饰。
+   宽度由组件的 maxWidth 内联控制(必须 ≤ 原图宽度的一半,保证 Retina 下不糊),
+   这里只负责边框、圆角与图注。左对齐:它跟着正文走,居中会读成展示物。 */
 .cf-fig{margin:0}
 .cf-fig img{display:block;width:100%;height:auto;border:1px solid var(--cf-line);border-radius:16px;background:var(--cf-mist)}
-.cf-fig figcaption{margin-top:10px;font-size:13px;line-height:1.55;color:var(--cf-mut);text-align:center}
+/* 图注左对齐并与图等宽:它是这张图的说明,不是标题。
+   居中的图注在左对齐的正文流里会显得飘。 */
+.cf-fig figcaption{margin-top:12px;font-size:13px;line-height:1.6;color:var(--cf-mut)}
+/* 窄屏:内联 maxWidth 可能比视口还宽,这里强制收回,否则出现横向滚动。 */
+@media(max-width:640px){.cf-fig{max-width:100%!important}}
 
 /* 创始人引言(内联停顿点,VI 渐变左边线) */
 .cf-pull{position:relative;padding:4px 0 4px 26px;border-left:3px solid transparent;border-image:var(--cf-grad) 1}
@@ -203,6 +297,43 @@
 .cf-cmp-head .cf-cmp-lab{color:var(--cf-ink-2);font-weight:700}
 .cf-cmp-head .cf-cmp-trad,.cf-cmp-head .cf-cmp-aipm{font-size:14px;font-weight:700;color:var(--cf-ink);justify-content:center;text-align:right}
 .cf-cmp-head .cf-cmp-aipm{color:var(--cf-green)}
+
+/* 文字行:上面那套是给「24% → 95%」这类数字设计的(大号、右对齐)。
+   短句套进去会被挤成一字一行,所以文字行降到正文号、左对齐、可正常折行。 */
+/* 类名必须带 cf- 前缀:曾用过 .prose,和 Tailwind Typography 的 .prose
+   (max-width:65ch)撞名,导致文字行被压到 760px、和其他行列宽对不上。 */
+.cf-cmp-row.cf-cmp-txt>div{justify-content:flex-start}
+.cf-cmp-row.cf-cmp-txt .cf-cmp-trad,.cf-cmp-row.cf-cmp-txt .cf-cmp-aipm{text-align:left}
+.cf-cmp-row.cf-cmp-txt .cf-cmp-trad b{font-size:14.5px;font-weight:600;line-height:1.6;color:var(--cf-mut)}
+.cf-cmp-row.cf-cmp-txt .cf-cmp-aipm b{font-size:14.5px;font-weight:700;line-height:1.6;width:auto;margin-left:0;
+  /* 渐变裁字在多行短句上会掉色,文字行直接用墨绿实色 */
+  background:none;-webkit-text-fill-color:currentColor;color:var(--cf-green-d,#0C8B82)}
+/* 列宽整张表统一(表头也一起),不能只改文字行,否则混排时列对不齐。
+   文字行的后两栏内容比首列长,所以把宽度让给内容。 */
+.cf-cmp.has-prose .cf-cmp-row{grid-template-columns:.8fr 1fr 1.15fr}
+
+@media(max-width:760px){
+  /* 窄屏放不下三列文字。含文字行的表整张改为竖排:标签一行,前后各一行,
+     不再挤成一字一行。数字行也跟着竖排,整表才有一致的读法。 */
+  .cf-cmp.has-prose .cf-cmp-row{grid-template-columns:1fr;row-gap:0}
+  .cf-cmp.has-prose .cf-cmp-row>div{padding:12px 16px;text-align:left;justify-content:flex-start}
+  .cf-cmp.has-prose .cf-cmp-lab{padding-bottom:2px;font-weight:700;color:var(--cf-ink-2)}
+  .cf-cmp.has-prose .cf-cmp-trad,
+  .cf-cmp.has-prose .cf-cmp-aipm{border-left:0;padding-top:4px}
+  .cf-cmp.has-prose .cf-cmp-row.cf-cmp-txt .cf-cmp-trad b,
+  .cf-cmp.has-prose .cf-cmp-row.cf-cmp-txt .cf-cmp-aipm b{font-size:14px}
+  /* 混排表里的数字行竖排后仍保持数字体量,但要左对齐 */
+  .cf-cmp.has-prose .cf-cmp-aipm b{width:auto;margin-left:0}
+  /* 竖排后列头没有参照意义,用 ::before 把「接入前 / 接入后」补回每一格 */
+  .cf-cmp.has-prose .cf-cmp-row:not(.cf-cmp-head) .cf-cmp-trad::before,
+  .cf-cmp.has-prose .cf-cmp-row:not(.cf-cmp-head) .cf-cmp-aipm::before{
+    content:attr(data-h);font-size:10.5px;font-weight:700;letter-spacing:.12em;
+    text-transform:uppercase;color:var(--cf-faint);margin-bottom:3px}
+  .cf-cmp.has-prose .cf-cmp-row:not(.cf-cmp-head) .cf-cmp-aipm::before{color:var(--cf-green)}
+  .cf-cmp.has-prose .cf-cmp-head .cf-cmp-trad,
+  .cf-cmp.has-prose .cf-cmp-head .cf-cmp-aipm{display:none}
+}
+
 @media(max-width:560px){
   .cf-cmp-row{grid-template-columns:1fr .9fr .9fr}
   .cf-cmp-row>div{padding:13px 12px}

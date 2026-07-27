@@ -1,17 +1,47 @@
-// app/(site)/cases/aipm-property-ai-transformation/page.tsx
-// 旗舰样板 · 长版叙事详情页(爱物管)。正文/FAQ/数字/免责/引用均按提供文案逐字保留,
-// 仅标点统一为案例板块的全角风格(与 cases.ts 一致);JSON-LD 按提供的 Article+FAQPage+Organization 原样嵌入。
+// app/(site)/company/aipm-validation/page.tsx
+// 自营验证 · 爱物管长版叙事页。原位于 /cases/aipm-property-ai-transformation（已 308 迁移至此），
+// 正文/FAQ/数字/免责/引用均逐字保留，仅标题与 Hero 层按「公司验证」定位软化；
+// JSON-LD 按原 Article+FAQPage+Organization 结构嵌入，URL 更新为本页。
 import Link from "next/link";
-import "../article.css";
+import "../../cases/article.css";
 import JsonLd from "@/components/JsonLd";
-import { getCase, getRelated } from "../cases";
+import { getCase } from "../../cases/cases";
 import { pageMetadata } from "@/lib/pageMetadata";
 
 const SITE_URL = process.env.SITE_URL || "https://www.aipm.cn";
-const c = getCase("aipm-property-ai-transformation");
-const related = getRelated("aipm-property-ai-transformation", 3);
 
-export const metadata = pageMetadata("/cases/aipm-property-ai-transformation", { title: `${c.seoTitle} — 启盟科技`, description: c.metaDescription });
+// 原案例登记数据（自 cases.ts 迁入，本页独立维护）
+const datePublished = "2026-07-08";
+const dateModified = "2026-07-22";
+const title = "我们先在自营物业公司，完整验证了这套方法";
+const summary =
+  "爱物管 2024–2025 的一次真实验证：管理面积 210 万方，管理层 5 人；同规模、采用传统方式的物业公司管理面积 300 万方，管理层 69 人。";
+const metrics = [
+  { value: "69 → 5", label: "管理层人数" },
+  { value: "3.4% → 14%", label: "经营净利率" },
+  { value: "51 → 1", label: "项目经理人数" },
+];
+const faq = [
+  { q: "爱物管是谁？和启盟科技是什么关系？", a: "爱物管是广州启盟科技自营的物业公司，专注非住宅设施管理。启盟从 2017 年起就自己下场运营物业、采集真实数据。爱物管不是给客户看的演示，而是启盟把 AI 用在自己公司经营上的一次真实验证。" },
+  { q: "同等规模下，爱物管和传统物业公司的差距到底有多大？", a: "用来对比的传统物业公司管理面积约 300 万方、管理层 69 人、项目经理 51 人；爱物管管理面积约 210 万方、管理层 5 人、项目经理 1 人。也就是说，在体量更小的情况下，爱物管的管理团队规模只有对方的十几分之一，净利率从对方的 3.4% 做到了 14%。该数据为小规模自营验证结果，非行业普遍值。" },
+  { q: "管理层从 69 人减到 5 人，减掉的到底是哪些人？", a: "减掉的主要是中间那层做重复管理工作的人——抄表汇总、对账、派单跟进、质检、写报表等。一线的保洁、保安、维修等提供服务本身的岗位基本没动。AI 先替掉的是“管活的人”，不是“干活的人”。" },
+  { q: "减人会不会以牺牲服务质量为代价？", a: "被减掉的是中间的管理损耗，不是一线服务投入。日常管理动作交给 AI 之后，质检也从过去靠人抽查（覆盖率常常不到一成），变成由传感器和影像支撑的全量可追溯评估——服务反而更看得见了。" },
+  { q: "我们是中小物业公司，做 AI 转型是不是太超前、投入太大？", a: "恰恰相反。AI 的核心作用是重塑管理架构、砍掉中间环节，大公司转型阻力大，小公司船小好掉头。爱物管本身就是一家中小规模物业公司，启盟已把这套能力封装为标准化模块，外部公司接入时无需伤筋动骨的二次开发，可以渐进式落地。" },
+  { q: "想学爱物管这条路，第一步该做什么？", a: "先看看你公司里每天在重复发生的管理动作——抄表、对账、派单、跟进、质检、写报表——有多少是可以不靠人一遍遍去做的。这些越多，可压缩的管理成本就越大。可以直接联系启盟，用你自己的一个真实业务先跑通一条。" },
+];
+
+export const metadata = pageMetadata("/company/aipm-validation", {
+  title: "自营验证：爱物管把管理层从 69 人减到 5 人 | 启盟科技",
+  description:
+    "爱物管是启盟科技自营的物业公司。2024–2025 年，它把日常的管理动作交给 AI 之后，管理层从 69 人减到 5 人，净利率从 3.4% 做到 14%。本文用一笔真实的账，说明 AI 先替掉的是中间那层重复的管理工作，不是一线服务。",
+});
+
+// 延伸阅读：真实客户项目（手工挑选，链接到案例区）
+const related = [
+  getCase("south-china-mixed-use-6-to-1"),
+  getCase("30w-park-ai-property-manager-robot"),
+  getCase("property-group-auto-operation-report"),
+];
 
 const Arrow = ({ s = 14 }: { s?: number }) => (
   <svg className="ar" width={s} height={s} viewBox="0 0 16 16" aria-hidden="true">
@@ -19,25 +49,25 @@ const Arrow = ({ s = 14 }: { s?: number }) => (
   </svg>
 );
 
-// —— GEO 结构化数据:Article + FAQPage + Organization(按提供的 JSON-LD 原样,占位 URL 已替换为真实资源)——
+// —— GEO 结构化数据：Article + FAQPage + Organization ——
 const LD = [
   {
     "@context": "https://schema.org",
     "@type": "Article",
-    headline: "AI 物业管理案例：爱物管把管理层从 69 人减到 5 人",
-    alternativeHeadline: "我们把日常的管理动作交给 AI，管理层从 69 人减到了 5 人",
+    headline: "AI 物业管理验证：爱物管把管理层从 69 人减到 5 人",
+    alternativeHeadline: "我们先在自营物业公司，完整验证了这套方法",
     description:
       "爱物管是启盟科技自营的物业公司。2024–2025 年，它把日常的管理动作交给 AI 之后，管理层从 69 人减到 5 人、项目经理从 51 人减到 1 人、净利率从 3.4% 做到 14%。用来对比的同类传统物业公司管理面积约 300 万方、管理层 69 人。AI 先替掉的是中间那层重复的管理工作，不是一线服务。",
     image: `${SITE_URL}/cases/aipm-cover.jpg`,
     author: { "@type": "Organization", name: "启盟科技（AIPM）", url: SITE_URL },
     publisher: { "@type": "Organization", name: "启盟科技（AIPM）", logo: { "@type": "ImageObject", url: `${SITE_URL}/logo-stalliance-clean.png` } },
-    datePublished: "2026-07-08",
-    dateModified: "2026-07-08",
-    mainEntityOfPage: { "@type": "WebPage", "@id": `${SITE_URL}/cases/aipm-property-ai-transformation` },
+    datePublished,
+    dateModified,
+    mainEntityOfPage: { "@type": "WebPage", "@id": `${SITE_URL}/company/aipm-validation` },
     inLanguage: "zh-CN",
-    articleSection: "案例故事",
+    articleSection: "公司",
     about: [
-      { "@type": "Thing", name: "AI 物业管理案例" },
+      { "@type": "Thing", name: "AI 物业管理验证" },
       { "@type": "Thing", name: "物业降本增效" },
       { "@type": "Thing", name: "物业管理层精简" },
     ],
@@ -53,7 +83,7 @@ const LD = [
   {
     "@context": "https://schema.org",
     "@type": "FAQPage",
-    mainEntity: c.faq.map((f) => ({ "@type": "Question", name: f.q, acceptedAnswer: { "@type": "Answer", text: f.a } })),
+    mainEntity: faq.map((f) => ({ "@type": "Question", name: f.q, acceptedAnswer: { "@type": "Answer", text: f.a } })),
   },
   {
     "@context": "https://schema.org",
@@ -93,23 +123,24 @@ export default function Page() {
     <main className="casefx">
       <JsonLd data={LD} />
 
-      {/* 封面 Hero(满宽图 + 深色蒙版 + 叠加标题与核心指标) */}
+      {/* 封面 Hero（满宽图 + 深色蒙版 + 叠加标题与核心指标） */}
       <section className="cf-cover-hero">
         <div className="cf-cover-bg" style={{ backgroundImage: "url('/cases/aipm-cover.jpg')" }} aria-hidden="true" />
         <div className="wrap">
-          <span className="cf-cover-crumb"><Link href="/cases">客户案例</Link><i>/</i>旗舰样板</span>
-          <div><span className="cf-cover-tag">旗舰样板 · 自营验证</span></div>
-          <h1>{c.title}</h1>
-          <p className="cf-cover-sub">{c.summary}</p>
+          <span className="cf-cover-crumb"><Link href="/company">公司</Link><i>/</i>自营验证</span>
+          <div><span className="cf-cover-tag">自营验证 · 爱物管</span></div>
+          <h1>{title}</h1>
+          <p className="cf-cover-sub">{summary}</p>
           <div className="cf-cover-metrics">
-            {c.metrics.map((m) => (
+            {metrics.map((m) => (
               <div className="cf-cover-metric" key={m.label}><b>{m.value}</b><span>{m.label}</span></div>
             ))}
           </div>
+          <p className="cf-cover-date">发布于 {datePublished} · 更新于 {dateModified}</p>
         </div>
       </section>
 
-      {/* 正文 */}
+      {/* 正文（自原旗舰页逐字迁入） */}
       <section className="cf-band">
         <div className="wrap">
           <div className="cf-article">
@@ -161,7 +192,7 @@ export default function Page() {
             <p>传统物业公司解决这个问题的唯一办法，就是<b>多招人</b>：抄表、汇总、对账、派单、跟进、验收、质检、写月报——每一环都得有人盯着。这就是为什么它需要 51 个项目经理、69 人的管理层。这些岗位里的人，大部分时间不是在服务住户，而是在“粘合”这些重复的管理动作。</p>
 
             <figure className="cf-fig">
-              <img src="/cases/aipm-data.jpg" alt="数据化管理示意：柱状图、饼图与上升箭头，象征把重复的管理动作交给 AI 后可量化、可提升的运营数据" loading="lazy" />
+              <img src="/cases/aipm-ai-takeover.png" alt="示意插画：抄表、对账、派单、报表等重复管理动作流入 AI 处理中枢，人只在决策节点出现" loading="lazy" />
             </figure>
 
             <p>在爱物管，这些重复的、每天都在跑的管理动作，被 AI 一条条接管了。80%–90% 的日常管理由 AI 完成，人只在真正需要做决策的时候出现。<b>岗位不是被“裁”掉的，是被“腾空”的——当那些重复的管理活儿不再需要人来做，承载它们的岗位自然就空了。</b></p>
@@ -174,7 +205,7 @@ export default function Page() {
             <p>我们的判断正相反。AI 最大的作用，是<b>重塑管理架构、砍掉中间环节</b>。大公司要动组织架构、动几百上千人的管理层，阻力极大；小公司船小好掉头，反而能用更低的成本先跑通。</p>
 
             <figure className="cf-fig">
-              <img src="/cases/aipm-team.jpg" alt="物业管理团队在写字楼大堂对着屏幕讨论——中小物业公司精干的现场管理团队" loading="lazy" />
+              <img src="/cases/aipm-org-flatten.png" alt="示意插画：多层级的管理金字塔，变为 5 人搭配 AI 中枢的扁平架构" loading="lazy" />
             </figure>
 
             <p>爱物管本身就是证据。我们的体量和大量中小物业公司在同一量级，做出来的 14% 净利率，靠的不是砍服务、砍一线，而是砍掉了中间的管理损耗。而且我们是拿自己的公司先趟一遍，把物业里一百多种日常管理动作、老旧系统的接口、一线协同的阻力都踩透了，再封装成标准化的能力对外提供——别的物业公司接入时，不需要大动干戈地二次开发，就能渐进式地走同一条路。</p>
@@ -197,15 +228,15 @@ export default function Page() {
         </div>
       </section>
 
-      {/* 常见问题(与 JSON-LD FAQPage 一一对应) */}
+      {/* 常见问题（与 JSON-LD FAQPage 一一对应） */}
       <section className="cf-band mist">
         <div className="wrap cf-sec">
           <div className="cf-sec-head">
             <span className="cf-eyebrow">常见问题</span>
-            <h2 className="cf-h2">关于这个案例，常被问到的</h2>
+            <h2 className="cf-h2">关于这次验证，常被问到的</h2>
           </div>
           <div className="cf-faq-list cf-sec-body">
-            {c.faq.map((f) => (
+            {faq.map((f) => (
               <details className="cf-faq-item" key={f.q}>
                 <summary>{f.q}</summary>
                 <p className="cf-faq-a">{f.a}</p>
@@ -215,11 +246,11 @@ export default function Page() {
         </div>
       </section>
 
-      {/* 相关案例(自动推荐,同行业/同场景优先) */}
+      {/* 客户案例（方法在客户项目里的落地） */}
       <section className="cf-band">
         <div className="wrap">
-          <span className="cf-eyebrow">相关案例</span>
-          <h2 className="cf-h2">再看几个在运行的项目</h2>
+          <span className="cf-eyebrow">客户案例</span>
+          <h2 className="cf-h2">这套方法，在客户项目里的样子</h2>
           <div className="cf-related">
             {related.map((r) => (
               <Link className="cf-rcard" href={`/cases/${r.slug}`} key={r.slug}>

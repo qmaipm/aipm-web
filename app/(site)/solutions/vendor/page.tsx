@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import "./page.css";
 import { pageMetadata } from "@/lib/pageMetadata";
+import SeoFaq from "@/components/SeoFaq";
 
 export const metadata: Metadata = pageMetadata("/solutions/vendor", {
   title: "供应商管理与自动对账 · 智能体解决方案 | 启盟科技",
@@ -61,6 +62,17 @@ export default function VendorPage() {
           <p className="sx-link reveal">这套核量与考评，与 <Link href="/solutions/quality">服务质量管理</Link> 和 <Link href="/solutions/subcontract">服务分包管理</Link> 共用同一份记录。</p>
         </div>
       </section>
+
+      <SeoFaq
+        heading="关于供应商管理与自动对账，你可能想问"
+        serviceName="供应商管理与自动对账"
+        serviceDesc="Agent 按合同自动核量、对比历史与市场、圈出异常并生成账单草稿。"
+        items={[
+          { q: "自动对账会不会绕过财务审批？", a: "不会。Agent 只做到账单草稿与异常清单这一步，确认、审批、付款仍然走你现有的财务流程，一步都不少。" },
+          { q: "甲方和物业公司都能用吗，站在谁的立场对？", a: "都能用。对账的本质是双方对着同一份事实，甲方用它验账单，物业公司用它提前自检；核算规则来自合同条款，不偏向任何一方。" },
+          { q: "历史遗留的糊涂账能梳理吗？", a: "能，但要分步。先把合同条款梳成核算规则、把双方台账归集到一处，存量差异会被逐笔圈出来；历史账怎么了结是商务决定，系统负责把差异摆清楚。" },
+        ]}
+      />
 
       {/* CTA */}
       <section className="endcta">

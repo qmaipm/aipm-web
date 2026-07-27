@@ -2,6 +2,7 @@ import Link from "next/link";
 import BeforeAfter from "../BeforeAfter";
 import "../scenarios.css";
 import { pageMetadata } from "@/lib/pageMetadata";
+import SeoFaq from "@/components/SeoFaq";
 
 export const metadata = pageMetadata("/scenarios/utility-bill", {
   title: "物业水电费 AI 审批 · 抄表核对自动化｜FMClaw™ 加速营场景",
@@ -38,6 +39,15 @@ export default function Page() {
           { k: "更高质量", b: "错签、漏签、被动签", a: "历史对照 + 异常标注，每个签字有依据" },
         ]}
         note={`AI 接了核表、环比同比、找异常这几步繁重的活；人保留了最后那个"签不签"的决定。它不替换原有审批流程，只把判断需要的依据提前备好，让一次签字从凭经验变成有据可依。`}
+      />
+
+      <SeoFaq
+        heading="关于水电费审批，你可能想问"
+        items={[
+          { q: "没有装 IoT 表的老项目能用吗？", a: "能。手机拍照由 AI 识别仪表读数，同样进入自动汇总与核算；IoT 表和人工拍照可以在同一个项目里混用，逐步替换。" },
+          { q: "AI 标出的异常准吗，会不会误报一堆？", a: "异常判断基于环比同比与历史基线，每个异常都标明判断依据（比如空置户突增用量）；阈值可按项目调，跑一两个月后误报会明显收敛。" },
+          { q: "审批流程要改吗，领导还签不签字？", a: "流程不改，签字还在。变化是签字那一刻手里多了依据：环比同比、异常标注、该签／不该签的理由都已备好，从凭经验签变成有据可签。" },
+        ]}
       />
 
       {/* 收口 CTA */}

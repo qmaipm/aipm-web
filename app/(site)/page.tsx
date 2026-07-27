@@ -6,6 +6,7 @@ import MoatStats from "./MoatStats";
 import HeroAgentShowcase from "./HeroAgentShowcase";
 import { getArticle } from "./insights/articles";
 import { pageMetadata } from "@/lib/pageMetadata";
+import SeoFaq from "@/components/SeoFaq";
 
 // 标题/描述与根布局一致;单独声明是为了首页也有指向自身的 canonical 与 og:url
 export const metadata = pageMetadata("/", {
@@ -38,12 +39,13 @@ export default function Home() {
     <main className="solhome">
       {/* ① HERO — 公司级开场:左文案 + 右「AI 正在处理真实工作」演示(改造自 Agentic 套件服务优化 Agent 动效) */}
       <section className="h-hero">
-        <div className="h-grid" aria-hidden="true" />
+        {/* 底图：清晨城市实景（楼宇窗格里极淡的智能光点），白色渐变冲刷保证左侧文案对比度 */}
+        <div className="h-hero-bg" aria-hidden="true" />
         <div className="wrap h-hero-top">
           <div className="h-hero-cols">
             <div>
               <p className="h-kicker reveal">物业与设施管理的 AI 操作系统</p>
-              <h1 className="reveal">让 AI，真正在<br />物业与设施管理里<span className="hl">干活</span></h1>
+              <h1 className="reveal">让 AI，真正在<br />物业与设施管理里<br /><span className="hl">干活</span></h1>
               <p className="h-note reveal">
                 不是再加一个工具，而是把巡检、工单、客服、品质、结算等运营工作，一件件交给 AI。
               </p>
@@ -59,24 +61,28 @@ export default function Home() {
               </p>
             </div>
             <div className="hw-wrap reveal">
-              <HeroAgentShowcase />
+              {/* 演示动效直接悬浮在城市底图上：卡片与图标自带白底和投影，
+                  无需窗口框——.hw-stage 只承担宽度约束（画布缩放锚定 505px） */}
+              <div className="hw-stage">
+                <HeroAgentShowcase />
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* 信任条：客户 logo 收进首屏底沿（参照 Harvey 首屏内 logo 墙做法） */}
+        <div className="h-clients">
+          <div className="wrap">
+            <p className="h-clients-title reveal">服务过的企业与项目</p>
+            <div className="h-clients-wall reveal">
+              <div className="cell"><img src="/images/clients/tesla.svg" alt="特斯拉 Tesla" loading="lazy" /></div>
+              <div className="cell"><img src="/images/clients/siemens.svg" alt="西门子 Siemens" loading="lazy" /></div>
+              <div className="cell"><img src="/images/clients/tencent.svg" alt="腾讯 Tencent" style={{ maxHeight: "36px" }} loading="lazy" /></div>
+              <div className="cell"><img src="/images/clients/sf.svg" alt="顺丰速运 SF Express" loading="lazy" /></div>
             </div>
           </div>
         </div>
       </section>
-
-      {/* CLIENTS LOGO WALL */}
-      <div className="h-clients">
-        <div className="wrap">
-          <p className="h-clients-title reveal">服务过的企业与项目</p>
-          <div className="h-clients-wall reveal">
-            <div className="cell"><img src="/images/clients/tesla.svg" alt="特斯拉 Tesla" loading="lazy" /></div>
-            <div className="cell"><img src="/images/clients/siemens.svg" alt="西门子 Siemens" loading="lazy" /></div>
-            <div className="cell"><img src="/images/clients/tencent.svg" alt="腾讯 Tencent" style={{ maxHeight: "42px" }} loading="lazy" /></div>
-            <div className="cell"><img src="/images/clients/sf.svg" alt="顺丰速运 SF Express" loading="lazy" /></div>
-          </div>
-        </div>
-      </div>
 
       {/* ② MISSION · 暗场 + 三支柱 */}
       <section className="h-mission mission-dark" id="mission">
@@ -230,7 +236,7 @@ export default function Home() {
             <div className="h-pc"><div className="pc-k">100+</div><h4>行业工作流</h4>
               <p>覆盖物业与设施管理中的巡检、工单、客服、品质、结算和运营分析。</p></div>
             <div className="h-pc"><div className="pc-k">4</div><h4>专业 Agent 协同</h4>
-              <p>从服务设计、运营执行、质量评估到持续优化，形成完整闭环。</p></div>
+              <p>从服务设计、运营执行、质量评估到持续优化，环节之间自动衔接。</p></div>
             <div className="h-pc"><div className="pc-k">1</div><h4>模型、数据和工具统一调度</h4>
               <p>底层模型可以持续升级，上层工作流和业务体验保持稳定。</p></div>
           </div>
@@ -304,7 +310,7 @@ export default function Home() {
           </div>
 
           {/* 旗舰:爱物管自营验证 */}
-          <Link href="/cases/aipm-property-ai-transformation" className="h-flag reveal">
+          <Link href="/company/aipm-validation" className="h-flag reveal">
             <div className="fl-head">
               <span className="fl-tag">旗舰案例 · 爱物管自营验证</span>
               <span className="cc-live"><i className="liv" />生产运行中</span>
@@ -478,6 +484,29 @@ export default function Home() {
           <p className="h-cases-more light reveal"><Link href="/insights">查看全部研究 <ArrowR s={13} /></Link></p>
         </div>
       </section>
+
+      {/* ⑩ FAQ（决策导向，与 /company 页品牌 FAQ 错开角度，不重复） */}
+      <SeoFaq
+        heading="第一次了解启盟科技，你可能想问"
+        items={[
+          {
+            q: "启盟科技和 FMClaw™ 是什么关系？",
+            a: "FMClaw™ 是启盟科技自研的物业与设施管理 AI 智能体平台。启盟科技是公司主体，旗下还有自营物业公司爱物管——平台先在自己的项目上完整验证，再对外交付。",
+          },
+          {
+            q: "物业公司引入 AI，从哪个业务开始最稳妙？",
+            a: "从一个数据现成、痛点明确的单一业务开始，比如水电费审批、报修派单或供应商对账。先用一场 Demo Day 看可行性，跑通了再决定是否深入，不必一上来就做全盘规划。",
+          },
+          {
+            q: "我们是业主方或园区，不是物业公司，也能合作吗？",
+            a: "能。除了把平台授权给物业公司自用，还有两种方式面向业主方与政企园区：由爱物管端到端托管运营，或以产业基金共建的方式与地方国资合作。",
+          },
+          {
+            q: "AI 物业不是概念吗，有实际跑起来的项目吗？",
+            a: "有。目前 7 个已上线案例公开可查，覆盖 6 万㎡ 商业综合体到 30 万㎡ 产业园区，全部先在自营物业公司完整验证后才对外交付，每个案例都写明了做法与经过核实的结果。",
+          },
+        ]}
+      />
 
       {/* ⑩ 最终 CTA → 加速营 */}
       <section className="endcta">
