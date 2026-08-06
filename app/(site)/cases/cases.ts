@@ -31,19 +31,71 @@ export type Case = {
 
 // 三个筛选维度的标签(顶层设计规划 §2:行业 / 场景·用例 / 客户规模)。
 // 与案例数据分开维护,后续录入时按 slug 追加即可,不必改动案例正文对象。
+//
+// useCases 用「买家搜索时的原话」,不用我们的产品术语 —— 详见
+// skills/aipm-site/SKILL.md §3g「场景标签规则」。两条硬约束:
+//   1) 每个标签至少挂 2 篇(只挂 1 篇的不是场景,是这一篇的特色,写进标题);
+//   2) 每个标签必须能作为搜索词被真实买家搜出来(录入前用真实搜索验证)。
+//
+// 2026-08-06 换掉两个词,两个都是「我们描述功能的话」而不是买家开口时的话:
+//   「检查记录留痕」→「检查记录经不起查」
+//      实搜:整页是微信聊天记录导出软件 MemoTrace「留痕」,物业零占位,语义被完全劫持。
+//      而且「留痕」是 SKILL.md §0 的禁用词,不该出现在任何对外文案里,更不该当搜索入口。
+//   「报表靠人拼」→「不知道现场到底怎么样」
+//      实搜:全是财务报表 / Excel 拼表 / BI / 电商对账,和「智能问数」被 ChatBI 占词同一种死法。
+//      这两篇的真实买点也不是报表,是总部看不见几百个项目的现场。
 export type CaseTags = { industryTag: string; useCases: string[]; sizeTag: SizeTag };
 export const CASE_TAGS: Record<string, CaseTags> = {
-  "property-group-auto-operation-report": { industryTag: "物业集团", useCases: ["自动运营报告", "数据治理", "智能问数"], sizeTag: "大型企业" },
-  "restroom-quality": { industryTag: "制造业园区", useCases: ["品质管理", "员工体验"], sizeTag: "大型企业" },
-  "property-group-chat-ai-service": { industryTag: "企业总部", useCases: ["报事报修", "智能工单"], sizeTag: "大型企业" },
-  "fmclaw-equipment-inspection": { industryTag: "互联网科技", useCases: ["设备巡检", "设备安全"], sizeTag: "大型企业" },
-  "coworking-supplier-reconciliation": { industryTag: "联合办公", useCases: ["服务标准量化", "外包管理"], sizeTag: "大型企业" },
-  "30w-park-ai-property-manager-robot": { industryTag: "智慧园区", useCases: ["人机协同", "清洁机器人", "AI 降本增效"], sizeTag: "大型企业" },
-  "south-china-mixed-use-6-to-1": { industryTag: "商业综合体", useCases: ["扭亏为盈", "AI 降本增效", "IoT 数字化"], sizeTag: "大型企业" },
-  "intl-hospital-medical-grade-fm": { industryTag: "医疗健康", useCases: ["服务标准量化", "设备巡检", "提质增效"], sizeTag: "大型企业" },
-  "metro-3400-rooms-daily-inspection": { industryTag: "轨道交通", useCases: ["设备巡检", "设备安全", "外包管理"], sizeTag: "大型企业" },
-  "hazardous-area-dual-person-patrol": { industryTag: "工业制造", useCases: ["双人双岗巡查", "合规核查", "设备安全"], sizeTag: "大型企业" },
-  "gigafactory-4-vendor-cleaning": { industryTag: "工业制造", useCases: ["品质管理", "外包管理", "员工体验"], sizeTag: "大型企业" },
+  "property-group-auto-operation-report": { industryTag: "物业集团", useCases: ["不知道现场到底怎么样", "多项目管不过来"], sizeTag: "大型企业" },
+  "restroom-quality": { industryTag: "制造业园区", useCases: ["保洁质量不稳定", "人工成本降不下来"], sizeTag: "大型企业" },
+  "property-group-chat-ai-service": { industryTag: "企业总部", useCases: ["报修响应慢", "招不到人、人手不够"], sizeTag: "大型企业" },
+  "fmclaw-equipment-inspection": { industryTag: "互联网科技", useCases: ["巡检走过场", "检查记录经不起查"], sizeTag: "大型企业" },
+  "coworking-supplier-reconciliation": { industryTag: "联合办公", useCases: ["供应商管不住", "保洁质量不稳定", "多项目管不过来"], sizeTag: "大型企业" },
+  "30w-park-ai-property-manager-robot": { industryTag: "智慧园区", useCases: ["招不到人、人手不够", "人工成本降不下来"], sizeTag: "大型企业" },
+  "south-china-mixed-use-6-to-1": { industryTag: "商业综合体", useCases: ["人工成本降不下来", "不知道现场到底怎么样"], sizeTag: "大型企业" },
+  "intl-hospital-medical-grade-fm": { industryTag: "医疗健康", useCases: ["保洁质量不稳定", "巡检走过场", "报修响应慢"], sizeTag: "大型企业" },
+  "metro-3400-rooms-daily-inspection": { industryTag: "轨道交通", useCases: ["巡检走过场", "供应商管不住"], sizeTag: "大型企业" },
+  "hazardous-area-dual-person-patrol": { industryTag: "工业制造", useCases: ["检查记录经不起查", "巡检走过场"], sizeTag: "大型企业" },
+  "gigafactory-4-vendor-cleaning": { industryTag: "工业制造", useCases: ["供应商管不住", "保洁质量不稳定", "招不到人、人手不够"], sizeTag: "大型企业" },
+};
+
+// 场景标签的展示顺序(列表页 hero 的痛点入口行按此排列,与 CASE_TAGS 保持同源)。
+export const USE_CASE_ORDER = [
+  "巡检走过场",
+  "供应商管不住",
+  "保洁质量不稳定",
+  "人工成本降不下来",
+  "招不到人、人手不够",
+  "报修响应慢",
+  "检查记录经不起查",
+  "不知道现场到底怎么样",
+  "多项目管不过来",
+] as const;
+
+/** 按场景标签取案例,顺序与 ALL_CASES 一致。用于 lint 校验 TAG_ENTRY 与统计每个标签挂了几篇。 */
+export function getCasesByUseCase(useCase: string): Case[] {
+  return ALL_CASES.filter((c) => CASE_TAGS[c.slug]?.useCases.includes(useCase));
+}
+
+// 痛点词 → 直接落地的那一篇案例。
+//
+// 列表页 hero 的痛点入口行用它:点一个痛点,直接进案例详情页,不做页内跳转、不做筛选、
+// 也不为每个痛点开聚合页(§7b 禁令)。一个痛点挂 2~4 篇时只能指一篇 ——
+// 指最能回答它的那篇,剩下的由详情页已有的相关推荐接住(getRelated 本来就按「共享痛点标签 +1」打分)。
+//
+// 选谁的依据写在每行后面。改这里必须同时满足两条(cases-lint 已卡):
+//   1) USE_CASE_ORDER 里 9 个词一个不少;
+//   2) 被指的那篇,CASE_TAGS 里确实挂着这个词 —— 否则用户点进去看到的是另一件事。
+export const TAG_ENTRY: Record<string, string> = {
+  "巡检走过场": "fmclaw-equipment-inspection",              // 达标率 35%→98%,这条路径写得最完整
+  "供应商管不住": "gigafactory-4-vendor-cleaning",           // 4 家供应商同一把尺子,最直接
+  "保洁质量不稳定": "restroom-quality",                      // 2000+ 卫生间全量追踪,量级最有说服力
+  "人工成本降不下来": "south-china-mixed-use-6-to-1",        // 唯一把账算到扭亏为盈的项目
+  "招不到人、人手不够": "30w-park-ai-property-manager-robot", // 23 人 + 16 台机器人管住 30 万㎡
+  "报修响应慢": "property-group-chat-ai-service",            // 报事派单 < 1 分钟
+  "检查记录经不起查": "hazardous-area-dual-person-patrol",    // 记录要交外部核查,场景最硬
+  "不知道现场到底怎么样": "property-group-auto-operation-report", // 500+ 项目的现场每天自动汇总
+  "多项目管不过来": "coworking-supplier-reconciliation",      // 近 90 个社区一套标准
 };
 
 export const ALL_CASES: Case[] = [

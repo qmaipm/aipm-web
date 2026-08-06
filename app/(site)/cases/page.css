@@ -5,15 +5,22 @@
    ============================================================ */
 .solcase{
   --ca-ink:#14201C; --ca-ink-2:#46524D; --ca-mut:#7C857F; --ca-faint:#A7AFAB;
-  --ca-line:#E6EAE8; --ca-mist:#ECF3F1; --ca-paper:#FFFFFF;
+  --ca-line:#DDE4E1; --ca-mist:#ECF3F1; --ca-paper:#FFFFFF;
   --ca-blue:#0070FF; --ca-green:#12B98A; --ca-grad:linear-gradient(115deg,#0070FF,#12B98A);
+  /* 强调「文字」专用深绿:#12B98A 在白底只有 2.52:1,达不到 WCAG AA 4.5,
+     所以 --ca-green 只许用于图形(渐变条/竖标/描边),所有绿色文字改用下面这支。
+     #097268 白底 5.80:1、雾底 5.16:1,双双过 AA。见 SKILL.md §3h。 */
+  --ca-green-ink:#097268;
+  /* 12~13px 小字专用灰:--ca-mut(#7C857F) 只有 3.38~3.81,小字要 4.5 才过 AA。
+     #616A64 白底 5.59、雾底 4.97。大字仍可用 --ca-mut。见 SKILL.md §3h。 */
+  --ca-mut-ink:#616A64;
   --ca-vi-line:rgba(12,139,130,.16);
   background:var(--ca-paper); color:var(--ca-ink);
 }
 .solcase .wrap{max-width:1160px;margin:0 auto;padding:0 32px}
 @media(max-width:600px){.solcase .wrap{padding:0 22px}}
 .solcase .grad{background:var(--ca-grad);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
-@supports not ((-webkit-background-clip:text) or (background-clip:text)){.solcase .grad{color:var(--ca-green);-webkit-text-fill-color:currentColor}}
+@supports not ((-webkit-background-clip:text) or (background-clip:text)){.solcase .grad{color:var(--ca-green-ink);-webkit-text-fill-color:currentColor}}
 
 /* 蓝图网格(暗场版) */
 .ca-grid{position:absolute;inset:0;z-index:1;pointer-events:none;
@@ -43,6 +50,43 @@
 .ca-lead{margin:26px 0 0;font-size:clamp(16px,1.8vw,19px);line-height:1.6;color:#D7E2DD;max-width:54ch;font-weight:400}
 .ca-lead b{color:#fff;font-weight:700}
 .ca-hero-cta{position:relative;z-index:2;margin-top:34px;display:flex;flex-wrap:wrap;gap:14px}
+
+/* ---------- 痛点入口行(hero 内) ----------
+   带着问题来的人在第一屏就要看到自己的词。是入口不是板块:一行链接,不占独立段落。
+   暗场上的绿色文字用 #9fded0(§2 规定的暗场浅绿),不是 --ca-green-ink ——
+   后者是给白底/雾底用的深绿,实测在这块底上只有 3.30:1,不够正文用。
+
+   填充为什么是深色而不是半透明白:
+   这一行压在 hero 照片上,照片各处亮度不一样。原先用 rgba(255,255,255,.12) 填充时,
+   chip 的底色 = 照片亮度 + 一层白,等于把可读性交给照片。逐个 chip 量过底下的照片像素:
+   桌面最坏 5.87:1 勉强过,手机上「人工成本降不下来」正好落在一片亮窗高光上,
+   实测只有 3.59:1,箭头 2.02:1 —— 不过 AA。半透明白在照片上就是这种赌运气的做法。
+   改成 rgba(11,23,20,.82)(--core 深底压住照片)之后,chip 自己决定自己的底:
+   取最狠的假设(chip 压在纯白高光上)算,白字 9.84:1、箭头 5.55:1,照片再亮也不会掉下来。
+
+   边框 .4 → chip 底是深的,和周围 hero 暗底几乎同色(1.04:1),形状完全靠这条边。
+            所以它不是装饰,是必须过 WCAG 1.4.11 3.0 的 UI 边界:
+            压在暗底上 3.4:1+,压在最亮处的 chip 底上 3.02:1,两头都够。别往回调到 .2(1.82:1,不合格)。
+   hover 填充 .92 / 边框 .72 → 比常态各亮一档,状态变化看得出来。
+   问句 #9fded0 直接压在 hero 上(没有底托),实测 12.63:1;focus 圈 #3fd9b8 10.80:1。 */
+.ca-entry{position:relative;z-index:2;margin-top:38px;padding-top:26px;
+  border-top:1px solid rgba(255,255,255,.16)}
+.ca-entry-q{display:block;font-size:13px;font-weight:600;letter-spacing:.02em;color:#9fded0}
+.ca-entry-list{margin:14px 0 0;padding:0;list-style:none;display:flex;flex-wrap:wrap;gap:8px 10px}
+.ca-entry-list a{display:inline-flex;align-items:center;gap:5px;
+  font-size:14px;font-weight:600;line-height:1.5;color:#fff;text-decoration:none;
+  padding:7px 13px;border-radius:8px;
+  background:rgba(11,23,20,.82);border:1px solid rgba(255,255,255,.4);
+  transition:background .2s,border-color .2s}
+.ca-entry-list a .ar{color:#3fd9b8;transition:transform .2s}
+.ca-entry-list a:hover{background:rgba(11,23,20,.92);border-color:rgba(255,255,255,.72)}
+.ca-entry-list a:hover .ar{transform:translateX(2px)}
+.ca-entry-list a:focus-visible{outline:2px solid #3fd9b8;outline-offset:2px}
+@media(max-width:520px){
+  .ca-entry{margin-top:30px;padding-top:22px}
+  .ca-entry-list{gap:7px 8px}
+  .ca-entry-list a{font-size:13px;padding:6px 11px}
+}
 .ca-hero .btn-ghost{color:#fff;border-color:rgba(255,255,255,.45);background:rgba(255,255,255,.05)}
 .ca-hero .btn-ghost:hover{border-color:#fff;background:rgba(255,255,255,.12)}
 .ca-proof{position:relative;z-index:2;margin-top:52px;display:flex;flex-wrap:wrap;align-items:center;gap:12px 22px;
@@ -87,15 +131,25 @@
 .ca-cover{position:relative;aspect-ratio:16/9;background-size:cover;background-position:center}
 .ca-bar{position:absolute;left:0;right:0;bottom:0;height:4px;background:var(--ca-grad)}
 .ca-body{padding:22px 24px 24px;display:flex;flex-direction:column;flex:1}
-.ca-meta{font-size:12.5px;font-weight:600;letter-spacing:.02em;color:var(--ca-green);line-height:1.4}
+/* 元数据(行业·规模·城市)是注脚,不穿强调色——对齐 Anthropic /customers 的元数据行。§3h */
+.ca-meta{font-size:12.5px;font-weight:600;letter-spacing:.02em;color:var(--ca-mut-ink);line-height:1.4}
 .ca-body h3{margin:10px 0 0;font-size:clamp(18px,1.7vw,21px);font-weight:700;letter-spacing:-.02em;color:var(--ca-ink);line-height:1.28}
-.ca-card:hover .ca-body h3{color:var(--ca-green)}
-.ca-go{display:inline-flex;align-items:center;gap:7px;font-size:14px;font-weight:600;color:var(--ca-green)}
+.ca-card:hover .ca-body h3{color:var(--ca-green-ink)}
+.ca-go{display:inline-flex;align-items:center;gap:7px;font-size:14px;font-weight:600;color:var(--ca-green-ink)}
 .ca-go .ar{transition:transform .2s}
 .ca-card:hover .ca-go .ar{transform:translateX(3px)}
 
-/* 卡片关键数字 */
-.ca-metric{margin-top:12px;font-size:13px;font-weight:700;letter-spacing:-.01em;color:var(--ca-ink);line-height:1.4}
+/* 卡片场景标签 — 买家原话,让读者在卡片上认出自己的问题。
+   雾底无描边(药丸描边读起来像状态徽章,不像分类),让位给下面的关键数字。 */
+.ca-scenes{margin:12px 0 0;padding:0;list-style:none;display:flex;flex-wrap:wrap;gap:6px}
+.ca-scenes li{font-size:11.5px;font-weight:600;line-height:1.5;color:var(--ca-green-ink);
+  padding:3px 8px;border-radius:6px;background:var(--ca-mist)}
+
+/* 卡片关键数字 — 一张卡只有一个焦点,左侧渐变竖标 */
+.ca-metric{margin-top:14px;padding-left:11px;position:relative;
+  font-size:15px;font-weight:700;letter-spacing:-.01em;color:var(--ca-ink);line-height:1.45;
+  font-variant-numeric:tabular-nums}
+.ca-metric::before{content:"";position:absolute;left:0;top:.25em;bottom:.25em;width:3px;border-radius:2px;background:var(--ca-grad)}
 .ca-go{margin-top:auto;padding-top:14px}
 
 /* 引导卡(政企共建) — 无封面,雾底 */
@@ -111,7 +165,7 @@
 .ca-faq-item summary::-webkit-details-marker{display:none}
 .ca-faq-item summary::after{content:"";position:absolute;right:4px;top:24px;width:9px;height:9px;
   border-right:2px solid var(--ca-faint);border-bottom:2px solid var(--ca-faint);transform:rotate(45deg);transition:transform .2s,border-color .2s}
-.ca-faq-item[open] summary,.ca-faq-item summary:hover{color:var(--ca-green)}
+.ca-faq-item[open] summary,.ca-faq-item summary:hover{color:var(--ca-green-ink)}
 .ca-faq-item[open] summary::after{transform:rotate(-135deg);border-color:var(--ca-green)}
 .ca-faq-item p{margin:0 0 20px;font-size:15px;line-height:1.8;color:var(--ca-ink-2)}
 

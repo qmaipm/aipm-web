@@ -30,6 +30,7 @@ const LIMITS = {
   numRepeat: 3,    // 同一数字全页出现次数
   fitItem: 3,      // CaseFit 每栏条数上限(超过就不是判断,是清单)
   frSeg: 80,       // CaseFriction 单段字数上限(写长就变公关稿)
+  entryTag: 12,    // 痛点入口词字数上限(hero 入口行一行放得下多个,写长了会挤成两行)
 };
 
 // SEO-GEO-STRATEGY.md §3 禁用词
@@ -130,10 +131,37 @@ const rows = [];
 {
   const reg = fs.readFileSync(path.join(CASES_DIR, "cases.ts"), "utf8");
   const hits = BANNED_REGULATOR.filter((w) => reg.includes(w));
-  if (hits.length) {
+  const regErrs = hits.map((w) => `监管机关名称「${w}」不得出现在对外文案，改用「外部核查」`);
+
+  /* TAG_ENTRY 是 hero 痛点入口行的落地表:9 个痛点词各指一篇案例。
+     两条硬约束——漏一个词,那个词在页面上就没有入口;指错篇,用户点进去看到的是另一件事。 */
+  const order = [...(reg.match(/USE_CASE_ORDER = \[([\s\S]*?)\] as const/)?.[1] ?? "")
+    .matchAll(/"([^"]+)"/g)].map((m) => m[1]);
+  const entryBlock = reg.match(/TAG_ENTRY: Record<string, string> = \{([\s\S]*?)\n\};/)?.[1] ?? "";
+  const entries = [...entryBlock.matchAll(/"([^"]+)":\s*"([^"]+)"/g)].map((m) => [m[1], m[2]]);
+  const entryMap = new Map(entries);
+
+  for (const tag of order) {
+    if (!entryMap.has(tag))
+      regErrs.push(`TAG_ENTRY 缺少「${tag}」，这个痛点在 hero 入口行里点不出去`);
+    if (tag.length > LIMITS.entryTag)
+      regErrs.push(`痛点词「${tag}」${tag.length} 字 > ${LIMITS.entryTag}，hero 入口行会挤`);
+  }
+  for (const [tag, slug] of entries) {
+    if (!order.includes(tag))
+      regErrs.push(`TAG_ENTRY 多出「${tag}」，USE_CASE_ORDER 里没有这个词`);
+    // 被指的那篇必须真的挂着这个词:否则入口和落地页说的是两件事
+    const tagsOfSlug = reg.match(
+      new RegExp(`"${slug}":\\s*\\{[^}]*useCases:\\s*\\[([^\\]]*)\\]`)
+    )?.[1] ?? "";
+    if (!tagsOfSlug.includes(`"${tag}"`))
+      regErrs.push(`TAG_ENTRY「${tag}」指向 ${slug}，但该案例的 useCases 里没有这个词`);
+  }
+
+  if (regErrs.length) {
     fail++;
-    console.log(`\n✗ cases.ts（注册表：标题 / SEO / FAQ）`);
-    for (const w of hits) console.log(`   监管机关名称「${w}」不得出现在对外文案，改用「外部核查」`);
+    console.log(`\n✗ cases.ts（注册表：标题 / SEO / FAQ / 痛点入口）`);
+    for (const e of regErrs) console.log(`   ${e}`);
   }
 }
 

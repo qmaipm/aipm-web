@@ -1,7 +1,7 @@
 import Link from "next/link";
 import "./page.css";
 import JsonLd from "@/components/JsonLd";
-import { getCase, type Case } from "./cases";
+import { getCase, CASE_TAGS, USE_CASE_ORDER, TAG_ENTRY, type Case } from "./cases";
 import { pageMetadata } from "@/lib/pageMetadata";
 
 const Arrow = ({ s = 14 }: { s?: number }) => (
@@ -46,7 +46,9 @@ const GROUPS: {
     img: "/cases/guide-enterprise.jpg",
     imgAlt: "企业总部大堂里，一位负责设施与行政的经理拿着平板走向办公区",
     who: "如果你在企业里负责行政、IT 或设施",
-    what: "从一个场景开始——员工报事报修、设备巡检安全、卫生间品质、服务标准量化、多供应商管理。不动现有平台、不换团队，先把你最头疼的那件事跑通。",
+    // 介绍句里的问题词与 hero 入口行、卡片 chip 逐字一致(§3g):同一个词在三个高度各出现一次,
+    // 分别负责进门、确认走对了、扫到时认出。不要在这里另起一套我们自己的产品术语。
+    what: "这里的五个项目，各自解决一件事：报修响应慢、巡检走过场、供应商管不住、保洁质量不稳定、多项目管不过来。不动现有平台、不换团队，先跑通一件。",
     slugs: ["property-group-chat-ai-service", "fmclaw-equipment-inspection", "coworking-supplier-reconciliation", "restroom-quality", "gigafactory-4-vendor-cleaning"],
   },
   {
@@ -54,7 +56,7 @@ const GROUPS: {
     img: "/cases/guide-safety.jpg",
     imgAlt: "地下设备机房里，一位身穿反光背心的工程师拿着平板巡检设备柜",
     who: "如果你负责医院、轨道交通或危化区域这类高安全等级场景",
-    what: "这里的共同难题是漏修漏检——看三类场景怎么把「每一次巡检都真实发生」变成可核验的事实：医疗级服务标准、地铁机房日修日检、危化区域双人双岗巡查。",
+    what: "这三个项目的共同问题是巡检走过场、检查记录经不起查。看它们怎么把「每一次巡检都真实发生」变成可核验的事实：医疗级服务标准、地铁机房日修日检、危化区域双人双岗巡查。",
     slugs: ["intl-hospital-medical-grade-fm", "metro-3400-rooms-daily-inspection", "hazardous-area-dual-person-patrol"],
   },
   {
@@ -62,7 +64,7 @@ const GROUPS: {
     img: "/cases/guide-group.jpg",
     imgAlt: "物业集团办公室里，两位负责人望向窗外的城市商务区",
     who: "如果你在物业集团负责经营或数字化",
-    what: "看规模化的经验——智能体在 500 个项目集团化落地，以及一个亏损项目的账是怎么重新算平的。",
+    what: "两个问题：多项目管不过来、不知道现场到底怎么样。一个是智能体在 500 个项目集团化落地，一个是亏损项目的账怎么重新算平。",
     slugs: ["property-group-auto-operation-report", "south-china-mixed-use-6-to-1"],
   },
   {
@@ -70,7 +72,7 @@ const GROUPS: {
     img: "/cases/guide-park.jpg",
     imgAlt: "现代智慧园区的步道上，一台室外清洁机器人正在作业",
     who: "如果你在规划园区或国有物业的智能化",
-    what: "看标杆园区的完整样子——人、AI、机器人、传感器怎么融合成一个整体运营，以及智能化升级如何在原预算内启动。",
+    what: "这个项目面对的是招不到人、人手不够，以及人工成本降不下来。人、AI、机器人、传感器合成一套运营，智能化升级在原预算内启动。",
     slugs: ["30w-park-ai-property-manager-robot"],
   },
 ];
@@ -86,12 +88,19 @@ const boardFaqLd = {
 };
 
 function Card({ c }: { c: Case }) {
+  // 场景标签用买家的原话(见 cases.ts CASE_TAGS 注释),让读者在卡片上就认出自己的问题。
+  const scenes = CASE_TAGS[c.slug]?.useCases ?? [];
   return (
     <Link className="ca-card" href={`/cases/${c.slug}`}>
       <div className="ca-cover" style={{ backgroundImage: c.cover }}><span className="ca-bar" /></div>
       <div className="ca-body">
         <div className="ca-meta">{c.industry} · {c.scale} · {c.location}</div>
         <h3>{c.title}</h3>
+        {scenes.length ? (
+          <ul className="ca-scenes">
+            {scenes.map((s) => <li key={s}>{s}</li>)}
+          </ul>
+        ) : null}
         <div className="ca-metric">{c.cardMetric}</div>
         <span className="ca-go">读这个项目 <Arrow /></span>
       </div>
@@ -116,6 +125,20 @@ export default function Page() {
             <a href="#cases-list" className="btn btn-primary">查看案例 <Arrow s={16} /></a>
             <Link href="/workshop" className="btn btn-ghost">预约 FMClaw™ 加速营</Link>
           </div>
+          {/* 痛点入口行 —— 带着问题来的人,第一屏就能找到自己的词。
+              一行服务端渲染的 <a>,点一下直接进案例详情页。
+              放在 hero 里而不是单开一个板块:痛点是多值维度(一篇挂 2~4 个),
+              只能做入口层;分段轴留给单值的身份分组,一页只许有一个分段轴。 */}
+          <div className="ca-entry">
+            <span className="ca-entry-q">你在找哪个问题的答案？</span>
+            <ul className="ca-entry-list">
+              {USE_CASE_ORDER.map((u) => (
+                <li key={u}>
+                  <Link href={`/cases/${TAG_ENTRY[u]}`}>{u}<Arrow s={12} /></Link>
+                </li>
+              ))}
+            </ul>
+          </div>
           <div className="ca-proof">
             <span>覆盖<b>综合体、园区、医院、轨道交通、工厂、联合办公</b></span>
             <span className="sep" />
@@ -126,7 +149,10 @@ export default function Page() {
         </div>
       </section>
 
-      {/* 三个分组:角色导览即分组头,案例直接跟在下面 */}
+      {/* 身份分组 —— 全页唯一的分段轴。身份是单值的(一篇案例只属于一个分组,
+          5+3+2+1=11 不重不漏),所以它能当分段轴;痛点是多值的,只做 hero 的入口行。
+          原先「按问题找」的索引区已删:9 行目录说的和下面 11 张卡片是同一件事,
+          目录站在内容前面,读者要先选两次才读到东西。详见 SKILL.md §3h。 */}
       {GROUPS.map((g, i) => (
         <section className={`ca-band${i % 2 ? " mist" : ""}`} id={g.id} key={g.id}>
           {i === 0 ? <span id="cases-list" className="ca-anchor" aria-hidden="true" /> : null}
@@ -159,8 +185,8 @@ export default function Page() {
         </section>
       ))}
 
-      {/* 板块问答 */}
-      <section className="ca-band mist">
+      {/* 板块问答 — 白底:上一段(for-park,i=3)是雾底,斑马纹不许连续同底(§3 页面结构原则) */}
+      <section className="ca-band">
         <div className="wrap">
           <div className="ca-faq-head">
             <h2 className="ca-h2">看完还有疑问？</h2>
