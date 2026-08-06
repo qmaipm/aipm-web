@@ -31,20 +31,43 @@ export type Case = {
 
 // 三个筛选维度的标签(顶层设计规划 §2:行业 / 场景·用例 / 客户规模)。
 // 与案例数据分开维护,后续录入时按 slug 追加即可,不必改动案例正文对象。
+//
+// useCases 用「买家搜索时的原话」,不用我们的产品术语 —— 详见
+// skills/aipm-site/SKILL.md §3g「场景标签规则」。两条硬约束:
+//   1) 每个标签至少挂 2 篇(只挂 1 篇的不是场景,是这一篇的特色,写进标题);
+//   2) 每个标签必须能作为搜索词被真实买家搜出来(录入前用真实搜索验证)。
 export type CaseTags = { industryTag: string; useCases: string[]; sizeTag: SizeTag };
 export const CASE_TAGS: Record<string, CaseTags> = {
-  "property-group-auto-operation-report": { industryTag: "物业集团", useCases: ["自动运营报告", "数据治理", "智能问数"], sizeTag: "大型企业" },
-  "restroom-quality": { industryTag: "制造业园区", useCases: ["品质管理", "员工体验"], sizeTag: "大型企业" },
-  "property-group-chat-ai-service": { industryTag: "企业总部", useCases: ["报事报修", "智能工单"], sizeTag: "大型企业" },
-  "fmclaw-equipment-inspection": { industryTag: "互联网科技", useCases: ["设备巡检", "设备安全"], sizeTag: "大型企业" },
-  "coworking-supplier-reconciliation": { industryTag: "联合办公", useCases: ["服务标准量化", "外包管理"], sizeTag: "大型企业" },
-  "30w-park-ai-property-manager-robot": { industryTag: "智慧园区", useCases: ["人机协同", "清洁机器人", "AI 降本增效"], sizeTag: "大型企业" },
-  "south-china-mixed-use-6-to-1": { industryTag: "商业综合体", useCases: ["扭亏为盈", "AI 降本增效", "IoT 数字化"], sizeTag: "大型企业" },
-  "intl-hospital-medical-grade-fm": { industryTag: "医疗健康", useCases: ["服务标准量化", "设备巡检", "提质增效"], sizeTag: "大型企业" },
-  "metro-3400-rooms-daily-inspection": { industryTag: "轨道交通", useCases: ["设备巡检", "设备安全", "外包管理"], sizeTag: "大型企业" },
-  "hazardous-area-dual-person-patrol": { industryTag: "工业制造", useCases: ["双人双岗巡查", "合规核查", "设备安全"], sizeTag: "大型企业" },
-  "gigafactory-4-vendor-cleaning": { industryTag: "工业制造", useCases: ["品质管理", "外包管理", "员工体验"], sizeTag: "大型企业" },
+  "property-group-auto-operation-report": { industryTag: "物业集团", useCases: ["报表靠人拼", "多项目管不过来"], sizeTag: "大型企业" },
+  "restroom-quality": { industryTag: "制造业园区", useCases: ["保洁质量不稳定", "人工成本降不下来"], sizeTag: "大型企业" },
+  "property-group-chat-ai-service": { industryTag: "企业总部", useCases: ["报修响应慢", "招不到人、人手不够"], sizeTag: "大型企业" },
+  "fmclaw-equipment-inspection": { industryTag: "互联网科技", useCases: ["巡检走过场", "检查记录留痕"], sizeTag: "大型企业" },
+  "coworking-supplier-reconciliation": { industryTag: "联合办公", useCases: ["供应商管不住", "保洁质量不稳定", "多项目管不过来"], sizeTag: "大型企业" },
+  "30w-park-ai-property-manager-robot": { industryTag: "智慧园区", useCases: ["招不到人、人手不够", "人工成本降不下来"], sizeTag: "大型企业" },
+  "south-china-mixed-use-6-to-1": { industryTag: "商业综合体", useCases: ["人工成本降不下来", "报表靠人拼"], sizeTag: "大型企业" },
+  "intl-hospital-medical-grade-fm": { industryTag: "医疗健康", useCases: ["保洁质量不稳定", "巡检走过场", "报修响应慢"], sizeTag: "大型企业" },
+  "metro-3400-rooms-daily-inspection": { industryTag: "轨道交通", useCases: ["巡检走过场", "供应商管不住"], sizeTag: "大型企业" },
+  "hazardous-area-dual-person-patrol": { industryTag: "工业制造", useCases: ["检查记录留痕", "巡检走过场"], sizeTag: "大型企业" },
+  "gigafactory-4-vendor-cleaning": { industryTag: "工业制造", useCases: ["供应商管不住", "保洁质量不稳定", "招不到人、人手不够"], sizeTag: "大型企业" },
 };
+
+// 场景标签的展示顺序(列表页场景索引区按此排列,与 CASE_TAGS 保持同源)。
+export const USE_CASE_ORDER = [
+  "巡检走过场",
+  "供应商管不住",
+  "保洁质量不稳定",
+  "人工成本降不下来",
+  "招不到人、人手不够",
+  "报修响应慢",
+  "检查记录留痕",
+  "报表靠人拼",
+  "多项目管不过来",
+] as const;
+
+/** 按场景标签取案例(用于列表页场景索引区),顺序与 ALL_CASES 一致。 */
+export function getCasesByUseCase(useCase: string): Case[] {
+  return ALL_CASES.filter((c) => CASE_TAGS[c.slug]?.useCases.includes(useCase));
+}
 
 export const ALL_CASES: Case[] = [
   {

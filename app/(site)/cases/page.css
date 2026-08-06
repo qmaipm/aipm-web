@@ -94,9 +94,29 @@
 .ca-go .ar{transition:transform .2s}
 .ca-card:hover .ca-go .ar{transform:translateX(3px)}
 
+/* 卡片场景标签 — 买家原话,让读者在卡片上认出自己的问题 */
+.ca-scenes{margin:12px 0 0;padding:0;list-style:none;display:flex;flex-wrap:wrap;gap:6px}
+.ca-scenes li{font-size:12px;font-weight:600;line-height:1.5;color:var(--ca-ink-2);
+  padding:3px 9px;border:1px solid var(--ca-line);border-radius:999px;background:var(--ca-paper)}
+.ca-card:hover .ca-scenes li{border-color:rgba(12,139,130,.30);color:var(--ca-green)}
+
 /* 卡片关键数字 */
 .ca-metric{margin-top:12px;font-size:13px;font-weight:700;letter-spacing:-.01em;color:var(--ca-ink);line-height:1.4}
 .ca-go{margin-top:auto;padding-top:14px}
+
+/* ---------- 场景索引区(按问题找案例) ---------- */
+.ca-scenenav{margin:44px 0 0;padding:0;list-style:none;
+  display:grid;grid-template-columns:repeat(auto-fill,minmax(268px,1fr));gap:18px}
+.ca-scenenav > li{border:1px solid var(--ca-line);border-radius:14px;padding:20px 22px 12px;background:var(--ca-paper)}
+.ca-scenenav > li > h3{margin:0;font-size:17px;font-weight:750;letter-spacing:-.02em;color:var(--ca-ink);line-height:1.3}
+.ca-scenenav-n{margin:6px 0 0;font-size:12.5px;font-weight:600;color:var(--ca-green)}
+.ca-scenenav > li > ul{margin:12px 0 0;padding:0;list-style:none}
+.ca-scenenav > li > ul > li{border-top:1px solid var(--ca-line)}
+.ca-scenenav a{display:flex;flex-direction:column;gap:2px;padding:10px 0;text-decoration:none}
+.ca-scenenav a b{font-size:13.5px;font-weight:700;color:var(--ca-ink);line-height:1.35}
+.ca-scenenav a span{font-size:12.5px;color:var(--ca-ink-2);line-height:1.45}
+.ca-scenenav a:hover b{color:var(--ca-green)}
+@media(max-width:560px){.ca-scenenav{grid-template-columns:1fr}}
 
 /* 引导卡(政企共建) — 无封面,雾底 */
 .ca-card-more{background:linear-gradient(160deg,rgba(0,112,255,.05),rgba(18,185,138,.07));justify-content:flex-start}

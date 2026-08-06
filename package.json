@@ -7,6 +7,8 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
+    "cases:lint": "node scripts/cases-lint.mjs",
+    "cases:tags": "node scripts/case-tags-audit.mjs",
     "seo:push": "node scripts/submit-urls.mjs"
   },
   "dependencies": {

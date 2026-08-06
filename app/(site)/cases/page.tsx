@@ -1,7 +1,7 @@
 import Link from "next/link";
 import "./page.css";
 import JsonLd from "@/components/JsonLd";
-import { getCase, type Case } from "./cases";
+import { getCase, getCasesByUseCase, CASE_TAGS, USE_CASE_ORDER, type Case } from "./cases";
 import { pageMetadata } from "@/lib/pageMetadata";
 
 const Arrow = ({ s = 14 }: { s?: number }) => (
@@ -86,12 +86,19 @@ const boardFaqLd = {
 };
 
 function Card({ c }: { c: Case }) {
+  // 场景标签用买家的原话(见 cases.ts CASE_TAGS 注释),让读者在卡片上就认出自己的问题。
+  const scenes = CASE_TAGS[c.slug]?.useCases ?? [];
   return (
     <Link className="ca-card" href={`/cases/${c.slug}`}>
       <div className="ca-cover" style={{ backgroundImage: c.cover }}><span className="ca-bar" /></div>
       <div className="ca-body">
         <div className="ca-meta">{c.industry} · {c.scale} · {c.location}</div>
         <h3>{c.title}</h3>
+        {scenes.length ? (
+          <ul className="ca-scenes">
+            {scenes.map((s) => <li key={s}>{s}</li>)}
+          </ul>
+        ) : null}
         <div className="ca-metric">{c.cardMetric}</div>
         <span className="ca-go">读这个项目 <Arrow /></span>
       </div>
@@ -123,6 +130,40 @@ export default function Page() {
             <span className="sep" />
             <span>先在<b className="grad">自营物业公司</b>完整验证</span>
           </div>
+        </div>
+      </section>
+
+      {/* 场景索引:按「你现在遇到的问题」直达案例。
+          纯服务端渲染的链接列表——不做客户端筛选,因为 AI 爬虫不执行 JS,
+          筛选结果也没有 URL 可被索引。详见 SKILL.md §3g。 */}
+      <section className="ca-band" id="by-scene">
+        <div className="wrap">
+          <div className="ca-faq-head">
+            <h2 className="ca-h2">你现在遇到的是哪一个问题？</h2>
+            <p className="ca-faq-sub">按问题找，直接跳到已经解决过它的项目。</p>
+          </div>
+          <ul className="ca-scenenav">
+            {USE_CASE_ORDER.map((u) => {
+              const list = getCasesByUseCase(u);
+              if (!list.length) return null;
+              return (
+                <li key={u}>
+                  <h3>{u}</h3>
+                  <p className="ca-scenenav-n">{list.length} 个项目</p>
+                  <ul>
+                    {list.map((c) => (
+                      <li key={c.slug}>
+                        <Link href={`/cases/${c.slug}`}>
+                          <b>{c.industry}</b>
+                          <span>{c.cardMetric}</span>
+                        </Link>
+                      </li>
+                    ))}
+                  </ul>
+                </li>
+              );
+            })}
+          </ul>
         </div>
       </section>
 
