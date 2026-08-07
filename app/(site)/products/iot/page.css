@@ -137,6 +137,8 @@
 .iot-arch-row{display:grid;gap:12px}
 .iot-arch-row.c4{grid-template-columns:repeat(4,1fr)}
 .iot-arch-row.c3{grid-template-columns:repeat(3,1fr)}
+.iot-arch-row.c2{grid-template-columns:repeat(2,1fr)}
+@media(max-width:920px){.iot-arch-row.c2{grid-template-columns:1fr}}
 @media(max-width:920px){.iot-arch-row.c4{grid-template-columns:1fr 1fr}.iot-arch-row.c3{grid-template-columns:1fr}}
 @media(max-width:480px){.iot-arch-row.c4{grid-template-columns:1fr}}
 .iot-arch-node{border:1px solid var(--io-line);border-radius:12px;background:var(--io-paper);
@@ -161,6 +163,18 @@
 @media(max-width:920px){.iot-arch-flow{grid-template-columns:1fr;height:30px}
   .iot-arch-flow i:nth-child(1){grid-column:1}
   .iot-arch-flow i:nth-child(2),.iot-arch-flow i:nth-child(3){display:none}}
+
+/* BA 三层示意的层间连接行:标注「数据上行·指令下行」,左侧留出与层网格一致的标签列宽,
+   文字两侧各一个 i —— 第一个画上箭头(数据上行)、第二个画下箭头(指令下行),双向一目了然。 */
+.iot-ba-flow{padding-left:136px;height:40px;display:flex;align-items:center;justify-content:center;gap:10px;
+  font-size:11px;font-weight:600;letter-spacing:.08em;color:var(--io-mut)}
+.iot-ba-flow i{position:relative;width:12px;height:22px}
+.iot-ba-flow i::before{content:"";position:absolute;left:50%;top:4px;bottom:4px;width:1.5px;background:var(--io-line-2);transform:translateX(-50%)}
+.iot-ba-flow i::after{content:"";position:absolute;left:50%;width:7px;height:7px;
+  border-left:1.5px solid var(--io-green);border-top:1.5px solid var(--io-green)}
+.iot-ba-flow i:first-of-type::after{top:3px;transform:translateX(-50%) rotate(45deg)}
+.iot-ba-flow i:last-of-type::after{bottom:3px;transform:translateX(-50%) rotate(225deg)}
+@media(max-width:920px){.iot-ba-flow{padding-left:0;height:34px}}
 /* 枢纽 · 行业数据本体与数据集市 */
 .iot-arch-hub{border:1px solid rgba(18,185,138,.34);border-radius:16px;text-align:center;padding:26px 22px;
   background:linear-gradient(180deg,rgba(18,185,138,.09),var(--io-paper))}

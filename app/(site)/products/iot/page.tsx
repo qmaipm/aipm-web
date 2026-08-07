@@ -146,11 +146,40 @@ export default function Page() {
           <div className="iot-chips">
             <span>暖通 HVAC</span><span>照明</span><span>电梯（运行状态）</span><span>给排水</span><span>能耗仪表</span><span>消防联动</span>
           </div>
-          {/* 场景图：AI 生成，图注声明还原；图内无可读文字/品牌/人脸(skill §3f 硬红线已逐张放大自审) */}
-          <figure className="iot-scene">
-            <Image src="/products/iot/iot-dim2.jpg" alt="给排水机房内部，水泵与管路成排，墙侧是一排配电控制柜" width={1800} height={1208} className="iot-scene-img" />
-            <figcaption>场景还原：给排水机房——水泵、管路与配电柜的运行数据，经 BA 楼宇自控系统纳入感知。</figcaption>
-          </figure>
+          {/* BA 系统结构示意：带文字的示意图必须纯代码画(skill §3f)。
+              传统 BA 是三层结构:管理层(中央监控工作站)→自动化层(DDC 控制器)→现场层(传感器/执行器)。
+              2026-08-08 用户指正:曾用一张机房照片代表 BA 系统,照片是场景不是系统。 */}
+          <div
+            className="iot-arch iot-ba"
+            role="img"
+            aria-label="传统 BA 楼宇自控系统的三层结构：现场层的传感器与执行器装在冷水机组、水泵、空调箱等设备上；自动化层的 DDC 控制器分布在各机房就近采集与调节；管理层的中央监控工作站汇总全楼。FMClaw 经连接器从管理层读取数据，不改动 BA 本身。"
+          >
+            <div className="iot-arch-layer">
+              <span className="iot-arch-lab">管理层</span>
+              <div className="iot-arch-row c2">
+                <div className="iot-arch-node"><b>中央监控工作站</b><span>BA 中控软件 · 全楼机电设备的总看板</span></div>
+                <div className="iot-arch-node use"><b>FMClaw 从这里接入</b><span>经连接器读标准协议或厂商接口，只取数、不改动 BA</span></div>
+              </div>
+            </div>
+            <div className="iot-ba-flow"><i aria-hidden="true" />数据上行 · 指令下行<i aria-hidden="true" /></div>
+            <div className="iot-arch-layer">
+              <span className="iot-arch-lab">自动化层</span>
+              <div className="iot-arch-row c3">
+                <div className="iot-arch-node"><b>DDC 控制器</b><span>冷冻机房 · 冷水机组</span></div>
+                <div className="iot-arch-node"><b>DDC 控制器</b><span>空调箱 · 新风机组</span></div>
+                <div className="iot-arch-node"><b>DDC 控制器</b><span>给排水 · 配电回路</span></div>
+              </div>
+            </div>
+            <div className="iot-ba-flow"><i aria-hidden="true" />数据上行 · 指令下行<i aria-hidden="true" /></div>
+            <div className="iot-arch-layer">
+              <span className="iot-arch-lab">现场层</span>
+              <div className="iot-arch-row c2">
+                <div className="iot-arch-node"><b>传感器</b><span>温度 · 压力 · 流量 · 液位 · 电量</span></div>
+                <div className="iot-arch-node"><b>执行器</b><span>阀门 · 风阀 · 变频器 · 设备启停</span></div>
+              </div>
+            </div>
+          </div>
+          <p className="iot-arch-note">这是楼里已经在跑的 BA 楼宇自控——设备感知不推倒重来，从管理层把数据读出来即可。</p>
           <p className="iot-value">设备的异常，在停机或故障之前，就被看见。</p>
           <p className="iot-case-note">设备感知加上在场核验，在<Link href="/cases/fmclaw-equipment-inspection">头部互联网大厂总部的巡检案例</Link>里，把 100 多个机房的巡检达标率从 35% 做到 98%。</p>
         </div>
