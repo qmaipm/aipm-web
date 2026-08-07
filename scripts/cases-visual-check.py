@@ -21,19 +21,15 @@ BASE = sys.argv[1] if len(sys.argv) > 1 else "http://localhost:3000"
 OUT = Path(__file__).resolve().parent.parent / "tmp" / "visual"
 OUT.mkdir(parents=True, exist_ok=True)
 
-SLUGS = [
-    "intl-hospital-medical-grade-fm",
-    "south-china-mixed-use-6-to-1",
-    "fmclaw-equipment-inspection",
-    "restroom-quality",
-    "metro-3400-rooms-daily-inspection",
-    "hazardous-area-dual-person-patrol",
-    "gigafactory-4-vendor-cleaning",
-    "property-group-auto-operation-report",
-    "property-group-chat-ai-service",
-    "coworking-supplier-reconciliation",
-    "30w-park-ai-property-manager-robot",
-]
+# slug 从文件系统自动发现,不写死。
+# 教训(2026-08-07):写死的 11 个 slug 漏掉了新增的 campus-cctv-photo-ai-review,
+# 「视觉复验通过」对新页面是空话——和 §3g 第 7 条 GROUPS 写死漏新案例是同一类坑。
+_CASES_DIR = Path(__file__).resolve().parent.parent / "app" / "(site)" / "cases"
+SLUGS = sorted(
+    d.name for d in _CASES_DIR.iterdir()
+    if d.is_dir() and (d / "page.tsx").exists()
+)
+assert SLUGS, f"未在 {_CASES_DIR} 下发现任何案例页"
 
 DESKTOP = {"width": 1440, "height": 900}
 MOBILE = {"width": 390, "height": 844}
