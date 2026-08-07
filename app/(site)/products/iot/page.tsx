@@ -9,9 +9,9 @@ import ProductCrumb from "../_crumb";
 export const dynamic = "force-dynamic";
 
 export const metadata: Metadata = pageMetadata("/products/iot", {
-  title: "IoT 物理世界感知 · 服务感知是头牌 | 启盟科技",
+  title: "IoT 物理世界感知 · 物理 AI(Physical AI)的落地形态 | 启盟科技",
   description:
-    "FMClaw 的物理世界感知分四类:服务感知、设备感知、环境感知、视觉感知。其中服务感知——感知一次服务到底有没有做、做了多久、做得到不到位——是启盟科技独有、别人做不到的能力。四类数据统一接进 FMClaw 行业数据本体与数据集市。",
+    "FMClaw 的物理世界感知是物理 AI(Physical AI)在楼宇设施管理里的落地形态,分四类:服务感知、设备感知、环境感知、视觉感知。其中服务感知——感知一次服务到底有没有做、做了多久、做得到不到位——是启盟科技独有、别人做不到的能力。四类数据统一接进 FMClaw 行业数据本体与数据集市。",
 });
 
 const Arrow = ({ s = 15 }: { s?: number }) => (
@@ -37,7 +37,10 @@ export default function Page() {
           <p className="iot-lead">
             通用 Agent 擅长语言与数据；但物业与设施管理，发生在真实的物理世界。FMClaw 多了一层能力——把楼宇、设备、环境、人车都<b>看见</b>。
           </p>
-          <p className="iot-note">越靠近物理世界越难做，而这正是行业级平台的护城河。</p>
+          <p className="iot-note">
+            这层能力有个行业名字——物理 AI(Physical AI):能感知、理解并作用于物理世界的
+            AI(<Link href="/insights/what-is-physical-ai">什么是物理 AI,我们写了一篇完整的研究</Link>)。越靠近物理世界越难做，而这正是行业级平台的护城河。
+          </p>
           <div className="iot-cta">
             <Link href="/workshop" className="btn btn-primary">预约 FMClaw™ 加速营 <Arrow /></Link>
             <Link href="/products/fmclaw" className="btn btn-ghost">看它怎么接进平台 <Arrow /></Link>
@@ -127,6 +130,7 @@ export default function Page() {
           <div className="iot-deploy-img">
             <Image src="/images/deploy-flow.png" alt="部署流程" width={1596} height={266} style={{ width: "100%", height: "auto", borderRadius: 12 }} />
           </div>
+          <p className="iot-case-note">这两类传感器在真实项目里的规模：<Link href="/cases/intl-hospital-medical-grade-fm">上海一家三级综合国际医院</Link>用 4,198 个传感器支撑每月 215,821 次服务交付的逐次核验；<Link href="/cases/metro-3400-rooms-daily-inspection">国内一条地铁线</Link>把 3400 多个机房的日修日检全部纳入感知。</p>
         </div>
       </section>
 
@@ -142,21 +146,13 @@ export default function Page() {
           <div className="iot-chips">
             <span>暖通 HVAC</span><span>照明</span><span>电梯（运行状态）</span><span>给排水</span><span>能耗仪表</span><span>消防联动</span>
           </div>
-          <div className="iot-illus">
-            <div className="iot-illus-card">
-              <div className="iot-illus-svg"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round"><rect x="3" y="6" width="18" height="12" rx="2" /><circle cx="9" cy="12" r="3" /><path d="M16 10.5v3M19 10.5v3" /></svg></div>
-              <div className="iot-cap"><b>暖通 · 给排水机房</b><span>机房运行数据接入 BA 系统</span></div>
-            </div>
-            <div className="iot-illus-card">
-              <div className="iot-illus-svg"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round"><rect x="4" y="3" width="16" height="18" rx="2" /><path d="M13 6.5l-3.5 6H12l-1 5 3.5-6H12l1-4.5Z" /></svg></div>
-              <div className="iot-cap"><b>配电 · 能耗</b><span>电力与能耗实时采集计量</span></div>
-            </div>
-            <div className="iot-illus-card">
-              <div className="iot-illus-svg"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round"><rect x="5" y="3" width="14" height="18" rx="1.5" /><path d="M12 3v18" /><path d="M7 9l1.5-2 1.5 2M14 15l1.5 2 1.5-2" /></svg></div>
-              <div className="iot-cap"><b>电梯 · 消防联动</b><span>现场设备运行状态全程在线</span></div>
-            </div>
-          </div>
+          {/* 场景图：AI 生成，图注声明还原；图内无可读文字/品牌/人脸(skill §3f 硬红线已逐张放大自审) */}
+          <figure className="iot-scene">
+            <Image src="/products/iot/iot-dim2.jpg" alt="给排水机房内部，水泵与管路成排，墙侧是一排配电控制柜" width={1800} height={1208} className="iot-scene-img" />
+            <figcaption>场景还原：给排水机房——水泵、管路与配电柜的运行数据，经 BA 楼宇自控系统纳入感知。</figcaption>
+          </figure>
           <p className="iot-value">设备的异常，在停机或故障之前，就被看见。</p>
+          <p className="iot-case-note">设备感知加上在场核验，在<Link href="/cases/fmclaw-equipment-inspection">头部互联网大厂总部的巡检案例</Link>里，把 100 多个机房的巡检达标率从 35% 做到 98%。</p>
         </div>
       </section>
 
@@ -168,6 +164,10 @@ export default function Page() {
             <h2 className="iot-h2">此刻，这个空间是什么状况</h2>
             <p className="iot-perceive">感知<b>这个空间此刻是否舒适，以及人与车此刻在哪儿、怎么流动</b>。</p>
           </div>
+          <figure className="iot-scene">
+            <Image src="/products/iot/iot-dim3.jpg" alt="地下停车场入口，抬起的道闸与一排门禁闸机，远处一辆车和两个背影行人" width={1800} height={1208} className="iot-scene-img" />
+            <figcaption>场景还原：停车场道闸与门禁通道——对接停车与门禁系统，感知人车此刻的分布与通行。</figcaption>
+          </figure>
           <div className="iot-env">
             <div className="iot-env-col">
               <div className="iot-env-lead">空间是否舒适</div>
@@ -213,21 +213,15 @@ export default function Page() {
             <h2 className="iot-h2">用视觉，补齐看不到的细节</h2>
             <p className="iot-perceive">用视觉<b>补齐前几类看不到的现场细节</b>——来源包括视频监控、机器人与无人机。</p>
           </div>
-          <div className="iot-illus">
-            <div className="iot-illus-card">
-              <div className="iot-illus-svg"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round"><path d="M2.5 8l13-3 1.1 4-13 3z" /><path d="M5 11.5l-1.5 5.5" /><path d="M16.6 9.2l4 1.1" /><circle cx="8.5" cy="9" r="1" /></svg></div>
-              <div className="iot-cap"><b>视频监控系统</b><span>把现场画面纳入感知</span></div>
-            </div>
-            <div className="iot-illus-card">
-              <div className="iot-illus-svg"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round"><rect x="5" y="8" width="14" height="11" rx="2.5" /><circle cx="9.5" cy="13" r="1.1" /><circle cx="14.5" cy="13" r="1.1" /><path d="M12 8V5.5" /><circle cx="12" cy="4.3" r="1" /><path d="M5 13H3.2M20.8 13H19" /></svg></div>
-              <div className="iot-cap"><b>机器人</b><span>移动巡检、补盲采集</span></div>
-            </div>
-            <div className="iot-illus-card">
-              <div className="iot-illus-svg"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round"><circle cx="5" cy="7" r="2" /><circle cx="19" cy="7" r="2" /><path d="M7 8.5l2.5 2.5M17 8.5l-2.5 2.5" /><rect x="9.5" y="10.5" width="5" height="4.2" rx="1.2" /><path d="M10 18l2-3.3 2 3.3" /></svg></div>
-              <div className="iot-cap"><b>无人机</b><span>高处、大面积巡查</span></div>
-            </div>
+          <figure className="iot-scene">
+            <Image src="/products/iot/iot-dim4.jpg" alt="写字楼大堂走廊，天花板上的半球监控摄像头与地面上移动的白色巡逻机器人" width={1800} height={1208} className="iot-scene-img" />
+            <figcaption>场景还原：大堂里的监控摄像头与巡逻机器人——视频监控、机器人与无人机的画面，都是视觉感知的来源。</figcaption>
+          </figure>
+          <div className="iot-chips">
+            <span>视频监控系统</span><span>机器人移动巡检</span><span>无人机高处巡查</span>
           </div>
           <p className="iot-sub">这些视觉来源可用于巡检识别、异常发现，把现场看不到的细节也补进感知。</p>
+          <p className="iot-case-note">视觉感知在真实项目里的样子：<Link href="/cases/campus-cctv-photo-ai-review">华南一个园区</Link>把监控预警图片接进平台，识别完直接派单，一次电动车充电冒烟 3 分钟内有人到场。</p>
         </div>
       </section>
 
@@ -238,49 +232,68 @@ export default function Page() {
           <h2 className="iot-h2">设备只管感知，怎么用交给平台</h2>
           <p className="iot-sub iot-ingest-lead">四类感知采到的数据，统一接进 <Link href="/products/fmclaw/ontology">FMClaw™ 行业数据本体与数据集市</Link>，成为日常运营可查、可调的资产。IoT 提供物理世界的事实，行业数据本体将这些事实映射为项目、空间、设备、服务和指标。</p>
 
-          <div className="iot-pipe">
-            {/* 源 · 物理感知 */}
-            <div className="iot-pipe-stage src">
-              <span className="iot-pipe-lab">物理感知 · IoT</span>
-              <div className="iot-pipe-srcs">
-                {[
-                  ["维度一", "服务感知"],
-                  ["维度二", "设备感知"],
-                  ["维度三", "环境感知"],
-                  ["维度四", "视觉感知"],
-                ].map(([d, n]) => (
-                  <span className="iot-srcchip" key={n}><i className="iot-srcdot" aria-hidden="true" />{n}<em>{d}</em></span>
-                ))}
+          {/* 四层架构图:纯代码绘制(架构图全是文字,按 skill §3f 不许 AI 生成)。
+              接入层口径对齐 /products/fmclaw/ontology(连接器接入已有系统)
+              与园区监控案例(预警图片落中间数据池,连接器从池子读取)。 */}
+          <div className="iot-arch" role="img" aria-label="IoT 数据接入平台的四层架构：物理感知层的四个维度，经自研传感器直连、连接器、中间数据池三条通道，接进行业数据本体与数据集市，供智能体、工作流与日常运营使用">
+            {/* 第一层 · 物理感知 */}
+            <div className="iot-arch-layer">
+              <span className="iot-arch-lab">物理感知</span>
+              <div className="iot-arch-row c4">
+                <div className="iot-arch-node"><b>服务感知</b><span>空间与行为传感器</span></div>
+                <div className="iot-arch-node"><b>设备感知</b><span>BA 楼宇自控数据</span></div>
+                <div className="iot-arch-node"><b>环境感知</b><span>温湿度 · 停车 · 门禁</span></div>
+                <div className="iot-arch-node"><b>视觉感知</b><span>监控 · 机器人 · 无人机</span></div>
               </div>
             </div>
 
-            <span className="iot-pipe-arr" aria-hidden="true">
-              <svg viewBox="0 0 16 16" width="22" height="22"><path d="M3 8h10M9 4l4 4-4 4" fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round" /></svg>
-            </span>
+            <div className="iot-arch-flow" aria-hidden="true"><i /><i /><i /></div>
 
-            {/* 枢纽 · 数据集市 */}
-            <div className="iot-pipe-stage hub">
-              <span className="iot-pipe-lab on">FMClaw™ 平台</span>
-              <div>
+            {/* 第二层 · 接入通道 */}
+            <div className="iot-arch-layer">
+              <span className="iot-arch-lab">接入通道</span>
+              <div className="iot-arch-row c3">
+                <div className="iot-arch-node way">
+                  <b>自研传感器直连</b>
+                  <span>服务感知与温湿度数据，由 FMClaw 传感器采集后直接上传</span>
+                </div>
+                <div className="iot-arch-node way">
+                  <b>连接器</b>
+                  <span>BA、停车、门禁等企业已有系统，经连接器接入，不替换、不重建</span>
+                </div>
+                <div className="iot-arch-node way">
+                  <b>中间数据池</b>
+                  <span>监控系统把预警图片放进约定的数据池，连接器从池子里读取——不接视频流</span>
+                </div>
+              </div>
+            </div>
+
+            <div className="iot-arch-flow" aria-hidden="true"><i /><i /><i /></div>
+
+            {/* 第三层 · 平台 */}
+            <div className="iot-arch-layer">
+              <span className="iot-arch-lab">FMClaw™ 平台</span>
+              <div className="iot-arch-hub">
                 <span className="iot-hub-en">ONTOLOGY & DATA MART</span>
                 <p className="iot-hub-zh">行业数据本体与数据集市</p>
-                <p className="iot-hub-note">物理世界的事实，统一接进一处</p>
+                <p className="iot-hub-note">物理世界的事实，映射为项目、空间、设备、服务与指标</p>
               </div>
             </div>
 
-            <span className="iot-pipe-arr" aria-hidden="true">
-              <svg viewBox="0 0 16 16" width="22" height="22"><path d="M3 8h10M9 4l4 4-4 4" fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round" /></svg>
-            </span>
+            <div className="iot-arch-flow" aria-hidden="true"><i /><i /><i /></div>
 
-            {/* 输出 · 运营资产 */}
-            <div className="iot-pipe-stage out">
-              <span className="iot-pipe-lab">运营资产</span>
-              <div className="iot-pipe-outs">
-                <div className="iot-outcard"><b>可查</b><span>日常运营随时查阅</span></div>
-                <div className="iot-outcard"><b>可调</b><span>Agent 与工作流随取随用</span></div>
+            {/* 第四层 · 使用 */}
+            <div className="iot-arch-layer">
+              <span className="iot-arch-lab">谁在用</span>
+              <div className="iot-arch-row c3">
+                <div className="iot-arch-node use"><b>智能体</b><span>识别异常，直接开工单、派到岗位</span></div>
+                <div className="iot-arch-node use"><b>工作流</b><span>水电费审批、AI 质检、报修派单</span></div>
+                <div className="iot-arch-node use"><b>日常运营</b><span>随时查阅，人和智能体用同一份口径</span></div>
               </div>
             </div>
           </div>
+
+          <p className="iot-arch-note">中间数据池这条通道在真实项目里怎么跑，<Link href="/cases/campus-cctv-photo-ai-review">园区监控预警预审案例</Link>记录了完整过程——从预警图片进池，到识别完直接派单。</p>
         </div>
       </section>
 

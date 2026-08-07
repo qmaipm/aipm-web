@@ -95,7 +95,11 @@ const entries = [
     n: "03",
     tag: "感知",
     h: "物理 AI",
-    p: "楼宇里的大量传感器,让空间被持续读取:能耗、人流、环境、设备状态——物理世界,第一次成为 AI 的数据来源。",
+    p: (
+      <>
+        楼宇里的大量传感器,让空间被持续读取:能耗、人流、环境、设备状态——物理世界,第一次成为 AI 的数据来源。这层能力已经做成了产品:<Link href="/products/iot">物理感知与 IoT 数据接入平台</Link>。
+      </>
+    ),
     icon: (
       <svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="1.8" fill="currentColor" /><path d="M8.2 8.2a5.4 5.4 0 0 0 0 7.6M15.8 8.2a5.4 5.4 0 0 1 0 7.6" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" /><path d="M5.4 5.4a9.3 9.3 0 0 0 0 13.2M18.6 5.4a9.3 9.3 0 0 1 0 13.2" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" /></svg>
     ),
