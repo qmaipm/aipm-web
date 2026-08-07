@@ -283,7 +283,7 @@
 .fmc-sec.dark .fmo-howcase b{color:#fff}
 .fmc-sec.dark .fmo-hownote{color:#8fa39c}
 
-/* 权限分级卡(暗场:直接执行 / 先问过人 / 全程留痕) */
+/* 权限分级卡(暗场:直接执行 / 先问过人 / 全程有记录) */
 .fmo-tiers{display:grid;gap:14px}
 .fmo-tier{padding:22px 24px;border-radius:16px;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.1)}
 .fmo-tier-tag{display:inline-flex;align-items:center;font-size:10.5px;font-weight:800;letter-spacing:.14em;

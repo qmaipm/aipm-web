@@ -7,7 +7,7 @@ import { pageMetadata } from "@/lib/pageMetadata";
 export const metadata: Metadata = pageMetadata("/solutions/procurement", {
   title: "采购管理 · 智能体解决方案 | 启盟科技",
   description:
-    "FMClaw 智能采购:服务设计阶段对物料科学测算自动生成清单,库存低于阈值自动触发采购,对接 1688、京东企业购多平台 AI 比价匹配,审批通过自动下单推送供应商、全程留痕实时追踪到货。",
+    "FMClaw 智能采购:服务设计阶段对物料科学测算自动生成清单,库存低于阈值自动触发采购,对接 1688、京东企业购多平台 AI 比价匹配,审批通过自动下单推送供应商,全程有记录、实时追踪到货。",
 });
 
 const Arrow = ({ s = 15 }: { s?: number }) => (
@@ -35,7 +35,7 @@ const feats = [
   { no: "01", title: "服务设计阶段科学测算", icon: <IconCalc />, body: "项目启动时，用服务设计 Agent 对物料需求做全维度科学测算，自动生成最优物料清单。" },
   { no: "02", title: "智能采购流程自动化", icon: <IconBell />, body: "自动需求识别，当库存低于安全阈值时，自动触发采购需求。" },
   { no: "03", title: "智能比价与供应商匹配", icon: <IconScale />, body: "自动对接 1688、京东企业购等主流平台，AI Agent 检索匹配物料规格，多平台比价，推荐性价比最优方案。" },
-  { no: "04", title: "自动化审批与执行", icon: <IconFileCheck />, body: "审批通过后自动生成采购订单、推送至供应商系统，全程留痕，实时追踪订单到货状态。" },
+  { no: "04", title: "自动化审批与执行", icon: <IconFileCheck />, body: "审批通过后自动生成采购订单、推送至供应商系统，全程有记录，实时追踪订单到货状态。" },
 ];
 
 const agents = [
@@ -117,7 +117,7 @@ export default function Page() {
               </div>
             ))}
           </div>
-          <p className="pr-verdict">从源头测算到下单，全程留痕、<span className="grad">实时可追踪</span></p>
+          <p className="pr-verdict">从源头测算到下单，全程有记录、<span className="grad">实时可追踪</span></p>
         </div>
       </section>
 
@@ -179,7 +179,7 @@ export default function Page() {
         serviceName="采购管理"
         serviceDesc="用智能体把物业采购的申请、比价、审批、台账串起来。"
         items={[
-          { q: "物业采购管理的痛点是什么?", a: "需求分散、比价与审批链路长、台账不清。用智能体把申请、比价、审批、台账串起来,可提速并全程留痕。" },
+          { q: "物业采购管理的痛点是什么?", a: "需求分散、比价与审批链路长、台账不清。用智能体把申请、比价、审批、台账串起来,可提速并全程有记录。" },
           { q: "AI 能帮物业采购做什么?", a: "自动归集需求、辅助比价与合规校验、跟踪审批进度,并把采购数据沉淀为可分析的台账。" },
           { q: "采购能和成本优化联动吗?", a: "可以。采购数据与成本、供应商考核打通后,能从源头控制成本,而不只是事后报销审核。" },
         ]}
