@@ -9,9 +9,9 @@ import SeoFaq from "@/components/SeoFaq";
 const SITE_URL = process.env.SITE_URL || "https://www.aipm.cn";
 
 export const metadata: Metadata = pageMetadata("/partners/embodied-ai-data", {
-  title: "具身智能数据合作 — 物业真实场景的第一视角数据与实训场 | 启盟科技",
+  title: "具身智能与物理 AI 数据合作 — 真实场景的第一视角数据与实训场 | 启盟科技",
   description:
-    "面向具身智能与机器人公司的数据合作：3,000 万㎡ 全业态在管场景、数以万计一线服务人员，第一视角作业数据在真实工作中自然产生，FMClaw™ 工单让每段数据自带任务语义。采集融入日常作业、无需布景与专职采集员，是成本结构完全不同的数据采集与训练合作方；真实楼宇与园区同时可作机器人实训场。",
+    "面向具身智能公司、世界模型与多模态团队、具身数据平台的数据合作：3,000 万㎡ 全业态在管场景、数以万计一线服务人员，第一视角作业数据在真实工作中自然产生，FMClaw™ 工单让每段数据自带任务语义，IoT 传感器补齐环境语义。采集融入日常作业、无需布景与专职采集员，是成本结构完全不同的数据采集与训练合作方；真实楼宇与园区同时可作机器人实训场。",
 });
 
 const Arrow = ({ s = 15 }: { s?: number }) => (
@@ -31,7 +31,32 @@ const heroChips = [
   "采集融入日常作业，边际成本低",
 ];
 
-/* ---------- 行业困境:机器人公司缺什么 ----------
+/* ---------- 三类伙伴:谁适合来聊 ----------
+   买方图谱依据(2026 行业公开报道,代码注释留档,正文不点名):
+   - 需求方=「前沿大模型团队、海内外具身智能大厂及初创公司」(觅蜂科技 CEO 公开访谈口径);
+   - 世界模型平台(如 NVIDIA Cosmos 论文)明确使用专有真实世界视频数据集训练;
+   - 头部数据服务商公开计划「联合超 1000 家场景方」,大厂计划采集千万小时级人类真实场景视频
+     ——数据平台缺的不是钱,是场景方。
+   TODO(待业务方复核):三类伙伴的话术与优先级。 */
+const audiences = [
+  {
+    k: "具身智能与机器人公司",
+    h: "要能教会机器人干活的数据",
+    p: "第一视角作业数据、带任务语义的数据集、真实场景实训与上岗运营——从训练到验证到部署，四种合作都为你设计。",
+  },
+  {
+    k: "世界模型与多模态团队",
+    h: "要带环境语义的真实世界视频",
+    p: "训练世界模型需要海量真实物理世界视频，且行业普遍反馈标注太浅——我们的每段视频自带任务语义，还能对齐同一时空的传感器环境状态。",
+  },
+  {
+    k: "具身数据平台与数采服务商",
+    h: "要规模化、可持续的场景方",
+    p: "你们带采集设备、数据标准与下游客户，我们出真实场景与一线人员——不重建采集网络，直接在真实运营里铺开产能。",
+  },
+];
+
+/* ---------- 行业困境:物理 AI 缺什么 ----------
    事实依据(2026 行业公开报道/报告,不点名个别公司):
    - 真机遥操数据贵且慢:专职采集员 8 小时约产出 2-3 小时有效数据,需布景与专用场地;
    - 仿真数据有 Sim-to-Real Gap(动力学层面难以复现);
@@ -131,16 +156,16 @@ const steps = [
 const SERVICE_LD = {
   "@context": "https://schema.org",
   "@type": "Service",
-  name: "具身智能数据采集与训练合作",
-  serviceType: "具身智能第一视角数据采集 / 机器人真实场景实训",
+  name: "具身智能与物理 AI 数据合作",
+  serviceType: "第一视角数据采集 / 带环境语义的真实世界视频 / 机器人真实场景实训",
   description:
-    "面向具身智能与机器人公司：在 3,000 万㎡ 真实在管场景中，由数以万计一线物业服务人员在日常作业中采集第一视角数据，FMClaw™ 工单提供任务语义标注；真实楼宇与园区可作机器人实训场与上岗运营环境。",
+    "面向具身智能公司、世界模型与多模态团队、具身数据平台：在 3,000 万㎡ 真实在管场景中，由数以万计一线物业服务人员在日常作业中采集第一视角数据，FMClaw™ 工单提供任务语义标注，IoT 传感器提供环境上下文；真实楼宇与园区可作机器人实训场与上岗运营环境。",
   areaServed: "CN",
   url: `${SITE_URL}/partners/embodied-ai-data`,
   provider: { "@type": "Organization", name: "启盟科技", url: SITE_URL },
   hasOfferCatalog: {
     "@type": "OfferCatalog",
-    name: "具身智能数据合作方式",
+    name: "具身智能与物理 AI 数据合作方式",
     itemListElement: offers.map((o) => ({
       "@type": "Offer",
       name: o.h,
@@ -154,7 +179,7 @@ const BREADCRUMB_LD = {
   itemListElement: [
     { "@type": "ListItem", position: 1, name: "启盟科技", item: SITE_URL },
     { "@type": "ListItem", position: 2, name: "生态伙伴", item: `${SITE_URL}/partners` },
-    { "@type": "ListItem", position: 3, name: "具身智能数据合作", item: `${SITE_URL}/partners/embodied-ai-data` },
+    { "@type": "ListItem", position: 3, name: "具身智能与物理 AI 数据合作", item: `${SITE_URL}/partners/embodied-ai-data` },
   ],
 };
 
@@ -172,13 +197,13 @@ export default function Page() {
               <Link href="/">启盟科技</Link>
               <i>/</i>
               <Link href="/partners">生态伙伴</Link>
-              <i>/</i>具身智能数据合作
+              <i>/</i>具身智能与物理 AI 数据合作
             </span>
             <h1 className="ea-h1">
               你的模型缺真实世界数据，<br /><span className="grad">我们的一线每天都在产生它</span>
             </h1>
             <p className="ea-lead">
-              具身智能最稀缺的，是真实场景里带任务语义的第一视角数据。物业与设施管理恰好是这样一个行业：<b>真实的空间、真实的任务、真实的人，每天都在大规模重复</b>。
+              具身智能与物理 AI 最稀缺的，是真实场景里带任务语义的第一视角数据。物业与设施管理恰好是这样一个行业：<b>真实的空间、真实的任务、真实的人，每天都在大规模重复</b>。
             </p>
             <div className="ea-cta">
               <Link href="/contact" className="btn btn-primary">聊聊你的数据需求 <Arrow /></Link>
@@ -209,9 +234,9 @@ export default function Page() {
         <div className="ea-grid dark" aria-hidden="true" />
         <div className="wrap">
           <span className="ea-eyebrow on-dark">为什么是物业</span>
-          <h2 className="ea-h2 on-dark">具身智能的数据，卡在哪儿</h2>
+          <h2 className="ea-h2 on-dark">物理 AI 的数据，卡在哪儿</h2>
           <p className="ea-sub on-dark">
-            大语言模型吃互联网数据长大，机器人却没有现成的互联网可吃——它需要的交互数据，必须在物理世界里一条一条生产出来。行业公认最有价值的，是<b>第一视角 × 人类示范</b>的真实任务数据；而它恰恰最难规模化。
+            大语言模型吃互联网数据长大，机器人和世界模型却没有现成的互联网可吃——它们需要的物理交互数据，必须在真实世界里一条一条生产出来。行业公认最有价值的，是<b>第一视角 × 人类示范</b>的真实任务数据；而它恰恰最难规模化。
           </p>
           <div className="ea-pains">
             {pains.map((p) => (
@@ -225,11 +250,37 @@ export default function Page() {
           <p className="ea-verdict">
             三条路各有短板，缺的是同一样东西：<span className="grad">真实场景里、带任务语义的、能规模化的数据来源</span>。
           </p>
+          {/* 行业热度佐证。口径来源(公开报道,2026):量子位统计具身数据玩家近百家、
+              一年融资 44.7 亿元;需求方「你有多少我就买多少」为觅蜂科技 CEO 公开访谈原话。
+              TODO(待业务方定期复核):数字与表述时效。 */}
+          <p className="ea-stat on-dark">
+            这个缺口已经是一门被资本追着跑的生意：2026 年国内具身数据相关公司已近百家、一年融资超 44 亿元，需求方的状态被从业者描述为「你有多少我就买多少」。缺的从来不是买家——是真实场景里的供给。
+          </p>
         </div>
       </section>
 
-      {/* 3 · 我们有什么 */}
+      {/* 3 · 三类伙伴 */}
       <section className="ea-band">
+        <div className="wrap">
+          <span className="ea-eyebrow">适合谁</span>
+          <h2 className="ea-h2">三类伙伴，带着不同的需求来</h2>
+          <p className="ea-sub">
+            这类数据的买方不只是机器人公司。训练世界模型的团队在找带环境语义的真实世界视频，数据平台在找可规模化的场景方——<b>三类需求，我们都接得住</b>。
+          </p>
+          <div className="ea-aud">
+            {audiences.map((a) => (
+              <div className="ea-aud-i" key={a.k}>
+                <span className="ea-aud-k">{a.k}</span>
+                <h3>{a.h}</h3>
+                <p>{a.p}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* 4 · 我们有什么 */}
+      <section className="ea-band mist">
         <div className="wrap">
           <span className="ea-eyebrow">我们的供给</span>
           <h2 className="ea-h2">场景、人、任务语义、装备——四样都在一线</h2>
@@ -245,11 +296,17 @@ export default function Page() {
               </div>
             ))}
           </div>
+          <div className="ea-align">
+            <span className="ea-align-k">数采工厂给不出来的东西</span>
+            <p>
+              同一时空里，<b>第一视角作业视频 × 环境传感器状态 × 工单任务语义</b>，三重对齐。视频记录动作，传感器记录环境，工单记录任务——三份记录指向同一次真实作业，这正是行业反馈里「标注太浅、缺环境语义」的那个缺口。
+            </p>
+          </div>
         </div>
       </section>
 
-      {/* 4 · 四种合作方式 */}
-      <section className="ea-band mist" id="offers">
+      {/* 5 · 四种合作方式 */}
+      <section className="ea-band" id="offers">
         <div className="wrap">
           <span className="ea-eyebrow">合作方式</span>
           <h2 className="ea-h2">从数据采集到机器人上岗，四种合作</h2>
@@ -268,8 +325,8 @@ export default function Page() {
         </div>
       </section>
 
-      {/* 5 · 成本结构对比 */}
-      <section className="ea-band">
+      {/* 6 · 成本结构对比 */}
+      <section className="ea-band mist">
         <div className="wrap">
           <span className="ea-eyebrow">成本结构</span>
           <h2 className="ea-h2">不是更便宜的采集员，<br />是完全不同的成本结构</h2>
@@ -297,8 +354,8 @@ export default function Page() {
         </div>
       </section>
 
-      {/* 6 · 合规 */}
-      <section className="ea-band mist">
+      {/* 7 · 合规 */}
+      <section className="ea-band">
         <div className="wrap">
           <span className="ea-eyebrow">合规与授权</span>
           <h2 className="ea-h2">数据合规，是合作的前提</h2>
@@ -310,8 +367,8 @@ export default function Page() {
         </div>
       </section>
 
-      {/* 7 · 合作流程 */}
-      <section className="ea-band">
+      {/* 8 · 合作流程 */}
+      <section className="ea-band mist">
         <div className="wrap">
           <span className="ea-eyebrow">合作流程</span>
           <h2 className="ea-h2">从对齐需求到数据回流，四步走</h2>
@@ -328,11 +385,12 @@ export default function Page() {
       </section>
 
       <SeoFaq
-        heading="关于具身智能数据合作，你可能想问"
+        heading="关于具身智能与物理 AI 数据合作，你可能想问"
         items={[
           { q: "你们的数据和数采工厂的遥操数据有什么不同？", a: "遥操数据是为采集而生产的：布置场景、专人操控机器人。我们的数据在真实工作中自然产生：一线人员佩戴第一视角相机完成真实工单，场景、任务、人都是真的，且每段数据自带工单语义（任务、空间、标准、结果）。两类数据互补——遥操数据教动作控制，我们的数据教真实任务与真实环境。" },
           { q: "数据带什么标注？", a: "每段作业视频对应 FMClaw™ 平台的一张工单，自动关联任务类型、空间位置、执行标准、完成状态与质检结果；同一空间的传感器数据（温湿度、人流、设备状态）可作为环境上下文一并交付。字段结构可按你的训练管线对齐。" },
           { q: "可以把我们的机器人放进你们的场景测试吗？", a: "可以，这正是合作方式之三：真实场景实训场。你的机器人进入真实运营中的楼宇与园区，分阶段从受控测试走到真实上岗；上岗后由 FMClaw™ 工作流派单调度，运行数据持续回流用于训练。" },
+          { q: "我们不造机器人，是世界模型团队或数据平台，也能合作吗？", a: "能，而且是我们明确欢迎的两类伙伴。世界模型与多模态团队可以拿到带任务语义与环境上下文的真实世界视频——第一视角视频、同一时空的传感器状态与工单语义三重对齐；数据平台与数采服务商可以把我们作为规模化场景方：你们带采集设备、数据标准与下游客户，我们出真实场景与一线人员。" },
           { q: "隐私和数据权属怎么处理？", a: "采集经人员知情同意与项目方授权；人脸、车牌等个人信息交付前脱敏，敏感区域不纳入采集；数据权属、使用范围与转授权限制在合作协议中书面约定。" },
         ]}
       />

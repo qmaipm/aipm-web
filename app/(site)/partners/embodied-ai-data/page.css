@@ -79,6 +79,28 @@
 .eaid .ea-pain p{margin:0;font-size:14.5px;line-height:1.72;color:#AEBAB5}
 .eaid .ea-verdict{margin:44px 0 0;color:#fff;font-weight:800;font-size:clamp(20px,3vw,30px);line-height:1.36;letter-spacing:-.02em;max-width:30ch}
 
+/* 暗场:行业热度佐证 */
+.eaid .ea-stat{margin:30px 0 0;padding:18px 22px;border-left:3px solid var(--ea-green);
+  background:rgba(63,217,184,.06);border-radius:0 12px 12px 0;
+  font-size:14.5px;line-height:1.74;color:#AEBAB5;max-width:74ch}
+
+/* 三类伙伴 */
+.eaid .ea-aud{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:44px}
+@media(max-width:880px){.eaid .ea-aud{grid-template-columns:1fr}}
+.eaid .ea-aud-i{border:1px solid var(--ea-line);border-radius:16px;background:var(--ea-paper);padding:26px 26px 24px}
+.eaid .ea-aud-k{display:inline-block;font-size:12px;font-weight:700;letter-spacing:.06em;color:var(--ea-green);
+  background:rgba(18,185,138,.1);border:1px solid rgba(18,185,138,.3);border-radius:100px;padding:5px 13px}
+.eaid .ea-aud-i h3{margin:15px 0 9px;font-size:18px;font-weight:700;letter-spacing:-.015em;color:var(--ea-ink);line-height:1.42}
+.eaid .ea-aud-i p{margin:0;font-size:14.5px;line-height:1.72;color:var(--ea-ink-2)}
+
+/* 三重对齐条(供给区收尾) */
+.eaid .ea-align{margin-top:22px;border:1px solid rgba(18,185,138,.36);border-radius:16px;
+  background:linear-gradient(180deg,rgba(18,185,138,.07),var(--ea-paper));padding:24px 28px}
+.eaid .ea-align-k{display:block;font-size:11.5px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;
+  color:var(--ea-green);margin-bottom:9px}
+.eaid .ea-align p{margin:0;font-size:15px;line-height:1.72;color:var(--ea-ink-2)}
+.eaid .ea-align b{color:var(--ea-ink);font-weight:700}
+
 /* 四项供给 */
 .eaid .ea-supplies{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:44px}
 @media(max-width:760px){.eaid .ea-supplies{grid-template-columns:1fr}}
