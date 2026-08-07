@@ -393,14 +393,14 @@ export default function CaseShell({ slug, children }: { slug: string; children: 
               </div>
             ))}
           </div>
+          {/* 页面上不放发布/更新日期(2026-08-07 用户裁定):案例讲的是持续运行的项目,
+              日期只会让读者去算「这案例是不是过时了」,不提供任何决策信息。
+              datePublished/dateModified 仍保留在 cases.ts 与 Article JSON-LD 里——
+              搜索引擎与 AI 引擎需要时效信号,那是数据,不是版面。 */}
           <dl className="cf-facts cf-facts-2">
             <div className="cf-fact">
               <dt>采用产品</dt>
               <dd>{c.product}</dd>
-            </div>
-            <div className="cf-fact">
-              <dt>发布 / 更新</dt>
-              <dd>{c.datePublished} / {c.dateModified}</dd>
             </div>
           </dl>
         </div>
