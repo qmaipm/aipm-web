@@ -778,3 +778,9 @@ CSS 压缩会改写颜色写法，grep 十六进制会漏。
 - **banned-words 按目录跑会连带扫出历史遗留**（本次扫 partners 目录带出
   agent-park 的 2 处「闭环」与 partners 总览 1 处「赋能」）——顺手修掉,
   不留"不是我写的"借口;检查器不区分新旧代码,PR 里带脏词一样挡验收。
+- **sitemap 禁止手写 URL 数组**（2026-08-07 教训:新案例上线漏登 sitemap）:
+  app/sitemap.ts 的 INSIGHTS/CASES/NEWS 一律从内容注册表
+  （ARTICLES / ALL_CASES / NEWS 数据文件）自动派生,案例条目带 lastModified。
+  新增页面只要进注册表,sitemap 自动收录——手写清单必然有一天忘记同步。
+- **对外文案里的计数会过期**:精确数字（"7 个已上线案例"）在内容持续新增的
+  站点上必然变陈旧,改用"10 余个"这类带余量的口径;或者干脆从注册表长度渲染。
