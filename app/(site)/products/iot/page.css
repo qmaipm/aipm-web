@@ -137,8 +137,6 @@
 .iot-arch-row{display:grid;gap:12px}
 .iot-arch-row.c4{grid-template-columns:repeat(4,1fr)}
 .iot-arch-row.c3{grid-template-columns:repeat(3,1fr)}
-.iot-arch-row.c2{grid-template-columns:repeat(2,1fr)}
-@media(max-width:920px){.iot-arch-row.c2{grid-template-columns:1fr}}
 @media(max-width:920px){.iot-arch-row.c4{grid-template-columns:1fr 1fr}.iot-arch-row.c3{grid-template-columns:1fr}}
 @media(max-width:480px){.iot-arch-row.c4{grid-template-columns:1fr}}
 .iot-arch-node{border:1px solid var(--io-line);border-radius:12px;background:var(--io-paper);
@@ -164,17 +162,37 @@
   .iot-arch-flow i:nth-child(1){grid-column:1}
   .iot-arch-flow i:nth-child(2),.iot-arch-flow i:nth-child(3){display:none}}
 
-/* BA 三层示意的层间连接行:标注「数据上行·指令下行」,左侧留出与层网格一致的标签列宽,
-   文字两侧各一个 i —— 第一个画上箭头(数据上行)、第二个画下箭头(指令下行),双向一目了然。 */
-.iot-ba-flow{padding-left:136px;height:40px;display:flex;align-items:center;justify-content:center;gap:10px;
-  font-size:11px;font-weight:600;letter-spacing:.08em;color:var(--io-mut)}
-.iot-ba-flow i{position:relative;width:12px;height:22px}
+/* BA 合成图(skill §3f「以读者为先」):生成的机房照片做视觉层 + 真文字三层结构做认知层。
+   桌面:照片左、结构右并排;移动:上下堆叠。文字全部真文字,不进生成图像素。 */
+.iot-ba-card{margin:34px 0 0;border:1px solid var(--io-line);border-radius:14px;overflow:hidden;background:var(--io-paper);
+  display:grid;grid-template-columns:1fr 1fr;grid-template-areas:"photo struct" "cap cap"}
+@media(max-width:920px){.iot-ba-card{grid-template-columns:1fr;grid-template-areas:"photo" "struct" "cap"}}
+.iot-ba-photo{grid-area:photo;position:relative;min-height:300px}
+.iot-ba-img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+@media(max-width:920px){.iot-ba-photo{min-height:0}.iot-ba-img{position:static;height:auto;display:block}}
+.iot-ba-tag{position:absolute;left:14px;bottom:14px;padding:5px 12px;border-radius:999px;
+  font-size:11px;font-weight:600;letter-spacing:.04em;color:#fff;background:rgba(10,26,20,.62);backdrop-filter:blur(6px)}
+.iot-ba-struct{grid-area:struct;padding:24px 26px;display:flex;flex-direction:column;justify-content:center;
+  border-left:1px solid var(--io-line)}
+@media(max-width:920px){.iot-ba-struct{border-left:none;border-top:1px solid var(--io-line);padding:20px 18px}}
+.iot-ba-tier{display:grid;grid-template-columns:64px 1fr;gap:14px;align-items:center}
+.iot-ba-lab{font-size:11px;font-weight:700;letter-spacing:.12em;color:var(--io-mut);text-align:right}
+.iot-ba-node{border:1px solid var(--io-line);border-radius:11px;background:var(--io-mist);padding:11px 14px;
+  display:flex;flex-direction:column;gap:3px}
+.iot-ba-node b{font-size:13.5px;color:var(--io-ink)}
+.iot-ba-node span{font-size:12px;line-height:1.55;color:var(--io-mut)}
+.iot-ba-node.hl{border-color:rgba(18,185,138,.4);background:linear-gradient(180deg,rgba(18,185,138,.08),var(--io-mist))}
+.iot-ba-node.hl b{color:var(--io-green)}
+/* 层间连接:「数据上行·指令下行」两侧一上一下两个箭头,表达双向 */
+.iot-ba-flow{padding-left:78px;height:34px;display:flex;align-items:center;justify-content:center;gap:10px;
+  font-size:10.5px;font-weight:600;letter-spacing:.08em;color:var(--io-mut)}
+.iot-ba-flow i{position:relative;width:12px;height:20px}
 .iot-ba-flow i::before{content:"";position:absolute;left:50%;top:4px;bottom:4px;width:1.5px;background:var(--io-line-2);transform:translateX(-50%)}
-.iot-ba-flow i::after{content:"";position:absolute;left:50%;width:7px;height:7px;
+.iot-ba-flow i::after{content:"";position:absolute;left:50%;width:6px;height:6px;
   border-left:1.5px solid var(--io-green);border-top:1.5px solid var(--io-green)}
 .iot-ba-flow i:first-of-type::after{top:3px;transform:translateX(-50%) rotate(45deg)}
 .iot-ba-flow i:last-of-type::after{bottom:3px;transform:translateX(-50%) rotate(225deg)}
-@media(max-width:920px){.iot-ba-flow{padding-left:0;height:34px}}
+.iot-ba-cap{grid-area:cap;padding:13px 18px;font-size:12.5px;line-height:1.6;color:var(--io-mut);border-top:1px solid var(--io-line)}
 /* 枢纽 · 行业数据本体与数据集市 */
 .iot-arch-hub{border:1px solid rgba(18,185,138,.34);border-radius:16px;text-align:center;padding:26px 22px;
   background:linear-gradient(180deg,rgba(18,185,138,.09),var(--io-paper))}
