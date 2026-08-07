@@ -146,7 +146,8 @@ export default function Page() {
           <div className="iot-chips">
             <span>暖通 HVAC</span><span>照明</span><span>电梯（运行状态）</span><span>给排水</span><span>能耗仪表</span><span>消防联动</span>
           </div>
-          {/* BA 系统结构示意：带文字的示意图必须纯代码画(skill §3f)。
+          {/* BA 系统结构示意(skill §3f):形式看读者——本页此段读者偏工程/技术,习惯看架构图,
+              所以选 CSS 结构图;示意图里的文字必须是真文字(生成图中文必乱码,硬伤)。
               传统 BA 是三层结构:管理层(中央监控工作站)→自动化层(DDC 控制器)→现场层(传感器/执行器)。
               2026-08-08 用户指正:曾用一张机房照片代表 BA 系统,照片是场景不是系统。 */}
           <div
