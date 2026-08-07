@@ -26,6 +26,7 @@ const ROUTES = [
   "/partners",
   "/partners/agent-park",
   "/partners/program",
+  "/partners/embodied-ai-data",
   "/contact",
   "/company",
   "/company/aipm-validation",

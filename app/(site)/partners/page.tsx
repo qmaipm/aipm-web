@@ -64,6 +64,23 @@ const partnerTypes = [
     cta: "了解完整伙伴计划",
     live: true,
   },
+  {
+    no: "03",
+    tag: "Embodied AI Data",
+    title: "具身智能数据合作",
+    img: "/images/partners/embodied-ai-data.jpg",
+    alt: "具身智能数据合作：佩戴第一视角相机的物业服务人员在写字楼内作业，身后是巡逻机器人",
+    who: "具身智能与机器人公司。你的模型缺真实世界的训练数据——我们有 3,000 万㎡真实在管场景和数以万计的一线服务人员，第一视角作业数据在真实工作中自然产生。",
+    gets: [
+      "第一视角作业数据 — 一线人员在日常清洁、巡检、维修中自然采集，不布景不摆拍",
+      "工单驱动的任务语义 — 每段数据自带任务、空间、标准与结果，不需事后补标",
+      "真实场景实训场 — 你的机器人进真实运营中的楼宇与园区测试、实训、上岗",
+      "成本结构不同 — 采集是日常作业的副产品，不为数据单独付场地与专职人工",
+    ],
+    href: "/partners/embodied-ai-data",
+    cta: "看完整数据合作方式",
+    live: true,
+  },
 ];
 
 /* ---------- 合作流程 ---------- */
@@ -71,7 +88,7 @@ const steps = [
   { no: "1", title: "提交申请", body: "通过合作入口或联系我们，说明你的业务与资源" },
   { no: "2", title: "沟通评估", body: "我们在 3 个工作日内响应，对齐合作方向" },
   { no: "3", title: "签署协议", body: "确定合作类型，同步合作等级与对应政策" },
-  { no: "4", title: "培训赋能", body: "产品、方案与售前培训，Demo 环境开通" },
+  { no: "4", title: "培训支持", body: "产品、方案与售前培训，Demo 环境开通" },
   { no: "5", title: "首单联合作战", body: "第一个项目我们全程随队，打法带出来" },
 ];
 
@@ -111,6 +128,12 @@ const PAGE_LD = {
       name: "行业智能体伙伴计划",
       url: `${SITE_URL}/partners/program`,
       description: "Refer、Sell、Deliver、Build四种合作路径；公开伙伴等级、生产项目和FMClaw™ FDE基础标准；免费申请，提供商机报备保护和首单联合交付。",
+    },
+    {
+      "@type": "WebPage",
+      name: "具身智能数据合作",
+      url: `${SITE_URL}/partners/embodied-ai-data`,
+      description: "面向具身智能与机器人公司：真实在管场景的第一视角作业数据采集、工单驱动的任务语义标注、真实场景实训场与机器人上岗联合运营。",
     },
   ],
 };
@@ -171,7 +194,7 @@ export default function Page() {
       <section className="pt-band mist">
         <div className="wrap">
           <span className="pt-eyebrow">合作方向</span>
-          <h2 className="pt-h2">两类伙伴，每一类拿到什么</h2>
+          <h2 className="pt-h2">三类伙伴，每一类拿到什么</h2>
           <p className="pt-sub">找到说的是你的那一类。权益写清楚，什么时候给、给到什么程度，签约前都可以当面对。</p>
         </div>
         <div className="wrap pt-types">
