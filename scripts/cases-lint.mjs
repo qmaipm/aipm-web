@@ -30,6 +30,7 @@ const LIMITS = {
   numRepeat: 3,    // 同一数字全页出现次数
   fitItem: 3,      // CaseFit 每栏条数上限(超过就不是判断,是清单)
   frSeg: 80,       // CaseFriction 单段字数上限(写长就变公关稿)
+  entryTag: 12,    // 痛点入口词字数上限(hero 入口行一行放得下多个,写长了会挤成两行)
 };
 
 // SEO-GEO-STRATEGY.md §3 禁用词
@@ -130,10 +131,58 @@ const rows = [];
 {
   const reg = fs.readFileSync(path.join(CASES_DIR, "cases.ts"), "utf8");
   const hits = BANNED_REGULATOR.filter((w) => reg.includes(w));
-  if (hits.length) {
+  const regErrs = hits.map((w) => `监管机关名称「${w}」不得出现在对外文案，改用「外部核查」`);
+
+  /* TAG_ENTRY 是 hero 痛点入口行的落地表:9 个痛点词各指一篇案例。
+     两条硬约束——漏一个词,那个词在页面上就没有入口;指错篇,用户点进去看到的是另一件事。 */
+  const order = [...(reg.match(/USE_CASE_ORDER = \[([\s\S]*?)\] as const/)?.[1] ?? "")
+    .matchAll(/"([^"]+)"/g)].map((m) => m[1]);
+  const entryBlock = reg.match(/TAG_ENTRY: Record<string, string> = \{([\s\S]*?)\n\};/)?.[1] ?? "";
+  const entries = [...entryBlock.matchAll(/"([^"]+)":\s*"([^"]+)"/g)].map((m) => [m[1], m[2]]);
+  const entryMap = new Map(entries);
+
+  for (const tag of order) {
+    if (!entryMap.has(tag))
+      regErrs.push(`TAG_ENTRY 缺少「${tag}」，这个痛点在 hero 入口行里点不出去`);
+    if (tag.length > LIMITS.entryTag)
+      regErrs.push(`痛点词「${tag}」${tag.length} 字 > ${LIMITS.entryTag}，hero 入口行会挤`);
+  }
+  for (const [tag, slug] of entries) {
+    if (!order.includes(tag))
+      regErrs.push(`TAG_ENTRY 多出「${tag}」，USE_CASE_ORDER 里没有这个词`);
+    // 被指的那篇必须真的挂着这个词:否则入口和落地页说的是两件事
+    const tagsOfSlug = reg.match(
+      new RegExp(`"${slug}":\\s*\\{[^}]*useCases:\\s*\\[([^\\]]*)\\]`)
+    )?.[1] ?? "";
+    if (!tagsOfSlug.includes(`"${tag}"`))
+      regErrs.push(`TAG_ENTRY「${tag}」指向 ${slug}，但该案例的 useCases 里没有这个词`);
+  }
+
+  /* 列表页 GROUPS 的 slugs 是写死的数组:新案例只注册进 cases.ts 是不够的,
+     不落进任何一个分组,它在 /cases 上就不存在 —— 唯一入口只剩站内链接和搜索结果。
+     这一条 2026-08-07 补:当天新增案例正是漏在这里,注册表齐全、页面能打开、列表页看不到。 */
+  {
+    const listSrc = fs.readFileSync(path.join(CASES_DIR, "page.tsx"), "utf8");
+    const grouped = new Set(
+      [...listSrc.matchAll(/slugs:\s*\[([^\]]*)\]/g)]
+        .flatMap((m) => [...m[1].matchAll(/"([^"]+)"/g)].map((x) => x[1]))
+    );
+    const allDirs = fs
+      .readdirSync(CASES_DIR, { withFileTypes: true })
+      .filter((d) => d.isDirectory() && fs.existsSync(path.join(CASES_DIR, d.name, "page.tsx")))
+      .map((d) => d.name);
+    for (const s of allDirs)
+      if (!grouped.has(s))
+        regErrs.push(`案例 ${s} 没有出现在 /cases 任何分组的 slugs 里，列表页上找不到它`);
+    for (const s of grouped)
+      if (!allDirs.includes(s))
+        regErrs.push(`/cases 分组里的 ${s} 找不到对应案例目录`);
+  }
+
+  if (regErrs.length) {
     fail++;
-    console.log(`\n✗ cases.ts（注册表：标题 / SEO / FAQ）`);
-    for (const w of hits) console.log(`   监管机关名称「${w}」不得出现在对外文案，改用「外部核查」`);
+    console.log(`\n✗ cases.ts（注册表：标题 / SEO / FAQ / 痛点入口 / 列表页收录）`);
+    for (const e of regErrs) console.log(`   ${e}`);
   }
 }
 

@@ -280,7 +280,7 @@ const operationsProducts = [
 // 质量管控产品
 const qualityProducts = [
   { icon: 'inspect' as keyof typeof Icons, name: '多模态巡检', desc: '全域质量监控', href: '#' },
-  { icon: 'record' as keyof typeof Icons, name: 'SSR服务记录', desc: '服务全程留痕', href: '#' },
+  { icon: 'record' as keyof typeof Icons, name: 'SSR服务记录', desc: '服务全程有记录', href: '#' },
   { icon: 'device' as keyof typeof Icons, name: '智能设备管理', desc: '设备全周期管理', href: '#' },
 ];
 

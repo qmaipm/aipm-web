@@ -168,33 +168,43 @@ export function CaseFriction({
   );
 }
 
-/* 产品界面截图 —— 默认不配图,只在图本身能作为证据时才放(SKILL 的配图裁决)。
-   装饰性插画一律不要:案例页的图只有一个作用,让读者确认「这东西真的存在」。
+/* 章节配图。案例页要配图:案例讲的是现场发生的事,纯文字读者只能听我们说。
+   图分两类,规则不同(SKILL.md §3f,2026-08-07 重写):
 
-   分辨率是硬门槛(用户 2026-07-27 特别提醒):
-   UI 截图里全是小字,Retina 屏下需要 2 倍原生像素才不糊。所以
-   **显示宽度必须 ≤ 原图宽度的一半**,这里原图 1024px,故 maxWidth 锁 512px。
-   宁可小而清楚,也不要放大到糊——糊掉的截图会让人怀疑产品本身。
+   一、证据图(产品界面截图、现场识别结果原图)——像素一个都不能改。
+     绝不用 AI 放大/重绘:实测 clarity-upscale 把界面汉字重绘了,
+     日期从 2026-06-01 变成 2020-00-01。改字等于伪造证据。
+     分辨率是硬门槛:界面小字在 Retina 下需要 2 倍原生像素才不糊,
+     所以显示宽度必须 ≤ 原图宽度的一半(默认按原图 1024px 锁 512px)。
+     宁可小而清楚,也不要放大到糊。降敏只能打码/裁切,不能让模型重画干净版。
 
-   绝不用 AI 放大补分辨率:实测 clarity-upscale 把界面汉字重绘了,
-   日期从 2026-06-01 变成 2020-00-01。产品截图里改字等于伪造证据。
-   要更大更清楚,只能让用户重新在高分屏下截原图。 */
+   二、场景图(生成的现场还原)——允许,但图注必须写明是还原,
+     画面里不许出现可读的界面文字、数字、品牌标识、人脸、车牌,
+     且只能还原正文确实写了的事。它还原物理现场,不还原「我们的系统」。
+
+   ratio:图的原始宽高比,决定 <img> 的 width/height 属性(防 CLS)。
+   证据图多为 16:9 左右的截图,场景照片常是 3:2,不写死。 */
 export function CaseFig({
   src,
   alt,
   caption,
   maxWidth = 512,
+  w = 1024,
+  h = 557,
 }: {
   src: string;
   alt: string;
   caption: string;
   maxWidth?: number;
+  w?: number;
+  h?: number;
 }) {
   return (
     <figure className="cf-fig" style={{ maxWidth }}>
       {/* 原生 img:这是静态资源且尺寸已知,不需要 next/image 的运行时开销。
+          w/h 给的是原图真实像素,浏览器据此预留位置,避免图加载完成时正文跳动。
           loading=lazy——图在页面中段,首屏用不上。 */}
-      <img src={src} alt={alt} width={1024} height={557} loading="lazy" decoding="async" />
+      <img src={src} alt={alt} width={w} height={h} loading="lazy" decoding="async" />
       <figcaption>{caption}</figcaption>
     </figure>
   );
@@ -308,6 +318,10 @@ const TRADE_LINKS: Record<string, { href: string; label: string }[]> = {
   "metro-3400-rooms-daily-inspection": [{ href: "/ai-service/facility", label: "AI 设施设备服务" }],
   "hazardous-area-dual-person-patrol": [{ href: "/ai-service/security", label: "AI 安保服务" }],
   "gigafactory-4-vendor-cleaning": [{ href: "/ai-service/cleaning", label: "AI 清洁服务" }],
+  "campus-cctv-photo-ai-review": [
+    { href: "/ai-service/security", label: "AI 安保服务" },
+    { href: "/ai-service/facility", label: "AI 设施设备服务" },
+  ],
 };
 
 export default function CaseShell({ slug, children }: { slug: string; children: React.ReactNode }) {

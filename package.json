@@ -7,6 +7,10 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
+    "cases:lint": "node scripts/cases-lint.mjs",
+    "cases:tags": "node scripts/case-tags-audit.mjs",
+    "words:lint": "node scripts/banned-words.mjs",
+    "words:list": "node scripts/banned-words.mjs --list",
     "seo:push": "node scripts/submit-urls.mjs"
   },
   "dependencies": {

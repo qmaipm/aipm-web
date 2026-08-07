@@ -12,13 +12,14 @@ const SITE_URL = process.env.SITE_URL || "https://www.aipm.cn";
 export const metadata: Metadata = pageMetadata("/ai-service/security", {
   title: "AI 安保服务 · 用计算升级人防的安保服务 | 启盟科技",
   description:
-    "AI 安保服务不讲概念,只做三件具体的事:接入现有 CCTV,用 AI 预审每天上千条视频预警,让每一条都真正被看过;消防巡检按人单合一执行,IoT 在场核验,守住安全红线;巡检狗承担园区巡逻,顺带消防、卫生与车辆违停检查。配合无人值守停车与门禁联动,安保成本结构同步优化。由启盟科技旗下自营物业公司爱物管交付。",
+    "AI 安保服务不讲概念,只做三件具体的事:每天上千条视频预警先经 AI 预审,让每一条都真正被看过——我们不进你的监控系统,由你把预警照片导出给我们,不需要改造摄像头、不需要开接口;消防巡检按人单合一执行,IoT 在场核验,守住安全红线;巡检狗承担园区巡逻,顺带消防、卫生与车辆违停检查。配合无人值守停车与门禁联动,安保成本结构同步优化。由启盟科技旗下自营物业公司爱物管交付。",
   keywords: [
     "AI 安保服务",
     "安保外包",
     "保安服务公司",
     "视频监控预警太多看不过来",
-    "CCTV AI 预警预审",
+    "监控预警照片 AI 预审",
+    "不改造监控系统 AI 识别",
     "消防巡检外包",
     "消防设施巡检漏检",
     "巡检机器狗",
@@ -41,7 +42,7 @@ const compare: { k: string; old: string; now: React.ReactNode }[] = [
   {
     k: "视频预警",
     old: "监控系统每天报上千条,保安在监控室里根本看不完",
-    now: <><b>AI 先看一遍</b>——接入现有海康、大华等监控系统,预警先经 AI 预审,误报被滤掉,真正需要人处置的推给人</>,
+    now: <><b>AI 先看一遍</b>——你从海康、大华等系统导出预警照片,AI 预审后滤掉误报,真正需要人处置的推给人。我们不进你的监控系统</>,
   },
   {
     k: "消防巡检",
@@ -68,11 +69,11 @@ const compare: { k: string; old: string; now: React.ReactNode }[] = [
 const faq = [
   {
     q: "AI 安保服务和传统保安外包有什么区别?",
-    a: "区别不在人,在三件具体的事:一是视频预警处置——接入现有 CCTV(海康、大华等),预警先经 AI 预审,把每天上千条里的误报滤掉,真正的异常才推给人处置,每一条预警都真正被看过;二是消防巡检按「人单合一」执行,IoT 在场核验、漏检自动预警,守住安全红线;三是巡检狗承担园区例行巡逻,顺带做消防、卫生与车辆违停检查。这项服务由启盟科技旗下自营物业公司爱物管交付。",
+    a: "区别不在人,在三件具体的事:一是视频预警处置——你把监控系统(海康、大华等)的预警照片导出给我们,AI 预审把每天上千条里的误报滤掉,真正的异常才推给人处置,每一条预警都真正被看过;二是消防巡检按「人单合一」执行,IoT 在场核验、漏检自动预警,守住安全红线;三是巡检狗承担园区例行巡逻,顺带做消防、卫生与车辆违停检查。这项服务由启盟科技旗下自营物业公司爱物管交付。",
   },
   {
     q: "监控预警太多看不过来,有什么解决办法?",
-    a: "这是几乎所有项目的共同困境:有客户的视频监控系统一天报 1,500 条预警,靠人一条条看完,从人性上就做不到。解决办法是让 AI 先看一遍:FMClaw 接入现有监控系统,对预警照片和视频做预审,滤掉误报,把真正需要处置的少数推给安保人员。不需要更换摄像头,接入现有系统即可。",
+    a: "这是几乎所有项目的共同困境:监控系统一天报上千条预警,靠人一条条看完,从人性上就做不到。解决办法是让 AI 先看一遍:把预警照片导出给 FMClaw,AI 逐张预审、滤掉误报,把真正需要处置的少数推给安保人员。不需要更换摄像头、不需要改造监控系统——我们只处理你导出的照片,不进你的网络,原有系统一动不动。",
   },
   {
     q: "消防设施巡检怎么保证真的巡了?",
@@ -88,7 +89,7 @@ const faq = [
   },
   {
     q: "需要更换现有的监控和门禁系统吗?",
-    a: "通常不需要。AI 预警预审直接对接海康、大华等主流监控系统的输出;门禁、道闸联动走标准接口。我们的原则是尽量利用你已有的设备投资,把钱花在计算与调度上,而不是重复采购硬件。",
+    a: "不需要,而且我们也不进你的监控系统。AI 预警预审只用你导出的预警照片,海康、大华等系统都不需要改造、不需要开接口,数据边界由你自己划;门禁、道闸联动走标准接口,是否打通由你决定。我们的原则是尽量利用你已有的设备投资,把钱花在计算与调度上,而不是重复采购硬件。",
   },
 ];
 
@@ -98,7 +99,7 @@ const SERVICE_LD = {
   name: "AI 安保服务",
   serviceType: "AI 安保服务(计算升级人防)",
   description:
-    "接入现有 CCTV 做 AI 预警预审、消防巡检人单合一、巡检狗例行巡逻,配合无人值守停车与门禁联动的安保服务。",
+    "用导出的监控预警照片做 AI 预警预审(不改造原有监控系统)、消防巡检人单合一、巡检狗例行巡逻,配合无人值守停车与门禁联动的安保服务。",
   areaServed: "CN",
   url: `${SITE_URL}/ai-service/security`,
   provider: {
@@ -144,7 +145,7 @@ export default function Page() {
             <a href="#three" className="btn btn-ghost">看这三件事 <Arrow /></a>
           </div>
           <div className="av-proof reveal">
-            <span>接入<b>现有监控系统</b>，无需换设备</span>
+            <span><b>不进你的监控系统</b>，导出照片即可</span>
             <span className="sep" />
             <span>消防巡检<b>人单合一</b></span>
             <span className="sep" />
@@ -187,20 +188,20 @@ export default function Page() {
             <h2 className="av-h2">每一条预警，都真正被看过</h2>
           </div>
           <p className="av-sub reveal">
-            海康、大华这些监控系统本身并不差，问题出在后面：预警报得太多，人看不过来。有客户的系统一天报 1,500 条——认真看完每一条，从人性上就是做不到的事。
+            海康、大华这些监控系统本身并不差，问题出在后面：预警报得太多，人看不过来。一个项目一天报上千条，要求值守人员认真看完每一条，从人性上就是做不到的事。
           </p>
           <div className="sec-funnel reveal">
             <div className="sec-funnel__row">
               <div className="sec-funnel__stage">
-                <span className="num">1,500 条 / 天</span>
-                <span className="lb">现有监控系统的预警量（真实客户）——靠人逐条看完，不现实</span>
+                <span className="num">上千条 / 天</span>
+                <span className="lb">监控系统的日常预警量级——靠人逐条看完，不现实</span>
               </div>
               <div className="sec-funnel__arrow" aria-hidden="true">
                 <svg width="22" height="22" viewBox="0 0 16 16"><path d="M3 8h10M9 4l4 4-4 4" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" /></svg>
               </div>
               <div className="sec-funnel__stage mid">
                 <span className="num">AI 预审</span>
-                <span className="lb">FMClaw 接入现有系统，对每条预警的照片与视频先审一遍，滤掉误报</span>
+                <span className="lb">你导出预警照片，FMClaw 逐张先审一遍，滤掉误报</span>
               </div>
               <div className="sec-funnel__arrow" aria-hidden="true">
                 <svg width="22" height="22" viewBox="0 0 16 16"><path d="M3 8h10M9 4l4 4-4 4" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" /></svg>
@@ -211,7 +212,7 @@ export default function Page() {
               </div>
             </div>
             <p className="sec-funnel__foot">
-              不需要更换摄像头。<b>接入你现有的监控系统即可</b>——把已经买了的设备，真正用起来。
+              不需要更换摄像头，也不需要我们进你的监控系统。<b>你把预警照片导出给我们即可</b>——原有系统一动不动，数据边界由你自己划。
             </p>
           </div>
         </div>
@@ -311,7 +312,7 @@ export default function Page() {
             这个词已经被讲了太多年。我们真正能为你做好的，就是这一页里三件具体的事——预警看得完、消防巡得实、巡逻跑得勤。每一件都可核验、可考核、写进合同。
           </p>
           <div className="av-metrics reveal">
-            <div className="av-metric"><div className="mv"><em>1,500 条 / 天</em></div><div className="ml">真实客户的预警量，AI 预审后逐条有下文</div></div>
+            <div className="av-metric"><div className="mv"><em>上千条</em> / 天</div><div className="ml">监控系统的日常预警量级，AI 预审后逐条有下文</div></div>
             <div className="av-metric"><div className="mv">52% → <em>98%</em></div><div className="ml">消防班组服务达标率</div></div>
             <div className="av-metric"><div className="mv"><em>99%</em></div><div className="ml">整体巡检签到率</div></div>
           </div>
@@ -322,10 +323,10 @@ export default function Page() {
               <p>同一套人单合一机制:在场核验、电子巡检单、漏检预警——消防巡检不留空白。</p>
               <span className="go">看这个项目 <Arrow s={13} /></span>
             </Link>
-            <Link className="avc-case reveal" href="/cases/30w-park-ai-property-manager-robot">
-              <span className="tag">智慧园区 · 约 30 万㎡</span>
-              <h3>安保与秩序，跑在同一套调度上</h3>
-              <p>人、机器人与 AI 在一张时间表上协同,园区物业相关投诉下降超过 80%。</p>
+            <Link className="avc-case reveal" href="/cases/campus-cctv-photo-ai-review">
+              <span className="tag">智慧园区 · 不进内网</span>
+              <h3>监控数据不出内网，照片导出来给 AI 看</h3>
+              <p>原有监控系统不改造、不开接口。一次电动车充电冒烟被识别后,3 分钟内有人到场。</p>
               <span className="go">看这个项目 <Arrow s={13} /></span>
             </Link>
           </div>
