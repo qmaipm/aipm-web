@@ -187,6 +187,7 @@ export const FOOTER_COLS: { title: string; links: DropItem[] }[] = [
       { label: "FMClaw™ 加速营", href: "/workshop" },
       { label: "人工智能产业共建", href: "/cobuild" },
       { label: "生态伙伴", href: "/partners" },
+      { label: "具身智能数据合作", href: "/partners/embodied-ai-data" },
       { label: "关于启盟科技 / 团队", href: "/company" },
       { label: "行业研究", href: "/insights" },
     ],

@@ -55,6 +55,7 @@ export function FigRow({
 const TRADE_LINKS: Record<string, { href: string; label: string }[]> = {
   "what-is-physical-ai": [
     { href: "/products/iot", label: "物理感知与 IoT 数据接入平台" },
+    { href: "/partners/embodied-ai-data", label: "具身智能与物理 AI 数据合作" },
     { href: "/cases", label: "客户案例" },
   ],
   "general-platform-vs-industry-agent": [
