@@ -32,8 +32,10 @@ export default function Page() {
           <h1 className="iot-h1">
             懂语言、懂数据<br /><span className="grad">更懂物理世界</span>
           </h1>
+          {/* 不点名任何第三方品牌做对比(2026-08-07 事故:这里曾写「如 Genspark、Manus」,
+              指名道姓说别家不如自己是公关灾难)。对比只对「通用 Agent」这个类别说。 */}
           <p className="iot-lead">
-            通用 Agent（如 Genspark、Manus）擅长语言与数据；但物业与设施管理，发生在真实的物理世界。FMClaw 多了一层能力——把楼宇、设备、环境、人车都<b>看见</b>。
+            通用 Agent 擅长语言与数据；但物业与设施管理，发生在真实的物理世界。FMClaw 多了一层能力——把楼宇、设备、环境、人车都<b>看见</b>。
           </p>
           <p className="iot-note">越靠近物理世界越难做，而这正是行业级平台的护城河。</p>
           <div className="iot-cta">

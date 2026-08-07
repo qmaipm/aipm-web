@@ -43,6 +43,20 @@ const BANNED = {
    例外必须是**真的正常中文**,不能拿它给禁用词开后门。 */
 const SAFE = ["验收口径", "验收口令", "闭环境", "封闭环境"];
 
+/* 对比性文案里点名第三方品牌 = 公关灾难(SKILL.md §0,2026-08-07 事故:
+   /products/iot hero 曾写「通用 Agent(如 Genspark、Manus)擅长语言与数据…FMClaw 多了一层」)。
+   不能全局禁品牌名 —— 首页投资组合标签、news 转述、FDE 行业事实里的
+   OpenAI/Anthropic/Genspark 都是合法出现(陈述事实,不是对比)。
+   所以只抓**品牌名与对比触发词同行**的情况,命中即人工复核。 */
+const BRANDS = [
+  "Genspark", "Manus", "Coze", "扣子", "豆包", "Kimi", "ChatGPT", "Claude",
+  "OpenAI", "Anthropic", "DeepSeek", "文心一言", "通义千问", "智谱", "讯飞",
+];
+const COMPARE_TRIGGERS = [
+  "擅长", "不如", "只能", "做不到", "比不上", "到此为止", "多了一层",
+  "更懂", "强于", "弱于", "超越", "领先于",
+];
+
 /* 只查会被用户读到的文本载体。.md 里的策略文档本身要写这些词(禁用词表、
    替换建议),所以默认不查 docs/ 与 skills/ —— 那两处是「讨论这些词」,不是「使用这些词」。 */
 const EXTS = new Set([".tsx", ".ts", ".jsx", ".js", ".css"]);
@@ -135,6 +149,26 @@ for (const f of files) {
         at = line.indexOf(word, at + word.length);
       }
     }
+    // 品牌名 + 对比触发词在**同一句**里 → 疑似点名竞品做对比,视同禁用词处理。
+    // 按句号/分号切句,不能按行匹配:「和 OpenAI 路径是同一条。它不如三年规划好看」
+    // 是两句话——前句陈述事实合法,后句的「不如」说的是规划不是品牌(实测误报,已修)。
+    for (const brand of BRANDS) {
+      const at = raw.indexOf(brand);
+      if (at === -1) continue;
+      const hit = raw
+        .split(/[。;;!?!?]/)
+        .some((sent) => sent.includes(brand) && COMPARE_TRIGGERS.some((t) => sent.includes(t)));
+      if (!hit) continue;
+      const key = `品牌对比:${brand}`;
+      if (!hits.has(key)) hits.set(key, []);
+      hits.get(key).push({
+        file: path.relative(ROOT, f),
+        line: i + 1,
+        text: raw.trim().slice(0, 110),
+        inComment: Boolean(mask[i]?.[at]),
+        brandCompare: true,
+      });
+    }
   });
 }
 
@@ -162,7 +196,8 @@ for (const bucket of [false, true]) {
   if (!rows.length) continue;
   console.log(bucket ? "—— 以下在注释里,不算违规,仅供核对 ——\n" : "—— 以下是对外文案,必须改 ——\n");
   for (const [word, list] of rows) {
-    console.log(`■ 「${word}」${list.length} 处   → 建议改为:${BANNED[word]}`);
+    const advice = BANNED[word] ?? "对比只对类别说(如「通用 Agent」),不点名任何一家(SKILL.md §0)";
+    console.log(`■ 「${word}」${list.length} 处   → 建议改为:${advice}`);
     for (const h of list) console.log(`    ${h.file}:${h.line}  ${h.text}`);
     console.log("");
   }
