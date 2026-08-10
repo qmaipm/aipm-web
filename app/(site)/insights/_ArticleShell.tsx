@@ -53,6 +53,11 @@ export function FigRow({
 
 // 文章 → AI 物业服务工种页回链(内链闭环:研究文章把读者引向对应服务页)
 const TRADE_LINKS: Record<string, { href: string; label: string }[]> = {
+  "how-to-choose-ai-property-product": [
+    { href: "/products/fmclaw", label: "FMClaw 物业智能体" },
+    { href: "/cases", label: "客户案例" },
+    { href: "/workshop/demo-day", label: "Demo Day" },
+  ],
   "property-ai-cost-reduction": [
     { href: "/solutions/cost", label: "成本控制智能体方案" },
     { href: "/cases", label: "客户案例" },

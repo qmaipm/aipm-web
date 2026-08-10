@@ -72,6 +72,19 @@
 .nwd .prose .figrow.c2{grid-template-columns:repeat(2,1fr)}
 @media(max-width:680px){.nwd .prose .figrow.c2{grid-template-columns:1fr}}
 
+/* ---------- 相关产品回链 ---------- */
+.nwd-prod{position:relative;padding:72px 0;background:var(--d-paper);border-top:1px solid var(--d-line)}
+@media(max-width:700px){.nwd-prod{padding:56px 0}}
+.nwd-prod .nwd-eyebrow{margin-top:0}
+.nwd-prod h2{margin:16px 0 0;font-weight:800;font-size:clamp(23px,3vw,32px);line-height:1.2;letter-spacing:-.025em;color:var(--d-ink)}
+.nwd-prod-cards{margin-top:32px;display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+@media(max-width:900px){.nwd-prod-cards{grid-template-columns:1fr}}
+.nwd-prod-card{display:block;padding:22px 20px;border:1px solid var(--d-line);border-radius:14px;background:var(--d-mist);text-decoration:none;transition:border-color .2s ease,transform .2s ease}
+.nwd-prod-card:hover{border-color:var(--d-green);transform:translateY(-2px)}
+.nwd-prod-card h3{margin:0;display:flex;align-items:center;gap:6px;font-size:16.5px;font-weight:700;letter-spacing:-.01em;color:var(--d-ink)}
+.nwd-prod-card h3 .ar{color:var(--d-green)}
+.nwd-prod-card p{margin:8px 0 0;font-size:13.5px;line-height:1.6;color:var(--d-ink-2)}
+
 /* ---------- 更多动态 ---------- */
 .nwd-rec{position:relative;padding:104px 0;background:var(--d-mist)}
 @media(max-width:700px){.nwd-rec{padding:76px 0}}
