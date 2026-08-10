@@ -17,6 +17,8 @@ export const metadata: Metadata = {
   keywords: [
     "物业 AI",
     "物业管理 AI",
+    "AI 物业管理平台",
+    "物业智能体",
     "设施管理",
     "FM",
     "物业大模型",

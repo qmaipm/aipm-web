@@ -53,6 +53,11 @@ export function FigRow({
 
 // 文章 → AI 物业服务工种页回链(内链闭环:研究文章把读者引向对应服务页)
 const TRADE_LINKS: Record<string, { href: string; label: string }[]> = {
+  "property-ai-cost-reduction": [
+    { href: "/solutions/cost", label: "成本控制智能体方案" },
+    { href: "/cases", label: "客户案例" },
+    { href: "/workshop/demo-day", label: "Demo Day" },
+  ],
   "what-is-physical-ai": [
     { href: "/products/iot", label: "物理感知与 IoT 数据接入平台" },
     { href: "/partners/embodied-ai-data", label: "具身智能与物理 AI 数据合作" },
