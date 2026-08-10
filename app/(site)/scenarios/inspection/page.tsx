@@ -5,9 +5,9 @@ import { pageMetadata } from "@/lib/pageMetadata";
 import SeoFaq from "@/components/SeoFaq";
 
 export const metadata = pageMetadata("/scenarios/inspection", {
-  title: "物业 AI 质检 · 视觉评分全量留痕｜FMClaw™ 加速营场景",
+  title: "物业 AI 质检 · 视觉评分全量可证｜FMClaw™ 加速营场景",
   description:
-    "工单照片视频自动采集，AI 视觉按统一标准评分打标，结构化标签全量留痕证据链，人只看异常。",
+    "工单照片视频自动采集，AI 视觉按统一标准评分打标，结构化标签构成证据链、每一分都查得到依据，人只看异常。",
 });
 
 export default function Page() {
@@ -20,18 +20,18 @@ export default function Page() {
           <div className="crumb reveal"><Link href="/workshop">FMClaw™ 加速营</Link> / 适用场景 / AI 质检</div>
           <span className="eyebrow reveal">适用场景</span>
           <h1 className="reveal">AI 质检</h1>
-          <p className="lead reveal">工单照片 / 视频自动采集，AI 视觉按统一标准评分打标，全量留痕证据链，人只看异常。</p>
+          <p className="lead reveal">工单照片 / 视频自动采集，AI 视觉按统一标准评分打标，每一分背后都有证据，人只看异常。</p>
         </div>
       </section>
 
       {/* 使用前 / 使用后 */}
       <BeforeAfter
         metricBefore="人工抽检 · 覆盖有限"
-        metricAfter="全员全程 · 全量留痕"
+        metricAfter="全员全程 · 全量可证"
         steps={[
           { name: "采集", before: "人工抽一部分看，覆盖有限。", after: "照片 / 视频自动采集，每一次服务都进来。", tag: "全量" },
           { name: "评分", before: "凭印象判，口径因人而异。", after: "AI 视觉按统一标准评分打标，采样智能调度。", tag: "一把尺子" },
-          { name: "留痕", before: "事后难还原是怎么判的，没证据。", after: "结构化标签 + 评分成证据链，每一分挂着照片。", tag: "可回溯" },
+          { name: "取证", before: "事后难还原是怎么判的，没证据。", after: "结构化标签 + 评分成证据链，每一分挂着照片。", tag: "可回溯" },
         ]}
         gains={[
           { k: "全量", b: "抽样里碰运气", a: "覆盖全员、全程，每一次都看" },

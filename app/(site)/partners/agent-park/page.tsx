@@ -224,7 +224,7 @@ export default function Page() {
           <h2 className="bd-h2 on-dark">弱电系统不需要推翻，<br />项目上方多了一层 AI</h2>
           <p className="bd-sub on-dark">
             BA、安防、消防、门禁、停车和能耗系统仍是项目基础。<br />
-            新的招标文件开始增加智能体平台、模型管理、AI 感知和流程闭环要求。<br />
+            新的招标文件开始增加智能体平台、模型管理、AI 感知和全流程自动化要求。<br />
             <b>启盟负责新增的 AI 部分，并与既有系统连接。</b>
           </p>
 
@@ -242,7 +242,7 @@ export default function Page() {
           </div>
 
           <p className="bd-verdict">
-            合作发生在新增的 AI 层，<span className="grad">不替代伙伴已有的工程能力</span>。除了系统接入和点位数量，部分项目开始关注 AI 是否真正参与运营闭环。
+            合作发生在新增的 AI 层，<span className="grad">不替代伙伴已有的工程能力</span>。除了系统接入和点位数量，部分项目开始关注 AI 是否真正参与日常运营。
           </p>
         </div>
       </section>

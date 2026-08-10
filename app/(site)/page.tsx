@@ -30,8 +30,9 @@ const ArrowD = ({ s = 15 }: { s?: number }) => (
   </svg>
 );
 
-// 首页展示的三篇行业研究(全部为已发布的真实文章页)
-const RESEARCH_SLUGS = ["demo-vs-system", "what-is-fde", "ai-transformation-bottom-up"] as const;
+// 首页展示的三篇行业研究(全部为已发布的真实文章页):
+// 一篇定义型(物理 AI、GEO 高频查询词) + 一篇方法论 + 一篇 FDE,主题不重复
+const RESEARCH_SLUGS = ["what-is-physical-ai", "demo-vs-system", "what-is-fde"] as const;
 
 export default function Home() {
   const research = RESEARCH_SLUGS.map((s) => getArticle(s));
@@ -132,7 +133,7 @@ export default function Home() {
               </svg>
               <div className="pl-n">03 感知</div>
               <h3>IoT 与物理 AI</h3>
-              <p>设备、环境、能耗、人流和空间状态，被持续感知并转化为 AI 可以理解的数据。</p>
+              <p>设备、环境、能耗、人流和空间状态，被持续感知并转化为 AI 可以理解的数据。这张感知网络，也在为<Link href="/partners/embodied-ai-data">具身智能与物理 AI 提供训练数据</Link>。</p>
               <Link className="pl-go" href="/products/iot">IoT 物理世界感知 <ArrowR /></Link>
             </div>
           </div>
@@ -327,14 +328,14 @@ export default function Home() {
           </Link>
 
           <div className="h-cases two">
-            <Link href="/cases/south-china-mixed-use-6-to-1" className="h-cc reveal">
+            <Link href="/cases/campus-cctv-photo-ai-review" className="h-cc reveal">
               <span className="cc-bar" style={{ background: "var(--h-blue)" }} />
               <div className="cc-head">
-                <span className="cc-tag">综合体 · 华南 · <b>6 万㎡</b></span>
+                <span className="cc-tag">园区 · 华南 · <b>视觉感知</b></span>
                 <span className="cc-live"><i className="liv" />在线运行</span>
               </div>
-              <h3 className="cc-result">管理岗从 6 人变成 1 人</h3>
-              <p className="cc-desc">日常运营里的判断交给 Agent，现场只保留执行动作。</p>
+              <h3 className="cc-result">监控预警识别完直接派单，冒烟 3 分钟到场</h3>
+              <p className="cc-desc">预警图片接进平台，识别完直接开工单派人，不再只是一条预警。</p>
               <span className="go on-dark">看这个项目 <ArrowR s={13} /></span>
             </Link>
             <Link href="/cases/30w-park-ai-property-manager-robot" className="h-cc reveal">
@@ -503,7 +504,7 @@ export default function Home() {
           },
           {
             q: "AI 物业不是概念吗，有实际跑起来的项目吗？",
-            a: "有。目前 7 个已上线案例公开可查，覆盖 6 万㎡ 商业综合体到 30 万㎡ 产业园区，全部先在自营物业公司完整验证后才对外交付，每个案例都写明了做法与经过核实的结果。",
+            a: "有。目前 10 余个已上线案例公开可查，覆盖 6 万㎡ 商业综合体到 30 万㎡ 产业园区，全部先在自营物业公司完整验证后才对外交付，每个案例都写明了做法与经过核实的结果。",
           },
         ]}
       />

@@ -126,6 +126,7 @@ export const MENU: MenuItem[] = [
         items: [
           { label: "智能体园区伙伴", href: "/partners/agent-park", small: "智能体园区招标，带着 FMClaw 去应" },
           { label: "行业智能体伙伴计划", href: "/partners/program", small: "Refer · Sell · Deliver · Build 四种路径" },
+          { label: "具身智能与物理 AI 数据合作", href: "/partners/embodied-ai-data", small: "第一视角数据 · 环境语义 · 实训场" },
         ],
       },
     ],
@@ -186,6 +187,7 @@ export const FOOTER_COLS: { title: string; links: DropItem[] }[] = [
       { label: "FMClaw™ 加速营", href: "/workshop" },
       { label: "人工智能产业共建", href: "/cobuild" },
       { label: "生态伙伴", href: "/partners" },
+      { label: "具身智能数据合作", href: "/partners/embodied-ai-data" },
       { label: "关于启盟科技 / 团队", href: "/company" },
       { label: "行业研究", href: "/insights" },
     ],

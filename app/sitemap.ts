@@ -1,5 +1,7 @@
 import type { MetadataRoute } from "next";
 import { NEWS } from "./(site)/news/articles";
+import { ARTICLES } from "./(site)/insights/articles";
+import { ALL_CASES } from "./(site)/cases/cases";
 
 // 运行时渲染:URL 用容器注入的 SITE_URL,按当前环境输出测试/生产域名。
 export const dynamic = "force-dynamic";
@@ -26,6 +28,7 @@ const ROUTES = [
   "/partners",
   "/partners/agent-park",
   "/partners/program",
+  "/partners/embodied-ai-data",
   "/contact",
   "/company",
   "/company/aipm-validation",
@@ -61,42 +64,12 @@ const ROUTES = [
   "/legal/cookies",
 ];
 
-// 行业研究文章(GEO 重点内容,优先级更高)
-const INSIGHTS = [
-  "/insights",
-  "/insights/general-platform-vs-industry-agent",
-  "/insights/how-to-run-ai-competition",
-  "/insights/demo-vs-system",
-  "/insights/agentic-ai-property-management",
-  "/insights/what-is-fde",
-  "/insights/ai-transformation-bottom-up",
-  "/insights/property-management-second-half-ai-company",
-  "/insights/ai-property-staff-optimization",
-  "/insights/how-to-choose-cleaning-robot-roi",
-  "/insights/why-obc",
-  "/insights/about-obc",
-  "/insights/obc-practice",
-  "/insights/obc-impact",
-  "/insights/obc-in-china",
-  "/insights/industry-llm",
-  "/insights/digital-labor",
-  "/insights/digital-labor-trends",
-];
+// 行业研究文章(GEO 重点内容,优先级更高):直接读登记表,新增文章自动进 sitemap。
+// (2026-08-07 改:手写数组导致新内容漏登记——新增视觉案例就漏了,改为从 cases.ts / articles.ts 自动生成)
+const INSIGHTS = ["/insights", ...ARTICLES.map((a) => `/insights/${a.slug}`)];
 
-// 客户案例(真实项目,GEO 重点)
-const CASES = [
-  "/cases/south-china-mixed-use-6-to-1",
-  "/cases/30w-park-ai-property-manager-robot",
-  "/cases/property-group-chat-ai-service",
-  "/cases/property-group-auto-operation-report",
-  "/cases/coworking-supplier-reconciliation",
-  "/cases/restroom-quality",
-  "/cases/fmclaw-equipment-inspection",
-  "/cases/intl-hospital-medical-grade-fm",
-  "/cases/metro-3400-rooms-daily-inspection",
-  "/cases/hazardous-area-dual-person-patrol",
-  "/cases/gigafactory-4-vendor-cleaning",
-];
+// 客户案例(真实项目,GEO 重点):直接读登记表,新增案例自动进 sitemap。
+const CASES = ALL_CASES.map((c) => ({ path: `/cases/${c.slug}`, lastModified: c.dateModified }));
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const main = ROUTES.map((path) => ({
@@ -109,8 +82,9 @@ export default function sitemap(): MetadataRoute.Sitemap {
     changeFrequency: "weekly" as const,
     priority: 0.8,
   }));
-  const cases = CASES.map((path) => ({
+  const cases = CASES.map(({ path, lastModified }) => ({
     url: `${SITE_URL}${path}`,
+    lastModified,
     changeFrequency: "monthly" as const,
     priority: 0.8,
   }));

@@ -21,19 +21,15 @@ BASE = sys.argv[1] if len(sys.argv) > 1 else "http://localhost:3000"
 OUT = Path(__file__).resolve().parent.parent / "tmp" / "visual"
 OUT.mkdir(parents=True, exist_ok=True)
 
-SLUGS = [
-    "intl-hospital-medical-grade-fm",
-    "south-china-mixed-use-6-to-1",
-    "fmclaw-equipment-inspection",
-    "restroom-quality",
-    "metro-3400-rooms-daily-inspection",
-    "hazardous-area-dual-person-patrol",
-    "gigafactory-4-vendor-cleaning",
-    "property-group-auto-operation-report",
-    "property-group-chat-ai-service",
-    "coworking-supplier-reconciliation",
-    "30w-park-ai-property-manager-robot",
-]
+# slug 从文件系统自动发现,不写死。
+# 教训(2026-08-07):写死的 11 个 slug 漏掉了新增的 campus-cctv-photo-ai-review,
+# 「视觉复验通过」对新页面是空话——和 §3g 第 7 条 GROUPS 写死漏新案例是同一类坑。
+_CASES_DIR = Path(__file__).resolve().parent.parent / "app" / "(site)" / "cases"
+SLUGS = sorted(
+    d.name for d in _CASES_DIR.iterdir()
+    if d.is_dir() and (d / "page.tsx").exists()
+)
+assert SLUGS, f"未在 {_CASES_DIR} 下发现任何案例页"
 
 DESKTOP = {"width": 1440, "height": 900}
 MOBILE = {"width": 390, "height": 844}
@@ -176,6 +172,18 @@ MEASURE = r"""
     };
   });
 
+  // 6. 阅读栏宽一致性:凡是消费 --cf-read 的组件,渲染宽度必须一致。
+  //    教训(2026-08-07):--cf-read 曾是 36em,em 按各组件自身字号解析,
+  //    13px 的 .cf-note 只有 468px、17px 的 .cf-fr 612px,和 648px 正文参差不齐。
+  //    量的是「同一视觉栏」的实际像素,CSS 里写什么单位在这里都会现形。
+  const readCols = [];
+  for (const sel of ['.cf-sec-body > p', '.cf-sec-body > .cf-note', '.cf-fr']) {
+    for (const el of document.querySelectorAll(sel)) {
+      const w = Math.round(el.getBoundingClientRect().width);
+      if (w > 0) { readCols.push({ sel, w }); break; }  // 每类量第一个即可
+    }
+  }
+
   return {
     lines: full,
     paraCount: paras.length,
@@ -184,6 +192,7 @@ MEASURE = r"""
     fr,
     bands,
     orphans,
+    readCols,
     height: document.documentElement.scrollHeight,
     docWidth: document.documentElement.scrollWidth,
     viewportWidth: window.innerWidth,
@@ -203,6 +212,13 @@ def check(slug, view, m, problems):
                 problems.append(f"{tag}: 平均每行 {avg:.1f} 汉字,超过 40 的舒适上限")
             if mx > 46:
                 problems.append(f"{tag}: 最长一行 {mx} 汉字,有串行风险")
+    # 阅读栏宽一致性:桌面端所有消费 --cf-read 的组件宽度差 ≤2px。
+    # 窄屏各组件都被视口压到同宽,检查无意义,只查桌面。
+    if view == "desktop" and m.get("readCols"):
+        ws = [c["w"] for c in m["readCols"]]
+        if max(ws) - min(ws) > 2:
+            detail = ", ".join(f"{c['sel']}={c['w']}px" for c in m["readCols"])
+            problems.append(f"{tag}: 阅读栏宽不一致({detail})——同一视觉栏必须同宽")
     for i, f in enumerate(m["facts"]):
         if f["overflow"]:
             problems.append(f"{tag}: 第 {i+1} 组 chips 有 {f['overflow']} 个 dd 文字被裁")

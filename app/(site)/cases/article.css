@@ -9,9 +9,12 @@
   --cf-line:#E6EAE8; --cf-line-2:#EEF2F0; --cf-mist:#ECF3F1; --cf-paper:#FFFFFF; --cf-core:#0B1714;
   --cf-blue:#0070FF; --cf-green:#12B98A; --cf-grad:linear-gradient(115deg,#0070FF,#12B98A);
   --cf-vi-line:rgba(12,139,130,.16);
-  /* 阅读栏宽:约 36 个汉字/行。中文舒适阅读区 30–40 字/行,超过 50 字极易串行。
-     对标 Anthropic 案例页实测 715px / 20px。不要改大。 */
-  --cf-read:36em;
+  /* 阅读栏宽:约 36 汉字/行(36 × 18px 正文号)。中文舒适阅读区 30–40 字/行,
+     对标 Anthropic 案例页实测 715px / 20px。不要改大。
+     必须用 px 不能用 em(2026-08-07 事故):em 随各组件自身字号漂移,
+     36em 在 13px 的 .cf-note 上只有 468px、17px 的 .cf-fr 上 612px、
+     15.5px 的 .cf-faq-a 上 558px——同一页四种栏宽,参差不齐。 */
+  --cf-read:648px;
   background:var(--cf-paper); color:var(--cf-ink);
 }
 .casefx .wrap{max-width:1160px;margin:0 auto;padding:0 32px}
