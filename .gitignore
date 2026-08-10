@@ -12,6 +12,9 @@ tsconfig.tsbuildinfo
 .env*
 !.env.example
 
+# 百度推送档案(运行状态,不入库)
+/scripts/.baidu-pushed.json
+
 # os / editor
 .DS_Store
 *.pem

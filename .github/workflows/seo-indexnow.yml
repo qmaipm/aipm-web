@@ -1,0 +1,30 @@
+name: SEO · IndexNow 推送
+
+# IndexNow 的语义是「这个 URL 的内容变了，请来重抓」。每天全量重推没变过的
+# 页面会降低 Bing 对本站提交信号的信任度，因此不做每日任务。
+#
+# 也不用 push 到 main 触发：本站上线是 main → Gitea → 服务器手动 pk/pb aiw，
+# push 那一刻线上仍是旧内容，此时喊 Bing 来抓只会抓到旧版。
+# 正确用法是发布完成后手动点一次 Run workflow；每周一另跑一次兜底。
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: "17 1 * * 1" # UTC 周一 01:17 = 北京周一 09:17
+
+concurrency:
+  group: seo-indexnow
+  cancel-in-progress: false
+
+jobs:
+  push:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: 推送 IndexNow
+        run: node scripts/submit-urls.mjs --only=indexnow

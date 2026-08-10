@@ -1,0 +1,57 @@
+name: SEO · 百度每日推送
+
+# 百度普通收录是配额制（当前 10 条/天，用不完即作废），全站 85 条要靠每天
+# 消耗配额轮换推送。推送档案 scripts/.baidu-pushed.json 记录每条 URL 上次
+# 推送时间，决定下次推谁——它必须跨运行保留，这里用 actions/cache 传递。
+
+on:
+  schedule:
+    - cron: "7 1 * * *" # UTC 01:07 = 北京 09:07，百度配额 0 点刷新后再跑；错开整点降低 Actions 排队延迟
+  workflow_dispatch:
+
+concurrency:
+  group: seo-baidu
+  cancel-in-progress: false
+
+jobs:
+  push:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22 # 脚本只用 node 内置模块 + fetch，无需 npm install
+
+      # token 缺失时脚本只会打印「跳过」并正常退出，任务会变成每天空转且全绿。
+      # 这里显式拦一下，让配置问题立刻可见。
+      - name: 检查 token 已配置
+        env:
+          BAIDU_PUSH_TOKEN: ${{ secrets.BAIDU_PUSH_TOKEN }}
+        run: |
+          test -n "$BAIDU_PUSH_TOKEN" || {
+            echo "::error::未配置 BAIDU_PUSH_TOKEN secret（Settings → Secrets and variables → Actions）"
+            exit 1
+          }
+
+      # cache key 不可覆盖，所以每次用唯一 key 写入、用前缀 restore-keys 读回最近一份。
+      # 每天都有运行 → 不会触及 7 天未访问的 LRU 淘汰；万一丢失也只是重头轮一遍，不会推错。
+      - name: 取回推送档案
+        uses: actions/cache/restore@v4
+        with:
+          path: scripts/.baidu-pushed.json
+          key: baidu-push-state-${{ github.run_id }}
+          restore-keys: baidu-push-state-
+
+      - name: 推送百度
+        env:
+          BAIDU_PUSH_TOKEN: ${{ secrets.BAIDU_PUSH_TOKEN }}
+        run: node scripts/submit-urls.mjs --only=baidu
+
+      # 即使推送失败也保存：档案在失败前可能已写入部分成功记录
+      - name: 保存推送档案
+        if: always()
+        uses: actions/cache/save@v4
+        with:
+          path: scripts/.baidu-pushed.json
+          key: baidu-push-state-${{ github.run_id }}
