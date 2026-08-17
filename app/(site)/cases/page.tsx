@@ -154,29 +154,9 @@ export default function Page() {
         </div>
       </section>
 
-      {/* 自营验证旗舰条(2026-08-17):原旗舰样板迁到 /company/aipm-validation 后,
-          列表页一直没有它的入口。它不是客户案例,所以不进分组卡片,单列一条入口。
-          标题用「省钱」框架不用「利润」框架(用户口径 2026-08-17:利润是给投资人看的,
-          大众要听的是省了多少钱)。钱数口径(用户确认 2026-08-17):64 岗 × 人均综合成本约 20 万/年
-          ≈ 1,300 万/年;达到案例状态是 2023 年以后,故累计写「超过 3,000 万」地板值。
-          只写直接成本(编制差×综合成本),不写工时折算——省工时不等于省成本。 */}
-      <section className="ca-band mist">
-        <div className="wrap">
-          <Link href="/company/aipm-validation" className="ca-flag">
-            <div className="ca-flag-text">
-              <span className="ca-flag-tag">自营验证 · 爱物管</span>
-              <h2>少养 64 个管理岗，一年省下约 1,300 万元人力成本</h2>
-              <p>爱物管是启盟自营的物业公司。2023 年以来累计省下超过 3,000 万元（按人均综合成本约 20 万元/年估算）。下面的客户案例开始之前，这套方法先在自己公司完整验证：省掉的是中间管理成本，一线服务一点没动。</p>
-              <span className="ca-flag-go">看这笔账怎么算 <Arrow /></span>
-            </div>
-            <div className="ca-flag-stats">
-              <div className="ca-flag-stat"><b>69 → 5</b><span>管理层人数</span></div>
-              <div className="ca-flag-stat"><b>51 → 1</b><span>项目经理</span></div>
-              <div className="ca-flag-stat"><b>3.4% → 14%</b><span>经营净利率</span></div>
-            </div>
-          </Link>
-        </div>
-      </section>
+      {/* 自营验证不进案例页(用户口径 2026-08-17):看案例页的很多是物业中层,
+          69→5 这类数字杀伤力太大,当初特意把验证页从案例页移出(7/27, 8ef8456),
+          现在也不加旗舰条入口。钱账的对外承载:验证页本身 + 主页数据位/FAQ + llms.txt。 */}
 
       {/* 身份分组 —— 全页唯一的分段轴。身份是单值的(一篇案例只属于一个分组,
           5+3+2+1=11 不重不漏),所以它能当分段轴;痛点是多值的,只做 hero 的入口行。
