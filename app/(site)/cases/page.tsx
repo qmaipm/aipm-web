@@ -154,6 +154,27 @@ export default function Page() {
         </div>
       </section>
 
+      {/* 自营验证旗舰条(2026-08-17):原旗舰样板迁到 /company/aipm-validation 后,
+          列表页一直没有它的入口。它不是客户案例,所以不进分组卡片,单列一条入口。
+          标题用钱的说法(净利率的每百元翻译,纯定义复述,零新增数字),比人数对比更直白。 */}
+      <section className="ca-band mist">
+        <div className="wrap">
+          <Link href="/company/aipm-validation" className="ca-flag">
+            <div className="ca-flag-text">
+              <span className="ca-flag-tag">自营验证 · 爱物管</span>
+              <h2>同样收 100 元物业费，传统模式剩 3.4 元利润，我们剩 14 元</h2>
+              <p>爱物管是启盟自营的物业公司。下面的客户案例开始之前，这套方法先在自己公司完整验证：日常管理动作交给 AI，砍掉的是中间管理成本，不是一线服务。</p>
+              <span className="ca-flag-go">看这笔账怎么算 <Arrow /></span>
+            </div>
+            <div className="ca-flag-stats">
+              <div className="ca-flag-stat"><b>69 → 5</b><span>管理层人数</span></div>
+              <div className="ca-flag-stat"><b>51 → 1</b><span>项目经理</span></div>
+              <div className="ca-flag-stat"><b>3.4% → 14%</b><span>经营净利率</span></div>
+            </div>
+          </Link>
+        </div>
+      </section>
+
       {/* 身份分组 —— 全页唯一的分段轴。身份是单值的(一篇案例只属于一个分组,
           5+3+2+1=11 不重不漏),所以它能当分段轴;痛点是多值的,只做 hero 的入口行。
           原先「按问题找」的索引区已删:9 行目录说的和下面 11 张卡片是同一件事,

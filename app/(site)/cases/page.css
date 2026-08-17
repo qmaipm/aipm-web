@@ -156,6 +156,24 @@
 .ca-card-more{background:linear-gradient(160deg,rgba(0,112,255,.05),rgba(18,185,138,.07));justify-content:flex-start}
 .ca-more-p{margin:12px 0 0;font-size:14px;line-height:1.7;color:var(--ca-ink-2)}
 
+/* ---------- 自营验证旗舰条 ---------- */
+.ca-flag{display:grid;grid-template-columns:1.5fr 1fr;gap:36px;align-items:center;
+  padding:40px 44px;border:1px solid rgba(18,185,138,.3);border-radius:18px;background:#fff;
+  text-decoration:none;transition:border-color .2s,transform .2s,box-shadow .2s}
+.ca-flag:hover{border-color:var(--ca-green);transform:translateY(-2px);box-shadow:0 14px 40px rgba(18,185,138,.12)}
+.ca-flag-tag{font-size:12px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--ca-green-ink)}
+.ca-flag-text h2{margin:12px 0 0;font-size:clamp(20px,2.4vw,26px);font-weight:800;letter-spacing:-.02em;color:var(--ca-ink);line-height:1.35}
+.ca-flag-text p{margin:14px 0 0;font-size:15px;line-height:1.8;color:var(--ca-ink-2)}
+.ca-flag-go{display:inline-flex;align-items:center;gap:6px;margin-top:16px;font-size:14px;font-weight:700;color:var(--ca-green-ink)}
+.ca-flag-stats{display:grid;gap:18px;padding-left:36px;border-left:1px solid var(--ca-line)}
+.ca-flag-stat b{display:block;font-size:clamp(22px,2.6vw,30px);font-weight:800;letter-spacing:-.02em;
+  background:var(--ca-grad);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;
+  font-variant-numeric:tabular-nums}
+.ca-flag-stat span{display:block;margin-top:3px;font-size:12.5px;color:var(--ca-faint)}
+@media(max-width:860px){.ca-flag{grid-template-columns:1fr;padding:30px 24px}
+  .ca-flag-stats{padding-left:0;border-left:none;padding-top:22px;border-top:1px solid var(--ca-line);grid-template-columns:repeat(3,1fr)}}
+@media(max-width:480px){.ca-flag-stats{grid-template-columns:1fr 1fr}}
+
 /* ---------- 板块问答 ---------- */
 .ca-faq-sub{margin:10px 0 0;font-size:15px;line-height:1.6;color:var(--ca-ink-2)}
 .ca-faq{margin-top:28px;border-top:1px solid var(--ca-line)}
