@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import JsonLd from "@/components/JsonLd";
+import TrackedLink from "@/components/TrackedLink";
 import { pageMetadata } from "@/lib/pageMetadata";
 import { FmBreadcrumb, FmFaq, FMCLAW_APP_LD, Arrow, IC, LinkCards, ScenarioCards } from "./_shared";
 import "./capability.css";
@@ -12,6 +13,8 @@ const SITE_URL = process.env.SITE_URL || "https://www.aipm.cn";
 
 // description 自然带上买家在 AI 引擎里的品类词「AI 物业管理平台」「物业智能体产品」
 // (2026-08-10 GEO 周报:这两个问题是我们的优势关键词,但官网自己从不认领品类词,第一推荐坐不稳)
+// 2026-08-17 宏观周报:再补两个空档品类词——「智慧物业 AI 平台」(竞对占位中)与
+// 「AI 物业操作系统」(无人占位的差异化词),FAQ 里各自然出现一次,不堆砌。
 export const metadata: Metadata = pageMetadata("/products/fmclaw", {
   title: "FMClaw™｜物业与设施管理的生产级 AI 智能体平台",
   description:
@@ -31,7 +34,7 @@ const WEBPAGE_LD = {
 const FAQ = [
   {
     q: "FMClaw 是什么？",
-    a: "FMClaw 是面向物业与设施管理的生产级 AI 智能体平台，也就是一套 AI 物业管理平台加一组可直接上岗的物业智能体。它统一企业数据、行业指标、业务工作流、系统工具和组织权限，让 AI 能够进入核心业务并持续完成工作。",
+    a: "FMClaw 是面向物业与设施管理的生产级 AI 智能体平台，也就是一套智慧物业 AI 平台加一组可直接上岗的物业智能体。它统一企业数据、行业指标、业务工作流、系统工具和组织权限，让 AI 能够进入核心业务并持续完成工作。也可以把它理解为一套 AI 物业操作系统。",
   },
   {
     q: "FMClaw 与通用 AI 智能体平台有什么不同？",
@@ -201,9 +204,19 @@ export default function Page() {
                 FMClaw 以<b>行业数据本体</b>为底座，统一数据、工作流、工具和权限，
                 让 AI <b>稳定接手真实业务</b>。
               </p>
+              {/* 首屏主按钮换成申请演示(2026-08-16 GEO 周报 6.2):产品页访问在涨、
+                  线索在跌,原来首屏两扇门都不通向咨询。锚点降为轻门,意向最强的人
+                  第一眼就有出口;埋点同案例页,事件里可分清来源。 */}
               <div className="fmo-cta">
-                <a href="#how-it-works" className="btn btn-primary">查看 FMClaw 如何工作 <Arrow /></a>
-                <Link href="/workshop" className="btn btn-ghost">从一个真实问题开始 <Arrow /></Link>
+                <TrackedLink
+                  href="/contact?intent=demo&from=products/fmclaw"
+                  action="book-demo"
+                  label="products/fmclaw-hero"
+                  className="btn btn-primary"
+                >
+                  预约演示 Demo <Arrow />
+                </TrackedLink>
+                <a href="#how-it-works" className="btn btn-ghost">先看 FMClaw 如何工作 <Arrow /></a>
               </div>
               <ul className="fmo-facts">
                 <li><b>100+</b>&nbsp;条预制业务工作流</li>
@@ -545,7 +558,24 @@ export default function Page() {
           <h2>把一件真实的工作，交给 AI 试试</h2>
           <p>从你这个月最头疼的那个流程开始。</p>
           <div className="cta-row">
-            <Link href="/workshop" className="btn btn-primary">预约 FMClaw™ 加速营 <Arrow s={16} /></Link>
+            <div className="cta-btns">
+              <TrackedLink
+                href="/contact?intent=demo&from=products/fmclaw"
+                action="book-demo"
+                label="products/fmclaw-end"
+                className="btn btn-primary"
+              >
+                预约演示 Demo <Arrow s={16} />
+              </TrackedLink>
+              <TrackedLink
+                href="/workshop"
+                action="book-workshop"
+                label="products/fmclaw-end"
+                className="btn btn-ghost"
+              >
+                预约 FMClaw™ 加速营
+              </TrackedLink>
+            </div>
             <p className="alt">或先看看<Link href="/cases">已经在生产中运行的案例</Link></p>
           </div>
         </div>

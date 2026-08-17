@@ -2,6 +2,7 @@
 import Link from "next/link";
 import "./article.css";
 import JsonLd from "@/components/JsonLd";
+import TrackedLink from "@/components/TrackedLink";
 import { getCase, getRelated } from "./cases";
 
 const SITE_URL = process.env.SITE_URL || "https://www.aipm.cn";
@@ -448,20 +449,44 @@ export default function CaseShell({ slug, children }: { slug: string; children: 
       ) : null}
 
       {/* CTA — 两扇门,轻重分明。
-          加速营是重承诺(要带真实业务、要投入时间),但读完一篇案例的人多数还在
-          内部说服阶段,不想被销售跟进。只留一扇重门,等于把「有点想聊」的人挡在外面。
-          所以并排给一个轻入口(直接留问题 / 电话 / 邮件),让意愿有落点。 */}
+          2026-08-16 GEO 周报复盘:案例页访问 +126.7% 但线索回落——看完落地证据的高意向
+          读者,原来只有「加速营」这一扇活动导向的重门,意图不对位。现在重门换成
+          「预约一对一演示」(直达联系表单并预填需求类型与来源案例),加速营降为轻门;
+          两扇门都走 TrackedLink 埋点,百度统计事件里能回答「哪篇案例带来了咨询」。
+          未到预约阶段的人仍有轻落点(留问题 / 电话)。 */}
       <section className="endcta">
         <div className="wrap">
           <h2 className="reveal">带你的难题来，<br />带一个 Agent 走</h2>
           <p className="reveal">从你的一个真实业务开始。</p>
           <div className="cta-row reveal">
             <div className="cta-btns">
-              <Link href="/workshop" className="btn btn-primary">预约 FMClaw™ 加速营 <Arrow s={16} /></Link>
-              <Link href="/contact" className="btn btn-ghost">先问一个问题</Link>
+              <TrackedLink
+                href={`/contact?intent=demo&from=cases/${c.slug}`}
+                action="book-demo"
+                label={`cases/${c.slug}`}
+                className="btn btn-primary"
+              >
+                预约一对一演示 <Arrow s={16} />
+              </TrackedLink>
+              <TrackedLink
+                href="/workshop"
+                action="book-workshop"
+                label={`cases/${c.slug}`}
+                className="btn btn-ghost"
+              >
+                预约 FMClaw™ 加速营
+              </TrackedLink>
             </div>
             <span className="alt">
-              还没到预约那一步？把你的场景写下来，我们会认真读、尽快回，也可以直接打{" "}
+              还没到预约那一步？
+              <TrackedLink
+                href={`/contact?intent=ask&from=cases/${c.slug}`}
+                action="contact-ask"
+                label={`cases/${c.slug}`}
+              >
+                把你的场景写下来
+              </TrackedLink>
+              ，我们会认真读、尽快回，也可以直接打{" "}
               <a href="tel:02089853580">020-89853580</a>。
             </span>
             {trades.length > 0 && (

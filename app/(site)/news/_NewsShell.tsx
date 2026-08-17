@@ -11,6 +11,39 @@ const Arrow = ({ s = 16 }: { s?: number }) => (
   </svg>
 );
 
+// 新闻 → 产品/方案页回链(把新闻页获得的引用权重导回产品页,与 _ArticleShell 的 TRADE_LINKS 同思路)
+const PRODUCT_LINKS: Record<string, { href: string; label: string; note: string }[]> = {
+  "taiwan-delegation-exchange": [
+    { href: "/products/fmclaw", label: "FMClaw 物业智能体", note: "座谈里讨论的 AI 物业管理平台本体" },
+    { href: "/cases", label: "客户案例", note: "国内已实际落地项目的公开数据" },
+  ],
+  "china-build-expo-2026": [
+    { href: "/products/fmclaw", label: "AI 物业经理 FMClaw", note: "展会分享的物业智能体产品详情" },
+    { href: "/solutions/cost", label: "成本控制智能体方案", note: "降本增效怎么算账、怎么落地" },
+    { href: "/cases", label: "客户案例", note: "国内已实际落地项目的公开数据" },
+  ],
+  "beyond-expo-2026": [
+    { href: "/products/fmclaw", label: "FMClaw 物业智能体", note: "展台演示的 AI 物业管理平台详情" },
+    { href: "/products/robots", label: "机器人产品", note: "现场展出的机器人系列" },
+  ],
+  "agentic-ai-ceo-salon": [
+    { href: "/products/fmclaw", label: "FMClaw 物业智能体", note: "分享会讨论的智能体产品详情" },
+    { href: "/workshop", label: "FMClaw™ 加速营", note: "从认知到落地的实战路径" },
+  ],
+  "nvidia-startup-showcase-2025": [
+    { href: "/products/fmclaw", label: "FMClaw 物业智能体", note: "获奖的现场管理智能体产品详情" },
+    { href: "/products/iot", label: "IoT 数据接入平台", note: "支撑智能体的物理感知底座" },
+  ],
+  "admin-summit-2025": [
+    { href: "/solutions/quality", label: "品质管理智能体方案", note: "峰会展示的智能品控方案详情" },
+    { href: "/products/iot", label: "IoT 数据接入平台", note: "AIoT 感知与数据接入能力" },
+  ],
+};
+const DEFAULT_PRODUCT_LINKS = [
+  { href: "/products/fmclaw", label: "FMClaw 物业智能体", note: "新闻里提到的 AI 物业管理平台详情" },
+  { href: "/cases", label: "客户案例", note: "国内已实际落地项目的公开数据" },
+];
+
 export default function NewsShell({
   slug,
   children,
@@ -20,6 +53,7 @@ export default function NewsShell({
 }) {
   const n = getNews(slug);
   const more = getMoreNews(slug, 3);
+  const products = PRODUCT_LINKS[slug] || DEFAULT_PRODUCT_LINKS;
   const pageUrl = `${SITE_URL}/news/${n.slug}`;
 
   // 结构化数据:NewsArticle + 面包屑(供搜索引擎与 AI 生成引擎解析/引用)
@@ -76,6 +110,24 @@ export default function NewsShell({
       <section className="nwd-body">
         <div className="wrap">
           <article className="prose">{children}</article>
+        </div>
+      </section>
+
+      {/* 相关产品:新闻里提到的产品与方案的官方页面 */}
+      <section className="nwd-prod">
+        <div className="wrap">
+          <span className="nwd-eyebrow">相关产品</span>
+          <h2>新闻里提到的产品，看这里</h2>
+          <div className="nwd-prod-cards">
+            {products.map((p) => (
+              <Link className="nwd-prod-card" href={p.href} key={p.href}>
+                <h3>
+                  {p.label} <Arrow s={14} />
+                </h3>
+                <p>{p.note}</p>
+              </Link>
+            ))}
+          </div>
         </div>
       </section>
 
