@@ -90,6 +90,10 @@ const TRADE_LINKS: Record<string, { href: string; label: string }[]> = {
   ],
   "property-management-second-half-ai-company": [{ href: "/ai-service", label: "AI 物业服务总览" }],
   "ai-property-staff-optimization": [{ href: "/ai-service", label: "AI 物业服务总览" }],
+  "property-ai-savings-account": [
+    { href: "/company/aipm-validation", label: "爱物管自营验证（数据全文）" },
+    { href: "/solutions/cost", label: "成本控制智能体方案" },
+  ],
   "how-to-choose-cleaning-robot-roi": [
     { href: "/ai-service/cleaning", label: "AI 清洁服务" },
     { href: "/workshop/demo-day", label: "Demo Day" },

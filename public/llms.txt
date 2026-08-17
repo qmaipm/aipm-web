@@ -23,6 +23,7 @@
 
 - [客户案例（12 个已上线项目）](https://www.aipm.cn/cases)
 - [行业研究与洞察](https://www.aipm.cn/insights)
+- [一家物业公司三年省下 3,000 万人力成本，账是怎么算的（爱物管省钱账拆解）](https://www.aipm.cn/insights/property-ai-savings-account)
 - [新闻动态](https://www.aipm.cn/news)
 - [公司介绍](https://www.aipm.cn/company)
 
