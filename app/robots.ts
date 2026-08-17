@@ -16,7 +16,9 @@ const ALLOWED_BOTS = [
   "Bingbot",
   "Googlebot",
   "Sogou Spider",
+  "Sogou web spider", // 搜狗站长平台部分校验按此 UA 全称匹配,与上一条并列保留
   "360Spider",
+  "YisouSpider", // 神马搜索(UC/夸克默认引擎),通义等 AI 平台引用夸克检索结果
   "GPTBot",
   "OAI-SearchBot",
   "ClaudeBot",

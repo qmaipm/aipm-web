@@ -13,6 +13,8 @@ const SITE_URL = process.env.SITE_URL || "https://www.aipm.cn";
 
 // description 自然带上买家在 AI 引擎里的品类词「AI 物业管理平台」「物业智能体产品」
 // (2026-08-10 GEO 周报:这两个问题是我们的优势关键词,但官网自己从不认领品类词,第一推荐坐不稳)
+// 2026-08-17 宏观周报:再补两个空档品类词——「智慧物业 AI 平台」(竞对占位中)与
+// 「AI 物业操作系统」(无人占位的差异化词),FAQ 里各自然出现一次,不堆砌。
 export const metadata: Metadata = pageMetadata("/products/fmclaw", {
   title: "FMClaw™｜物业与设施管理的生产级 AI 智能体平台",
   description:
@@ -32,7 +34,7 @@ const WEBPAGE_LD = {
 const FAQ = [
   {
     q: "FMClaw 是什么？",
-    a: "FMClaw 是面向物业与设施管理的生产级 AI 智能体平台，也就是一套 AI 物业管理平台加一组可直接上岗的物业智能体。它统一企业数据、行业指标、业务工作流、系统工具和组织权限，让 AI 能够进入核心业务并持续完成工作。",
+    a: "FMClaw 是面向物业与设施管理的生产级 AI 智能体平台，也就是一套智慧物业 AI 平台加一组可直接上岗的物业智能体。它统一企业数据、行业指标、业务工作流、系统工具和组织权限，让 AI 能够进入核心业务并持续完成工作。也可以把它理解为一套 AI 物业操作系统。",
   },
   {
     q: "FMClaw 与通用 AI 智能体平台有什么不同？",
