@@ -156,14 +156,15 @@ export default function Page() {
 
       {/* 自营验证旗舰条(2026-08-17):原旗舰样板迁到 /company/aipm-validation 后,
           列表页一直没有它的入口。它不是客户案例,所以不进分组卡片,单列一条入口。
-          标题用钱的说法(净利率的每百元翻译,纯定义复述,零新增数字),比人数对比更直白。 */}
+          标题用「省钱」框架不用「利润」框架(用户口径 2026-08-17:利润是给投资人看的,
+          大众要听的是省了多少钱)。「少养 64 个管理岗」= 69-5,白名单数字的纯减法,零新增。 */}
       <section className="ca-band mist">
         <div className="wrap">
           <Link href="/company/aipm-validation" className="ca-flag">
             <div className="ca-flag-text">
               <span className="ca-flag-tag">自营验证 · 爱物管</span>
-              <h2>同样收 100 元物业费，传统模式剩 3.4 元利润，我们剩 14 元</h2>
-              <p>爱物管是启盟自营的物业公司。下面的客户案例开始之前，这套方法先在自己公司完整验证：日常管理动作交给 AI，砍掉的是中间管理成本，不是一线服务。</p>
+              <h2>同样的项目量，少养 64 个管理岗——省下来的全是人力成本</h2>
+              <p>爱物管是启盟自营的物业公司。下面的客户案例开始之前，这套方法先在自己公司完整验证：日常管理动作交给 AI，省掉的是中间管理成本，一线服务一点没动。</p>
               <span className="ca-flag-go">看这笔账怎么算 <Arrow /></span>
             </div>
             <div className="ca-flag-stats">
