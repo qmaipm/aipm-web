@@ -430,6 +430,13 @@ export default function Page() {
               <span className="who"><b>入口：</b><Link className="av-link" href="/products/fmclaw" style={{ fontSize: 13 }}>FMClaw™ AI 平台 <Arrow s={12} /></Link></span>
             </article>
           </div>
+          <div className="avc-stand reveal">
+            <p>
+              不止换服务，还可以整体委托。参照酒店管理公司的分工：您保留产权、账户与重大事项决定权，
+              我们投入 AI 系统、机器人与运营团队负责日常经营，您按月拿保底、再分经营盈余，<b>投入 0 元</b>——
+              详见<Link className="av-link" href="/ai-service/delegated-operation">AI 物业代运营（酒管式全权委托） <Arrow s={13} /></Link>
+            </p>
+          </div>
         </div>
       </section>
 

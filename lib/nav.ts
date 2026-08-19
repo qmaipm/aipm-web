@@ -78,6 +78,12 @@ export const MENU: MenuItem[] = [
         ],
       },
       {
+        heading: "合作模式",
+        items: [
+          { label: "AI 物业代运营", href: "/ai-service/delegated-operation", small: "酒管式全权委托 · 您拥有，我们经营" },
+        ],
+      },
+      {
         heading: "四大工种",
         items: [
           { label: "AI 清洁服务", href: "/ai-service/cleaning", small: "干没干，数据会说话" },
@@ -164,6 +170,7 @@ export const FOOTER_COLS: { title: string; links: DropItem[] }[] = [
     title: "AI 物业服务",
     links: [
       { label: "AI 物业服务总览", href: "/ai-service" },
+      { label: "AI 物业代运营", href: "/ai-service/delegated-operation" },
       { label: "AI 清洁服务", href: "/ai-service/cleaning" },
       { label: "AI 设施设备服务", href: "/ai-service/facility" },
       { label: "AI 安保服务", href: "/ai-service/security" },

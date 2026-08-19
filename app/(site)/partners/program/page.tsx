@@ -135,6 +135,11 @@ export default function Page() {
               </div>
             ))}
           </div>
+          <p className="pg-note-box">
+            代运营项目引荐：认识合适的园区、写字楼或商业项目业主方？
+            <Link href="/ai-service/delegated-operation">AI 物业代运营（酒管式全权委托）</Link>
+            适用Refer路径——你负责引荐与关系维护，启盟负责测算、签约与运营交付，商机报备保护同样适用。
+          </p>
         </div>
       </section>
 
