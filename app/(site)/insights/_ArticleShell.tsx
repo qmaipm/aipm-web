@@ -94,6 +94,10 @@ const TRADE_LINKS: Record<string, { href: string; label: string }[]> = {
     { href: "/company/aipm-validation", label: "爱物管自营验证（数据全文）" },
     { href: "/solutions/cost", label: "成本控制智能体方案" },
   ],
+  "who-pays-for-property-ai": [
+    { href: "/ai-service/delegated-operation", label: "AI 物业代运营（酒管式全权委托）" },
+    { href: "/company/aipm-validation", label: "爱物管自营验证（数据全文）" },
+  ],
   "property-fee-collection-crisis-fourth-way": [
     { href: "/ai-service/delegated-operation", label: "AI 物业代运营（酒管式全权委托）" },
     { href: "/company/aipm-validation", label: "爱物管自营验证（数据全文）" },
