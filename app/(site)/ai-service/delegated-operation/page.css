@@ -1,0 +1,128 @@
+/* ============================================================
+   AI 物业代运营（酒管式全权委托）— 页面专属扩展（.avdo 作用域）。
+   依赖 ../page.css（.aisv 变量与 hero/band/core 体系）与
+   ../trade.css（.avc-stand）。视觉基调：项目计划书——
+   编号标签、统计卡、双栏分工图、结算瀑布表、条款卡。
+   仅蓝绿冷调，不声明 font-family。
+   ============================================================ */
+
+/* ---------- 01 · 行业三件事 · 统计卡 ---------- */
+.avdo .avdo-stats{margin-top:46px;display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+@media(max-width:900px){.avdo .avdo-stats{grid-template-columns:1fr}}
+.avdo .avdo-stat{position:relative;border:1px solid var(--av-line);border-radius:16px;background:var(--av-paper);
+  padding:26px 24px 20px;display:flex;flex-direction:column}
+.avdo .avdo-stat::before{content:"";position:absolute;top:0;left:24px;right:24px;height:3px;
+  background:var(--av-grad);border-radius:0 0 3px 3px;opacity:.85}
+.avdo .avdo-stat .tag{font-size:11.5px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--av-mut)}
+.avdo .avdo-stat .big{margin-top:14px;font-size:clamp(34px,4.2vw,46px);font-weight:800;letter-spacing:-.03em;line-height:1;
+  background:var(--av-grad);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+@supports not ((-webkit-background-clip:text) or (background-clip:text)){.avdo .avdo-stat .big{color:var(--av-green);-webkit-text-fill-color:currentColor}}
+.avdo .avdo-stat .t{margin-top:10px;font-size:14.5px;font-weight:700;line-height:1.45;color:var(--av-ink)}
+.avdo .avdo-stat p{margin:8px 0 0;font-size:13.5px;line-height:1.65;color:var(--av-ink-2);flex:1}
+.avdo .avdo-stat cite{margin-top:14px;font-style:normal;font-size:12px;color:var(--av-faint);
+  border-top:1px dashed var(--av-line);padding-top:10px}
+
+/* ---------- 02 · 双栏分工图 ---------- */
+.avdo .avdo-split{margin-top:46px;display:grid;grid-template-columns:1fr 118px 1fr;gap:0;align-items:stretch}
+@media(max-width:860px){.avdo .avdo-split{grid-template-columns:1fr}}
+.avdo .avdo-side{border:1px solid var(--av-line);border-radius:16px;background:var(--av-paper);padding:26px 24px}
+.avdo .avdo-side .rl{display:inline-block;font-size:11.5px;font-weight:800;letter-spacing:.16em;text-transform:uppercase;
+  color:var(--av-blue);border:1px solid rgba(0,112,255,.25);background:rgba(0,112,255,.06);
+  border-radius:999px;padding:5px 13px}
+.avdo .avdo-side.is-op .rl{color:var(--av-green);border-color:rgba(18,185,138,.3);background:rgba(18,185,138,.07)}
+.avdo .avdo-side ul{margin:18px 0 0;padding:0;list-style:none}
+.avdo .avdo-side li{position:relative;padding:12px 0 12px 24px;font-size:14.5px;line-height:1.6;color:var(--av-ink-2)}
+.avdo .avdo-side li+li{border-top:1px solid var(--av-line)}
+.avdo .avdo-side li::before{content:"";position:absolute;left:2px;top:19px;width:9px;height:9px;border-radius:3px;
+  background:rgba(0,112,255,.85)}
+.avdo .avdo-side.is-op li::before{background:rgba(18,185,138,.9)}
+.avdo .avdo-mid{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;
+  color:var(--av-green);padding:0 6px}
+.avdo .avdo-mid span{font-size:11.5px;font-weight:700;letter-spacing:.12em;color:var(--av-mut);white-space:nowrap}
+@media(max-width:860px){
+  .avdo .avdo-mid{flex-direction:row;padding:12px 0}
+  .avdo .avdo-mid svg{transform:rotate(90deg)}
+}
+.avdo .avdo-legal{margin:30px auto 0;max-width:820px;font-size:14px;line-height:1.75;color:var(--av-ink-2);
+  border:1px dashed rgba(18,185,138,.45);border-radius:12px;background:rgba(18,185,138,.04);padding:18px 22px}
+.avdo .avdo-legal b{color:var(--av-ink);font-weight:800}
+
+/* ---------- 03 · 结算瀑布 ---------- */
+.avdo .avdo-flow{margin-top:46px;border:1px solid var(--av-line);border-radius:16px;overflow:hidden;background:var(--av-paper)}
+.avdo .avdo-frow{display:grid;grid-template-columns:280px 1fr;gap:18px;align-items:center;padding:18px 24px}
+@media(max-width:760px){.avdo .avdo-frow{grid-template-columns:1fr;gap:5px;padding:16px 18px}}
+.avdo .avdo-frow+.avdo-frow{border-top:1px solid var(--av-line)}
+.avdo .avdo-frow .fk{font-size:15.5px;font-weight:800;letter-spacing:-.01em;color:var(--av-ink)}
+.avdo .avdo-frow .fd{font-size:13.5px;line-height:1.6;color:var(--av-ink-2)}
+.avdo .avdo-frow.is-in{background:rgba(0,112,255,.05)}
+.avdo .avdo-frow.is-in .fk{color:var(--av-blue)}
+.avdo .avdo-frow.is-out{background:var(--av-paper)}
+.avdo .avdo-frow.is-out .fk{padding-left:14px}
+@media(max-width:760px){.avdo .avdo-frow.is-out .fk{padding-left:0}}
+.avdo .avdo-frow.is-eq{background:rgba(18,185,138,.07);border-top:2px solid rgba(18,185,138,.45)}
+.avdo .avdo-frow.is-eq .fk{color:var(--av-green)}
+.avdo .avdo-frow.is-eq .fd{color:var(--av-ink);font-weight:600}
+.avdo .avdo-notes{margin-top:26px;display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+@media(max-width:860px){.avdo .avdo-notes{grid-template-columns:1fr}}
+.avdo .avdo-notes>div{border:1px solid var(--av-line);border-radius:12px;background:var(--av-mist);padding:18px 20px}
+.avdo .avdo-notes b{display:block;font-size:14px;font-weight:800;color:var(--av-ink)}
+.avdo .avdo-notes p{margin:7px 0 0;font-size:13px;line-height:1.6;color:var(--av-ink-2)}
+
+/* ---------- 04 · 五类投入 ---------- */
+.avdo .avdo-assets{margin-top:46px;border:1px solid var(--av-line);border-radius:16px;overflow:hidden;background:var(--av-paper)}
+.avdo .avdo-asset{display:grid;grid-template-columns:64px 1fr 168px;gap:18px;align-items:center;padding:20px 24px}
+@media(max-width:760px){.avdo .avdo-asset{grid-template-columns:52px 1fr;padding:18px}}
+.avdo .avdo-asset+.avdo-asset{border-top:1px solid var(--av-line)}
+.avdo .avdo-asset .n{font-size:20px;font-weight:800;letter-spacing:-.02em;
+  background:var(--av-grad);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+@supports not ((-webkit-background-clip:text) or (background-clip:text)){.avdo .avdo-asset .n{color:var(--av-green);-webkit-text-fill-color:currentColor}}
+.avdo .avdo-asset h3{margin:0;font-size:15.5px;font-weight:800;letter-spacing:-.01em;color:var(--av-ink)}
+.avdo .avdo-asset .bd p{margin:5px 0 0;font-size:13.5px;line-height:1.55;color:var(--av-ink-2)}
+.avdo .avdo-asset .cfg{justify-self:end;font-size:12px;font-weight:700;letter-spacing:.04em;color:var(--av-green);
+  border:1px solid rgba(18,185,138,.3);background:rgba(18,185,138,.06);border-radius:999px;padding:5px 13px;white-space:nowrap}
+@media(max-width:760px){.avdo .avdo-asset .cfg{grid-column:2;justify-self:start;margin-top:2px}}
+
+/* ---------- 05 · 暗场条款卡 ---------- */
+.avdo .avdo-term{margin-top:34px;display:grid;grid-template-columns:1fr 1fr;gap:14px}
+@media(max-width:760px){.avdo .avdo-term{grid-template-columns:1fr}}
+.avdo .avdo-term>div{border:1px solid rgba(255,255,255,.14);border-radius:14px;background:rgba(255,255,255,.04);padding:22px 22px}
+.avdo .avdo-term .tl{display:block;font-size:14px;font-weight:800;letter-spacing:.02em;color:#3fd9b8}
+.avdo .avdo-term p{margin:10px 0 0;font-size:13.5px;line-height:1.65;color:#AEBAB5}
+
+/* ---------- 06 · 自检表 ---------- */
+.avdo .avdo-fit{margin-top:40px;border:1px solid var(--av-line);border-radius:16px;overflow:hidden;background:var(--av-paper)}
+.avdo .avdo-fitrow{display:grid;grid-template-columns:130px 1fr;gap:18px;padding:18px 24px;align-items:baseline}
+@media(max-width:640px){.avdo .avdo-fitrow{grid-template-columns:1fr;gap:4px;padding:16px 18px}}
+.avdo .avdo-fitrow+.avdo-fitrow{border-top:1px solid var(--av-line)}
+.avdo .avdo-fitrow .k{font-size:12px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:var(--av-green)}
+.avdo .avdo-fitrow .v{font-size:14.5px;line-height:1.65;color:var(--av-ink)}
+.avdo .avdo-h3{margin:52px 0 0;font-size:clamp(17px,2vw,20px);font-weight:800;letter-spacing:-.01em;color:var(--av-ink)}
+.avdo .avdo-unfit{margin-top:22px;display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+@media(max-width:860px){.avdo .avdo-unfit{grid-template-columns:1fr}}
+.avdo .avdo-unfit article{border:1px solid var(--av-line);border-radius:12px;background:var(--av-mist);padding:18px 20px}
+.avdo .avdo-unfit b{display:block;font-size:14px;font-weight:800;color:var(--av-ink)}
+.avdo .avdo-unfit p{margin:7px 0 0;font-size:13px;line-height:1.6;color:var(--av-ink-2)}
+
+/* ---------- 07 · 资质数据带 ---------- */
+.avdo .avdo-cred{margin-top:42px;display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+@media(max-width:860px){.avdo .avdo-cred{grid-template-columns:1fr 1fr}}
+.avdo .avdo-cred>div{border:1px solid var(--av-line);border-radius:14px;background:var(--av-paper);padding:22px 20px;text-align:center}
+.avdo .avdo-cred strong{display:block;font-size:clamp(22px,2.6vw,30px);font-weight:800;letter-spacing:-.02em;
+  background:var(--av-grad);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+@supports not ((-webkit-background-clip:text) or (background-clip:text)){.avdo .avdo-cred strong{color:var(--av-green);-webkit-text-fill-color:currentColor}}
+.avdo .avdo-cred span{display:block;margin-top:8px;font-size:12.5px;font-weight:600;letter-spacing:.04em;color:var(--av-mut)}
+.avdo .avdo-note{margin:26px auto 0;max-width:760px;text-align:center;font-size:14px;line-height:1.7;color:var(--av-ink-2)}
+
+/* ---------- 08 · 五步走 ---------- */
+.avdo .avdo-steps{margin-top:46px;display:grid;grid-template-columns:repeat(5,1fr);gap:12px}
+@media(max-width:1040px){.avdo .avdo-steps{grid-template-columns:repeat(3,1fr)}}
+@media(max-width:680px){.avdo .avdo-steps{grid-template-columns:1fr}}
+.avdo .avdo-step{position:relative;border:1px solid var(--av-line);border-radius:14px;background:var(--av-paper);
+  padding:20px 18px;display:flex;flex-direction:column}
+.avdo .avdo-step .n{font-size:11.5px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:var(--av-green)}
+.avdo .avdo-step h3{margin:10px 0 0;font-size:15.5px;font-weight:800;letter-spacing:-.01em;color:var(--av-ink)}
+.avdo .avdo-step p{margin:7px 0 0;font-size:13px;line-height:1.6;color:var(--av-ink-2);flex:1}
+.avdo .avdo-step .t{margin-top:14px;font-size:12px;font-weight:700;color:var(--av-mut);
+  border-top:1px dashed var(--av-line);padding-top:10px}
+.avdo .avdo-refer{margin:34px 0 0;text-align:center;font-size:13.5px;line-height:1.7;color:var(--av-mut)}
+.avdo .avdo-refer .av-link{margin-left:2px}
