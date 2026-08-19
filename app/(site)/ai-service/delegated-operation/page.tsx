@@ -433,8 +433,8 @@ export default function Page() {
             <Link href="/contact" className="btn btn-primary">带一个真实项目来，先算一遍账 <Arrow /></Link>
           </div>
           <p className="avdo-refer reveal">
-            认识适合这种模式的业主方？我们为引荐伙伴提供商机报备保护——见
-            <Link href="/partners/program" className="av-link">行业智能体伙伴计划 <Arrow s={13} /></Link>
+            认识适合这种模式的业主方？我们欢迎引荐，并为引荐人提供项目报备保护——
+            <Link href="/contact?type=refer&source=delegated-operation" className="av-link">联系我们聊聊 <Arrow s={13} /></Link>
           </p>
         </div>
       </section>
