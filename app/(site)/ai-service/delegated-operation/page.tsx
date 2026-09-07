@@ -105,7 +105,7 @@ const kpis = [
 // 适合 / 暂不适合
 const fits = [
   { k: "业态", v: "产业园区 · 写字楼 · 商业综合体 · 工厂与物流园区" },
-  { k: "面积", v: "在管面积 3 万㎡以上；面积不足但同城有多个项目的，可以打包成一个区域来谈" },
+  { k: "面积", v: "原则上优先 3 万㎡以上；面积不足但区位、收入、收入保障、人员规模或区域打包条件较好的，也可评估" },
   { k: "条件", v: "项目产权与主体清晰，现有合同可依约调整，愿意接受数字化考核" },
 ];
 const unfits = [
@@ -147,7 +147,7 @@ const faq = [
   },
   {
     q: "什么项目适合这种模式？",
-    a: "产业园区、写字楼、商业综合体、工厂与物流园区，在管面积 3 万㎡以上，项目产权与主体清晰，现有合同可依约调整。面积不足但同城有多个项目的，可以打包成一个区域来谈。产权有争议、收入结构无调整空间或只想采购软件的项目，暂不适合。",
+    a: "产业园区、写字楼、商业综合体、工厂与物流园区，原则上优先评估 3 万㎡以上项目。面积不是一票否决条件；区位、收入、收入保障、人员规模或打包条件较好的小体量项目也可评估。项目产权、主体与委托关系需清晰，现有合同可依法调整。",
   },
 ];
 
@@ -201,7 +201,7 @@ export default function Page() {
             <b>就像酒店业主与希尔顿之间的关系。</b>
           </p>
           <div className="av-cta reveal">
-            <Link href="/contact" className="btn btn-primary">带一个真实项目来，先算一遍账 <Arrow /></Link>
+            <Link href="/contact?type=delegated-owner&from=ai-service/delegated-operation" className="btn btn-primary">带一个真实项目来，先算一遍账 <Arrow /></Link>
             <a href="#model" className="btn btn-ghost">先看模式怎么运转 <Arrow /></a>
           </div>
           <div className="av-proof reveal">
@@ -384,6 +384,9 @@ export default function Page() {
               </article>
             ))}
           </div>
+          <p className="av-sub reveal" style={{ marginTop: 28 }}>
+            还没有确定委托范围？先读<Link className="av-link" href="/insights/property-software-outsourcing-or-delegated-operations">物业系统、单项外包与委托运营怎么选<Arrow s={13} /></Link>，把责任分工说明白。
+          </p>
         </div>
       </section>
 
@@ -430,11 +433,11 @@ export default function Page() {
             ))}
           </div>
           <div className="av-cta reveal" style={{ marginTop: 44 }}>
-            <Link href="/contact" className="btn btn-primary">带一个真实项目来，先算一遍账 <Arrow /></Link>
+            <Link href="/contact?type=delegated-owner&from=ai-service/delegated-operation" className="btn btn-primary">带一个真实项目来，先算一遍账 <Arrow /></Link>
           </div>
           <p className="avdo-refer reveal">
-            认识适合这种模式的业主方？我们欢迎引荐，并为引荐人提供项目报备保护——
-            <Link href="/contact?type=refer&source=delegated-operation" className="av-link">联系我们聊聊 <Arrow s={13} /></Link>
+            认识适合这种模式的业主方？可先了解发展伙伴政策，再预评和报备项目。
+            <Link href="/partners/delegated-operation" className="av-link">查看代运营发展伙伴计划 <Arrow s={13} /></Link>
           </p>
         </div>
       </section>

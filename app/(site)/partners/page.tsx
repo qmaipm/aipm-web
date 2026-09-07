@@ -10,9 +10,9 @@ const SITE_URL = process.env.SITE_URL || "https://www.aipm.cn";
 // 用 pageMetadata 保证 canonical 与 og:url 指向页面自身（main 的 SEO 修复机制）；
 // 文案沿用本分支较新的两板块口径（智能体园区伙伴 / 行业智能体伙伴计划）
 export const metadata: Metadata = pageMetadata("/partners", {
-  title: "生态伙伴 — 智能体园区 · 智慧园区 AI 合作 | 启盟科技",
+  title: "生态伙伴 · AI 物业代运营与行业智能体合作 | 启盟科技",
   description:
-    "启盟科技生态伙伴计划：我们做产品和平台，伙伴赢市场。面向智能体园区工程企业、系统集成商、物业科技与软件企业：智能体园区伙伴提供方案与应标支持，行业智能体伙伴计划提供 Refer、Sell、Deliver、Build 四种合作路径与 FMClaw™ FDE 能力认证。",
+    "启盟科技生态伙伴合作：AI 物业代运营发展伙伴、智能体园区伙伴、行业智能体伙伴和具身智能数据合作。按客户关系、技术能力与场景资源选择路径，分别确认分工、项目保护与合作政策。",
 });
 
 const Arrow = ({ s = 15 }: { s?: number }) => (
@@ -29,6 +29,18 @@ const Check = () => (
 
 /* ---------- 三类伙伴：每类 = 画像 + 权益清单 + 入口 ---------- */
 const partnerTypes = [
+  {
+    no: "01", tag: "Development Partner", title: "AI 物业代运营发展伙伴",
+    img: "/ai-service/skyline.jpg", alt: "面向写字楼、园区及商业物业的项目开发合作场景",
+    who: "熟悉业主、园区与物业决策人的企业和专业人士，包括酒店物业推荐人、商业地产顾问及楼宇服务商。你带来项目，启盟负责评估、方案与运营。",
+    gets: [
+      "项目预评级 — 按 V2.0 的五项标准，判断手中项目的经营基础",
+      "三类项目角色 — 推荐、商务协助或全程开发，按实际贡献书面确认",
+      "持续合作收益 — 项目开业奖励，以及最长三年的管理酬金分润",
+      "有效报备保护 — 归属确认后享 180 天初始保护，实质性推进可续期",
+    ],
+    href: "/partners/delegated-operation", cta: "查看政策并评估项目", live: true,
+  },
   {
     no: "01",
     tag: "Building Partner",
@@ -114,9 +126,10 @@ const PAGE_LD = {
   "@type": "CollectionPage",
   name: "启盟科技生态伙伴计划",
   description:
-    "面向智能体园区工程企业、系统集成商、物业科技与软件企业的生态合作计划。",
+    "面向代运营项目推荐人、智能体园区工程企业、系统集成商及数据合作机构的生态合作计划。",
   url: `${SITE_URL}/partners`,
   hasPart: [
+    { "@type": "WebPage", name: "AI 物业代运营发展伙伴", url: `${SITE_URL}/partners/delegated-operation`, description: "V2.0 项目评级、报备保护、开业奖励与持续分润。" },
     {
       "@type": "WebPage",
       name: "智能体园区伙伴",
@@ -160,10 +173,10 @@ export default function Page() {
               <i>/</i>生态伙伴
             </span>
             <h1 className="pt-h1">
-              我们做产品和平台，<br /><span className="grad">伙伴赢市场</span>
+              你有客户与场景，<br /><span className="grad">我们共同推进项目</span>
             </h1>
             <p className="pt-lead">
-              FMClaw™ 是为楼宇、园区与物业场景而生的行业级智能体平台。我们不做你的竞争对手——<b>我们帮你赢下你的客户</b>。
+              围绕楼宇、园区与物业场景，启盟提供 AI 产品、技术支持与运营能力。<b>按你的客户关系、技术能力和场景资源，选择适合的合作方式。</b>
             </p>
             <div className="pt-hero-cta">
               <Link href="/partners/agent-park" className="btn btn-primary">智能体园区伙伴 <Arrow s={16} /></Link>
@@ -174,7 +187,7 @@ export default function Page() {
               <span className="sep" />
               <span>交付<b>一起扛</b></span>
               <span className="sep" />
-              <span><b className="grad">客户是你的</b></span>
+              <span><b className="grad">分工与权益先确认</b></span>
             </div>
           </div>
           <div className="pt-hero-art">
@@ -194,7 +207,7 @@ export default function Page() {
       <section className="pt-band mist">
         <div className="wrap">
           <span className="pt-eyebrow">合作方向</span>
-          <h2 className="pt-h2">三类伙伴，每一类拿到什么</h2>
+          <h2 className="pt-h2">不同合作方向，各自拿到什么</h2>
           <p className="pt-sub">找到说的是你的那一类。权益写清楚，什么时候给、给到什么程度，签约前都可以当面对。</p>
         </div>
         <div className="wrap pt-types">
@@ -205,7 +218,7 @@ export default function Page() {
               </div>
               <div className="pt-type-txt">
                 <div className="pt-type-head">
-                  <span className="pt-type-no grad">{p.no}</span>
+                  <span className="pt-type-no grad">{String(i + 1).padStart(2, "0")}</span>
                   <span className="pt-card-tag">{p.tag}</span>
                 </div>
                 <h3>{p.title}</h3>
@@ -245,7 +258,7 @@ export default function Page() {
             ))}
           </div>
           <p className="pt-policy">
-            合作等级与对应政策（含商务条款），签署协议后同步。<Link href="/contact">先聊一次 <Arrow s={13} /></Link>
+            各合作方向分别适用对应政策，商务条款及责任边界在签署协议前书面确认。<Link href="/contact">先聊一次 <Arrow s={13} /></Link>
           </p>
         </div>
       </section>

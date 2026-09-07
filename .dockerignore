@@ -18,3 +18,6 @@ file
 agents-app/.next
 *.zip
 tsconfig.tsbuildinfo
+tmp
+.project-intake
+.data

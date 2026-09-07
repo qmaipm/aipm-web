@@ -27,6 +27,8 @@ const ROUTES = [
   "/cases",
   "/cobuild",
   "/partners",
+  "/partners/delegated-operation",
+  "/partners/delegated-operation/project",
   "/partners/agent-park",
   "/partners/program",
   "/partners/embodied-ai-data",
