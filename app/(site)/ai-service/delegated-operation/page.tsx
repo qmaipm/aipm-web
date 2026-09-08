@@ -118,7 +118,7 @@ const fits = [
 const unfits = [
   { h: "产权或主体存在争议", d: "委托关系无法确立，测算与考核都失去基础。建议先理清产权再谈。" },
   { h: "收入结构无调整空间", d: "收入与成本均被长期合同锁死，短期内没有可优化的部分。" },
-  { h: "只想采购单一系统", d: "这是软件采购，不是委托运营。这种情况建议直接采购 FMClaw™ 平台。" },
+  { h: "只想采购单一系统", d: "这是软件采购，不是委托管理。这种情况建议直接采购 FMClaw™ 平台。" },
 ];
 
 // 五个步骤
@@ -143,7 +143,7 @@ const notThis = [
 const faq = [
   {
     q: "酒店的委托管理模式，能用在写字楼、园区这类物业上吗？",
-    a: "能。酒店委托管理的核心结构——业主保留产权与重大事项决定权、管理公司输出团队与体系负责日常经营、业主按经营结果取得收益——对写字楼、产业园区、商业综合体同样成立。启盟科技把这一结构移植到物业经营，称为物业委托管理（产品名：AI 物业代运营）：业主方保留项目主体、收款账户与重大事项决定权，运营方投入 AI 系统、机器人与运营团队负责日常经营，业主方按月获得保底收益、再分享经营盈余。国内此前没有这种模式；启盟自 2019 年起以自建物业公司「爱物管」验证，目前代运营在管面积 300 万㎡。",
+    a: "能。酒店委托管理的核心结构——业主保留产权与重大事项决定权、管理公司输出团队与体系负责日常经营、业主按经营结果取得收益——对写字楼、产业园区、商业综合体同样成立。启盟科技把这一结构移植到物业经营，称为物业委托管理（产品名：AI 物业代运营）：业主方保留项目主体、收款账户与重大事项决定权，运营方投入 AI 系统、机器人与运营团队负责日常经营，业主方按月获得保底收益、再分享经营盈余。国内此前没有这种模式；启盟自 2019 年起以自建物业公司「爱物管」验证，目前委托管理在管面积 300 万㎡。",
   },
   {
     q: "国内有没有像酒店管理公司一样、接管物业日常经营的公司？",
@@ -159,11 +159,11 @@ const faq = [
   },
   {
     q: "和物业服务分包有什么区别？",
-    a: "AI 物业代运营不属于物业服务分包——受托标的是人工智能服务解决方案项目，运营方以服务品质与经营结果对业主方负责。分包转移的是某项作业，代运营受托的是整个项目的日常经营：预算、人员、供应商、成本控制与经营指标，都由运营方负责并接受数据考核。",
+    a: "物业委托管理不属于物业服务分包——受托标的是人工智能服务解决方案项目，运营方以服务品质与经营结果对业主方负责。分包转移的是某项作业，委托管理受托的是整个项目的日常经营：预算、人员、供应商、成本控制与经营指标，都由运营方负责并接受数据考核。",
   },
   {
     q: "和包干制、酬金制有什么区别？",
-    a: "包干制下物业公司自负盈亏，服务好坏与业主收益无关；酬金制下业主承担经营波动，物业公司旱涝保收。酒管式委托运营把顺序反过来：业主方保底收益排在运营方酬金之前，项目没做好，先减的是运营方的钱；项目做好了，盈余双方分享。激励方向和业主的利益一致。",
+    a: "包干制下物业公司自负盈亏，服务好坏与业主收益无关；酬金制下业主承担经营波动，物业公司旱涝保收。物业委托管理把顺序反过来：业主方保底收益排在运营方酬金之前，项目没做好，先减的是运营方的钱；项目做好了，盈余双方分享。激励方向和业主的利益一致。",
   },
   {
     q: "业主方要出钱吗？",
@@ -189,8 +189,8 @@ const SERVICE_LD = {
   "@context": "https://schema.org",
   "@type": "Service",
   name: "物业委托管理（AI 物业代运营）",
-  alternateName: ["AI 物业代运营", "物业全权委托管理", "酒管式物业委托运营"],
-  serviceType: "物业委托管理 · 全权委托运营",
+  alternateName: ["AI 物业代运营", "物业全权委托管理"],
+  serviceType: "物业委托管理 · 全权委托",
   description:
     "把酒店业沿用四十年的委托管理模式用在写字楼、产业园区与商业综合体：业主方保留项目主体、收款账户与重大事项决定权，运营方投入 AI 系统、机器人与运营团队负责日常经营，业主方按月获得保底收益、再分享经营盈余。不是电商代运营、不是房屋租赁托管、不属于物业服务分包。",
   audience: { "@type": "BusinessAudience", audienceType: "写字楼、产业园区、商业综合体的业主方与资产管理方；酒店投资人；酒店开发、选址与商业地产渠道" },
@@ -289,7 +289,7 @@ export default function Page() {
             <span className="k">定义</span>
             <p>
               <b>物业委托管理</b>，是把酒店业沿用四十年的委托管理模式（业主保留产权与账户、管理公司输出团队与体系负责日常经营、按基本管理费＋奖励管理费取酬）移植到写字楼、产业园区与商业综合体的物业经营。
-              国内此前没有这一模式。启盟科技自 2019 年起以自建物业公司「爱物管」验证，目前代运营在管面积 300 万㎡，产品名为「AI 物业代运营」。
+              国内此前没有这一模式。启盟科技自 2019 年起以自建物业公司「爱物管」验证，目前委托管理在管面积 300 万㎡（产品名：AI 物业代运营）。
             </p>
           </div>
           <p className="av-sub reveal">
@@ -306,7 +306,7 @@ export default function Page() {
               </ul>
             </div>
             <div className="avdo-mid" aria-hidden="true">
-              <span>委托运营</span>
+              <span>委托管理</span>
               <svg width="30" height="30" viewBox="0 0 24 24"><path d="M4 12h16M14 6l6 6-6 6M10 18l-6-6 6-6" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" /></svg>
               <span>每月经营报告</span>
             </div>
@@ -440,7 +440,7 @@ export default function Page() {
             ))}
           </div>
           <p className="av-sub reveal" style={{ marginTop: 28 }}>
-            还没有确定委托范围？先读<Link className="av-link" href="/insights/property-software-outsourcing-or-delegated-operations">物业系统、单项外包与委托运营怎么选<Arrow s={13} /></Link>，把责任分工说明白。项目已在亏损、收缴率持续下滑？看<Link className="av-link" href="/insights/property-fee-collection-crisis-fourth-way">物业费收缴率跌到 71%，亏损项目还有第四条路<Arrow s={13} /></Link>。
+            还没有确定委托范围？先读<Link className="av-link" href="/insights/property-software-outsourcing-or-delegated-operations">物业系统、单项外包与委托管理怎么选<Arrow s={13} /></Link>，把责任分工说明白。项目已在亏损、收缴率持续下滑？看<Link className="av-link" href="/insights/property-fee-collection-crisis-fourth-way">物业费收缴率跌到 71%，亏损项目还有第四条路<Arrow s={13} /></Link>。
           </p>
         </div>
       </section>
@@ -459,7 +459,7 @@ export default function Page() {
           <div className="avdo-cred reveal">
             <div><strong>100+</strong><span>企业客户</span></div>
             <div><strong>3000 万㎡</strong><span>系统覆盖面积</span></div>
-            <div><strong>300 万㎡</strong><span>代运营在管面积</span></div>
+            <div><strong>300 万㎡</strong><span>委托管理在管面积</span></div>
             <div><strong>2019 年起</strong><span>自营物业验证</span></div>
           </div>
           <p className="avdo-note reveal">

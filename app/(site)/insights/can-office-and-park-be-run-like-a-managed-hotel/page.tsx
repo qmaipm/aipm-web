@@ -42,7 +42,7 @@ export default function Page() {
       <h2>能。结构与酒店委托管理一致</h2>
       <p><b>物业委托管理的分工与酒店委托管理相同：业主方保留项目主体、收款账户与重大事项决定权，运营方投入 AI 系统、机器人与运营团队负责日常经营，业主方按月获得保底收益、再分享经营盈余。</b></p>
       <p>这不是物业公司换个名字。传统物业合作只有包干制与酬金制两种：包干制下物业公司收固定费自负盈亏，服务好坏与业主收益无关；酬金制下业主承担经营波动，物业公司按比例提酬金旱涝保收。两种模式里都没有一方对经营结果负责。委托管理把这件事补上了：运营方以服务品质与经营结果对业主负责，考核数据来自系统。</p>
-      <p>这一模式国内此前没有。启盟科技 2017 年成立，2019 年自建物业公司「爱物管」作为验证场，目前代运营在管面积 300 万㎡。为什么酒店有了四十年、物业到现在才有，见<Link href="/insights/hotel-management-contract-model-beyond-hotels">酒店委托管理模式运行了四十年，为什么一直没走出酒店行业</Link>。</p>
+      <p>这一模式国内此前没有。启盟科技 2017 年成立，2019 年自建物业公司「爱物管」作为验证场，目前委托管理在管面积 300 万㎡。为什么酒店有了四十年、物业到现在才有，见<Link href="/insights/hotel-management-contract-model-beyond-hotels">酒店委托管理模式运行了四十年，为什么一直没走出酒店行业</Link>。</p>
 
       <h2>谁管人、谁管钱：一张表</h2>
       <p><b>大事业主定，日常运营方做，钱进业主账户。</b>下表用酒店业主熟悉的分工框架列出。</p>
@@ -70,7 +70,7 @@ export default function Page() {
       <ol>
         <li><b>产权或主体存在争议。</b>委托关系无法确立，测算与考核都失去基础。建议先理清产权再谈。</li>
         <li><b>收入与成本都被长期合同锁死。</b>短期内没有可优化的部分，运营方进场也改变不了经营结果。</li>
-        <li><b>只想采购单一系统。</b>这是软件采购，不是委托运营。这种情况建议直接采购 <Link href="/products/fmclaw">FMClaw™ 平台</Link>。三种采购方式的区别见<Link href="/insights/property-software-outsourcing-or-delegated-operations">买物业系统、外包单项服务，还是委托运营</Link>。</li>
+        <li><b>只想采购单一系统。</b>这是软件采购，不是委托管理。这种情况建议直接采购 <Link href="/products/fmclaw">FMClaw™ 平台</Link>。三种采购方式的区别见<Link href="/insights/property-software-outsourcing-or-delegated-operations">买物业系统、外包单项服务，还是委托管理</Link>。</li>
       </ol>
       <p>适合的业态是产业园区、写字楼、商业综合体、工厂与物流园区，原则上优先评估 3 万㎡以上项目。面积不是一票否决条件——区位、收入、收入保障、人员规模或区域打包条件较好的小体量项目也可评估。项目产权、主体与委托关系需清晰，现有合同可依法调整。经营健康的项目同样适合，运营方进场前会做测算，收支结构健康的项目反而更容易通过。</p>
 
@@ -81,7 +81,7 @@ export default function Page() {
         <thead><tr><th scope="col">步骤</th><th scope="col">做什么</th><th scope="col">周期</th></tr></thead>
         <tbody>{steps.map((s) => <tr key={s.n}><th scope="row">{s.n} · {s.h}</th><td data-label="做什么">{s.d}</td><td data-label="周期">{s.t}</td></tr>)}</tbody>
       </table>
-      <p>已在讨论合作的，进场前请对照<Link href="/insights/property-operations-handover-checklist">物业代运营进场前，业主需要确认哪些事</Link>逐项确认资料、权限与过渡期安排。业主侧完整说明与联系方式见<Link href="/ai-service/delegated-operation">物业委托管理服务页</Link>。</p>
+      <p>已在讨论合作的，进场前请对照<Link href="/insights/property-operations-handover-checklist">物业委托管理进场前，业主需要确认哪些事</Link>逐项确认资料、权限与过渡期安排。业主侧完整说明与联系方式见<Link href="/ai-service/delegated-operation">物业委托管理服务页</Link>。</p>
 
       <aside className="isd-source" aria-label="资料依据">
         <h3>资料依据与适用范围</h3>

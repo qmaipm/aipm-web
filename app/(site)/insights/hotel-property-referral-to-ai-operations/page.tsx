@@ -28,7 +28,7 @@ export default function Page() {
         <li><b>为什么现在谈。</b>业主希望改善品质、减少管理投入，还是调整人员与供应商配置？现有合同何时到期，是否具备依法调整的条件？</li>
         <li><b>下一步如何见面。</b>是否获得介绍意愿，能否安排正式沟通，哪些经营资料可以由授权人员提供？第一次不需要转发完整合同和客户财务附件。</li>
       </ol>
-      <p>如果对方只是想买一套系统，应引向产品选型；如果希望把约定范围内的日常经营交给运营方，才继续讨论代运营。可以把<Link href="/insights/property-software-outsourcing-or-delegated-operations">三种合作方式的区别</Link>先发给业主，避免双方谈的不是一件事。</p>
+      <p>如果对方只是想买一套系统，应引向产品选型；如果希望把约定范围内的日常经营交给运营方，才继续讨论委托管理。可以把<Link href="/insights/property-software-outsourcing-or-delegated-operations">三种合作方式的区别</Link>先发给业主，避免双方谈的不是一件事。</p>
 
       <h2>按实际贡献选角色，不必一开始全包</h2>
       <p><b>启盟 V{POLICY.version} 将项目贡献分为三类。</b>角色系数反映承担的开发工作，不是交费购买的伙伴等级。实际贡献、项目角色及权益均需书面确认。</p>

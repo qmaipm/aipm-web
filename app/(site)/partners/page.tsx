@@ -10,9 +10,9 @@ const SITE_URL = process.env.SITE_URL || "https://www.aipm.cn";
 // 用 pageMetadata 保证 canonical 与 og:url 指向页面自身（main 的 SEO 修复机制）；
 // 文案沿用本分支较新的两板块口径（智能体园区伙伴 / 行业智能体伙伴计划）
 export const metadata: Metadata = pageMetadata("/partners", {
-  title: "生态伙伴 · AI 物业代运营与行业智能体合作 | 启盟科技",
+  title: "生态伙伴 · 物业委托管理发展伙伴与行业智能体合作 | 启盟科技",
   description:
-    "启盟科技生态伙伴合作：AI 物业代运营发展伙伴、智能体园区伙伴、行业智能体伙伴和具身智能数据合作。按客户关系、技术能力与场景资源选择路径，分别确认分工、项目保护与合作政策。",
+    "启盟科技生态伙伴合作：物业委托管理发展伙伴（酒店开发、选址顾问、商业地产经纪）、智能体园区伙伴、行业智能体伙伴和具身智能数据合作。按客户关系、技术能力与场景资源选择路径，分别确认分工、项目保护与合作政策。",
 });
 
 const Arrow = ({ s = 15 }: { s?: number }) => (
@@ -30,7 +30,7 @@ const Check = () => (
 /* ---------- 三类伙伴：每类 = 画像 + 权益清单 + 入口 ---------- */
 const partnerTypes = [
   {
-    no: "01", tag: "Development Partner", title: "AI 物业代运营发展伙伴",
+    no: "01", tag: "Development Partner", title: "物业委托管理发展伙伴",
     img: "/ai-service/skyline.jpg", alt: "面向写字楼、园区及商业物业的项目开发合作场景",
     who: "熟悉业主、园区与物业决策人的企业和专业人士，包括酒店物业推荐人、商业地产顾问及楼宇服务商。你带来项目，启盟负责评估、方案与运营。",
     gets: [
@@ -126,10 +126,10 @@ const PAGE_LD = {
   "@type": "CollectionPage",
   name: "启盟科技生态伙伴计划",
   description:
-    "面向代运营项目推荐人、智能体园区工程企业、系统集成商及数据合作机构的生态合作计划。",
+    "面向物业委托管理项目推荐人（酒店开发、选址顾问、商业地产经纪）、智能体园区工程企业、系统集成商及数据合作机构的生态合作计划。",
   url: `${SITE_URL}/partners`,
   hasPart: [
-    { "@type": "WebPage", name: "AI 物业代运营发展伙伴", url: `${SITE_URL}/partners/delegated-operation`, description: "V2.0 项目评级、报备保护、开业奖励与持续分润。" },
+    { "@type": "WebPage", name: "物业委托管理发展伙伴", url: `${SITE_URL}/partners/delegated-operation`, description: "V2.0 项目评级、报备保护、开业奖励与持续分润。" },
     {
       "@type": "WebPage",
       name: "智能体园区伙伴",

@@ -71,7 +71,7 @@ const TRADE_LINKS: Record<string, { href: string; label: string }[]> = {
     { href: "/insights/hotel-property-referral-to-ai-operations", label: "项目推荐人参与指南" },
   ],
   "property-operations-handover-checklist": [
-    { href: "/ai-service/delegated-operation", label: "AI 物业代运营服务说明" },
+    { href: "/ai-service/delegated-operation", label: "物业委托管理服务说明" },
     { href: "/insights/property-software-outsourcing-or-delegated-operations", label: "业主如何选择委托范围" },
   ],
   "hotel-property-referral-to-ai-operations": [
@@ -79,7 +79,7 @@ const TRADE_LINKS: Record<string, { href: string; label: string }[]> = {
     { href: "/insights/property-software-outsourcing-or-delegated-operations", label: "业主如何选择合作方式" },
   ],
   "property-software-outsourcing-or-delegated-operations": [
-    { href: "/ai-service/delegated-operation", label: "了解 AI 物业代运营" },
+    { href: "/ai-service/delegated-operation", label: "了解物业委托管理" },
     { href: "/products/fmclaw", label: "了解 FMClaw™ 平台" },
   ],
   "how-to-choose-ai-property-product": [
@@ -125,12 +125,12 @@ const TRADE_LINKS: Record<string, { href: string; label: string }[]> = {
   ],
   "who-pays-for-property-ai": [
     { href: "/partners/delegated-operation", label: "有项目资源？了解发展伙伴合作" },
-    { href: "/ai-service/delegated-operation", label: "AI 物业代运营（酒管式全权委托）" },
+    { href: "/ai-service/delegated-operation", label: "物业委托管理（像酒管公司管酒店一样）" },
     { href: "/company/aipm-validation", label: "爱物管自营验证（数据全文）" },
   ],
   "property-fee-collection-crisis-fourth-way": [
-    { href: "/partners/delegated-operation", label: "代运营项目推荐与报备" },
-    { href: "/ai-service/delegated-operation", label: "AI 物业代运营（酒管式全权委托）" },
+    { href: "/partners/delegated-operation", label: "委托管理项目推荐与报备" },
+    { href: "/ai-service/delegated-operation", label: "物业委托管理（像酒管公司管酒店一样）" },
     { href: "/company/aipm-validation", label: "爱物管自营验证（数据全文）" },
   ],
   "how-to-choose-cleaning-robot-roi": [

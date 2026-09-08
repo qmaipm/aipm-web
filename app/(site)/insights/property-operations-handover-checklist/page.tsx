@@ -3,8 +3,8 @@ import ArticleShell, { Figure } from "../_ArticleShell";
 import { articleMetadata } from "../articles";
 
 export const metadata = articleMetadata("property-operations-handover-checklist", {
-  title: "AI 物业代运营进场前确认什么？业主交接清单 | 启盟科技",
-  description: "业主在 AI 物业代运营进场前，应确认授权、费用与收支、人员供应商、设备现状、数据权限、服务考核及退出交接。提供分工与未结事项清单，区分签约、接管和验收，不以勾选清单替代合同或专业审核。",
+  title: "物业委托管理进场前确认什么？业主交接清单 | 启盟科技",
+  description: "业主在物业委托管理（像酒店一样交给运营方经营）进场前，应确认授权、费用与收支、人员供应商、设备现状、数据权限、服务考核及退出交接。提供分工与未结事项清单，区分签约、接管和验收，不以勾选清单替代合同或专业审核。",
 });
 const checklist = [
   ["授权与责任", "谁签约、谁批准预算和重大支出，谁是双方日常负责人。", "授权文件、审批事项与负责人清单。"],
@@ -19,12 +19,12 @@ const checklist = [
 export default function Page() {
   return (
     <ArticleShell slug="property-operations-handover-checklist" variant="delegated">
-      <p className="lede">代运营协议确定合作关系，进场准备则要回答：从约定时点开始，谁能拿到资料、进入现场、调度人员并处理异常？合同签了，账号没开、设备状态没点清、原供应商还不知道听谁安排，服务仍可能出现空档。</p>
+      <p className="lede">委托管理协议确定合作关系，进场准备则要回答：从约定时点开始，谁能拿到资料、进入现场、调度人员并处理异常？合同签了，账号没开、设备状态没点清、原供应商还不知道听谁安排，服务仍可能出现空档。</p>
 
       <h2>先确认接管时点，而不只是签约日期</h2>
       <p><b>签约、正式进场、实际接管和验收，应分别说明触发条件。</b>双方可以按楼栋、服务范围或业务流程分阶段交接，但每一段都要写清原责任到何时结束、新责任从何时开始。</p>
       <p>建议在进场准备表里，为每项工作记录提供方、确认方、完成条件和未结问题。准备未完成时，要说明补齐办法以及谁继续维持服务，不应默认“新公司已经来了，就都由它负责”。</p>
-      <p>如果仍未确定希望委托哪些工作，先读<Link href="/insights/property-software-outsourcing-or-delegated-operations">系统、单项外包与委托运营的区别</Link>。以下清单适用于已经开始讨论运营委托和交接准备的项目，不是另一套准入评分。</p>
+      <p>如果仍未确定希望委托哪些工作，先读<Link href="/insights/property-software-outsourcing-or-delegated-operations">系统、单项外包与委托管理的区别</Link>。以下清单适用于已经开始讨论运营委托和交接准备的项目，不是另一套准入评分。</p>
 
       <h2>七项安排，都要留下可核对的结果</h2>
       <p><b>会议上说清楚之后，还要形成双方可用的交接资料。</b>下表是准备建议，具体责任和要求需结合项目与正式协议确定。</p>
@@ -55,7 +55,7 @@ export default function Page() {
       <p>把这些安排提前讲清，不等于预设合作失败；它能帮助双方判断哪些资料从第一天起就要持续维护。涉及法定责任、劳动关系、个人信息或原合同调整的事项，应由相应专业人员结合实际审核。</p>
       <aside className="isd-source" aria-label="资料依据与适用边界">
         <h3>清单用于准备，不代替合同验收</h3>
-        <p>启盟模式依据见<Link href="/ai-service/delegated-operation">AI 物业代运营服务说明</Link>。尚处于初步接触阶段的项目，可先按<Link href="/insights/property-project-assessment-data">五项资料指南</Link>整理现状，不必首轮提供全部交接附件。</p>
+        <p>启盟模式依据见<Link href="/ai-service/delegated-operation">物业委托管理服务说明</Link>。尚处于初步接触阶段的项目，可先按<Link href="/insights/property-project-assessment-data">五项资料指南</Link>整理现状，不必首轮提供全部交接附件。</p>
         <p>行业参考：EQUANS 的<a href="https://www.equans.com.au/news/importance-mobilisation-fm-contracting" target="_blank" rel="noopener noreferrer">设施管理合同动员说明</a>强调项目负责人、客户资料提供方和现场进入条件的提前协调。该参考不代表其参与启盟项目，也不替代中国项目的合同或法律审核。</p>
       </aside>
     </ArticleShell>

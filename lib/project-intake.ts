@@ -97,7 +97,7 @@ export async function notifyIntake(record: IntakeRecord): Promise<boolean> {
     });
     await transporter.sendMail({
       from: process.env.SMTP_USER, to: process.env.MAIL_TO, cc: process.env.MAIL_CC || undefined,
-      subject: `代运营项目待受理 ${record.receipt}`,
+      subject: `委托管理项目待受理 ${record.receipt}`,
       text: `受理编号：${record.receipt}\n时间：${record.createdAt}\n状态：已保存，待人工核验\n请在部署服务器的受理台账中查看项目并反馈伙伴。\n命令：node scripts/project-intake-ops.cjs show ${record.receipt}\n本邮件不包含客户经营资料。报备通过前不启动项目保护。`,
     });
     await writeFile(marker, new Date().toISOString(), { mode: 0o600 });

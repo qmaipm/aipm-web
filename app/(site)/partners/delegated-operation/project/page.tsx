@@ -8,8 +8,8 @@ import "../page.css";
 export const dynamic = "force-dynamic";
 const SITE = process.env.SITE_URL || "https://www.aipm.cn";
 export const metadata = pageMetadata(PROJECT_PATH, {
-  title: "AI 物业代运营项目评估与报备 · 合作方向参考 | 启盟科技",
-  description: "填写项目位置、管理面积、现有收入、入住及保障、人员情况，了解 AI 物业代运营合作方向，可选查看伙伴收益情景并准备报备。依据白皮书 V2.0，结果仅供沟通参考，不代表准入、归属或收益承诺。",
+  title: "物业委托管理项目评估与报备 · 合作方向参考 | 启盟科技",
+  description: "填写项目位置、管理面积、现有收入、入住及保障、人员情况，了解物业委托管理合作方向，可选查看伙伴收益情景并准备报备。依据白皮书 V2.0，结果仅供沟通参考，不代表准入、归属或收益承诺。",
 });
 const dimensions = [
   { t: "区位与战略属性", d: "城市区位 5 分、交通 4 分、周边配套 3 分、战略属性 3 分。同一事实不在基础评分中重复计分；S 标签额外奖励另行认定。" },
@@ -21,11 +21,11 @@ const dimensions = [
 export default function Page() {
  return <main className="dp">
   <JsonLd data={[
-   { "@context":"https://schema.org", "@type":"WebPage", name:"AI 物业代运营项目评估与报备", url:`${SITE}${PROJECT_PATH}`, inLanguage:"zh-CN" },
-   { "@context":"https://schema.org", "@type":"BreadcrumbList", itemListElement:[{ "@type":"ListItem",position:1,name:"生态伙伴",item:`${SITE}/partners` },{ "@type":"ListItem",position:2,name:"代运营发展伙伴",item:`${SITE}${PARTNER_PATH}` },{ "@type":"ListItem",position:3,name:"项目评估与报备",item:`${SITE}${PROJECT_PATH}` }] },
+   { "@context":"https://schema.org", "@type":"WebPage", name:"物业委托管理项目评估与报备", url:`${SITE}${PROJECT_PATH}`, inLanguage:"zh-CN" },
+   { "@context":"https://schema.org", "@type":"BreadcrumbList", itemListElement:[{ "@type":"ListItem",position:1,name:"生态伙伴",item:`${SITE}/partners` },{ "@type":"ListItem",position:2,name:"委托管理发展伙伴",item:`${SITE}${PARTNER_PATH}` },{ "@type":"ListItem",position:3,name:"项目评估与报备",item:`${SITE}${PROJECT_PATH}` }] },
   ]} />
   <header className="dp-tool-head"><div className="wrap">
-   <nav className="dp-crumb" aria-label="面包屑"><Link href="/partners">生态伙伴</Link><span>/</span><Link href={PARTNER_PATH}>代运营发展伙伴</Link><span>/</span><span>项目评估与报备</span></nav>
+   <nav className="dp-crumb" aria-label="面包屑"><Link href="/partners">生态伙伴</Link><span>/</span><Link href={PARTNER_PATH}>委托管理发展伙伴</Link><span>/</span><span>项目评估与报备</span></nav>
    <div className="dp-tool-intro"><div><h1>先了解项目<br /><span className="grad">再确认如何合作</span></h1><p className="dp-read">填写已知情况，了解适合的合作方向。业主可以沟通委托需求，推荐伙伴也可查看收益情景、准备报备。</p></div><aside className="dp-tool-info"><b>不清楚，也可以先聊</b><p>按实际情况填写即可。合作方向依据白皮书 V{POLICY.version} 形成，正式条件与权益需进一步核实。</p><a href="#scoring-rules">了解填写口径</a></aside></div>
   </div></header>
   <ProjectTool enabled={intakeEnabled()} analyticsEnabled={process.env.SITE_ENV === "production"} />

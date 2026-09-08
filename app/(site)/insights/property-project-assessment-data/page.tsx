@@ -4,7 +4,7 @@ import { articleMetadata } from "../articles";
 import { POLICY, PROJECT_PATH, PARTNER_PATH, EMPTY_ASSESSMENT, GRADES, scoreProject } from "@/lib/delegated-policy";
 
 export const metadata = articleMetadata("property-project-assessment-data", {
-  title: "物业项目怎么初评？AI 代运营五项资料准备指南 | 启盟科技",
+  title: "物业项目怎么初评？委托管理五项资料准备指南 | 启盟科技",
   description: "按启盟白皮书 V2.0 准备区位、管理面积、当前收入、入住及收入保障、人员编制资料。说明未知项、预测收入、人员密度与 S 标签的处理，并用明确标注的教学示例解释预评级，不承诺项目准入或收益。",
 });
 const dimensions = scoreProject(EMPTY_ASSESSMENT).dimensions;

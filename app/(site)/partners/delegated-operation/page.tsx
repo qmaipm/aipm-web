@@ -41,7 +41,7 @@ export default function Page() {
       <Image className="dp-hero-image" src="/ai-service/skyline.jpg" alt="城市中的写字楼、商业楼宇与物业运营场景" fill priority sizes="100vw" />
       <div className="dp-hero-shade" /><div className="dp-grid" aria-hidden="true" />
       <div className="wrap dp-hero-content">
-        <nav className="dp-crumb" aria-label="面包屑"><Link href="/partners">生态伙伴</Link><span>/</span><span>AI 物业代运营发展伙伴</span></nav>
+        <nav className="dp-crumb" aria-label="面包屑"><Link href="/partners">生态伙伴</Link><span>/</span><span>物业委托管理发展伙伴</span></nav>
         <h1>你带来物业项目<br /><span className="grad">我们负责把它做成</span></h1>
         <p className="dp-lead">你给酒店找过物业、给业主推荐过管理公司，或者长期服务园区与商业地产业主——同一批业主手上的写字楼和园区，现在也可以像酒店一样交给管理公司。启盟提供 AI 运营体系与项目团队，<b>你从项目引荐开始，按实际贡献分享项目落地与持续运营收益。</b></p>
         <div className="dp-actions"><a href="#cooperation" className="btn btn-primary">看看如何合作 <Arrow /></a><Link href={PROJECT_PATH} className="btn btn-ghost">评估并报备项目 <Arrow /></Link></div>
@@ -57,7 +57,7 @@ export default function Page() {
     </div></section>
     <section className="dp-band mist"><div className="wrap">
       <span className="dp-eyebrow">02 / 项目条件</span><h2>找有真实经营基础的物业项目</h2>
-      <div className="dp-split"><div><p>产业园区、写字楼、商业综合体、工厂、企业总部及物流园区。人员规模较大的项目，是 AI 与机器人优化服务预算的重点评估对象。</p><ul className="dp-checks"><li>能接触实际决策人，产权及委托关系清晰</li><li>现有合同可依法调整或即将到期</li><li>愿意提供经营资料，接受数字化管理与考核</li><li>具备经营可行性及成本、效率或品质改善空间</li></ul></div><aside className="dp-note-panel"><h3>面积是维度，不是唯一门槛</h3><p>原则上优先评估 3 万㎡以上项目。面积不足但区位、收入、收入保障或人员规模较好的项目，仍可报备；符合条件的同区域项目可打包评估。</p><p>仅有客户名单、主体争议、合同无法调整或只采购单一设备的项目，不作为标准代运营项目推进。</p><Link href={PROJECT_PATH}>按五项标准预评项目 <Arrow /></Link></aside></div>
+      <div className="dp-split"><div><p>产业园区、写字楼、商业综合体、工厂、企业总部及物流园区。人员规模较大的项目，是 AI 与机器人优化服务预算的重点评估对象。</p><ul className="dp-checks"><li>能接触实际决策人，产权及委托关系清晰</li><li>现有合同可依法调整或即将到期</li><li>愿意提供经营资料，接受数字化管理与考核</li><li>具备经营可行性及成本、效率或品质改善空间</li></ul></div><aside className="dp-note-panel"><h3>面积是维度，不是唯一门槛</h3><p>原则上优先评估 3 万㎡以上项目。面积不足但区位、收入、收入保障或人员规模较好的项目，仍可报备；符合条件的同区域项目可打包评估。</p><p>仅有客户名单、主体争议、合同无法调整或只采购单一设备的项目，不作为标准委托管理项目推进。</p><Link href={PROJECT_PATH}>按五项标准预评项目 <Arrow /></Link></aside></div>
     </div></section>
     <section className="dp-band"><div className="wrap">
       <span className="dp-eyebrow">03 / 项目分工</span><h2>做到哪一步，按对应角色确认收益</h2>
@@ -80,13 +80,13 @@ export default function Page() {
     </div></section>
     <section className="dp-band mist"><div className="wrap">
       <span className="dp-eyebrow">06 / 承接能力</span><h2>先看看我们如何经营真实场景</h2>
-      <div className="dp-metrics"><div><b>100+</b><span>企业客户</span></div><div><b>3000 万㎡</b><span>系统覆盖面积</span></div><div><b>300 万㎡</b><span>代运营在管面积</span></div></div>
+      <div className="dp-metrics"><div><b>100+</b><span>企业客户</span></div><div><b>3000 万㎡</b><span>系统覆盖面积</span></div><div><b>300 万㎡</b><span>委托管理在管面积</span></div></div>
       <p className="dp-read">2019 年起自建物业公司验证 AI 运营方法。以下案例用于说明运营与技术能力，不代表每个项目均采用同一委托合同或获得相同收益。</p>
       <ScenarioCards items={[
         { href: "/cases/30w-park-ai-property-manager-robot", lab: "园区案例", t: "30 万㎡科技园的人机协作", d: "看人与机器人如何统一调度，服务如何被量化。", img: "/cases/cover-tech-park.png", alt: "科技园区案例的楼宇与运营场景封面" },
         { href: "/cases/south-china-mixed-use-6-to-1", lab: "综合体案例", t: "6 万㎡综合体的运营调整", d: "看工作流与管理方式如何调整，项目如何改善经营。", img: "/cases/cover-mixed-use.png", alt: "商业综合体案例的建筑与服务场景封面" },
       ]} />
-      <p className="dp-inline"><Link href="/company/aipm-validation">阅读爱物管自营验证 <Arrow /></Link><Link href="/ai-service/delegated-operation">了解业主侧的委托运营模式 <Arrow /></Link><Link href="/insights/who-pays-for-property-ai">业主问「AI 这笔钱谁出」怎么答 <Arrow /></Link></p>
+      <p className="dp-inline"><Link href="/company/aipm-validation">阅读爱物管自营验证 <Arrow /></Link><Link href="/ai-service/delegated-operation">了解业主侧的委托管理模式 <Arrow /></Link><Link href="/insights/who-pays-for-property-ai">业主问「AI 这笔钱谁出」怎么答 <Arrow /></Link></p>
     </div></section>
     <SeoFaq heading="合作前，先把这些问题说明白" items={faqs} />
     <section className="dp-band mist" id="contact"><div className="wrap">
