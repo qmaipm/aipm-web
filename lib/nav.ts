@@ -63,6 +63,7 @@ export const MENU: MenuItem[] = [
           { label: "设备巡检管理", href: "/solutions/inspection" },
           { label: "人员薪酬管理", href: "/solutions/payroll" },
           { label: "采购管理", href: "/solutions/procurement" },
+          { label: "供应商管理与自动对账", href: "/solutions/vendor" },
         ],
       },
     ],
@@ -124,12 +125,13 @@ export const MENU: MenuItem[] = [
     groups: [
       {
         items: [
-          { label: "生态伙伴（总览）", href: "/partners", small: "我们做产品和平台，伙伴赢市场" },
+          { label: "生态伙伴（总览）", href: "/partners", small: "技术、项目开发与真实场景合作" },
         ],
       },
       {
         heading: "合作方向",
         items: [
+          { label: "AI 物业代运营发展伙伴", href: "/partners/delegated-operation", small: "项目合作 · 报备保护 · 持续分润" },
           { label: "智能体园区伙伴", href: "/partners/agent-park", small: "智能体园区招标，带着 FMClaw 去应" },
           { label: "行业智能体伙伴计划", href: "/partners/program", small: "Refer · Sell · Deliver · Build 四种路径" },
           { label: "具身智能与物理 AI 数据合作", href: "/partners/embodied-ai-data", small: "第一视角数据 · 环境语义 · 实训场" },
@@ -194,8 +196,10 @@ export const FOOTER_COLS: { title: string; links: DropItem[] }[] = [
       { label: "FMClaw™ 加速营", href: "/workshop" },
       { label: "人工智能产业共建", href: "/cobuild" },
       { label: "生态伙伴", href: "/partners" },
+      { label: "代运营发展伙伴", href: "/partners/delegated-operation" },
       { label: "具身智能数据合作", href: "/partners/embodied-ai-data" },
-      { label: "关于启盟科技 / 团队", href: "/company" },
+      { label: "关于启盟科技", href: "/company" },
+      { label: "新闻动态", href: "/news" },
       { label: "行业研究", href: "/insights" },
     ],
   },
@@ -205,7 +209,7 @@ export const FOOTER_COLS: { title: string; links: DropItem[] }[] = [
       { label: "商务合作", href: "/contact" },
       { label: "招商 / 国资对接", href: "/contact" },
       { label: "加入我们", href: "/contact" },
-      { label: "公众号", href: "/contact" },
+      { label: "团队", href: "/team" },
     ],
   },
 ];

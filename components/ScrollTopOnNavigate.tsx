@@ -16,6 +16,16 @@ export default function ScrollTopOnNavigate() {
 
   useEffect(() => {
     if (isPop.current) { isPop.current = false; return; }
+    // 带锚点的入口应定位到目标内容，不能被全站回顶覆盖。
+    const hash = window.location.hash.slice(1);
+    if (hash) {
+      let id: string;
+      try { id = decodeURIComponent(hash); } catch { return; }
+      const frame = window.requestAnimationFrame(() => {
+        document.getElementById(id)?.scrollIntoView({ block: "start", behavior: "instant" as ScrollBehavior });
+      });
+      return () => window.cancelAnimationFrame(frame);
+    }
     window.scrollTo({ top: 0, left: 0, behavior: "instant" as ScrollBehavior });
   }, [pathname]);
 

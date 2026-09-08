@@ -44,6 +44,14 @@ export default function ContactForm() {
   useEffect(() => {
     const p = new URLSearchParams(window.location.search);
     const t = p.get("type");
+    if (t === "delegated-owner") {
+      setType("AI 物业代运营项目诊断");
+      setMessage((m) => m || "希望评估自有或受托物业项目的 AI 委托运营方案。");
+    }
+    if (t === "refer" || t === "delegated-partner") {
+      setType("代运营发展伙伴咨询");
+      setSource("AI 物业代运营发展伙伴");
+    }
     if (t === "partner" || t === "partner-guide") {
       setType("生态伙伴合作");
     }
@@ -132,6 +140,8 @@ export default function ContactForm() {
           <select required value={type} onChange={(e) => setType(e.target.value)}>
             <option value="" disabled>请选择</option>
             <option>产品咨询</option>
+            <option>AI 物业代运营项目诊断</option>
+            <option>代运营发展伙伴咨询</option>
             <option>生态伙伴合作</option>
             <option>商务合作</option>
             <option>媒体采访</option>

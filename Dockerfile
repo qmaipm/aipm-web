@@ -33,6 +33,9 @@ RUN addgroup -g 1001 -S nodejs && adduser -S nextjs -u 1001
 COPY --from=builder /app/public ./public
 COPY --from=builder --chown=nextjs:nodejs /app/.next/standalone ./
 COPY --from=builder --chown=nextjs:nodejs /app/.next/static ./.next/static
+COPY --from=builder --chown=nextjs:nodejs /app/scripts/project-intake-ops.cjs ./scripts/project-intake-ops.cjs
+COPY --from=deps /app/node_modules/nodemailer ./node_modules/nodemailer
+RUN mkdir -p /app/.project-intake && chown nextjs:nodejs /app/.project-intake && chmod 700 /app/.project-intake
 USER nextjs
 EXPOSE 3000
 CMD ["node", "server.js"]

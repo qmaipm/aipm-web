@@ -23,7 +23,14 @@ services:
       SMTP_PASS: "${SMTP_PASS:-}"
       MAIL_TO: "${MAIL_TO:-}"
       MAIL_CC: "${MAIL_CC:-}"
+      PROJECT_INTAKE_ENABLED: "${PROJECT_INTAKE_ENABLED:-false}"
+      PROJECT_INTAKE_DIR: "/app/.project-intake"
       WECHAT_APPID: "${WECHAT_APPID:-}"
       WECHAT_APPSECRET: "${WECHAT_APPSECRET:-}"
+    volumes:
+      - project-intake:/app/.project-intake
     ports:
       - "${AIPM_WEB_HOST_PORT}:3000"
+
+volumes:
+  project-intake:
