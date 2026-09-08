@@ -434,7 +434,7 @@ export default function Page() {
             <p>
               不止换服务，还可以整体委托。参照酒店管理公司的分工：您保留产权、账户与重大事项决定权，
               我们投入 AI 系统、机器人与运营团队负责日常经营，您按月拿保底、再分经营盈余，<b>投入 0 元</b>——
-              详见<Link className="av-link" href="/ai-service/delegated-operation">AI 物业代运营（酒管式全权委托） <Arrow s={13} /></Link>
+              详见<Link className="av-link" href="/ai-service/delegated-operation">物业委托管理：像酒管公司管酒店一样，把楼交给运营方 <Arrow s={13} /></Link>
             </p>
           </div>
         </div>

@@ -47,6 +47,15 @@
   border:1px dashed rgba(18,185,138,.45);border-radius:12px;background:rgba(18,185,138,.04);padding:18px 22px}
 .avdo .avdo-legal b{color:var(--av-ink);font-weight:800}
 
+/* 定义块：独立、自包含的可引用段（GEO §7a-3/5）。视觉上像词条，不像广告 */
+.avdo .avdo-define{display:flex;gap:18px;align-items:flex-start;margin:6px auto 28px;max-width:920px;
+  padding:22px 26px;border-left:3px solid var(--av-green,#12b98a);border-radius:0 14px 14px 0;
+  background:linear-gradient(90deg,rgba(18,185,138,.07),rgba(18,185,138,.015))}
+.avdo .avdo-define .k{flex:none;margin-top:4px;font-size:11px;font-weight:800;letter-spacing:.18em;text-transform:uppercase;color:var(--av-green,#12b98a)}
+.avdo .avdo-define p{margin:0;font-size:16px;line-height:1.85;color:var(--av-ink-2)}
+.avdo .avdo-define p b{color:var(--av-ink);font-weight:800;font-size:17px}
+@media(max-width:560px){.avdo .avdo-define{flex-direction:column;gap:8px;padding:18px 20px}}
+
 /* ---------- 03 · 结算瀑布 ---------- */
 .avdo .avdo-flow{margin-top:46px;border:1px solid var(--av-line);border-radius:16px;overflow:hidden;background:var(--av-paper)}
 .avdo .avdo-frow{display:grid;grid-template-columns:280px 1fr;gap:18px;align-items:center;padding:18px 24px}

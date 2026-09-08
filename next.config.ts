@@ -3,6 +3,10 @@ import type { NextConfig } from "next";
 const nextConfig: NextConfig = {
   // Docker 部署:产出自包含的 .next/standalone(含最小 node_modules + server.js)
   output: "standalone",
+  // Dynamic private intake paths must never pull local records or credentials into the image.
+  outputFileTracingExcludes: {
+    "/*": ["./.git/**/*", "./.env*", "./tmp/**/*", "./.project-intake/**/*", "./.data/**/*", "./docs/**/*", "./skills/**/*"],
+  },
   // 伙伴板块路由重命名(2026-07):旧路径 308 到新路径,保住已被抓取的收录与外链
   // /partners/channel → /partners/reseller → /partners/program 两代旧路径均直接指向最终 URL
   async redirects() {

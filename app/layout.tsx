@@ -92,7 +92,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           <style>{`.reveal{opacity:1 !important;transform:none !important}`}</style>
         </noscript>
         <JsonLd data={[ORG_LD, SITE_LD]} />
-        <BaiduAnalytics />
+        {process.env.SITE_ENV === "production" && <BaiduAnalytics />}
         {children}
       </body>
     </html>

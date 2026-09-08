@@ -27,3 +27,7 @@ tsconfig.tsbuildinfo
 
 # 视觉复验产物(截图/量测报告),不入库
 tmp/
+
+# 私有项目受理数据，严禁提交
+.project-intake/
+.data/
