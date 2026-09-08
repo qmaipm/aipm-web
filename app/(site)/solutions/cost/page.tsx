@@ -201,7 +201,7 @@ export default function Page() {
           </div>
           <p className="co-sub" style={{ marginTop: 30 }}>
             不想自己扛这场变革？还有一条路：把项目整体委托给我们经营——AI 投入由我们承担，您按月拿保底、再分经营盈余，
-            见 <Link href="/ai-service/delegated-operation" className="co-rt">AI 物业代运营（酒管式全权委托） <Arrow s={12} /></Link>
+            见 <Link href="/ai-service/delegated-operation" className="co-rt">物业委托管理（业主保底 · 运营方担 AI 投入） <Arrow s={12} /></Link>
           </p>
         </div>
       </section>

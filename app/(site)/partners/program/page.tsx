@@ -92,6 +92,7 @@ export default function Page() {
               <Link href="/contact?type=partner&source=partner-program" className="btn btn-primary">申请成为伙伴 <Arrow /></Link>
               <Link href="/contact?type=partner-guide&source=partner-program" className="btn btn-ghost">获取伙伴计划手册1.0 <Arrow /></Link>
             </div>
+            <p className="pg-lead">手上有写字楼或园区的业主资源，想像给酒店推荐管理公司一样推荐运营方？请查看<Link href="/partners/delegated-operation">物业委托管理发展伙伴计划</Link>。该计划的项目评级、报备与分润政策独立适用。</p>
             <ul className="pg-facts">
               {heroFacts.map((f) => (
                 <li key={f}>{f}</li>

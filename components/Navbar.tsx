@@ -28,14 +28,14 @@ export default function Navbar() {
   }, [pathname]);
   const solid = scrolled || open;
   // 深色 hero 页面:顶部未滚动时导航转白字,避免暗底吞掉深色导航
-  const DARK_HERO = ["/agents", "/ai-service", "/ai-service/delegated-operation", "/ai-service/cleaning", "/ai-service/facility", "/ai-service/security", "/ai-service/customer-service", "/company", "/workshop", "/workshop/demo-day", "/workshop/bootcamp", "/workshop/competition", "/workshop/fde", "/company/aipm-validation", "/products/fmclaw/agent-runtime", "/cobuild", "/cases"];
+  const DARK_HERO = ["/partners/delegated-operation", "/agents", "/ai-service", "/ai-service/delegated-operation", "/ai-service/cleaning", "/ai-service/facility", "/ai-service/security", "/ai-service/customer-service", "/company", "/workshop", "/workshop/demo-day", "/workshop/bootcamp", "/workshop/competition", "/workshop/fde", "/company/aipm-validation", "/products/fmclaw/agent-runtime", "/cobuild", "/cases"];
   const onDark = !solid && DARK_HERO.includes(pathname);
 
   return (
     <header className={`nav${solid ? " solid" : ""}${onDark ? " on-dark" : ""}`} id="nav">
       <div className="navrow">
         <Link href="/" className="logo" aria-label="启盟科技 Stalliance">
-          <Image src="/images/logo.webp" alt="启盟科技 Stalliance" width={384} height={113} priority />
+          <Image src="/images/logo.webp" alt="启盟科技 Stalliance" width={800} height={222} priority />
         </Link>
         <nav className="menu">
           {MENU.map((item) => (

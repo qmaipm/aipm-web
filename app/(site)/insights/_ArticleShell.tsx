@@ -17,15 +17,19 @@ export function Figure({
   alt,
   caption,
   portrait,
+  width,
+  height,
 }: {
   src: string;
   alt: string;
   caption?: string;
   portrait?: boolean;
+  width?: number;
+  height?: number;
 }) {
   return (
     <figure className={`fig${portrait ? " portrait" : ""}`}>
-      <img src={src} alt={alt} loading="lazy" />
+      <img src={src} alt={alt} width={width} height={height} loading="lazy" />
       {caption ? <figcaption>{caption}</figcaption> : null}
     </figure>
   );
@@ -53,6 +57,31 @@ export function FigRow({
 
 // 文章 → AI 物业服务工种页回链(内链闭环:研究文章把读者引向对应服务页)
 const TRADE_LINKS: Record<string, { href: string; label: string }[]> = {
+  "hotel-management-contract-model-beyond-hotels": [
+    { href: "/ai-service/delegated-operation", label: "物业委托管理服务说明" },
+    { href: "/partners/delegated-operation", label: "酒店开发人员：发展伙伴计划" },
+    { href: "/company/aipm-validation", label: "爱物管自营验证（数据全文）" },
+  ],
+  "can-office-and-park-be-run-like-a-managed-hotel": [
+    { href: "/ai-service/delegated-operation", label: "物业委托管理服务说明" },
+    { href: "/company/aipm-validation", label: "爱物管自营验证（数据全文）" },
+  ],
+  "property-project-assessment-data": [
+    { href: "/partners/delegated-operation", label: "发展伙伴完整政策" },
+    { href: "/insights/hotel-property-referral-to-ai-operations", label: "项目推荐人参与指南" },
+  ],
+  "property-operations-handover-checklist": [
+    { href: "/ai-service/delegated-operation", label: "物业委托管理服务说明" },
+    { href: "/insights/property-software-outsourcing-or-delegated-operations", label: "业主如何选择委托范围" },
+  ],
+  "hotel-property-referral-to-ai-operations": [
+    { href: "/partners/delegated-operation", label: "发展伙伴完整政策" },
+    { href: "/insights/property-software-outsourcing-or-delegated-operations", label: "业主如何选择合作方式" },
+  ],
+  "property-software-outsourcing-or-delegated-operations": [
+    { href: "/ai-service/delegated-operation", label: "了解物业委托管理" },
+    { href: "/products/fmclaw", label: "了解 FMClaw™ 平台" },
+  ],
   "how-to-choose-ai-property-product": [
     { href: "/products/fmclaw", label: "FMClaw 物业智能体" },
     { href: "/cases", label: "客户案例" },
@@ -95,11 +124,13 @@ const TRADE_LINKS: Record<string, { href: string; label: string }[]> = {
     { href: "/solutions/cost", label: "成本控制智能体方案" },
   ],
   "who-pays-for-property-ai": [
-    { href: "/ai-service/delegated-operation", label: "AI 物业代运营（酒管式全权委托）" },
+    { href: "/partners/delegated-operation", label: "有项目资源？了解发展伙伴合作" },
+    { href: "/ai-service/delegated-operation", label: "物业委托管理（像酒管公司管酒店一样）" },
     { href: "/company/aipm-validation", label: "爱物管自营验证（数据全文）" },
   ],
   "property-fee-collection-crisis-fourth-way": [
-    { href: "/ai-service/delegated-operation", label: "AI 物业代运营（酒管式全权委托）" },
+    { href: "/partners/delegated-operation", label: "委托管理项目推荐与报备" },
+    { href: "/ai-service/delegated-operation", label: "物业委托管理（像酒管公司管酒店一样）" },
     { href: "/company/aipm-validation", label: "爱物管自营验证（数据全文）" },
   ],
   "how-to-choose-cleaning-robot-roi": [
@@ -132,14 +163,55 @@ const TRADE_LINKS: Record<string, { href: string; label: string }[]> = {
   ],
 };
 
+// 按读者意图选择下一步，不把项目业主与推荐人都引向加速营。
+const OWNER_CTA = {
+  title: "先确认你想交给谁来管",
+  description: "带着项目现状与服务要求，先讨论责任范围，再判断适合哪种合作。",
+  href: "/contact?type=delegated-owner&from=insights",
+  label: "申请业主项目诊断",
+};
+const ARTICLE_CTA: Record<string, typeof OWNER_CTA> = {
+  "property-project-assessment-data": {
+    title: "先把已知资料填进去",
+    description: "未知项可以留空。先了解合作方向，再由双方补充核实项目条件。",
+    href: "/partners/delegated-operation/project",
+    label: "了解项目合作方向",
+  },
+  "property-operations-handover-checklist": {
+    title: "把进场准备逐项说明白",
+    description: "带着拟委托范围与现有安排，讨论资料、权限和交接条件。",
+    href: "/contact?type=delegated-owner&from=insights-handover",
+    label: "讨论项目进场准备",
+  },
+  "property-software-outsourcing-or-delegated-operations": OWNER_CTA,
+  "can-office-and-park-be-run-like-a-managed-hotel": OWNER_CTA,
+  "hotel-management-contract-model-beyond-hotels": {
+    title: "你名下的写字楼和园区，也可以这样交出去",
+    description: "酒店业主带项目来先算一遍账；酒店开发与拓展人员可直接了解发展伙伴政策。",
+    href: "/contact?type=delegated-owner&from=insights-hotel-model",
+    label: "带一个真实项目来，先算一遍账",
+  },
+  "who-pays-for-property-ai": OWNER_CTA,
+  "property-fee-collection-crisis-fourth-way": OWNER_CTA,
+  "hotel-property-referral-to-ai-operations": {
+    title: "从一个真实项目开始",
+    description: "先整理已知资料，了解合作方向与适用政策。资料不全也可以先准备报备。",
+    href: "/partners/delegated-operation/project",
+    label: "评估并准备项目报备",
+  },
+};
+
 export default function ArticleShell({
   slug,
   children,
+  variant,
 }: {
   slug: string;
   children: React.ReactNode;
+  variant?: "delegated";
 }) {
   const a = getArticle(slug);
+  const cta = ARTICLE_CTA[slug];
   const recs = getRecommended(slug, 3);
   const trades = TRADE_LINKS[slug] || [];
   const pageUrl = `${SITE_URL}/insights/${a.slug}`;
@@ -190,7 +262,7 @@ export default function ArticleShell({
     : null;
 
   return (
-    <main className="isd">
+    <main className={`isd${variant === "delegated" ? " isd-delegated" : ""}`}>
       <JsonLd data={faqLd ? [articleLd, breadcrumbLd, faqLd] : [articleLd, breadcrumbLd]} />
       {/* HERO */}
       <section className="isd-hero">
@@ -258,11 +330,11 @@ export default function ArticleShell({
       {/* 文末 CTA */}
       <section className="isd-cta">
         <div className="wrap">
-          <h2 className="reveal">研究是为了把一件事真正做成</h2>
-          <p className="reveal">读完了,也欢迎带着你的真实场景,来现场跑通第一件事。</p>
+          <h2 className="reveal">{cta?.title || "研究是为了把一件事真正做成"}</h2>
+          <p className="reveal">{cta?.description || "读完了,也欢迎带着你的真实场景,来现场跑通第一件事。"}</p>
           <div className="cta-row reveal">
-            <Link href="/workshop" className="btn btn-primary" style={{ padding: "16px 32px", fontSize: "16.5px" }}>
-              预约 FMClaw™ 加速营 <Arrow />
+            <Link href={cta?.href || "/workshop"} className="btn btn-primary" style={{ padding: "16px 32px", fontSize: variant === "delegated" ? "19px" : "16.5px" }}>
+              {cta?.label || "预约 FMClaw™ 加速营"} <Arrow />
             </Link>
             {trades.length > 0 && (
               <span className="isd-cta-alt">
