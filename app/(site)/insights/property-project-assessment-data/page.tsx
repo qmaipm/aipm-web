@@ -5,7 +5,7 @@ import { POLICY, PROJECT_PATH, PARTNER_PATH, EMPTY_ASSESSMENT, GRADES, scoreProj
 
 export const metadata = articleMetadata("property-project-assessment-data", {
   title: "物业项目怎么初评？委托管理五项资料准备指南 | 启盟科技",
-  description: "按启盟白皮书 V2.0 准备区位、管理面积、当前收入、入住及收入保障、人员编制资料。说明未知项、预测收入、人员密度与 S 标签的处理，并用明确标注的教学示例解释预评级，不承诺项目准入或收益。",
+  description: "按启盟白皮书 V2.1 准备区位、管理面积、当前收入、入住及收入保障、人员编制资料。说明未知项、预测收入、人员密度与 S 标签的处理，并用明确标注的教学示例解释预评级，不承诺项目准入或收益。",
 });
 const dimensions = scoreProject(EMPTY_ASSESSMENT).dimensions;
 const materials = [
@@ -68,7 +68,7 @@ export default function Page() {
       <aside className="isd-source" aria-label="资料依据与下一步">
         <h3>准备资料时，保留来源说明</h3>
         <p>每项至少注明管理范围、统计期间、资料提供方和待核实事项。评估阶段按授权提供必要信息，不在公开文章或社交群发布项目经营明细。</p>
-        <p>政策依据：<a href={POLICY.whitepaper}>《启盟科技 AI 物业代运营发展伙伴计划白皮书 V{POLICY.version}》</a>。正式准备交接时，再对照<Link href="/insights/property-operations-handover-checklist">业主进场确认清单</Link>；预评级和进场准备是两个阶段。</p>
+        <p>政策依据：<a href={POLICY.whitepaper}>《启盟科技 物业委托管理发展伙伴计划白皮书 V{POLICY.version}》</a>。正式准备交接时，再对照<Link href="/insights/property-operations-handover-checklist">业主进场确认清单</Link>；预评级和进场准备是两个阶段。</p>
       </aside>
     </ArticleShell>
   );

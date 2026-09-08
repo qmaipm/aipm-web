@@ -9,7 +9,7 @@ export const dynamic = "force-dynamic";
 const SITE = process.env.SITE_URL || "https://www.aipm.cn";
 export const metadata = pageMetadata(PROJECT_PATH, {
   title: "物业委托管理项目评估与报备 · 合作方向参考 | 启盟科技",
-  description: "填写项目位置、管理面积、现有收入、入住及保障、人员情况，了解物业委托管理合作方向，可选查看伙伴收益情景并准备报备。依据白皮书 V2.0，结果仅供沟通参考，不代表准入、归属或收益承诺。",
+  description: "填写项目位置、管理面积、现有收入、入住及保障、人员情况，了解物业委托管理合作方向，可选查看伙伴收益情景并准备报备。依据白皮书 V2.1，结果仅供沟通参考，不代表准入、归属或收益承诺。",
 });
 const dimensions = [
   { t: "区位与战略属性", d: "城市区位 5 分、交通 4 分、周边配套 3 分、战略属性 3 分。同一事实不在基础评分中重复计分；S 标签额外奖励另行认定。" },

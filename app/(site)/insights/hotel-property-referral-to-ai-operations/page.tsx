@@ -5,7 +5,7 @@ import { POLICY, PARTNER_PATH, PROJECT_PATH, ROLES, estimateReturns, money, perc
 
 export const metadata = articleMetadata("hotel-property-referral-to-ai-operations", {
   title: "做酒店开发的人，手上的业主资源还能做什么：给写字楼和园区推荐管理公司 | 启盟科技",
-  description: "酒店开发、拓展与选址顾问：找物业、联系产权人、判断时机、安排业主与管理公司见面——这套能力可以直接用在写字楼、园区的物业委托管理项目上。首次沟通问什么，如何按启盟 V2.0 确认贡献角色、开业奖励与最长三年分润，报备保护怎么算。不是订房返佣，不是加盟，不是城市合伙人。",
+  description: "酒店开发、拓展与选址顾问：找物业、联系产权人、判断时机、安排业主与管理公司见面——这套能力可以直接用在写字楼、园区的物业委托管理项目上。首次沟通问什么，如何按启盟 V2.1 确认贡献角色、开业奖励与最长三年分润，报备保护怎么算。不是订房返佣，不是加盟，不是城市合伙人。",
 });
 
 const example = estimateReturns("A", "refer", false, 0, 0, 12);
@@ -53,7 +53,7 @@ export default function Page() {
 
       <aside className="isd-source" aria-label="资料依据">
         <h3>资料依据与适用范围</h3>
-        <p>伙伴政策：<a href={POLICY.whitepaper}>《启盟科技 AI 物业代运营发展伙伴计划白皮书 V{POLICY.version}》</a>。本文用于解释参与方式，具体项目以正式确认文件为准。</p>
+        <p>伙伴政策：<a href={POLICY.whitepaper}>《启盟科技 物业委托管理发展伙伴计划白皮书 V{POLICY.version}》</a>。本文用于解释参与方式，具体项目以正式确认文件为准。</p>
         <p>行业参考：<a href="https://development.wyndhamhotels.com/apac/" target="_blank" rel="noopener noreferrer">Wyndham 亚太酒店开发入口</a>区分现有酒店品牌转换与新建项目开发。该参考仅说明酒店物业开发的对象，不代表其参与启盟合作，也不用于推导推荐报酬。</p>
       </aside>
     </ArticleShell>

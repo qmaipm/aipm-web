@@ -34,7 +34,7 @@ const partnerTypes = [
     img: "/ai-service/skyline.jpg", alt: "面向写字楼、园区及商业物业的项目开发合作场景",
     who: "熟悉业主、园区与物业决策人的企业和专业人士，包括酒店物业推荐人、商业地产顾问及楼宇服务商。你带来项目，启盟负责评估、方案与运营。",
     gets: [
-      "项目预评级 — 按 V2.0 的五项标准，判断手中项目的经营基础",
+      "项目预评级 — 按 V2.1 的五项标准，判断手中项目的经营基础",
       "三类项目角色 — 推荐、商务协助或全程开发，按实际贡献书面确认",
       "持续合作收益 — 项目开业奖励，以及最长三年的管理酬金分润",
       "有效报备保护 — 归属确认后享 180 天初始保护，实质性推进可续期",
@@ -129,7 +129,7 @@ const PAGE_LD = {
     "面向物业委托管理项目推荐人（酒店开发、选址顾问、商业地产经纪）、智能体园区工程企业、系统集成商及数据合作机构的生态合作计划。",
   url: `${SITE_URL}/partners`,
   hasPart: [
-    { "@type": "WebPage", name: "物业委托管理发展伙伴", url: `${SITE_URL}/partners/delegated-operation`, description: "V2.0 项目评级、报备保护、开业奖励与持续分润。" },
+    { "@type": "WebPage", name: "物业委托管理发展伙伴", url: `${SITE_URL}/partners/delegated-operation`, description: "V2.1 项目评级、报备保护、开业奖励与持续分润。" },
     {
       "@type": "WebPage",
       name: "智能体园区伙伴",

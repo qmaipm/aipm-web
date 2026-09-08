@@ -1,11 +1,11 @@
-/** 公开白皮书 V2.0（2026-08），第 12–27、41–48 页。
+/** 公开白皮书 V2.1（2026-09，名称由「AI 物业代运营」统一为「物业委托管理」，政策条款与 V2.0 等效），第 12–27、41–48 页。
  * 唯一政策源：人员规模/密度单向加分；战略评分和 S 奖励有意并存。
  * 所有金额为人民币元，面积为平方米。预评级不是准入或权益确认。
  */
 export const POLICY = {
-  version: "2.0", published: "2026-08", protectionDays: 180, renewalDays: 90,
+  version: "2.1", published: "2026-09", protectionDays: 180, renewalDays: 90,
   maxProtectionMonths: 12, maxMonths: 36, strategicBonus: 20000,
-  whitepaper: "/downloads/delegated-operation-partners-v2.pdf",
+  whitepaper: "/downloads/property-management-contract-partners-v2.1.pdf",
 } as const;
 export const PARTNER_PATH = "/partners/delegated-operation";
 export const PROJECT_PATH = `${PARTNER_PATH}/project`;
