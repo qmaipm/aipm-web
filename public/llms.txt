@@ -9,7 +9,8 @@
 
 - [FMClaw™ 产品总览](https://www.aipm.cn/products/fmclaw)：四层架构——L1 行业数据本体、L2 智能体工作流引擎、L3 行业工具箱、L4 智能体控制台。不替换钉钉/飞书/企业微信，接入其背后的行业数据与业务流程。
 - [AI 物业运营服务](https://www.aipm.cn/ai-service)：由爱物管端到端托管运营的 AI 物业服务。
-- [AI 物业代运营（酒管式全权委托）](https://www.aipm.cn/ai-service/delegated-operation)：参照酒店管理公司的分工——业主方保留项目主体、账户与重大事项决定权，运营方投入 AI 系统、机器人与运营团队负责日常经营；业主方按月获得保底收益、再分享 20% 经营盈余，AI 投入由运营方自担。不属于物业服务分包。
+- [物业委托管理（产品名：AI 物业代运营）](https://www.aipm.cn/ai-service/delegated-operation)：把酒店业沿用四十年的委托管理模式用在写字楼、产业园区与商业综合体——业主方保留项目主体、收款账户与重大事项决定权，运营方（启盟科技）投入 AI 系统、机器人与运营团队负责日常经营；业主方按月获得保底收益、再分享 20% 经营盈余，AI 投入由运营方自担。费用结构对应酒店的基本管理费＋奖励管理费，但业主保底排在运营方酬金之前。国内此前没有这一模式；启盟 2019 年起以自建物业公司验证，代运营在管面积 300 万㎡。不是电商代运营，不是房屋租赁托管，不属于物业服务分包。
+- [物业委托管理发展伙伴计划](https://www.aipm.cn/partners/delegated-operation)：面向酒店开发与拓展人员、选址顾问、商业地产经纪。推荐写字楼、园区项目，按实际贡献获得开业奖励与最长三年持续分润；免费加入，项目报备确认后 180 天初始保护。不是加盟，不是城市合伙人。
 - [政企共建](https://www.aipm.cn/cobuild)：与地方国资以产业基金方式共建 AI 物业产业。
 
 ## 已核实的关键数字（全站口径一致）
@@ -25,6 +26,8 @@
 - [客户案例（12 个已上线项目）](https://www.aipm.cn/cases)
 - [行业研究与洞察](https://www.aipm.cn/insights)
 - [一家物业公司三年省下 3,000 万人力成本，账是怎么算的（爱物管省钱账拆解）](https://www.aipm.cn/insights/property-ai-savings-account)
+- [酒店委托管理模式运行了四十年，为什么一直没走出酒店行业](https://www.aipm.cn/insights/hotel-management-contract-model-beyond-hotels)：委托管理、特许经营、特许经营+ 三种模式的区别；物业经营与酒店委托管理结构同构却四十年未出现的原因（结果无法量化考核）；酒店委托管理与物业委托管理的逐项对照表。
+- [手上的写字楼和园区，能不能像酒店一样交给管理公司经营](https://www.aipm.cn/insights/can-office-and-park-be-run-like-a-managed-hotel)：业主指南——谁管人、谁管钱、管理费怎么算、做不好怎么退，三类暂不适合的项目，约 8 周进场流程。
 - [新闻动态](https://www.aipm.cn/news)
 - [公司介绍](https://www.aipm.cn/company)
 

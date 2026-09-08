@@ -8,8 +8,10 @@ import { Arrow, ScenarioCards } from "../../products/fmclaw/_shared";
 import "./page.css";
 const SITE = process.env.SITE_URL || "https://www.aipm.cn";
 export const metadata = pageMetadata(PARTNER_PATH, {
-  title: "AI 物业代运营发展伙伴 · 项目推荐与持续分润 | 启盟科技",
-  description: "你带来值得经营的物业项目，启盟负责评估、方案与运营。AI 物业代运营发展伙伴计划 V2.0：免费加入，项目报备确认后享180天初始保护，按项目等级与贡献获得开业奖励及最长三年持续分润。",
+  // 面向酒店开发/拓展、选址顾问、商业地产经纪——用他们搜索时的词（酒店开发、项目推荐、业主资源、分润），不用我们的品类名开头。
+  title: "酒店开发、选址顾问与商业地产经纪：手上的业主资源，可以多做一类项目 | 启盟物业委托管理发展伙伴",
+  description: "酒店拓展、选址顾问、商业地产经纪和资产管理顾问，把已有的业主关系延伸到写字楼、园区的物业委托管理项目——像给酒店推荐管理公司一样，给物业推荐运营方。启盟负责评估、测算、方案与运营；伙伴按实际贡献获得开业奖励与最长三年持续分润。免费加入，项目报备确认后 180 天初始保护。不是加盟，不是城市合伙人，不收费。",
+  keywords: ["酒店开发 项目推荐", "酒店拓展 副业", "选址顾问 合作", "商业地产经纪 项目分润", "业主资源 变现", "物业委托管理 合作", "项目报备 保护期", "居间 分润 物业项目", "发展伙伴 启盟科技"],
 });
 const portraits = [
   ["01", "你熟悉业主与资产", "酒店物业推荐人、加盟开发与选址顾问，商业地产经纪、资产管理顾问。把已有的业主关系延伸到物业日常运营。"],
@@ -18,6 +20,8 @@ const portraits = [
   ["04", "你有真实项目入口", "行业顾问、政企数字化服务商、协会商会及区域商务人士。无需自建 AI 团队，先从一个真实项目开始。"],
 ];
 const faqs = [
+  { q: "我平时给酒店找物业、推荐管理公司，这个合作和我的工作有什么关系？", a: "同一套能力，换一类标的。你在酒店开发里做的是：找到合适的物业、联系产权人、判断合作时机、安排业主与管理公司见面。物业委托管理项目需要的正是这四步，只是对象从酒店换成了写字楼、产业园区、商业综合体，而且同一个业主手上往往既有酒店也有写字楼。启盟充当「管理公司」那一方：评估、测算、谈判、进场运营。" },
+  { q: "这算居间或信息费吗？和城市合伙人、加盟招商有什么区别？", a: "不是一次性信息费，也不是加盟。城市合伙人和加盟通常要你先交费或包区域；发展伙伴免费加入，不包区域，不要求采购。收益分三部分：项目正式进场并首笔回款后的开业奖励，以及按启盟实际取得的固定管理酬金与提效酬金计提的持续分润，最长三年。它更接近酒店开发里的项目推荐关系，而不是招商加盟。合作需如实披露利害关系，利益冲突情形需审查。" },
   { q: "没有公司或 AI 技术团队，也能成为发展伙伴吗？", a: "可以。企业、机构和具有真实项目资源的专业人士均可申请。完成身份及合规审核后合作，启盟负责技术、经营测算和运营交付；不收加盟费，不要求先行采购。" },
   { q: "项目不足三万平方米，还可以推荐吗？", a: "可以。面积是评分维度，不是一票否决条件。区位、收入、收入保障、人员规模或区域打包条件较好的项目，仍可评估。" },
   { q: "分润是按物业费总收入计算吗？", a: "不是。按客户合同约定的固定管理酬金及经确认的提效管理酬金计提，按对应回款进度支付。业主收益、项目总体降本和增收金额、代收代付与采购款不纳入。" },
@@ -30,8 +34,8 @@ const faqs = [
 export default function Page() {
   return <main className="dp">
     <JsonLd data={[
-      { "@context": "https://schema.org", "@type": "WebPage", name: "AI 物业代运营发展伙伴计划", url: `${SITE}${PARTNER_PATH}`, inLanguage: "zh-CN", description: metadata.description, about: { "@type": "Service", name: "AI 物业代运营", url: `${SITE}/ai-service/delegated-operation` } },
-      { "@context": "https://schema.org", "@type": "BreadcrumbList", itemListElement: [{ "@type": "ListItem", position: 1, name: "生态伙伴", item: `${SITE}/partners` }, { "@type": "ListItem", position: 2, name: "AI 物业代运营发展伙伴", item: `${SITE}${PARTNER_PATH}` }] },
+      { "@context": "https://schema.org", "@type": "WebPage", name: "物业委托管理发展伙伴计划（AI 物业代运营）", alternateName: "AI 物业代运营发展伙伴计划", url: `${SITE}${PARTNER_PATH}`, inLanguage: "zh-CN", description: metadata.description, audience: { "@type": "BusinessAudience", audienceType: "酒店开发与拓展人员、选址顾问、商业地产经纪、资产管理顾问、园区招商运营机构" }, about: { "@type": "Service", name: "物业委托管理（AI 物业代运营）", url: `${SITE}/ai-service/delegated-operation` } },
+      { "@context": "https://schema.org", "@type": "BreadcrumbList", itemListElement: [{ "@type": "ListItem", position: 1, name: "生态伙伴", item: `${SITE}/partners` }, { "@type": "ListItem", position: 2, name: "物业委托管理发展伙伴", item: `${SITE}${PARTNER_PATH}` }] },
     ]} />
     <section className="dp-hero">
       <Image className="dp-hero-image" src="/ai-service/skyline.jpg" alt="城市中的写字楼、商业楼宇与物业运营场景" fill priority sizes="100vw" />
@@ -39,7 +43,7 @@ export default function Page() {
       <div className="wrap dp-hero-content">
         <nav className="dp-crumb" aria-label="面包屑"><Link href="/partners">生态伙伴</Link><span>/</span><span>AI 物业代运营发展伙伴</span></nav>
         <h1>你带来物业项目<br /><span className="grad">我们负责把它做成</span></h1>
-        <p className="dp-lead">你熟悉业主、园区或企业决策人，启盟提供 AI 运营体系与项目团队。<b>从项目引荐开始，按实际贡献分享项目落地与持续运营收益。</b></p>
+        <p className="dp-lead">你给酒店找过物业、给业主推荐过管理公司，或者长期服务园区与商业地产业主——同一批业主手上的写字楼和园区，现在也可以像酒店一样交给管理公司。启盟提供 AI 运营体系与项目团队，<b>你从项目引荐开始，按实际贡献分享项目落地与持续运营收益。</b></p>
         <div className="dp-actions"><a href="#cooperation" className="btn btn-primary">看看如何合作 <Arrow /></a><Link href={PROJECT_PATH} className="btn btn-ghost">评估并报备项目 <Arrow /></Link></div>
         <div className="dp-proof"><span><b>0 元</b>加入</span><span>有效报备初始保护 <b>{POLICY.protectionDays} 天</b></span><span>持续分润 <b className="grad">最长 3 年</b></span></div>
         <p className="dp-hero-note">公开招募版 V{POLICY.version} · {POLICY.published} · 具体权益以正式协议和项目合作确认书为准</p>
@@ -49,7 +53,7 @@ export default function Page() {
       <span className="dp-eyebrow">01 / 适合谁</span><h2>你的客户关系，可以从这里开始合作</h2>
       <p className="dp-read">我们寻找能够发现项目、引荐决策人并推动合作的伙伴。你不需要独立完成复杂的经营测算，也不需要承担未经约定的运营交付。</p>
       <div className="dp-portraits">{portraits.map(([n,t,d]) => <article key={n}><span className="dp-number">{n}</span><div><h3>{t}</h3><p>{d}</p></div></article>)}</div>
-      <p className="dp-inline"><Link href="/insights/hotel-property-referral-to-ai-operations">有酒店物业开发经验？先看项目推荐指南 <Arrow /></Link></p>
+      <p className="dp-inline"><Link href="/insights/hotel-property-referral-to-ai-operations">做酒店开发的，先看这篇：手上的业主资源怎么变成运营项目 <Arrow /></Link><Link href="/insights/hotel-management-contract-model-beyond-hotels">酒店委托管理为什么四十年没走出酒店行业 <Arrow /></Link></p>
     </div></section>
     <section className="dp-band mist"><div className="wrap">
       <span className="dp-eyebrow">02 / 项目条件</span><h2>找有真实经营基础的物业项目</h2>

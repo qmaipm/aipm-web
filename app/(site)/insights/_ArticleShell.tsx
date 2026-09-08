@@ -57,6 +57,15 @@ export function FigRow({
 
 // 文章 → AI 物业服务工种页回链(内链闭环:研究文章把读者引向对应服务页)
 const TRADE_LINKS: Record<string, { href: string; label: string }[]> = {
+  "hotel-management-contract-model-beyond-hotels": [
+    { href: "/ai-service/delegated-operation", label: "物业委托管理服务说明" },
+    { href: "/partners/delegated-operation", label: "酒店开发人员：发展伙伴计划" },
+    { href: "/company/aipm-validation", label: "爱物管自营验证（数据全文）" },
+  ],
+  "can-office-and-park-be-run-like-a-managed-hotel": [
+    { href: "/ai-service/delegated-operation", label: "物业委托管理服务说明" },
+    { href: "/company/aipm-validation", label: "爱物管自营验证（数据全文）" },
+  ],
   "property-project-assessment-data": [
     { href: "/partners/delegated-operation", label: "发展伙伴完整政策" },
     { href: "/insights/hotel-property-referral-to-ai-operations", label: "项目推荐人参与指南" },
@@ -175,6 +184,13 @@ const ARTICLE_CTA: Record<string, typeof OWNER_CTA> = {
     label: "讨论项目进场准备",
   },
   "property-software-outsourcing-or-delegated-operations": OWNER_CTA,
+  "can-office-and-park-be-run-like-a-managed-hotel": OWNER_CTA,
+  "hotel-management-contract-model-beyond-hotels": {
+    title: "你名下的写字楼和园区，也可以这样交出去",
+    description: "酒店业主带项目来先算一遍账；酒店开发与拓展人员可直接了解发展伙伴政策。",
+    href: "/contact?type=delegated-owner&from=insights-hotel-model",
+    label: "带一个真实项目来，先算一遍账",
+  },
   "who-pays-for-property-ai": OWNER_CTA,
   "property-fee-collection-crisis-fourth-way": OWNER_CTA,
   "hotel-property-referral-to-ai-operations": {

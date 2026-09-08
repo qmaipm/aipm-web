@@ -4,8 +4,8 @@ import { articleMetadata } from "../articles";
 import { POLICY, PARTNER_PATH, PROJECT_PATH, ROLES, estimateReturns, money, percent } from "@/lib/delegated-policy";
 
 export const metadata = articleMetadata("hotel-property-referral-to-ai-operations", {
-  title: "酒店物业推荐人如何参与 AI 物业代运营项目拓展 | 启盟科技",
-  description: "面向有酒店物业开发、业主及物业管理关系的项目推荐人：哪些资源可以迁移，首次沟通问什么，如何按启盟 V2.0 确认贡献角色、奖励与报备保护。不是酒店订房返佣，也不承诺推荐即获报酬。",
+  title: "做酒店开发的人，手上的业主资源还能做什么：给写字楼和园区推荐管理公司 | 启盟科技",
+  description: "酒店开发、拓展与选址顾问：找物业、联系产权人、判断时机、安排业主与管理公司见面——这套能力可以直接用在写字楼、园区的物业委托管理项目上。首次沟通问什么，如何按启盟 V2.0 确认贡献角色、开业奖励与最长三年分润，报备保护怎么算。不是订房返佣，不是加盟，不是城市合伙人。",
 });
 
 const example = estimateReturns("A", "refer", false, 0, 0, 12);
@@ -13,7 +13,7 @@ const example = estimateReturns("A", "refer", false, 0, 0, 12);
 export default function Page() {
   return (
     <ArticleShell slug="hotel-property-referral-to-ai-operations" variant="delegated">
-      <p className="lede">如果你做过酒店物业开发，你熟悉的可能是这样的工作：找到合适物业，联系产权人，判断合作时机，再安排正式沟通。这套能力也可以用于园区、写字楼等项目，但需要重新判断业主想解决的经营问题。</p>
+      <p className="lede">如果你做酒店开发或拓展，你的工作是：找到合适物业，联系产权人，判断合作时机，再安排业主与管理公司见面。同一个业主手上，除了酒店，往往还有写字楼、园区或综合体——这些资产现在也可以像酒店一样交给管理公司经营，而你已经会做这件事的前四步。不同的是，需要重新判断业主想解决的经营问题。为什么这个机会现在才出现，见<Link href="/insights/hotel-management-contract-model-beyond-hotels">酒店委托管理模式运行了四十年，为什么一直没走出酒店行业</Link>。</p>
 
       <h2>推荐的是运营机会，不是订房客源</h2>
       <p><b>先分清你掌握的是哪一种资源。</b>客房销售面对住客、旅行社或企业差旅；物业项目拓展面对业主、资产管理方及有授权的项目决策人。能带来入住订单，不自动意味着能推进物业委托。</p>
