@@ -1,6 +1,7 @@
 import type { Metadata, Viewport } from "next";
 import JsonLd from "@/components/JsonLd";
 import BaiduAnalytics from "@/components/BaiduAnalytics";
+import { FMCLAW_URL } from "@/lib/nav";
 
 // 运行时渲染:让 metadataBase(OG / canonical 绝对地址)按容器注入的 SITE_URL 取值,
 // 测试站显示测试域名、生产站显示生产域名,单镜像适配两套环境。
@@ -61,7 +62,8 @@ const ORG_LD = {
   alternateName: ["爱物管", "Stalliance"],
   url: SITE_URL,
   logo: `${SITE_URL}/logo-stalliance-clean.png`,
-  description: "面向物业与设施管理(FM)的行业级 AI 平台,核心产品 FMClaw™ AI 平台。",
+  sameAs: [FMCLAW_URL],
+  description: "面向物业与设施管理(FM)的行业级 AI 平台,核心产品 FMClaw™ AI 平台(产品地址 www.fmclaw.cn)。",
   foundingDate: "2017",
   slogan: "让智能走进物理世界",
   award: [

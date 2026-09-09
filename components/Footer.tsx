@@ -1,6 +1,6 @@
 import Link from "next/link";
 import Image from "next/image";
-import { FOOTER_COLS } from "@/lib/nav";
+import { FOOTER_COLS, FMCLAW_URL } from "@/lib/nav";
 
 export default function Footer() {
   return (
@@ -14,9 +14,13 @@ export default function Footer() {
           {FOOTER_COLS.map((col) => (
             <div key={col.title}>
               <h5>{col.title}</h5>
-              {col.links.map((l) => (
-                <Link className="fl" href={l.href} key={l.label}>{l.label}</Link>
-              ))}
+              {col.links.map((l) =>
+                l.href.startsWith("http") ? (
+                  <a className="fl fl-ext" href={l.href} key={l.label}>{l.label}</a>
+                ) : (
+                  <Link className="fl" href={l.href} key={l.label}>{l.label}</Link>
+                )
+              )}
             </div>
           ))}
           <div className="ft-qr">
@@ -27,7 +31,7 @@ export default function Footer() {
         </div>
       </div>
       <div className="ft-bot">
-        <span>© 2026 启盟科技 · FMClaw™</span>
+        <span>© 2026 启盟科技 · <a href={FMCLAW_URL}>FMClaw™</a></span>
         <span className="ft-legal">
           <Link href="/legal/privacy">隐私政策</Link>
           <Link href="/legal/terms">服务条款</Link>

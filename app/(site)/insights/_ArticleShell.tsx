@@ -1,6 +1,7 @@
 import Link from "next/link";
 import "./article.css";
 import JsonLd from "@/components/JsonLd";
+import { FMCLAW_URL } from "@/lib/nav";
 import { getArticle, getRecommended } from "./articles";
 
 const SITE_URL = process.env.SITE_URL || "https://www.aipm.cn";
@@ -343,6 +344,9 @@ export default function ArticleShell({
                   <span key={t.href}>
                     {i > 0 && " · "}
                     <Link href={t.href}>{t.label}</Link>
+                    {t.href.startsWith("/products/fmclaw") && (
+                      <> · <a href={FMCLAW_URL}>进入 FMClaw</a></>
+                    )}
                   </span>
                 ))}
               </span>

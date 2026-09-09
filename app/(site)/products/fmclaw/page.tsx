@@ -3,6 +3,7 @@ import Link from "next/link";
 import JsonLd from "@/components/JsonLd";
 import TrackedLink from "@/components/TrackedLink";
 import { pageMetadata } from "@/lib/pageMetadata";
+import { FMCLAW_URL } from "@/lib/nav";
 import { FmBreadcrumb, FmFaq, FMCLAW_APP_LD, Arrow, IC, LinkCards, ScenarioCards } from "./_shared";
 import "./capability.css";
 import "./page.css";
@@ -216,8 +217,9 @@ export default function Page() {
                 >
                   预约演示 Demo <Arrow />
                 </TrackedLink>
-                <a href="#how-it-works" className="btn btn-ghost">先看 FMClaw 如何工作 <Arrow /></a>
+                <a href={FMCLAW_URL} className="btn btn-ghost">进入 FMClaw <Arrow /></a>
               </div>
+              <p className="fmo-alt">不熟悉？<a href="#how-it-works">先看 FMClaw 如何工作 →</a></p>
               <ul className="fmo-facts">
                 <li><b>100+</b>&nbsp;条预制业务工作流</li>
                 <li><b>500</b> 个项目同一平台运行</li>
@@ -567,16 +569,11 @@ export default function Page() {
               >
                 预约演示 Demo <Arrow s={16} />
               </TrackedLink>
-              <TrackedLink
-                href="/workshop"
-                action="book-workshop"
-                label="products/fmclaw-end"
-                className="btn btn-ghost"
-              >
-                预约 FMClaw™ 加速营
-              </TrackedLink>
+              <a href={FMCLAW_URL} className="btn btn-ghost">
+                进入 FMClaw <Arrow s={16} />
+              </a>
             </div>
-            <p className="alt">或先看看<Link href="/cases">已经在生产中运行的案例</Link></p>
+            <p className="alt">或先看看<Link href="/cases">已经在生产中运行的案例</Link>，或<Link href="/workshop">预约 FMClaw™ 加速营</Link></p>
           </div>
         </div>
       </section>

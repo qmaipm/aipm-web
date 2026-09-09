@@ -1,4 +1,5 @@
 import type { ReactNode } from "react";
+import { FMCLAW_URL } from "@/lib/nav";
 import Link from "next/link";
 import JsonLd from "@/components/JsonLd";
 
@@ -190,6 +191,8 @@ export const FMCLAW_APP_LD = {
   applicationCategory: "BusinessApplication",
   operatingSystem: "Web",
   url: `${SITE_URL}/products/fmclaw`,
+  sameAs: [FMCLAW_URL],
+  installUrl: FMCLAW_URL,
   description:
     "FMClaw™ 是面向物业与设施管理的生产级 AI 智能体平台。它以行业数据本体为底座，把企业数据、行业指标、业务工作流、系统工具和组织权限统一起来，让 AI 能够进入核心业务，并在多个项目中稳定、准确、可追溯地完成工作。",
   provider: { "@type": "Organization", name: "广州启盟科技有限公司", url: SITE_URL },

@@ -1,11 +1,10 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import "./home.css";
-import MissionBackdrop from "./MissionBackdrop";
 import MoatStats from "./MoatStats";
-import HeroAgentShowcase from "./HeroAgentShowcase";
 import { getArticle } from "./insights/articles";
 import { pageMetadata } from "@/lib/pageMetadata";
+import { FMCLAW_URL } from "@/lib/nav";
 import SeoFaq from "@/components/SeoFaq";
 
 // 标题/描述与根布局一致;单独声明是为了首页也有指向自身的 canonical 与 og:url
@@ -38,15 +37,16 @@ export default function Home() {
   const research = RESEARCH_SLUGS.map((s) => getArticle(s));
   return (
     <main className="solhome">
-      {/* ① HERO — 公司级开场:左文案 + 右「AI 正在处理真实工作」演示(改造自 Agentic 套件服务优化 Agent 动效) */}
-      <section className="h-hero">
-        {/* 底图：清晨城市实景（楼宇窗格里极淡的智能光点），白色渐变冲刷保证左侧文案对比度 */}
+      {/* ① HERO — 公司级开场：左文案，右侧为城市实景直接露出（参照 Palantir / Sierra 的摄影 hero）。
+          2026-09 视觉收敛：撤掉演示仪表盘与漂浮图标（HeroAgentShowcase 保留在仓库，不再在首屏引用），
+          首屏只留一句话、一张真实照片。 */}
+      <section className="h-hero h-hero--photo">
         <div className="h-hero-bg" aria-hidden="true" />
         <div className="wrap h-hero-top">
           <div className="h-hero-cols">
             <div>
               <p className="h-kicker reveal">物业与设施管理的 AI 操作系统</p>
-              <h1 className="reveal">让 AI，真正在<br />物业与设施管理里<br /><span className="hl">干活</span></h1>
+              <h1 className="reveal">让 AI 真正在<br />物业与设施管理里<span className="nb">干活</span></h1>
               <p className="h-note reveal">
                 不是再加一个工具，而是把巡检、工单、客服、品质、结算等运营工作，一件件交给 AI。
               </p>
@@ -57,16 +57,9 @@ export default function Home() {
                 <Link href="/#product" className="btn btn-primary">看 FMClaw™ 怎么干活 <ArrowD /></Link>
                 <Link href="/workshop" className="btn btn-ghost">从一个真实问题开始 <ArrowR /></Link>
               </div>
-              <p className="h-deployed reveal" aria-label="状态:已在生产环境部署">
-                Not a demo. Not a pilot. <b>Deployed.</b>
+              <p className="h-deployed reveal">
+                已在 <b>100+</b> 家企业、<b>3000 万㎡</b> 项目中运行
               </p>
-            </div>
-            <div className="hw-wrap reveal">
-              {/* 演示动效直接悬浮在城市底图上：卡片与图标自带白底和投影，
-                  无需窗口框——.hw-stage 只承担宽度约束（画布缩放锚定 505px） */}
-              <div className="hw-stage">
-                <HeroAgentShowcase />
-              </div>
             </div>
           </div>
         </div>
@@ -87,7 +80,6 @@ export default function Home() {
 
       {/* ② MISSION · 暗场 + 三支柱 */}
       <section className="h-mission mission-dark" id="mission">
-        <MissionBackdrop />
         <div className="wrap">
           <p className="h-mission-en reveal">Make intelligence ambient in the physical world</p>
           <p className="h-mission-zh reveal">让智能，走进物理世界</p>
@@ -148,39 +140,23 @@ export default function Home() {
             <span className="h-eyebrow reveal">对号入座</span>
             <h2 className="h-h2 reveal">你来这里，想解决哪一件事？</h2>
           </div>
-          <div className="h-tri">
-            <Link href="/products/fmclaw" className="h-t reveal">
-              <div className="accent" style={{ background: "var(--h-blue)" }} />
-              <div className="h-cardimg"><img src="/home/audience-pm.webp" alt="大型综合体中庭，清洁机器人与一线人员在作业动线上工作" loading="lazy" width={900} height={600} /></div>
-              <div className="who">物业公司 · 设施管理方</div>
-              <h3>把 AI 接进现有运营</h3>
-              <p>减少重复管理工作，让巡检、工单、结算里的判断与流转交给智能体。</p>
-              <span className="go">FMClaw™ 平台 <ArrowR s={14} /></span>
-            </Link>
-            <Link href="/ai-service" className="h-t reveal">
-              <div className="accent" style={{ background: "var(--h-green)" }} />
-              <div className="h-cardimg"><img src="/home/audience-owner.webp" alt="清晨航拍：机场、码头与物流园区等重资产基础设施" loading="lazy" width={900} height={600} /></div>
-              <div className="who">业主 · 资产管理方</div>
-              <h3>让物业服务透明、主动、可量化</h3>
-              <p>由 AI 接管的物业服务——指标写进合同，账目全程可追溯。</p>
-              <span className="go">AI 物业服务 <ArrowR s={14} /></span>
-            </Link>
-            <Link href="/cobuild" className="h-t reveal">
-              <div className="accent" style={{ background: "#0C8B82" }} />
-              <div className="h-cardimg"><img src="/home/audience-gov.webp" alt="医院、学校与政府办公建筑组成的公共机构建筑群" loading="lazy" width={900} height={600} /></div>
-              <div className="who">政府 · 地方国资</div>
-              <h3>推动本地 AI 产业落地</h3>
-              <p>从真实场景开始，让技术、团队和产业能力在本地持续运营。</p>
-              <span className="go">人工智能产业共建 <ArrowR s={14} /></span>
-            </Link>
-            <Link href="/partners" className="h-t reveal">
-              <div className="accent" style={{ background: "#18A5C9" }} />
-              <div className="h-cardimg"><img src="/home/audience-integrator.webp" alt="楼宇设备层：密集的管线、风管与配电柜，工程师在巡检" loading="lazy" width={900} height={600} /></div>
-              <div className="who">集成商 · 软件企业</div>
-              <h3>给现有项目和产品加上智能体</h3>
-              <p>在你的项目和产品上增加智能体能力，交付给你的客户。</p>
-              <span className="go">生态伙伴计划 <ArrowR s={14} /></span>
-            </Link>
+          {/* 2026-09 改为左右分栏列表（去图、去卡）：受众名做大字，右侧一句话 + 链接 */}
+          <div className="h-who">
+            {[
+              { who: "物业公司 · 设施管理方", h: "把 AI 接进现有运营", d: "减少重复管理工作，让巡检、工单、结算里的判断与流转交给智能体。", href: "/products/fmclaw", go: "FMClaw™ 平台" },
+              { who: "业主 · 资产管理方", h: "让物业服务透明、主动、可量化", d: "由 AI 接管的物业服务——指标写进合同，账目全程可追溯。", href: "/ai-service", go: "AI 物业服务" },
+              { who: "政府 · 地方国资", h: "推动本地 AI 产业落地", d: "从真实场景开始，让技术、团队和产业能力在本地持续运营。", href: "/cobuild", go: "人工智能产业共建" },
+              { who: "集成商 · 软件企业", h: "给现有项目和产品加上智能体", d: "在你的项目和产品上增加智能体能力，交付给你的客户。", href: "/partners", go: "生态伙伴计划" },
+            ].map((r) => (
+              <Link href={r.href} className="h-who-row reveal" key={r.href}>
+                <span className="h-who-k">{r.who}</span>
+                <span className="h-who-b">
+                  <h3>{r.h}</h3>
+                  <p>{r.d}</p>
+                </span>
+                <span className="go">{r.go} <ArrowR s={14} /></span>
+              </Link>
+            ))}
           </div>
         </div>
       </section>
@@ -251,6 +227,7 @@ export default function Home() {
           <p className="h-prodnote reveal">支持多模型接入与场景路由。</p>
           <div className="h-ws-cta reveal">
             <Link href="/products/fmclaw" className="btn btn-light">了解 FMClaw™ <ArrowR /></Link>
+            <a href={FMCLAW_URL} className="btn btn-ghost">进入 FMClaw</a>
           </div>
         </div>
       </section>
@@ -364,16 +341,11 @@ export default function Home() {
             <span className="h-eyebrow reveal">为什么是启盟</span>
             <h2 className="h-h2 reveal">模型可以买到，现场经验买不到</h2>
           </div>
-          <div className="h-why">
-            <div className="h-wc reveal"><div className="wc-y">2017</div><h4>自 2017 年持续深耕</h4>
-              <p>长期聚焦物业与设施管理中的真实数据、流程和现场。</p></div>
-            <div className="h-wc reveal"><div className="wc-y">2019</div><h4>2019 年创办爱物管</h4>
-              <p>每一项能力先在自营物业项目里验证，再对外提供。</p></div>
-            <div className="h-wc reveal"><div className="wc-y">人</div><h4>行业老兵 + AI 工程师</h4>
-              <p>懂行业的人负责把问题问对，工程师负责把它做出来。</p></div>
-            <div className="h-wc reveal"><div className="wc-y">路</div><h4>从验证到生产</h4>
-              <p>从 Demo、工作流搭建、数据治理到系统接入和生产验收，形成完整路径。</p></div>
-          </div>
+          {/* 2026-09：删去「2017 / 2019 / 人 / 路」四卡，一句话带过，让下方四个大数字自己说话 */}
+          <p className="h-sub reveal">
+            启盟科技 2017 年成立，2019 年自建物业公司「爱物管」——每一项能力先在自营项目里跑通，再对外交付。
+            <b>懂行业的人负责把问题问对，工程师负责把它做出来。</b>
+          </p>
           <MoatStats />
           {/* 数值沿用现有已确认数据,未新造;具体口径说明待业务方核验后补充(TODO 待业务方核验) */}
           <p className="h-moat-note reveal">数据为截至发布时的内部统计,持续更新。</p>
@@ -389,19 +361,11 @@ export default function Home() {
             <div className="h-invest">
               <div className="h-invest-card">
                 <div className="h-invest-name">蓝驰创投 <span>Lanchi Ventures</span></div>
-                <div className="h-invest-meta">管理规模超 150 亿元</div>
-                <div className="h-invest-port">
-                  <span className="h-invest-plab">AI 布局</span>
-                  <div className="h-invest-tags"><span>理想汽车</span><span>高仙机器人</span><span>Genspark</span><span>月之暗面</span></div>
-                </div>
+                <div className="h-invest-meta">管理规模超 150 亿元 · 早期投资机构</div>
               </div>
               <div className="h-invest-card">
                 <div className="h-invest-name">微光创投 <span>WeLight Capital</span></div>
-                <div className="h-invest-meta">腾讯高管背景</div>
-                <div className="h-invest-port">
-                  <span className="h-invest-plab">AI / 智能硬件布局</span>
-                  <div className="h-invest-tags"><span>小鹏汽车</span><span>奇朵智能</span><span>纬钛机器人</span></div>
-                </div>
+                <div className="h-invest-meta">腾讯高管背景 · AI 与智能硬件</div>
               </div>
             </div>
           </div>
