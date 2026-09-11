@@ -3,7 +3,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { Fragment, useEffect, useState } from "react";
-import { MENU } from "@/lib/nav";
+import { MENU, FMCLAW_URL } from "@/lib/nav";
 
 function Caret() {
   return (
@@ -79,8 +79,9 @@ export default function Navbar() {
           ))}
         </nav>
         <div className="nav-spacer" />
-        <Link href="/workshop" className="nav-cta">
-          预约 <span className="lbl-full">FMClaw™ 加速营</span>
+        <a href={FMCLAW_URL} className="nav-login">登录 FMClaw</a>
+        <Link href="/contact?intent=demo&from=nav" className="nav-cta">
+          <span>预约<span className="lbl-full">演示</span></span>
           <svg width="13" height="13" viewBox="0 0 16 16">
             <path d="M3 8h10M9 4l4 4-4 4" fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round" />
           </svg>
@@ -135,9 +136,12 @@ export default function Navbar() {
               </Link>
             )
           )}
-          <Link href="/workshop" className="btn btn-primary mm-cta" onClick={() => setOpen(false)}>
-            预约 FMClaw™ 加速营
-          </Link>
+          <div className="mm-actions">
+            <a href={FMCLAW_URL} className="btn btn-ghost mm-cta">登录 FMClaw</a>
+            <Link href="/contact?intent=demo&from=nav" className="btn btn-primary mm-cta" onClick={() => setOpen(false)}>
+              预约演示
+            </Link>
+          </div>
         </div>
       </div>
     </header>

@@ -13,6 +13,9 @@
 .fmo-sub{margin:22px 0 0;font-size:clamp(15.5px,1.7vw,18px);line-height:1.66;color:var(--c-ink-2);max-width:52ch}
 .fmo-sub b{color:var(--c-ink);font-weight:600}
 .fmo-cta{margin-top:32px;display:flex;flex-wrap:wrap;gap:12px}
+.fmo-alt{margin:14px 0 0;font-size:13.5px;color:var(--c-mut)}
+.fmo-alt a{color:var(--c-ink-2);text-decoration:underline;text-underline-offset:3px;text-decoration-color:rgba(26,25,22,.25)}
+.fmo-alt a:hover{color:var(--c-ink)}
 .fmo-facts{margin:30px 0 0;padding:0;list-style:none;display:flex;flex-wrap:wrap;align-items:center;
   gap:10px 20px;font-size:clamp(14px,1.6vw,15.5px);color:var(--c-mut)}
 .fmo-facts li{display:flex;align-items:center;white-space:nowrap}

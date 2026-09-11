@@ -3,6 +3,7 @@ import Link from "next/link";
 import "./article.css";
 import JsonLd from "@/components/JsonLd";
 import TrackedLink from "@/components/TrackedLink";
+import { FMCLAW_URL } from "@/lib/nav";
 import { getCase, getRelated } from "./cases";
 
 const SITE_URL = process.env.SITE_URL || "https://www.aipm.cn";
@@ -496,6 +497,9 @@ export default function CaseShell({ slug, children }: { slug: string; children: 
                   <span key={t.href}>
                     {i > 0 && " · "}
                     <Link href={t.href}>{t.label}</Link>
+                    {t.href.startsWith("/products/fmclaw") && (
+                      <> · <a href={FMCLAW_URL}>进入 FMClaw</a></>
+                    )}
                   </span>
                 ))}
               </span>

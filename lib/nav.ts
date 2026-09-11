@@ -1,5 +1,8 @@
 // 全站导航与路由配置（锁定结构 A9）。第二期未建页面暂指向最近的核心页。
 
+// 核心产品 FMClaw 的独立产品域名（登录/进入产品）。域名切换时只改这一处。
+export const FMCLAW_URL = "https://www.fmclaw.cn";
+
 export type DropItem = { label: string; href: string; small?: string; links?: { label: string; href: string }[] };
 export type DropGroup = { heading?: string; items: DropItem[] };
 export type MenuItem = {
@@ -166,6 +169,7 @@ export const FOOTER_COLS: { title: string; links: DropItem[] }[] = [
       { label: "控制台", href: "/products/fmclaw/agent-runtime" },
       { label: "IoT 物理世界感知", href: "/products/iot" },
       { label: "机器人与智能装备", href: "/products/robots" },
+      { label: "登录 FMClaw →", href: FMCLAW_URL },
     ],
   },
   {
