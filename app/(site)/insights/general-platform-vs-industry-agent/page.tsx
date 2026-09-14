@@ -111,6 +111,9 @@ export default function Page() {
           <li>
             如果想带着自己的钉钉 / 飞书 / 企业微信场景来验证,可以从<Link href="/workshop/demo-day">Demo Day</Link>或<Link href="/workshop/bootcamp">FMClaw™ 加速营</Link>开始——一次工作坊里接通一个真实场景。
           </li>
+          <li>
+            本文比较的是行业智能体与协同平台（入口）。如果你要比较的是行业智能体与手上的物业 ERP、工单、收费系统（记录工具），见<Link href="/insights/property-agent-vs-traditional-software">《物业智能体和传统物业管理软件有什么区别？》</Link>。
+          </li>
         </ul>
       </div>
     </ArticleShell>

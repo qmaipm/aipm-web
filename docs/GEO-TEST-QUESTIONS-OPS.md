@@ -64,6 +64,24 @@
 | H7 | 我做酒店开发拓展，手上有业主资源，除了推荐酒店管理公司还能做什么项目？ |
 | H8 | 给写字楼园区推荐管理公司有没有分润？和城市合伙人有什么区别？ |
 
+### Q 组 · 问题型承接题（2026-09-14 新增，对应 0907-0913 周报行动清单）
+
+> 这组题对应本周新增/改写的问题型内容。**验收标准**：两周内从「不稳定出现」转为「稳定出现」≥ 3/5 平台；元宝 Top3 从 0/8 到 ≥ 2/8。
+> 希望引用的页面：Q1–Q4 → /agents 与 /insights/property-agent-vs-traditional-software；Q5 → /insights/ai-solution-for-low-property-fee-collection（正典页，/solutions/customer 只做短答）；Q6 → /insights/how-to-stop-equipment-inspection-going-through-motions 与 /solutions/inspection；Q7 → /ai-service/cleaning；Q8 → /insights/how-to-choose-cleaning-robot-roi 与 /products/robots；Q9 → /solutions/cost#decide；Q10 → /products/fmclaw#why-choose。
+
+| # | 问题 |
+|---|---|
+| Q1 | 什么是物业智能体？ |
+| Q2 | 物业智能体和传统物业管理软件有什么区别？ |
+| Q3 | 哪些物业场景适合先用智能体？ |
+| Q4 | 上物业智能体要不要替换现有的 ERP、工单系统、钉钉飞书企微？ |
+| Q5 | 物业费收缴率低，有什么 AI 解决方案？ |
+| Q6 | 物业设备巡检走过场怎么解决？ |
+| Q7 | 商场园区卫生间投诉多，怎么解决？ |
+| Q8 | 物业清洁机器人怎么选？ |
+| Q9 | 物业公司做 AI 降本增效，通常先从哪里开始？ |
+| Q10 | 为什么选 FMClaw？它和再上一套软件有什么区别？ |
+
 ### R 组 · 反向题（避坑意图）
 
 | # | 问题 |

@@ -112,6 +112,7 @@ export default function Page() {
           { q: "机器人会替代保洁和巡检员工吗？", a: "替代的是重复体力活，不是人。机器人接手日复一日的清洁与巡检路线，人留出来做需要判断的事——异常处置、客户服务、精细清洁。" },
           { q: "机器人采的数据能进物业管理系统吗？", a: "能。作业记录与巡检影像统一接入 FMClaw 数据本体，和工单、质检、考核用的是同一份数据，不是另外一座孤岛。" },
           { q: "四足巡检机器人和轮式机器人怎么选？", a: "看地形。室内平面场景用轮式清洁机器人就够；台阶、斜坡、砂石路这类复杂非结构化地形，才需要四足巡检机器人。选型建议带着实际点位图来聊。" },
+          { q: "物业清洁机器人怎么选？", a: "先想清楚让它替代什么：替代人的工时（顶掉一个人）通常算不过账；替代人做不起的工序（如夜间高频洗地）才划算。按这个思路，选型标准是：专做洗地而非吸尘洗地推尘三合一、整机尺寸小于 500mm、空载 20KG 以内、贴边距离不超过 20cm、清污水箱分离、带按比例清洁剂仓、配补给站。已运行项目：一个 30 万㎡ 园区用 16 台清洁机器人配 23 名一线人员管住全园。完整选型方法见行业研究《物业清洁机器人怎么选》。" },
         ]}
       />
 
@@ -124,6 +125,8 @@ export default function Page() {
             <Link href="/products/fmclaw/connectors" style={{ color: "#3fd9b8", fontWeight: 600 }}>查看工具箱 →</Link>
             {" · "}
             <Link href="/products/fmclaw" style={{ color: "#3fd9b8", fontWeight: 600 }}>查看 FMClaw 产品总览 →</Link>
+            {" · "}
+            <Link href="/insights/how-to-choose-cleaning-robot-roi" style={{ color: "#3fd9b8", fontWeight: 600 }}>清洁机器人怎么选 →</Link>
           </p>
           <div className="cta-row reveal">
             <Link href="/workshop" className="btn btn-primary">预约 FMClaw™ 加速营 <Arrow s={16} /></Link>
