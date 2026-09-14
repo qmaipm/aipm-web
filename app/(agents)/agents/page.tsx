@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Hero from "@hp/components/sections/Hero";
 import Clients from "@hp/components/sections/Clients";
 import AgentShowcase from "@hp/components/sections/AgentShowcase";
-import WhatIsAgent from "@hp/components/sections/WhatIsAgent";
+import { DefineBand, FourQuestions } from "@hp/components/sections/WhatIsAgent";
 import MatrixSections, { FAQ } from "@hp/components/sections/MatrixSections";
 import JsonLd from "@/components/JsonLd";
 import { pageMetadata } from "@/lib/pageMetadata";
@@ -80,9 +80,10 @@ export default function Page() {
     <main className="min-h-screen agents-app">
       <JsonLd data={[WEBPAGE_LD, BREADCRUMB_LD, ITEMLIST_LD, FAQ_LD]} />
       <Hero />
-      <WhatIsAgent />
+      <DefineBand />
       <Clients />
       <AgentShowcase />
+      <FourQuestions />
       <MatrixSections />
     </main>
   );
