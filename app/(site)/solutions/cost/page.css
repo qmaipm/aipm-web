@@ -138,3 +138,17 @@
 /* 可访问性 / 动效降级 */
 .solco a:focus-visible,.solco .btn:focus-visible{outline:2px solid var(--co-green);outline-offset:3px;border-radius:10px}
 @media(prefers-reduced-motion:reduce){.solco *{transition:none!important}}
+
+/* ===== 决策三问（2026-09-14） ===== */
+.co-decide{margin-top:40px;display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.co-dq{position:relative;padding:28px 26px 30px;background:var(--co-paper);border:1px solid var(--co-line);border-radius:18px;
+  transition:transform .25s,box-shadow .25s,border-color .25s}
+.co-band.mist .co-dq{background:var(--co-paper)}
+.co-dq:hover{transform:translateY(-3px);box-shadow:0 18px 40px rgba(11,23,20,.08);border-color:rgba(12,139,130,.3)}
+.co-dq-n{display:inline-block;font-size:12px;font-weight:800;letter-spacing:.08em;color:#fff;background:var(--co-grad);padding:4px 10px;border-radius:999px}
+.co-dq h3{margin:16px 0 0;font-size:clamp(17px,1.8vw,19px);font-weight:800;letter-spacing:-.015em;line-height:1.35;color:var(--co-ink)}
+.co-dq p{margin:12px 0 0;font-size:14.5px;line-height:1.78;color:var(--co-ink-2)}
+.co-dq p b{color:var(--co-ink);font-weight:600}
+@media(max-width:980px){.co-decide{grid-template-columns:1fr}}
+.co-dq-a{color:#0C8B82;font-weight:600;text-decoration:underline;text-underline-offset:3px;text-decoration-color:rgba(12,139,130,.3)}
+.co-dq-a:hover{text-decoration-color:currentColor}

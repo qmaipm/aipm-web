@@ -297,6 +297,7 @@ export default function Page() {
             这套分工，酒店业已经运行了几十年——业主拥有酒店，管理公司负责经营，
             业主不派总经理、不排班、不管采购，但每月拿到经营报告与收益分配。
             物业项目的道理完全相同，只是把「酒店品牌」换成了「AI 运营体系」。
+            如果您的项目当前最头疼的是收缴率，先看<Link href="/insights/ai-solution-for-low-property-fee-collection">AI 在收缴率问题里能接哪几段工作</Link>，再判断是自己做还是委托。
           </p>
           <div className="avdo-split reveal">
             <div className="avdo-side">
