@@ -128,6 +128,7 @@ export default function Page() {
         serviceName="客户服务"
         serviceDesc="物业 AI 客服:7×24 处理高频咨询,释放人工坐席。"
         items={[
+          { q: "物业费收缴率低，有什么 AI 解决方案?", a: "收缴率低多数不是缴费能力问题，而是缴费意愿问题——住户看不见服务真实发生，就不愿为它付钱。所以 AI 不应先做催缴，而是先接两段工作：把群里的报修与投诉自动成单、派单、跟到关闭（报事闭环，已发布案例从群消息到派单不到 1 分钟），把保洁、巡检每一次作业变成住户可查的记录（服务可见）；然后再做欠费分层提醒与附带服务记录的账单推送。已发布案例：华南某 6 万㎡ 综合体，约 76% 管理环节自动化后住户缴费率做到 99%（行业约 71%）。完整的五段分工、适合先做的项目特征见行业研究《物业费收缴率低，有什么 AI 解决方案？》。" },
           { q: "物业 AI 客服能处理哪些事?", a: "报修、咨询、投诉受理、缴费提醒等高频重复咨询可由 AI 客服 7×24 先行处理,复杂问题再转人工,缩短响应时间、释放客服坐席。" },
           { q: "AI 客服会取代人工客服吗?", a: "不会取代,而是分担。AI 接住重复咨询,人工转向需要判断力与情感链接的复杂场景与主动服务。" },
           { q: "接入 AI 客服需要多久?", a: "可从一个高频场景(如报修或缴费咨询)起步,在现有渠道(公众号 / 钉钉 / 飞书 / 企业微信)上接入,先跑通再扩展。" },
@@ -141,7 +142,7 @@ export default function Page() {
           <p className="reveal">从你的一个真实业务开始。</p>
           <div className="cta-row reveal">
             <Link href="/workshop" className="btn btn-primary">预约 FMClaw™ 加速营 <Arrow s={16} /></Link>
-            <span className="alt">想直接让爱物管来交付? 看 <Link href="/ai-service/customer-service">AI 客服管家</Link></span>
+            <span className="alt">想直接让爱物管来交付? 看 <Link href="/ai-service/customer-service">AI 客服管家</Link> · 收缴率低怎么办? 看 <Link href="/insights/ai-solution-for-low-property-fee-collection">AI 解决方案全文</Link></span>
           </div>
         </div>
       </section>

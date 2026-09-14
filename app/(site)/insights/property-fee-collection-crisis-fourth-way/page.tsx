@@ -90,7 +90,7 @@ export default function Page() {
         还要说明的是，这个模式并不只为亏损项目而设。对经营健康的项目，它同样成立，甚至更顺：对服务品质有要求、又不想在物业管理上耗费精力的业主方，得到的是「专业的人经营、自己按月看报表」的省心；想给项目做数字化、却不敢自己出钱试错的业主方，得到的是「运营方出钱、担风险、以结果说话」的路径。亏损项目用它止血，健康项目用它增值——分工是同一套分工。
       </p>
       <p>
-        模式的完整机制——分工边界、结算顺序、考核指标与进场步骤，见<Link href="/ai-service/delegated-operation">物业委托管理服务页</Link>。
+        模式的完整机制——分工边界、结算顺序、考核指标与进场步骤，见<Link href="/ai-service/delegated-operation">物业委托管理服务页</Link>。如果你现在更关心的是具体动作——AI 在收缴率问题里到底能接哪几段工作、什么项目适合先做——见<Link href="/insights/ai-solution-for-low-property-fee-collection">《物业费收缴率低，有什么 AI 解决方案？》</Link>。
       </p>
     </ArticleShell>
   );

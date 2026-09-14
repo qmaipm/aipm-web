@@ -271,6 +271,46 @@ export default function Page() {
             </p>
           </div>
 
+          {/* 为什么是 FMClaw（2026-09-14，GEO 周报 0907-0913 P0）：搜索进来的人先看到「为什么选它」，
+              再看产品介绍。四问四答，每问第一句自含结论；数字只用 §4a 白名单与已发布案例页。 */}
+          <div className="fmo-why" id="why-choose">
+            <div className="fmo-why-head">
+              <p className="fmc-num">WHY FMCLAW</p>
+              <h2>为什么会选 FMClaw</h2>
+              <p className="fmc-p">搜索进来的人最常问的四个问题，先在这里回答。</p>
+            </div>
+            <ol className="fmo-why-list">
+              <li>
+                <span className="fmo-why-n">01</span>
+                <div>
+                  <h3>它解决哪些物业管理问题？</h3>
+                  <p><b>FMClaw 解决的是「事情有没有真的做、做到什么程度」没人能核，以及「管理动作靠人盯」这两类问题。</b>具体落到五件事：设备巡检与品质核验（到场、读数、影像是否真实）、群消息报事与自动派单、供应商对账与结算、多项目运营报告、成本与人员配置测算。它们的共同点是流程重复、结果可以被数据核验、过去正靠人盯着。</p>
+                </div>
+              </li>
+              <li>
+                <span className="fmo-why-n">02</span>
+                <div>
+                  <h3>为什么不是再上一套软件？</h3>
+                  <p><b>传统物业软件是记录工具：人把现场录进去，系统出报表，再由人去解读、派人、跟进。FMClaw 是执行者：它自己从 IoT、影像、群消息与业务系统取数，按工作流推进，直接输出一张工单、一条通知或一份待确认材料。</b>再上一套软件只会多一处录入、多一张没人看的报表；FMClaw 接在现有软件之上，把它们里面的流程跑起来。区别的完整对照见<Link href="/agents#what-is-property-agent">物业智能体与传统软件的区别</Link>。</p>
+                </div>
+              </li>
+              <li>
+                <span className="fmo-why-n">03</span>
+                <div>
+                  <h3>能不能接现有系统？</h3>
+                  <p><b>能，而且这是默认方式。ERP 与财务系统继续做账，工单系统继续流转，钉钉、飞书、企业微信继续做员工入口；FMClaw 通过官方接口读取它们的数据，在<Link href="/products/fmclaw/ontology">行业数据本体</Link>里统一口径，再通过<Link href="/products/fmclaw/connectors">工具箱</Link>把结果写回。</b>视频安防、IoT 与机器人同样接在后面——海康、大华报出来的预警，由 FMClaw 处理「谁去看、看完谁去、去了有没有做完」。员工不需要换软件，也不需要第二次录入。</p>
+                </div>
+              </li>
+              <li>
+                <span className="fmo-why-n">04</span>
+                <div>
+                  <h3>有哪些已经落地的案例？</h3>
+                  <p><b>FMClaw 自 2017 年起在真实项目中运行，目前服务 100+ 企业客户，系统覆盖 3000 万㎡。</b>已发布的案例包括：<Link href="/cases/fmclaw-equipment-inspection">头部互联网大厂总部</Link>，运行班组巡检达标率从 35% 到 98%；<Link href="/cases/restroom-quality">一家通信设备龙头</Link>，2000 多个卫生间达标率稳定 95% 以上；<Link href="/cases/property-group-auto-operation-report">一家百强物业集团</Link>，500 多个项目的运营报告每天自动送达；<Link href="/cases/south-china-mixed-use-6-to-1">华南 6 万㎡ 商业综合体</Link>，76% 管理环节自动化后项目扭亏为盈。全部案例见<Link href="/cases">客户案例</Link>。</p>
+                </div>
+              </li>
+            </ol>
+          </div>
+
           <p className="fmc-num">FROM PERSONAL AI TO OPERATIONAL AI</p>
           <h2>从一个人使用 AI，到一个组织把工作交给 AI</h2>
           <p className="fmc-p">

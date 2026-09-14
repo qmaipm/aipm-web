@@ -49,6 +49,32 @@ figure.fmo-app{margin-left:0;margin-right:0}
 .fmo-defband-p b{font-weight:800}
 
 /* ---------- 双面板对峙（通用工作台 vs FMClaw） ---------- */
+
+/* ===== 为什么会选 FMClaw：四问四答（2026-09-14） ===== */
+.fmo-why{margin:0 0 96px}
+.fmo-why-head{max-width:60ch}
+.fmo-why-list{margin:40px 0 0;padding:0;list-style:none;display:grid;grid-template-columns:1fr 1fr;gap:0;
+  border:1px solid rgba(12,139,130,.18);border-radius:22px;overflow:hidden;background:#fff}
+.fmo-why-list li{display:grid;grid-template-columns:52px 1fr;gap:18px;padding:32px 34px 34px;
+  border-right:1px solid var(--c-line);border-bottom:1px solid var(--c-line)}
+.fmo-why-list li:nth-child(2n){border-right:none}
+.fmo-why-list li:nth-last-child(-n+2){border-bottom:none}
+.fmo-why-n{font-size:13px;font-weight:800;letter-spacing:.06em;color:transparent;background:var(--c-grad);
+  -webkit-background-clip:text;background-clip:text;padding-top:5px}
+@supports not ((-webkit-background-clip:text) or (background-clip:text)){.fmo-why-n{color:var(--c-deep)}}
+.fmo-why-list h3{margin:0;font-size:clamp(17px,1.9vw,20px);font-weight:800;letter-spacing:-.015em;line-height:1.35;color:var(--c-ink)}
+.fmo-why-list p{margin:12px 0 0;font-size:15px;line-height:1.78;color:var(--c-ink-2)}
+.fmo-why-list p b{color:var(--c-ink);font-weight:600}
+.fmo-why-list p a{color:var(--c-deep);font-weight:600;text-decoration:underline;text-underline-offset:3px;text-decoration-color:rgba(12,139,130,.3)}
+.fmo-why-list p a:hover{text-decoration-color:currentColor}
+@media(max-width:860px){
+  .fmo-why{margin-bottom:72px}
+  .fmo-why-list{grid-template-columns:1fr;border-radius:18px}
+  .fmo-why-list li{border-right:none;padding:24px 22px 26px;grid-template-columns:40px 1fr;gap:12px}
+  .fmo-why-list li:nth-last-child(-n+2){border-bottom:1px solid var(--c-line)}
+  .fmo-why-list li:last-child{border-bottom:none}
+}
+
 .fmo-vs{margin:48px 0 0;display:grid;grid-template-columns:minmax(0,1fr) 64px minmax(0,1.08fr);align-items:stretch}
 @media(max-width:860px){.fmo-vs{grid-template-columns:1fr;gap:0}}
 .fmo-vs-col{border-radius:20px;padding:30px 32px 26px}

@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Hero from "@hp/components/sections/Hero";
 import Clients from "@hp/components/sections/Clients";
 import AgentShowcase from "@hp/components/sections/AgentShowcase";
+import { DefineBand, FourQuestions } from "@hp/components/sections/WhatIsAgent";
 import MatrixSections, { FAQ } from "@hp/components/sections/MatrixSections";
 import JsonLd from "@/components/JsonLd";
 import { pageMetadata } from "@/lib/pageMetadata";
@@ -10,11 +11,11 @@ import "./matrix.css";
 const SITE_URL = process.env.SITE_URL || "https://www.aipm.cn";
 
 export const metadata: Metadata = pageMetadata("/agents", {
-  title: "物业管理智能体矩阵｜FMClaw™ Agentic AI 产品套件",
+  title: "物业智能体是什么、和传统物业软件有什么区别｜FMClaw™ 物业管理智能体矩阵",
   description:
-    "FMClaw 物业管理智能体矩阵是一套面向物业与设施管理的行业级 Agentic AI 产品套件,由服务设计、运营管理、质量评估与服务优化智能体组成,在统一的数据、工作流、权限与审计体系下协同运行。",
+    "物业智能体是能把一件物业工作接着干完的 AI：自己取数、按流程推进、留下可追溯记录，在需要人负责的环节交给人确认。本页回答四个问题：什么是物业智能体、与传统物业管理软件的区别、哪些场景适合先用、要不要替换现有 ERP/工单/钉钉/飞书/企微。FMClaw 物业管理智能体矩阵由服务设计、运营管理、质量评估与服务优化四个智能体组成。",
   keywords:
-    "物业管理智能体,物业管理AI,Agentic AI产品套件,物业AI智能体,设施管理AI,AI物业经理,多智能体协同,企业级AI智能体,物业管理Agent,物业智能体平台",
+    "物业智能体,物业管理智能体,物业AI智能体,物业智能体和传统软件区别,物业管理AI,Agentic AI产品套件,物业AI智能体,设施管理AI,AI物业经理,多智能体协同,企业级AI智能体,物业管理Agent,物业智能体平台",
   openGraph: {
     title: "物业管理智能体矩阵｜FMClaw™ Agentic AI 产品套件",
     description:
@@ -79,8 +80,10 @@ export default function Page() {
     <main className="min-h-screen agents-app">
       <JsonLd data={[WEBPAGE_LD, BREADCRUMB_LD, ITEMLIST_LD, FAQ_LD]} />
       <Hero />
+      <DefineBand />
       <Clients />
       <AgentShowcase />
+      <FourQuestions />
       <MatrixSections />
     </main>
   );

@@ -58,6 +58,19 @@ export function FigRow({
 
 // 文章 → AI 物业服务工种页回链(内链闭环:研究文章把读者引向对应服务页)
 const TRADE_LINKS: Record<string, { href: string; label: string }[]> = {
+  "ai-solution-for-low-property-fee-collection": [
+    { href: "/solutions/customer", label: "客户服务方案（报事闭环）" },
+    { href: "/ai-service/cleaning", label: "AI 清洁服务（服务可见）" },
+    { href: "/ai-service/delegated-operation", label: "物业委托管理（亏损项目怎么办）" },
+  ],
+  "property-agent-vs-traditional-software": [
+    { href: "/agents", label: "物业管理智能体矩阵" },
+    { href: "/products/fmclaw", label: "FMClaw™ 平台" },
+  ],
+  "how-to-stop-equipment-inspection-going-through-motions": [
+    { href: "/solutions/inspection", label: "设备巡检方案" },
+    { href: "/products/iot", label: "IoT 物理世界感知" },
+  ],
   "hotel-management-contract-model-beyond-hotels": [
     { href: "/ai-service/delegated-operation", label: "物业委托管理服务说明" },
     { href: "/partners/delegated-operation", label: "酒店开发人员：发展伙伴计划" },
@@ -172,6 +185,24 @@ const OWNER_CTA = {
   label: "申请业主项目诊断",
 };
 const ARTICLE_CTA: Record<string, typeof OWNER_CTA> = {
+  "ai-solution-for-low-property-fee-collection": {
+    title: "先看你项目的收缴率问题出在哪一段",
+    description: "带上近 12 个月的收缴率、投诉分类与现有服务记录，我们一起判断该先做服务可见还是报事闭环。",
+    href: "/contact?intent=demo&from=insights/fee-collection",
+    label: "预约演示",
+  },
+  "property-agent-vs-traditional-software": {
+    title: "拿你手上的一条流程，看智能体怎么跑",
+    description: "巡检、报事、对账、日报任选一条，用你的真实数据演示：取数、推进、留痕三步各是什么样。",
+    href: "/contact?intent=demo&from=insights/agent-vs-software",
+    label: "预约演示",
+  },
+  "how-to-stop-equipment-inspection-going-through-motions": {
+    title: "把你的一条巡检路线拿来核一遍",
+    description: "选一类故障最多的设备，先并行跑两周，看真实达标率是多少。不换系统。",
+    href: "/contact?intent=demo&from=insights/inspection",
+    label: "预约演示",
+  },
   "property-project-assessment-data": {
     title: "先把已知资料填进去",
     description: "未知项可以留空。先了解合作方向，再由双方补充核实项目条件。",

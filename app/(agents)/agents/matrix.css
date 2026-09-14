@@ -177,3 +177,51 @@
         grid-template-columns: 1fr;
     }
 }
+
+/* ==========================================================
+   物业智能体承接（2026-09-14 重做）
+   1) .wa-band  Hero 之下的定义带：白底 + 一根渐变细线，一句定义 + 三个数字，≤160px
+   2) .wa-q     四问四答：复用 product-card 发光卡体系，置于 Built on FMClaw 之前
+   ========================================================== */
+
+/* ---- 定义带 ---- */
+.agents-app .wa-band { position: relative; background: var(--white); padding: 44px 24px 40px; }
+.agents-app .wa-band::before { content: ""; position: absolute; left: 0; right: 0; top: 0; height: 2px; background: var(--gradient-blue-green); opacity: .9; }
+.agents-app .wa-band-in { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 48px; align-items: center; }
+.agents-app .wa-band-k { margin: 0 0 10px; font-size: 12px; font-weight: 700; letter-spacing: .16em; text-transform: uppercase; color: var(--vi-blue); }
+.agents-app .wa-band-def { margin: 0; font-size: clamp(16px, 1.45vw, 19px); line-height: 1.7; color: var(--gray-700); max-width: 62ch; letter-spacing: -0.005em; }
+.agents-app .wa-band-def b { color: var(--gray-900); font-weight: 700; }
+.agents-app .wa-band-nums { margin: 0; display: flex; gap: 0; }
+.agents-app .wa-band-nums > div { padding: 4px 28px; border-left: 1px solid var(--gray-200); }
+.agents-app .wa-band-nums > div:first-child { border-left: none; padding-left: 0; }
+.agents-app .wa-band-nums > div:last-child { padding-right: 0; }
+.agents-app .wa-band-nums dt { margin: 0 0 4px; font-size: 12px; color: var(--gray-500); white-space: nowrap; }
+.agents-app .wa-band-nums dd { margin: 0; font-size: 26px; font-weight: 800; letter-spacing: -0.02em; line-height: 1; color: var(--gray-900); white-space: nowrap; }
+.agents-app .wa-band-nums dd small { font-size: 14px; font-weight: 600; color: var(--gray-600); margin-left: 2px; }
+
+/* ---- 四问四答 ---- */
+.agents-app .wa-q .section-header { max-width: 720px; }
+.agents-app .wa-q-card { display: flex; flex-direction: column; }
+.agents-app .wa-q-card h3 { position: relative; z-index: 1; margin: 0 0 10px; font-size: 17px; text-wrap: balance; font-weight: 700; line-height: 1.4; letter-spacing: -0.01em; color: var(--gray-900); }
+.agents-app .wa-q-card p { position: relative; z-index: 1; margin: 0 0 18px; font-size: 14px; line-height: 1.75; color: var(--gray-600); flex: 1; }
+.agents-app .wa-q-link { position: relative; z-index: 1; display: inline-flex; align-items: center; gap: 6px; font-size: 13.5px; font-weight: 600; color: var(--vi-blue); text-decoration: none; }
+.agents-app .wa-q-link svg { transition: transform var(--transition-base); }
+.agents-app .wa-q-link:hover svg { transform: translateX(3px); }
+.agents-app .wa-q-card .card-icon { position: relative; z-index: 1; }
+.agents-app .wa-q-cta { margin-top: 40px; display: flex; justify-content: center; }
+.agents-app .wa-btn-primary { display: inline-flex; align-items: center; gap: 8px; padding: 14px 24px; border-radius: var(--radius-full);
+    background: var(--gradient-blue-green); color: var(--white); font-size: 15px; font-weight: 600; text-decoration: none;
+    box-shadow: 0 10px 24px rgba(0, 112, 255, .18); transition: transform var(--transition-base), box-shadow var(--transition-base); }
+.agents-app .wa-btn-primary:hover { transform: translateY(-2px); box-shadow: 0 14px 30px rgba(0, 112, 255, .24); }
+
+@media (max-width: 1024px) {
+    .agents-app .wa-band-in { grid-template-columns: 1fr; gap: 24px; }
+    .agents-app .wa-band-nums { flex-wrap: wrap; gap: 12px 0; }
+}
+@media (max-width: 768px) {
+    .agents-app .wa-band { padding: 32px 20px 30px; }
+    .agents-app .wa-band-def { font-size: 16px; }
+    .agents-app .wa-band-nums > div { padding: 4px 18px; }
+    .agents-app .wa-band-nums dd { font-size: 22px; }
+    .agents-app .wa-q-cta .wa-btn-primary { width: 100%; justify-content: center; text-align: center; }
+}
