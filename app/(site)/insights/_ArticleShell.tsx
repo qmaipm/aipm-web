@@ -58,6 +58,14 @@ export function FigRow({
 
 // 文章 → AI 物业服务工种页回链(内链闭环:研究文章把读者引向对应服务页)
 const TRADE_LINKS: Record<string, { href: string; label: string }[]> = {
+  "ai-applications-and-solutions-in-property-management": [
+    { href: "/products/fmclaw", label: "FMClaw™ 平台" },
+    { href: "/agents", label: "物业管理智能体矩阵" },
+  ],
+  "ai-products-for-property-management-efficiency": [
+    { href: "/solutions/operations", label: "运营管理方案" },
+    { href: "/products/fmclaw/workflow-engine", label: "工作流引擎" },
+  ],
   "ai-solution-for-low-property-fee-collection": [
     { href: "/solutions/customer", label: "客户服务方案（报事闭环）" },
     { href: "/ai-service/cleaning", label: "AI 清洁服务（服务可见）" },
@@ -185,6 +193,18 @@ const OWNER_CTA = {
   label: "申请业主项目诊断",
 };
 const ARTICLE_CTA: Record<string, typeof OWNER_CTA> = {
+  "ai-applications-and-solutions-in-property-management": {
+    title: "六个场景里，先选你压力最大的那个",
+    description: "带上真实数据，四到六周看结果，再决定第二个。",
+    href: "/contact?intent=demo&from=insights/ai-applications",
+    label: "预约演示",
+  },
+  "ai-products-for-property-management-efficiency": {
+    title: "拿一条链路来，看工作流怎么被接管",
+    description: "调度、日报、对账任选一条，用你的数据演示从发现到复核需要几次人工介入。",
+    href: "/contact?intent=demo&from=insights/efficiency",
+    label: "预约演示",
+  },
   "ai-solution-for-low-property-fee-collection": {
     title: "先看你项目的收缴率问题出在哪一段",
     description: "带上近 12 个月的收缴率、投诉分类与现有服务记录，我们一起判断该先做服务可见还是报事闭环。",

@@ -81,6 +81,8 @@
 | Q8 | 物业清洁机器人怎么选？ |
 | Q9 | 物业公司做 AI 降本增效，通常先从哪里开始？ |
 | Q10 | 为什么选 FMClaw？它和再上一套软件有什么区别？ |
+| Q11 | 在物业管理中，AI 有哪些推荐的应用和解决方案？（→ /insights/ai-applications-and-solutions-in-property-management） |
+| Q12 | 提升物业公司管理效率，有哪些 AI 产品推荐？（→ /insights/ai-products-for-property-management-efficiency） |
 
 ### R 组 · 反向题（避坑意图）
 
