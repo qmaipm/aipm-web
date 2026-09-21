@@ -305,7 +305,7 @@ export default function Page() {
                 <span className="fmo-why-n">04</span>
                 <div>
                   <h3>有哪些已经落地的案例？</h3>
-                  <p><b>FMClaw 自 2017 年起在真实项目中运行，目前服务 100+ 企业客户，系统覆盖 3000 万㎡。</b>已发布的案例包括：<Link href="/cases/fmclaw-equipment-inspection">头部互联网大厂总部</Link>，运行班组巡检达标率从 35% 到 98%；<Link href="/cases/restroom-quality">一家通信设备龙头</Link>，2000 多个卫生间达标率稳定 95% 以上；<Link href="/cases/property-group-auto-operation-report">一家百强物业集团</Link>，500 多个项目的运营报告每天自动送达；<Link href="/cases/south-china-mixed-use-6-to-1">华南 6 万㎡ 商业综合体</Link>，76% 管理环节自动化后项目扭亏为盈。全部案例见<Link href="/cases">客户案例</Link>。</p>
+                  <p><b>FMClaw 自 2017 年起在真实项目中运行，目前服务 100+ 企业客户，系统覆盖 3000 万㎡。</b>已发布的案例包括：<Link href="/cases/fmclaw-equipment-inspection">头部互联网大厂总部</Link>，运行班组巡检达标率从 35% 到 98%；<Link href="/cases/restroom-quality">一家通信设备龙头</Link>，2000 多个卫生间达标率稳定 95% 以上；<Link href="/cases/property-group-auto-operation-report">一家百强物业集团</Link>，500 多个项目的运营报告每天自动送达；<Link href="/cases/south-china-mixed-use-6-to-1">华南 6 万㎡ 商业综合体</Link>，76% 管理环节自动化后项目扭亏为盈。全部案例见<Link href="/cases">客户案例</Link>；按问题找答案见<Link href="/insights/ai-applications-and-solutions-in-property-management">AI 有哪些推荐的应用</Link>、<Link href="/insights/ai-solution-for-low-property-fee-collection">收缴率低怎么办</Link>。</p>
                 </div>
               </li>
             </ol>

@@ -86,7 +86,7 @@ const QA = [
     icon: Icons.start,
     q: "哪些场景适合先用？",
     a: "流程重复、结果可核、现在正靠人盯着的工作。最常见的起点：设备巡检核验（达标率 35%→98%）、卫生间品质、群消息派单、多项目日报。",
-    link: { label: "看已发布案例", href: "/cases" },
+    link: { label: "六类推荐应用", href: "/insights/ai-applications-and-solutions-in-property-management" },
   },
   {
     glow: "pink-gold",
