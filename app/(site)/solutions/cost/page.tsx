@@ -253,6 +253,7 @@ export default function Page() {
           <p className="reveal">从你的一个真实业务开始。</p>
           <div className="cta-row reveal">
             <Link href="/workshop" className="btn btn-primary">预约 FMClaw™ 加速营 <Arrow s={16} /></Link>
+            <span className="alt">不确定先从哪条工作流降本，先看 <Link href="/insights/ai-applications-and-solutions-in-property-management">六类 AI 应用各接手哪一段</Link></span>
           </div>
         </div>
       </section>

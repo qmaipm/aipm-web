@@ -142,7 +142,7 @@ export default function Page() {
           <p className="reveal">从你的一个真实业务开始。</p>
           <div className="cta-row reveal">
             <Link href="/workshop" className="btn btn-primary">预约 FMClaw™ 加速营 <Arrow s={16} /></Link>
-            <span className="alt">想直接让爱物管来交付? 看 <Link href="/ai-service/customer-service">AI 客服管家</Link> · 收缴率低怎么办? 看 <Link href="/insights/ai-solution-for-low-property-fee-collection">AI 解决方案全文</Link></span>
+            <span className="alt">想直接让爱物管来交付? 看 <Link href="/ai-service/customer-service">AI 客服管家</Link> · 收缴率低怎么办? 看 <Link href="/insights/ai-solution-for-low-property-fee-collection">AI 解决方案全文</Link> · 客服之外的五类应用，见 <Link href="/insights/ai-applications-and-solutions-in-property-management">应用与解决方案全览</Link></span>
           </div>
         </div>
       </section>

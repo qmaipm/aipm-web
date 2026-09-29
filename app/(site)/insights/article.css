@@ -34,7 +34,7 @@
 .isd-eyebrow{display:inline-flex;align-items:center;gap:10px;margin-top:22px;font-size:12px;font-weight:600;
   letter-spacing:.2em;text-transform:uppercase;color:var(--d-green)}
 .isd-eyebrow::before{content:"";width:22px;height:2px;border-radius:2px;background:var(--d-grad)}
-.isd-h1{margin:18px 0 0;font-weight:800;font-size:clamp(32px,5vw,56px);line-height:1.1;letter-spacing:-.03em;color:var(--d-ink);max-width:20ch}
+.isd-h1{margin:18px 0 0;font-weight:800;font-size:clamp(32px,5vw,56px);line-height:1.1;letter-spacing:-.03em;color:var(--d-ink);max-width:20ch;text-wrap:balance}
 .isd-meta{margin-top:22px;font-size:13px;letter-spacing:.02em;color:var(--d-mut)}
 
 /* ---------- 正文 ---------- */

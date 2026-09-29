@@ -206,6 +206,7 @@ export default function OptimizationPage() {
           <p className="reveal">带上你的质检数据来，看 AI 怎么找出高频问题。</p>
           <div className="cta-row reveal">
             <Link href="/workshop" className="btn btn-primary">预约 FMClaw™ 加速营 <Arrow s={16} /></Link>
+            <span className="alt">复盘的数据从六类工作流里来，见 <Link href="/insights/ai-applications-and-solutions-in-property-management">应用与解决方案全览</Link></span>
           </div>
         </div>
       </section>
