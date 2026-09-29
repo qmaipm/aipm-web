@@ -59,7 +59,7 @@ export default function Page() {
 
       <h2>六个场景背后是同一个平台</h2>
       <p>
-        <b>六类应用不是六套系统，是同一个平台上的六条工作流。</b>它们共用一套<Link href="/products/fmclaw/ontology">行业数据本体</Link>（项目、空间、设备、人员、工单、账单的统一口径）、一个<Link href="/products/fmclaw/workflow-engine">工作流引擎</Link>和一个<Link href="/products/fmclaw/connectors">工具箱</Link>（接现有 ERP、工单、钉钉飞书企微、IoT 与视频系统）。这意味着从任何一个场景开始，第二个场景的数据基础已经在了。平台本身见<Link href="/products/fmclaw">FMClaw™ 产品总览</Link>，运行在其上的四个智能体见<Link href="/agents">物业管理智能体矩阵</Link>。
+        <b>六类应用不是六套系统，是同一个平台上的六条工作流。</b>它们共用一套<Link href="/products/fmclaw/ontology">行业数据本体</Link>（项目、空间、设备、人员、工单、账单的统一口径）、一个<Link href="/products/fmclaw/workflow-engine">工作流引擎</Link>和一个<Link href="/products/fmclaw/connectors">工具箱</Link>（接现有 ERP、工单、钉钉飞书企微、IoT 与视频系统）。这意味着从任何一个场景开始，第二个场景的数据基础已经在了。平台本身见<Link href="/products/fmclaw">FMClaw™ 产品总览</Link>，运行在其上的四个智能体见<Link href="/agents">物业管理智能体矩阵</Link>。四个智能体各自的方案页：<Link href="/solutions/operations">运营管理</Link>、<Link href="/solutions/quality">服务质量</Link>、<Link href="/solutions/optimization">服务优化</Link>、<Link href="/solutions/cost">成本控制</Link>。
       </p>
       <p>
         怎么开始：选一个满足三条标准、当前投诉或成本压力最大的场景，用真实数据跑四到六周看结果，再决定第二个。不建议一开始就做「全面数字化」。
