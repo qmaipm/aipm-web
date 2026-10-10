@@ -5,12 +5,12 @@ import { Search, Send } from 'lucide-react';
 import { motion } from 'framer-motion';
 
 const quickCommands = [
-  { label: '今日计划', color: '#F59E0B' },
+  { label: '今日计划', color: '#BE7A2E' },
   { label: '待审批', color: '#EF4444' },
   { label: '本周报告', color: '#0070FF' },
   { label: '考勤概况', color: '#12B98A' },
-  { label: '质检汇总', color: '#9333EA' },
-  { label: '库存预警', color: '#F59E0B' },
+  { label: '质检汇总', color: '#0C8B82' },
+  { label: '库存预警', color: '#BE7A2E' },
 ];
 
 function getGreeting(): string {

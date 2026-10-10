@@ -10,7 +10,7 @@ export const dynamic = "force-dynamic";
 export const metadata: Metadata = pageMetadata("/products/fmclaw/agent-runtime", {
   title: "控制台（Console）｜FMClaw™ 智能体安全、权限与审计",
   description:
-    "控制台（Console）是 FMClaw 管理智能体身份、权限、运行和记录的地方。智能体像员工一样有岗位和权限边界，高风险动作先经人批准，每一步都有记录——智能体治理、AI 权限管理与审计日志，在这里统一完成。",
+    "控制台（Console）是 FMClaw 管理智能体身份、权限、运行和记录的地方。智能体像员工一样有岗位和权限边界，高风险动作先经人批准，每一步都有记录：智能体治理、AI 权限管理与审计日志，在这里统一完成。",
 });
 
 const TECH_LD = techArticleLd({
@@ -22,24 +22,24 @@ const TECH_LD = techArticleLd({
 
 const FAQ = [
   {
-    q: "智能体出了错，谁负责?",
-    a: "人负责。每个智能体有明确的归属和上级;影响到人和钱的动作先经人批准才执行，批准人是谁有记录。责任始终落在具体的人身上。",
+    q: "智能体出了错，谁负责？",
+    a: "人负责。每个智能体有明确的归属和上级；影响到人和钱的动作先经人批准才执行，批准人是谁有记录。责任始终落在具体的人身上。",
   },
   {
-    q: "怎么防止智能体越权?",
+    q: "怎么防止智能体越权？",
     a: "智能体像员工一样管理：有身份、有岗位、有权限边界。权限按总部、区域、项目、岗位分层，它只能看到和做它岗位范围内的事。岗位变了，权限跟着变。",
   },
   {
-    q: "出了问题，能查到是哪一步吗?",
+    q: "出了问题，能查到是哪一步吗？",
     a: "能。每项任务从发起到结束都有记录：谁发起、读了什么数据、调了哪个工具、谁批准、结果如何。复核时逐步核对，定位到具体一步。",
   },
   {
-    q: "项目之间的数据会串吗?",
+    q: "项目之间的数据会串吗？",
     a: "不会。数据按项目隔离，跨项目访问需要明确授权。同一条工作流跑在多个项目，数据各归各的，口径是同一套。",
   },
   {
-    q: "人可以随时叫停智能体吗?",
-    a: "可以。管理者随时查看、暂停、驳回或接管任何任务;收回授权即刻生效，已有记录保留。",
+    q: "人可以随时叫停智能体吗？",
+    a: "可以。管理者随时查看、暂停、驳回或接管任何任务；收回授权即刻生效，已有记录保留。",
   },
 ];
 
@@ -54,7 +54,7 @@ export default function Page() {
     <main className="fmc">
       <JsonLd data={TECH_LD} />
 
-      {/* ===== HERO(真人摄影底图 · 暗场，规格同 workshop ws-hero) ===== */}
+      {/* ===== HERO（真人摄影底图 · 暗场，规格同 workshop ws-hero） ===== */}
       <header className="fmc-phero">
         <span className="fmc-phero-bg" aria-hidden="true" />
         <div className="fmc-grid" aria-hidden="true" />
@@ -70,7 +70,7 @@ export default function Page() {
             智能体在干活，<span className="grad">你看得见、管得住</span>
           </h1>
           <p className="fmc-plead">
-            每个智能体是谁、在哪个项目、干了什么、谁批准的——都在控制台。
+            每个智能体是谁、在哪个项目、干了什么、谁批准的：都在控制台。
             <b>敢把业务交给智能体，是因为随时能接管。</b>
           </p>
           <div className="fmc-pcta">
@@ -91,7 +91,7 @@ export default function Page() {
       <section className="fmc-sec">
         <div className="wrap">
           <p className="fmc-num">01</p>
-          <h2>控制台是什么?</h2>
+          <h2>控制台是什么？</h2>
           <div className="fmc-defbox">
             <p className="fmc-deflab">DEFINITION</p>
             <p>
@@ -124,7 +124,7 @@ export default function Page() {
               <div className="fmo-lbody">
                 <h3>有身份、有岗位、有边界</h3>
                 <p className="fmo-ldesc">
-                  每个智能体归属明确的组织和岗位，不匿名。它只能看到和做岗位范围内的事——
+                  每个智能体归属明确的组织和岗位，不匿名。它只能看到和做岗位范围内的事：
                   权限按总部、区域、项目、岗位分层，岗位变了，权限跟着变。
                 </p>
                 <ul className="fmo-lsub">
@@ -144,7 +144,7 @@ export default function Page() {
           <p className="fmc-num">03</p>
           <h2>在跑什么、卡在哪，一眼看全</h2>
           <p className="fmc-p">
-            哪些任务在跑、哪个项目异常、哪一步在等人确认——运行状态集中在一处，
+            哪些任务在跑、哪个项目异常、哪一步在等人确认：运行状态集中在一处，
             不用逐个项目去问。同一条工作流跑在 500 个项目，看到的是同一张面板、同一套口径。
           </p>
           <p className="fmo-verdict">
@@ -162,11 +162,11 @@ export default function Page() {
             <div className="fmo-howside">
               <p className="fmo-howcase">
                 智能体接手的是日常工作，<b>决定权留在人手里</b>。
-                该问人的动作先问人;不该它做的，它做不了。
+                该问人的动作先问人；不该它做的，它做不了。
               </p>
               <p className="fmo-hownote">
                 供应商付款就是这样运行的：智能体核量、比对、找异常、起草账单，
-                付款决定由负责人作出——见<Link className="fmc-ln" href="/cases/coworking-supplier-reconciliation">供应商对账案例</Link>。
+                付款决定由负责人作出：见<Link className="fmc-ln" href="/cases/coworking-supplier-reconciliation">供应商对账案例</Link>。
               </p>
             </div>
             <div className="fmo-tiers">

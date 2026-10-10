@@ -1,0 +1,126 @@
+/* ============================================================
+   首页 · 2026-10 大厂标准收敛（覆盖 home.css）
+   - 全页唯一深色段：愿景（VisionStage，滚动驱动三层智能点亮）
+   - 其余全部白 / 雾交替；卡片去边框阴影，改为「图 + 文 + 顶线」
+   - 小标签只留首屏 kicker；FAQ 小标签来自公共组件
+   ============================================================ */
+
+/* ---------- 愿景舞台 ---------- */
+.solhome .h-vision{position:relative;background:#0B1714;color:#fff}
+.solhome .h-vision[data-mode="scroll"]{height:300vh}
+.solhome .h-vision__stick{position:relative;padding:120px 0 96px}
+.solhome .h-vision[data-mode="scroll"] .h-vision__stick{position:sticky;top:0;height:100vh;padding:84px 0 28px;display:flex;flex-direction:column;justify-content:center}
+.solhome .h-vision__grid{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:56px;align-items:center}
+.solhome .h-vision__zh .nb{white-space:nowrap}
+.solhome .h-vision__en{margin:0;font-size:13px;color:rgba(255,255,255,.55)}
+.solhome .h-vision__zh{margin:14px 0 0;font-size:clamp(30px,3.3vw,46px);font-weight:800;line-height:1.12;letter-spacing:-.035em;color:#fff}
+.solhome .h-vision__note{margin:16px 0 0;font-size:14.5px;line-height:1.75;color:rgba(255,255,255,.66);max-width:34em}
+.solhome .h-vision__ch{list-style:none;margin:24px 0 0;padding:0;border-top:1px solid rgba(255,255,255,.18)}
+.solhome .h-vision__ch>li{display:grid;grid-template-columns:72px minmax(0,1fr);gap:16px;padding:13px 0;border-bottom:1px solid rgba(255,255,255,.1);
+  opacity:.38;transition:opacity .45s ease}
+.solhome .h-vision__ch>li.is-on,.solhome .h-vision__ch>li.is-done{opacity:1}
+.solhome .h-vision[data-stage="0"] .h-vision__ch>li,.solhome .h-vision:not([data-mode]) .h-vision__ch>li{opacity:1}
+.solhome .h-vision[data-stage="4"] .h-vision__ch>li{opacity:1}
+.solhome .h-vision__ch .no{font-size:13px;font-weight:600;line-height:1.7;color:rgba(255,255,255,.55);transition:color .45s}
+.solhome .h-vision__ch>li.is-on .no{color:#6FA8FF}
+.solhome .h-vision__ch h3{margin:0;font-size:18px;font-weight:700;line-height:1.4;color:#fff}
+.solhome .h-vision__ch p{margin:4px 0 0;font-size:14px;line-height:1.7;color:rgba(255,255,255,.66)}
+.solhome .h-vision__ch p a{color:#fff;text-decoration:underline;text-underline-offset:3px;text-decoration-color:rgba(255,255,255,.35)}
+.solhome .h-vision__ch .go{display:block;margin-top:6px;opacity:0;transition:opacity .45s ease}
+.solhome .h-vision__ch>li.is-on .go,.solhome .h-vision[data-stage="4"] .h-vision__ch .go,.solhome .h-vision:not([data-mode="scroll"]) .h-vision__ch .go{opacity:1}
+.solhome .h-vision__ch .go a{display:inline-flex;align-items:center;gap:6px;font-size:13.5px;font-weight:600;color:#6FA8FF}
+.solhome .h-vision__art{position:relative;height:min(64vh,580px);min-height:320px}
+.solhome .h-vision__art canvas{position:absolute;inset:0;width:100%;height:100%;display:block}
+.solhome .h-vision__end{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:20px 40px;margin-top:24px;padding-top:20px;border-top:1px solid rgba(255,255,255,.12)}
+.solhome .h-vision__close{margin:0;max-width:30em;font-size:clamp(16px,1.6vw,19px);font-weight:600;line-height:1.55;color:#fff}
+.solhome .h-vision[data-mode="scroll"] .h-vision__close,.solhome .h-vision[data-mode="scroll"] .h-mission-film{opacity:0;transform:translateY(8px);transition:opacity .5s,transform .5s}
+.solhome .h-vision[data-stage="4"] .h-vision__close,.solhome .h-vision[data-stage="4"] .h-mission-film{opacity:1;transform:none}
+.solhome .h-vision .h-mission-film{margin:0}
+@media(max-width:980px){
+  .solhome .h-vision__art{height:auto;aspect-ratio:4/3}
+  .solhome .h-vision__grid{grid-template-columns:1fr;gap:36px}
+  .solhome .h-vision__art{order:-1;aspect-ratio:4/3;min-height:0}
+  .solhome .h-vision__stick{padding:88px 0 72px}
+}
+@media(prefers-reduced-motion:reduce){.solhome .h-vision__ch>li,.solhome .h-vision__close,.solhome .h-mission-film{opacity:1!important;transform:none!important}}
+
+/* ---------- 通用节奏 ---------- */
+.solhome .h-band{padding:112px 0}
+@media(max-width:700px){.solhome .h-band{padding:76px 0}}
+.solhome .h-h2{margin-top:0}
+.solhome .h-sub{max-width:44em;line-height:1.75}
+/* 白 / 雾严格交替：分流 白 → 交付 雾 → 平台 白 → 加速营 雾 → 案例 白 → 为什么 雾 → 投资资质 白 → 研究 雾 → FAQ 白 */
+.solhome #tri{background:var(--h-paper)}
+.solhome #delivery{background:var(--h-mist)}
+.solhome #product{background:var(--h-paper)}
+.solhome #workshop{background:var(--h-mist)}
+.solhome #cases{background:var(--h-paper)}
+.solhome #why{background:var(--h-mist)}
+.solhome .h-cred{background:var(--h-paper);border-top:none;padding:96px 0}
+.solhome #research{background:var(--h-mist)}
+.solhome .seo-faq{background:var(--h-paper)}
+.solhome .go{color:var(--accent-ink)}
+
+/* 访客分流：已是线条列表，只去悬停底色 */
+.solhome .h-who-img img{filter:none}
+
+/* 卡片 → 图 + 文 + 顶线（交付方式 / 加速营 / 研究） */
+.solhome .h-dc,.solhome .h-way,.solhome .h-rc{border:0;border-radius:0;background:none;padding:0;box-shadow:none;transform:none!important}
+.solhome .h-dc:hover,.solhome .h-way:hover,.solhome .h-rc:hover{box-shadow:none}
+.solhome .h-dc .h-cardimg,.solhome .h-way .h-cardimg{margin:0 0 14px;height:auto;aspect-ratio:3/2;border-radius:10px}
+.solhome .h-dlv,.solhome .h-ways,.solhome .h-res{gap:48px 36px}
+.solhome .h-dc .dc-num{font-size:13px;font-weight:600;letter-spacing:0;color:var(--h-mut)}
+.solhome .h-dc .dc-fit{border-top:1px solid var(--h-line)}
+.solhome .h-dc .dc-fit span{letter-spacing:0;font-weight:600}
+.solhome .h-way .wy-time{background:none;padding:0;border-radius:0;font-size:13px;font-weight:600;letter-spacing:0;color:var(--h-mut)}
+.solhome .h-ways-rail{display:none}
+.solhome .h-rc{padding-top:22px;border-top:1px solid var(--h-ink)}
+.solhome .h-rc .rc-theme{letter-spacing:0;font-weight:600;color:var(--h-mut);font-size:13px}
+.solhome .h-rc .rc-meta{border-top:0;padding-top:0}
+.solhome .h-cases-more.light a,.solhome .h-cases-more a{color:var(--accent-ink)}
+
+/* 平台段：三个数字 → 大数字 + 灰说明，顶线 */
+.solhome .h-prod{gap:0 40px;border-top:1px solid var(--h-ink)}
+.solhome .h-pc{border:0;border-radius:0;background:none;padding:24px 0 0}
+.solhome .h-pc .pc-k{color:var(--h-ink);font-weight:700;font-size:clamp(34px,3.8vw,48px)}
+.solhome .h-pc h4{color:var(--h-ink)}
+.solhome .h-pc p{color:var(--h-ink-2);font-size:15px;line-height:1.7}
+.solhome .h-prodnote{color:var(--h-mut)}
+
+/* 案例：旗舰 → 浅底大数字行；两个案例 → 顶线文字块 */
+.solhome .h-flag{margin-top:48px;border:0;border-top:1px solid var(--h-ink);border-radius:0;background:none;padding:26px 0 0;transform:none!important}
+.solhome .h-flag .fl-tag{letter-spacing:0;text-transform:none;font-weight:600;font-size:13px;color:var(--h-mut)}
+.solhome .h-flag h3{color:var(--h-ink);font-size:clamp(22px,2.6vw,30px)}
+.solhome .fl-stats{margin-top:30px;gap:24px}
+.solhome .fl-s b{color:var(--h-ink);font-weight:700;font-size:clamp(22px,2.4vw,30px)}
+.solhome .fl-s span{color:var(--h-ink-2)}
+.solhome .h-flag .go,.solhome .h-cc .go{color:var(--accent-ink)}
+.solhome .h-cases.two{margin-top:56px;gap:36px}
+.solhome .h-cc{border:0;border-top:1px solid var(--h-line);border-radius:0;background:none;padding:24px 0 0;transform:none!important}
+.solhome .h-cc .cc-tag{color:var(--h-mut)}
+.solhome .h-cc .cc-tag b{color:var(--h-ink)}
+.solhome .h-cc .cc-live,.solhome .h-flag .cc-live{color:var(--h-mut)}
+.solhome .h-cc .cc-result{color:var(--h-ink)}
+.solhome .h-cc .cc-desc{color:var(--h-ink-2)}
+.solhome .h-cases-disc{color:var(--h-mut)}
+.solhome .h-cases-more{color:var(--h-ink-2)}
+
+/* 投资与资质：去卡片、去胶囊 */
+.solhome .h-cred-blab{letter-spacing:0;text-transform:none;font-size:19px;font-weight:700;color:var(--h-ink);margin-bottom:8px}
+.solhome .h-invest{gap:0 40px}
+.solhome .h-invest-card{border:0;border-top:1px solid var(--h-ink);border-radius:0;background:none;padding:22px 0 0;transform:none!important;box-shadow:none!important}
+.solhome .h-invest-meta{color:var(--h-mut);font-weight:500}
+.solhome .h-hcore{gap:0 40px}
+.solhome .h-hcore-card{border:0;border-top:1px solid var(--h-ink);border-radius:0;background:none;padding:22px 0 0;transform:none!important;box-shadow:none!important}
+.solhome .h-hcore-top{justify-content:flex-start;margin-bottom:12px}
+.solhome .h-hcore-tag{background:none;border:0;padding:0;border-radius:0;color:var(--h-mut);font-weight:600;letter-spacing:0}
+.solhome .h-hcore-logo{width:32px;height:32px;border-radius:6px}
+.solhome .h-hmore{margin-top:40px;gap:0 24px;border-top:1px solid var(--h-line)}
+.solhome .h-hmore-item{border:0;border-radius:0;background:none;padding:18px 0 0;transform:none!important}
+.solhome .h-hmore-logo{border:0;border-radius:6px}
+@media(max-width:880px){.solhome .h-hcore,.solhome .h-invest{gap:28px}}
+
+/* 首屏 kicker：去前导线，降为小灰字（与方案页面包屑同级） */
+.solhome .h-kicker{letter-spacing:0;font-weight:500;color:var(--h-mut)}
+.solhome .h-kicker::before{display:none}
+.solhome .h-pc h3{margin:6px 0 0;font-size:clamp(16px,1.8vw,19px);font-weight:700;letter-spacing:-.01em;line-height:1.3;color:var(--h-ink)}

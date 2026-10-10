@@ -69,7 +69,7 @@ export default function Page() {
           口径说明：报告里的数和问出来的数永远一致，因为二者来自同一套指标口径与同一个数据底座。
         </CaseNote>
       </CaseSection>
-      <CaseFit
+      <CaseFit slug="property-group-auto-operation-report"
         fit={[
           "在管项目多，项目、区域、总部三级都要看清现场在发生什么",
           "数据散在门禁、停车、能耗、工单十几个系统里，做一份报告要人逐个导数",

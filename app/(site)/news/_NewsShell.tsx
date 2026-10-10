@@ -11,7 +11,7 @@ const Arrow = ({ s = 16 }: { s?: number }) => (
   </svg>
 );
 
-// 新闻 → 产品/方案页回链(把新闻页获得的引用权重导回产品页,与 _ArticleShell 的 TRADE_LINKS 同思路)
+// 新闻 → 产品/方案页回链（把新闻页获得的引用权重导回产品页，与 _ArticleShell 的 TRADE_LINKS 同思路）
 const PRODUCT_LINKS: Record<string, { href: string; label: string; note: string }[]> = {
   "taiwan-delegation-exchange": [
     { href: "/products/fmclaw", label: "FMClaw 物业智能体", note: "座谈里讨论的 AI 物业管理平台本体" },
@@ -56,7 +56,7 @@ export default function NewsShell({
   const products = PRODUCT_LINKS[slug] || DEFAULT_PRODUCT_LINKS;
   const pageUrl = `${SITE_URL}/news/${n.slug}`;
 
-  // 结构化数据:NewsArticle + 面包屑(供搜索引擎与 AI 生成引擎解析/引用)
+  // 结构化数据：NewsArticle + 面包屑（供搜索引擎与 AI 生成引擎解析/引用）
   const newsLd = {
     "@context": "https://schema.org",
     "@type": "NewsArticle",
@@ -113,7 +113,7 @@ export default function NewsShell({
         </div>
       </section>
 
-      {/* 相关产品:新闻里提到的产品与方案的官方页面 */}
+      {/* 相关产品：新闻里提到的产品与方案的官方页面 */}
       <section className="nwd-prod">
         <div className="wrap">
           <span className="nwd-eyebrow">相关产品</span>
@@ -153,8 +153,8 @@ export default function NewsShell({
       {/* 文末 CTA */}
       <section className="nwd-cta">
         <div className="wrap">
-          <h2>想看这些东西在你现场跑起来?</h2>
-          <p>新闻里的每一个数字,都欢迎你带着真实业务来现场验证。</p>
+          <h2>想看这些东西在你现场跑起来？</h2>
+          <p>新闻里的每一个数字，都欢迎你带着真实业务来现场验证。</p>
           <div className="cta-row">
             <Link href="/workshop" className="btn btn-primary" style={{ padding: "16px 32px", fontSize: "16.5px" }}>
               预约 FMClaw™ 加速营 <Arrow />

@@ -69,7 +69,7 @@ export default function Page() {
           口径说明：600 多位保洁人员、4 家供应商为服务启动时（2020 年）的规模。该项目自 2020 年服务至今，随工厂扩张持续运行。
         </CaseNote>
       </CaseSection>
-      <CaseFit
+      <CaseFit slug="gigafactory-4-vendor-cleaning"
         fit={[
           "同一片区域由多家供应商分片承担，各家的作业习惯和验收口径都不一样",
           "面积大、服务人数多、员工体验敏感的大型工厂、总部园区与多楼宇自持物业",

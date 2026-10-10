@@ -37,7 +37,7 @@
 @media(max-width:560px){.avcs .cs-flow{grid-template-columns:1fr}}
 .avcs .cs-flow__step{position:relative;border:1px solid var(--av-line);border-radius:15px;background:var(--av-paper);
   padding:22px 20px 18px;transition:border-color .2s,box-shadow .2s,transform .2s}
-.avcs .cs-flow__step:hover{border-color:rgba(12,139,130,.32);box-shadow:0 14px 32px rgba(12,139,130,.1);transform:translateY(-3px)}
+.avcs .cs-flow__step:hover{border-color:rgba(12,139,130,.32);box-shadow:0 14px 32px rgba(11,23,20,0.06);transform:translateY(-3px)}
 .avcs .cs-flow__step.is-auto{background:linear-gradient(180deg,rgba(18,185,138,.07),var(--av-paper));border-color:rgba(18,185,138,.3)}
 .avcs .cs-flow__step .n{display:flex;align-items:center;gap:8px;font-size:12px;font-weight:800;letter-spacing:.08em;color:var(--av-faint)}
 .avcs .cs-flow__step .au{font-style:normal;font-size:10.5px;font-weight:800;letter-spacing:.1em;color:#fff;
@@ -76,17 +76,17 @@
 @media(max-width:860px){.avcs .cs-src{grid-template-columns:1fr}}
 .avcs .cs-src__card{display:flex;flex-direction:column;border:1px solid var(--av-line);border-radius:16px;background:var(--av-paper);
   padding:24px 24px 20px;transition:border-color .2s,box-shadow .2s,transform .2s}
-.avcs .cs-src__card:hover{border-color:rgba(12,139,130,.35);box-shadow:0 16px 36px rgba(12,139,130,.1);transform:translateY(-3px)}
-.avcs .cs-src__card .lb{font-size:11.5px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--av-green)}
+.avcs .cs-src__card:hover{border-color:rgba(12,139,130,.35);box-shadow:0 16px 36px rgba(11,23,20,0.06);transform:translateY(-3px)}
+.avcs .cs-src__card .lb{font-size:11.5px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--accent-ink)}
 .avcs .cs-src__card h3{margin:10px 0 0;font-size:16.5px;font-weight:800;letter-spacing:-.01em;line-height:1.4;color:var(--av-ink)}
 .avcs .cs-src__card p{margin:8px 0 0;font-size:13.5px;line-height:1.65;color:var(--av-mut);flex:1}
-.avcs .cs-src__card .go{margin-top:15px;display:inline-flex;align-items:center;gap:6px;font-size:13px;font-weight:600;color:var(--av-green)}
+.avcs .cs-src__card .go{margin-top:15px;display:inline-flex;align-items:center;gap:6px;font-size:13px;font-weight:600;color:var(--accent-ink)}
 .avcs .cs-src__card:hover .go .ar{transform:translateX(3px)}
 
 /* 浅底案例卡变体(avc-case 默认为暗场设计) */
 .avcs .avc-case.on-light{border-color:var(--av-line);background:var(--av-paper)}
-.avcs .avc-case.on-light:hover{border-color:rgba(12,139,130,.4);background:var(--av-paper);box-shadow:0 16px 36px rgba(12,139,130,.1)}
+.avcs .avc-case.on-light:hover{border-color:rgba(12,139,130,.4);background:var(--av-paper);box-shadow:0 16px 36px rgba(11,23,20,0.06)}
 .avcs .avc-case.on-light .tag{color:var(--av-mut)}
 .avcs .avc-case.on-light h3{color:var(--av-ink)}
 .avcs .avc-case.on-light p{color:var(--av-ink-2)}
-.avcs .avc-case.on-light .go{color:var(--av-green)}
+.avcs .avc-case.on-light .go{color:var(--accent-ink)}

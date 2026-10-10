@@ -3,12 +3,12 @@
 import { useEffect, useRef } from "react";
 
 /**
- * 首屏科技背景:漂浮数据节点 + 邻近连线 + 沿连线流动的数据脉冲。
- * 蓝绿 VI(blue #0070FF / green #12B98A)在浅纸底上克制呈现,读作「运营操作台 / 蓝图在亮起」。
- * 性能护栏(硬性):
- *  - rAF 驱动,单画布;DPR≤2;节点数按宽度自适应,移动端减半。
- *  - IntersectionObserver 离屏暂停;reduced-motion 降级为静态点阵(不动)。
- *  - 不对移动元素加 filter:blur(辉光交给 CSS hero-mesh)。
+ * 首屏科技背景：漂浮数据节点 + 邻近连线 + 沿连线流动的数据脉冲。
+ * 蓝绿 VI(blue #0070FF / green #12B98A)在浅纸底上克制呈现，读作「运营操作台 / 蓝图在亮起」。
+ * 性能护栏（硬性）:
+ *  - rAF 驱动，单画布；DPR≤2；节点数按宽度自适应，移动端减半。
+ *  - IntersectionObserver 离屏暂停；reduced-motion 降级为静态点阵（不动）。
+ *  - 不对移动元素加 filter:blur（辉光交给 CSS hero-mesh）。
  */
 export default function HeroBackdrop() {
   const ref = useRef<HTMLCanvasElement>(null);
@@ -32,7 +32,7 @@ export default function HeroBackdrop() {
     type Pulse = { a: number; b: number; t: number; speed: number };
     let pulses: Pulse[] = [];
 
-    // 伪随机(避免 Math.random 也行,但首屏只跑一次无妨)
+    // 伪随机（避免 Math.random 也行，但首屏只跑一次无妨）
     const rnd = (n: number) => (Math.sin(n * 12.9898 + 78.233) * 43758.5453) % 1;
 
     const build = () => {
@@ -43,7 +43,7 @@ export default function HeroBackdrop() {
       canvas.width = Math.floor(w * dpr);
       canvas.height = Math.floor(h * dpr);
       ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
-      // 密度:每 ~26k px² 一个节点,移动端更稀
+      // 密度：每 ~26k px² 一个节点，移动端更稀
       const base = w < 720 ? 30000 : 22000;
       const count = Math.min(64, Math.max(16, Math.round((w * h) / base)));
       nodes = [];
@@ -82,7 +82,7 @@ export default function HeroBackdrop() {
       if (!running) return;
       ctx.clearRect(0, 0, w, h);
 
-      // 移动节点(边缘回绕)
+      // 移动节点（边缘回绕）
       for (const n of nodes) {
         n.x += n.vx;
         n.y += n.vy;
@@ -92,7 +92,7 @@ export default function HeroBackdrop() {
         else if (n.y > h + 20) n.y = -20;
       }
 
-      // 连线(邻近)
+      // 连线（邻近）
       ctx.lineWidth = 1;
       for (let i = 0; i < nodes.length; i++) {
         const a = nodes[i];
@@ -112,7 +112,7 @@ export default function HeroBackdrop() {
         }
       }
 
-      // 周期性产生数据脉冲(沿一条邻近连线流动)
+      // 周期性产生数据脉冲（沿一条邻近连线流动）
       pulseClock++;
       if (pulses.length < 5 && pulseClock % 26 === 0) {
         const i = Math.floor(Math.abs(rnd(pulseClock)) * nodes.length) % nodes.length;

@@ -64,7 +64,7 @@ export default function Page() {
           口径说明：本页数字为该项目的部署与运行规模统计，不含结算周期类指标。
         </CaseNote>
       </CaseSection>
-      <CaseFit
+      <CaseFit slug="coworking-supplier-reconciliation"
         fit={[
           "同一套服务标准要在很多个分散站点执行，各城市、各供应商理解不一",
           "管理编制在收缩，而现场管理方式还是人盯人巡场",

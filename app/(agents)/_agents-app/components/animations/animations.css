@@ -398,8 +398,7 @@
   font-size: 15px;
   font-weight: 700;
   box-shadow: 
-    0 4px 20px rgba(0, 112, 255, 0.4),
-    0 0 40px rgba(0, 112, 255, 0.2);
+    0 4px 20px rgba(11,23,20,0.1),0 0 40px rgba(11,23,20,0.1);
   z-index: 10;
 }
 
@@ -575,7 +574,7 @@
 }
 
 .ops-task-item.active .task-status-dot {
-  background: #F59E0B;
+  background: #BE7A2E;
   animation: gentlePulse 2s ease-in-out infinite;
 }
 
@@ -596,7 +595,7 @@
 }
 
 .ops-task-item.active .task-time {
-  color: #F59E0B;
+  color: #BE7A2E;
   font-weight: 600;
 }
 
@@ -681,9 +680,9 @@
 }
 
 .quality-stage.active .stage-icon-box {
-  background: #8B5CF6;
+  background: #0C8B82;
   color: white;
-  box-shadow: 0 4px 16px rgba(139, 92, 246, 0.3);
+  box-shadow: 0 4px 16px rgba(11,23,20,0.1);
 }
 
 .quality-stage.active .stage-icon-box.ai {
@@ -709,7 +708,7 @@
 
 .quality-arrow.active {
   opacity: 1;
-  color: #8B5CF6;
+  color: #0C8B82;
 }
 
 .quality-stage.result .score-box {
@@ -721,7 +720,7 @@
 .quality-stage .score-num {
   font-size: 40px;
   font-weight: 700;
-  color: #8B5CF6;
+  color: #0C8B82;
 }
 
 .quality-stage .score-unit {
@@ -806,8 +805,8 @@
 
 .review-stat-card.highlight {
   background: white;
-  border-color: #F59E0B;
-  box-shadow: 0 4px 16px rgba(245, 158, 11, 0.15);
+  border-color: #BE7A2E;
+  box-shadow: 0 4px 16px rgba(190,122,46, 0.15);
 }
 
 .review-stat-card .stat-value {
@@ -817,7 +816,7 @@
 }
 
 .review-stat-card.highlight .stat-value {
-  color: #F59E0B;
+  color: #BE7A2E;
 }
 
 .review-stat-card .stat-label {
@@ -839,7 +838,7 @@
 }
 
 .review-stat-card .stat-trend.down {
-  color: #F59E0B;
+  color: #BE7A2E;
 }
 
 .review-chart-placeholder {

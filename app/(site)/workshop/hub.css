@@ -1,0 +1,36 @@
+/* 加速营总页（2026-10，基于 solutions/_tpl 模板；子页仍用 page.css + sub.css） */
+.wsh-modes{list-style:none;margin:0;padding:0;border-top:1px solid var(--s-ink)}
+.wsh-modes>li{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:56px;align-items:center;padding:48px 0;border-bottom:1px solid var(--s-line)}
+.wsh-img{display:block;border-radius:10px;overflow:hidden;background:var(--s-mist)}
+.wsh-img img{display:block;width:100%;aspect-ratio:3/2;object-fit:cover;transition:opacity .25s}
+.wsh-img:hover img{opacity:.9}
+.wsh-body h3{margin:0;font-size:clamp(24px,2.4vw,30px);font-weight:800;letter-spacing:-.02em;line-height:1.25;color:var(--s-ink)}
+.wsh-body .line{margin:12px 0 0;font-size:16px;line-height:1.8;color:var(--s-ink-2);max-width:40em}
+.wsh-body dl{margin:20px 0 18px;border-top:1px solid var(--s-line)}
+.wsh-body dl>div{display:grid;grid-template-columns:56px minmax(0,1fr);gap:16px;padding:12px 0;border-bottom:1px solid var(--s-line)}
+.wsh-body dt{font-size:14px;font-weight:600;color:var(--s-mut)}
+.wsh-body dd{margin:0;font-size:15px;line-height:1.7;color:var(--s-ink)}
+@media(max-width:860px){.wsh-modes>li{grid-template-columns:1fr;gap:22px;padding:36px 0}}
+
+.wsh-fee{margin-top:40px;padding-top:22px;border-top:1px solid var(--s-line)}
+.wsh-fee h3{margin:0;font-size:16px;font-weight:700;color:var(--s-ink)}
+.wsh-fee p{margin:6px 0 0;font-size:15px;line-height:1.75;color:var(--s-ink-2);max-width:40em}
+
+.wsh-reads{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:40px}
+.wsh-reads a{display:block;color:inherit}
+.wsh-reads img{display:block;width:100%;aspect-ratio:16/9;object-fit:cover;border-radius:10px;margin-bottom:16px;background:#e9eeec}
+.wsh-reads h3{margin:0;font-size:19px;font-weight:700;line-height:1.45;color:var(--s-ink)}
+.wsh-reads a:hover h3{text-decoration:underline;text-underline-offset:4px;text-decoration-thickness:1px}
+.wsh-reads p{margin:8px 0 10px;font-size:15px;line-height:1.7;color:var(--s-ink-2)}
+@media(max-width:700px){.wsh-reads{grid-template-columns:1fr}}
+
+/* 表单 */
+.spt .form{max-width:none}
+.spt .form-err{margin:-6px 0 14px;font-size:13.5px;color:#B42318}
+.spt .field input:focus,.spt .field textarea:focus,.spt .field select:focus{border-color:var(--s-ink);box-shadow:none}
+.spt .field input::placeholder,.spt .field textarea::placeholder{color:#6B7570}
+.spt .btn[disabled]{opacity:.6;cursor:not-allowed}
+.spt .form-done{padding:28px 0;border-top:1px solid var(--s-ink)}
+.spt .form-done-mark{width:40px;height:40px;border-radius:50%;display:grid;place-items:center;color:#fff;background:var(--s-ink);margin-bottom:16px}
+.spt .form-done-h{margin:0 0 8px;font-size:22px;font-weight:800;color:var(--s-ink)}
+.spt .form-done-p{margin:0;font-size:15.5px;line-height:1.7;color:var(--s-ink-2)}

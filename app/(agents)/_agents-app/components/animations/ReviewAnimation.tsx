@@ -581,10 +581,10 @@ const DashboardCard = () => {
         {/* AI评分趋势 */}
         <div style={{
           flex: 1,
-          background: 'linear-gradient(135deg, #FFFBEB 0%, #FEF3C7 100%)',
+          background: 'linear-gradient(135deg, #FFFBEB 0%, #F7EBDD 100%)',
           borderRadius: '8px',
           padding: '10px',
-          border: '1px solid #FDE68A',
+          border: '1px solid #EBD0AE',
         }}>
           <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '6px' }}>
             <div style={{ fontSize: '8px', color: '#92400E', fontWeight: 600 }}>⭐ AI服务评分</div>
@@ -595,7 +595,7 @@ const DashboardCard = () => {
               <div style={{ fontSize: '20px', fontWeight: 800, color: '#D97706' }}>4.5</div>
               <div style={{ fontSize: '7px', color: '#92400E' }}>平均分 · 稳定</div>
             </div>
-            <MiniLineChart data={weeklyScoreData} color="#F59E0B" height={38} />
+            <MiniLineChart data={weeklyScoreData} color="#3451C7" height={38} />
           </div>
         </div>
         
@@ -701,7 +701,7 @@ const PayrollCard = () => {
             display: 'flex',
             alignItems: 'center',
             justifyContent: 'center',
-            boxShadow: '0 3px 10px rgba(0,112,255,0.25)',
+            boxShadow: '0 3px 10px rgba(11,23,20,0.1)',
           }}>
             <span style={{ fontSize: '14px' }}>💰</span>
           </div>
@@ -765,11 +765,11 @@ const PayrollCard = () => {
             }}>
               <div style={{ fontWeight: 500, color: '#1E293B' }}>{emp.name}</div>
               <div style={{
-                color: emp.role === '主管' ? '#7C3AED' : emp.role === '领班' ? '#0070FF' : '#64748B',
+                color: emp.role === '主管' ? '#096B73' : emp.role === '领班' ? '#0070FF' : '#64748B',
                 fontWeight: emp.role !== '员工' ? 500 : 400,
               }}>{emp.role}</div>
               <div>{emp.hours}h</div>
-              <div style={{ color: parseFloat(emp.kpi1) >= 94 ? '#10B981' : parseFloat(emp.kpi1) >= 90 ? '#F59E0B' : '#EF4444' }}>
+              <div style={{ color: parseFloat(emp.kpi1) >= 94 ? '#10B981' : parseFloat(emp.kpi1) >= 90 ? '#BE7A2E' : '#EF4444' }}>
                 {emp.kpi1}
               </div>
               <div style={{ color: parseFloat(emp.kpi2) >= 4.4 ? '#10B981' : '#64748B' }}>{emp.kpi2}</div>
@@ -873,12 +873,12 @@ const ReviewReportCard = () => {
           <div style={{
             width: '28px',
             height: '28px',
-            background: 'linear-gradient(135deg, #F59E0B 0%, #FBBF24 100%)',
+            background: 'linear-gradient(135deg, #BE7A2E 0%, #FBBF24 100%)',
             borderRadius: '8px',
             display: 'flex',
             alignItems: 'center',
             justifyContent: 'center',
-            boxShadow: '0 2px 8px rgba(245,158,11,0.2)',
+            boxShadow: '0 2px 8px rgba(190,122,46,0.2)',
           }}>
             <span style={{ fontSize: '12px' }}>📋</span>
           </div>
@@ -892,11 +892,11 @@ const ReviewReportCard = () => {
           alignItems: 'center',
           gap: '3px',
           fontSize: '8px',
-          color: '#F59E0B',
+          color: '#BE7A2E',
           background: '#FFFBEB',
           padding: '3px 8px',
           borderRadius: '10px',
-          border: '1px solid #FEF3C7',
+          border: '1px solid #F7EBDD',
           fontWeight: 500,
         }}>
           <span>✨</span>
@@ -906,7 +906,7 @@ const ReviewReportCard = () => {
       
       {/* 核心结论摘要 */}
       <div style={{
-        background: 'linear-gradient(135deg, #FEF3C7 0%, #FDE68A 100%)',
+        background: 'linear-gradient(135deg, #F7EBDD 0%, #EBD0AE 100%)',
         borderRadius: '10px',
         padding: '12px',
         border: '1px solid #FCD34D',
@@ -1011,7 +1011,7 @@ const ReviewReportCard = () => {
               width: '18px',
               height: '18px',
               borderRadius: '50%',
-              background: '#F59E0B',
+              background: '#BE7A2E',
               color: 'white',
               fontSize: '9px',
               fontWeight: 700,
@@ -1040,7 +1040,7 @@ const ReviewReportCard = () => {
       }}>
         <span>生成时间：2025-01-15 09:30</span>
         <span>AI物业经理</span>
-        <span style={{ color: '#F59E0B' }}>待领导审阅</span>
+        <span style={{ color: '#BE7A2E' }}>待领导审阅</span>
       </div>
     </div>
   );
@@ -1102,12 +1102,12 @@ const IconsSVG = {
 // ==========================================
 
 // VI v10.0 品牌色彩系统 - 六大核心渐变
-// gradient-blue-green: #0070FF → #12B98A (科技蓝→AI绿)
-// gradient-blue-gold: #0070FF → #F59E0B (科技蓝→黄金)
-// gradient-green-gold: #12B98A → #F59E0B (AI绿→黄金)
-// gradient-blue-purple: #0070FF → #9333EA (科技蓝→紫罗兰)
-// gradient-purple-pink: #9333EA → #EC4899 (紫罗兰→品红)
-// gradient-pink-gold: #EC4899 → #F59E0B (品红→黄金)
+// gradient-blue-green: #0070FF → #12B98A （科技蓝→AI绿）
+// gradient-blue-gold: #0070FF → #BE7A2E （科技蓝→黄金）
+// gradient-green-gold: #12B98A → #BE7A2E (AI绿→黄金)
+// gradient-blue-purple: #0070FF → #0C8B82 （科技蓝→紫罗兰）
+// gradient-purple-pink: #0C8B82 → #0058CC （紫罗兰→品红）
+// gradient-pink-gold: #0058CC → #BE7A2E （品红→黄金）
 
 // 图标配置
 // 射线触发对应关系：
@@ -1135,7 +1135,7 @@ const ICONS: IconConfig[] = [
     lineStart: 'left',
     // 蓝金渐变 (gradient-blue-gold)
     startColor: '#0070FF',
-    endColor: '#F59E0B',
+    endColor: '#BE7A2E',
   },
   {
     id: 'dashboard',
@@ -1145,7 +1145,7 @@ const ICONS: IconConfig[] = [
     lineStart: 'right',
     // 绿金渐变 (gradient-green-gold)
     startColor: '#12B98A',
-    endColor: '#F59E0B',
+    endColor: '#BE7A2E',
   },
   {
     id: 'api',
@@ -1154,8 +1154,8 @@ const ICONS: IconConfig[] = [
     side: 'bottom-right',
     lineStart: 'left',
     // 紫粉渐变 (gradient-purple-pink) - 静态展示，不参与轮播
-    startColor: '#9333EA',
-    endColor: '#EC4899',
+    startColor: '#0C8B82',
+    endColor: '#0058CC',
   },
 ];
 
@@ -1166,7 +1166,7 @@ type CardType = 'dashboard' | 'payroll' | 'report';
 const CARDS_CONFIG: { id: CardType; title: string; color: string }[] = [
   { id: 'dashboard', title: '数据大屏', color: '#10B981' },
   { id: 'payroll', title: '员工薪资', color: '#0070FF' },
-  { id: 'report', title: '复盘报告', color: '#F59E0B' },
+  { id: 'report', title: '复盘报告', color: '#3451C7' },
 ];
 
 // ==========================================
@@ -1447,20 +1447,20 @@ export default function ReviewAnimation({
 
   // 轮播动画（图标+卡片）
   // 重要规则：
-  // 1. 只有3个图标参与轮播：服务优化Agent(0) → 计薪系统(1) → 数据大屏(2) → 循环
-  // 2. API开放平台(3) 不参与轮播，只静态展示
+  // 1. 只有3个图标参与轮播：服务优化Agent(0) → 计薪系统（1） → 数据大屏（2） → 循环
+  // 2. API开放平台（3） 不参与轮播，只静态展示
   // 3. 射线触发对应关系：
   //    - 服务优化Agent 射线 → 复盘报告卡片滑到最前
   //    - 计薪系统 射线 → 员工薪资卡片滑到最前
   //    - 数据大屏 射线 → 数据大屏卡片滑到最前
-  // 4. 卡片顺序: dashboard(0) → payroll(1) → report(2)
-  //    初始显示: dashboard在最前
+  // 4. 卡片顺序：dashboard(0) → payroll(1) → report(2)
+  //    初始显示：dashboard在最前
   useEffect(() => {
     if (!isActive || entryPhase !== 'complete') return;
 
     const { iconDuration } = ANIMATION_CONFIG;
-    // 轮播图标：只有前3个参与（index 0, 1, 2）- API开放平台(3)不参与
-    const carouselIconIndices = [0, 1, 2];  // 服务优化Agent, 计薪系统, 数据大屏
+    // 轮播图标：只有前3个参与（index 0, 1, 2）- API开放平台（3）不参与
+    const carouselIconIndices = [0, 1, 2];  // 服务优化Agent，计薪系统，数据大屏
     const carouselLength = carouselIconIndices.length;  // 3
 
     const animate = (timestamp: number) => {
@@ -1483,12 +1483,12 @@ export default function ReviewAnimation({
       // 射线到达边框的时机是 lineDrawing 阶段结束（progress = 0.20）
       // 
       // 射线触发对应关系：
-      // - carouselIndex=0 (服务优化Agent) → 复盘报告卡片(2)滑到最前
-      // - carouselIndex=1 (计薪系统) → 员工薪资卡片(1)滑到最前
-      // - carouselIndex=2 (数据大屏) → 数据大屏卡片(0)滑到最前
+      // - carouselIndex=0 （服务优化Agent） → 复盘报告卡片（2）滑到最前
+      // - carouselIndex=1 （计薪系统） → 员工薪资卡片（1）滑到最前
+      // - carouselIndex=2 （数据大屏） → 数据大屏卡片（0）滑到最前
       //
       // carouselStep 表示当前最前面的卡片索引：0=dashboard, 1=payroll, 2=report
-      // 初始状态(入场后): carouselStep=0 (dashboard在最前)
+      // 初始状态（入场后）: carouselStep=0 (dashboard在最前)
       // 
       // 时序：
       // - 数据大屏射线触发时，dashboard已在最前，不需要切换
@@ -1504,9 +1504,9 @@ export default function ReviewAnimation({
       const lineReached = newIconProgress >= lineDrawingEnd;
       
       // 卡片目标状态：根据当前图标决定要显示哪张卡片
-      // carouselIndex=0(服务优化Agent) → targetCard=2(report)
-      // carouselIndex=1(计薪系统) → targetCard=1(payroll)  
-      // carouselIndex=2(数据大屏) → targetCard=0(dashboard)
+      // carouselIndex=0（服务优化Agent） → targetCard=2(report)
+      // carouselIndex=1（计薪系统） → targetCard=1(payroll)  
+      // carouselIndex=2（数据大屏） → targetCard=0(dashboard)
       const iconToCardMap = [2, 1, 0];  // 图标索引 → 卡片索引
       const targetCardIndex = iconToCardMap[carouselIndex];
       
@@ -1601,7 +1601,7 @@ export default function ReviewAnimation({
       {ICONS.map((iconConfig, index) => {
         const pos = getDynamicIconPosition(iconConfig.side);
         
-        // 轮播阶段：前3个图标参与(0,1,2)，API开放平台(3)不参与
+        // 轮播阶段：前3个图标参与（0,1,2），API开放平台（3）不参与
         // 入场阶段：只有服务优化Agent（index=0）激活
         let isCurrentIcon: boolean;
         if (entryPhase === 'complete') {
@@ -1733,7 +1733,7 @@ export default function ReviewAnimation({
           </defs>
 
           {ICONS.map((iconConfig, index) => {
-            // 轮播阶段：前3个图标参与(0,1,2)，API开放平台(3)不参与
+            // 轮播阶段：前3个图标参与（0,1,2），API开放平台（3）不参与
             // 入场阶段：只有服务优化Agent（index=0）显示射线
             const isCurrentIcon = entryPhase === 'complete' ? index === currentIconIndex : index === 0;
             
@@ -1825,7 +1825,7 @@ export default function ReviewAnimation({
             {/* VI品牌渐变色：blue-gold */}
             <linearGradient id="card-border-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
               <stop offset="0%" stopColor="#0070FF" />
-              <stop offset="100%" stopColor="#F59E0B" />
+              <stop offset="100%" stopColor="#BE7A2E" />
             </linearGradient>
           </defs>
           {(() => {
@@ -1869,7 +1869,7 @@ export default function ReviewAnimation({
               <ReviewReportCard key="report" />
             ];
             
-            const cardColors = ['#10B981', '#0070FF', '#F59E0B'];
+            const cardColors = ['#10B981', '#0070FF', '#BE7A2E'];
             const cardTitles = ['数据大屏', '员工薪资', '复盘报告'];
             
             // 计算主卡片居中位置
@@ -1880,11 +1880,11 @@ export default function ReviewAnimation({
             const easedSlide = easeOut(slideProgress);
             
             // 当前显示的卡片索引和目标卡片索引
-            const iconToCardMap = [2, 1, 0];  // 复盘Agent→报告, 计薪→薪资, 大屏→大屏
+            const iconToCardMap = [2, 1, 0];  // 复盘Agent→报告，计薪→薪资，大屏→大屏
             const targetCardIndex = slideProgress > 0 ? iconToCardMap[currentIconIndex] : carouselStep;
             
             // 计算每张卡片的位置
-            // position: -1=左预览, 0=居中, 1=右预览
+            // position: -1=左预览，0=居中，1=右预览
             const getCardPosition = (cardIndex: number): number => {
               const diff = cardIndex - carouselStep;
               // 处理循环：-2 → 1, 2 → -1

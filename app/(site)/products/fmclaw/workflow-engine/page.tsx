@@ -102,7 +102,7 @@ const PAINS = [
   {
     q: "每天的日报周报，还是人在各个系统里扒数",
     t: "重复的活最耗人",
-    d: "日报、周报、月度经营汇总——数据分散在多个系统里，每天人工汇总一遍，格式还不一致。",
+    d: "日报、周报、月度经营汇总，数据分散在多个系统里，每天人工汇总一遍，格式还不一致。",
   },
   {
     q: "演示的时候很惊艳，回到项目上没人用",
@@ -274,7 +274,7 @@ export default function Page() {
             ))}
           </div>
           <p className="fmo-verdict">
-            100+ 条，都在真实项目里跑通过——不是模板库，是跑过的路。
+            100+ 条，都在真实项目里跑通过：不是模板库，是跑过的路。
           </p>
         </div>
       </section>
@@ -346,7 +346,7 @@ export default function Page() {
           <div className="fmo-howgrid">
             <div className="fmo-howside">
               <p className="fmo-howcase">
-                审批、异常、高风险动作——AI 停在<b>待确认</b>，等人决定。
+                审批、异常、高风险动作：AI 停在<b>待确认</b>，等人决定。
               </p>
               <p className="fmo-verdict">
                 AI 做到待确认，人做最后一步。

@@ -10,13 +10,13 @@ const Arrow = ({ s = 15 }: { s?: number }) => (
 
 type Status = "idle" | "sending" | "ok" | "error";
 
-// 来源渠道与需求类型的选项。这两个字段是线索归因的最小必要集(2026-08-16 GEO 周报 6.2/6.3):
-// 没有它们,「哪篇稿带来哪条线索」只能靠猜。选项与运营线索登记表保持同一套词,
-// 改词要两边一起改,否则对不上账。
+// 来源渠道与需求类型的选项。这两个字段是线索归因的最小必要集（2026-08-16 GEO 周报 6.2/6.3）:
+// 没有它们，「哪篇稿带来哪条线索」只能靠猜。选项与运营线索登记表保持同一套词，
+// 改词要两边一起改，否则对不上账。
 const CHANNEL_OPTIONS = ["AI 推荐（豆包 / 文心 / 通义等）", "搜索引擎", "朋友或同行推荐", "展会 / 活动", "媒体 / 文章", "其他"];
 const INTENT_OPTIONS = ["预约演示 Demo", "了解客户案例", "获取报价", "一般咨询"];
 
-// CTA 链接用短码传意图(/contact?intent=demo),映射到中文选项预填
+// CTA 链接用短码传意图(/contact?intent=demo)，映射到中文选项预填
 const INTENT_MAP: Record<string, string> = {
   demo: "预约演示 Demo",
   case: "了解客户案例",
@@ -39,8 +39,8 @@ export default function ContactForm() {
   const [err, setErr] = useState("");
 
   // 读取 URL 参数预填：
-  // /contact?type=partner|partner-guide&source=partner-program(伙伴计划,既有)
-  // /contact?intent=demo|case|quote|ask&from=<来源页>(案例页/产品页 CTA,2026-08-16 起)
+  // /contact?type=partner|partner-guide&source=partner-program（伙伴计划，既有）
+  // /contact?intent=demo|case|quote|ask&from=<来源页>（案例页/产品页 CTA,2026-08-16 起）
   useEffect(() => {
     const p = new URLSearchParams(window.location.search);
     const t = p.get("type");
@@ -68,7 +68,7 @@ export default function ContactForm() {
     }
     const from = p.get("from");
     if (from) {
-      // from 是站内来源页标识(如 cases/restroom-quality),原样记进线索,反查用
+      // from 是站内来源页标识（如 cases/restroom-quality），原样记进线索，反查用
       setSource((s) => s || from);
     }
   }, []);

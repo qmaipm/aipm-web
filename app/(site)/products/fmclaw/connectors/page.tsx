@@ -17,40 +17,40 @@ const TECH_LD = techArticleLd({
   path: "/products/fmclaw/connectors",
   headline: "工具箱（ToolBox）：智能体所需软件能力的连接器",
   description:
-    "工具箱是 FMClaw 智能体所需软件能力的连接器。每个软件接口封装为一个工具（Tool），智能体在授权范围内调用——发邮件、打电话、建工单、调收费。",
+    "工具箱是 FMClaw 智能体所需软件能力的连接器。每个软件接口封装为一个工具（Tool），智能体在授权范围内调用：发邮件、打电话、建工单、调收费。",
 });
 
 const FAQ = [
   {
-    q: "工具箱（ToolBox）是什么?",
-    a: "工具箱是 FMClaw 智能体所需软件能力的连接器。每个软件接口封装为一个工具（Tool），智能体在授权范围内调用——发邮件、打电话、建工单、调收费。",
+    q: "工具箱（ToolBox）是什么？",
+    a: "工具箱是 FMClaw 智能体所需软件能力的连接器。每个软件接口封装为一个工具（Tool），智能体在授权范围内调用：发邮件、打电话、建工单、调收费。",
   },
   {
-    q: "工具箱和其他平台的插件、连接器是什么关系?",
-    a: "同一类能力。其他智能体平台叫插件、工具或连接器;区别在于工具箱预置的是物业管理的行业软件——收费、工单、ERP、BA、机器人。",
+    q: "工具箱和其他平台的插件、连接器是什么关系？",
+    a: "同一类能力。其他智能体平台叫插件、工具或连接器；区别在于工具箱预置的是物业管理的行业软件：收费、工单、ERP、BA、机器人。",
   },
   {
-    q: "工具箱和数据集市是什么关系?",
+    q: "工具箱和数据集市是什么关系？",
     a: "分工不同。统一口径的取数走数据集市，软件动作的执行走工具箱。一个管数据，一个管动作。",
   },
   {
-    q: "接入需要替换现有系统吗?",
+    q: "接入需要替换现有系统吗？",
     a: "不需要。API、MCP、CLI、数据库、文件、消息接口和设备协议，已有系统原样接入。",
   },
   {
-    q: "已经在用钉钉 AI 助理或飞书 aily，还需要 FMClaw 吗?",
-    a: "看业务。平台的 AI 助理擅长组织协作——总结消息、写文档、查日程;工单、收费、设备、对账这些物业与设施管理的专业环节，需要行业数据和行业工具，这是 FMClaw 补上的那一段。两者经平台官方预留的接口协同，不冲突。",
+    q: "已经在用钉钉 AI 助理或飞书 aily，还需要 FMClaw 吗？",
+    a: "看业务。平台的 AI 助理擅长组织协作：总结消息、写文档、查日程；工单、收费、设备、对账这些物业与设施管理的专业环节，需要行业数据和行业工具，这是 FMClaw 补上的那一段。两者经平台官方预留的接口协同，不冲突。",
   },
   {
-    q: "会不会和协同平台重复建设?",
-    a: "不会。沟通、审批、通知仍由平台负责，账号和组织架构沿用平台已有配置;FMClaw 只做专业业务那一段。停掉接入，平台照常运行。",
+    q: "会不会和协同平台重复建设？",
+    a: "不会。沟通、审批、通知仍由平台负责，账号和组织架构沿用平台已有配置；FMClaw 只做专业业务那一段。停掉接入，平台照常运行。",
   },
   {
-    q: "智能体会不会乱用工具?",
-    a: "不会。谁能用哪个工具，接入时就定好;查信息可以直接做，发出去、扣到钱、动到设备的动作，先经人批准;每一次调用都有记录，可复核。",
+    q: "智能体会不会乱用工具？",
+    a: "不会。谁能用哪个工具，接入时就定好；查信息可以直接做，发出去、扣到钱、动到设备的动作，先经人批准；每一次调用都有记录，可复核。",
   },
   {
-    q: "机器人和 IoT 设备也能接吗?",
+    q: "机器人和 IoT 设备也能接吗？",
     a: "能。清洁机器人、巡检机器人、无人机，以及 BA、能源仪表、视频安防，都以工具形式接入。工作流发出任务，设备执行并回传结果。",
   },
 ];
@@ -95,7 +95,7 @@ export default function Page() {
               <p className="fmc-kicker">L3 · ToolBox</p>
               <h1>智能体要用的软件，都接在<span className="grad">工具箱</span>里</h1>
               <p className="fmc-def">
-                发邮件、打电话、建工单、调收费——智能体的每个动作，通过<b>工具</b>完成。
+                发邮件、打电话、建工单、调收费：智能体的每个动作，通过<b>工具</b>完成。
               </p>
             </div>
             <div className="fmc-hero-art">
@@ -114,7 +114,7 @@ export default function Page() {
       <section className="fmc-sec">
         <div className="wrap">
           <p className="fmc-num">01</p>
-          <h2>工具箱是什么?</h2>
+          <h2>工具箱是什么？</h2>
           <div className="fmc-defbox">
             <p className="fmc-deflab">DEFINITION</p>
             <p>
@@ -123,7 +123,7 @@ export default function Page() {
             </p>
           </div>
           <p className="fmc-p" style={{ marginTop: 18 }}>
-            相当于其他智能体平台的插件或连接器——区别是，预置的是物业管理的行业软件。
+            相当于其他智能体平台的插件或连接器，区别是，预置的是物业管理的行业软件。
           </p>
           <p className="fmc-p">
             数据接口不在这里。统一口径的取数，在<Link className="fmc-ln" href="/products/fmclaw/ontology">数据集市</Link>;
@@ -184,7 +184,7 @@ export default function Page() {
           <h2>已经在用钉钉、飞书、企业微信？正好</h2>
           <p className="fmc-p" style={{ marginTop: 18 }}>
             这是被问得最多的一件事。答案是：不用二选一。
-            很多企业已经在用这些平台，FMClaw 与它们产生协同——不是替代，是互补，
+            很多企业已经在用这些平台，FMClaw 与它们产生协同：不是替代，是互补，
             客户因此多出更灵活的选择。
           </p>
           <div className="fmo-lrows" style={{ marginTop: 44 }}>
@@ -201,7 +201,7 @@ export default function Page() {
               <div className="fmo-lbody">
                 <h3>协同的位置，平台官方已经留好了</h3>
                 <p className="fmo-ldesc">
-                  钉钉的机器人消息与企业技能、飞书的第三方工具调用与开放 API、企业微信的智能机器人与回调接口——
+                  钉钉的机器人消息与企业技能、飞书的第三方工具调用与开放 API、企业微信的智能机器人与回调接口：
                   三家平台都在官方架构里预留了第三方接入的位置。FMClaw 从这些位置接进去：
                   平台继续负责组织协作，FMClaw 补上物业与设施管理的专业业务。
                 </p>
@@ -276,7 +276,7 @@ export default function Page() {
             </li>
             <li>
               <span className="ck" aria-hidden="true"><Check /></span>
-              <span><b>不重复平台已有能力</b><span className="d">沟通、审批、通知仍由平台负责;FMClaw 只补物业与设施管理的专业环节。</span></span>
+              <span><b>不重复平台已有能力</b><span className="d">沟通、审批、通知仍由平台负责；FMClaw 只补物业与设施管理的专业环节。</span></span>
             </li>
             <li>
               <span className="ck" aria-hidden="true"><Check /></span>
@@ -284,7 +284,7 @@ export default function Page() {
             </li>
             <li>
               <span className="ck" aria-hidden="true"><Check /></span>
-              <span><b>随时可以停</b><span className="d">接入是加一段能力;停掉接入，平台照常运行。</span></span>
+              <span><b>随时可以停</b><span className="d">接入是加一段能力；停掉接入，平台照常运行。</span></span>
             </li>
           </ul>
           <ScenarioCards items={[
@@ -316,18 +316,18 @@ export default function Page() {
             <div className="fmo-tiers">
               <div className="fmo-tier">
                 <span className="fmo-tier-tag">直接执行</span>
-                <p>查信息、算数据、写草稿——这类动作不产生外部影响，智能体<b>直接做</b>。</p>
+                <p>查信息、算数据、写草稿，这类动作不产生外部影响，智能体<b>直接做</b>。</p>
                 <span className="ex">例：查某户的缴费记录，汇总本月工单，起草一条群通知。</span>
               </div>
               <div className="fmo-tier human">
                 <span className="fmo-tier-tag">先经人批准</span>
-                <p>发出去、扣到钱、动到设备——这类动作影响到人和钱，<b>先经人批准再执行</b>。</p>
+                <p>发出去、扣到钱、动到设备：这类动作影响到人和钱，<b>先经人批准再执行</b>。</p>
                 <span className="ex">例：向业主群发通知，给某户退费，远程停一台设备。</span>
               </div>
               <div className="fmo-tier">
                 <span className="fmo-tier-tag">全程有记录</span>
                 <p>无论直接执行还是人批准后执行，<b>每一次调用都有记录</b>：谁发起、调了什么、结果如何。</p>
-                <span className="ex">出了问题，能查到那一步;要复核，翻记录就行。</span>
+                <span className="ex">出了问题，能查到那一步；要复核，翻记录就行。</span>
               </div>
             </div>
           </div>

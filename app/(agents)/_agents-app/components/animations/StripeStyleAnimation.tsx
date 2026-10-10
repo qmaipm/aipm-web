@@ -55,7 +55,7 @@ interface StripeStyleAnimationProps {
 // - columnCount: 4
 // - columnWidth: 270px (1080/4)
 // - animationAreaWidth: 540px (2列)
-// - guide4RelativeX: 270px (动画区域中点)
+// - guide4RelativeX: 270px （动画区域中点）
 //
 // ==========================================
 
@@ -220,7 +220,7 @@ function GradientLineSVG({
     opacity = 1 - fadeProgress * 0.2;
   }
   
-  // 闪光效果 (简化：不使用闪光)
+  // 闪光效果（简化：不使用闪光）
   const showShimmer = false;
   
   return (
@@ -604,8 +604,8 @@ function ModularAIContent({ activeIndex, accentColor }: { activeIndex: number; a
   const modules = [
     { id: 'design', name: '服务设计', color: '#0070FF', desc: '智能生成服务标准' },
     { id: 'ops', name: '运营管理', color: '#10B981', desc: '实时调度与协同' },
-    { id: 'quality', name: '质量评估', color: '#8B5CF6', desc: 'AI审图与评分' },
-    { id: 'review', name: '服务优化', color: '#F59E0B', desc: '数据驱动决策' },
+    { id: 'quality', name: '质量评估', color: '#0C8B82', desc: 'AI审图与评分' },
+    { id: 'review', name: '服务优化', color: '#BE7A2E', desc: '数据驱动决策' },
   ];
 
   return (

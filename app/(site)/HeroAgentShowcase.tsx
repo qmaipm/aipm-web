@@ -698,7 +698,7 @@ const PayrollCard = () => {
             display: 'flex',
             alignItems: 'center',
             justifyContent: 'center',
-            boxShadow: '0 3px 10px rgba(0,112,255,0.25)',
+            boxShadow: '0 3px 10px rgba(11,23,20,0.1)',
           }}>
             <span style={{ fontSize: '14px' }}>💰</span>
           </div>
@@ -1282,12 +1282,12 @@ const IconsSVG = {
 // ==========================================
 
 // VI v10.0 品牌色彩系统 - 六大核心渐变
-// gradient-blue-green: #0070FF → #12B98A (科技蓝→AI绿)
-// gradient-blue-gold: #0070FF → #F59E0B (科技蓝→黄金)
+// gradient-blue-green: #0070FF → #12B98A （科技蓝→AI绿）
+// gradient-blue-gold: #0070FF → #F59E0B （科技蓝→黄金）
 // gradient-green-gold: #12B98A → #F59E0B (AI绿→黄金)
-// gradient-blue-purple: #0070FF → #9333EA (科技蓝→紫罗兰)
-// gradient-purple-pink: #9333EA → #EC4899 (紫罗兰→品红)
-// gradient-pink-gold: #EC4899 → #F59E0B (品红→黄金)
+// gradient-blue-purple: #0070FF → #9333EA （科技蓝→紫罗兰）
+// gradient-purple-pink: #9333EA → #EC4899 （紫罗兰→品红）
+// gradient-pink-gold: #EC4899 → #F59E0B （品红→黄金）
 
 // 图标配置（首页适配：四个平台组成部分，均可点击进入对应产品页）
 // 射线触发对应关系：
@@ -1643,23 +1643,23 @@ function ShowcaseCanvas({
 
   // 轮播动画（图标+卡片）
   // 重要规则：
-  // 1. 4 个图标全部参与轮播：Agentic套件(0) → 数据本体(1) → IoT感知(2) → 机器人(3) → 循环
+  // 1. 4 个图标全部参与轮播：Agentic套件（0） → 数据本体（1） → IoT感知（2） → 机器人（3） → 循环
   // 2. 射线触发对应关系：
   //    - Agentic套件 射线 → 服务优化报告卡片滑到最前
   //    - 数据本体 射线 → 员工薪资卡片滑到最前
   //    - IoT感知 射线 → 数据大屏卡片滑到最前
   //    - 机器人 射线 → 机器人作业中心卡片滑到最前
-  // 3. 卡片顺序: dashboard(0) → payroll(1) → report(2) → robot(3)
-  //    初始显示: dashboard在最前
+  // 3. 卡片顺序：dashboard(0) → payroll(1) → report(2) → robot(3)
+  //    初始显示：dashboard在最前
   useEffect(() => {
     if (!motionOn || entryPhase !== 'complete') return;
 
     const { iconDuration } = ANIMATION_CONFIG;
     // 轮播图标：4 个全部参与。
-    // 顺序从机器人(3)开始：入场结束时 dashboard 卡片在最前，
+    // 顺序从机器人（3）开始：入场结束时 dashboard 卡片在最前，
     // 而机器人的「上一张卡片」恰好是 dashboard（IoT感知→dashboard），
     // 这样首次轮播不会出现卡片瞬间跳变。
-    const carouselIconIndices = [3, 0, 1, 2];  // 机器人, Agentic套件, 数据本体, IoT感知
+    const carouselIconIndices = [3, 0, 1, 2];  // 机器人，Agentic套件，数据本体，IoT感知
     const carouselLength = carouselIconIndices.length;  // 4
 
     const animate = (timestamp: number) => {
@@ -1683,13 +1683,13 @@ function ShowcaseCanvas({
       // 射线到达边框的时机是 lineDrawing 阶段结束（progress = 0.20）
       // 
       // 射线触发对应关系：
-      // - carouselIndex=0 (Agentic套件) → 服务优化报告卡片(2)滑到最前
-      // - carouselIndex=1 (数据本体) → 员工薪资卡片(1)滑到最前
-      // - carouselIndex=2 (IoT感知) → 数据大屏卡片(0)滑到最前
-      // - carouselIndex=3 (机器人) → 机器人作业中心卡片(3)滑到最前
+      // - carouselIndex=0 (Agentic套件) → 服务优化报告卡片（2）滑到最前
+      // - carouselIndex=1 （数据本体） → 员工薪资卡片（1）滑到最前
+      // - carouselIndex=2 (IoT感知) → 数据大屏卡片（0）滑到最前
+      // - carouselIndex=3 （机器人） → 机器人作业中心卡片（3）滑到最前
       //
       // carouselStep 表示当前最前面的卡片索引：0=dashboard, 1=payroll, 2=report, 3=robot
-      // 初始状态(入场后): carouselStep=0 (dashboard在最前)
+      // 初始状态（入场后）: carouselStep=0 (dashboard在最前)
       
       const lineDrawingEnd = ANIMATION_CONFIG.phases.lineDrawing.end;  // 0.20
       const slideDuration = CAROUSEL_CONFIG.slideDuration;  // 800ms
@@ -1700,9 +1700,9 @@ function ShowcaseCanvas({
       
       // 卡片目标状态：根据当前图标决定要显示哪张卡片（按图标索引映射）
       // icon 0(Agentic套件) → card 2(report)
-      // icon 1(数据本体) → card 1(payroll)
+      // icon 1（数据本体） → card 1(payroll)
       // icon 2(IoT感知) → card 0(dashboard)
-      // icon 3(机器人) → card 3(robot)
+      // icon 3（机器人） → card 3(robot)
       const iconToCardMap = [2, 1, 0, 3];  // 图标索引 → 卡片索引
       const targetCardIndex = iconToCardMap[newIconIndex];
       
@@ -2086,11 +2086,11 @@ function ShowcaseCanvas({
             const easedSlide = easeOut(slideProgress);
             
             // 当前显示的卡片索引和目标卡片索引
-            const iconToCardMap = [2, 1, 0, 3];  // Agentic套件→报告, 数据本体→薪资, IoT感知→大屏, 机器人→机器人作业
+            const iconToCardMap = [2, 1, 0, 3];  // Agentic套件→报告，数据本体→薪资，IoT感知→大屏，机器人→机器人作业
             const targetCardIndex = slideProgress > 0 ? iconToCardMap[currentIconIndex] : carouselStep;
             
             // 计算每张卡片的位置（4 卡循环）
-            // position: -2=左侧隐藏, -1=左预览, 0=居中, 1=右预览
+            // position: -2=左侧隐藏，-1=左预览，0=居中，1=右预览
             // 归一到 [-2, 1]：切换方向为「左预览→居中→右预览→滑出」，
             // 隐藏卡片停在 -2（透明），下一步淡入为左预览
             const normalizePosition = (diff: number): number => {

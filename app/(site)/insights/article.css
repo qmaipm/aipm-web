@@ -6,16 +6,15 @@
    全部规则收在 .isd 作用域内,不泄漏全站。
    ============================================================ */
 .isd{
-  --d-ink:#14201C; --d-ink-2:#46524D; --d-mut:#7C857F; --d-faint:#A7AFAB;
-  --d-line:#E6EAE8; --d-mist:#ECF3F1; --d-paper:#FFFFFF; --d-core:#0B1714;
+  --d-ink:#14201C; --d-ink-2:#46524D; --d-mut:#5F6A65; --d-faint:#6B7570;
+  --d-line:#E6EAE8; --d-mist:#F3F7F6; --d-paper:#FFFFFF; --d-core:#0B1714;
   --d-green:#12B98A; --d-grad:linear-gradient(115deg,#0070FF,#12B98A);
   --d-vi-line:rgba(12,139,130,.16);
   background:var(--d-paper); color:var(--d-ink);
 }
 .isd .wrap{max-width:1160px;margin:0 auto;padding:0 32px}
 @media(max-width:600px){.isd .wrap{padding:0 22px}}
-.isd .grad{background:var(--d-grad);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
-@supports not ((-webkit-background-clip:text) or (background-clip:text)){.isd .grad{color:var(--d-green);-webkit-text-fill-color:currentColor}}
+.isd .grad{color:var(--vi-blue)}
 
 /* 蓝图网格 */
 .isd-grid{position:absolute;inset:0;z-index:0;pointer-events:none;
@@ -32,8 +31,8 @@
 .isd-crumb a{color:var(--d-mut)}
 .isd-crumb a:hover{color:var(--d-ink)}
 .isd-eyebrow{display:inline-flex;align-items:center;gap:10px;margin-top:22px;font-size:12px;font-weight:600;
-  letter-spacing:.2em;text-transform:uppercase;color:var(--d-green)}
-.isd-eyebrow::before{content:"";width:22px;height:2px;border-radius:2px;background:var(--d-grad)}
+  letter-spacing:.2em;text-transform:uppercase;color:var(--accent-ink)}
+.isd-eyebrow::before{content:"";width:22px;height:2px;border-radius:2px;background:var(--blue)}
 .isd-h1{margin:18px 0 0;font-weight:800;font-size:clamp(32px,5vw,56px);line-height:1.1;letter-spacing:-.03em;color:var(--d-ink);max-width:20ch;text-wrap:balance}
 .isd-meta{margin-top:22px;font-size:13px;letter-spacing:.02em;color:var(--d-mut)}
 
@@ -48,7 +47,7 @@
 .isd .prose ul,.isd .prose ol{margin:0 0 20px;padding-left:22px}
 .isd .prose li{margin:8px 0}
 .isd .prose strong,.isd .prose b{color:var(--d-ink);font-weight:700}
-.isd .prose a{color:var(--d-green);text-decoration:underline;text-underline-offset:3px;text-decoration-color:var(--d-vi-line)}
+.isd .prose a{color:var(--accent-ink);text-decoration:underline;text-underline-offset:3px;text-decoration-color:var(--d-vi-line)}
 .isd .prose a:hover{text-decoration-color:var(--d-green)}
 
 /* 关键句 */
@@ -58,14 +57,12 @@
 /* 关键数字行 */
 .isd .prose .statrow{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:14px;margin:30px 0;padding:0;list-style:none;max-width:none}
 .isd .prose .statrow li{margin:0;padding:20px 18px;border:1px solid var(--d-line);border-radius:14px;background:var(--d-paper)}
-.isd .prose .statrow b{display:block;font-size:30px;line-height:1.1;letter-spacing:-.02em;
-  background:var(--d-grad);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
-@supports not ((-webkit-background-clip:text) or (background-clip:text)){.isd .prose .statrow b{color:var(--d-green);-webkit-text-fill-color:currentColor}}
+.isd .prose .statrow b{display:block;font-size:30px;line-height:1.1;letter-spacing:-.02em;color:var(--vi-blue)}
 .isd .prose .statrow span{display:block;margin-top:8px;font-size:13px;line-height:1.5;color:var(--d-ink-2)}
 
 /* 案例卡 */
 .isd .prose .case{margin:30px 0;border:1px solid var(--d-line);border-radius:18px;padding:30px 30px;background:var(--d-paper)}
-.isd .prose .case .case-k{font-size:12px;font-weight:700;letter-spacing:.06em;color:var(--d-green);margin-bottom:12px}
+.isd .prose .case .case-k{font-size:12px;font-weight:700;letter-spacing:.06em;color:var(--accent-ink);margin-bottom:12px}
 .isd .prose .case h3{margin:0 0 18px;font-size:21px;line-height:1.4;color:var(--d-ink)}
 .isd .prose .case .case-scale{margin:0 0 4px;font-size:14px;color:var(--d-mut);line-height:1.7}
 .isd .prose .case ul{margin:18px 0 0}
@@ -100,7 +97,7 @@
 /* ---------- 结论卡(结论先行,放正文首行) ---------- */
 .isd .prose .isd-conclusion{display:flex;gap:18px;align-items:flex-start;margin:0 0 44px;padding:24px 28px;
   background:var(--d-mist);border:1px solid var(--d-line);border-left:3px solid var(--d-green);border-radius:0 16px 16px 0}
-.isd .prose .isd-conclusion .k{flex:none;margin-top:6px;font-size:12px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--d-green)}
+.isd .prose .isd-conclusion .k{flex:none;margin-top:6px;font-size:12px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--accent-ink)}
 .isd .prose .isd-conclusion p{margin:0;font-size:clamp(18px,2vw,22px);line-height:1.5;color:var(--d-ink);font-weight:700;letter-spacing:-.015em}
 @media(max-width:560px){.isd .prose .isd-conclusion{flex-direction:column;gap:10px;padding:20px 22px}}
 
@@ -121,11 +118,11 @@
 @media(max-width:820px){.isd-cards{grid-template-columns:1fr}}
 .isd-card{position:relative;display:block;background:var(--d-paper);border:1px solid var(--d-line);border-radius:15px;
   padding:26px 24px 24px;overflow:hidden;transition:border-color .2s,box-shadow .2s,transform .2s}
-.isd-card:hover{border-color:rgba(12,139,130,.34);box-shadow:0 14px 32px rgba(12,139,130,.10);transform:translateY(-2px)}
-.isd-card .k{position:absolute;left:0;right:0;top:0;height:3px;background:var(--d-grad)}
-.isd-card .tag{font-size:11.5px;font-weight:700;letter-spacing:.05em;color:var(--d-green);margin-bottom:12px}
+.isd-card:hover{border-color:rgba(12,139,130,.34);box-shadow:0 14px 32px rgba(11,23,20,0.06);transform:translateY(-2px)}
+.isd-card .k{position:absolute;left:0;right:0;top:0;height:3px;background:var(--d-grad);display:none}
+.isd-card .tag{font-size:11.5px;font-weight:700;letter-spacing:.05em;color:var(--accent-ink);margin-bottom:12px}
 .isd-card h3{margin:0 0 9px;font-size:18px;line-height:1.4;font-weight:700;letter-spacing:-.01em;color:var(--d-ink)}
-.isd-card:hover h3{color:var(--d-green)}
+.isd-card:hover h3{color:var(--accent-ink)}
 .isd-card p{margin:0;font-size:14px;line-height:1.6;color:var(--d-ink-2)}
 
 /* ---------- 文末 CTA ---------- */
@@ -135,7 +132,7 @@
 @media(max-width:560px){.isd-cta h2{white-space:normal;font-size:clamp(26px,7vw,34px)}}
 .isd-cta p{margin:22px auto 0;font-size:clamp(16px,1.8vw,19px);line-height:1.6;color:var(--d-ink-2);max-width:42ch}
 .isd-cta .cta-row{margin-top:40px;display:flex;flex-direction:column;align-items:center;gap:18px}
-.isd-cta-alt{font-size:14px;color:var(--d-mut,#7C857F)}
+.isd-cta-alt{font-size:14px;color:var(--d-mut,#5F6A65)}
 .isd-cta-alt a{color:var(--d-ink,#14201C);text-decoration:underline;text-underline-offset:3px}
 .isd-cta-alt a:hover{color:var(--d-green,#12B98A)}
 
@@ -174,7 +171,7 @@
 .isd-delegated .isd-cta p{color:#d7e2dd;line-height:1.8}
 .isd-delegated .isd-cta-alt{color:#bdc9c3;line-height:1.8}
 .isd-delegated .isd-cta-alt a{color:#b0e6d9}
-.isd-delegated .isd-cta .btn-primary{color:#0b1714;font-weight:700;white-space:normal;min-height:48px}
+.isd-delegated .isd-cta .btn-primary{color:#fff;font-weight:700;white-space:normal;min-height:48px}
 .isd-delegated .isd-cta a:focus-visible{outline-color:#65e5c1}
 @media(max-width:700px){
   .isd-delegated .isd-hero{padding:124px 0 48px}

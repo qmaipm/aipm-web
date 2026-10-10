@@ -61,7 +61,7 @@ const ENTRY_ANIMATION_CONFIG = {
   // 颜色配置
   colors: {
     primary: { start: '#0070FF', end: '#12B98A' },
-    secondary: { start: '#9333EA', end: '#EC4899' },
+    secondary: { start: '#0C8B82', end: '#0058CC' },
   },
 };
 
@@ -534,7 +534,7 @@ function SpaceManagementScreen() {
           textAlign: 'center',
           fontSize: '14px',
           fontWeight: 600,
-          boxShadow: '0 4px 16px rgba(0,112,255,0.35)',
+          boxShadow: '0 4px 16px rgba(11,23,20,0.1)',
         }}>
           保存配置
         </div>
@@ -552,7 +552,7 @@ function ServiceConfigScreen() {
       
       {/* Hero 区域 */}
       <div style={{
-        background: 'linear-gradient(135deg, #9333EA 0%, #EC4899 100%)',
+        background: 'linear-gradient(135deg, #0C8B82 0%, #0058CC 100%)',
         padding: '12px 16px 16px',
         borderRadius: '0 0 20px 20px',
         position: 'relative',
@@ -610,7 +610,7 @@ function ServiceConfigScreen() {
               flex: 1,
               padding: '10px 6px',
               background: item.active ? 'white' : 'rgba(255,255,255,0.15)',
-              color: item.active ? '#9333EA' : 'rgba(255,255,255,0.9)',
+              color: item.active ? '#0C8B82' : 'rgba(255,255,255,0.9)',
               borderRadius: '10px',
               textAlign: 'center',
               boxShadow: item.active ? '0 4px 12px rgba(0,0,0,0.15)' : 'none',
@@ -641,10 +641,10 @@ function ServiceConfigScreen() {
             <div style={{ fontSize: '11px', fontWeight: 600, color: '#1e293b' }}>服务点位</div>
             <div style={{ 
               padding: '3px 8px', 
-              backgroundColor: '#faf5ff', 
+              backgroundColor: '#EEF7F6', 
               borderRadius: '6px',
               fontSize: '9px',
-              color: '#9333EA',
+              color: '#0C8B82',
               fontWeight: 500,
             }}>已选择</div>
           </div>
@@ -681,7 +681,7 @@ function ServiceConfigScreen() {
             </svg>
             <div style={{ 
               padding: '6px 10px', 
-              background: 'linear-gradient(135deg, #9333EA 0%, #A855F7 100%)',
+              background: 'linear-gradient(135deg, #0C8B82 0%, #2BA597 100%)',
               color: 'white', 
               borderRadius: '8px',
               fontSize: '10px',
@@ -702,12 +702,12 @@ function ServiceConfigScreen() {
               width: '28px',
               height: '28px',
               borderRadius: '8px',
-              backgroundColor: '#9333EA15',
+              backgroundColor: '#0C8B8215',
               display: 'flex',
               alignItems: 'center',
               justifyContent: 'center',
             }}>
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#9333EA" strokeWidth="2">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#0C8B82" strokeWidth="2">
                 <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/>
                 <circle cx="12" cy="10" r="3"/>
               </svg>
@@ -782,12 +782,12 @@ function ServiceConfigScreen() {
             <span style={{ fontSize: '11px', color: '#64748b' }}>服务频次</span>
             <div style={{ 
               padding: '5px 14px', 
-              background: 'linear-gradient(135deg, #9333EA 0%, #EC4899 100%)',
+              background: 'linear-gradient(135deg, #0C8B82 0%, #0058CC 100%)',
               borderRadius: '14px',
               fontSize: '12px',
               color: 'white',
               fontWeight: 700,
-              boxShadow: '0 2px 8px rgba(147,51,234,0.3)',
+              boxShadow: '0 2px 8px rgba(11,23,20,0.1)',
             }}>
               6次/天
             </div>
@@ -811,16 +811,16 @@ function ServiceConfigScreen() {
             justifyContent: 'space-between',
           }}>
             <span>服务时段</span>
-            <span style={{ fontSize: '10px', color: '#9333EA', fontWeight: 500 }}>共6次</span>
+            <span style={{ fontSize: '10px', color: '#0C8B82', fontWeight: 500 }}>共6次</span>
           </div>
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '8px' }}>
             {['08:00', '10:00', '12:00', '14:00', '16:00', '18:00'].map((time, i) => (
               <div key={i} style={{
                 padding: '10px 8px',
-                background: 'linear-gradient(135deg, #faf5ff 0%, #f3e8ff 100%)',
+                background: 'linear-gradient(135deg, #EEF7F6 0%, #E2F2EF 100%)',
                 borderRadius: '10px',
                 fontSize: '11px',
-                color: '#7c3aed',
+                color: '#096B73',
                 fontWeight: 600,
                 textAlign: 'center',
                 border: '1px solid #e9d5ff',
@@ -836,13 +836,13 @@ function ServiceConfigScreen() {
       <div style={{ padding: '12px 16px 8px', backgroundColor: 'white', borderTop: '1px solid #f1f5f9' }}>
         <div style={{
           padding: '14px',
-          background: 'linear-gradient(135deg, #9333EA 0%, #EC4899 100%)',
+          background: 'linear-gradient(135deg, #0C8B82 0%, #0058CC 100%)',
           color: 'white',
           borderRadius: '14px',
           textAlign: 'center',
           fontSize: '14px',
           fontWeight: 600,
-          boxShadow: '0 4px 16px rgba(147,51,234,0.35)',
+          boxShadow: '0 4px 16px rgba(11,23,20,0.1)',
         }}>
           确认配置
         </div>
@@ -915,7 +915,7 @@ function QualityInspectionScreen() {
       
       {/* 顶部状态栏 - 紫粉渐变 */}
       <div style={{
-        background: 'linear-gradient(135deg, #8B5CF6 0%, #EC4899 100%)',
+        background: 'linear-gradient(135deg, #0C8B82 0%, #0058CC 100%)',
         padding: '10px 14px 14px',
         borderRadius: '0 0 20px 20px',
         position: 'relative',
@@ -1017,7 +1017,7 @@ function QualityInspectionScreen() {
         }}>
           <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '8px' }}>
             <span style={{ fontSize: '10px', fontWeight: 600, color: '#1e293b' }}>质检完成情况</span>
-            <span style={{ fontSize: '8px', color: '#8B5CF6', fontWeight: 500 }}>本周数据</span>
+            <span style={{ fontSize: '8px', color: '#0C8B82', fontWeight: 500 }}>本周数据</span>
           </div>
           
           <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '8px' }}>
@@ -1052,13 +1052,13 @@ function QualityInspectionScreen() {
             {/* 合格率 - 环形图 */}
             <div style={{
               padding: '8px',
-              background: 'linear-gradient(135deg, #faf5ff 0%, #f3e8ff 100%)',
+              background: 'linear-gradient(135deg, #EEF7F6 0%, #E2F2EF 100%)',
               borderRadius: '10px',
               border: '1px solid #e9d5ff',
             }}>
               <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
                 <div style={{ position: 'relative' }}>
-                  <MiniRingChart value={89} max={100} color="#8B5CF6" size={36} />
+                  <MiniRingChart value={89} max={100} color="#0C8B82" size={36} />
                   <div style={{
                     position: 'absolute',
                     top: '50%',
@@ -1066,13 +1066,13 @@ function QualityInspectionScreen() {
                     transform: 'translate(-50%, -50%) rotate(90deg)',
                     fontSize: '8px',
                     fontWeight: 700,
-                    color: '#8B5CF6',
+                    color: '#0C8B82',
                   }}>89%</div>
                 </div>
                 <div>
                   <div style={{ fontSize: '8px', color: '#64748b' }}>合格率</div>
-                  <div style={{ fontSize: '12px', fontWeight: 700, color: '#7c3aed' }}>167/188</div>
-                  <div style={{ fontSize: '7px', color: '#8B5CF6' }}>↑ 2% vs 上周</div>
+                  <div style={{ fontSize: '12px', fontWeight: 700, color: '#096B73' }}>167/188</div>
+                  <div style={{ fontSize: '7px', color: '#0C8B82' }}>↑ 2% vs 上周</div>
                 </div>
               </div>
             </div>
@@ -1094,7 +1094,7 @@ function QualityInspectionScreen() {
           
           <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
             <div style={{ flex: 1 }}>
-              <MiniBarChart data={[4.2, 4.5, 4.3, 4.6, 4.7, 4.5, 4.8]} color="#8B5CF6" />
+              <MiniBarChart data={[4.2, 4.5, 4.3, 4.6, 4.7, 4.5, 4.8]} color="#0C8B82" />
               <div style={{ display: 'flex', justifyContent: 'space-between', marginTop: '4px' }}>
                 <span style={{ fontSize: '7px', color: '#94a3b8' }}>周一</span>
                 <span style={{ fontSize: '7px', color: '#94a3b8' }}>周日</span>
@@ -1102,7 +1102,7 @@ function QualityInspectionScreen() {
             </div>
             <div style={{ marginLeft: '12px', textAlign: 'right' }}>
               <div style={{ fontSize: '8px', color: '#64748b' }}>本月平均</div>
-              <div style={{ fontSize: '14px', fontWeight: 700, color: '#8B5CF6' }}>4.6</div>
+              <div style={{ fontSize: '14px', fontWeight: 700, color: '#0C8B82' }}>4.6</div>
               <div style={{ fontSize: '7px', color: '#10B981' }}>↑ 0.2 vs 上月</div>
             </div>
           </div>
@@ -1121,12 +1121,12 @@ function QualityInspectionScreen() {
                 width: '6px',
                 height: '6px',
                 borderRadius: '50%',
-                backgroundColor: '#F59E0B',
-                boxShadow: '0 0 6px #F59E0B',
+                backgroundColor: '#BE7A2E',
+                boxShadow: '0 0 6px #BE7A2E',
               }} />
               <span style={{ fontSize: '10px', fontWeight: 600, color: '#1e293b' }}>待处理问题</span>
             </div>
-            <span style={{ fontSize: '9px', color: '#F59E0B', fontWeight: 600 }}>3项</span>
+            <span style={{ fontSize: '9px', color: '#BE7A2E', fontWeight: 600 }}>3项</span>
           </div>
           
           {[
@@ -1139,9 +1139,9 @@ function QualityInspectionScreen() {
               justifyContent: 'space-between',
               padding: '6px 8px',
               marginBottom: i === 0 ? '6px' : 0,
-              backgroundColor: '#fef3c7',
+              backgroundColor: '#F7EBDD',
               borderRadius: '8px',
-              border: '1px solid #fde68a',
+              border: '1px solid #EBD0AE',
             }}>
               <div>
                 <div style={{ fontSize: '9px', fontWeight: 600, color: '#92400e' }}>{item.location}</div>
@@ -1160,13 +1160,13 @@ function QualityInspectionScreen() {
       <div style={{ padding: '8px 14px 6px', backgroundColor: 'white', borderTop: '1px solid #f1f5f9' }}>
         <div style={{
           padding: '10px',
-          background: 'linear-gradient(135deg, #8B5CF6 0%, #EC4899 100%)',
+          background: 'linear-gradient(135deg, #0C8B82 0%, #0058CC 100%)',
           color: 'white',
           borderRadius: '12px',
           textAlign: 'center',
           fontSize: '12px',
           fontWeight: 600,
-          boxShadow: '0 4px 16px rgba(139,92,246,0.35)',
+          boxShadow: '0 4px 16px rgba(11,23,20,0.1)',
           display: 'flex',
           alignItems: 'center',
           justifyContent: 'center',
@@ -1191,7 +1191,7 @@ function MultiModalInspectScreen() {
       
       {/* 顶部导航 - 金红渐变 */}
       <div style={{
-        background: 'linear-gradient(135deg, #F59E0B 0%, #EF4444 100%)',
+        background: 'linear-gradient(135deg, #BE7A2E 0%, #EF4444 100%)',
         padding: '8px 12px 10px',
         position: 'relative',
         overflow: 'hidden',
@@ -1252,7 +1252,7 @@ function MultiModalInspectScreen() {
               <span style={{ fontSize: '9px', fontWeight: 600, color: '#1e293b' }}>📷 质检拍照</span>
               <span style={{ fontSize: '8px', color: '#64748b' }}>洗手台区域</span>
             </div>
-            <span style={{ fontSize: '8px', color: '#F59E0B', fontWeight: 500 }}>1/3</span>
+            <span style={{ fontSize: '8px', color: '#BE7A2E', fontWeight: 500 }}>1/3</span>
           </div>
           
           {/* 照片 - 固定高度 */}
@@ -1280,9 +1280,9 @@ function MultiModalInspectScreen() {
               left: '25%',
               width: '50%',
               height: '55%',
-              border: '1.5px solid #F59E0B',
+              border: '1.5px solid #BE7A2E',
               borderRadius: '6px',
-              boxShadow: '0 0 8px rgba(245,158,11,0.5)',
+              boxShadow: '0 0 8px rgba(190,122,46,0.5)',
             }} />
             {/* 状态标签 */}
             <div style={{
@@ -1313,8 +1313,8 @@ function MultiModalInspectScreen() {
           borderRadius: '12px',
           padding: '10px',
           boxShadow: '0 2px 8px rgba(0,0,0,0.05)',
-          background: 'linear-gradient(135deg, #fffbeb 0%, #fef3c7 100%)',
-          border: '1px solid #fde68a',
+          background: 'linear-gradient(135deg, #fffbeb 0%, #F7EBDD 100%)',
+          border: '1px solid #EBD0AE',
         }}>
           <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
             <div>
@@ -1322,7 +1322,7 @@ function MultiModalInspectScreen() {
               <div style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
                 <div style={{ display: 'flex', gap: '2px' }}>
                   {[1, 2, 3, 4, 5].map((star) => (
-                    <svg key={star} width="14" height="14" viewBox="0 0 24 24" fill={star <= 4 ? '#F59E0B' : '#e2e8f0'}>
+                    <svg key={star} width="14" height="14" viewBox="0 0 24 24" fill={star <= 4 ? '#BE7A2E' : '#e2e8f0'}>
                       <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
                     </svg>
                   ))}
@@ -1395,9 +1395,9 @@ function MultiModalInspectScreen() {
               justifyContent: 'space-between',
               padding: '6px 8px',
               marginBottom: i < 3 ? '4px' : 0,
-              backgroundColor: item.ok ? '#f0fdf4' : '#fef3c7',
+              backgroundColor: item.ok ? '#f0fdf4' : '#F7EBDD',
               borderRadius: '6px',
-              border: `1px solid ${item.ok ? '#bbf7d0' : '#fde68a'}`,
+              border: `1px solid ${item.ok ? '#bbf7d0' : '#EBD0AE'}`,
             }}>
               <div style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
                 <div style={{
@@ -1427,13 +1427,13 @@ function MultiModalInspectScreen() {
       <div style={{ padding: '8px 12px 6px', backgroundColor: 'white', borderTop: '1px solid #f1f5f9' }}>
         <div style={{
           padding: '10px',
-          background: 'linear-gradient(135deg, #F59E0B 0%, #EF4444 100%)',
+          background: 'linear-gradient(135deg, #BE7A2E 0%, #EF4444 100%)',
           color: 'white',
           borderRadius: '10px',
           textAlign: 'center',
           fontSize: '11px',
           fontWeight: 600,
-          boxShadow: '0 4px 12px rgba(245,158,11,0.35)',
+          boxShadow: '0 4px 12px rgba(190,122,46,0.35)',
         }}>提交质检报告</div>
       </div>
       <SafeArea />
@@ -1587,7 +1587,7 @@ function DataOverviewScreen() {
                 alignItems: 'center',
                 justifyContent: 'center',
                 fontSize: '16px',
-                boxShadow: '0 2px 8px rgba(0,112,255,0.3)',
+                boxShadow: '0 2px 8px rgba(11,23,20,0.1)',
               }}>👤</div>
               <div>
                 <div style={{ fontSize: '10px', color: '#0284c7' }}>人员编制</div>
@@ -1620,7 +1620,7 @@ function DataOverviewScreen() {
                 alignItems: 'center',
                 justifyContent: 'center',
                 fontSize: '16px',
-                boxShadow: '0 2px 8px rgba(18,185,138,0.3)',
+                boxShadow: '0 2px 8px rgba(11,23,20,0.1)',
               }}>🤖</div>
               <div>
                 <div style={{ fontSize: '10px', color: '#15803d' }}>智能机器人</div>
@@ -1635,23 +1635,23 @@ function DataOverviewScreen() {
           {/* 预算 */}
           <div style={{
             padding: '14px',
-            background: 'linear-gradient(135deg, #faf5ff 0%, #f3e8ff 100%)',
+            background: 'linear-gradient(135deg, #EEF7F6 0%, #E2F2EF 100%)',
             borderRadius: '12px',
             border: '1px solid #e9d5ff',
           }}>
-            <div style={{ fontSize: '10px', color: '#7c3aed', marginBottom: '6px' }}>月度预算</div>
+            <div style={{ fontSize: '10px', color: '#096B73', marginBottom: '6px' }}>月度预算</div>
             <div style={{ display: 'flex', alignItems: 'baseline', justifyContent: 'space-between' }}>
               <div>
-                <span style={{ fontSize: '12px', color: '#9333EA' }}>¥</span>
-                <span style={{ fontSize: '24px', fontWeight: 700, color: '#7c3aed' }}>103,200</span>
+                <span style={{ fontSize: '12px', color: '#0C8B82' }}>¥</span>
+                <span style={{ fontSize: '24px', fontWeight: 700, color: '#096B73' }}>103,200</span>
                 <span style={{ fontSize: '10px', color: '#a78bfa', marginLeft: '4px' }}>/月</span>
               </div>
               <div style={{
                 padding: '4px 8px',
-                backgroundColor: '#9333EA15',
+                backgroundColor: '#0C8B8215',
                 borderRadius: '6px',
                 fontSize: '9px',
-                color: '#9333EA',
+                color: '#0C8B82',
                 fontWeight: 500,
               }}>节省 12%</div>
             </div>
@@ -1669,7 +1669,7 @@ function DataOverviewScreen() {
           textAlign: 'center',
           fontSize: '14px',
           fontWeight: 600,
-          boxShadow: '0 4px 16px rgba(0,112,255,0.35)',
+          boxShadow: '0 4px 16px rgba(11,23,20,0.1)',
         }}>
           生成方案报告
         </div>
@@ -1687,7 +1687,7 @@ function DesignResultScreen() {
       
       {/* Hero 区域 */}
       <div style={{
-        background: 'linear-gradient(135deg, #9333EA 0%, #EC4899 100%)',
+        background: 'linear-gradient(135deg, #0C8B82 0%, #0058CC 100%)',
         padding: '14px 16px 20px',
         borderRadius: '0 0 24px 24px',
         position: 'relative',
@@ -1813,7 +1813,7 @@ function DesignResultScreen() {
                 width: '20px',
                 height: '20px',
                 borderRadius: '6px',
-                background: 'linear-gradient(135deg, #faf5ff 0%, #f3e8ff 100%)',
+                background: 'linear-gradient(135deg, #EEF7F6 0%, #E2F2EF 100%)',
                 display: 'flex',
                 alignItems: 'center',
                 justifyContent: 'center',
@@ -1821,7 +1821,7 @@ function DesignResultScreen() {
               }}>🔌</div>
               <span style={{ fontSize: '11px', fontWeight: 600, color: '#1e293b' }}>数据接口</span>
             </div>
-            <span style={{ fontSize: '10px', color: '#9333EA', fontWeight: 500 }}>4个活跃</span>
+            <span style={{ fontSize: '10px', color: '#0C8B82', fontWeight: 500 }}>4个活跃</span>
           </div>
           
           {[
@@ -1845,7 +1845,7 @@ function DesignResultScreen() {
                   ? 'linear-gradient(135deg, #dbeafe 0%, #bfdbfe 100%)' 
                   : api.method === 'POST' 
                     ? 'linear-gradient(135deg, #dcfce7 0%, #bbf7d0 100%)' 
-                    : 'linear-gradient(135deg, #fef3c7 0%, #fde68a 100%)',
+                    : 'linear-gradient(135deg, #F7EBDD 0%, #EBD0AE 100%)',
                 color: api.method === 'GET' ? '#1d4ed8' : api.method === 'POST' ? '#15803d' : '#a16207',
                 borderRadius: '6px',
                 fontSize: '9px',
@@ -1868,7 +1868,7 @@ function DesignResultScreen() {
                     width: '6px',
                     height: '6px',
                     borderRadius: '50%',
-                    backgroundColor: api.status === 'active' ? '#12B98A' : '#F59E0B',
+                    backgroundColor: api.status === 'active' ? '#12B98A' : '#BE7A2E',
                     boxShadow: api.status === 'active' ? '0 0 4px #12B98A' : 'none',
                   }} />
                   <span style={{ fontSize: '8px', color: '#94a3b8' }}>次</span>
@@ -1951,13 +1951,13 @@ function DesignResultScreen() {
       <div style={{ padding: '12px 16px 8px', backgroundColor: 'white', borderTop: '1px solid #f1f5f9' }}>
         <div style={{
           padding: '14px',
-          background: 'linear-gradient(135deg, #9333EA 0%, #EC4899 100%)',
+          background: 'linear-gradient(135deg, #0C8B82 0%, #0058CC 100%)',
           color: 'white',
           borderRadius: '14px',
           textAlign: 'center',
           fontSize: '14px',
           fontWeight: 600,
-          boxShadow: '0 4px 16px rgba(147,51,234,0.35)',
+          boxShadow: '0 4px 16px rgba(11,23,20,0.1)',
         }}>
           查看API文档
         </div>
@@ -1975,7 +1975,7 @@ function DesignResultScreen() {
 //   顶部卡片 → 数据来源 → 汇聚箭头 → 质检任务 → 箭头 → AI审图 → 箭头 → 质检完成 → 分散箭头 → 三个收益方块
 // 
 // 【阶段二】数据流动画 (50-95%)：
-//   图片堆叠出现(质检任务节点) → 沿箭头移动到AI审图 → 变形为数据流 → 移动到质检完成 → 分裂成3个量化标签 → 飞入收益方块下方 → 一起闪光
+//   图片堆叠出现（质检任务节点） → 沿箭头移动到AI审图 → 变形为数据流 → 移动到质检完成 → 分裂成3个量化标签 → 飞入收益方块下方 → 一起闪光
 // 
 // 设计要点：
 // 1. 直角矩形风格（无圆角）
@@ -2062,14 +2062,14 @@ function ValueFlowChart({ progress }: { progress: number }) {
   // ═══════════════════════════════════════════════════════════════════════
   
   // 数据流当前阶段（用于决定显示哪种图标）
-  // 0=不显示, 1=图片堆叠, 2=数据流, 3=分裂中, 4=完成
+  // 0=不显示，1=图片堆叠，2=数据流，3=分裂中，4=完成
   const dataFlowStage = 
     progress < 0.50 ? 0 :
     progress < 0.64 ? 1 :
     progress < 0.74 ? 2 :
     progress < 0.78 ? 3 : 4;
   
-  // 数据流垂直位置 (0=节点1位置, 0.5=节点2位置, 1=节点3位置)
+  // 数据流垂直位置 (0=节点1位置，0.5=节点2位置，1=节点3位置)
   const dataFlowY = 
     progress < 0.56 ? 0 :
     progress < 0.66 ? photoMoveProgress * 0.5 :
@@ -2099,14 +2099,14 @@ function ValueFlowChart({ progress }: { progress: number }) {
   // 机器人图标
   const RobotIcon = () => (
     <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-      <rect x="4" y="8" width="16" height="12" rx="2" stroke="#8B5CF6" strokeWidth="1.5" fill="none"/>
-      <circle cx="12" cy="5" r="2" stroke="#8B5CF6" strokeWidth="1.5" fill="none"/>
-      <line x1="12" y1="7" x2="12" y2="8" stroke="#8B5CF6" strokeWidth="1.5"/>
-      <circle cx="9" cy="13" r="1.5" fill="#8B5CF6"/>
-      <circle cx="15" cy="13" r="1.5" fill="#8B5CF6"/>
-      <path d="M9 17H15" stroke="#8B5CF6" strokeWidth="1.5" strokeLinecap="round"/>
-      <line x1="2" y1="12" x2="4" y2="12" stroke="#8B5CF6" strokeWidth="1.5"/>
-      <line x1="20" y1="12" x2="22" y2="12" stroke="#8B5CF6" strokeWidth="1.5"/>
+      <rect x="4" y="8" width="16" height="12" rx="2" stroke="#0C8B82" strokeWidth="1.5" fill="none"/>
+      <circle cx="12" cy="5" r="2" stroke="#0C8B82" strokeWidth="1.5" fill="none"/>
+      <line x1="12" y1="7" x2="12" y2="8" stroke="#0C8B82" strokeWidth="1.5"/>
+      <circle cx="9" cy="13" r="1.5" fill="#0C8B82"/>
+      <circle cx="15" cy="13" r="1.5" fill="#0C8B82"/>
+      <path d="M9 17H15" stroke="#0C8B82" strokeWidth="1.5" strokeLinecap="round"/>
+      <line x1="2" y1="12" x2="4" y2="12" stroke="#0C8B82" strokeWidth="1.5"/>
+      <line x1="20" y1="12" x2="22" y2="12" stroke="#0C8B82" strokeWidth="1.5"/>
     </svg>
   );
 
@@ -2115,17 +2115,17 @@ function ValueFlowChart({ progress }: { progress: number }) {
   const PhotoStackIcon = ({ sparkle = 0 }: { sparkle?: number }) => (
     <svg width="36" height="36" viewBox="0 0 36 36" fill="none">
       {/* 第三张图片（最底层） */}
-      <rect x="10" y="10" width="18" height="14" rx="1" fill="#FEF3C7" stroke="#F59E0B" strokeWidth="1.5" transform="rotate(-5 18 18)"/>
+      <rect x="10" y="10" width="18" height="14" rx="1" fill="#F7EBDD" stroke="#BE7A2E" strokeWidth="1.5" transform="rotate(-5 18 18)"/>
       {/* 第二张图片（中层） */}
       <rect x="8" y="8" width="18" height="14" rx="1" fill="#FEF9C3" stroke="#EAB308" strokeWidth="1.5" transform="rotate(3 18 18)"/>
       {/* 第一张图片（最上层） */}
-      <rect x="6" y="6" width="18" height="14" rx="1" fill="white" stroke="#F59E0B" strokeWidth="1.5"/>
+      <rect x="6" y="6" width="18" height="14" rx="1" fill="white" stroke="#BE7A2E" strokeWidth="1.5"/>
       {/* 图片内的山水图案 */}
       <path d="M8 17l4-4 3 3 5-5 4 4v3H8v-1z" fill="#FCD34D" opacity="0.6"/>
       <circle cx="20" cy="10" r="2" fill="#FBBF24"/>
       {/* 闪光星星 */}
       <g opacity={sparkle} transform="translate(26, 2)">
-        <path d="M4 0l1 3 3 1-3 1-1 3-1-3-3-1 3-1z" fill="#F59E0B"/>
+        <path d="M4 0l1 3 3 1-3 1-1 3-1-3-3-1 3-1z" fill="#BE7A2E"/>
       </g>
       <g opacity={sparkle * 0.7} transform="translate(0, 24)">
         <path d="M3 0l0.7 2.1 2.3 0.7-2.3 0.7-0.7 2.1-0.7-2.1L0 2.8l2.3-0.7z" fill="#FBBF24"/>
@@ -2445,7 +2445,7 @@ function ValueFlowChart({ progress }: { progress: number }) {
           {[
             { icon: <WechatIcon />, label: '微信群', progress: source1Progress, bgColor: '#dcfce7', borderColor: '#86efac' },
             { icon: <CameraIcon />, label: '拍照', progress: source2Progress, bgColor: '#dbeafe', borderColor: '#93c5fd' },
-            { icon: <RobotIcon />, label: '机器人', progress: source3Progress, bgColor: '#ede9fe', borderColor: '#c4b5fd' },
+            { icon: <RobotIcon />, label: '机器人', progress: source3Progress, bgColor: '#ede9fe', borderColor: '#9FD3CC' },
           ].map((item, i) => (
             <div key={i} style={{
               display: 'flex',
@@ -2493,7 +2493,7 @@ function ValueFlowChart({ progress }: { progress: number }) {
               top: `${dataFlowY < 0.5 ? dataFlowY * 2 * 100 : 100}%`,
               transform: 'translate(-50%, -50%)',
               opacity: photoStackAppear,
-              filter: `drop-shadow(0 4px 12px rgba(245, 158, 11, 0.4))`,
+              filter: `drop-shadow(0 4px 12px rgba(190,122,46, 0.4))`,
               zIndex: 10,
             }}>
               <PhotoStackIcon sparkle={Math.sin(progress * Math.PI * 8) * 0.5 + 0.5} />
@@ -2530,14 +2530,14 @@ function ValueFlowChart({ progress }: { progress: number }) {
 
         {/* Step 9: 质检完成节点 - 直角矩形（不再有标签） */}
         <div style={{ position: 'relative' }}>
-          <div style={nodeStyle('#8B5CF6', completeNodeProgress, 'rgba(139,92,246,0.4)')}>
+          <div style={nodeStyle('#0C8B82', completeNodeProgress, 'rgba(12,139,130,0.4)')}>
             质检完成
           </div>
         </div>
 
         {/* Step 10: 向下分散三箭头 + 数据流分裂动画 */}
         <div style={{ margin: '3px 0', position: 'relative' }}>
-          <SpreadArrows progress={spreadArrowProgress} color="#8B5CF6" />
+          <SpreadArrows progress={spreadArrowProgress} color="#0C8B82" />
           
           {/* 数据流分裂效果 - 阶段3: 从中心分裂成3个 */}
           {dataFlowStage === 3 && (
@@ -2558,7 +2558,7 @@ function ValueFlowChart({ progress }: { progress: number }) {
                     zIndex: 10,
                   }}>
                     <svg width="12" height="12" viewBox="0 0 12 12">
-                      <circle cx="6" cy="6" r="4" fill={['#10B981', '#3B82F6', '#8B5CF6'][i]} opacity="0.8"/>
+                      <circle cx="6" cy="6" r="4" fill={['#10B981', '#3B82F6', '#0C8B82'][i]} opacity="0.8"/>
                     </svg>
                   </div>
                 );
@@ -2588,7 +2588,7 @@ function ValueFlowChart({ progress }: { progress: number }) {
             },
             { 
               title: 'AI客观评分', 
-              label: '评分: 4.2',
+              label: '评分：4.2',
               color: '#3B82F6', 
               bg: 'linear-gradient(135deg, #dbeafe 0%, #bfdbfe 100%)', 
               border: '#93c5fd',
@@ -2603,19 +2603,19 @@ function ValueFlowChart({ progress }: { progress: number }) {
             },
             { 
               title: '千万级复盘', 
-              label: '留存: 千万/月',
-              color: '#8B5CF6', 
-              bg: 'linear-gradient(135deg, #ede9fe 0%, #ddd6fe 100%)', 
-              border: '#c4b5fd',
+              label: '留存：千万/月',
+              color: '#0C8B82', 
+              bg: 'linear-gradient(135deg, #ede9fe 0%, #C6E6E1 100%)', 
+              border: '#9FD3CC',
               lightBg: '#f5f3ff',
               progress: result3Progress,
               labelProgress: label3FlyIn,
               icon: (
                 <svg width="12" height="12" viewBox="0 0 24 24" fill="none">
-                  <rect x="3" y="3" width="7" height="7" rx="1" stroke="#8B5CF6" strokeWidth="1.5" fill="#8B5CF6" fillOpacity="0.2"/>
-                  <rect x="14" y="3" width="7" height="7" rx="1" stroke="#8B5CF6" strokeWidth="1.5" fill="#8B5CF6" fillOpacity="0.2"/>
-                  <rect x="3" y="14" width="7" height="7" rx="1" stroke="#8B5CF6" strokeWidth="1.5" fill="#8B5CF6" fillOpacity="0.2"/>
-                  <rect x="14" y="14" width="7" height="7" rx="1" stroke="#8B5CF6" strokeWidth="1.5" fill="#8B5CF6" fillOpacity="0.2"/>
+                  <rect x="3" y="3" width="7" height="7" rx="1" stroke="#0C8B82" strokeWidth="1.5" fill="#0C8B82" fillOpacity="0.2"/>
+                  <rect x="14" y="3" width="7" height="7" rx="1" stroke="#0C8B82" strokeWidth="1.5" fill="#0C8B82" fillOpacity="0.2"/>
+                  <rect x="3" y="14" width="7" height="7" rx="1" stroke="#0C8B82" strokeWidth="1.5" fill="#0C8B82" fillOpacity="0.2"/>
+                  <rect x="14" y="14" width="7" height="7" rx="1" stroke="#0C8B82" strokeWidth="1.5" fill="#0C8B82" fillOpacity="0.2"/>
                 </svg>
               ),
             },
@@ -2772,12 +2772,12 @@ export default function QualityAnimation({
 
   // ========== 流程图进度状态 ==========
   const [flowChartProgress, setFlowChartProgress] = useState(0);
-  // 轮播阶段：0=质量评估首屏(保持), 1=多模态巡检, 2=流程图
+  // 轮播阶段：0=质量评估首屏（保持）, 1=多模态巡检，2=流程图
   const [carouselStage, setCarouselStage] = useState(0);
   // 射线动画状态
   const [lineDrawProgress, setLineDrawProgress] = useState(0);
   const [lineFadeProgress, setLineFadeProgress] = useState(0);
-  // 当前激活射线的图标索引：0=质量评估Agent, 2=多模态巡检, -1=无
+  // 当前激活射线的图标索引：0=质量评估Agent, 2=多模态巡检，-1=无
   const [activeLineIcon, setActiveLineIcon] = useState(0);
   // 脉冲状态（用于射线发光效果）
   const [isPulsing, setIsPulsing] = useState(false);
@@ -2790,8 +2790,8 @@ export default function QualityAnimation({
       name: '质量评估', 
       x: leftX, 
       y: 140, 
-      startColor: '#8B5CF6',
-      endColor: '#EC4899',
+      startColor: '#0C8B82',
+      endColor: '#0058CC',
       lineStart: 'bottom' as const,
       lineDirection: 'right' as const,
       screen: <QualityInspectionScreen />,
@@ -2803,8 +2803,8 @@ export default function QualityAnimation({
       name: '设备管理', 
       x: leftX, 
       y: 340, 
-      startColor: '#8B5CF6',
-      endColor: '#EC4899',
+      startColor: '#0C8B82',
+      endColor: '#0058CC',
       lineStart: 'bottom' as const,
       lineDirection: 'right' as const,
       screen: <SpaceManagementScreen />,
@@ -2816,7 +2816,7 @@ export default function QualityAnimation({
       name: '多模态巡检', 
       x: rightX, 
       y: 230, 
-      startColor: '#F59E0B',
+      startColor: '#BE7A2E',
       endColor: '#EF4444',
       lineStart: 'bottom' as const,
       lineDirection: 'left' as const,
@@ -2940,8 +2940,8 @@ export default function QualityAnimation({
 
   // ========== 轮播动画循环 ==========
   // 轮播顺序：
-  // 入场完成 → 质量评估首屏(射线保持+脉冲) → 多模态巡检(射线切换+脉冲) → 流程图(无射线) → 循环
-  // carouselStage: 0=质量评估首屏, 1=多模态巡检, 2=流程图
+  // 入场完成 → 质量评估首屏（射线保持+脉冲） → 多模态巡检（射线切换+脉冲） → 流程图（无射线） → 循环
+  // carouselStage: 0=质量评估首屏，1=多模态巡检，2=流程图
   useEffect(() => {
     if (!isActive || entryPhase !== 'complete') return;
     
@@ -3008,9 +3008,9 @@ export default function QualityAnimation({
         setSlideOffset(0);
       } else if (carouselStage === 1) {
         // 多模态巡检阶段 - 切换到inspect图标的射线 + 渐变脉冲
-        // 0-15%: 手机滑入 + inspect射线绘制
-        // 15-60%: 脉冲效果（渐变流动）
-        // 60-100%: 射线淡出
+        // 0-15%：手机滑入 + inspect射线绘制
+        // 15-60%：脉冲效果（渐变流动）
+        // 60-100%：射线淡出
         setActiveLineIcon(2); // 多模态巡检图标(index=2)
         if (stageProgress < 0.15) {
           setSlideOffset((1 - stageProgress / 0.15) * 100);

@@ -46,7 +46,7 @@ export default function Page() {
         heading="关于 AI 质检，你可能想问"
         items={[
           { q: "AI 质检会不会误判，员工不服怎么办？", a: "每一个评分背后都挂着照片证据，员工可以逐项申诉，人复核后可以改判。相比凭印象打分，同一把尺子加可回看的证据，争议反而更少。" },
-          { q: "AI 质检能替代人工巡检吗？", a: "不能完全替代，它补的是覆盖面。AI 把每一次服务都看一遍、按统一标准打分，人把精力收到异常上——这件事人工抽检做不到。" },
+          { q: "AI 质检能替代人工巡检吗？", a: "不能完全替代，它补的是覆盖面。AI 把每一次服务都看一遍、按统一标准打分，人把精力收到异常上：这件事人工抽检做不到。" },
           { q: "评分标准能按我们项目的要求定吗？", a: "可以。评分项与权重按项目的服务标准配置，不同业态（写字楼、园区、商业）可以用不同的标准，但同一项目内所有人同一把尺子。" },
         ]}
       />
@@ -54,7 +54,7 @@ export default function Page() {
       {/* 收口 CTA */}
       <section className="endcta">
         <div className="wrap">
-          <h2 className="reveal">想在你自己的数据上,跑通这个场景?</h2>
+          <h2 className="reveal">想在你自己的数据上，跑通这个场景？</h2>
           <p className="reveal">带上你的真实数据，来一次 FMClaw™ 加速营，当场把它跑通。</p>
           <div className="cta-row reveal"><Link href="/workshop" className="btn btn-primary">预约 FMClaw™ 加速营 →</Link><Link href="/agents" className="btn btn-ghost">物业管理智能体矩阵</Link></div>
         </div>

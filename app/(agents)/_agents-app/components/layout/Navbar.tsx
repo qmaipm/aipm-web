@@ -257,7 +257,7 @@ const coreAgents = [
     name: '质量评估Agent',
     desc: 'AI自动质检',
     icon: 'agentQuality' as keyof typeof Icons,
-    color: '#8B5CF6',
+    color: '#0C8B82',
     href: '#quality',
   },
   {
@@ -265,7 +265,7 @@ const coreAgents = [
     name: '服务优化Agent',
     desc: '智能分析洞察',
     icon: 'agentReview' as keyof typeof Icons,
-    color: '#F59E0B',
+    color: '#BE7A2E',
     href: '#review',
   },
 ];

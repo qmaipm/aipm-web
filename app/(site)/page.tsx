@@ -1,19 +1,21 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import "./home.css";
+import "./home-2610.css";
+import VisionStage from "./VisionStage";
 import MoatStats from "./MoatStats";
 import { getArticle } from "./insights/articles";
 import { pageMetadata } from "@/lib/pageMetadata";
 import { FMCLAW_URL } from "@/lib/nav";
 import SeoFaq from "@/components/SeoFaq";
 
-// 标题/描述与根布局一致;单独声明是为了首页也有指向自身的 canonical 与 og:url
+// 标题/描述与根布局一致；单独声明是为了首页也有指向自身的 canonical 与 og:url
 export const metadata = pageMetadata("/", {
   title: "启盟科技 · 物业与设施管理的 AI 操作系统｜FMClaw™",
   description:
-    "物业与设施管理,正在被 AI 重写。FMClaw™ 把 AI 接入日常运营。带着你的一个真实业务,在 FMClaw™ 加速营里用 1–3 天把它跑通。",
+    "物业与设施管理，正在被 AI 重写。FMClaw™ 把 AI 接入日常运营。带着你的一个真实业务，在 FMClaw™ 加速营里用 1–3 天把它跑通。",
   openGraph: {
-    // 品牌分享图:源文件 scripts/og/og-home.html,用 Playwright 1200×630 截图生成
+    // 品牌分享图：源文件 scripts/og/og-home.html，用 Playwright 1200×630 截图生成
     images: [{ url: "/og/og-home.png", width: 1200, height: 630, alt: "启盟科技 Stalliance × FMClaw™ — 让智能，走进物理世界" }],
   },
 });
@@ -29,8 +31,8 @@ const ArrowD = ({ s = 15 }: { s?: number }) => (
   </svg>
 );
 
-// 首页展示的三篇行业研究(全部为已发布的真实文章页):
-// 一篇定义型(物理 AI、GEO 高频查询词) + 一篇方法论 + 一篇 FDE,主题不重复
+// 首页展示的三篇行业研究（全部为已发布的真实文章页）:
+// 一篇定义型（物理 AI、GEO 高频查询词） + 一篇方法论 + 一篇 FDE，主题不重复
 const RESEARCH_SLUGS = ["what-is-physical-ai", "demo-vs-system", "what-is-fde"] as const;
 
 export default function Home() {
@@ -69,86 +71,50 @@ export default function Home() {
           <div className="wrap">
             <p className="h-clients-title reveal">服务过的企业与项目</p>
             <div className="h-clients-wall reveal">
-              <div className="cell"><img src="/images/clients/tesla.svg" alt="特斯拉 Tesla" loading="lazy" /></div>
-              <div className="cell"><img src="/images/clients/siemens.svg" alt="西门子 Siemens" loading="lazy" /></div>
-              <div className="cell"><img src="/images/clients/tencent.svg" alt="腾讯 Tencent" style={{ maxHeight: "36px" }} loading="lazy" /></div>
-              <div className="cell"><img src="/images/clients/sf.svg" alt="顺丰速运 SF Express" loading="lazy" /></div>
+              <div className="cell lg-tesla"><img src="/images/clients/tesla.svg" alt="特斯拉 Tesla" loading="lazy" /></div>
+              <div className="cell lg-siemens"><img src="/images/clients/siemens.svg" alt="西门子 Siemens" loading="lazy" /></div>
+              <div className="cell lg-tencent"><img src="/images/clients/tencent.svg" alt="腾讯 Tencent" loading="lazy" /></div>
+              <div className="cell lg-sf"><img src="/images/clients/sf.svg" alt="顺丰速运 SF Express" loading="lazy" /></div>
             </div>
           </div>
         </div>
       </section>
 
-      {/* ② MISSION · 暗场 + 三支柱 */}
-      <section className="h-mission mission-dark" id="mission">
-        <div className="wrap">
-          <p className="h-mission-en reveal">Make intelligence ambient in the physical world</p>
-          <p className="h-mission-zh reveal">让智能，走进物理世界</p>
-          <p className="h-mission-note reveal">
-            物理世界里的智能，不只有一种形态。AI 参与管理与决策，机器人承担标准化劳动，IoT 让空间持续可感知。
-            物业与设施管理无处不在，是三种智能最自然的交汇点，也是启盟科技选择的起点。
-          </p>
-          <div className="h-pillars">
-            <div className="h-pillar reveal">
-              <svg className="pl-ill" viewBox="0 0 120 56" aria-hidden="true">
-                <rect x="4" y="18" width="30" height="20" rx="5" className="pl-node" />
-                <rect x="45" y="8" width="30" height="20" rx="5" className="pl-node hi" />
-                <rect x="45" y="30" width="30" height="20" rx="5" className="pl-node" />
-                <rect x="86" y="18" width="30" height="20" rx="5" className="pl-node" />
-                <path d="M34 28 L45 18 M34 28 L45 40 M75 18 L86 28 M75 40 L86 28" className="pl-link" />
-                <circle cx="60" cy="18" r="2.4" className="pl-dot" />
-              </svg>
-              <div className="pl-n">01 管理</div>
-              <h3>AI 智能体</h3>
-              <p>巡检、工单、客服、品质、结算和运营分析，由 AI 参与执行与判断。</p>
-              <Link className="pl-go" href="/products/fmclaw">FMClaw™ 智能体平台 <ArrowR /></Link>
-            </div>
-            <div className="h-pillar reveal">
-              <svg className="pl-ill" viewBox="0 0 120 56" aria-hidden="true">
-                <rect x="30" y="16" width="26" height="18" rx="6" className="pl-node hi" />
-                <circle cx="38" cy="25" r="2.2" className="pl-dot" /><circle cx="48" cy="25" r="2.2" className="pl-dot" />
-                <rect x="34" y="36" width="18" height="10" rx="3" className="pl-node" />
-                <path d="M20 50 H100" className="pl-link" />
-                <path d="M74 46 v-14 m0 0 l-6 8 m6-8 l6 8 M74 32 a5 5 0 1 1 .1 0" className="pl-link man" />
-              </svg>
-              <div className="pl-n">02 劳动</div>
-              <h3>机器人与具身智能</h3>
-              <p>清洁、巡逻、安防和巡检，由机器人与现场人员协同完成。</p>
-              <Link className="pl-go" href="/products/robots">机器人与智能装备 <ArrowR /></Link>
-            </div>
-            <div className="h-pillar reveal">
-              <svg className="pl-ill" viewBox="0 0 120 56" aria-hidden="true">
-                <rect x="44" y="10" width="32" height="40" rx="4" className="pl-node" />
-                <path d="M50 20h20M50 28h20M50 36h20" className="pl-link" />
-                <circle cx="22" cy="16" r="3" className="pl-dot" /><circle cx="16" cy="38" r="3" className="pl-dot" />
-                <circle cx="100" cy="14" r="3" className="pl-dot" /><circle cx="104" cy="42" r="3" className="pl-dot" />
-                <path d="M25 18 L44 26 M19 37 L44 40 M97 16 L76 24 M101 41 L76 38" className="pl-link dash" />
-              </svg>
-              <div className="pl-n">03 感知</div>
-              <h3>IoT 与物理 AI</h3>
-              <p>设备、环境、能耗、人流和空间状态，被持续感知并转化为 AI 可以理解的数据。这张感知网络，也在为<Link href="/partners/embodied-ai-data">具身智能与物理 AI 提供训练数据</Link>。</p>
-              <Link className="pl-go" href="/products/iot">IoT 物理世界感知 <ArrowR /></Link>
-            </div>
-          </div>
-          <p className="h-mission-close reveal">物业与设施管理，不是智能的终点，而是智能进入物理世界的起点。</p>
-        </div>
-      </section>
+      {/* ② 愿景 · 全页唯一深色段：滚动驱动，物理世界被三层智能依次点亮 */}
+      <VisionStage
+        en="Make intelligence ambient in the physical world"
+        zh={<><span className="nb">让智能，</span><span className="nb">走进物理世界</span></>}
+        note={<>物理世界里的智能，不只有一种形态。AI 参与管理与决策，机器人承担标准化劳动，IoT 让空间持续可感知。物业与设施管理无处不在，是三种智能最自然的交汇点，也是启盟科技选择的起点。</>}
+        chapters={[
+          { no: "01 管理", title: "AI 智能体", body: <>巡检、工单、客服、品质、结算和运营分析，由 AI 参与执行与判断。</>, link: <Link href="/products/fmclaw">FMClaw™ 智能体平台 <ArrowR s={13} /></Link> },
+          { no: "02 劳动", title: "机器人与具身智能", body: <>清洁、巡逻、安防和巡检，由机器人与现场人员协同完成。</>, link: <Link href="/products/robots">机器人与智能装备 <ArrowR s={13} /></Link> },
+          { no: "03 感知", title: "IoT 与物理 AI", body: <>设备、环境、能耗、人流和空间状态，被持续感知并转化为 AI 可以理解的数据。这张感知网络，也在为<Link href="/partners/embodied-ai-data">具身智能与物理 AI 提供训练数据</Link>。</>, link: <Link href="/products/iot">IoT 物理世界感知 <ArrowR s={13} /></Link> },
+        ]}
+        close="物业与设施管理，不是智能的终点，而是智能进入物理世界的起点。"
+        film={
+          <Link className="h-mission-film" href="/company/master-plan">
+            <span className="h-mission-film__play" aria-hidden="true"><svg viewBox="0 0 24 24" width="18" height="18"><path d="M8 5.5v13l11-6.5z" fill="currentColor" /></svg></span>
+            <span><b>观看愿景片：启盟的秘密蓝图</b><em>5 分钟 · 让智能走进物理世界的六步</em></span>
+          </Link>
+        }
+      />
 
       {/* ③ 访客分流 · 4 卡 */}
       <section className="h-band" id="tri">
         <div className="wrap">
           <div className="h-sechead">
-            <span className="h-eyebrow reveal">对号入座</span>
-            <h2 className="h-h2 reveal">你来这里，想解决哪一件事？</h2>
+            <h2 className="h-h2 reveal"><span className="nb">你来这里，</span><span className="nb">想解决哪一件事？</span></h2>
           </div>
-          {/* 2026-09 改为左右分栏列表（去图、去卡）：受众名做大字，右侧一句话 + 链接 */}
+          {/* 2026-10 编辑式列表：左侧 3:2 场景小图 + 受众名 | 一句话 | 链接 */}
           <div className="h-who">
             {[
-              { who: "物业公司 · 设施管理方", h: "把 AI 接进现有运营", d: "减少重复管理工作，让巡检、工单、结算里的判断与流转交给智能体。", href: "/products/fmclaw", go: "FMClaw™ 平台" },
-              { who: "业主 · 资产管理方", h: "让物业服务透明、主动、可量化", d: "由 AI 接管的物业服务——指标写进合同，账目全程可追溯。", href: "/ai-service", go: "AI 物业服务" },
-              { who: "政府 · 地方国资", h: "推动本地 AI 产业落地", d: "从真实场景开始，让技术、团队和产业能力在本地持续运营。", href: "/cobuild", go: "人工智能产业共建" },
-              { who: "集成商 · 软件企业", h: "给现有项目和产品加上智能体", d: "在你的项目和产品上增加智能体能力，交付给你的客户。", href: "/partners", go: "生态伙伴计划" },
+              { who: "物业公司 · 设施管理方", h: "把 AI 接进现有运营", d: "减少重复管理工作，让巡检、工单、结算里的判断与流转交给智能体。", href: "/products/fmclaw", img: "/home/audience-pm.webp", alt: "大型综合体中庭，清洁机器人与一线人员在作业动线上工作", go: "FMClaw™ 平台" },
+              { who: "业主 · 资产管理方", h: "让物业服务透明、主动、可量化", d: "由 AI 接管的物业服务：指标写进合同，账目全程可追溯。", href: "/ai-service", img: "/home/audience-owner.webp", alt: "清晨航拍：机场、码头与物流园区等重资产基础设施", go: "AI 物业服务" },
+              { who: "政府 · 地方国资", h: "推动本地 AI 产业落地", d: "从真实场景开始，让技术、团队和产业能力在本地持续运营。", href: "/cobuild", img: "/home/audience-gov.webp", alt: "城市公共建筑与市民广场", go: "人工智能产业共建" },
+              { who: "集成商 · 软件企业", h: "给现有项目和产品加上智能体", d: "在你的项目和产品上增加智能体能力，交付给你的客户。", href: "/partners", img: "/home/audience-integrator.webp", alt: "设备机房走廊，工程师在配电与管线系统旁检修", go: "生态伙伴计划" },
             ].map((r) => (
               <Link href={r.href} className="h-who-row reveal" key={r.href}>
+                <span className="h-who-img"><img src={r.img} alt={r.alt} loading="lazy" width={900} height={600} /></span>
                 <span className="h-who-k">{r.who}</span>
                 <span className="h-who-b">
                   <h3>{r.h}</h3>
@@ -165,8 +131,7 @@ export default function Home() {
       <section className="h-band mist" id="delivery">
         <div className="wrap">
           <div className="h-sechead">
-            <span className="h-eyebrow reveal">公司级业务</span>
-            <h2 className="h-h2 reveal">同一套 AI 能力，按你的目标交付</h2>
+            <h2 className="h-h2 reveal"><span className="nb">同一套 AI 能力，</span><span className="nb">按你的目标交付</span></h2>
           </div>
           <div className="h-dlv">
             <Link href="/products/fmclaw" className="h-dc reveal">
@@ -180,7 +145,7 @@ export default function Home() {
             <Link href="/ai-service" className="h-dc reveal">
               <div className="h-cardimg"><img src="/home/deliver-managed.webp" alt="一位运营管理者通过多块屏幕同时管理多个物业项目" loading="lazy" width={900} height={600} /></div>
               <div className="dc-num">Ⅱ</div>
-              <h3>爱物管 AI 物业运营托管</h3>
+              <h3>爱物管 AI 物业服务</h3>
               <p>由爱物管作为履约主体，直接交付可量化、可追溯的物业服务结果。</p>
               <div className="dc-fit"><span>适合</span>园区 · 写字楼 · 商业综合体 · 政府办公</div>
               <span className="go">了解 AI 物业服务 <ArrowR s={14} /></span>
@@ -198,35 +163,34 @@ export default function Home() {
       </section>
 
       {/* ⑤ FMClaw™ 产品 · 暗场 */}
-      <section className="h-core" id="product">
-        <div className="h-grid dark" aria-hidden="true" />
+      <section className="h-band" id="product">
         <div className="wrap">
           <div className="h-sechead">
-            <span className="h-eyebrow on-dark reveal">FMClaw™ 平台</span>
-            <h2 className="h-h2 on-dark reveal">不是回答一个问题，而是把一件事接着干完</h2>
-            <p className="h-sub on-dark reveal">
+            <h2 className="h-h2  reveal"><span className="nb">不是回答一个问题，</span><span className="nb">而是把一件事接着干完</span></h2>
+            <p className="h-sub  reveal">
               一条生产工作流，不只有模型。它还需要<b>数据、工具、权限、审批、异常处理和执行反馈</b>。
               FMClaw™ 把这些环节放在同一个平台里。
             </p>
           </div>
           <div className="h-prod reveal">
-            <div className="h-pc"><div className="pc-k">100+</div><h4>行业工作流</h4>
+            <div className="h-pc"><div className="pc-k">100+</div><h3>行业工作流</h3>
               <p>覆盖物业与设施管理中的巡检、工单、客服、品质、结算和运营分析。</p></div>
-            <div className="h-pc"><div className="pc-k">4</div><h4>专业 Agent 协同</h4>
+            <div className="h-pc"><div className="pc-k">4</div><h3>专业 Agent 协同</h3>
               <p>从服务设计、运营执行、质量评估到持续优化，环节之间自动衔接。</p></div>
-            <div className="h-pc"><div className="pc-k">1</div><h4>模型、数据和工具统一调度</h4>
+            <div className="h-pc"><div className="pc-k">1</div><h3>模型、数据和工具统一调度</h3>
               <p>底层模型可以持续升级，上层工作流和业务体验保持稳定。</p></div>
           </div>
-          <div className="h-prodflow reveal" role="img" aria-label="FMClaw 工作流:异常发现、分析判断、人工审批、创建任务、执行跟踪、验收关闭">
-            {["异常发现", "分析判断", "人工审批", "创建任务", "执行跟踪", "验收关闭"].map((s, i, a) => (
-              <span key={s} className={`pf-step${s === "人工审批" ? " human" : ""}`}>
-                {s}{i < a.length - 1 && <svg className="pf-ar" width="13" height="13" viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4" fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round" /></svg>}
-              </span>
+          <ol className="h-flow reveal" aria-label="FMClaw 工作流：异常发现、分析判断、人工审批、创建任务、执行跟踪、验收关闭">
+            {["异常发现", "分析判断", "人工审批", "创建任务", "执行跟踪", "验收关闭"].map((s, i) => (
+              <li key={s} className={s === "人工审批" ? "human" : undefined} style={{ ["--i" as string]: i }}>
+                <span className="fl-dot" aria-hidden="true" />
+                <span className="fl-lab">{s}</span>
+              </li>
             ))}
-          </div>
+          </ol>
           <p className="h-prodnote reveal">支持多模型接入与场景路由。</p>
           <div className="h-ws-cta reveal">
-            <Link href="/products/fmclaw" className="btn btn-light">了解 FMClaw™ <ArrowR /></Link>
+            <Link href="/products/fmclaw" className="btn btn-primary">了解 FMClaw™ <ArrowR /></Link>
             <a href={FMCLAW_URL} className="btn btn-ghost">进入 FMClaw</a>
           </div>
         </div>
@@ -236,12 +200,12 @@ export default function Home() {
       <section className="h-band" id="workshop">
         <div className="wrap">
           <div className="h-sechead">
-            <span className="h-eyebrow reveal">FMClaw™ 加速营</span>
-            <h2 className="h-h2 reveal">从验证到生产，选择一种开始方式</h2>
+            <h2 className="h-h2 reveal"><span className="nb">从验证到生产，</span><span className="nb">选择一种开始方式</span></h2>
             <p className="h-sub reveal">
               时间投入不同，目标就不同。四种方式可以单独选择，也可以组成一条从验证到生产的完整路径。
             </p>
           </div>
+          <div className="h-ways-rail reveal" aria-hidden="true"><i /><i /><i /><i /></div>
           <div className="h-ways">
             <Link href="/workshop/demo-day" className="h-way reveal">
               <div className="h-cardimg"><img src="/home/way-demo-day.webp" alt="Demo Day 现场：用真实数据验证 AI 工作流" loading="lazy" width={900} height={600} /></div>
@@ -278,16 +242,14 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ⑦ 生产案例 · 暗场:旗舰 + 两个项目案例 */}
-      <section className="h-core" id="cases">
-        <div className="h-grid dark" aria-hidden="true" />
+      {/* ⑦ 生产案例 · 暗场：旗舰 + 两个项目案例 */}
+      <section className="h-band mist" id="cases">
         <div className="wrap">
           <div className="h-sechead">
-            <span className="h-eyebrow on-dark reveal">生产案例</span>
-            <h2 className="h-h2 on-dark reveal">不是演示，是已经在运行的项目</h2>
+            <h2 className="h-h2  reveal"><span className="nb">不是演示，</span><span className="nb">是已经在运行的项目</span></h2>
           </div>
 
-          {/* 旗舰:爱物管自营验证 */}
+          {/* 旗舰：爱物管自营验证 */}
           <Link href="/company/aipm-validation" className="h-flag reveal">
             <div className="fl-head">
               <span className="fl-tag">旗舰案例 · 爱物管自营验证</span>
@@ -301,29 +263,27 @@ export default function Home() {
               <div className="fl-s"><b>100 万+</b><span>AI 接管住户对话</span></div>
               <div className="fl-s"><b>约 1,300 万/年</b><span>节省人力成本（估算）</span></div>
             </div>
-            <span className="go on-dark">看爱物管自己的这笔账 <ArrowR s={14} /></span>
+            <span className="go ">看爱物管自己的这笔账 <ArrowR s={14} /></span>
           </Link>
 
           <div className="h-cases two">
             <Link href="/cases/campus-cctv-photo-ai-review" className="h-cc reveal">
-              <span className="cc-bar" style={{ background: "var(--h-blue)" }} />
               <div className="cc-head">
                 <span className="cc-tag">园区 · 华南 · <b>视觉感知</b></span>
                 <span className="cc-live"><i className="liv" />在线运行</span>
               </div>
               <h3 className="cc-result">监控预警识别完直接派单，冒烟 3 分钟到场</h3>
               <p className="cc-desc">预警图片接进平台，识别完直接开工单派人，不再只是一条预警。</p>
-              <span className="go on-dark">看这个项目 <ArrowR s={13} /></span>
+              <span className="go ">看这个项目 <ArrowR s={13} /></span>
             </Link>
             <Link href="/cases/30w-park-ai-property-manager-robot" className="h-cc reveal">
-              <span className="cc-bar" style={{ background: "var(--h-green)" }} />
               <div className="cc-head">
                 <span className="cc-tag">园区 · <b>30 万㎡</b></span>
                 <span className="cc-live"><i className="liv" />在线运行</span>
               </div>
               <h3 className="cc-result">一位 AI 物业经理 + 23 人 + 16 台机器人</h3>
               <p className="cc-desc">AI 做管理与调度，人和机器人做执行。</p>
-              <span className="go on-dark">看这个项目 <ArrowR s={13} /></span>
+              <span className="go ">看这个项目 <ArrowR s={13} /></span>
             </Link>
           </div>
 
@@ -334,30 +294,29 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ⑧ 为什么是启盟:四个证据 + 规模数据 + 投资资质 */}
+      {/* ⑧ 为什么是启盟：四个证据 + 规模数据 + 投资资质 */}
       <section className="h-band" id="why">
         <div className="wrap">
           <div className="h-sechead">
-            <span className="h-eyebrow reveal">为什么是启盟</span>
-            <h2 className="h-h2 reveal">模型可以买到，现场经验买不到</h2>
+            <h2 className="h-h2 reveal"><span className="nb">模型可以买到，</span><span className="nb">现场经验买不到</span></h2>
           </div>
           {/* 2026-09：删去「2017 / 2019 / 人 / 路」四卡，一句话带过，让下方四个大数字自己说话 */}
           <p className="h-sub reveal">
-            启盟科技 2017 年成立，2019 年自建物业公司「爱物管」——每一项能力先在自营项目里跑通，再对外交付。
+            启盟科技 2017 年成立，2019 年自建物业公司「爱物管」，每一项能力先在自营项目里跑通，再对外交付。
             <b>懂行业的人负责把问题问对，工程师负责把它做出来。</b>
           </p>
           <MoatStats />
-          {/* 数值沿用现有已确认数据,未新造;具体口径说明待业务方核验后补充(TODO 待业务方核验) */}
-          <p className="h-moat-note reveal">数据为截至发布时的内部统计,持续更新。</p>
+          {/* 数值沿用现有已确认数据，未新造；具体口径说明待业务方核验后补充（TODO 待业务方核验） */}
+          <p className="h-moat-note reveal">数据为截至发布时的内部统计，持续更新。</p>
         </div>
       </section>
 
-      {/* 投资与资质 · 信任背书(后置) */}
+      {/* 投资与资质 · 信任背书（后置） */}
       <section className="h-cred">
         <div className="wrap">
           <div className="h-cred-block reveal">
             <div className="h-cred-blab">投资</div>
-            <p className="h-cred-intro">坚持「产业落地 + AI 技术演进 + 资本协同」,连续获得一线 AI 投资机构的认可与投资。</p>
+            <p className="h-cred-intro">坚持「产业落地 + AI 技术演进 + 资本协同」，连续获得一线 AI 投资机构的认可与投资。</p>
             <div className="h-invest">
               <div className="h-invest-card">
                 <div className="h-invest-name">蓝驰创投 <span>Lanchi Ventures</span></div>
@@ -375,13 +334,10 @@ export default function Home() {
             <div className="h-hcore">
               <div className="h-hcore-card">
                 <div className="h-hcore-top">
-                  <span className="h-hcore-ic" aria-hidden="true">
-                    <svg viewBox="0 0 24 24" fill="none"><path d="M12 3l2.5 5.1 5.6.8-4 3.9.9 5.6-5-2.6-5 2.6.9-5.6-4-3.9 5.6-.8z" stroke="currentColor" strokeWidth="1.6" strokeLinejoin="round" /></svg>
-                  </span>
                   <span className="h-hcore-tag">广州市工业和信息化局认可</span>
                 </div>
                 <h3>广州市人工智能百强</h3>
-                <p>在广州全市人工智能企业中入选百强——官方对我们技术与落地能力的认定。</p>
+                <p>在广州全市人工智能企业中入选百强，是官方对我们技术与落地能力的认定。</p>
               </div>
               <div className="h-hcore-card">
                 <div className="h-hcore-top">
@@ -393,13 +349,10 @@ export default function Home() {
               </div>
               <div className="h-hcore-card">
                 <div className="h-hcore-top">
-                  <span className="h-hcore-ic" aria-hidden="true">
-                    <svg viewBox="0 0 24 24" fill="none"><path d="M4 10 12 4l8 6" stroke="currentColor" strokeWidth="1.6" strokeLinejoin="round" /><path d="M6 10v8M10 10v8M14 10v8M18 10v8" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" /><path d="M4 20h16" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" /></svg>
-                  </span>
                   <span className="h-hcore-tag">交付有资金保障</span>
                 </div>
                 <h3>首期 5 亿发展基金</h3>
-                <p>国有物业人工智能发展基金，定向投入物业管理 AI 与具身智能——你的项目背后，有长线资金托底。</p>
+                <p>国有物业人工智能发展基金，定向投入物业管理 AI 与具身智能。你的项目背后，有长线资金托底。</p>
               </div>
             </div>
             <div className="h-hmore">
@@ -433,8 +386,7 @@ export default function Home() {
       <section className="h-band mist" id="research">
         <div className="wrap">
           <div className="h-sechead">
-            <span className="h-eyebrow reveal">行业研究</span>
-            <h2 className="h-h2 reveal">物业与 AI 怎么真正结合，我们研究得透一点</h2>
+            <h2 className="h-h2 reveal"><span className="nb">物业与 AI 怎么真正结合，</span><span className="nb">我们研究得透一点</span></h2>
           </div>
           <div className="h-res">
             {research.map((a) => (
@@ -456,7 +408,7 @@ export default function Home() {
         items={[
           {
             q: "启盟科技和 FMClaw™ 是什么关系？",
-            a: "FMClaw™ 是启盟科技自研的智慧物业 AI 平台——面向物业与设施管理的 AI 智能体平台。启盟科技是公司主体，旗下还有自营物业公司爱物管——平台先在自己的项目上完整验证，再对外交付。",
+            a: "FMClaw™ 是启盟科技自研的智慧物业 AI 平台，面向物业与设施管理的 AI 智能体平台。启盟科技是公司主体，旗下还有自营物业公司爱物管，平台先在自己的项目上完整验证，再对外交付。",
           },
           {
             q: "物业公司引入 AI，从哪个业务开始最稳妙？",
@@ -464,7 +416,7 @@ export default function Home() {
           },
           {
             q: "我们是业主方或园区，不是物业公司，也能合作吗？",
-            a: "能。除了把平台授权给物业公司自用，还有两种方式面向业主方与政企园区：由爱物管端到端托管运营，或以产业基金共建的方式与地方国资合作。",
+            a: "能。除了把平台授权给物业公司自用，还有两种方式面向业主方与政企园区：由爱物管提供 AI 物业服务，或以产业基金共建的方式与地方国资合作。",
           },
           {
             q: "AI 物业不是概念吗，有实际跑起来的项目吗？",
@@ -480,7 +432,7 @@ export default function Home() {
       {/* ⑩ 最终 CTA → 加速营 */}
       <section className="endcta">
         <div className="wrap">
-          <h2 className="reveal">带一个真实问题来，让它在你的数据上跑起来</h2>
+          <h2 className="reveal"><span className="nb">带一个真实问题来，</span><span className="nb">让它在你的数据上跑起来</span></h2>
           <p className="reveal">
             想先看一眼，选 Demo Day；想亲手做出来，选 Bootcamp；想发动整个组织，办一场 AI 应用创新大赛；已经准备进入生产，就从 FDE 开始。
           </p>

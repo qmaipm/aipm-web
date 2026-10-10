@@ -1,0 +1,82 @@
+/* 政企共建（2026-10，基于 solutions/_tpl 模板；只放本页独有板块。全页仅「五年之后」一处深色） */
+.cbx .spt-hero__img img{aspect-ratio:4/3}
+.cbx-h3{margin:56px 0 18px;font-size:19px;font-weight:700;letter-spacing:-.01em;color:var(--s-ink)}
+.cbx-p{margin:-6px 0 26px;font-size:15px;line-height:1.75;color:var(--s-ink-2);max-width:42em}
+.cbx-gap{margin-top:56px}
+
+/* 01 政策：两列文献清单 */
+.cbx-conv{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:48px}
+.cbx-conv__h{margin:0;padding-bottom:12px;border-bottom:1px solid var(--s-ink);font-size:14px;font-weight:600;color:var(--s-mut)}
+.cbx-conv ul{list-style:none;margin:0;padding:0}
+.cbx-conv li{padding:22px 0;border-bottom:1px solid var(--s-line)}
+.cbx-conv h4,.cbx-dirs h4{margin:0;font-size:17px;font-weight:700;line-height:1.5;color:var(--s-ink)}
+.cbx-conv p,.cbx-dirs p{margin:6px 0 8px;font-size:15px;line-height:1.75;color:var(--s-ink-2)}
+.cbx-conv .src,.cbx-dirs .src{font-size:13px;color:var(--s-mut)}
+.cbx-sum{margin:52px 0 52px;font-size:clamp(20px,2.3vw,28px);font-weight:500;line-height:1.55;letter-spacing:-.015em;color:var(--s-ink-2)}
+.cbx-sum b{font-weight:700;color:var(--s-ink)}
+.cbx-sum .hl{color:var(--blue-ink)}
+@media(max-width:760px){.cbx-conv{grid-template-columns:1fr;gap:28px}}
+
+/* 02 案例档案 */
+.cbx-case{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:48px;align-items:start}
+.cbx-case img{display:block;width:100%;aspect-ratio:4/3;object-fit:cover;border-radius:10px}
+.cbx-case dl{margin:0;border-top:1px solid var(--s-ink)}
+.cbx-case dl>div{display:grid;grid-template-columns:72px minmax(0,1fr);gap:20px;padding:18px 0;border-bottom:1px solid var(--s-line)}
+.cbx-case dt{font-size:14px;font-weight:600;color:var(--s-mut)}
+.cbx-case dd{margin:0;font-size:15.5px;line-height:1.75;color:var(--s-ink)}
+@media(max-width:860px){.cbx-case{grid-template-columns:1fr;gap:28px}}
+.cbx-yield dd .side{display:block;margin-bottom:2px;font-size:12.5px;font-weight:600;color:var(--s-mut)}
+
+/* 03 协议三条 */
+.cbx-pact{margin:0;border-top:1px solid var(--s-ink)}
+.cbx-pact>div{display:grid;grid-template-columns:120px minmax(0,1fr);gap:24px;padding:20px 0;border-bottom:1px solid var(--s-line)}
+.cbx-pact dt{font-size:15px;font-weight:700;color:var(--s-ink)}
+.cbx-pact dd{margin:0;font-size:15px;line-height:1.75;color:var(--s-ink-2)}
+@media(max-width:600px){.cbx-pact>div{grid-template-columns:1fr;gap:6px}}
+.cbx .spt-step__no{font-size:14px}
+
+/* 04 三个政策方向 */
+.cbx-dirs{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:0 40px}
+.cbx-dirs li{padding-top:20px;border-top:1px solid var(--s-ink)}
+@media(max-width:860px){.cbx-dirs{grid-template-columns:1fr;gap:28px}}
+
+/* 05 共建目标：唯一深色段，实景压暗做底 */
+.cbx-goal{position:relative;overflow:hidden;padding:128px 0 96px;background:#0B1714;color:#fff}
+.cbx-goal__bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:.32}
+.cbx-goal::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(11,23,20,.55),rgba(11,23,20,.92))}
+.cbx-goal .wrap{position:relative;z-index:1}
+.cbx-goal .spt-h2{color:#fff;max-width:none}
+.cbx-goal .spt-sub{color:rgba(255,255,255,.72)}
+.cbx-goal__nums{margin:56px 0 0;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));border-top:1px solid rgba(255,255,255,.4)}
+.cbx-goal__nums>div{padding:26px 28px 0 0}
+.cbx-goal__nums dt{font-size:clamp(30px,3.6vw,46px);font-weight:700;letter-spacing:-.03em;font-variant-numeric:tabular-nums}
+.cbx-goal__nums dd{margin:10px 0 0;font-size:14.5px;line-height:1.7;color:rgba(255,255,255,.7)}
+.cbx-goal__nums dd b{display:block;font-size:16px;font-weight:600;color:#fff}
+.cbx-goal__bar{margin:48px 0 0;padding-top:22px;border-top:1px solid rgba(255,255,255,.18);font-size:16px;line-height:1.85;color:rgba(255,255,255,.78)}
+.cbx-goal__bar b{color:#fff;font-weight:700}
+.cbx-goal__cap{margin:28px 0 0;font-size:12.5px;color:rgba(255,255,255,.5)}
+.cbx-goal__more{margin:10px 0 0;font-size:14px;color:rgba(255,255,255,.7)}
+.cbx-goal__more a{color:#fff;font-weight:600;text-decoration:underline;text-underline-offset:4px;text-decoration-color:rgba(255,255,255,.4)}
+@media(max-width:760px){.cbx-goal{padding:88px 0 72px}.cbx-goal__nums{grid-template-columns:1fr}.cbx-goal__nums>div{padding:22px 0;border-bottom:1px solid rgba(255,255,255,.14)}}
+
+/* FAQ（FmFaq）：线条列表 */
+.cbx .fmc-faq{padding:112px 0;background:var(--s-mist)}
+.cbx .fmc-faq .wrap{max-width:1160px}
+.cbx .fmc-faq h2{margin:0 0 32px;font-size:clamp(26px,3.2vw,38px);font-weight:800;letter-spacing:-.03em;color:var(--s-ink)}
+.cbx .fmc-faq-list{border-top:1px solid var(--s-ink)}
+.cbx .fmc-faq-item{border-bottom:1px solid var(--s-line)}
+.cbx .fmc-faq-item summary{cursor:pointer;list-style:none;position:relative;padding:20px 36px 20px 0;font-size:16px;font-weight:700;color:var(--s-ink)}
+.cbx .fmc-faq-item summary::-webkit-details-marker{display:none}
+.cbx .fmc-faq-item summary::after{content:"+";position:absolute;right:4px;top:50%;transform:translateY(-50%);font-size:20px;font-weight:400;color:var(--s-mut)}
+.cbx .fmc-faq-item[open] summary::after{content:"−"}
+.cbx .fmc-faq-item p{margin:0 0 22px;font-size:15px;line-height:1.85;color:var(--s-ink-2);max-width:66ch}
+
+/* 表单 */
+.cbx .form-err{margin:-6px 0 14px;font-size:13.5px;color:#B42318}
+.cbx .field input:focus,.cbx .field textarea:focus,.cbx .field select:focus{border-color:var(--s-ink);box-shadow:none}
+.cbx .btn[disabled]{opacity:.6;cursor:not-allowed}
+.cbx .form-done{max-width:680px;padding:28px 0;border-top:1px solid var(--s-ink)}
+.cbx .form-done-mark{width:40px;height:40px;border-radius:50%;display:grid;place-items:center;color:#fff;background:var(--s-ink);margin-bottom:16px}
+.cbx .form-done-h{margin:0 0 8px;font-size:22px;font-weight:800;color:var(--s-ink)}
+.cbx .form-done-p{margin:0;font-size:15.5px;line-height:1.7;color:var(--s-ink-2)}
+.cbx .field input::placeholder,.cbx .field textarea::placeholder{color:#6B7570}

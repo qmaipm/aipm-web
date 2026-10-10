@@ -45,7 +45,7 @@ export function FmBreadcrumb({ trail, onDark }: { trail: Crumb[]; onDark?: boole
 
 export type QA = { q: string; a: string };
 
-/** 页面可见 FAQ + FAQPage JSON-LD(与可见内容完全一致) */
+/** 页面可见 FAQ + FAQPage JSON-LD（与可见内容完全一致） */
 export function FmFaq({ items, heading = "常见问题" }: { items: QA[]; heading?: string }) {
   const ld = {
     "@context": "https://schema.org",
@@ -120,7 +120,7 @@ export const Arrow = ({ s = 14 }: { s?: number }) => (
   </svg>
 );
 
-/* 链接卡图标（1.5-stroke,与站内插画语言一致） */
+/* 链接卡图标（1.5-stroke，与站内插画语言一致） */
 const ic = (d: ReactNode) => (
   <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">{d}</svg>
 );
@@ -161,7 +161,7 @@ export function LinkCards({ items }: { items: LinkCardItem[] }) {
 export type ScenarioCardItem = { href: string; lab: string; t: string; d: string; img: string; alt: string };
 
 /** 场景/案例插图链接卡（全站场景与案例互链一律用它，禁用纯图标卡）
- *  布局规则：1 张=横向大卡;2 张=一行两列;3 张=一行三列;4 张=两行两列——不允许出现孤儿卡片 */
+ *  布局规则：1 张=横向大卡；2 张=一行两列；3 张=一行三列；4 张=两行两列——不允许出现孤儿卡片 */
 export function ScenarioCards({ items }: { items: ScenarioCardItem[] }) {
   const n = items.length;
   return (
@@ -183,7 +183,7 @@ export function ScenarioCards({ items }: { items: ScenarioCardItem[] }) {
   );
 }
 
-/** 总览页 SoftwareApplication JSON-LD(字段按规格，不加虚构评分/价格) */
+/** 总览页 SoftwareApplication JSON-LD（字段按规格，不加虚构评分/价格） */
 export const FMCLAW_APP_LD = {
   "@context": "https://schema.org",
   "@type": "SoftwareApplication",

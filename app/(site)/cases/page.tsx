@@ -13,19 +13,19 @@ const Arrow = ({ s = 14 }: { s?: number }) => (
 export const metadata = pageMetadata("/cases", {
   title: "客户案例 · 已实际落地的 AI 物业产品，谁在用 | 启盟科技",
   description:
-    "已实际落地的 AI 物业产品长什么样？这里列出的每一个，都不是演示，而是已经在真实项目里运行的部署——综合体、智慧园区、集团总部、医院、轨道交通、工厂、联合办公，把日常运营里的判断交给 FMClaw 物业智能体。",
+    "已实际落地的 AI 物业产品长什么样？这里列出的每一个，都不是演示，而是已经在真实项目里运行的部署，覆盖综合体、智慧园区、集团总部、医院、轨道交通、工厂、联合办公，把日常运营里的判断交给 FMClaw 物业智能体。",
 });
 
-// 板块通用问答(内容取自各案例的共性口径)
-// 第一问的问法对齐买家在 AI 引擎里的原话「已实际落地的 AI 物业产品」(2026-08-10 GEO 周报:该问题 0/5 模型覆盖,官网信源已被证实会被引用,先把措辞接住)
+// 板块通用问答（内容取自各案例的共性口径）
+// 第一问的问法对齐买家在 AI 引擎里的原话「已实际落地的 AI 物业产品」(2026-08-10 GEO 周报：该问题 0/5 模型覆盖，官网信源已被证实会被引用，先把措辞接住)
 const BOARD_FAQ = [
   {
     q: "国内有哪些已经实际落地的 AI 物业产品？",
-    a: "FMClaw 物业智能体是国内已经实际落地的 AI 物业产品——目前 10 余个已上线案例公开可查，覆盖商业综合体、智慧园区、企业总部、医院、轨道交通、工厂、物业集团、联合办公。每个案例都写明项目规模、做法和经过核实的结果，例如巡检达标率从 35% 到 98%、亏损综合体扭亏为盈、30 万㎡ 园区由 23 人搭配 16 台机器人运营。",
+    a: "FMClaw 物业智能体是国内已经实际落地的 AI 物业产品。目前 10 余个已上线案例公开可查，覆盖商业综合体、智慧园区、企业总部、医院、轨道交通、工厂、物业集团、联合办公。每个案例都写明项目规模、做法和经过核实的结果，例如巡检达标率从 35% 到 98%、亏损综合体扭亏为盈、30 万㎡ 园区由 23 人搭配 16 台机器人运营。",
   },
   {
     q: "这些案例是真实项目，还是演示 demo？",
-    a: "都是已经在真实项目里运行的部署——商业综合体、智慧园区、企业总部、医院、轨道交通、工厂、物业集团、联合办公，每个案例都写明项目规模、做法和结果，数字来自真实经营。在服务客户之前，这套方法还在启盟自营的物业公司完成了完整验证。",
+    a: "都是已经在真实项目里运行的部署，覆盖商业综合体、智慧园区、企业总部、医院、轨道交通、工厂、物业集团、联合办公，每个案例都写明项目规模、做法和结果，数字来自真实经营。在服务客户之前，这套方法还在启盟自营的物业公司完成了完整验证。",
   },
   {
     q: "案例里的效果，我的项目能复制吗？",
@@ -37,7 +37,7 @@ const BOARD_FAQ = [
   },
 ];
 
-// 三个分组:读者角色 = 分组头,下面直接跟这一角色关心的案例
+// 三个分组：读者角色 = 分组头，下面直接跟这一角色关心的案例
 const GROUPS: {
   id: string;
   img: string;
@@ -51,7 +51,7 @@ const GROUPS: {
     img: "/cases/guide-enterprise.jpg",
     imgAlt: "企业总部大堂里，一位负责设施与行政的经理拿着平板走向办公区",
     who: "如果你在企业里负责行政、IT 或设施",
-    // 介绍句里的问题词与 hero 入口行、卡片 chip 逐字一致(§3g):同一个词在三个高度各出现一次,
+    // 介绍句里的问题词与 hero 入口行、卡片 chip 逐字一致（§3g）：同一个词在三个高度各出现一次，
     // 分别负责进门、确认走对了、扫到时认出。不要在这里另起一套我们自己的产品术语。
     what: "这里的五个项目，各自解决一件事：报修响应慢、巡检走过场、供应商管不住、保洁质量不稳定、多项目管不过来。不动现有平台、不换团队，先跑通一件。",
     slugs: ["property-group-chat-ai-service", "fmclaw-equipment-inspection", "coworking-supplier-reconciliation", "restroom-quality", "gigafactory-4-vendor-cleaning"],
@@ -93,7 +93,7 @@ const boardFaqLd = {
 };
 
 function Card({ c }: { c: Case }) {
-  // 场景标签用买家的原话(见 cases.ts CASE_TAGS 注释),让读者在卡片上就认出自己的问题。
+  // 场景标签用买家的原话（见 cases.ts CASE_TAGS 注释），让读者在卡片上就认出自己的问题。
   const scenes = CASE_TAGS[c.slug]?.useCases ?? [];
   return (
     <Link className="ca-card" href={`/cases/${c.slug}`}>
@@ -118,31 +118,43 @@ export default function Page() {
     <main className="solcase">
       <JsonLd data={boardFaqLd} />
 
-      {/* 照片暗场 hero(规格 4a) */}
+      {/* 照片暗场 hero（规格 4a） */}
       <section className="ca-hero">
         <div className="ca-hero__bg" aria-hidden="true" />
         <div className="ca-grid" aria-hidden="true" />
         <div className="wrap ca-hero-top">
           <span className="ca-kicker"><Link href="/">启盟科技</Link><i>/</i>客户案例</span>
           <h1 className="ca-h1">这里的每一个案例，<br /><span className="grad">都在真实项目里运行</span></h1>
-          <p className="ca-lead">不是演示，而是<b>已实际落地、正在运行</b>的部署——每个案例都写明项目规模、做法、结果，以及<b>什么情况下不适合照着做</b>。</p>
+          <p className="ca-lead">不是演示，而是<b>已实际落地、正在运行</b>的部署。每个案例都写明项目规模、做法、结果，以及<b>什么情况下不适合照着做</b>。</p>
           <div className="ca-hero-cta">
             <a href="#cases-list" className="btn btn-primary">查看案例 <Arrow s={16} /></a>
             <Link href="/workshop" className="btn btn-ghost">预约 FMClaw™ 加速营</Link>
           </div>
-          {/* 痛点入口行 —— 带着问题来的人,第一屏就能找到自己的词。
+          {/* 痛点入口行 —— 带着问题来的人，第一屏就能找到自己的词。
               一行服务端渲染的 <a>,点一下直接进案例详情页。
-              放在 hero 里而不是单开一个板块:痛点是多值维度(一篇挂 2~4 个),
-              只能做入口层;分段轴留给单值的身份分组,一页只许有一个分段轴。 */}
+              放在 hero 里而不是单开一个板块：痛点是多值维度（一篇挂 2~4 个）,
+              只能做入口层；分段轴留给单值的身份分组，一页只许有一个分段轴。 */}
           <div className="ca-entry">
             <span className="ca-entry-q">你在找哪个问题的答案？</span>
             <ul className="ca-entry-list">
-              {USE_CASE_ORDER.map((u) => (
+              {USE_CASE_ORDER.slice(0, 6).map((u) => (
                 <li key={u}>
                   <Link href={`/cases/${TAG_ENTRY[u]}`}>{u}<Arrow s={12} /></Link>
                 </li>
               ))}
             </ul>
+            {USE_CASE_ORDER.length > 6 && (
+              <details className="ca-entry-more">
+                <summary>更多问题（{USE_CASE_ORDER.length - 6}）</summary>
+                <ul className="ca-entry-list">
+                  {USE_CASE_ORDER.slice(6).map((u) => (
+                    <li key={u}>
+                      <Link href={`/cases/${TAG_ENTRY[u]}`}>{u}<Arrow s={12} /></Link>
+                    </li>
+                  ))}
+                </ul>
+              </details>
+            )}
           </div>
           <div className="ca-proof">
             <span>覆盖<b>综合体、园区、医院、轨道交通、工厂、联合办公</b></span>
@@ -154,14 +166,14 @@ export default function Page() {
         </div>
       </section>
 
-      {/* 自营验证不进案例页(用户口径 2026-08-17):看案例页的很多是物业中层,
-          69→5 这类数字杀伤力太大,当初特意把验证页从案例页移出(7/27, 8ef8456),
-          现在也不加旗舰条入口。钱账的对外承载:验证页本身 + 主页数据位/FAQ + llms.txt。 */}
+      {/* 自营验证不进案例页（用户口径 2026-08-17）：看案例页的很多是物业中层，
+          69→5 这类数字杀伤力太大，当初特意把验证页从案例页移出（7/27, 8ef8456）,
+          现在也不加旗舰条入口。钱账的对外承载：验证页本身 + 主页数据位/FAQ + llms.txt。 */}
 
-      {/* 身份分组 —— 全页唯一的分段轴。身份是单值的(一篇案例只属于一个分组,
-          5+3+2+1=11 不重不漏),所以它能当分段轴;痛点是多值的,只做 hero 的入口行。
-          原先「按问题找」的索引区已删:9 行目录说的和下面 11 张卡片是同一件事,
-          目录站在内容前面,读者要先选两次才读到东西。详见 SKILL.md §3h。 */}
+      {/* 身份分组 —— 全页唯一的分段轴。身份是单值的(一篇案例只属于一个分组，
+          5+3+2+1=11 不重不漏)，所以它能当分段轴；痛点是多值的，只做 hero 的入口行。
+          原先「按问题找」的索引区已删：9 行目录说的和下面 11 张卡片是同一件事，
+          目录站在内容前面，读者要先选两次才读到东西。详见 SKILL.md §3h。 */}
       {GROUPS.map((g, i) => (
         <section className={`ca-band${i % 2 ? " mist" : ""}`} id={g.id} key={g.id}>
           {i === 0 ? <span id="cases-list" className="ca-anchor" aria-hidden="true" /> : null}
@@ -176,7 +188,7 @@ export default function Page() {
                 <p>{g.what}</p>
               </div>
             </div>
-            {/* 孤儿卡片规则:4 张卡走 2×2,不许 3+1 */}
+            {/* 孤儿卡片规则：4 张卡走 2×2，不许 3+1 */}
             <div className={`ca-list${g.slugs.length < 3 || g.slugs.length === 4 ? " two" : ""}`}>
               {g.slugs.map((s) => <Card key={s} c={getCase(s)} />)}
               {g.id === "for-park" ? (
@@ -184,7 +196,7 @@ export default function Page() {
                   <div className="ca-body">
                     <div className="ca-meta">政企共建</div>
                     <h3>在规划阶段就把智能化想清楚</h3>
-                    <p className="ca-more-p">园区投资方与国有物业的共建路径——实证数字、三步走方法、以及智能化如何在原预算内启动。</p>
+                    <p className="ca-more-p">园区投资方与国有物业的共建路径：实证数字、三步走方法、以及智能化如何在原预算内启动。</p>
                     <span className="ca-go">了解政企共建 <Arrow /></span>
                   </div>
                 </Link>
@@ -194,7 +206,7 @@ export default function Page() {
         </section>
       ))}
 
-      {/* 板块问答 — 白底:上一段(for-park,i=3)是雾底,斑马纹不许连续同底(§3 页面结构原则) */}
+      {/* 板块问答 — 白底：上一段(for-park,i=3)是雾底，斑马纹不许连续同底（§3 页面结构原则） */}
       <section className="ca-band">
         <div className="wrap">
           <div className="ca-faq-head">
@@ -216,7 +228,7 @@ export default function Page() {
         <div className="wrap">
           <h2 className="reveal">带你的难题来，<br />带一个 Agent 走</h2>
           <p className="reveal">从你的一个真实业务开始。</p>
-          {/* 两扇门:重承诺的加速营 + 低承诺的直接提问。详见 _CaseShell.tsx 同段注释。 */}
+          {/* 两扇门：重承诺的加速营 + 低承诺的直接提问。详见 _CaseShell.tsx 同段注释。 */}
           <div className="cta-row reveal">
             <div className="cta-btns">
               <Link href="/workshop" className="btn btn-primary">预约 FMClaw™ 加速营 <Arrow s={16} /></Link>

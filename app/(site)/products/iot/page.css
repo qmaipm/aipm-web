@@ -6,8 +6,8 @@
    全站单一字族,靠尺度/字重/字距出性格。规则全收在 .iotx 作用域内。
    ============================================================ */
 .iotx{
-  --io-ink:#14201C; --io-ink-2:#46524D; --io-mut:#7C857F; --io-faint:#A7AFAB;
-  --io-line:#E6EAE8; --io-line-2:#EEF2F0; --io-mist:#ECF3F1; --io-paper:#FFFFFF;
+  --io-ink:#14201C; --io-ink-2:#46524D; --io-mut:#5F6A65; --io-faint:#6B7570;
+  --io-line:#E6EAE8; --io-line-2:#EEF2F0; --io-mist:#F3F7F6; --io-paper:#FFFFFF;
   --io-core:#0B1714;
   --io-blue:#0070FF; --io-green:#12B98A; --io-grad:linear-gradient(115deg,#0070FF,#12B98A);
   --io-vi-line:rgba(12,139,130,.16);
@@ -15,8 +15,7 @@
 }
 .iotx .wrap{max-width:1160px;margin:0 auto;padding:0 32px}
 @media(max-width:600px){.iotx .wrap{padding:0 22px}}
-.iotx .grad{background:var(--io-grad);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
-@supports not ((-webkit-background-clip:text) or (background-clip:text)){.iotx .grad{color:var(--io-green);-webkit-text-fill-color:currentColor}}
+.iotx .grad{color:var(--vi-blue)}
 
 /* 蓝图网格 */
 .iot-grid{position:absolute;inset:0;z-index:0;pointer-events:none;
@@ -33,7 +32,7 @@
 .iot-hero-top{position:relative;z-index:2}
 .iot-kicker{display:inline-flex;align-items:center;flex-wrap:wrap;font-size:12px;font-weight:600;letter-spacing:.14em;
   text-transform:uppercase;color:var(--io-mut)}
-.iot-kicker i{color:var(--io-green);font-style:normal;margin:0 9px;font-weight:700}
+.iot-kicker i{color:var(--accent-ink);font-style:normal;margin:0 9px;font-weight:700}
 .iot-h1{margin:22px 0 0;font-weight:800;font-size:clamp(38px,6vw,72px);line-height:1.06;letter-spacing:-.035em;color:var(--io-ink)}
 .iot-lead{margin:26px 0 0;font-size:clamp(16px,1.8vw,19px);line-height:1.6;color:var(--io-ink-2);max-width:none;font-weight:400}
 .iot-lead b{color:var(--io-ink);font-weight:600}
@@ -45,10 +44,10 @@
 .iot-band.mist{background:var(--io-mist)}
 @media(max-width:700px){.iot-band{padding:76px 0}}
 .iot-eyebrow{display:inline-flex;align-items:center;flex-wrap:wrap;gap:10px;font-size:12px;font-weight:600;letter-spacing:.2em;
-  text-transform:uppercase;color:var(--io-green)}
-.iot-eyebrow::before{content:"";width:22px;height:2px;border-radius:2px;background:var(--io-grad)}
+  text-transform:uppercase;color:var(--accent-ink)}
+.iot-eyebrow::before{content:"";width:22px;height:2px;border-radius:2px;background:var(--blue)}
 .iot-eyebrow.on-dark{color:#3fd9b8}
-.iot-self{font-size:11px;letter-spacing:.06em;text-transform:none;color:var(--io-green);background:rgba(18,185,138,.1);
+.iot-self{font-size:11px;letter-spacing:.06em;text-transform:none;color:var(--accent-ink);background:rgba(18,185,138,.1);
   border:1px solid rgba(18,185,138,.32);border-radius:100px;padding:4px 11px}
 .iot-h2{margin:18px 0 0;font-weight:800;font-size:clamp(27px,3.5vw,40px);line-height:1.18;letter-spacing:-.03em;color:var(--io-ink);max-width:none;white-space:nowrap}
 .iot-h2.on-dark{color:#fff}
@@ -85,7 +84,7 @@
 .iot-scards{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-top:40px}
 @media(max-width:760px){.iot-scards{grid-template-columns:1fr}}
 .iot-scard{border:1px solid var(--io-line);border-radius:16px;background:var(--io-paper);padding:26px}
-.iot-stag{font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--io-green)}
+.iot-stag{font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--accent-ink)}
 .iot-scard h4{font-size:19px;font-weight:700;letter-spacing:-.01em;margin:10px 0 6px;color:var(--io-ink)}
 .iot-role{font-size:14.5px;color:var(--io-ink-2);line-height:1.66;margin-bottom:18px}
 .iot-sframe{margin-top:4px;background:var(--io-mist);border:1px solid var(--io-line);border-radius:12px;height:240px;
@@ -98,7 +97,7 @@
 .iot-deploy-h{margin:48px 0 0;font-size:19px;font-weight:700;letter-spacing:-.01em;color:var(--io-ink)}
 .iot-deploy{display:flex;flex-wrap:wrap;gap:10px;margin-top:22px}
 .iot-dstep{flex:1;min-width:160px;border:1px solid var(--io-line);border-radius:12px;background:var(--io-paper);padding:18px 16px}
-.iot-dn{font-size:11px;font-weight:700;letter-spacing:.1em;color:var(--io-green)}
+.iot-dn{font-size:11px;font-weight:700;letter-spacing:.1em;color:var(--accent-ink)}
 .iot-dstep p{font-size:13.5px;color:var(--io-ink-2);line-height:1.55;margin:9px 0 0}
 .iot-deploy-img{margin-top:14px}
 
@@ -116,19 +115,19 @@
 @media(max-width:760px){.iot-env{grid-template-columns:1fr}}
 .iot-env.one{grid-template-columns:1fr}
 .iot-env-col{position:relative;border:1px solid var(--io-line);border-radius:14px;background:var(--io-paper);padding:24px 24px 20px}
-.iot-env-col::before{content:"";position:absolute;left:-1px;right:-1px;top:-1px;height:3px;border-radius:14px 14px 0 0;background:var(--io-grad)}
+.iot-env-col::before{content:"";position:absolute;left:-1px;right:-1px;top:-1px;height:3px;border-radius:14px 14px 0 0;background:var(--io-grad);display:none}
 .iot-env-lead{font-size:16px;font-weight:700;color:var(--io-ink)}
 .iot-env-note{font-size:13.5px;color:var(--io-mut);line-height:1.62;margin:8px 0 18px}
 .iot-env-row{display:flex;flex-wrap:wrap;gap:10px}
 .iot-env-item{flex:1;min-width:86px;border:1px solid var(--io-line-2);border-radius:11px;background:var(--io-mist);padding:14px 10px;text-align:center}
-.iot-ei-svg{height:32px;display:flex;align-items:center;justify-content:center;color:var(--io-green)}
+.iot-ei-svg{height:32px;display:flex;align-items:center;justify-content:center;color:var(--accent-ink)}
 .iot-ei-svg svg{width:28px;height:28px;stroke-width:1.6}
 .iot-ei-name{margin-top:9px;font-size:12.5px;color:var(--io-ink-2);font-weight:600}
 .iot-ei-ans{margin-top:4px;font-size:11.5px;color:var(--io-mut);line-height:1.4}
 
 /* 接入平台 · 物理感知 → 数据集市 → 运营资产 */
 .iot-ingest-lead{margin-top:18px}
-.iot-ingest-lead a{color:var(--io-green);font-weight:600;text-decoration:underline;text-underline-offset:3px;text-decoration-color:rgba(18,185,138,.4)}
+.iot-ingest-lead a{color:var(--accent-ink);font-weight:600;text-decoration:underline;text-underline-offset:3px;text-decoration-color:rgba(18,185,138,.4)}
 /* 四层架构图:物理感知 → 接入通道 → 平台 → 谁在用(纯代码绘制,skill §3f) */
 .iot-arch{margin-top:46px;display:flex;flex-direction:column}
 .iot-arch-layer{display:grid;grid-template-columns:118px 1fr;gap:18px;align-items:stretch}
@@ -147,7 +146,7 @@
 .iot-arch-node span{font-size:12.5px;line-height:1.55;color:var(--io-mut)}
 /* 接入通道:三条通道是这张图的信息重点,底色加重、左对齐、描述放开 */
 .iot-arch-node.way{background:var(--io-mist);border-color:var(--io-line);text-align:left;padding:16px 18px;gap:6px}
-.iot-arch-node.way b{color:var(--io-green)}
+.iot-arch-node.way b{color:var(--accent-ink)}
 .iot-arch-node.way span{font-size:13px;color:var(--io-ink-2)}
 /* 谁在用:左侧绿条,与站内"产出卡"语汇一致 */
 .iot-arch-node.use{border-left:3px solid var(--io-green);border-radius:0 12px 12px 0;background:var(--io-mist);text-align:left}
@@ -184,7 +183,7 @@
 .iot-ba-node b{font-size:13.5px;color:var(--io-ink)}
 .iot-ba-node span{font-size:12px;line-height:1.55;color:var(--io-mut)}
 .iot-ba-node.hl{border-color:rgba(18,185,138,.4);background:linear-gradient(180deg,rgba(18,185,138,.08),var(--io-mist))}
-.iot-ba-node.hl b{color:var(--io-green)}
+.iot-ba-node.hl b{color:var(--accent-ink)}
 /* 相邻 tier 直接堆叠时的间距(维度四多角度卡用,维度二的 tier 之间隔着 .iot-ba-flow 不受影响) */
 .iot-ba-struct .iot-ba-tier+.iot-ba-tier{margin-top:10px}
 .iot-ba-struct .iot-ba-tier.sum{margin-top:14px}
@@ -205,22 +204,20 @@
   background:linear-gradient(180deg,rgba(18,185,138,.07),var(--io-paper));box-shadow:0 12px 34px rgba(11,23,20,.07)}
 .iot-plat-gate{display:flex;flex-direction:column;gap:3px;padding:14px 20px;
   border-bottom:1px dashed rgba(18,185,138,.38);background:rgba(18,185,138,.06)}
-.iot-plat-gate b{font-size:13.5px;color:var(--io-green);letter-spacing:.01em}
+.iot-plat-gate b{font-size:13.5px;color:var(--accent-ink);letter-spacing:.01em}
 .iot-plat-gate span{font-size:12.5px;color:var(--io-ink-2);line-height:1.55}
 .iot-plat-body{display:grid;grid-template-columns:1.45fr 1fr;gap:14px;padding:18px 20px}
 @media(max-width:920px){.iot-plat-body{grid-template-columns:1fr}}
 .iot-plat-onto{border:1px solid rgba(18,185,138,.3);border-radius:13px;padding:20px 20px 16px;
   background:linear-gradient(180deg,rgba(18,185,138,.08),var(--io-paper));
   display:flex;flex-direction:column;justify-content:center;text-align:center}
-.iot-hub-en{font-size:11px;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:var(--io-green)}
-.iot-hub-zh{margin:6px 0 0;font-size:clamp(22px,2.6vw,29px);font-weight:800;letter-spacing:-.02em;line-height:1.08;
-  background:var(--io-grad);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
-@supports not ((-webkit-background-clip:text) or (background-clip:text)){.iot-hub-zh{color:var(--io-green);-webkit-text-fill-color:currentColor}}
+.iot-hub-en{font-size:11px;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:var(--accent-ink)}
+.iot-hub-zh{margin:6px 0 0;font-size:clamp(22px,2.6vw,29px);font-weight:800;letter-spacing:-.02em;line-height:1.08;color:var(--vi-blue)}
 .iot-hub-note{margin:10px 0 0;font-size:13px;line-height:1.6;color:var(--io-ink-2)}
 .iot-plat-mart{margin:16px 0 0;border:1px solid var(--io-line);border-radius:11px;background:var(--io-paper);
   padding:12px 14px;text-align:left;display:flex;flex-direction:column;gap:3px;position:relative}
 .iot-plat-mart::before{content:"治理后 · 交付为";position:absolute;top:-9px;left:12px;padding:0 8px;
-  font-size:10.5px;font-weight:600;letter-spacing:.08em;color:var(--io-green);background:var(--io-paper);border-radius:6px}
+  font-size:10.5px;font-weight:600;letter-spacing:.08em;color:var(--accent-ink);background:var(--io-paper);border-radius:6px}
 .iot-plat-mart b{font-size:13.5px;color:var(--io-ink)}
 .iot-plat-mart span{font-size:12px;color:var(--io-mut);line-height:1.55}
 .iot-plat-side{display:flex;flex-direction:column;gap:10px}
@@ -231,7 +228,9 @@
 .iot-plat-note{padding:11px 20px;border-top:1px solid var(--io-line);font-size:12px;line-height:1.6;color:var(--io-mut);background:var(--io-paper)}
 /* 案例内链说明:架构图下方 + 各维度末尾共用 */
 .iot-arch-note,.iot-case-note{margin:26px 0 0;font-size:13.5px;line-height:1.7;color:var(--io-mut)}
-.iot-arch-note a,.iot-case-note a{color:var(--io-green);font-weight:600;text-decoration:underline;text-underline-offset:3px;text-decoration-color:rgba(18,185,138,.4)}
+.iot-arch-note a,.iot-case-note a{color:var(--accent-ink);font-weight:600;text-decoration:underline;text-underline-offset:3px;text-decoration-color:rgba(18,185,138,.4)}
 
 /* ---------- 可访问性 / 动效降级 ---------- */
 .iotx a:focus-visible,.iotx .btn:focus-visible{outline:2px solid var(--io-green);outline-offset:3px;border-radius:10px}
+.iot-mp{position:relative;margin:40px 0 0;font-size:15px;color:#AEBAB5}
+.iot-mp a{color:#9fded0;font-weight:600;text-decoration:underline;text-underline-offset:3px}

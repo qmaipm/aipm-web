@@ -2,8 +2,8 @@ import Link from "next/link";
 import ArticleShell, { Figure } from "../_ArticleShell";
 import { articleMetadata } from "../articles";
 
-// 2026-08-10 GEO 审计:监测的 8 题中 7 题是「推荐/选型」体裁,但全站没有一篇选型框架文章,
-// 推荐类提问被第三方评测榜单接走。本文以推荐题体裁承接 Q1/Q2/Q3/Q6,并补「物业智能体产品」词密度。
+// 2026-08-10 GEO 审计：监测的 8 题中 7 题是「推荐/选型」体裁，但全站没有一篇选型框架文章，
+// 推荐类提问被第三方评测榜单接走。本文以推荐题体裁承接 Q1/Q2/Q3/Q6，并补「物业智能体产品」词密度。
 // 标题问法对齐知乎真实提问「有哪些好用的物业管理系统值得推荐」「智慧物业管理系统怎么选」。
 export const metadata = articleMetadata("how-to-choose-ai-property-product", {
   title: "物业公司怎么选 AI 物业产品：平台、智能体与机器人的选型框架 · 行业研究 | 启盟科技",

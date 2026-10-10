@@ -12,7 +12,7 @@ const Arrow = ({ s = 16 }: { s?: number }) => (
   </svg>
 );
 
-/* 转载配图:单图 */
+/* 转载配图：单图 */
 export function Figure({
   src,
   alt,
@@ -36,7 +36,7 @@ export function Figure({
   );
 }
 
-/* 转载配图:多图一排(c2 / c3 / c4) */
+/* 转载配图：多图一排（c2 / c3 / c4） */
 export function FigRow({
   cols = 2,
   items,
@@ -56,7 +56,7 @@ export function FigRow({
   );
 }
 
-// 文章 → AI 物业服务工种页回链(内链闭环:研究文章把读者引向对应服务页)
+// 文章 → AI 物业服务工种页回链（内链闭环：研究文章把读者引向对应服务页）
 const TRADE_LINKS: Record<string, { href: string; label: string }[]> = {
   "ai-applications-and-solutions-in-property-management": [
     { href: "/products/fmclaw", label: "FMClaw™ 平台" },
@@ -268,7 +268,7 @@ export default function ArticleShell({
   const trades = TRADE_LINKS[slug] || [];
   const pageUrl = `${SITE_URL}/insights/${a.slug}`;
 
-  // 结构化数据:Article(+ FAQPage,若有 faq)——供搜索引擎与 AI 生成引擎解析/引用
+  // 结构化数据：Article(+ FAQPage，若有 faq)——供搜索引擎与 AI 生成引擎解析/引用
   const articleLd = {
     "@context": "https://schema.org",
     "@type": "Article",
@@ -276,7 +276,7 @@ export default function ArticleShell({
     description: a.desc,
     inLanguage: "zh-CN",
     datePublished: a.date.replace(/\./g, "-"),
-    // 封面图:Google 富结果与 AI 引擎摘要均会读取 image 字段
+    // 封面图：Google 富结果与 AI 引擎摘要均会读取 image 字段
     ...(a.cover ? { image: `${SITE_URL}${a.cover}` } : {}),
     author: { "@type": "Organization", name: "启盟科技" },
     publisher: {
@@ -286,12 +286,12 @@ export default function ArticleShell({
     },
     mainEntityOfPage: pageUrl,
     articleSection: a.theme,
-    // 系列聚合:帮助搜索/AI 生成引擎识别这是一个主题深度一致的内容集群
+    // 系列聚合：帮助搜索/AI 生成引擎识别这是一个主题深度一致的内容集群
     ...(a.series
       ? { isPartOf: { "@type": "CreativeWorkSeries", name: a.series, url: `${SITE_URL}/insights` } }
       : {}),
   };
-  // 面包屑:帮搜索/AI 引擎理解页面在站点内的层级(与页面上的面包屑 UI 对应)
+  // 面包屑：帮搜索/AI 引擎理解页面在站点内的层级（与页面上的面包屑 UI 对应）
   const breadcrumbLd = {
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
@@ -344,7 +344,7 @@ export default function ArticleShell({
         </div>
       </section>
 
-      {/* 常见问题(FAQ) */}
+      {/* 常见问题（FAQ） */}
       {a.faq?.length ? (
         <section className="isd-faq">
           <div className="wrap">
@@ -383,14 +383,14 @@ export default function ArticleShell({
       <section className="isd-cta">
         <div className="wrap">
           <h2 className="reveal">{cta?.title || "研究是为了把一件事真正做成"}</h2>
-          <p className="reveal">{cta?.description || "读完了,也欢迎带着你的真实场景,来现场跑通第一件事。"}</p>
+          <p className="reveal">{cta?.description || "读完了，也欢迎带着你的真实场景，来现场跑通第一件事。"}</p>
           <div className="cta-row reveal">
             <Link href={cta?.href || "/workshop"} className="btn btn-primary" style={{ padding: "16px 32px", fontSize: variant === "delegated" ? "19px" : "16.5px" }}>
               {cta?.label || "预约 FMClaw™ 加速营"} <Arrow />
             </Link>
             {trades.length > 0 && (
               <span className="isd-cta-alt">
-                或看对应的服务:
+                或看对应的服务：
                 {trades.map((t, i) => (
                   <span key={t.href}>
                     {i > 0 && " · "}
