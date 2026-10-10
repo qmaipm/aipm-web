@@ -59,7 +59,7 @@ const products = [
     desc: 'AI替代人工审图，客观评分消除评价分歧',
     href: '#agent-showcase',
     glowClass: 'blue-green',
-    color: '#8B5CF6',
+    color: '#0C8B82',
   },
   {
     icon: 'agentReview',
@@ -67,7 +67,7 @@ const products = [
     desc: '业务自动化核算，数据驱动持续优化',
     href: '#agent-showcase',
     glowClass: 'pink-gold',
-    color: '#F59E0B',
+    color: '#BE7A2E',
   },
 ];
 

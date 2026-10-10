@@ -18,7 +18,7 @@ export default function PostList() {
   return (
     <>
       <div className="is-listhead">
-        <h2 className="is-h2">每一篇,都想写得值得读</h2>
+        <h2 className="is-h2">每一篇，都想写得值得读</h2>
         <div className="is-tabs" role="tablist" aria-label="按主题筛选">
           {tabs.map((t) => (
             <button

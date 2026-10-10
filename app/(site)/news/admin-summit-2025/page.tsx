@@ -3,7 +3,7 @@ import { newsMetadata } from "../articles";
 
 export const metadata = newsMetadata("admin-summit-2025");
 
-// 正文为公众号原文照登,不做改写
+// 正文为公众号原文照登，不做改写
 export default function Page() {
   return (
     <NewsShell slug="admin-summit-2025">
@@ -63,7 +63,7 @@ export default function Page() {
         <li>全自动对账：系统自动统计输出考勤、工时、加班等账单，无需人员整理核验，甲乙方受益</li>
         <li>有了服务过程指标：FM团队通过监控服务过程指标，更好的预防各类服务质量问题，降低了投诉</li>
       </ul>
-      <p>这些案例都印证了数据驱动的价值——品质有保障、成本更优化、管理更轻松。</p>
+      <p>这些案例都印证了数据驱动的价值：品质有保障、成本更优化、管理更轻松。</p>
 
       <h2>03 “数据-智能-机器人”三层技术生态</h2>
       <p>专为解决“过程数据缺失，管理人盯人”所构建的“数据-智能-机器人”三层技术生态。</p>

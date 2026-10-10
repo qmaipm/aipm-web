@@ -30,7 +30,7 @@ const Check = () => (
 /* ---------- 三类伙伴：每类 = 画像 + 权益清单 + 入口 ---------- */
 const partnerTypes = [
   {
-    no: "01", tag: "Development Partner", title: "物业委托管理发展伙伴",
+    no: "01", tag: "Managed Operations Partner", title: "物业委托管理发展伙伴",
     img: "/ai-service/skyline.jpg", alt: "面向写字楼、园区及商业物业的项目开发合作场景",
     who: "熟悉业主、园区与物业决策人的企业和专业人士，包括酒店物业推荐人、商业地产顾问及楼宇服务商。你带来项目，启盟负责评估、方案与运营。",
     gets: [
@@ -43,11 +43,11 @@ const partnerTypes = [
   },
   {
     no: "01",
-    tag: "Building Partner",
+    tag: "Smart Campus Partner",
     title: "智能体园区伙伴",
-    img: "/images/partners/agent-park.png",
-    alt: "智能体园区伙伴：智能楼宇与 AI 感知网络插画",
-    who: "从事建筑智能化工程、机电总包、设计咨询的企业。招标文件里开始出现智能体平台、大模型、AI 感知的技术要求——带着 FMClaw™ 去应。",
+    img: "/images/partners/agent-park-photo.webp",
+    alt: "智能体园区伙伴：机电工程师在楼宇智能化机房检查线槽与楼控柜",
+    who: "从事建筑智能化工程、机电总包、设计咨询的企业。招标文件里开始出现智能体平台、大模型、AI 感知的技术要求，带着 FMClaw™ 去应。",
     gets: [
       "项目方案支持 — 拿到招标文件后，方案架构与技术选型我们一起定",
       "标书技术应答 — 智能体平台、模型与算力部分的应答，由我们的工程师完成",
@@ -61,10 +61,10 @@ const partnerTypes = [
   },
   {
     no: "02",
-    tag: "Partner Program",
+    tag: "Industry Agent Partner",
     title: "行业智能体伙伴计划",
-    img: "/images/partners/program.png",
-    alt: "行业智能体伙伴计划：FMClaw 平台连接伙伴与行业客户的合作网络插画",
+    img: "/images/partners/program-photo.webp",
+    alt: "行业智能体伙伴计划：集成商与软件工程师围坐讨论工作流方案",
     who: "系统集成商、建筑智能化企业、物业科技公司和行业软件企业。免费申请，按自身能力选择参与方式。",
     gets: [
       "四种合作路径 — Refer 推荐 · Sell 销售 · Deliver 交付 · Build 构建，可多选",
@@ -78,11 +78,11 @@ const partnerTypes = [
   },
   {
     no: "03",
-    tag: "Embodied AI Data",
+    tag: "Embodied AI Data Partner",
     title: "具身智能与物理 AI 数据合作",
     img: "/images/partners/embodied-ai-data.jpg",
     alt: "具身智能与物理 AI 数据合作：佩戴第一视角相机的物业服务人员在写字楼内作业，身后是巡逻机器人",
-    who: "具身智能与机器人公司、世界模型与多模态团队、具身数据平台。你的模型缺真实物理世界的数据——我们有 3,000 万㎡真实在管场景和数以万计的一线服务人员，第一视角作业数据在真实工作中自然产生。",
+    who: "具身智能与机器人公司、世界模型与多模态团队、具身数据平台。你的模型缺真实物理世界的数据，而我们有 3,000 万㎡真实在管场景和数以万计的一线服务人员，第一视角作业数据在真实工作中自然产生。",
     gets: [
       "第一视角作业数据 — 一线人员在日常清洁、巡检、维修中自然采集，不布景不摆拍",
       "三重对齐的环境语义 — 同一时空的作业视频 × IoT 传感器状态 × 工单任务语义",
@@ -108,7 +108,7 @@ const steps = [
 const nowItems = [
   {
     title: "智能体进入政府采购",
-    body: "2026 年 4 月，国务院明确将大模型、智能体服务纳入政府采购范围——智能体从概念变成了预算科目。",
+    body: "2026 年 4 月，国务院明确将大模型、智能体服务纳入政府采购范围，智能体从概念变成了预算科目。",
   },
   {
     title: "「智能体园区」写进地方规划",
@@ -192,10 +192,10 @@ export default function Page() {
           </div>
           <div className="pt-hero-art">
             <Image
-              src="/images/partners/hero.png"
-              alt="FMClaw 智能体平台连接生态伙伴插画"
-              width={688}
-              height={384}
+              src="/images/partners/hero-photo.webp"
+              alt="清晨的商务园区，工程师在设备柜旁核对图纸"
+              width={1400}
+              height={1045}
               priority
               sizes="(max-width: 960px) 92vw, 560px"
             />

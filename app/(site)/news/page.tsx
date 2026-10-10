@@ -5,7 +5,7 @@ import { pageMetadata } from "@/lib/pageMetadata";
 
 export const metadata = pageMetadata("/news", {
   title: "新闻动态 | 启盟科技",
-  description: "启盟科技的展会、活动、荣誉与合作动态:建博会、BEYOND Expo、NVIDIA 创业企业展示、行业峰会与闭门分享。",
+  description: "启盟科技的展会、活动、荣誉与合作动态：建博会、BEYOND Expo、NVIDIA 创业企业展示、行业峰会与闭门分享。",
 });
 
 const Arrow = () => (
@@ -26,14 +26,14 @@ export default function Page() {
             <i>/</i>新闻动态
           </span>
           <h1 className="nw-h1">新闻动态</h1>
-          <p className="nw-lead">展会、活动、荣誉与合作——启盟科技把 AI 落进物理世界的沿途记录。</p>
+          <p className="nw-lead">展会、活动、荣誉与合作：启盟科技把 AI 落进物理世界的沿途记录。</p>
         </div>
       </section>
 
       {/* NEWS LIST */}
       <section className="nw-band mist">
         <div className="wrap">
-          {/* 头条:最新一条 */}
+          {/* 头条：最新一条 */}
           <Link className="nw-feat" href={`/news/${latest.slug}`}>
             <img className="nw-feat-cover" src={latest.cover} alt="" loading="eager" />
             <div className="nw-feat-body">

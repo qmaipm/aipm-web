@@ -4,16 +4,15 @@
    全部规则收在 .solct 作用域内,不泄漏全站。单一字族,蓝绿 VI。
    ============================================================ */
 .solct{
-  --ct-ink:#14201C; --ct-ink-2:#46524D; --ct-mut:#7C857F; --ct-faint:#A7AFAB;
-  --ct-line:#E6EAE8; --ct-mist:#ECF3F1; --ct-paper:#FFFFFF;
+  --ct-ink:#14201C; --ct-ink-2:#46524D; --ct-mut:#5F6A65; --ct-faint:#6B7570;
+  --ct-line:#E6EAE8; --ct-mist:#F3F7F6; --ct-paper:#FFFFFF;
   --ct-blue:#0070FF; --ct-green:#12B98A; --ct-grad:linear-gradient(115deg,#0070FF,#12B98A);
   --ct-vi-line:rgba(12,139,130,.16);
   background:var(--ct-paper); color:var(--ct-ink);
 }
 .solct .wrap{max-width:1160px;margin:0 auto;padding:0 32px}
 @media(max-width:600px){.solct .wrap{padding:0 22px}}
-.solct .grad{background:var(--ct-grad);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
-@supports not ((-webkit-background-clip:text) or (background-clip:text)){.solct .grad{color:var(--ct-green);-webkit-text-fill-color:currentColor}}
+.solct .grad{color:var(--vi-blue)}
 
 /* 蓝图网格 */
 .ct-grid{position:absolute;inset:0;z-index:0;pointer-events:none;
@@ -40,14 +39,14 @@
 
 /* 左:表单列 */
 .ct-eyebrow{display:inline-flex;align-items:center;gap:10px;font-size:12px;font-weight:600;
-  letter-spacing:.2em;text-transform:uppercase;color:var(--ct-green)}
-.ct-eyebrow::before{content:"";width:22px;height:2px;border-radius:2px;background:var(--ct-grad)}
+  letter-spacing:.2em;text-transform:uppercase;color:var(--accent-ink)}
+.ct-eyebrow::before{content:"";width:22px;height:2px;border-radius:2px;background:var(--blue)}
 .ct-sub{margin:16px 0 0;font-size:15px;line-height:1.6;color:var(--ct-ink-2)}
-.solct .ct-sub .req,.solct .field label .req{color:var(--ct-green)}
+.solct .ct-sub .req,.solct .field label .req{color:var(--accent-ink)}
 
 /* 表单:冷调 */
 .solct .cx-form{position:relative;margin-top:28px;padding-top:30px}
-.solct .cx-form::before{content:"";position:absolute;left:0;top:0;width:56px;height:2px;border-radius:2px;background:var(--ct-grad)}
+.solct .cx-form::before{content:"";position:absolute;left:0;top:0;width:56px;height:2px;border-radius:2px;background:var(--blue)}
 
 .solct .field-row{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-bottom:18px}
 @media(max-width:560px){.solct .field-row{grid-template-columns:1fr;gap:18px;margin-bottom:18px}}
@@ -75,18 +74,18 @@
 /* 提交按钮:渐变 */
 .solct .cx-submit{margin-top:6px;min-height:50px;display:inline-flex;align-items:center;justify-content:center;gap:9px;
   padding:0 26px;border:0;border-radius:12px;font:inherit;font-size:15.5px;font-weight:600;color:#fff;cursor:pointer;
-  background:var(--ct-grad);box-shadow:0 10px 26px rgba(12,139,130,.22);transition:transform .18s,box-shadow .18s,opacity .18s}
-.solct .cx-submit:hover{transform:translateY(-2px);box-shadow:0 14px 32px rgba(12,139,130,.28)}
+  background:var(--ct-grad);box-shadow:0 10px 26px rgba(11,23,20,0.1);transition:transform .18s,box-shadow .18s,opacity .18s}
+.solct .cx-submit:hover{transform:translateY(-2px);box-shadow:0 14px 32px rgba(11,23,20,0.1)}
 .solct .cx-submit:hover .ar{transform:translateX(3px)}
 .solct .cx-submit .ar{transition:transform .2s}
 .solct .cx-submit[disabled]{opacity:.6;cursor:not-allowed;transform:none;box-shadow:none}
 .solct .cf-note{margin-top:18px;font-size:12.5px;color:var(--ct-mut);line-height:1.6;max-width:none}
 
 /* 校验错误 / 提交反馈 */
-.solct .form-err{margin:-2px 0 14px;font-size:13.5px;color:var(--ct-green);line-height:1.55}
+.solct .form-err{margin:-2px 0 14px;font-size:13.5px;color:var(--accent-ink);line-height:1.55}
 .solct .form-done{position:relative;padding:34px 30px;border:1px solid var(--ct-line);border-radius:16px;
   background:var(--ct-paper);overflow:hidden}
-.solct .form-done::before{content:"";position:absolute;left:0;right:0;top:0;height:3px;background:var(--ct-grad)}
+.solct .form-done::before{content:"";position:absolute;left:0;right:0;top:0;height:3px;background:var(--ct-grad);display:none}
 .solct .form-done-mark{width:48px;height:48px;border-radius:50%;display:grid;place-items:center;
   color:#fff;background:var(--ct-grad);margin-bottom:18px}
 .solct .form-done-h{margin:0 0 10px;font-size:22px;font-weight:800;letter-spacing:-.02em;color:var(--ct-ink)}
@@ -96,16 +95,16 @@
 .ct-aside{display:flex;flex-direction:column;gap:18px}
 .ct-card{position:relative;background:var(--ct-paper);border:1px solid var(--ct-line);border-radius:16px;
   padding:26px 26px 24px;overflow:hidden;transition:border-color .2s,box-shadow .2s}
-.ct-card::before{content:"";position:absolute;left:0;right:0;top:0;height:3px;background:var(--ct-grad)}
-.ct-card:hover{border-color:rgba(12,139,130,.30);box-shadow:0 14px 34px rgba(12,139,130,.08)}
-.ct-card-h{font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--ct-green);margin-bottom:18px;font-weight:700}
+.ct-card::before{content:"";position:absolute;left:0;right:0;top:0;height:3px;background:var(--ct-grad);display:none}
+.ct-card:hover{border-color:rgba(12,139,130,.30);box-shadow:0 14px 34px rgba(11,23,20,0.048)}
+.ct-card-h{font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--accent-ink);margin-bottom:18px;font-weight:700}
 
 .ct-list{margin:0;display:flex;flex-direction:column;gap:15px}
 .ct-list > div{display:flex;flex-direction:column;gap:4px}
 .ct-list dt{font-size:12px;letter-spacing:.02em;color:var(--ct-mut)}
 .ct-list dd{margin:0;font-size:15px;color:var(--ct-ink);font-weight:500;line-height:1.5}
 .ct-list dd a{color:var(--ct-ink);text-decoration:none;transition:color .15s}
-.ct-list dd a:hover{color:var(--ct-green);text-decoration:underline;text-underline-offset:3px}
+.ct-list dd a:hover{color:var(--accent-ink);text-decoration:underline;text-underline-offset:3px}
 
 .ct-qr-card{align-items:flex-start}
 .ct-qr{width:148px;height:148px;border:1px solid var(--ct-line);border-radius:14px;background:#fff;

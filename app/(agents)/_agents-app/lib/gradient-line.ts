@@ -17,22 +17,22 @@
  * ┌─────────────────────────────────────────────────────────┐
  * │  【起点边缘规则】                                         │
  * │                                                         │
- * │  上方图标(top):                                          │
+ * │  上方图标（top）:                                          │
  * │  - 起点：图标底边中点（因为第一段向下）                     │
  * │  - 第一段：垂直向下 ↓                                     │
  * │  - 第二段：水平向左/右 ← → 进入容器顶边                    │
  * │                                                         │
- * │  下方图标(bottom):                                       │
+ * │  下方图标（bottom）:                                       │
  * │  - 起点：图标顶边中点（因为第一段向上）                     │
  * │  - 第一段：垂直向上 ↑                                     │
  * │  - 第二段：水平向左/右 ← → 进入容器底边                    │
  * │                                                         │
- * │  左侧图标(left):                                         │
+ * │  左侧图标（left）:                                         │
  * │  - 起点：图标顶边或底边中点（根据终点Y位置决定）             │
  * │  - 第一段：垂直向上或向下 ↑↓                              │
  * │  - 第二段：水平向右 → 进入容器左边                         │
  * │                                                         │
- * │  右侧图标(right):                                        │
+ * │  右侧图标（right）:                                        │
  * │  - 起点：图标顶边或底边中点（根据终点Y位置决定）             │
  * │  - 第一段：垂直向上或向下 ↑↓                              │
  * │  - 第二段：水平向左 ← 进入容器右边                         │
@@ -257,12 +257,12 @@ export const DEFAULT_CONFIG: GradientLineConfig = {
 // 基于 CSS 栅格系统的精确配置
 // 所有尺寸由栅格系统计算得出，不允许硬编码
 //
-// 栅格系统定义 (来自 globals.css):
+// 栅格系统定义（来自 globals.css）:
 // - --layout-max-width: 1080px
 // - --layout-column-count: 4
 // - --layout-column-width: 1080/4 = 270px
 // - 动画区域 = guide-3 到 guide-5 = 2列 = 540px
-// - guide-4 相对于动画区域 = 270px (正好是中点)
+// - guide-4 相对于动画区域 = 270px （正好是中点）
 //
 // ==========================================
 
@@ -274,12 +274,12 @@ export const DEFAULT_CONFIG: GradientLineConfig = {
  * 【核心原则】
  * 一切尺寸和位置都从参照线推导，不允许猜测！
  * 
- * 【已确认的基准坐标系】(通过 audit-baseline.js 验证)
+ * 【已确认的基准坐标系】（通过 audit-baseline.js 验证）
  * 动画区域局部坐标：
- * - guide-3 (起点) = X=0
- * - guide-4 (中线) = X=270  ← 这是所有水平对齐的基准！
- * - guide-5 (终点) = X=540
- * - 动画区域宽度 = 540px (固定，不可改变)
+ * - guide-3 （起点） = X=0
+ * - guide-4 （中线） = X=270  ← 这是所有水平对齐的基准！
+ * - guide-5 （终点） = X=540
+ * - 动画区域宽度 = 540px （固定，不可改变）
  * 
  * 【布局规则】
  * 1. 中央容器：中心必须在 X=270 (guide-4)
@@ -450,7 +450,7 @@ export function validateLayoutConfig(isHorizontal: boolean = false): {
   const leftPadding = leftIconX;  // 距离 guide-3 (X=0)
   const rightPadding = GUIDES.GUIDE_5 - rightIconX;  // 距离 guide-5 (X=540)
   if (leftPadding !== rightPadding) {
-    errors.push(`左右 padding 不对称: 左=${leftPadding}, 右=${rightPadding}`);
+    errors.push(`左右 padding 不对称：左=${leftPadding}, 右=${rightPadding}`);
   }
   
   return {
@@ -688,11 +688,11 @@ export function calculateContainerBoundsFromConfig(
 
 export const VI_GRADIENTS = {
   blueGreen: { start: '#0070FF', end: '#12B98A' },
-  blueGold: { start: '#0070FF', end: '#F59E0B' },
-  greenGold: { start: '#12B98A', end: '#F59E0B' },
-  bluePurple: { start: '#0070FF', end: '#9333EA' },
-  purplePink: { start: '#9333EA', end: '#EC4899' },
-  pinkGold: { start: '#EC4899', end: '#F59E0B' },
+  blueGold: { start: '#0070FF', end: '#BE7A2E' },
+  greenGold: { start: '#12B98A', end: '#BE7A2E' },
+  bluePurple: { start: '#0070FF', end: '#0C8B82' },
+  purplePink: { start: '#0C8B82', end: '#0058CC' },
+  pinkGold: { start: '#0058CC', end: '#BE7A2E' },
 } as const;
 
 export function getGradientForModule(moduleId: string): GradientConfig {
@@ -973,7 +973,7 @@ export function generatePath(
   if (process.env.NODE_ENV === 'development') {
     const validation = validatePathRule(path, iconSide, iconCenter, iconSize);
     if (!validation.isValid) {
-      console.error('❌ 路径规则验证失败:');
+      console.error('❌ 路径规则验证失败：');
       validation.errors.forEach(e => console.error('  ', e));
     }
   }
@@ -992,8 +992,8 @@ export function generatePath(
  * 5. 终点：容器上/下边缘
  * 
  * 与 generatePath 的区别：
- * - generatePath: 垂直发出 → 水平连接 (用于纵向动画)
- * - generatePathHorizontalFirst: 水平发出 → 垂直连接 (用于横向动画)
+ * - generatePath：垂直发出 → 水平连接（用于纵向动画）
+ * - generatePathHorizontalFirst：水平发出 → 垂直连接（用于横向动画）
  */
 export function generatePathHorizontalFirst(
   iconCenter: Point,
@@ -1166,7 +1166,7 @@ export function validatePathRule(
   
   if (path.startEdge !== expectedStartEdge) {
     errors.push(
-      `[${iconSide}] 起点边缘错误: 期望从 ${expectedStartEdge} 边出发, 实际从 ${path.startEdge} 边出发`
+      `[${iconSide}] 起点边缘错误：期望从 ${expectedStartEdge} 边出发，实际从 ${path.startEdge} 边出发`
     );
   }
   
@@ -1176,7 +1176,7 @@ export function validatePathRule(
     const startDiff = Math.abs(path.start.x - expectedStart.x) + Math.abs(path.start.y - expectedStart.y);
     if (startDiff > 1) {
       errors.push(
-        `[${iconSide}] 起点位置错误: 期望 (${expectedStart.x.toFixed(1)}, ${expectedStart.y.toFixed(1)}), ` +
+        `[${iconSide}] 起点位置错误：期望 (${expectedStart.x.toFixed(1)}, ${expectedStart.y.toFixed(1)}), ` +
         `实际 (${path.start.x.toFixed(1)}, ${path.start.y.toFixed(1)})`
       );
     }
@@ -1189,7 +1189,7 @@ export function validatePathRule(
   
   if (!actualFirstIsVertical) {
     errors.push(
-      `[${iconSide}] 第一段方向错误: 期望垂直, 但 ΔX=${firstDeltaX.toFixed(1)} > ΔY=${firstDeltaY.toFixed(1)}`
+      `[${iconSide}] 第一段方向错误：期望垂直，但 ΔX=${firstDeltaX.toFixed(1)} > ΔY=${firstDeltaY.toFixed(1)}`
     );
   }
   
@@ -1201,7 +1201,7 @@ export function validatePathRule(
   
   if (path.firstDirection !== expectedFirstDirection) {
     errors.push(
-      `[${iconSide}] 第一段垂直方向错误: 期望 ${expectedFirstDirection}, 实际 ${path.firstDirection}`
+      `[${iconSide}] 第一段垂直方向错误：期望 ${expectedFirstDirection}, 实际 ${path.firstDirection}`
     );
   }
   
@@ -1213,14 +1213,14 @@ export function validatePathRule(
   
   if (!actualSecondIsHorizontal) {
     errors.push(
-      `[${iconSide}] 第二段方向错误: 期望水平, 但 ΔX=${secondDeltaX.toFixed(1)} < ΔY=${secondDeltaY.toFixed(1)}`
+      `[${iconSide}] 第二段方向错误：期望水平，但 ΔX=${secondDeltaX.toFixed(1)} < ΔY=${secondDeltaY.toFixed(1)}`
     );
   }
   
   // 6. 验证无斜线（拐点X应与起点X相同）
   if (Math.abs(path.corner.x - path.start.x) > 1) {
     errors.push(
-      `[${iconSide}] 存在斜线: 拐点X (${path.corner.x.toFixed(1)}) ≠ 起点X (${path.start.x.toFixed(1)})`
+      `[${iconSide}] 存在斜线：拐点X (${path.corner.x.toFixed(1)}) ≠ 起点X (${path.start.x.toFixed(1)})`
     );
   }
   
@@ -1256,7 +1256,7 @@ export function validateAllPaths(
   const allValid = results.every(r => r.isValid);
   
   if (!allValid && process.env.NODE_ENV === 'development') {
-    console.warn('⚠️ 路径验证失败:');
+    console.warn('⚠️ 路径验证失败：');
     results.forEach((r, i) => {
       if (!r.isValid) {
         console.error(`  路径 ${i}:`);
@@ -1453,7 +1453,7 @@ export function runAutomatedTests(): { passed: number; failed: number; results: 
     results.push('✅ 测试1: 上方图标路径 - 通过');
     passed++;
   } else {
-    results.push(`❌ 测试1: 上方图标路径 - 失败: ${topValidation.errors.join('; ')}`);
+    results.push(`❌ 测试1: 上方图标路径 - 失败：${topValidation.errors.join('; ')}`);
     failed++;
   }
   
@@ -1463,7 +1463,7 @@ export function runAutomatedTests(): { passed: number; failed: number; results: 
     results.push('✅ 测试1.1: 上方图标起点在底边 - 通过');
     passed++;
   } else {
-    results.push(`❌ 测试1.1: 上方图标起点在底边 - 失败: 期望Y=${expectedTopStart.y}, 实际Y=${topPath.start.y}`);
+    results.push(`❌ 测试1.1: 上方图标起点在底边 - 失败：期望Y=${expectedTopStart.y}, 实际Y=${topPath.start.y}`);
     failed++;
   }
   
@@ -1477,7 +1477,7 @@ export function runAutomatedTests(): { passed: number; failed: number; results: 
     results.push('✅ 测试2: 下方图标路径 - 通过');
     passed++;
   } else {
-    results.push(`❌ 测试2: 下方图标路径 - 失败: ${bottomValidation.errors.join('; ')}`);
+    results.push(`❌ 测试2: 下方图标路径 - 失败：${bottomValidation.errors.join('; ')}`);
     failed++;
   }
   
@@ -1487,7 +1487,7 @@ export function runAutomatedTests(): { passed: number; failed: number; results: 
     results.push('✅ 测试2.1: 下方图标起点在顶边 - 通过');
     passed++;
   } else {
-    results.push(`❌ 测试2.1: 下方图标起点在顶边 - 失败: 期望Y=${expectedBottomStart.y}, 实际Y=${bottomPath.start.y}`);
+    results.push(`❌ 测试2.1: 下方图标起点在顶边 - 失败：期望Y=${expectedBottomStart.y}, 实际Y=${bottomPath.start.y}`);
     failed++;
   }
   
@@ -1501,7 +1501,7 @@ export function runAutomatedTests(): { passed: number; failed: number; results: 
     results.push('✅ 测试3: 左侧图标路径 - 通过');
     passed++;
   } else {
-    results.push(`❌ 测试3: 左侧图标路径 - 失败: ${leftValidation.errors.join('; ')}`);
+    results.push(`❌ 测试3: 左侧图标路径 - 失败：${leftValidation.errors.join('; ')}`);
     failed++;
   }
   
@@ -1510,7 +1510,7 @@ export function runAutomatedTests(): { passed: number; failed: number; results: 
     results.push('✅ 测试3.1: 左侧图标起点在底边（终点在下） - 通过');
     passed++;
   } else {
-    results.push(`❌ 测试3.1: 左侧图标起点在底边 - 失败: 实际在 ${leftPath.startEdge}`);
+    results.push(`❌ 测试3.1: 左侧图标起点在底边 - 失败：实际在 ${leftPath.startEdge}`);
     failed++;
   }
   
@@ -1524,7 +1524,7 @@ export function runAutomatedTests(): { passed: number; failed: number; results: 
     results.push('✅ 测试4: 右侧图标路径 - 通过');
     passed++;
   } else {
-    results.push(`❌ 测试4: 右侧图标路径 - 失败: ${rightValidation.errors.join('; ')}`);
+    results.push(`❌ 测试4: 右侧图标路径 - 失败：${rightValidation.errors.join('; ')}`);
     failed++;
   }
   
@@ -1533,7 +1533,7 @@ export function runAutomatedTests(): { passed: number; failed: number; results: 
     results.push('✅ 测试4.1: 右侧图标起点在顶边（终点在上） - 通过');
     passed++;
   } else {
-    results.push(`❌ 测试4.1: 右侧图标起点在顶边 - 失败: 实际在 ${rightPath.startEdge}`);
+    results.push(`❌ 测试4.1: 右侧图标起点在顶边 - 失败：实际在 ${rightPath.startEdge}`);
     failed++;
   }
   

@@ -68,7 +68,7 @@ export default function Page() {
           口径说明：该项目服务期为 2020 至 2022 年，因疫情原因结束。本页数字为服务期内的实际运行统计。
         </CaseNote>
       </CaseSection>
-      <CaseFit
+      <CaseFit slug="intl-hospital-medical-grade-fm"
         fit={[
           "服务一次不到位就可能是安全问题的场景，如医院、实验室、洁净区",
           "服务人力密集、频次密集，工作量和质量的关系说不清",

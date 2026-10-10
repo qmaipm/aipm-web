@@ -40,7 +40,7 @@ export default function Page() {
       </CaseSection>
 
       <CaseQuote by="该工厂设施服务负责人" scope="负责范围：涉危化材料生产区域的双人双岗定时巡查，巡查记录每月提交外部核查">
-        “以前每月要交核查，我们心里是虚的——签到本上什么都有，但什么也证明不了。现在每一班两个人到没到、待了多久，数据都在，核查变成了我们最有底气的环节。”
+        “以前每月要交核查，我们心里是虚的，签到本上什么都有，但什么也证明不了。现在每一班两个人到没到、待了多久，数据都在，核查变成了我们最有底气的环节。”
       </CaseQuote>
 
       <CaseSection eyebrow="结果" title="巡查记录经得起第三方核查">
@@ -56,7 +56,7 @@ export default function Page() {
         />
         <p>安全等级最高的区域，配上了同等级的管理方式。</p>
       </CaseSection>
-      <CaseFit
+      <CaseFit slug="hazardous-area-dual-person-patrol"
         fit={[
           "危化品生产、储存、使用单位，巡查记录每月要过外部核查",
           "被要求建设人员定位与作业管理系统的重大危险源企业",

@@ -12,7 +12,7 @@ const SITE_URL = process.env.SITE_URL || "https://www.aipm.cn";
 export const metadata: Metadata = pageMetadata("/workshop/bootcamp", {
   title: "加速营 · Bootcamp — 2–3 天，把你的 AI 智能体亲手搭出来 | 启盟科技",
   description:
-    "它不是培训。2–3 天闭门加速营，你的团队分成 2–4 组，每组带一个真实业务问题和它的数据，在 FMClaw™ 上亲手把 AI 智能体搭起来、跑通——跑通的东西留给你。不做任何接口，免费。",
+    "它不是培训。2–3 天闭门加速营，你的团队分成 2–4 组，每组带一个真实业务问题和它的数据，在 FMClaw™ 上亲手把 AI 智能体搭起来、跑通：跑通的东西留给你。不做任何接口，免费。",
   keywords: [
     "AI加速营",
     "AI Bootcamp",
@@ -89,7 +89,7 @@ const steps = [
   {
     no: "03",
     h: "亲手拼出 Agent",
-    p: "在工程师的辅导下，每组自己动手把 Agent 搭起来——是你搭的，不是我们替你搭的。",
+    p: "在工程师的辅导下，每组自己动手把 Agent 搭起来，是你搭的，不是我们替你搭的。",
   },
   {
     no: "04",
@@ -102,14 +102,14 @@ const steps = [
 const groupSpec = [
   { dt: "分组", dd: <><b>2–4 组，每组 4–6 人</b>。像一场小型比赛：各组带各自的问题，同场推进，互相看得见进度。</> },
   { dt: "组内配置", dd: <>每组都要有<b>懂业务的、懂数据的</b>。会不会写代码不重要，懂不懂这件事很重要。</> },
-  { dt: "数据量", dd: <>可以比 Demo Day 更大——多几张表、多一些历史数据都行。但仍然<b>只用导出的数据文件，不做任何接口</b>。</> },
-  { dt: "时间", dd: <><b>2–3 天闭门</b>。这几天里，关键人不接别的会——准备越足，这几天越值。</> },
+  { dt: "数据量", dd: <>可以比 Demo Day 更大：多几张表、多一些历史数据都行。但仍然<b>只用导出的数据文件，不做任何接口</b>。</> },
+  { dt: "时间", dd: <><b>2–3 天闭门</b>。这几天里，关键人不接别的会：准备越足，这几天越值。</> },
 ];
 
 /* ---------- 带走什么 ---------- */
 const takes = [
   { no: "01", h: "一个还在运行的 Agent", p: "不是演示录屏，不是方案 PPT。是一个跑在你数据上、结束后还能继续用的智能体。" },
-  { no: "02", h: "一份能复用的工作流", p: "问题怎么拆、数据怎么理、Agent 怎么搭——这套方法留在你团队手里，下个问题照着做。" },
+  { no: "02", h: "一份能复用的工作流", p: "问题怎么拆、数据怎么理、Agent 怎么搭，这套方法留在你团队手里，下个问题照着做。" },
   { no: "03", h: "一批「亲手做过」的人", p: "2–4 组人从头到尾干过一遍。回到岗位上，他们就是你的 AI 转型种子。" },
 ];
 
@@ -133,11 +133,11 @@ const faqs = [
   },
   {
     q: "数据量可以带多大？会做系统对接吗？",
-    a: "数据量可以比 Demo Day 更大——多几张表、更长的历史周期都可以。但仍然只用脱敏导出的数据文件，不做任何数据接口和软件接口，也不动你的生产系统。接口与大数据量治理属于 FDE 服务。",
+    a: "数据量可以比 Demo Day 更大：多几张表、更长的历史周期都可以。但仍然只用脱敏导出的数据文件，不做任何数据接口和软件接口，也不动你的生产系统。接口与大数据量治理属于 FDE 服务。",
   },
   {
     q: "很多企业 AI 项目停在 PoC，加速营怎么避免？",
-    a: "多数 PoC 死在两件事上：问题定义模糊，和做的人不是用的人。加速营从第一天就把问题压缩成一句话，并且让真正用它的业务团队亲手搭——搭完的 Agent 留在他们手里继续跑，而不是留在供应商的演示环境里。",
+    a: "多数 PoC 死在两件事上：问题定义模糊，和做的人不是用的人。加速营从第一天就把问题压缩成一句话，并且让真正用它的业务团队亲手搭。搭完的 Agent 留在他们手里继续跑，而不是留在供应商的演示环境里。",
   },
   {
     q: "加速营收费吗？",
@@ -167,7 +167,7 @@ export default function Page() {
             两三天，把它<span className="grad">亲手搭出来</span>
           </h1>
           <p className="ws-lead">
-            你的团队分成几组，各带一个真问题和它的数据来。闭门两三天，在工程师的辅导下把 Agent 搭起来、跑通——
+            你的团队分成几组，各带一个真问题和它的数据来。闭门两三天，在工程师的辅导下把 Agent 搭起来、跑通：
             <b>跑通的东西，留给你。</b>
           </p>
           <div className="ws-cta">
@@ -190,7 +190,7 @@ export default function Page() {
           <span className="ws-eyebrow">先说清楚</span>
           <h2 className="ws-h2">它不是培训</h2>
           <p className="ws-sub">
-            市面上的 AI 训练营大多是课：讲原理、教工具、发证书。加速营不是——<b>它是一场围着你的问题转的攻坚。</b>
+            市面上的 AI 训练营大多是课：讲原理、教工具、发证书。加速营不是，<b>它是一场围着你的问题转的攻坚。</b>
           </p>
           <div className="ws-agenda">
             {diffs.map((d, i) => (
@@ -260,7 +260,7 @@ export default function Page() {
             <b>只用脱敏导出的数据文件，不做任何数据接口和软件接口，不动你的生产系统。</b>
           </p>
           <p className="ws-bnote">
-            要接系统、要治理大数据量、要生产级交付——那是按阶段交付的 <Link href="/workshop/fde">FDE 服务</Link>，
+            要接系统、要治理大数据量、要生产级交付。那是按阶段交付的 <Link href="/workshop/fde">FDE 服务</Link>，
             不该塞进两三天里草草做完。
           </p>
         </div>
@@ -291,7 +291,7 @@ export default function Page() {
         <div className="wrap">
           <span className="ws-eyebrow">拿什么问题来</span>
           <h2 className="ws-h2">两个适合分组攻坚的问题</h2>
-          <p className="ws-sub">流程环节多、天天在发生、数据现成——这样的问题最适合在加速营里跑通。</p>
+          <p className="ws-sub">流程环节多、天天在发生、数据现成。这样的问题最适合在加速营里跑通。</p>
           <div className="ws-next">
             <Link className="ws-ncard" href="/scenarios/repair-bot">
               <span className="nif">客服 · 流程类</span>
@@ -318,7 +318,7 @@ export default function Page() {
             <Link className="ws-ncard" href="/workshop/competition">
               <span className="nif">如果你想让全组织动起来</span>
               <h4>AI 应用创新大赛</h4>
-              <p>把加速营的打法放大成一场 2–4 周的比赛，让一线员工带着自己的痛点参赛——转型动力从底下长出来。</p>
+              <p>把加速营的打法放大成一场 2–4 周的比赛，让一线员工带着自己的痛点参赛：转型动力从底下长出来。</p>
               <span className="ws-go">了解大赛 <ArrowR s={12} /></span>
             </Link>
             <Link className="ws-ncard" href="/workshop/fde">
@@ -335,7 +335,7 @@ export default function Page() {
       {/* 延伸阅读 → 行业研究 */}
       <RelatedReading
         heading="为什么让一线亲手搭智能体"
-        sub="加速营的底层逻辑:AI 转型的动力为什么应该从一线长出来。"
+        sub="加速营的底层逻辑：AI 转型的动力为什么应该从一线长出来。"
         slugs={["ai-transformation-bottom-up", "ai-property-staff-optimization"]}
       />
 

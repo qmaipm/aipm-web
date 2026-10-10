@@ -11,7 +11,7 @@
  * 1. 4个套件循环轮播动画（服务设计/运营管理/质量评估/服务优化）
  * 2. 三段式脉冲效果：起点色线绘制 → 终点色脉冲 → 起点色追终点色 → 熄灭
  * 3. 图标点亮效果：上浮4px + 底部阴影 + 白色背景（无彩色边框）
- * 4. 线条光泽效果：光晕层(4px/6px) + 主线层(2px/2.5px)，模糊3px
+ * 4. 线条光泽效果：光晕层（4px/6px） + 主线层（2px/2.5px），模糊3px
  * 5. VI 手册反差渐变配色（蓝→绿、绿→金、紫→粉、蓝→紫）
  * 6. 精细图标：48x48 viewBox + 2px strokeWidth
  * 
@@ -23,7 +23,7 @@
  * - 40-52%:  起点色追终点色 + Agent 熄灭
  * - 52-68%:  线条从起点向终点熄灭（dashoffset动画）
  * - 70-90%:  Product 熄灭
- * - 90-100%: 过渡到下一套件
+ * - 90-100%：过渡到下一套件
  * 
  * 【视觉规格】
  * - 画布：540x540px
@@ -51,7 +51,7 @@
  * ```
  * 
  * 【文件依赖】
- * - suite-grid-data.ts: 图标位置、套件连接、路径计算
+ * - suite-grid-data.ts：图标位置、套件连接、路径计算
  * 
  * @version 6.1
  * @author AI Assistant
@@ -216,7 +216,7 @@ const SUITE_COLORS: Record<string, string> = {
   // Agent 颜色
   A1: '#0070FF',  // 服务设计 - 蓝色
   A2: '#12B98A',  // 运营管理 - 绿色
-  A3: '#9333EA',  // 质量评估 - 紫色
+  A3: '#0C8B82',  // 质量评估 - 紫色
   A4: '#0070FF',  // 服务优化 - 蓝色
   // Product 颜色（与 Agent 对应）
   P1_space: '#0070FF',
@@ -224,9 +224,9 @@ const SUITE_COLORS: Record<string, string> = {
   P3_ssr: '#12B98A',
   P4_ticket: '#12B98A',
   P5_collab: '#12B98A',
-  P6_device: '#9333EA',
-  P7_inspect: '#9333EA',
-  P8_assistant: '#9333EA',
+  P6_device: '#0C8B82',
+  P7_inspect: '#0C8B82',
+  P8_assistant: '#0C8B82',
   P9_salary: '#0070FF',
   P10_dashboard: '#0070FF',
   API: '#0070FF',  // 服务优化套件 - 蓝色（与A4同色）

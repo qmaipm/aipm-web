@@ -11,7 +11,7 @@
 .avtrade .avc-row+.avc-row{border-top:1px solid var(--av-line)}
 .avtrade .avc-row>div{padding:17px 20px;font-size:14.5px;line-height:1.6}
 .avtrade .avc-head>div{font-size:12px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--av-mut);padding:13px 20px}
-.avtrade .avc-head .now{color:var(--av-green)}
+.avtrade .avc-head .now{color:var(--accent-ink)}
 .avtrade .avc-k{font-weight:700;color:var(--av-ink)}
 .avtrade .avc-old{color:var(--av-mut)}
 .avtrade .avc-new{color:var(--av-ink);font-weight:500;background:rgba(18,185,138,.06);position:relative}
@@ -21,7 +21,7 @@
   .avtrade .avc-row{grid-template-columns:1fr}
   .avtrade .avc-row>div{padding:12px 16px}
   .avtrade .avc-head{display:none}
-  .avtrade .avc-k{padding-bottom:2px;font-size:13px;letter-spacing:.04em;text-transform:uppercase;color:var(--av-green)}
+  .avtrade .avc-k{padding-bottom:2px;font-size:13px;letter-spacing:.04em;text-transform:uppercase;color:var(--accent-ink)}
   .avtrade .avc-old{padding-top:0}.avtrade .avc-old::before{content:"传统 · ";font-weight:700;font-size:12px}
   .avtrade .avc-new::before{display:none}
   .avtrade .avc-new{border-left:2px solid var(--av-green)}
@@ -40,15 +40,14 @@
 @media(max-width:560px){.avtrade .avc-steps{grid-template-columns:1fr}}
 .avtrade .avc-step{position:relative;border:1px solid var(--av-line);border-radius:16px;background:var(--av-paper);
   padding:24px 22px 20px;display:flex;flex-direction:column;transition:border-color .2s,box-shadow .2s,transform .2s}
-.avtrade .avc-step:hover{border-color:rgba(12,139,130,.32);box-shadow:0 16px 36px rgba(12,139,130,.1);transform:translateY(-3px)}
+.avtrade .avc-step:hover{border-color:rgba(12,139,130,.32);box-shadow:0 16px 36px rgba(11,23,20,0.06);transform:translateY(-3px)}
 .avtrade .avc-step .n{font-size:13px;font-weight:800;letter-spacing:.08em;color:var(--av-faint);font-variant-numeric:tabular-nums}
 .avtrade .avc-step h3{margin:12px 0 0;font-size:18.5px;font-weight:800;letter-spacing:-.01em;color:var(--av-ink)}
 .avtrade .avc-step p{margin:10px 0 0;font-size:14px;line-height:1.7;color:var(--av-ink-2);flex:1}
-.avtrade .avc-step .ag{margin-top:16px;font-size:13px;font-weight:600;color:var(--av-green);display:inline-flex;align-items:center;gap:6px}
+.avtrade .avc-step .ag{margin-top:16px;font-size:13px;font-weight:600;color:var(--accent-ink);display:inline-flex;align-items:center;gap:6px}
 .avtrade .avc-step .ag:hover .ar{transform:translateX(3px)}
 .avtrade .avc-note{margin:30px 0 0;font-size:15px;font-weight:600;color:var(--av-ink)}
-.avtrade .avc-note em{font-style:normal;background:var(--av-grad);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;font-weight:800}
-@supports not ((-webkit-background-clip:text) or (background-clip:text)){.avtrade .avc-note em{color:var(--av-green);-webkit-text-fill-color:currentColor}}
+.avtrade .avc-note em{font-style:normal;font-weight:800;color:var(--vi-blue)}
 
 /* ---------- 人机协同 ---------- */
 .avtrade .avc-robot{margin-top:46px;display:grid;grid-template-columns:1.05fr .95fr;gap:44px;align-items:center}
@@ -57,7 +56,7 @@
 .avtrade .avc-robot__body p+p{margin-top:14px}
 .avtrade .avc-robot__body p b{color:var(--av-ink);font-weight:700}
 .avtrade .avc-robot__media{position:relative;border-radius:18px;overflow:hidden;aspect-ratio:4/3;background:var(--av-mist);
-  box-shadow:0 22px 48px rgba(12,139,130,.12)}
+  box-shadow:0 22px 48px rgba(11,23,20,0.072)}
 .avtrade .avc-robot__media img{width:100%;height:100%;object-fit:cover;display:block}
 .avtrade .avc-quote{margin:38px 0 0;border-left:3px solid var(--av-green);padding:6px 0 6px 24px;max-width:720px}
 .avtrade .avc-quote p{margin:0;font-size:clamp(16px,1.9vw,19px);font-weight:600;line-height:1.65;color:var(--av-ink)}
@@ -82,7 +81,7 @@
 @media(max-width:760px){.avtrade .avc-who{grid-template-columns:1fr;padding:26px 24px}}
 .avtrade .avc-who__brand{display:flex;flex-direction:column;gap:4px;min-width:150px}
 .avtrade .avc-who__brand .nm{font-size:clamp(24px,2.8vw,30px);font-weight:800;letter-spacing:-.01em;color:var(--av-ink)}
-.avtrade .avc-who__brand .en{font-size:12px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--av-green)}
+.avtrade .avc-who__brand .en{font-size:12px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--accent-ink)}
 .avtrade .avc-who__brand .rel{margin-top:8px;font-size:13px;color:var(--av-mut);line-height:1.5}
 .avtrade .avc-who__body p{margin:0;font-size:15px;line-height:1.8;color:var(--av-ink-2)}
 .avtrade .avc-who__body p b{color:var(--av-ink);font-weight:700}
@@ -93,8 +92,8 @@
 @media(max-width:860px){.avtrade .avc-modes{grid-template-columns:1fr}}
 .avtrade .avc-mode{border:1px solid var(--av-line);border-radius:16px;background:var(--av-paper);padding:28px 26px 24px;
   display:flex;flex-direction:column;transition:border-color .2s,box-shadow .2s,transform .2s}
-.avtrade .avc-mode:hover{border-color:rgba(12,139,130,.32);box-shadow:0 16px 36px rgba(12,139,130,.1);transform:translateY(-3px)}
-.avtrade .avc-mode .lab{font-size:12px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--av-green)}
+.avtrade .avc-mode:hover{border-color:rgba(12,139,130,.32);box-shadow:0 16px 36px rgba(11,23,20,0.06);transform:translateY(-3px)}
+.avtrade .avc-mode .lab{font-size:12px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--accent-ink)}
 .avtrade .avc-mode h3{margin:10px 0 0;font-size:20px;font-weight:800;letter-spacing:-.01em;color:var(--av-ink)}
 .avtrade .avc-mode p{margin:10px 0 0;font-size:14px;line-height:1.7;color:var(--av-ink-2);flex:1}
 .avtrade .avc-mode .who{margin-top:14px;font-size:13px;color:var(--av-mut)}
@@ -111,4 +110,13 @@
 .avtrade .avc-end p{margin:20px auto 0;font-size:16px;line-height:1.7;color:var(--av-ink-2);max-width:52ch}
 .avtrade .avc-end .av-cta{justify-content:center}
 .avtrade .avc-end .alt{font-size:14.5px;color:var(--av-mut)}
-.avtrade .avc-end .alt a{color:var(--av-green);font-weight:600}
+.avtrade .avc-end .alt a{color:var(--accent-ink);font-weight:600}
+
+/* 合作方式：物业委托管理居中加宽、视觉加重（不加标签） */
+.avtrade .avc-modes{grid-template-columns:1fr 1.4fr 1fr;align-items:stretch}
+.avtrade .avc-mode.is-main{padding:36px 34px 30px;border-color:rgba(12,139,130,.38);background:linear-gradient(180deg,#F1F8F6 0%,#FFFFFF 100%);box-shadow:0 18px 40px rgba(11,23,20,.07)}
+.avtrade .avc-mode.is-main h3{font-size:24px}
+.avtrade .avc-mode.is-main p{font-size:15px}
+.avtrade .avc-mode__go{margin-top:16px;font-size:14px;align-self:flex-start}
+@media(min-width:861px){.avtrade .avc-mode:not(.is-main){margin:18px 0}}
+@media(max-width:860px){.avtrade .avc-modes{grid-template-columns:1fr}.avtrade .avc-mode.is-main{order:-1}}

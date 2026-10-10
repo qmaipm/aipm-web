@@ -5,8 +5,8 @@
    数据驱动:内容取自 cases.ts,由 _CaseShell.tsx 渲染,全部收在 .casefx 作用域内。
    ============================================================ */
 .casefx{
-  --cf-ink:#14201C; --cf-ink-2:#46524D; --cf-mut:#7C857F; --cf-faint:#A7AFAB;
-  --cf-line:#E6EAE8; --cf-line-2:#EEF2F0; --cf-mist:#ECF3F1; --cf-paper:#FFFFFF; --cf-core:#0B1714;
+  --cf-ink:#14201C; --cf-ink-2:#46524D; --cf-mut:#5F6A65; --cf-faint:#6B7570;
+  --cf-line:#E6EAE8; --cf-line-2:#EEF2F0; --cf-mist:#F3F7F6; --cf-paper:#FFFFFF; --cf-core:#0B1714;
   --cf-blue:#0070FF; --cf-green:#12B98A; --cf-grad:linear-gradient(115deg,#0070FF,#12B98A);
   --cf-vi-line:rgba(12,139,130,.16);
   /* 阅读栏宽:约 36 汉字/行(36 × 18px 正文号)。中文舒适阅读区 30–40 字/行,
@@ -20,7 +20,7 @@
 .casefx .wrap{max-width:1160px;margin:0 auto;padding:0 32px}
 @media(max-width:600px){.casefx .wrap{padding:0 22px}}
 .casefx a{color:inherit}
-.casefx .grad{background:var(--cf-grad);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+.casefx .grad{color:var(--vi-blue)}
 
 /* 蓝图网格(与 fmx 一致) */
 .cf-grid{position:absolute;inset:0;z-index:0;pointer-events:none;
@@ -37,8 +37,8 @@
 .cf-hero-top{position:relative;z-index:2}
 .cf-crumb{display:inline-flex;align-items:center;font-size:12px;font-weight:600;letter-spacing:.14em;
   text-transform:uppercase;color:var(--cf-mut)}
-.cf-crumb a{color:var(--cf-mut)}.cf-crumb a:hover{color:var(--cf-green)}
-.cf-crumb i{color:var(--cf-green);font-style:normal;margin:0 9px;font-weight:700}
+.cf-crumb a{color:var(--cf-mut)}.cf-crumb a:hover{color:var(--accent-ink)}
+.cf-crumb i{color:var(--accent-ink);font-style:normal;margin:0 9px;font-weight:700}
 .cf-h1{margin:22px 0 0;font-weight:800;font-size:clamp(36px,5.6vw,64px);line-height:1.07;letter-spacing:-.035em;
   color:var(--cf-ink);max-width:17ch}
 .cf-lead{margin:26px 0 0;font-size:clamp(16px,1.8vw,19px);line-height:1.6;color:var(--cf-ink-2);max-width:44ch;font-weight:400}
@@ -70,8 +70,7 @@
 .cf-metric:last-child{border-right:0}
 @media(max-width:640px){.cf-metric{border-right:0;border-bottom:1px solid var(--cf-line)}.cf-metric:last-child{border-bottom:0}}
 .cf-metric b{font-weight:800;font-size:clamp(34px,4.4vw,48px);line-height:1;letter-spacing:-.025em;
-  background:var(--cf-grad);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;width:max-content}
-@supports not ((-webkit-background-clip:text) or (background-clip:text)){.cf-metric b{color:var(--cf-green);-webkit-text-fill-color:currentColor}}
+  width:max-content;color:var(--vi-blue)}
 .cf-metric span{font-size:13px;line-height:1.5;color:var(--cf-mut)}
 
 /* ---------- 通用 band ---------- */
@@ -79,8 +78,8 @@
 .cf-band.mist{background:var(--cf-mist)}
 @media(max-width:700px){.cf-band{padding:76px 0}}
 .cf-eyebrow{display:inline-flex;align-items:center;gap:10px;font-size:12px;font-weight:600;letter-spacing:.2em;
-  text-transform:uppercase;color:var(--cf-green)}
-.cf-eyebrow::before{content:"";width:22px;height:2px;border-radius:2px;background:var(--cf-grad)}
+  text-transform:uppercase;color:var(--accent-ink)}
+.cf-eyebrow::before{content:"";width:22px;height:2px;border-radius:2px;background:var(--blue)}
 .cf-eyebrow.on-dark{color:#3fd9b8}
 .cf-h2{margin:18px 0 0;font-weight:800;font-size:clamp(27px,3.4vw,40px);line-height:1.18;letter-spacing:-.03em;color:var(--cf-ink);max-width:24ch}
 .cf-h2.on-dark{color:#fff}
@@ -112,8 +111,8 @@
 @media(max-width:760px){.cf-points{grid-template-columns:1fr}}
 .cf-point{position:relative;border:1px solid var(--cf-line);border-radius:14px;background:var(--cf-paper);
   padding:26px 26px 24px;transition:border-color .2s,box-shadow .2s,transform .2s}
-.cf-point::before{content:"";position:absolute;left:-1px;right:-1px;top:-1px;height:3px;border-radius:14px 14px 0 0;background:var(--cf-grad)}
-.cf-point:hover{border-color:rgba(12,139,130,.34);box-shadow:0 14px 32px rgba(12,139,130,.08);transform:translateY(-2px)}
+.cf-point::before{content:"";position:absolute;left:-1px;right:-1px;top:-1px;height:3px;border-radius:14px 14px 0 0;background:var(--cf-grad);display:none}
+.cf-point:hover{border-color:rgba(12,139,130,.34);box-shadow:0 14px 32px rgba(11,23,20,0.048);transform:translateY(-2px)}
 .cf-point-k{display:block;font-size:16.5px;font-weight:700;line-height:1.5;color:var(--cf-ink);letter-spacing:-.01em}
 .cf-point-d{display:block;margin-top:8px;font-size:14px;line-height:1.6;color:var(--cf-mut)}
 
@@ -167,7 +166,7 @@
 .cf-fr-row dd{margin:0;font-size:17px;line-height:1.85;color:var(--cf-ink-2)}
 /* 只有「后来怎么过的」一行加重:它是读者真正要抄走的东西。
    前两行是背景,读者扫过即可,不要三行同权重打架。 */
-.cf-fr-row.is-out dt{color:var(--cf-green)}
+.cf-fr-row.is-out dt{color:var(--accent-ink)}
 .cf-fr-row.is-out dd{color:var(--cf-ink);font-weight:500}
 
 .cf-flow{list-style:none;margin:0;padding:0;position:relative}
@@ -178,10 +177,9 @@
   background:var(--cf-grad);opacity:.28;border-radius:2px}
 .cf-step-n{position:absolute;left:0;top:0;z-index:1;width:42px;height:42px;border-radius:12px;
   display:grid;place-items:center;background:var(--cf-paper);border:1px solid var(--cf-line);
-  box-shadow:0 2px 10px rgba(12,139,130,.06);
+  box-shadow:0 2px 10px rgba(11,23,20,0.036);
   font-size:13.5px;font-weight:800;letter-spacing:.02em;font-variant-numeric:tabular-nums}
-.cf-step-n span{background:var(--cf-grad);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
-@supports not ((-webkit-background-clip:text) or (background-clip:text)){.cf-step-n span{color:var(--cf-green);-webkit-text-fill-color:currentColor}}
+.cf-step-n span{color:var(--vi-blue)}
 .cf-step-k{font-size:17px;font-weight:700;line-height:1.4;color:var(--cf-ink);letter-spacing:-.01em;padding-top:9px}
 .cf-step-d{margin:8px 0 0;font-size:15.5px;line-height:1.75;color:var(--cf-ink-2);max-width:32em}
 @media(max-width:600px){.cf-step{padding-left:58px}.cf-step-n{width:38px;height:38px}.cf-step:not(:last-child)::before{left:18px}}
@@ -191,7 +189,7 @@
 @media(max-width:760px){.cf-wins{grid-template-columns:1fr}}
 .cf-win{position:relative;border:1px solid var(--cf-line);border-radius:14px;background:var(--cf-paper);
   padding:24px 26px;font-size:16px;line-height:1.55;color:var(--cf-ink);font-weight:600}
-.cf-win::before{content:"";position:absolute;left:-1px;right:-1px;top:-1px;height:3px;border-radius:14px 14px 0 0;background:var(--cf-grad)}
+.cf-win::before{content:"";position:absolute;left:-1px;right:-1px;top:-1px;height:3px;border-radius:14px 14px 0 0;background:var(--cf-grad);display:none}
 
 /* ---------- 客户原声 · 暗色 platform core(与 fmx .fm-core 一致) ---------- */
 .cf-core{position:relative;overflow:hidden;background:var(--cf-core);color:#E8EFEC;padding:118px 0;text-align:center}
@@ -210,7 +208,7 @@
 .cf-faq-item summary::-webkit-details-marker{display:none}
 .cf-faq-item summary::after{content:"";position:absolute;right:4px;top:27px;width:9px;height:9px;
   border-right:2px solid var(--cf-faint);border-bottom:2px solid var(--cf-faint);transform:rotate(45deg);transition:transform .2s,border-color .2s}
-.cf-faq-item[open] summary,.cf-faq-item summary:hover{color:var(--cf-green)}
+.cf-faq-item[open] summary,.cf-faq-item summary:hover{color:var(--accent-ink)}
 .cf-faq-item[open] summary::after{transform:rotate(-135deg);border-color:var(--cf-green)}
 .cf-faq-a{margin:0 0 22px;font-size:15.5px;line-height:1.8;color:var(--cf-ink-2);max-width:var(--cf-read)}
 
@@ -221,11 +219,11 @@
 @media(max-width:940px){.cf-related{grid-template-columns:1fr}}
 .cf-rcard{border:1px solid var(--cf-line);border-radius:16px;background:var(--cf-paper);padding:26px 24px 24px;
   transition:border-color .2s,box-shadow .2s,transform .2s;display:block}
-.cf-rcard:hover{border-color:rgba(12,139,130,.34);box-shadow:0 16px 38px rgba(12,139,130,.08);transform:translateY(-3px)}
+.cf-rcard:hover{border-color:rgba(12,139,130,.34);box-shadow:0 16px 38px rgba(11,23,20,0.048);transform:translateY(-3px)}
 .cf-rcard .rmeta{font-size:11.5px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--cf-mut);margin-bottom:12px}
 /* 三列比原先的两列窄,标题降一档才不会一张卡片折出五六行 */
 .cf-rcard h3{margin:0 0 10px;font-size:17.5px;font-weight:700;letter-spacing:-.01em;color:var(--cf-ink);line-height:1.4}
-.cf-rcard:hover h3{color:var(--cf-green)}
+.cf-rcard:hover h3{color:var(--accent-ink)}
 .cf-rcard p{margin:0;font-size:13.5px;line-height:1.65;color:var(--cf-ink-2)}
 
 /* ============================================================
@@ -248,8 +246,7 @@
 .cf-cover-sub{margin:20px 0 0;font-size:clamp(14.5px,1.7vw,18px);line-height:1.62;color:rgba(255,255,255,.82);max-width:54ch}
 .cf-cover-metrics{margin-top:34px;display:flex;flex-wrap:wrap;gap:16px 44px}
 .cf-cover-metric b{display:block;font-size:clamp(26px,3.6vw,42px);font-weight:800;letter-spacing:-.02em;line-height:1;
-  background:linear-gradient(115deg,#5AA9FF,#3fd9b8);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;width:max-content}
-@supports not ((-webkit-background-clip:text) or (background-clip:text)){.cf-cover-metric b{color:#3fd9b8;-webkit-text-fill-color:currentColor}}
+  width:max-content;color:var(--blue-on-dark)}
 .cf-cover-metric span{display:block;margin-top:8px;font-size:12.5px;color:rgba(255,255,255,.72)}
 .cf-cover-date{margin:26px 0 0;font-size:12.5px;font-weight:600;letter-spacing:.06em;color:rgba(255,255,255,.6)}
 
@@ -260,7 +257,7 @@
 .cf-article>p b,.cf-article>p strong{color:var(--cf-ink);font-weight:700}
 .cf-article>h2{margin:54px 0 20px;font-weight:800;font-size:clamp(22px,2.8vw,30px);line-height:1.26;letter-spacing:-.02em;color:var(--cf-ink)}
 .cf-article>h2:first-child{margin-top:0}
-.cf-article a{color:var(--cf-green);text-decoration:underline;text-underline-offset:3px;text-decoration-color:var(--cf-vi-line)}
+.cf-article a{color:var(--accent-ink);text-decoration:underline;text-underline-offset:3px;text-decoration-color:var(--cf-vi-line)}
 .cf-article a:hover{text-decoration-color:var(--cf-green)}
 .cf-article .cf-fig,.cf-article .cf-cmp,.cf-article .cf-pull,.cf-article .cf-note{margin:28px 0}
 
@@ -294,12 +291,11 @@
 .cf-cmp-trad b{font-size:clamp(20px,2.4vw,26px);font-weight:700;color:var(--cf-faint);letter-spacing:-.01em;line-height:1.1}
 .cf-cmp-aipm{text-align:right;border-left:1px solid var(--cf-line);background:rgba(18,185,138,.06);position:relative}
 .cf-cmp-aipm b{font-size:clamp(21px,2.6vw,28px);font-weight:800;letter-spacing:-.01em;line-height:1.1;
-  background:var(--cf-grad);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;width:max-content;margin-left:auto}
-@supports not ((-webkit-background-clip:text) or (background-clip:text)){.cf-cmp-aipm b{color:var(--cf-green);-webkit-text-fill-color:currentColor}}
+  width:max-content;margin-left:auto;color:var(--vi-blue)}
 .cf-cmp-head{background:var(--cf-mist)}
 .cf-cmp-head .cf-cmp-lab{color:var(--cf-ink-2);font-weight:700}
 .cf-cmp-head .cf-cmp-trad,.cf-cmp-head .cf-cmp-aipm{font-size:14px;font-weight:700;color:var(--cf-ink);justify-content:center;text-align:right}
-.cf-cmp-head .cf-cmp-aipm{color:var(--cf-green)}
+.cf-cmp-head .cf-cmp-aipm{color:var(--accent-ink)}
 
 /* 文字行:上面那套是给「24% → 95%」这类数字设计的(大号、右对齐)。
    短句套进去会被挤成一字一行,所以文字行降到正文号、左对齐、可正常折行。 */
@@ -332,7 +328,7 @@
   .cf-cmp.has-prose .cf-cmp-row:not(.cf-cmp-head) .cf-cmp-aipm::before{
     content:attr(data-h);font-size:10.5px;font-weight:700;letter-spacing:.12em;
     text-transform:uppercase;color:var(--cf-faint);margin-bottom:3px}
-  .cf-cmp.has-prose .cf-cmp-row:not(.cf-cmp-head) .cf-cmp-aipm::before{color:var(--cf-green)}
+  .cf-cmp.has-prose .cf-cmp-row:not(.cf-cmp-head) .cf-cmp-aipm::before{color:var(--accent-ink)}
   .cf-cmp.has-prose .cf-cmp-head .cf-cmp-trad,
   .cf-cmp.has-prose .cf-cmp-head .cf-cmp-aipm{display:none}
 }
@@ -347,3 +343,100 @@
 /* ---------- 可访问性 / 动效降级 ---------- */
 .casefx a:focus-visible,.casefx .btn:focus-visible,.casefx summary:focus-visible{outline:2px solid var(--cf-green);outline-offset:3px;border-radius:10px}
 @media(prefers-reduced-motion:reduce){.casefx *{transition:none!important;animation:none!important}}
+
+/* 2026-10 自营验证页：用代码画的细线示意图替换等轴发光插画 */
+.cf-fig.av-dg{border:1px solid var(--cf-line);border-radius:12px;padding:26px 26px 18px;background:#fff}
+.cf-fig.av-dg figcaption{margin-top:16px;font-size:12.5px;color:var(--mut);letter-spacing:.02em}
+.av-flow{display:grid;grid-template-columns:1.9fr 36px 1fr 36px 1fr;align-items:stretch}
+.av-flow-col{display:flex;flex-direction:column;gap:8px;padding:4px 0}
+.av-flow-k{font-size:12.5px;font-weight:700;letter-spacing:.06em;color:var(--mut)}
+.av-flow-col ul{margin:4px 0 0;padding:0;list-style:none;display:flex;flex-wrap:wrap;gap:6px}
+.av-flow-col li{font-size:13.5px;padding:4px 10px;border:1px solid var(--line);border-radius:6px;color:var(--ink-2);background:var(--ivory-2)}
+.av-flow-col b{font-size:clamp(26px,3vw,34px);font-weight:800;letter-spacing:-.02em;line-height:1.1;color:var(--ink);font-variant-numeric:tabular-nums}
+.av-flow-col.ai b{color:var(--blue-ink)}
+.av-flow-col.human b{color:var(--human-ink)}
+.av-flow-col p{margin:0;font-size:13.5px;color:var(--ink-2)}
+.av-flow-arrow{position:relative;align-self:center;height:1px;background:var(--line);margin:0 4px}
+.av-flow-arrow::after{content:"";position:absolute;right:-1px;top:-3px;width:7px;height:7px;border-top:1px solid var(--mut);border-right:1px solid var(--mut);transform:rotate(45deg)}
+@media(max-width:720px){.av-flow{grid-template-columns:1fr}.av-flow-arrow{width:1px;height:22px;margin:6px 0 6px 10px}
+  .av-flow-arrow::after{right:auto;left:-3px;top:auto;bottom:-1px;transform:rotate(135deg)}}
+.av-org{display:flex;flex-direction:column;gap:22px}
+.av-org-row{display:grid;grid-template-columns:84px 1fr;gap:16px;align-items:start}
+.av-org-k{font-size:14px;font-weight:700;color:var(--ink);padding-top:3px}
+.av-org-bars{display:flex;flex-direction:column;gap:8px}
+.av-org-bar{position:relative;display:flex;justify-content:space-between;align-items:baseline;gap:10px;padding:0 0 8px;font-size:13px;color:var(--ink-2)}
+.av-org-bar::after{content:"";position:absolute;left:0;bottom:0;height:6px;width:var(--w);border-radius:2px;background:#C9D2CE}
+.av-org-bar.now::after{background:var(--blue)}
+.av-org-bar b{font-size:16px;font-weight:800;color:var(--ink);font-variant-numeric:tabular-nums}
+.av-org-bar.now b{color:var(--blue-ink)}
+
+/* ============================================================
+   2026-10 案例页收敛（AI 大厂视觉标准）+ 转化顺序调整
+   顺序：正文 → 适用性（就地轻门）→ 相关案例 → 预约 CTA → FAQ（参考资料）
+   去掉背景网格、卡片阴影/悬浮位移、蓝色引线小标签；卡片改为顶线。
+   ============================================================ */
+/* 小标签：只做小灰字，不再是蓝色引线 + 大写字距 */
+.casefx .cf-eyebrow{gap:0;font-size:13px;font-weight:500;letter-spacing:0;text-transform:none;color:var(--cf-mut)}
+.casefx .cf-eyebrow::before{display:none}
+.casefx .cf-eyebrow.on-dark{color:rgba(255,255,255,.6)}
+.casefx .cf-h2{margin-top:10px}
+.casefx .cf-sec-head>.cf-h2:first-child{margin-top:0}
+
+/* 首屏：档案 chip → 纯文字行；指标面板 → 顶线三栏 */
+.casefx .cf-crumb{font-size:13px;font-weight:500;letter-spacing:0;text-transform:none}
+.casefx .cf-crumb i{color:#B7C0BC;font-weight:400}
+.casefx .cf-facts{gap:6px 28px}
+.casefx .cf-fact{flex-direction:row;align-items:baseline;gap:8px;padding:0;border:0;border-radius:0;background:none}
+.casefx .cf-fact dt{font-size:13px;font-weight:500;letter-spacing:0;text-transform:none;color:var(--cf-mut)}
+.casefx .cf-fact dd{font-size:14px}
+.casefx .cf-facts-2 .cf-fact{border:0}
+.casefx .cf-metrics{border:0;border-top:1px solid var(--cf-ink);border-radius:0;gap:0 32px}
+.casefx .cf-metric{padding:24px 0 0;border:0}
+.casefx .cf-metric b{color:var(--cf-ink);font-weight:700}
+@media(max-width:640px){.casefx .cf-metric{padding:20px 0;border-bottom:1px solid var(--cf-line)}}
+
+/* 要点 / 成果 / 适用性 / 相关案例：卡片 → 顶线 */
+.casefx .cf-point,.casefx .cf-win,.casefx .cf-fit-col,.casefx .cf-rcard{border:0;border-top:1px solid var(--cf-ink);border-radius:0;
+  background:none;box-shadow:none;transform:none;padding:20px 0 0}
+.casefx .cf-points,.casefx .cf-wins{gap:28px 40px}
+.casefx .cf-fit{gap:28px 48px}
+.casefx .cf-fit-h{padding-bottom:0;margin-bottom:14px;border:0}
+.casefx .cf-fit-h i{display:none}
+.casefx .cf-fit-col.yes .cf-fit-h{color:var(--blue-ink)}
+.casefx .cf-fit-col.yes li::before{background:var(--blue-ink)}
+.casefx .cf-cost-item{border-left:0;padding-left:0}
+.casefx .cf-related{gap:28px 40px}
+.casefx .cf-rcard .rmeta{font-size:13px;font-weight:500;letter-spacing:0;text-transform:none}
+.casefx .cf-rcard:hover h3{color:var(--cf-ink);text-decoration:underline;text-underline-offset:4px;text-decoration-thickness:1px}
+
+/* 流程：去渐变导轨与方块编号 */
+.casefx .cf-step{padding-left:56px}
+.casefx .cf-step:not(:last-child)::before{background:var(--cf-line);opacity:1;width:1px;left:15px;top:32px}
+.casefx .cf-step-n{width:32px;height:32px;border-radius:50%;box-shadow:none;font-weight:600}
+.casefx .cf-step-n span{color:var(--cf-mut)}
+.casefx .cf-step-k{padding-top:4px}
+
+/* 对照表：接入后一栏去掉绿底，强调色只留在数字上 */
+.casefx .cf-cmp{border-radius:0;border:0;border-top:1px solid var(--cf-ink)}
+.casefx .cf-cmp-row+.cf-cmp-row{border-top-color:var(--cf-line)}
+.casefx .cf-cmp-row:last-child{border-bottom:1px solid var(--cf-line)}
+.casefx .cf-cmp-head{background:none}
+.casefx .cf-cmp-aipm{background:none}
+.casefx .cf-cmp-row>div:first-child{padding-left:0}
+.casefx .cf-cmp-row>div:last-child{padding-right:0}
+.casefx .cf-cmp-row.cf-cmp-txt .cf-cmp-aipm b{color:var(--cf-ink)}
+.casefx .cf-cmp-aipm b{color:var(--blue-ink)}
+
+/* 侧注 / 引言 */
+.casefx .cf-note{border:0;border-top:1px solid var(--cf-line);border-radius:0;background:none;padding:14px 0 0}
+.casefx .cf-pull{border-left:0;border-image:none;padding-left:0}
+
+/* 适用性末尾的轻门 */
+.cf-fit-go{margin:32px 0 0}
+.cf-fit-go a{display:inline-flex;align-items:center;gap:6px;font-size:15px;font-weight:600;color:var(--blue-ink)}
+.cf-fit-go a:hover{text-decoration:underline;text-underline-offset:4px}
+
+/* 相关案例（白）与 CTA（白）相邻：用一条细线分开；FAQ 退到页尾 */
+.casefx .endcta{border-top:1px solid var(--cf-line)}
+.casefx .cf-faqband{padding:88px 0}
+@media(max-width:700px){.casefx .cf-faqband{padding:64px 0}}

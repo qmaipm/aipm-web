@@ -86,7 +86,7 @@ export default function CobuildForm() {
         <div className="field"><label>电话<span className="req">*</span></label><input type="tel" required value={phone} onChange={(e) => setPhone(e.target.value)} /></div>
       </div>
       <div className="field"><label>邮箱</label><input type="email" value={email} onChange={(e) => setEmail(e.target.value)} /></div>
-      <div className="field"><label>留言</label><textarea placeholder="可简单说明来意,例如所在辖区与希望对接的方向。" value={message} onChange={(e) => setMessage(e.target.value)}></textarea></div>
+      <div className="field"><label>留言</label><textarea placeholder="可简单说明来意，例如所在辖区与希望对接的方向。" value={message} onChange={(e) => setMessage(e.target.value)}></textarea></div>
       {err && <p className="form-err" role="alert">{err}</p>}
       <button className="btn btn-primary" type="submit" style={{ marginTop: "6px" }} disabled={status === "sending"}>
         {status === "sending" ? "提交中…" : <>提交联系方式 <svg className="ar" width="15" height="15" viewBox="0 0 16 16"><path d="M3 8h10M9 4l4 4-4 4" fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round" /></svg></>}

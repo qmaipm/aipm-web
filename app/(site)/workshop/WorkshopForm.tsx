@@ -115,7 +115,7 @@ export default function WorkshopForm() {
       <div className="field-row">
         <div className="field"><label>感兴趣的形式</label>
           <select value={mode} onChange={(e) => setMode(e.target.value)}>{MODES.map((m) => <option key={m}>{m}</option>)}</select></div>
-        <div className="field"><label>期望时间</label><input type="text" placeholder="如:7 月上旬" value={time} onChange={(e) => setTime(e.target.value)} /></div>
+        <div className="field"><label>期望时间</label><input type="text" placeholder="如：7 月上旬" value={time} onChange={(e) => setTime(e.target.value)} /></div>
       </div>
       <div className="field"><label>是否需要保密协议</label>
         <select value={nda} onChange={(e) => setNda(e.target.value)}><option>视情况而定</option><option>需要</option><option>不需要</option></select></div>

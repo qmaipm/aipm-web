@@ -4,7 +4,7 @@
  * 可复用的图标轮播动画组件
  * 
  * 特性：
- * 1. 支持竖向(portrait)和横向(landscape)两种布局
+ * 1. 支持竖向（portrait）和横向（landscape）两种布局
  * 2. 画布尺寸可配置（宽度/高度）
  * 3. 图标位置自动按比例计算
  * 4. 手机模拟器尺寸自动适应
@@ -95,7 +95,7 @@ export interface IconCarouselAnimationProps {
   canvasWidth: number;
   /** 画布高度 */
   canvasHeight: number;
-  /** 布局方向：portrait(竖向) 或 landscape(横向) */
+  /** 布局方向：portrait（竖向） 或 landscape（横向） */
   orientation?: Orientation;
   /** 图标配置数组 */
   icons: IconConfig[];
@@ -151,7 +151,7 @@ const DEFAULT_ANIMATION_CONFIG = {
 
 const DEFAULT_COLORS = {
   primary: { start: '#0070FF', end: '#12B98A' },
-  secondary: { start: '#9333EA', end: '#EC4899' },
+  secondary: { start: '#0C8B82', end: '#0058CC' },
 };
 
 // ==========================================
@@ -296,8 +296,8 @@ export default function IconCarouselAnimation({
 }: IconCarouselAnimationProps) {
   
   // ========== 根据布局方向计算默认值 ==========
-  // 竖向：手机竖屏 (宽高比 0.5)，高度占画布 93%
-  // 横向：手机横屏 (宽高比 1.78)，需要给上下图标留空间
+  // 竖向：手机竖屏（宽高比 0.5），高度占画布 93%
+  // 横向：手机横屏（宽高比 1.78），需要给上下图标留空间
   const defaultPhoneAspectRatio = orientation === 'portrait' ? 0.5 : 1.78;
   
   const actualPhoneAspectRatio = phoneAspectRatio ?? defaultPhoneAspectRatio;
@@ -313,7 +313,7 @@ export default function IconCarouselAnimation({
       phoneWidth = Math.round(phoneHeight * actualPhoneAspectRatio);
     } else {
       // 横向：需要给上下图标留空间
-      // 可用高度 = 画布高度 - 上下图标区域 (图标48 + 间距60 + 标签约20) × 2
+      // 可用高度 = 画布高度 - 上下图标区域（图标48 + 间距60 + 标签约20） × 2
       const iconAreaHeight = iconSize + iconToPhoneGap + 24; // 图标 + 间距 + 标签
       const availableHeight = canvasHeight - iconAreaHeight * 2;
       

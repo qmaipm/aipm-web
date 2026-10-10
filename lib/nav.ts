@@ -148,6 +148,7 @@ export const MENU: MenuItem[] = [
       {
         items: [
           { label: "关于启盟科技", href: "/company" },
+          { label: "启盟的秘密蓝图", href: "/company/master-plan" },
           { label: "团队", href: "/team" },
           { label: "新闻动态", href: "/news" },
           { label: "行业研究", href: "/insights" },

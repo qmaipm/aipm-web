@@ -1,5 +1,5 @@
 // 客户 Logo 墙：8 家真实客户，4-4 两行布局，灰度呈现、悬停彩色。
-// 有 logo 文件的用图片；暂缺 logo 文件的(佳都/wework/雅生活)先用文字 logo 兜底，
+// 有 logo 文件的用图片；暂缺 logo 文件的（佳都/wework/雅生活）先用文字 logo 兜底，
 // 待补齐 public/images/clients/ 下对应 SVG 后替换。
 type Client = { name: string; img?: string; big?: boolean };
 

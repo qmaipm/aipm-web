@@ -5,7 +5,7 @@ import "./crumb.css";
 const SITE_URL = process.env.SITE_URL || "https://www.aipm.cn";
 
 /**
- * 产品扩展页面包屑:产品 → FMClaw → 当前页
+ * 产品扩展页面包屑：产品 → FMClaw → 当前页
  * 可见面包屑 + BreadcrumbList JSON-LD。
  * tone="dark" 用于深色 Hero 背景。
  */

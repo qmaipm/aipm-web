@@ -22,7 +22,7 @@ export function DefineBand() {
         <div className="wa-band-txt">
           <h2 id="wa-band-h" className="wa-band-k">什么是物业智能体</h2>
           <p className="wa-band-def">
-            <b>物业智能体</b>是运行在物业与设施管理业务里的 AI：自己从 IoT、影像、群消息与业务系统取数，按流程把一件工作推进到底——发现异常、生成工单、核验结果——并在需要人负责的环节交给人确认。
+            <b>物业智能体</b>是运行在物业与设施管理业务里的 AI：自己从 IoT、影像、群消息与业务系统取数，按流程把一件工作推进到底（发现异常、生成工单、核验结果）并在需要人负责的环节交给人确认。
           </p>
         </div>
         <dl className="wa-band-nums" aria-label="运行规模">
@@ -40,7 +40,7 @@ const Icons = {
   define: (
     <svg width="26" height="26" viewBox="0 0 24 24" fill="none">
       <circle cx="12" cy="12" r="8.5" stroke="#0070FF" strokeWidth="1.5" />
-      <path d="M12 8v4.5l3 1.8" stroke="#9333EA" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+      <path d="M12 8v4.5l3 1.8" stroke="#0C8B82" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
     </svg>
   ),
   diff: (
@@ -48,7 +48,7 @@ const Icons = {
       <rect x="3" y="5" width="7.5" height="14" rx="1.5" stroke="#94A3B8" strokeWidth="1.5" />
       <path d="M5.5 9h2.5M5.5 12h2.5M5.5 15h2.5" stroke="#94A3B8" strokeWidth="1.5" strokeLinecap="round" />
       <rect x="13.5" y="5" width="7.5" height="14" rx="1.5" stroke="#12B98A" strokeWidth="1.5" />
-      <path d="M15.5 12.5l1.6 1.6 3-3.4" stroke="#F59E0B" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+      <path d="M15.5 12.5l1.6 1.6 3-3.4" stroke="#BE7A2E" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
     </svg>
   ),
   start: (
@@ -61,7 +61,7 @@ const Icons = {
   connect: (
     <svg width="26" height="26" viewBox="0 0 24 24" fill="none">
       <path d="M9 12h6" stroke="#12B98A" strokeWidth="1.5" strokeLinecap="round" />
-      <path d="M10 8H7a4 4 0 000 8h3M14 8h3a4 4 0 010 8h-3" stroke="#EC4899" strokeWidth="1.5" strokeLinecap="round" />
+      <path d="M10 8H7a4 4 0 000 8h3M14 8h3a4 4 0 010 8h-3" stroke="#0058CC" strokeWidth="1.5" strokeLinecap="round" />
     </svg>
   ),
 };

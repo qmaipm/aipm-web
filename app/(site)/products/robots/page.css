@@ -5,16 +5,15 @@
    全站单一字族,靠尺度/字重/字距出性格。规则全收在 .robx 作用域内。
    ============================================================ */
 .robx{
-  --ro-ink:#14201C; --ro-ink-2:#46524D; --ro-mut:#7C857F; --ro-faint:#A7AFAB;
-  --ro-line:#E6EAE8; --ro-line-2:#EEF2F0; --ro-mist:#ECF3F1; --ro-paper:#FFFFFF;
+  --ro-ink:#14201C; --ro-ink-2:#46524D; --ro-mut:#5F6A65; --ro-faint:#6B7570;
+  --ro-line:#E6EAE8; --ro-line-2:#EEF2F0; --ro-mist:#F3F7F6; --ro-paper:#FFFFFF;
   --ro-blue:#0070FF; --ro-green:#12B98A; --ro-grad:linear-gradient(115deg,#0070FF,#12B98A);
   --ro-vi-line:rgba(12,139,130,.16);
   background:var(--ro-paper); color:var(--ro-ink);
 }
 .robx .wrap{max-width:1160px;margin:0 auto;padding:0 32px}
 @media(max-width:600px){.robx .wrap{padding:0 22px}}
-.robx .grad{background:var(--ro-grad);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
-@supports not ((-webkit-background-clip:text) or (background-clip:text)){.robx .grad{color:var(--ro-green);-webkit-text-fill-color:currentColor}}
+.robx .grad{color:var(--vi-blue)}
 
 /* 蓝图网格 */
 .rob-grid{position:absolute;inset:0;z-index:0;pointer-events:none;
@@ -29,7 +28,7 @@
 .rob-hero-top{position:relative;z-index:2}
 .rob-kicker{display:inline-flex;align-items:center;flex-wrap:wrap;font-size:12px;font-weight:600;letter-spacing:.14em;
   text-transform:uppercase;color:var(--ro-mut)}
-.rob-kicker i{color:var(--ro-green);font-style:normal;margin:0 9px;font-weight:700}
+.rob-kicker i{color:var(--accent-ink);font-style:normal;margin:0 9px;font-weight:700}
 .rob-h1{margin:22px 0 0;font-weight:800;font-size:clamp(38px,6vw,72px);line-height:1.06;letter-spacing:-.035em;color:var(--ro-ink)}
 .rob-lead{margin:26px 0 0;font-size:clamp(16px,1.8vw,19px);line-height:1.6;color:var(--ro-ink-2);max-width:none;font-weight:400}
 .rob-cta{margin-top:38px;display:flex;flex-wrap:wrap;gap:14px;align-items:center}
@@ -40,13 +39,13 @@
 @media(max-width:700px){.rob-band{padding:76px 0}}
 .rob-head{max-width:none}
 .rob-eyebrow{display:inline-flex;align-items:center;gap:10px;font-size:12px;font-weight:600;letter-spacing:.2em;
-  text-transform:uppercase;color:var(--ro-green)}
-.rob-eyebrow::before{content:"";width:22px;height:2px;border-radius:2px;background:var(--ro-grad)}
+  text-transform:uppercase;color:var(--accent-ink)}
+.rob-eyebrow::before{content:"";width:22px;height:2px;border-radius:2px;background:var(--blue)}
 .rob-h2{margin:18px 0 0;font-weight:800;font-size:clamp(27px,3.5vw,40px);line-height:1.18;letter-spacing:-.03em;
   color:var(--ro-ink);max-width:none;white-space:nowrap;display:flex;align-items:center;gap:14px;flex-wrap:wrap}
 @media(max-width:880px){.rob-h2{white-space:normal}}
 .rob-hl{display:inline-flex;align-items:center;font-size:11px;font-weight:700;letter-spacing:.06em;text-transform:none;
-  color:var(--ro-green);background:rgba(18,185,138,.1);border:1px solid rgba(18,185,138,.32);border-radius:100px;padding:4px 12px}
+  color:var(--accent-ink);background:rgba(18,185,138,.1);border:1px solid rgba(18,185,138,.32);border-radius:100px;padding:4px 12px}
 
 /* ---------- 装备展示:图 + 信息 ---------- */
 .rob-grid2{display:grid;grid-template-columns:1.04fr .96fr;gap:50px;align-items:center;margin-top:44px}
@@ -76,3 +75,9 @@
 
 /* ---------- 可访问性 / 动效降级 ---------- */
 .robx a:focus-visible,.robx .btn:focus-visible{outline:2px solid var(--ro-green);outline-offset:3px;border-radius:10px}
+.rob-brain{margin-top:44px;display:grid;grid-template-columns:1.4fr 1fr;gap:28px;align-items:center}
+.rob-brain video{display:block;width:100%;aspect-ratio:16/8;object-fit:cover;border-radius:12px;background:#06100d}
+.rob-brain p{margin:0;font-size:15.5px;line-height:1.75;color:var(--ink-2)}
+.rob-brain a{color:var(--blue-ink);font-weight:600}
+@media(max-width:760px){.rob-brain{grid-template-columns:1fr}}
+@media (prefers-reduced-motion: reduce){.rob-brain video{display:none}}

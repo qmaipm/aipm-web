@@ -10,7 +10,7 @@ const SITE = process.env.SITE_URL || "https://www.aipm.cn";
 export const metadata = pageMetadata(PARTNER_PATH, {
   // 面向酒店开发/拓展、选址顾问、商业地产经纪——用他们搜索时的词（酒店开发、项目推荐、业主资源、分润），不用我们的品类名开头。
   title: "酒店开发、选址顾问与商业地产经纪：手上的业主资源，可以多做一类项目 | 启盟物业委托管理发展伙伴",
-  description: "酒店拓展、选址顾问、商业地产经纪和资产管理顾问，把已有的业主关系延伸到写字楼、园区的物业委托管理项目——像给酒店推荐管理公司一样，给物业推荐运营方。启盟负责评估、测算、方案与运营；伙伴按实际贡献获得开业奖励与最长三年持续分润。免费加入，项目报备确认后 180 天初始保护。不是加盟，不是城市合伙人，不收费。",
+  description: "酒店拓展、选址顾问、商业地产经纪和资产管理顾问，把已有的业主关系延伸到写字楼、园区的物业委托管理项目，像给酒店推荐管理公司一样，给物业推荐运营方。启盟负责评估、测算、方案与运营；伙伴按实际贡献获得开业奖励与最长三年持续分润。免费加入，项目报备确认后 180 天初始保护。不是加盟，不是城市合伙人，不收费。",
   keywords: ["酒店开发 项目推荐", "酒店拓展 副业", "选址顾问 合作", "商业地产经纪 项目分润", "业主资源 变现", "物业委托管理 合作", "项目报备 保护期", "居间 分润 物业项目", "发展伙伴 启盟科技"],
 });
 const portraits = [
@@ -34,7 +34,7 @@ const faqs = [
 export default function Page() {
   return <main className="dp">
     <JsonLd data={[
-      { "@context": "https://schema.org", "@type": "WebPage", name: "物业委托管理发展伙伴计划（AI 物业代运营）", alternateName: "AI 物业代运营发展伙伴计划", url: `${SITE}${PARTNER_PATH}`, inLanguage: "zh-CN", description: metadata.description, audience: { "@type": "BusinessAudience", audienceType: "酒店开发与拓展人员、选址顾问、商业地产经纪、资产管理顾问、园区招商运营机构" }, about: { "@type": "Service", name: "物业委托管理（AI 物业代运营）", url: `${SITE}/ai-service/delegated-operation` } },
+      { "@context": "https://schema.org", "@type": "WebPage", name: "物业委托管理发展伙伴计划", alternateName: "AI 物业代运营发展伙伴计划", url: `${SITE}${PARTNER_PATH}`, inLanguage: "zh-CN", description: metadata.description, audience: { "@type": "BusinessAudience", audienceType: "酒店开发与拓展人员、选址顾问、商业地产经纪、资产管理顾问、园区招商运营机构" }, about: { "@type": "Service", name: "物业委托管理", url: `${SITE}/ai-service/delegated-operation` } },
       { "@context": "https://schema.org", "@type": "BreadcrumbList", itemListElement: [{ "@type": "ListItem", position: 1, name: "生态伙伴", item: `${SITE}/partners` }, { "@type": "ListItem", position: 2, name: "物业委托管理发展伙伴", item: `${SITE}${PARTNER_PATH}` }] },
     ]} />
     <section className="dp-hero">
@@ -43,7 +43,7 @@ export default function Page() {
       <div className="wrap dp-hero-content">
         <nav className="dp-crumb" aria-label="面包屑"><Link href="/partners">生态伙伴</Link><span>/</span><span>物业委托管理发展伙伴</span></nav>
         <h1>你带来物业项目<br /><span className="grad">我们负责把它做成</span></h1>
-        <p className="dp-lead">你给酒店找过物业、给业主推荐过管理公司，或者长期服务园区与商业地产业主——同一批业主手上的写字楼和园区，现在也可以像酒店一样交给管理公司。启盟提供 AI 运营体系与项目团队，<b>你从项目引荐开始，按实际贡献分享项目落地与持续运营收益。</b></p>
+        <p className="dp-lead">你给酒店找过物业、给业主推荐过管理公司，或者长期服务园区与商业地产业主。同一批业主手上的写字楼和园区，现在也可以像酒店一样交给管理公司。启盟提供 AI 运营体系与项目团队，<b>你从项目引荐开始，按实际贡献分享项目落地与持续运营收益。</b></p>
         <div className="dp-actions"><a href="#cooperation" className="btn btn-primary">看看如何合作 <Arrow /></a><Link href={PROJECT_PATH} className="btn btn-ghost">评估并报备项目 <Arrow /></Link></div>
         <div className="dp-proof"><span><b>0 元</b>加入</span><span>有效报备初始保护 <b>{POLICY.protectionDays} 天</b></span><span>持续分润 <b className="grad">最长 3 年</b></span></div>
         <p className="dp-hero-note">公开招募版 V{POLICY.version} · {POLICY.published} · 具体权益以正式协议和项目合作确认书为准</p>

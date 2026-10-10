@@ -15,7 +15,7 @@ type Tab = "apply" | "guide" | "project";
 
 /* 转化埋点：项目现有分析工具为百度统计（_hmt）。
    事件：partner_apply_click/submit、partner_guide_click/submit、partner_project_click/submit。
-   TODO: 如后续接入 GA4/其它工具，在 track() 内补充对应上报。 */
+   TODO：如后续接入 GA4/其它工具，在 track() 内补充对应上报。 */
 declare global {
   interface Window {
     _hmt?: unknown[][];
@@ -258,7 +258,7 @@ function GuideForm() {
   }
 
   if (status === "ok") {
-    /* TODO: 手册 PDF 尚未上线，暂不提供下载链接，按提示词要求以核验后发送的方式反馈 */
+    /* TODO：手册 PDF 尚未上线，暂不提供下载链接，按提示词要求以核验后发送的方式反馈 */
     return <Done title="申请已提交" body="我们将在完成基本信息核验后发送伙伴计划手册。" />;
   }
 

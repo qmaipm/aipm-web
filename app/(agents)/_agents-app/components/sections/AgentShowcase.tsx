@@ -114,7 +114,7 @@ const productModules = [
     id: 'operations',
     name: '运营管理 Agent',
     icon: 'agentOps',
-    color: '#10B981',
+    color: '#0A7A63',
     headline: 'AI 驱动运营调度，实现人机协同闭环',
     description: '7×24 实时感知全域服务状态，确保执行与巡检到位，数据驱动管理决策，让团队专注更具价值的事务。',
     cta: '开始使用运营管理 Agent',
@@ -138,7 +138,7 @@ const productModules = [
     id: 'quality',
     name: '质量评估 Agent',
     icon: 'agentQuality',
-    color: '#8B5CF6',
+    color: '#0C8B82',
     headline: 'AI 自动审图质检，让质量管理更轻松',
     description: 'AI 替代人工审图，大幅降低审图成本，客观评分消除甲乙方质量评价分歧，留存数据标签助力复盘。',
     cta: '开始使用质量评估 Agent',
@@ -162,7 +162,7 @@ const productModules = [
     id: 'review',
     name: '服务优化 Agent',
     icon: 'agentReview',
-    color: '#F59E0B',
+    color: '#3451C7',
     headline: '业务自动化核算，数据驱动持续优化',
     description: 'AI 自动完成工资、KPI、账单核算，深度分析运营数据生成洞察报告，优化服务标准与成本，展示卓越能力。',
     cta: '开始使用服务优化 Agent',
@@ -186,6 +186,8 @@ const productModules = [
 // ==========================================
 // 主组件
 // ==========================================
+const inkOf = (c: string) => ({ '#0070FF': '#0058CC', '#0C8B82': '#096B73', '#0A7A63': '#0A7A63', '#3451C7': '#3451C7' } as Record<string, string>)[c] ?? c;
+
 export default function AgentShowcase() {
   const [isMobile, setIsMobile] = useState(false);
   const [activeModuleIndex, setActiveModuleIndex] = useState(0);
@@ -260,10 +262,10 @@ export default function AgentShowcase() {
           >
             <div className="module-content">
               <div className="module-header">
-                <span className="module-icon" style={{ color: module.color }}>
+                <span className="module-icon" style={{ color: inkOf(module.color) }}>
                   {Icons[module.icon as keyof typeof Icons]}
                 </span>
-                <span className="module-name" style={{ color: module.color }}>{module.name}</span>
+                <span className="module-name" style={{ color: inkOf(module.color) }}>{module.name}</span>
               </div>
               <h2 className={`module-headline ${module.isHero ? 'module-headline-hero' : ''}`}>
                 {module.headline}
@@ -283,7 +285,7 @@ export default function AgentShowcase() {
                   <div className="module-related-list">
                     {module.relatedProducts.map((product, idx) => (
                       <Link key={idx} href={product.href} className="related-product-link">
-                        <span className="related-product-name" style={{ color: module.color }}>{product.name}</span>
+                        <span className="related-product-name" style={{ color: inkOf(module.color) }}>{product.name}</span>
                         <span className="related-product-desc">{product.desc}</span>
                       </Link>
                     ))}
@@ -336,10 +338,10 @@ export default function AgentShowcase() {
               id={module.id}
             >
               <div className="module-header">
-                <span className="module-icon" style={{ color: module.color }}>
+                <span className="module-icon" style={{ color: inkOf(module.color) }}>
                   {Icons[module.icon as keyof typeof Icons]}
                 </span>
-                <span className="module-name" style={{ color: module.color }}>{module.name}</span>
+                <span className="module-name" style={{ color: inkOf(module.color) }}>{module.name}</span>
               </div>
               <h2 className={`module-headline ${module.isHero ? 'module-headline-hero' : ''}`}>
                 {module.headline}
@@ -359,7 +361,7 @@ export default function AgentShowcase() {
                   <div className="module-related-list">
                     {module.relatedProducts.map((product, idx) => (
                       <Link key={idx} href={product.href} className="related-product-link">
-                        <span className="related-product-name" style={{ color: module.color }}>{product.name}</span>
+                        <span className="related-product-name" style={{ color: inkOf(module.color) }}>{product.name}</span>
                         <span className="related-product-desc">{product.desc}</span>
                       </Link>
                     ))}

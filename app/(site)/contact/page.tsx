@@ -5,7 +5,7 @@ import { pageMetadata } from "@/lib/pageMetadata";
 export const metadata = pageMetadata("/contact", {
   title: "联系我们 · 填表 / 电话 / 邮件 | 启盟科技",
   description:
-    "联系启盟科技:预约 FMClaw™ 加速营、洽谈 AI 物业服务与生态合作,或了解产品详情。填表、打电话、发邮件都行,我们会认真读、尽快回。",
+    "联系启盟科技：预约 FMClaw™ 加速营、洽谈 AI 物业服务与生态合作，或了解产品详情。填表、打电话、发邮件都行，我们会认真读、尽快回。",
 });
 
 export default function Page() {
@@ -17,7 +17,7 @@ export default function Page() {
         <div className="wrap ct-hero-top">
           <h1 className="ct-h1">联系我们</h1>
           <p className="ct-lead">
-            不论是想多了解一点，还是已经有具体的事要谈——<b>填表、打电话、发邮件</b>都行。我们会认真读、尽快回。
+            不论是想多了解一点，还是已经有具体的事要谈，<b>填表、打电话、发邮件</b>都行。我们会认真读、尽快回。
           </p>
         </div>
       </section>
@@ -26,14 +26,14 @@ export default function Page() {
       <section className="ct-band">
         <div className="wrap">
           <div className="ct-layout">
-            {/* 左:表单 */}
+            {/* 左：表单 */}
             <div className="ct-form-col">
               <span className="ct-eyebrow">联系我们</span>
               <p className="ct-sub">带 <span className="req">*</span> 的为必填项，其余可留空。</p>
               <ContactForm />
             </div>
 
-            {/* 右:联系信息侧栏 */}
+            {/* 右：联系信息侧栏 */}
             <aside className="ct-aside">
               <div className="ct-card">
                 <div className="ct-card-h">联系方式</div>

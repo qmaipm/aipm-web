@@ -3,9 +3,9 @@
 import { useEffect, useRef } from "react";
 
 /**
- * 使命句沉浸式背景:点阵物理世界 + 智能光波扩散 + 网络连线 + 鼠标涟漪。
- * 智能像光波一圈圈漫过点阵,途经的点被点亮并彼此结网 —— 呼应 ambient intelligence。
- * 性能护栏:rAF + IntersectionObserver 离屏暂停 + DPR≤2 + 不对移动元素加 blur + reduced-motion 降级静态。
+ * 使命句沉浸式背景：点阵物理世界 + 智能光波扩散 + 网络连线 + 鼠标涟漪。
+ * 智能像光波一圈圈漫过点阵，途经的点被点亮并彼此结网 —— 呼应 ambient intelligence。
+ * 性能护栏：rAF + IntersectionObserver 离屏暂停 + DPR≤2 + 不对移动元素加 blur + reduced-motion 降级静态。
  */
 export default function MissionBackdrop() {
   const ref = useRef<HTMLCanvasElement>(null);
@@ -23,7 +23,7 @@ export default function MissionBackdrop() {
     const GLOW = [
       [0, 112, 255],  // VI blue — 智能体/在线
       [18, 185, 138], // VI green — 蓝绿 VI 第二主色
-      [206, 150, 86], // human — 人的最后一个决定(稀疏点缀)
+      [206, 150, 86], // human — 人的最后一个决定（稀疏点缀）
     ];
 
     let w = 0;
@@ -47,7 +47,7 @@ export default function MissionBackdrop() {
         for (let c = 0; c < cols; c++) {
           const jx = ((Math.sin(r * 12.9 + c * 4.1) + 1) / 2 - 0.5) * 6;
           const jy = ((Math.sin(r * 6.3 + c * 9.7) + 1) / 2 - 0.5) * 6;
-          // 蓝绿 VI 双色为主(蓝多绿少);每隔若干点散布一颗 human 琥珀,呼应「人只做最后那个决定」
+          // 蓝绿 VI 双色为主（蓝多绿少）；每隔若干点散布一颗 human 琥珀，呼应「人只做最后那个决定」
           const human = (r * 7 + c * 3) % 17 === 0;
           const green = !human && (r * 3 + c * 5) % 4 === 0;
           const col = human ? GLOW[2] : green ? GLOW[1] : GLOW[0];
@@ -125,7 +125,7 @@ export default function MissionBackdrop() {
         d.lit = lit;
       }
 
-      // 2) 连线:相邻被点亮的点之间拉丝线(右 / 下邻居)
+      // 2) 连线：相邻被点亮的点之间拉丝线（右 / 下邻居）
       ctx.lineWidth = 1;
       for (let i = 0; i < dots.length; i++) {
         const d = dots[i];

@@ -15,15 +15,15 @@ export const metadata: Metadata = pageMetadata("/agents", {
   description:
     "物业智能体是能把一件物业工作接着干完的 AI：自己取数、按流程推进、留下可追溯记录，在需要人负责的环节交给人确认。本页回答四个问题：什么是物业智能体、与传统物业管理软件的区别、哪些场景适合先用、要不要替换现有 ERP/工单/钉钉/飞书/企微。FMClaw 物业管理智能体矩阵由服务设计、运营管理、质量评估与服务优化四个智能体组成。",
   keywords:
-    "物业智能体,物业管理智能体,物业AI智能体,物业智能体和传统软件区别,物业管理AI,Agentic AI产品套件,物业AI智能体,设施管理AI,AI物业经理,多智能体协同,企业级AI智能体,物业管理Agent,物业智能体平台",
+    "物业智能体，物业管理智能体，物业AI智能体，物业智能体和传统软件区别，物业管理AI,Agentic AI产品套件，物业AI智能体，设施管理AI,AI物业经理，多智能体协同，企业级AI智能体，物业管理Agent，物业智能体平台",
   openGraph: {
     title: "物业管理智能体矩阵｜FMClaw™ Agentic AI 产品套件",
     description:
-      "四个专业智能体——服务设计、运营管理、质量评估、服务优化——在 FMClaw 平台上协同完成物业管理闭环。",
+      "四个专业智能体（服务设计、运营管理、质量评估、服务优化）在 FMClaw 平台上协同完成物业管理闭环。",
   },
 });
 
-/* ---------- JSON-LD(不可见,与可见内容一致) ---------- */
+/* ---------- JSON-LD（不可见，与可见内容一致） ---------- */
 const AGENT_ITEMS = [
   { name: "服务设计智能体", href: "/solutions/service-design" },
   { name: "运营管理智能体", href: "/solutions/operations" },
@@ -38,7 +38,7 @@ const WEBPAGE_LD = {
   url: `${SITE_URL}/agents`,
   inLanguage: "zh-CN",
   description:
-    "物业管理智能体矩阵,是一套面向物业与设施管理的行业级 Agentic AI 系统,通过多个专业智能体协作,持续完成服务设计、运营执行、质量评估与管理优化。",
+    "物业管理智能体矩阵，是一套面向物业与设施管理的行业级 Agentic AI 系统，通过多个专业智能体协作，持续完成服务设计、运营执行、质量评估与管理优化。",
   isPartOf: { "@type": "WebSite", name: "启盟科技 FMClaw™", url: SITE_URL },
 };
 

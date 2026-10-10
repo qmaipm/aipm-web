@@ -3,7 +3,7 @@ import { newsMetadata } from "../articles";
 
 export const metadata = newsMetadata("taiwan-delegation-exchange");
 
-// 正文为公众号原文照登,不做改写
+// 正文为公众号原文照登，不做改写
 export default function Page() {
   return (
     <NewsShell slug="taiwan-delegation-exchange">
@@ -19,7 +19,7 @@ export default function Page() {
       <h2>从峰会分享到深度对接</h2>
       <p>如果说峰会上的分享让台湾企业家们初步认识了这套 AI 物业经理，那么此次座谈则是一次更系统、更全面的深度对接。</p>
       <p>
-        交流中，滕一帆详细介绍了核心产品 AI 物业智能体 FMClaw 的技术架构与落地逻辑——从全域 IoT 感知，到服务设计、运营管理、质量评估、服务优化四个 AI Agent 的协同分工，再到“机器处理流程、人处理情感”的人机协作理念。
+        交流中，滕一帆详细介绍了核心产品 AI 物业智能体 FMClaw 的技术架构与落地逻辑：从全域 IoT 感知，到服务设计、运营管理、质量评估、服务优化四个 AI Agent 的协同分工，再到“机器处理流程、人处理情感”的人机协作理念。
       </p>
       <figure className="fig"><img src="/news/taiwan-delegation-exchange-02.jpg" alt="滕一帆介绍 FMClaw" loading="lazy" /></figure>
 
@@ -49,7 +49,7 @@ export default function Page() {
 
       <h2>关于FMClaw</h2>
       <p>
-        FMClaw 是广州启盟科技打造的面向物业与设施管理的 AI 物业智能体，也叫“AI 物业经理”。它不是需要人一步步操作的传统软件——给它一个管理目标，它就能自主感知现场、联动设备数据、调用工具，把大量重复繁琐的管理工作接管过去，只在需要决策的节点把判断交还给人。在启盟自营的物业公司中，项目上 80%–90% 的管理工作已由这套物业智能体完成。启盟科技自 2017 年起专注物业管理领域，FMClaw的自动化工作流与数据均来自真实运营现场的沉淀。
+        FMClaw 是广州启盟科技打造的面向物业与设施管理的 AI 物业智能体，也叫“AI 物业经理”。它不是需要人一步步操作的传统软件：给它一个管理目标，它就能自主感知现场、联动设备数据、调用工具，把大量重复繁琐的管理工作接管过去，只在需要决策的节点把判断交还给人。在启盟自营的物业公司中，项目上 80%–90% 的管理工作已由这套物业智能体完成。启盟科技自 2017 年起专注物业管理领域，FMClaw的自动化工作流与数据均来自真实运营现场的沉淀。
       </p>
       <p>
         联系电话：020-89853580
