@@ -32,5 +32,7 @@ tmp/
 .project-intake/
 .data/
 
-# 品牌愿景片原片/压制版不进仓库（方案 A：放 R2/对象存储，用 NEXT_PUBLIC_VISION_FILM_URL 指向）
-/public/video/
+# 品牌愿景片：原片（275MB）不进仓库；只提交 720p 网页压制版 vision-film.mp4（约 20MB）。
+# 以后放到对象存储时，用 NEXT_PUBLIC_VISION_FILM_URL 指向即可，站内文件作兜底。
+/public/video/*
+!/public/video/vision-film.mp4

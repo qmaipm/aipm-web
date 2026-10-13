@@ -2,7 +2,8 @@
 // 品牌愿景片《让智能，走进物理世界》（5:15，中英字幕）。
 // 点击播放，不自动播放、不静音循环（片子有旁白、叙事性强）。
 // 视频地址：优先取 NEXT_PUBLIC_VISION_FILM_URL（部署时指向 R2 / 对象存储），
-// 未配置时回退到站内 /video/vision-film.mp4（仅预览用，正式环境请放到对象存储，不进代码库）。
+// 未配置时使用站内 /video/vision-film.mp4：720p 网页压制版（约 20MB，faststart），随仓库发布。
+// 原片：AI Drive「启盟科技_让智能走进物理世界_品牌愿景片v4_中文版_中英字幕.mp4」（1080p，275MB）。
 import { useRef, useState } from "react";
 
 export const VISION_FILM_SRC =
