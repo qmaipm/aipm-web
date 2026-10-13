@@ -66,7 +66,7 @@ export default function Page() {
           口径说明：该园区约 30 万㎡，覆盖 1000 多个服务点位、每天约 4 万次服务交付。上述比率为上线后与上线前基线的对比值。
         </CaseNote>
       </CaseSection>
-      <CaseFit
+      <CaseFit slug="30w-park-ai-property-manager-robot"
         fit={[
           "园区已经买了机器人、装了传感器，但现场还是老样子",
           "服务点位多，人和机器需要在时间、空间、工序上被统一编排",

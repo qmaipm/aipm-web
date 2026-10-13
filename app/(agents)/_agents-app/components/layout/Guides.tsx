@@ -252,13 +252,13 @@ export function Guides({
             📐 Stripe Layout v4.0
           </div>
           <div style={{ color: guides.source === 'dom' ? '#4ade80' : '#fbbf24' }}>
-            来源: {guides.source === 'dom' ? '✅ DOM' : '⚠️ 计算'}
+            来源：{guides.source === 'dom' ? '✅ DOM' : '⚠️ 计算'}
           </div>
-          <div>视窗: {typeof window !== 'undefined' ? window.innerWidth : 0}px</div>
-          <div>内容区: {Math.round(guides.layoutWidth)}px</div>
-          <div>列宽: {Math.round(guides.columnWidth)}px</div>
+          <div>视窗：{typeof window !== 'undefined' ? window.innerWidth : 0}px</div>
+          <div>内容区：{Math.round(guides.layoutWidth)}px</div>
+          <div>列宽：{Math.round(guides.columnWidth)}px</div>
           <div style={{ marginTop: '6px', paddingTop: '6px', borderTop: '1px solid rgba(255,255,255,0.2)' }}>
-            <span style={{ color: '#F59E0B' }}>Guide-4:</span> {Math.round(guides.G4)}px
+            <span style={{ color: '#BE7A2E' }}>Guide-4:</span> {Math.round(guides.G4)}px
           </div>
           <div style={{ marginTop: '4px', fontSize: '10px', color: '#888' }}>
             虚线与调试线完全同步

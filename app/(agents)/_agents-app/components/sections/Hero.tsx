@@ -268,11 +268,11 @@ export default function Hero() {
                       <svg viewBox="0 0 100 36" preserveAspectRatio="none">
                         <defs>
                           <linearGradient id="trend-gold" x1="0%" y1="0%" x2="0%" y2="100%">
-                            <stop offset="0%" stopColor="#F59E0B" stopOpacity="0.25"/>
-                            <stop offset="100%" stopColor="#F59E0B" stopOpacity="0"/>
+                            <stop offset="0%" stopColor="#BE7A2E" stopOpacity="0.25"/>
+                            <stop offset="100%" stopColor="#BE7A2E" stopOpacity="0"/>
                           </linearGradient>
                         </defs>
-                        <path d="M0,6 C20,10 40,16 60,22 C80,28 90,30 100,32" fill="none" stroke="#F59E0B" strokeWidth="2.5" strokeLinecap="round"/>
+                        <path d="M0,6 C20,10 40,16 60,22 C80,28 90,30 100,32" fill="none" stroke="#BE7A2E" strokeWidth="2.5" strokeLinecap="round"/>
                         <path d="M0,6 C20,10 40,16 60,22 C80,28 90,30 100,32 L100,36 L0,36 Z" fill="url(#trend-gold)"/>
                       </svg>
                     </div>

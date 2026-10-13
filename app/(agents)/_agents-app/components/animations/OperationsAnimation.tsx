@@ -340,7 +340,7 @@ const SensingCard = () => (
         {[
           { label: '进行中', value: '12', color: '#10B981', bgColor: '#D1FAE5', percent: 13 },
           { label: '已完成', value: '68', color: '#0EA5E9', bgColor: '#E0F2FE', percent: 72 },
-          { label: '待服务', value: '14', color: '#F59E0B', bgColor: '#FEF3C7', percent: 15 },
+          { label: '待服务', value: '14', color: '#BE7A2E', bgColor: '#F7EBDD', percent: 15 },
         ].map((item, i) => (
           <div key={i} style={{ marginBottom: '5px' }}>
             <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '2px' }}>
@@ -398,18 +398,18 @@ const RiskCard = () => (
   <div style={{
     width: '100%',
     height: '100%',
-    background: 'linear-gradient(180deg, #ffffff 0%, #FAF5FF 100%)',
+    background: 'linear-gradient(180deg, #ffffff 0%, #EEF7F6 100%)',
     borderRadius: LAYOUT.cardRadius,
     display: 'flex',
     flexDirection: 'column',
     overflow: 'hidden',
     boxShadow: '0 4px 24px rgba(0,0,0,0.08), 0 1px 2px rgba(0,0,0,0.04)',
-    border: '1px solid rgba(139,92,246,0.12)',
+    border: '1px solid rgba(12,139,130,0.12)',
   }}>
     {/* 顶部状态栏 - 紧凑 */}
     <div style={{
       padding: '8px 10px 6px',
-      background: 'linear-gradient(135deg, #8B5CF6 0%, #7C3AED 100%)',
+      background: 'linear-gradient(135deg, #0C8B82 0%, #096B73 100%)',
       position: 'relative',
       overflow: 'hidden',
     }}>
@@ -435,7 +435,7 @@ const RiskCard = () => (
       <div style={{ display: 'flex', gap: '4px' }}>
         {[
           { label: '高风险', count: 3, color: '#EF4444', bgColor: '#FEE2E2' },
-          { label: '中风险', count: 5, color: '#F59E0B', bgColor: '#FEF3C7' },
+          { label: '中风险', count: 5, color: '#BE7A2E', bgColor: '#F7EBDD' },
           { label: '低风险', count: 12, color: '#6B7280', bgColor: '#F3F4F6' },
         ].map((item, i) => (
           <div key={i} style={{ 
@@ -457,7 +457,7 @@ const RiskCard = () => (
         borderRadius: '5px',
         padding: '6px 8px',
       }}>
-        <div style={{ fontSize: '7px', color: '#7C3AED', fontWeight: 600 }}>💡 A栋3F男卫超时23分钟</div>
+        <div style={{ fontSize: '7px', color: '#096B73', fontWeight: 600 }}>💡 A栋3F男卫超时23分钟</div>
       </div>
       
       {/* 待办列表 - 只保留2个 */}
@@ -493,7 +493,7 @@ const RiskCard = () => (
       {/* 派单按钮 - 更紧凑 */}
       <div style={{
         padding: '6px',
-        background: 'linear-gradient(135deg, #8B5CF6 0%, #7C3AED 100%)',
+        background: 'linear-gradient(135deg, #0C8B82 0%, #096B73 100%)',
         borderRadius: '5px',
         textAlign: 'center',
         fontSize: '8px',
@@ -602,9 +602,9 @@ const InspectionCard = () => (
         alignItems: 'center',
         justifyContent: 'space-between',
         padding: '6px 8px',
-        background: 'linear-gradient(135deg, #FFFBEB 0%, #FEF3C7 100%)',
+        background: 'linear-gradient(135deg, #FFFBEB 0%, #F7EBDD 100%)',
         borderRadius: '6px',
-        border: '1px solid rgba(245,158,11,0.15)',
+        border: '1px solid rgba(190,122,46,0.15)',
       }}>
         <div style={{ display: 'flex', alignItems: 'center', gap: '4px' }}>
           <span style={{ fontSize: '10px' }}>🤖</span>
@@ -615,11 +615,11 @@ const InspectionCard = () => (
             {[1,2,3,4,5].map(i => (
               <span key={i} style={{ 
                 fontSize: '8px', 
-                color: i <= 4 ? '#F59E0B' : '#E5E7EB',
+                color: i <= 4 ? '#BE7A2E' : '#E5E7EB',
               }}>★</span>
             ))}
           </div>
-          <span style={{ fontSize: '12px', fontWeight: 800, color: '#F59E0B' }}>4.8</span>
+          <span style={{ fontSize: '12px', fontWeight: 800, color: '#BE7A2E' }}>4.8</span>
         </div>
       </div>
       
@@ -628,7 +628,7 @@ const InspectionCard = () => (
         <div style={{ fontSize: '7px', color: '#64748B', marginBottom: '4px', fontWeight: 600 }}>检查清单</div>
         {[
           { item: '地面清洁', status: '通过', color: '#10B981', icon: '✓' },
-          { item: '镜面状态', status: '轻微水渍', color: '#F59E0B', icon: '!' },
+          { item: '镜面状态', status: '轻微水渍', color: '#BE7A2E', icon: '!' },
           { item: '设备完好', status: '通过', color: '#10B981', icon: '✓' },
         ].map((check, i) => (
           <div key={i} style={{ 
@@ -699,7 +699,7 @@ const PCHeader = () => (
     <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
       <div style={{ display: 'flex', gap: '6px' }}>
         <div style={{ width: '10px', height: '10px', borderRadius: '50%', backgroundColor: '#EF4444', boxShadow: 'inset 0 1px 2px rgba(0,0,0,0.15)' }} />
-        <div style={{ width: '10px', height: '10px', borderRadius: '50%', backgroundColor: '#F59E0B', boxShadow: 'inset 0 1px 2px rgba(0,0,0,0.15)' }} />
+        <div style={{ width: '10px', height: '10px', borderRadius: '50%', backgroundColor: '#BE7A2E', boxShadow: 'inset 0 1px 2px rgba(0,0,0,0.15)' }} />
         <div style={{ width: '10px', height: '10px', borderRadius: '50%', backgroundColor: '#10B981', boxShadow: 'inset 0 1px 2px rgba(0,0,0,0.15)' }} />
       </div>
     </div>
@@ -722,10 +722,10 @@ const PCHeader = () => (
           width: '8px', 
           height: '8px', 
           borderRadius: '50%', 
-          background: 'linear-gradient(135deg, #8B5CF6 0%, #7C3AED 100%)',
-          boxShadow: '0 2px 4px rgba(139,92,246,0.4)',
+          background: 'linear-gradient(135deg, #0C8B82 0%, #096B73 100%)',
+          boxShadow: '0 2px 4px rgba(11,23,20,0.1)',
         }} />
-        <span style={{ fontSize: '12px', fontWeight: 700, color: '#7C3AED' }}>决策</span>
+        <span style={{ fontSize: '12px', fontWeight: 700, color: '#096B73' }}>决策</span>
       </div>
       <span style={{ fontSize: '14px', color: '#D1D5DB', fontWeight: 300 }}>→</span>
       <div style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
@@ -734,7 +734,7 @@ const PCHeader = () => (
           height: '8px', 
           borderRadius: '50%', 
           background: 'linear-gradient(135deg, #0070FF 0%, #0055CC 100%)',
-          boxShadow: '0 2px 4px rgba(0,112,255,0.4)',
+          boxShadow: '0 2px 4px rgba(11,23,20,0.1)',
         }} />
         <span style={{ fontSize: '12px', fontWeight: 700, color: '#0055CC' }}>执行</span>
       </div>
@@ -788,12 +788,12 @@ const IconsSVG = {
 // ==========================================
 
 // VI v10.0 品牌色彩系统 - 六大核心渐变
-// gradient-blue-green: #0070FF → #12B98A (科技蓝→AI绿)
-// gradient-blue-gold: #0070FF → #F59E0B (科技蓝→黄金)
-// gradient-green-gold: #12B98A → #F59E0B (AI绿→黄金)
-// gradient-blue-purple: #0070FF → #9333EA (科技蓝→紫罗兰)
-// gradient-purple-pink: #9333EA → #EC4899 (紫罗兰→品红)
-// gradient-pink-gold: #EC4899 → #F59E0B (品红→黄金)
+// gradient-blue-green: #0070FF → #12B98A （科技蓝→AI绿）
+// gradient-blue-gold: #0070FF → #BE7A2E （科技蓝→黄金）
+// gradient-green-gold: #12B98A → #BE7A2E (AI绿→黄金)
+// gradient-blue-purple: #0070FF → #0C8B82 （科技蓝→紫罗兰）
+// gradient-purple-pink: #0C8B82 → #0058CC （紫罗兰→品红）
+// gradient-pink-gold: #0058CC → #BE7A2E （品红→黄金）
 
 const ICONS: IconConfig[] = [
   {
@@ -814,7 +814,7 @@ const ICONS: IconConfig[] = [
     lineStart: 'left',
     // 蓝金渐变 (gradient-blue-gold)
     startColor: '#0070FF',
-    endColor: '#F59E0B',
+    endColor: '#BE7A2E',
   },
   {
     id: 'ticket',
@@ -824,7 +824,7 @@ const ICONS: IconConfig[] = [
     lineStart: 'right',
     // 绿金渐变 (gradient-green-gold)
     startColor: '#12B98A',
-    endColor: '#F59E0B',
+    endColor: '#BE7A2E',
   },
   {
     id: 'collaboration',
@@ -833,8 +833,8 @@ const ICONS: IconConfig[] = [
     side: 'bottom-right',
     lineStart: 'left',
     // 紫粉渐变 (gradient-purple-pink)
-    startColor: '#9333EA',
-    endColor: '#EC4899',
+    startColor: '#0C8B82',
+    endColor: '#0058CC',
   },
 ];
 
@@ -1041,7 +1041,7 @@ export default function OperationsAnimation({
   // 轮播动画（图标+卡片）
   // 重要规则：
   // 1. 运营管理Agent（index=0）只参与入场动画，不参与轮播
-  // 2. 轮播只有后3个图标参与：SSR(1) → 工单(2) → 人机(3) → 循环
+  // 2. 轮播只有后3个图标参与：SSR(1) → 工单（2） → 人机（3） → 循环
   // 3. 卡片切换由射线触发：射线到达边框（lineDrawing完成）时切换
   // 4. 同步关系：3张卡 → SSR射线触发 → 2张卡 → 工单射线触发 → 1张卡 → 人机射线触发 → 3张卡
   useEffect(() => {
@@ -1049,7 +1049,7 @@ export default function OperationsAnimation({
 
     const { iconDuration } = ANIMATION_CONFIG;
     // 轮播图标：只有后3个参与（index 1, 2, 3）
-    const carouselIconIndices = [1, 2, 3];  // SSR, 工单, 人机
+    const carouselIconIndices = [1, 2, 3];  // SSR，工单，人机
     const carouselLength = carouselIconIndices.length;  // 3
 
     const animate = (timestamp: number) => {
@@ -1070,8 +1070,8 @@ export default function OperationsAnimation({
 
       // 卡片切换 - 由射线触发
       // 射线到达边框的时机是 lineDrawing 阶段结束（progress = 0.20）
-      // carouselIndex: 0=SSR, 1=工单, 2=人机
-      // carouselStep: 0=3张卡, 1=2张卡, 2=1张卡
+      // carouselIndex: 0=SSR, 1=工单，2=人机
+      // carouselStep: 0=3张卡，1=2张卡，2=1张卡
       //
       // 时序关系：
       // - SSR周期开始(carouselIndex=0)：显示3张卡(step=0)，射线到达后滑动变2张(step=1)
@@ -1086,7 +1086,7 @@ export default function OperationsAnimation({
       const lineReached = newIconProgress >= lineDrawingEnd;
       
       // 卡片状态计算
-      // 初始状态与 carouselIndex 对应：SSR=0(3张), 工单=1(2张), 人机=2(1张)
+      // 初始状态与 carouselIndex 对应：SSR=0(3张)，工单=1(2张)，人机=2(1张)
       let newCarouselStep = carouselIndex;
       let newSlideProgress = 0;
       
@@ -1145,9 +1145,9 @@ export default function OperationsAnimation({
   // - 1张→3张：中间卡片向中心滑入淡出，然后新的3张从中心向两边展开弹出
   //
   // 卡片固定身份：
-  // - cards[0] = 全域服务感知 (绿色)
-  // - cards[1] = AI风险识别 (紫色)  
-  // - cards[2] = 工单执行 (蓝色)
+  // - cards[0] = 全域服务感知（绿色）
+  // - cards[1] = AI风险识别（紫色）  
+  // - cards[2] = 工单执行（蓝色）
   //
   // 状态对应：
   // - carouselStep=0: 显示3张 [0,1,2]

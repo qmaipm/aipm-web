@@ -257,7 +257,7 @@ const coreAgents = [
     name: '质量评估Agent',
     desc: 'AI自动质检',
     icon: 'agentQuality' as keyof typeof Icons,
-    color: '#8B5CF6',
+    color: '#0C8B82',
     href: '#quality',
   },
   {
@@ -265,7 +265,7 @@ const coreAgents = [
     name: '服务优化Agent',
     desc: '智能分析洞察',
     icon: 'agentReview' as keyof typeof Icons,
-    color: '#F59E0B',
+    color: '#BE7A2E',
     href: '#review',
   },
 ];
@@ -277,7 +277,7 @@ const operationsProducts = [
   { icon: 'ticket' as keyof typeof Icons, name: '工单调度系统', desc: '任务智能分配', href: '#' },
 ];
 
-// 质量管控产品
+// 质量管理产品
 const qualityProducts = [
   { icon: 'inspect' as keyof typeof Icons, name: '多模态巡检', desc: '全域质量监控', href: '#' },
   { icon: 'record' as keyof typeof Icons, name: 'SSR服务记录', desc: '服务全程有记录', href: '#' },
@@ -444,7 +444,7 @@ export default function Navbar() {
                   </div>
                 </div>
                 
-                {/* 中间：质量管控 + 业主体验 */}
+                {/* 中间：质量管理 + 业主体验 */}
                 <div className="products-middle">
                   <div className="products-section">
                     <div className="products-section-label">质量管控</div>

@@ -138,15 +138,15 @@ const gridItems: GridItem[] = [
   { id: 'collaboration', name: '人机协同', icon: 'collaboration', color: '#10B981', col: 3, row: 1, isAgent: false },
   
   // 第三行：产品 + Agent  
-  { id: 'assistant', name: '小智助手', icon: 'assistant', color: '#8B5CF6', col: 0, row: 2, isAgent: false },
-  { id: 'quality', name: '质量评估', icon: 'quality', color: '#8B5CF6', col: 1, row: 2, isAgent: true },
-  { id: 'review', name: '服务优化', icon: 'review', color: '#F59E0B', col: 2, row: 2, isAgent: true },
-  { id: 'salary', name: '计薪系统', icon: 'salary', color: '#F59E0B', col: 3, row: 2, isAgent: false },
+  { id: 'assistant', name: '小智助手', icon: 'assistant', color: '#0C8B82', col: 0, row: 2, isAgent: false },
+  { id: 'quality', name: '质量评估', icon: 'quality', color: '#0C8B82', col: 1, row: 2, isAgent: true },
+  { id: 'review', name: '服务优化', icon: 'review', color: '#3451C7', col: 2, row: 2, isAgent: true },
+  { id: 'salary', name: '计薪系统', icon: 'salary', color: '#3451C7', col: 3, row: 2, isAgent: false },
   
   // 第四行：产品
-  { id: 'device', name: '设备管理', icon: 'device', color: '#8B5CF6', col: 0, row: 3, isAgent: false },
-  { id: 'inspect', name: '多模态巡检', icon: 'inspect', color: '#8B5CF6', col: 1, row: 3, isAgent: false },
-  { id: 'dashboard', name: '数据大屏', icon: 'dashboard', color: '#F59E0B', col: 2, row: 3, isAgent: false },
+  { id: 'device', name: '设备管理', icon: 'device', color: '#0C8B82', col: 0, row: 3, isAgent: false },
+  { id: 'inspect', name: '多模态巡检', icon: 'inspect', color: '#0C8B82', col: 1, row: 3, isAgent: false },
+  { id: 'dashboard', name: '数据大屏', icon: 'dashboard', color: '#3451C7', col: 2, row: 3, isAgent: false },
 ];
 
 // Agent连接配置
@@ -225,7 +225,7 @@ export default function ModularAIAnimation() {
     setAnimationPhase('connecting');
     setLineProgress(0);
     
-    // T100ms: 线开始生长
+    // T100ms：线开始生长
     const growLine = () => {
       let progress = 0;
       const interval = setInterval(() => {
@@ -236,8 +236,8 @@ export default function ModularAIAnimation() {
     };
     setTimeout(growLine, 100);
     
-    // T600ms: 第一个Product激活（线长至60%时）
-    // T780ms, T960ms: 后续Product依次激活
+    // T600ms：第一个Product激活（线长至60%时）
+    // T780ms, T960ms：后续Product依次激活
     setTimeout(() => {
       const products = getConnectedProducts(agentId);
       setActiveProducts([products[0]].filter(Boolean));
@@ -254,12 +254,12 @@ export default function ModularAIAnimation() {
       setAnimationPhase('lit');
     }, 960);
     
-    // T3200ms: 开始熄灭 - Agent先熄灭
+    // T3200ms：开始熄灭 - Agent先熄灭
     setTimeout(() => {
       setAnimationPhase('fading');
     }, 3200);
     
-    // T3280ms: 线开始收缩
+    // T3280ms：线开始收缩
     const shrinkLine = () => {
       let progress = 1;
       const interval = setInterval(() => {
@@ -275,7 +275,7 @@ export default function ModularAIAnimation() {
       setActiveProducts([]);
     }, 3680);
     
-    // T3980ms: 完全结束
+    // T3980ms：完全结束
     setTimeout(() => {
       setActiveAgent(null);
       setAnimationPhase('idle');

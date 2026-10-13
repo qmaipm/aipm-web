@@ -22,9 +22,9 @@
     /* 主品牌色 - Primary Brand Colors (五色平衡体系) */
     --vi-blue: #0070FF;        /* 科技蓝 - 30% 占比 */
     --vi-green: #12B98A;       /* AI绿 - 25% 占比 */
-    --vi-gold: #F59E0B;        /* 黄金 - 20% 占比 */
-    --vi-purple: #9333EA;      /* 紫罗兰 - 15% 占比 */
-    --vi-pink: #EC4899;        /* 品红 - 10% 占比 */
+    --vi-gold: #BE7A2E;        /* 黄金 - 20% 占比 */
+    --vi-purple: #0C8B82;      /* 紫罗兰 - 15% 占比 */
+    --vi-pink: #0058CC;        /* 品红 - 10% 占比 */
     
     /* 色彩深浅变体 */
     --vi-blue-dark: #0052CC;
@@ -33,7 +33,7 @@
     --vi-green-light: #1AB88A;
     --vi-gold-dark: #D97706;
     --vi-gold-light: #FBBF24;
-    --vi-purple-light: #A855F7;
+    --vi-purple-light: #2BA597;
     --vi-pink-light: #F472B6;
     
     /* 中性色 */
@@ -51,11 +51,11 @@
     
     /* v10.0 六大核心渐变 - 135° 统一方向 */
     --gradient-blue-green: linear-gradient(135deg, #0070FF, #12B98A);
-    --gradient-blue-gold: linear-gradient(135deg, #0070FF, #F59E0B);
-    --gradient-green-gold: linear-gradient(135deg, #12B98A, #F59E0B);
-    --gradient-blue-purple: linear-gradient(135deg, #0070FF, #9333EA);
-    --gradient-purple-pink: linear-gradient(135deg, #9333EA, #EC4899);
-    --gradient-pink-gold: linear-gradient(135deg, #EC4899, #F59E0B);
+    --gradient-blue-gold: linear-gradient(135deg, #0070FF, #BE7A2E);
+    --gradient-green-gold: linear-gradient(135deg, #12B98A, #BE7A2E);
+    --gradient-blue-purple: linear-gradient(135deg, #0070FF, #0C8B82);
+    --gradient-purple-pink: linear-gradient(135deg, #0C8B82, #0058CC);
+    --gradient-pink-gold: linear-gradient(135deg, #0058CC, #BE7A2E);
     
     /* 阴影系统 */
     --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.05);
@@ -67,7 +67,7 @@
     /* 发光效果 */
     --glow-blue: 0 0 30px rgba(0, 112, 255, 0.2);
     --glow-green: 0 0 30px rgba(18, 185, 138, 0.2);
-    --glow-purple: 0 0 30px rgba(147, 51, 234, 0.2);
+    --glow-purple: 0 0 30px rgba(12,139,130, 0.2);
     --glow-multi: 0 0 30px rgba(0, 112, 255, 0.15), 0 0 60px rgba(18, 185, 138, 0.1);
     
     /* 过渡动画 */
@@ -476,13 +476,13 @@ button {
 .product-primary-item:hover {
     background: white;
     border-color: rgba(0, 112, 255, 0.1);
-    box-shadow: 0 2px 8px rgba(0, 112, 255, 0.08);
+    box-shadow: 0 2px 8px rgba(11,23,20,0.048);
 }
 
 .product-primary-item.hovered {
     background: white;
     border-color: rgba(0, 112, 255, 0.15);
-    box-shadow: 0 4px 12px rgba(0, 112, 255, 0.12);
+    box-shadow: 0 4px 12px rgba(11,23,20,0.072);
 }
 
 .product-primary-icon {
@@ -750,7 +750,7 @@ button {
     background: linear-gradient(135deg, rgba(0, 112, 255, 0.08), rgba(18, 185, 138, 0.08));
     border-color: rgba(0, 112, 255, 0.15);
     transform: translateY(-2px);
-    box-shadow: 0 4px 12px rgba(0, 112, 255, 0.1);
+    box-shadow: 0 4px 12px rgba(11,23,20,0.06);
 }
 
 .dropdown-agent-icon {
@@ -973,7 +973,7 @@ button {
     background: linear-gradient(135deg, rgba(0, 112, 255, 0.12), rgba(0, 112, 255, 0.06));
     border-color: rgba(0, 112, 255, 0.25);
     transform: translateY(-2px);
-    box-shadow: 0 8px 24px rgba(0, 112, 255, 0.15);
+    box-shadow: 0 8px 24px rgba(11,23,20,0.09);
 }
 
 .solution-big-card.solution-green {
@@ -985,7 +985,7 @@ button {
     background: linear-gradient(135deg, rgba(18, 185, 138, 0.12), rgba(18, 185, 138, 0.06));
     border-color: rgba(18, 185, 138, 0.25);
     transform: translateY(-2px);
-    box-shadow: 0 8px 24px rgba(18, 185, 138, 0.15);
+    box-shadow: 0 8px 24px rgba(11,23,20,0.09);
 }
 
 .solution-big-icon {
@@ -1189,7 +1189,7 @@ button {
 .solution-card:hover {
     background: white;
     border-color: var(--vi-blue);
-    box-shadow: 0 2px 8px rgba(0, 112, 255, 0.1);
+    box-shadow: 0 2px 8px rgba(11,23,20,0.06);
 }
 
 .solution-card-name {
@@ -1415,7 +1415,7 @@ button {
     color: var(--white);
     background: var(--vi-blue);
     border: none;
-    box-shadow: 0 1px 3px rgba(0, 112, 255, 0.3);
+    box-shadow: 0 1px 3px rgba(11,23,20,0.1);
     backdrop-filter: none;
     -webkit-backdrop-filter: none;
 }
@@ -1423,7 +1423,7 @@ button {
 .navbar.scrolled .btn-cta:hover {
     background: #005ED8;
     transform: translateY(-1px);
-    box-shadow: 0 4px 12px rgba(0, 112, 255, 0.4);
+    box-shadow: 0 4px 12px rgba(11,23,20,0.1);
 }
 
 .btn-arrow {
@@ -1449,12 +1449,12 @@ button {
     border-radius: var(--radius-full);
     cursor: pointer;
     transition: all var(--transition-base);
-    box-shadow: 0 4px 14px rgba(0, 112, 255, 0.25);
+    box-shadow: 0 4px 14px rgba(11,23,20,0.1);
 }
 
 .agents-app .btn-primary:hover {
     transform: translateY(-1px);
-    box-shadow: 0 6px 20px rgba(0, 112, 255, 0.35);
+    box-shadow: 0 6px 20px rgba(11,23,20,0.1);
 }
 
 .nav-toggle {
@@ -1521,21 +1521,21 @@ button {
         /* === 绿→金过渡 === */
         #80D830 50%,
         #B8D010 54%,
-        /* === 黄金 #F59E0B === */
+        /* === 黄金 #BE7A2E === */
         #E8B008 57%,
-        #F59E0B 62%,      /* VI金核心 */
+        #BE7A2E 62%,      /* VI金核心 */
         #F88808 66%,
         /* === 金→紫过渡 === */
         #E86040 70%,
         #D04888 74%,
-        /* === 紫罗兰 #9333EA === */
+        /* === 紫罗兰 #0C8B82 === */
         #B040C0 77%,
-        #9333EA 82%,      /* VI紫核心 */
+        #0C8B82 82%,      /* VI紫核心 */
         #A048E8 86%,
-        /* === 紫→粉过渡 + 品红 #EC4899 === */
+        /* === 紫→粉过渡 + 品红 #0058CC === */
         #C840C0 89%,
         #E048A0 92%,
-        #EC4899 95%,      /* VI粉核心 */
+        #0058CC 95%,      /* VI粉核心 */
         #F05888 98%,
         #F86090 100%
     );
@@ -1579,10 +1579,10 @@ button {
         rgba(0, 180, 220, 0.45) 20%,
         rgba(18, 185, 138, 0.5) 35%,      /* VI绿 */
         rgba(120, 200, 80, 0.45) 48%,
-        rgba(245, 158, 11, 0.5) 60%,      /* VI金 */
+        rgba(190,122,46, 0.5) 60%,      /* VI金 */
         rgba(200, 80, 140, 0.45) 72%,
-        rgba(147, 51, 234, 0.5) 82%,      /* VI紫 */
-        rgba(236, 72, 153, 0.45) 92%,     /* VI粉 */
+        rgba(12,139,130, 0.5) 82%,      /* VI紫 */
+        rgba(0,88,204, 0.45) 92%,     /* VI粉 */
         rgba(248, 100, 160, 0.4) 100%
     );
     clip-path: polygon(
@@ -1741,7 +1741,7 @@ button {
     font-weight: 500;
     color: var(--vi-blue);
     margin-bottom: 24px;
-    box-shadow: 0 2px 10px rgba(0, 112, 255, 0.1);
+    box-shadow: 0 2px 10px rgba(11,23,20,0.06);
 }
 
 .badge-pulse {
@@ -1821,13 +1821,13 @@ button {
     background: var(--gradient-blue-green);
     border-radius: var(--radius-full);
     transition: all var(--transition-base);
-    box-shadow: 0 8px 24px rgba(0, 112, 255, 0.3);
+    box-shadow: 0 8px 24px rgba(11,23,20,0.1);
     overflow: hidden;
 }
 
 .btn-hero-primary:hover {
     transform: translateY(-2px);
-    box-shadow: 0 12px 32px rgba(0, 112, 255, 0.4);
+    box-shadow: 0 12px 32px rgba(11,23,20,0.1);
 }
 
 /* 按钮光泽 */
@@ -1870,7 +1870,7 @@ button {
     border-color: var(--vi-blue);
     color: var(--vi-blue);
     background: var(--white);
-    box-shadow: 0 4px 12px rgba(0, 112, 255, 0.15);
+    box-shadow: 0 4px 12px rgba(11,23,20,0.09);
 }
 
 /* Hero 统计数据 */
@@ -2207,7 +2207,7 @@ button {
 }
 
 .task-dot.done { background: #12B98A; }
-.task-dot.warning { background: #F59E0B; }
+.task-dot.warning { background: #BE7A2E; }
 .task-dot.alert { background: #EF4444; }
 
 /* 右侧趋势面板 */
@@ -2620,7 +2620,7 @@ button {
 }
 
 .task-icon.warning {
-    background: #F59E0B;
+    background: #BE7A2E;
     color: white;
 }
 
@@ -2844,8 +2844,7 @@ button {
 .dashboard:hover {
     box-shadow: 
         0 30px 60px -15px rgba(0, 0, 0, 0.15),
-        0 0 0 1px rgba(0, 112, 255, 0.2),
-        0 0 40px rgba(0, 112, 255, 0.1);
+        0 0 0 1px rgba(0, 112, 255, 0.2),0 0 40px rgba(11,23,20,0.06);
 }
 
 .dashboard-header {
@@ -2959,7 +2958,7 @@ button {
     border-color: transparent;
     background: linear-gradient(var(--white), var(--white)) padding-box,
                 var(--gradient-blue-green) border-box;
-    box-shadow: 0 0 20px rgba(0, 112, 255, 0.15);
+    box-shadow: 0 0 20px rgba(11,23,20,0.09);
 }
 
 .agent-icon {
@@ -3499,10 +3498,10 @@ button {
     border-radius: var(--radius-md);
 }
 
-.product-card:nth-child(1) .card-icon { background: linear-gradient(135deg, rgba(0, 112, 255, 0.1), rgba(147, 51, 234, 0.1)); }
-.product-card:nth-child(2) .card-icon { background: linear-gradient(135deg, rgba(18, 185, 138, 0.1), rgba(245, 158, 11, 0.1)); }
+.product-card:nth-child(1) .card-icon { background: linear-gradient(135deg, rgba(0, 112, 255, 0.1), rgba(12,139,130, 0.1)); }
+.product-card:nth-child(2) .card-icon { background: linear-gradient(135deg, rgba(18, 185, 138, 0.1), rgba(190,122,46, 0.1)); }
 .product-card:nth-child(3) .card-icon { background: linear-gradient(135deg, rgba(0, 112, 255, 0.1), rgba(18, 185, 138, 0.1)); }
-.product-card:nth-child(4) .card-icon { background: linear-gradient(135deg, rgba(236, 72, 153, 0.1), rgba(245, 158, 11, 0.1)); }
+.product-card:nth-child(4) .card-icon { background: linear-gradient(135deg, rgba(0,88,204, 0.1), rgba(190,122,46, 0.1)); }
 
 .product-card h3 {
     font-size: 18px;
@@ -3576,7 +3575,7 @@ button {
 .feature-badge.blue-purple { background: rgba(0, 112, 255, 0.1); color: var(--vi-blue); }
 .feature-badge.green-gold { background: rgba(18, 185, 138, 0.1); color: var(--vi-green); }
 .feature-badge.blue-green { background: rgba(0, 112, 255, 0.1); color: var(--vi-blue); }
-.feature-badge.pink-gold { background: rgba(236, 72, 153, 0.1); color: var(--vi-pink); }
+.feature-badge.pink-gold { background: rgba(0,88,204, 0.1); color: var(--vi-pink); }
 
 .feature-title {
     font-size: clamp(28px, 3vw, 40px);
@@ -3665,7 +3664,7 @@ button {
 
 .visual-window:hover {
     border-color: rgba(0, 112, 255, 0.3);
-    box-shadow: var(--shadow-xl), 0 0 30px rgba(0, 112, 255, 0.1);
+    box-shadow: var(--shadow-xl), 0 0 30px rgba(11,23,20,0.06);
 }
 
 .window-header {
@@ -3689,7 +3688,7 @@ button {
 }
 
 .window-dots span:nth-child(1) { background: #EF4444; }
-.window-dots span:nth-child(2) { background: #F59E0B; }
+.window-dots span:nth-child(2) { background: #BE7A2E; }
 .window-dots span:nth-child(3) { background: #10B981; }
 
 .window-title {
@@ -3778,7 +3777,7 @@ button {
 
 .visual-dashboard:hover {
     border-color: rgba(18, 185, 138, 0.3);
-    box-shadow: var(--shadow-xl), 0 0 30px rgba(18, 185, 138, 0.1);
+    box-shadow: var(--shadow-xl), 0 0 30px rgba(11,23,20,0.06);
 }
 
 .dashboard-mini-header {
@@ -4032,7 +4031,7 @@ button {
     border-color: transparent;
     background: linear-gradient(var(--white), var(--white)) padding-box,
                 var(--gradient-green-gold) border-box;
-    box-shadow: var(--shadow-lg), 0 0 20px rgba(18, 185, 138, 0.15);
+    box-shadow: var(--shadow-lg), 0 0 20px rgba(11,23,20,0.09);
 }
 
 .stat-value-mini {
@@ -4284,7 +4283,7 @@ button {
 
 .btn-submit:hover {
     transform: translateY(-2px);
-    box-shadow: 0 8px 20px rgba(0, 112, 255, 0.3);
+    box-shadow: 0 8px 20px rgba(11,23,20,0.1);
 }
 
 .btn-submit:disabled {
@@ -5293,12 +5292,12 @@ button {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    background: linear-gradient(135deg, var(--vi-blue), #8B5CF6);
+    background: linear-gradient(135deg, var(--vi-blue), #0C8B82);
     border-radius: 50%;
     color: var(--white);
     font-size: 14px;
     font-weight: 700;
-    box-shadow: 0 8px 24px rgba(0, 112, 255, 0.3);
+    box-shadow: 0 8px 24px rgba(11,23,20,0.1);
 }
 
 .modular-hub span:first-child {
@@ -6101,8 +6100,7 @@ button {
     text-decoration: none;
     transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
     box-shadow: 
-        0 2px 8px rgba(0, 112, 255, 0.3),
-        0 1px 3px rgba(0, 112, 255, 0.15);
+        0 2px 8px rgba(11,23,20,0.1),0 1px 3px rgba(11,23,20,0.09);
     position: relative;
     overflow: hidden;
     height: 40px;
@@ -6150,8 +6148,7 @@ button {
 .footer-btn-primary:hover {
     transform: translateY(-1px);
     box-shadow: 
-        0 4px 12px rgba(0, 112, 255, 0.35),
-        0 2px 4px rgba(0, 112, 255, 0.2);
+        0 4px 12px rgba(11,23,20,0.1),0 2px 4px rgba(11,23,20,0.1);
 }
 
 .footer-btn-primary svg {

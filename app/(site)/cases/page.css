@@ -4,14 +4,14 @@
    全部规则收在 .solcase 作用域内,不泄漏全站。单一字族,蓝绿 VI。
    ============================================================ */
 .solcase{
-  --ca-ink:#14201C; --ca-ink-2:#46524D; --ca-mut:#7C857F; --ca-faint:#A7AFAB;
-  --ca-line:#DDE4E1; --ca-mist:#ECF3F1; --ca-paper:#FFFFFF;
+  --ca-ink:#14201C; --ca-ink-2:#46524D; --ca-mut:#5F6A65; --ca-faint:#6B7570;
+  --ca-line:#DDE4E1; --ca-mist:#F3F7F6; --ca-paper:#FFFFFF;
   --ca-blue:#0070FF; --ca-green:#12B98A; --ca-grad:linear-gradient(115deg,#0070FF,#12B98A);
   /* 强调「文字」专用深绿:#12B98A 在白底只有 2.52:1,达不到 WCAG AA 4.5,
      所以 --ca-green 只许用于图形(渐变条/竖标/描边),所有绿色文字改用下面这支。
      #097268 白底 5.80:1、雾底 5.16:1,双双过 AA。见 SKILL.md §3h。 */
   --ca-green-ink:#097268;
-  /* 12~13px 小字专用灰:--ca-mut(#7C857F) 只有 3.38~3.81,小字要 4.5 才过 AA。
+  /* 12~13px 小字专用灰:--ca-mut(#5F6A65) 只有 3.38~3.81,小字要 4.5 才过 AA。
      #616A64 白底 5.59、雾底 4.97。大字仍可用 --ca-mut。见 SKILL.md §3h。 */
   --ca-mut-ink:#616A64;
   --ca-vi-line:rgba(12,139,130,.16);
@@ -19,8 +19,7 @@
 }
 .solcase .wrap{max-width:1160px;margin:0 auto;padding:0 32px}
 @media(max-width:600px){.solcase .wrap{padding:0 22px}}
-.solcase .grad{background:var(--ca-grad);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
-@supports not ((-webkit-background-clip:text) or (background-clip:text)){.solcase .grad{color:var(--ca-green-ink);-webkit-text-fill-color:currentColor}}
+.solcase .grad{color:var(--vi-blue)}
 
 /* 蓝图网格(暗场版) */
 .ca-grid{position:absolute;inset:0;z-index:1;pointer-events:none;
@@ -116,7 +115,7 @@
   box-shadow:0 18px 44px rgba(11,23,20,.08)}
 .ca-ghead-media img{display:block;width:100%;height:auto;aspect-ratio:4/3;object-fit:cover}
 .ca-eyebrow{display:inline-flex;align-items:center;gap:10px;font-size:12.5px;font-weight:700;letter-spacing:.14em;color:var(--ca-mut)}
-.ca-eyebrow::before{content:"";width:26px;height:3px;border-radius:2px;background:var(--ca-grad)}
+.ca-eyebrow::before{content:"";width:26px;height:3px;border-radius:2px;background:var(--blue)}
 .ca-ghead-text .ca-h2{margin-top:14px}
 .ca-ghead-text p{margin:16px 0 0;font-size:16px;line-height:1.75;color:var(--ca-ink-2);max-width:56ch}
 
@@ -127,9 +126,9 @@
 @media(max-width:560px){.ca-list,.ca-list.two{grid-template-columns:1fr}}
 .ca-card{display:flex;flex-direction:column;border:1px solid var(--ca-line);border-radius:16px;overflow:hidden;
   background:var(--ca-paper);color:inherit;text-decoration:none;transition:border-color .2s,box-shadow .2s,transform .2s}
-.ca-card:hover{border-color:rgba(12,139,130,.34);box-shadow:0 18px 44px rgba(12,139,130,.10);transform:translateY(-3px)}
+.ca-card:hover{border-color:rgba(12,139,130,.34);box-shadow:0 18px 44px rgba(11,23,20,0.06);transform:translateY(-3px)}
 .ca-cover{position:relative;aspect-ratio:16/9;background-size:cover;background-position:center}
-.ca-bar{position:absolute;left:0;right:0;bottom:0;height:4px;background:var(--ca-grad)}
+.ca-bar{position:absolute;left:0;right:0;bottom:0;height:4px;background:var(--ca-grad);display:none}
 .ca-body{padding:22px 24px 24px;display:flex;flex-direction:column;flex:1}
 /* 元数据(行业·规模·城市)是注脚,不穿强调色——对齐 Anthropic /customers 的元数据行。§3h */
 .ca-meta{font-size:12.5px;font-weight:600;letter-spacing:.02em;color:var(--ca-mut-ink);line-height:1.4}
@@ -172,3 +171,12 @@
 /* 可访问性 / 动效降级 */
 .solcase a:focus-visible,.solcase .btn:focus-visible{outline:2px solid var(--ca-green);outline-offset:3px;border-radius:10px}
 @media(prefers-reduced-motion:reduce){.solcase *{transition:none!important}}
+/* 2026-10 头部问题入口：首屏 6 个，其余收进「更多问题」 */
+.ca-entry-more{margin-top:10px}
+.ca-entry-more summary{display:inline-flex;align-items:center;gap:6px;cursor:pointer;list-style:none;font-size:13px;font-weight:600;color:#cfe3ff;padding:4px 0}
+.ca-entry-more summary::-webkit-details-marker{display:none}
+.ca-entry-more summary::after{content:"";width:6px;height:6px;border-right:1.5px solid currentColor;border-bottom:1.5px solid currentColor;transform:translateY(-2px) rotate(45deg);transition:transform .2s}
+.ca-entry-more[open] summary::after{transform:translateY(1px) rotate(-135deg)}
+.ca-entry-more summary:hover{color:#fff}
+.ca-entry-more summary:focus-visible{outline:2px solid #7FB2FF;outline-offset:3px;border-radius:4px}
+.ca-entry-more .ca-entry-list{margin-top:10px}

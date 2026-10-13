@@ -3,13 +3,13 @@ import { NEWS } from "./(site)/news/articles";
 import { ARTICLES } from "./(site)/insights/articles";
 import { ALL_CASES } from "./(site)/cases/cases";
 
-// 运行时渲染:URL 用容器注入的 SITE_URL,按当前环境输出测试/生产域名。
+// 运行时渲染：URL 用容器注入的 SITE_URL，按当前环境输出测试/生产域名。
 export const dynamic = "force-dynamic";
 
 const SITE_URL = process.env.SITE_URL || "https://www.aipm.cn";
 
-// 站点主要可索引路由(与 lib/nav.ts 的页面保持一致)。新增页面时同步补充。
-// 主要可索引路由(与 lib/nav.ts 保持一致)。新增页面时同步补充。
+// 站点主要可索引路由（与 lib/nav.ts 的页面保持一致）。新增页面时同步补充。
+// 主要可索引路由（与 lib/nav.ts 保持一致）。新增页面时同步补充。
 const ROUTES = [
   "/",
   "/ai-service",
@@ -25,6 +25,7 @@ const ROUTES = [
   "/workshop/competition",
   "/workshop/fde",
   "/cases",
+  "/pricing",
   "/cobuild",
   "/partners",
   "/partners/delegated-operation",
@@ -35,6 +36,7 @@ const ROUTES = [
   "/contact",
   "/company",
   "/company/aipm-validation",
+  "/company/master-plan",
   "/team",
   "/news",
   "/products/fmclaw",
@@ -44,6 +46,7 @@ const ROUTES = [
   "/products/fmclaw/agent-runtime",
   "/products/iot",
   "/products/robots",
+  "/solutions",
   "/solutions/cost",
   "/solutions/quality",
   "/solutions/customer",
@@ -56,6 +59,8 @@ const ROUTES = [
   "/solutions/optimization",
   "/solutions/service-design",
   "/solutions/vendor",
+  "/solutions/ask-data",
+  "/solutions/data-governance",
   "/scenarios/utility-bill",
   "/scenarios/repair-bot",
   "/scenarios/exec-query",
@@ -67,11 +72,17 @@ const ROUTES = [
   "/legal/cookies",
 ];
 
-// 行业研究文章(GEO 重点内容,优先级更高):直接读登记表,新增文章自动进 sitemap。
-// (2026-08-07 改:手写数组导致新内容漏登记——新增视觉案例就漏了,改为从 cases.ts / articles.ts 自动生成)
-const INSIGHTS = ["/insights", ...ARTICLES.map((a) => `/insights/${a.slug}`)];
+// 行业研究文章（GEO 重点内容，优先级更高）:直接读登记表，新增文章自动进 sitemap。
+// (2026-08-07 改：手写数组导致新内容漏登记——新增视觉案例就漏了，改为从 cases.ts / articles.ts 自动生成)
+// lastModified 取 updated || date（2026-10-12 补：原先文章没有 lastmod，新文章被爬虫当旧页，见 1012 诊断）。
+const iso = (d: string) => d.replace(/\./g, "-");
+const LATEST_INSIGHT = ARTICLES.map((a) => iso(a.updated || a.date)).sort().pop();
+const INSIGHTS = [
+  { path: "/insights", lastModified: LATEST_INSIGHT },
+  ...ARTICLES.map((a) => ({ path: `/insights/${a.slug}`, lastModified: iso(a.updated || a.date) })),
+];
 
-// 客户案例(真实项目,GEO 重点):直接读登记表,新增案例自动进 sitemap。
+// 客户案例（真实项目，GEO 重点）:直接读登记表，新增案例自动进 sitemap。
 const CASES = ALL_CASES.map((c) => ({ path: `/cases/${c.slug}`, lastModified: c.dateModified }));
 
 export default function sitemap(): MetadataRoute.Sitemap {
@@ -80,8 +91,9 @@ export default function sitemap(): MetadataRoute.Sitemap {
     changeFrequency: "monthly" as const,
     priority: path === "/" ? 1 : 0.7,
   }));
-  const insights = INSIGHTS.map((path) => ({
+  const insights = INSIGHTS.map(({ path, lastModified }) => ({
     url: `${SITE_URL}${path}`,
+    lastModified,
     changeFrequency: "weekly" as const,
     priority: 0.8,
   }));
@@ -91,7 +103,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     changeFrequency: "monthly" as const,
     priority: 0.8,
   }));
-  // 新闻正文页:直接读登记表,新增新闻自动进 sitemap
+  // 新闻正文页：直接读登记表，新增新闻自动进 sitemap
   const news = NEWS.map((n) => ({
     url: `${SITE_URL}/news/${n.slug}`,
     lastModified: n.date,

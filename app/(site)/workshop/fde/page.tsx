@@ -12,7 +12,7 @@ const SITE_URL = process.env.SITE_URL || "https://www.aipm.cn";
 export const metadata: Metadata = pageMetadata("/workshop/fde", {
   title: "FDE 服务 · 前置部署工程师 — 按阶段交付的 AI 落地工程，不是驻场外包 | 启盟科技",
   description:
-    "FDE（Forward Deployed Engineer，前置部署工程师）源自 Palantir，OpenAI、Anthropic 都在采用。启盟科技的 FDE 服务把这套打法带进中国的不动产与设施管理行业：数据治理、系统与接口接入，按阶段交付、按阶段验收——它不是驻场外包，交付的是结果，不是人头。",
+    "FDE（Forward Deployed Engineer，前置部署工程师）源自 Palantir，OpenAI、Anthropic 都在采用。启盟科技的 FDE 服务把这套打法带进中国的不动产与设施管理行业：数据治理、系统与接口接入，按阶段交付、按阶段验收，它不是驻场外包，交付的是结果，不是人头。",
   keywords: [
     "FDE",
     "前置部署工程师",
@@ -82,16 +82,16 @@ const outsourceIs = [
 
 /* ---------- 什么时候需要 / 不需要 ---------- */
 const needList = [
-  <>场景已经验证过——Demo Day 看过、加速营跑通过，或大赛里拿过奖，<b>现在要动真格</b></>,
+  <>场景已经验证过：Demo Day 看过、加速营跑通过，或大赛里拿过奖，<b>现在要动真格</b></>,
   <>数据锁在多个系统里，<b>导不出来、对不上、没人说得清</b></>,
   <>要和现有系统打通：收费、工单、财务、IoT，<b>要做真正的接口</b></>,
   <>要的是生产系统：<b>有权限、有稳定性、天天有人用</b>，不是演示环境里的 demo</>,
 ];
 const noNeedList = [
-  <>还没验证过场景——先去 <b>Demo Day</b> 花半天眼见为实，别直接上工程</>,
-  <>数据一张 Excel 就能导出来——<b>加速营</b>两三天就能跑通，用不着 FDE</>,
-  <>只是想「了解一下 AI」——FDE 是重投入，<b>好奇心用免费的方式满足</b></>,
-  <>指望常驻工程师随叫随到——那是驻场外包，<b>我们不做，也不建议你买</b></>,
+  <>还没验证过场景：先去 <b>Demo Day</b> 花半天眼见为实，别直接上工程</>,
+  <>数据一张 Excel 就能导出来，<b>加速营</b>两三天就能跑通，用不着 FDE</>,
+  <>只是想「了解一下 AI」：FDE 是重投入，<b>好奇心用免费的方式满足</b></>,
+  <>指望常驻工程师随叫随到。那是驻场外包，<b>我们不做，也不建议你买</b></>,
 ];
 
 /* ---------- 四阶段 ---------- */
@@ -114,7 +114,7 @@ const stages = [
   {
     no: "04",
     h: "验收与扩面",
-    p: "按事先写好的标准验收这个阶段。跑稳了，再谈下一个场景、下一批项目——扩不扩、何时扩，决定权在你。",
+    p: "按事先写好的标准验收这个阶段。跑稳了，再谈下一个场景、下一批项目：扩不扩、何时扩，决定权在你。",
   },
 ];
 
@@ -122,15 +122,15 @@ const stages = [
 const faqs = [
   {
     q: "什么是 FDE（前置部署工程师）？",
-    a: "FDE 是 Forward Deployed Engineer 的缩写，源自 Palantir 的工程角色与交付模式：工程师深入客户的业务现场，与业务专家协同完成数据治理、系统接入和场景落地，以结果交付计价。这套模式已被硅谷广泛采用——OpenAI、Anthropic、Google、Databricks 都设立了 FDE 团队。我们把这套打法带进中国的不动产与设施管理行业。",
+    a: "FDE 是 Forward Deployed Engineer 的缩写，源自 Palantir 的工程角色与交付模式：工程师深入客户的业务现场，与业务专家协同完成数据治理、系统接入和场景落地，以结果交付计价。这套模式已被硅谷广泛采用：OpenAI、Anthropic、Google、Databricks 都设立了 FDE 团队。我们把这套打法带进中国的不动产与设施管理行业。",
   },
   {
     q: "FDE 和驻场外包有什么区别？",
-    a: "这是最常见的误解——在国内，很多号称 FDE 的服务本质上是按人头计费的驻场外包。区别有三条：一，FDE 按阶段交付、按结果验收，驻场按工时结算；二，FDE 带着产品底座来做工程，驻场从零现写现改；三，FDE 做完会走，能力沉淀在系统和你的团队里，驻场越驻越久、人走系统停。简单说：FDE 卖的是结果，驻场卖的是人。",
+    a: "这是最常见的误解，在国内，很多号称 FDE 的服务本质上是按人头计费的驻场外包。区别有三条：一，FDE 按阶段交付、按结果验收，驻场按工时结算；二，FDE 带着产品底座来做工程，驻场从零现写现改；三，FDE 做完会走，能力沉淀在系统和你的团队里，驻场越驻越久、人走系统停。简单说：FDE 卖的是结果，驻场卖的是人。",
   },
   {
     q: "FDE 和系统集成商（SI）有什么区别？",
-    a: "系统集成商按需求文档实施，需求定错了照样交付；FDE 和你的业务专家一起先把问题定义对，再做工程——因为计价挂在结果上，定义错问题 FDE 自己要买单。另外，FDE 围绕产品底座（我们是 FMClaw™）做落地，不是纯项目制的一次性开发。",
+    a: "系统集成商按需求文档实施，需求定错了照样交付；FDE 和你的业务专家一起先把问题定义对，再做工程，因为计价挂在结果上，定义错问题 FDE 自己要买单。另外，FDE 围绕产品底座（我们是 FMClaw™）做落地，不是纯项目制的一次性开发。",
   },
   {
     q: "什么时候需要 FDE，什么时候不需要？",
@@ -138,7 +138,7 @@ const faqs = [
   },
   {
     q: "为什么第一阶段一定是数据治理？",
-    a: "因为这是 AI 落地最大的坎。行业数据一再说明：绝大多数企业 AI 项目卡在 PoC 到生产之间，卡点不是模型，是数据——试验可以绕过数据问题，生产绕不过。我们在大赛课题评估里也反复看到同一件事：难的从来不是 AI，是数据质量和接口。所以我们把最重的一段放在最前面，不做实不往下走。",
+    a: "因为这是 AI 落地最大的坎。行业数据一再说明：绝大多数企业 AI 项目卡在 PoC 到生产之间，卡点不是模型，是数据，试验可以绕过数据问题，生产绕不过。我们在大赛课题评估里也反复看到同一件事：难的从来不是 AI，是数据质量和接口。所以我们把最重的一段放在最前面，不做实不往下走。",
   },
   {
     q: "FDE 服务怎么计价？",
@@ -146,11 +146,11 @@ const faqs = [
   },
   {
     q: "工程师会进驻我们现场吗？",
-    a: "会在需要的阶段深入你的现场——数据摸底、接口联调、上线陪跑都需要人在现场。但「在现场工作」和「驻场外包」是两回事：我们的人为阶段目标来，目标达成就进入下一阶段，不是常驻的人力外派。",
+    a: "会在需要的阶段深入你的现场：数据摸底、接口联调、上线陪跑都需要人在现场。但「在现场工作」和「驻场外包」是两回事：我们的人为阶段目标来，目标达成就进入下一阶段，不是常驻的人力外派。",
   },
   {
     q: "从哪一步开始比较稳妥？",
-    a: "多数客户的路径是：先用半天 Demo Day 眼见为实，或在加速营里亲手跑通一个场景，验证了价值再启动 FDE。直接从 FDE 开始也可以——前提是你已经想清楚要落什么场景，并且数据和系统的复杂度确实需要工程投入。",
+    a: "多数客户的路径是：先用半天 Demo Day 眼见为实，或在加速营里亲手跑通一个场景，验证了价值再启动 FDE。直接从 FDE 开始也可以。前提是你已经想清楚要落什么场景，并且数据和系统的复杂度确实需要工程投入。",
   },
 ];
 
@@ -172,7 +172,7 @@ export default function Page() {
             把验证过的场景，<span className="grad">做成生产系统</span>
           </h1>
           <p className="ws-lead">
-            FDE——前置部署工程师，深入你的业务现场：数据治理、系统与接口接入，按阶段交付、按阶段验收。
+            FDE：前置部署工程师，深入你的业务现场，数据治理、系统与接口接入，按阶段交付、按阶段验收。
             <b>它交付的是结果，不是人头。它不是驻场外包。</b>
           </p>
           <div className="ws-cta">
@@ -195,13 +195,13 @@ export default function Page() {
           <span className="ws-eyebrow">什么是 FDE</span>
           <h2 className="ws-h2">硅谷验证了十年的 AI 落地打法</h2>
           <p className="ws-sub">
-            FDE（Forward Deployed Engineer，前置部署工程师）不是我们发明的词。它源自 <b>Palantir</b>——
+            FDE（Forward Deployed Engineer，前置部署工程师）不是我们发明的词。它源自 <b>Palantir</b>：
             这家公司用「工程师深入客户现场、与业务专家协同交付结果」的模式做了十几年政府与巨头生意；
             这两年 <b>OpenAI、Anthropic、Google、Databricks</b> 相继组建自己的 FDE 团队，把它变成了 AI 落地的行业标准打法。
           </p>
           <p className="ws-sub">
             逻辑很简单：<b>企业 AI 落不了地，缺的从来不是模型，是把模型接进真实业务的工程。</b>
-            这段工程没法远程做——数据在你的系统里，流程在你的现场里，坑在你的历史里。
+            这段工程没法远程做，数据在你的系统里，流程在你的现场里，坑在你的历史里。
             所以工程师必须「前置」到你那里去。我们把这套打法带进中国的不动产与设施管理行业。
           </p>
         </div>
@@ -269,7 +269,7 @@ export default function Page() {
             </div>
           </div>
           <p className="ws-bnote">
-            拿不准的话，从免费的 <Link href="/workshop/demo-day">Demo Day</Link> 开始——
+            拿不准的话，从免费的 <Link href="/workshop/demo-day">Demo Day</Link> 开始：
             我们宁可你晚一点启动 FDE，也不希望你在错的时机启动。
           </p>
         </div>
@@ -295,7 +295,7 @@ export default function Page() {
             ))}
           </div>
           <p className="ws-anote" style={{ color: "#AEBAB5" }}>
-            阶段划分会按你的场景与系统情况调整——但「数据治理最重、放在最前」这条不变。
+            阶段划分会按你的场景与系统情况调整，但「数据治理最重、放在最前」这条不变。
           </p>
         </div>
       </section>
@@ -308,7 +308,7 @@ export default function Page() {
           <div className="ws-duo">
             <div>
               <p className="ws-sub" style={{ marginTop: 0 }}>
-                行业数据一再说明同一件事：<b>绝大多数企业 AI 项目卡在 PoC 到生产之间，卡点不是模型，是数据</b>——
+                行业数据一再说明同一件事：<b>绝大多数企业 AI 项目卡在 PoC 到生产之间，卡点不是模型，是数据</b>，
                 试验可以绕过数据问题，生产绕不过。
               </p>
               <p className="ws-sub">
@@ -317,7 +317,7 @@ export default function Page() {
               </p>
               <p className="ws-sub">
                 所以 FDE 的第一阶段永远是数据治理：口径对齐、字段清洗、把散在各系统里的数据理成一个能用的底座。
-                这一段最重、最不性感、最没法演示——<b>也最值钱。</b>
+                这一段最重、最不性感、最没法演示，<b>也最值钱。</b>
               </p>
             </div>
             <div className="ws-mimg">
@@ -338,17 +338,17 @@ export default function Page() {
             <Link className="ws-seat" href="/workshop/demo-day" style={{ textDecoration: "none" }}>
               <div className="role">路径一</div>
               <h4>Demo Day 看过了</h4>
-              <p>半天眼见为实，判断是「走得通」——接下来把 demo 环境里的场景做成生产系统。</p>
+              <p>半天眼见为实，判断是「走得通」，接下来把 demo 环境里的场景做成生产系统。</p>
             </Link>
             <Link className="ws-seat" href="/workshop/bootcamp" style={{ textDecoration: "none" }}>
               <div className="role">路径二</div>
               <h4>加速营跑通了</h4>
-              <p>团队亲手搭的 Agent 天天在用，但数据要接系统了——工程的部分交给 FDE。</p>
+              <p>团队亲手搭的 Agent 天天在用，但数据要接系统了：工程的部分交给 FDE。</p>
             </Link>
             <Link className="ws-seat" href="/workshop/competition" style={{ textDecoration: "none" }}>
               <div className="role">路径三</div>
               <h4>大赛评出来了</h4>
-              <p>获奖课题里最重的那几个：要接口、要治数据——趁着热度，走 FDE 落成真系统。</p>
+              <p>获奖课题里最重的那几个：要接口、要治数据，趁着热度，走 FDE 落成真系统。</p>
             </Link>
           </div>
         </div>
@@ -356,8 +356,8 @@ export default function Page() {
 
       {/* 延伸阅读 → 行业研究 */}
       <RelatedReading
-        heading="把 FDE 读透,再来聊"
-        sub="FDE 从哪来、为什么有效、和驻场外包差在哪——这几篇研究讲得最透。"
+        heading="把 FDE 读透，再来聊"
+        sub="FDE 从哪来、为什么有效、和驻场外包差在哪：这几篇研究讲得最透。"
         slugs={["what-is-fde", "demo-vs-system"]}
       />
 

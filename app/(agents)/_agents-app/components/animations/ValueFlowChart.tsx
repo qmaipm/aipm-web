@@ -19,8 +19,8 @@
  * 布局对齐（G-Line 网格系统）：
  * ═══════════════════════════════════════════════════════════════════════════
  * 
- * - 组件宽度：G5 - G3 = 2个列宽 (约 540px @1080px 布局)
- * - 组件高度：600px (保持 9:10 比例)
+ * - 组件宽度：G5 - G3 = 2个列宽（约 540px @1080px 布局）
+ * - 组件高度：600px （保持 9:10 比例）
  * - 水平居中于 G3-G5 区域
  * - 垂直居中于容器
  * 
@@ -231,14 +231,14 @@ export function ValueFlowChart({
   // ═══════════════════════════════════════════════════════════════════════
   
   // 数据流当前阶段（用于决定显示哪种图标）
-  // 0=不显示, 1=图片堆叠, 2=数据流, 3=分裂中, 4=完成
+  // 0=不显示，1=图片堆叠，2=数据流，3=分裂中，4=完成
   const dataFlowStage = 
     progress < 0.50 ? 0 :
     progress < 0.64 ? 1 :
     progress < 0.74 ? 2 :
     progress < 0.78 ? 3 : 4;
   
-  // 数据流垂直位置 (0=节点1位置, 0.5=节点2位置, 1=节点3位置)
+  // 数据流垂直位置 (0=节点1位置，0.5=节点2位置，1=节点3位置)
   const dataFlowY = 
     progress < 0.56 ? 0 :
     progress < 0.66 ? photoMoveProgress * 0.5 :
@@ -268,14 +268,14 @@ export function ValueFlowChart({
   // 机器人图标
   const RobotIcon = () => (
     <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-      <rect x="4" y="8" width="16" height="12" rx="2" stroke="#8B5CF6" strokeWidth="1.5" fill="none"/>
-      <circle cx="12" cy="5" r="2" stroke="#8B5CF6" strokeWidth="1.5" fill="none"/>
-      <line x1="12" y1="7" x2="12" y2="8" stroke="#8B5CF6" strokeWidth="1.5"/>
-      <circle cx="9" cy="13" r="1.5" fill="#8B5CF6"/>
-      <circle cx="15" cy="13" r="1.5" fill="#8B5CF6"/>
-      <path d="M9 17H15" stroke="#8B5CF6" strokeWidth="1.5" strokeLinecap="round"/>
-      <line x1="2" y1="12" x2="4" y2="12" stroke="#8B5CF6" strokeWidth="1.5"/>
-      <line x1="20" y1="12" x2="22" y2="12" stroke="#8B5CF6" strokeWidth="1.5"/>
+      <rect x="4" y="8" width="16" height="12" rx="2" stroke="#0C8B82" strokeWidth="1.5" fill="none"/>
+      <circle cx="12" cy="5" r="2" stroke="#0C8B82" strokeWidth="1.5" fill="none"/>
+      <line x1="12" y1="7" x2="12" y2="8" stroke="#0C8B82" strokeWidth="1.5"/>
+      <circle cx="9" cy="13" r="1.5" fill="#0C8B82"/>
+      <circle cx="15" cy="13" r="1.5" fill="#0C8B82"/>
+      <path d="M9 17H15" stroke="#0C8B82" strokeWidth="1.5" strokeLinecap="round"/>
+      <line x1="2" y1="12" x2="4" y2="12" stroke="#0C8B82" strokeWidth="1.5"/>
+      <line x1="20" y1="12" x2="22" y2="12" stroke="#0C8B82" strokeWidth="1.5"/>
     </svg>
   );
 
@@ -284,17 +284,17 @@ export function ValueFlowChart({
   const PhotoStackIcon = ({ sparkle = 0 }: { sparkle?: number }) => (
     <svg width="36" height="36" viewBox="0 0 36 36" fill="none">
       {/* 第三张图片（最底层） */}
-      <rect x="10" y="10" width="18" height="14" rx="1" fill="#FEF3C7" stroke="#F59E0B" strokeWidth="1.5" transform="rotate(-5 18 18)"/>
+      <rect x="10" y="10" width="18" height="14" rx="1" fill="#F7EBDD" stroke="#BE7A2E" strokeWidth="1.5" transform="rotate(-5 18 18)"/>
       {/* 第二张图片（中层） */}
       <rect x="8" y="8" width="18" height="14" rx="1" fill="#FEF9C3" stroke="#EAB308" strokeWidth="1.5" transform="rotate(3 18 18)"/>
       {/* 第一张图片（最上层） */}
-      <rect x="6" y="6" width="18" height="14" rx="1" fill="white" stroke="#F59E0B" strokeWidth="1.5"/>
+      <rect x="6" y="6" width="18" height="14" rx="1" fill="white" stroke="#BE7A2E" strokeWidth="1.5"/>
       {/* 图片内的山水图案 */}
       <path d="M8 17l4-4 3 3 5-5 4 4v3H8v-1z" fill="#FCD34D" opacity="0.6"/>
       <circle cx="20" cy="10" r="2" fill="#FBBF24"/>
       {/* 闪光星星 */}
       <g opacity={sparkle} transform="translate(26, 2)">
-        <path d="M4 0l1 3 3 1-3 1-1 3-1-3-3-1 3-1z" fill="#F59E0B"/>
+        <path d="M4 0l1 3 3 1-3 1-1 3-1-3-3-1 3-1z" fill="#BE7A2E"/>
       </g>
       <g opacity={sparkle * 0.7} transform="translate(0, 24)">
         <path d="M3 0l0.7 2.1 2.3 0.7-2.3 0.7-0.7 2.1-0.7-2.1L0 2.8l2.3-0.7z" fill="#FBBF24"/>
@@ -623,7 +623,7 @@ export function ValueFlowChart({
           {[
             { icon: <WechatIcon />, label: '微信群', progress: source1Progress, bgColor: '#dcfce7', borderColor: '#86efac' },
             { icon: <CameraIcon />, label: '拍照', progress: source2Progress, bgColor: '#dbeafe', borderColor: '#93c5fd' },
-            { icon: <RobotIcon />, label: '机器人', progress: source3Progress, bgColor: '#ede9fe', borderColor: '#c4b5fd' },
+            { icon: <RobotIcon />, label: '机器人', progress: source3Progress, bgColor: '#ede9fe', borderColor: '#9FD3CC' },
           ].map((item, i) => (
             <div key={i} style={{
               display: 'flex',
@@ -671,7 +671,7 @@ export function ValueFlowChart({
               top: `${dataFlowY < 0.5 ? dataFlowY * 2 * 100 : 100}%`,
               transform: 'translate(-50%, -50%)',
               opacity: photoStackAppear,
-              filter: `drop-shadow(0 4px 12px rgba(245, 158, 11, 0.4))`,
+              filter: `drop-shadow(0 4px 12px rgba(190,122,46, 0.4))`,
               zIndex: 10,
             }}>
               <PhotoStackIcon sparkle={Math.sin(progress * Math.PI * 8) * 0.5 + 0.5} />
@@ -708,14 +708,14 @@ export function ValueFlowChart({
 
         {/* Step 9: 质检完成节点 - 直角矩形（不再有标签） */}
         <div style={{ position: 'relative' }}>
-          <div style={nodeStyle('#8B5CF6', completeNodeProgress, 'rgba(139,92,246,0.4)')}>
+          <div style={nodeStyle('#0C8B82', completeNodeProgress, 'rgba(12,139,130,0.4)')}>
             质检完成
           </div>
         </div>
 
         {/* Step 10: 向下分散三箭头 + 数据流分裂动画 */}
         <div style={{ margin: '3px 0', position: 'relative' }}>
-          <SpreadArrows progress={spreadArrowProgress} color="#8B5CF6" />
+          <SpreadArrows progress={spreadArrowProgress} color="#0C8B82" />
           
           {/* 数据流分裂效果 - 阶段3: 从中心分裂成3个 */}
           {dataFlowStage === 3 && (
@@ -736,7 +736,7 @@ export function ValueFlowChart({
                     zIndex: 10,
                   }}>
                     <svg width="12" height="12" viewBox="0 0 12 12">
-                      <circle cx="6" cy="6" r="4" fill={['#10B981', '#3B82F6', '#8B5CF6'][i]} opacity="0.8"/>
+                      <circle cx="6" cy="6" r="4" fill={['#10B981', '#3B82F6', '#0C8B82'][i]} opacity="0.8"/>
                     </svg>
                   </div>
                 );
@@ -766,7 +766,7 @@ export function ValueFlowChart({
             },
             { 
               title: 'AI客观评分', 
-              label: '评分: 4.2',
+              label: '评分：4.2',
               color: '#3B82F6', 
               bg: 'linear-gradient(135deg, #dbeafe 0%, #bfdbfe 100%)', 
               border: '#93c5fd',
@@ -781,19 +781,19 @@ export function ValueFlowChart({
             },
             { 
               title: '千万级复盘', 
-              label: '留存: 千万/月',
-              color: '#8B5CF6', 
-              bg: 'linear-gradient(135deg, #ede9fe 0%, #ddd6fe 100%)', 
-              border: '#c4b5fd',
+              label: '留存：千万/月',
+              color: '#0C8B82', 
+              bg: 'linear-gradient(135deg, #ede9fe 0%, #C6E6E1 100%)', 
+              border: '#9FD3CC',
               lightBg: '#f5f3ff',
               progress: result3Progress,
               labelProgress: label3FlyIn,
               icon: (
                 <svg width="12" height="12" viewBox="0 0 24 24" fill="none">
-                  <rect x="3" y="3" width="7" height="7" rx="1" stroke="#8B5CF6" strokeWidth="1.5" fill="#8B5CF6" fillOpacity="0.2"/>
-                  <rect x="14" y="3" width="7" height="7" rx="1" stroke="#8B5CF6" strokeWidth="1.5" fill="#8B5CF6" fillOpacity="0.2"/>
-                  <rect x="3" y="14" width="7" height="7" rx="1" stroke="#8B5CF6" strokeWidth="1.5" fill="#8B5CF6" fillOpacity="0.2"/>
-                  <rect x="14" y="14" width="7" height="7" rx="1" stroke="#8B5CF6" strokeWidth="1.5" fill="#8B5CF6" fillOpacity="0.2"/>
+                  <rect x="3" y="3" width="7" height="7" rx="1" stroke="#0C8B82" strokeWidth="1.5" fill="#0C8B82" fillOpacity="0.2"/>
+                  <rect x="14" y="3" width="7" height="7" rx="1" stroke="#0C8B82" strokeWidth="1.5" fill="#0C8B82" fillOpacity="0.2"/>
+                  <rect x="3" y="14" width="7" height="7" rx="1" stroke="#0C8B82" strokeWidth="1.5" fill="#0C8B82" fillOpacity="0.2"/>
+                  <rect x="14" y="14" width="7" height="7" rx="1" stroke="#0C8B82" strokeWidth="1.5" fill="#0C8B82" fillOpacity="0.2"/>
                 </svg>
               ),
             },

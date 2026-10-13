@@ -6,16 +6,15 @@
    全部规则收在 .solnw 作用域内,不泄漏全站。单一字族,蓝绿 VI。
    ============================================================ */
 .solnw{
-  --nw-ink:#14201C; --nw-ink-2:#46524D; --nw-mut:#7C857F; --nw-faint:#A7AFAB;
-  --nw-line:#E6EAE8; --nw-mist:#ECF3F1; --nw-paper:#FFFFFF;
+  --nw-ink:#14201C; --nw-ink-2:#46524D; --nw-mut:#5F6A65; --nw-faint:#6B7570;
+  --nw-line:#E6EAE8; --nw-mist:#F3F7F6; --nw-paper:#FFFFFF;
   --nw-blue:#0070FF; --nw-green:#12B98A; --nw-grad:linear-gradient(115deg,#0070FF,#12B98A);
   --nw-vi-line:rgba(12,139,130,.16);
   background:var(--nw-paper); color:var(--nw-ink);
 }
 .solnw .wrap{max-width:1160px;margin:0 auto;padding:0 32px}
 @media(max-width:600px){.solnw .wrap{padding:0 22px}}
-.solnw .grad{background:var(--nw-grad);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
-@supports not ((-webkit-background-clip:text) or (background-clip:text)){.solnw .grad{color:var(--nw-green);-webkit-text-fill-color:currentColor}}
+.solnw .grad{color:var(--vi-blue)}
 
 /* 蓝图网格 */
 .nw-grid{position:absolute;inset:0;z-index:0;pointer-events:none;
@@ -30,8 +29,8 @@
 .nw-hero-top{position:relative;z-index:2}
 .nw-kicker{display:inline-flex;align-items:center;flex-wrap:wrap;font-size:12px;font-weight:600;letter-spacing:.14em;
   text-transform:uppercase;color:var(--nw-mut)}
-.nw-kicker a{color:var(--nw-mut)}.nw-kicker a:hover{color:var(--nw-green)}
-.nw-kicker i{color:var(--nw-green);font-style:normal;margin:0 9px;font-weight:700}
+.nw-kicker a{color:var(--nw-mut)}.nw-kicker a:hover{color:var(--accent-ink)}
+.nw-kicker i{color:var(--accent-ink);font-style:normal;margin:0 9px;font-weight:700}
 .nw-h1{margin:22px 0 0;font-weight:800;font-size:clamp(38px,6vw,72px);line-height:1.06;letter-spacing:-.035em;color:var(--nw-ink);max-width:18ch}
 .nw-lead{margin:24px 0 0;font-size:clamp(16px,1.8vw,19px);line-height:1.6;color:var(--nw-ink-2);max-width:none;font-weight:400}
 
@@ -44,23 +43,23 @@
 .nw-tabs{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:34px}
 .nw-tab{font-size:13.5px;font-weight:600;color:var(--nw-ink-2);background:var(--nw-paper);
   border:1px solid var(--nw-line);border-radius:999px;padding:8px 16px;transition:border-color .2s,color .2s}
-.nw-tab.on{color:#fff;border-color:transparent;background:var(--nw-grad);box-shadow:0 8px 22px rgba(12,139,130,.20)}
+.nw-tab.on{color:#fff;border-color:transparent;background:var(--nw-grad);box-shadow:0 8px 22px rgba(11,23,20,0.1)}
 
 /* 头条:最新一条大卡(封面左 / 文案右) */
 .nw-feat{display:grid;grid-template-columns:1.06fr 1fr;gap:0;overflow:hidden;margin-bottom:26px;
   border:1px solid var(--nw-line);border-radius:20px;background:var(--nw-paper);
   transition:border-color .2s,box-shadow .2s,transform .2s}
-.nw-feat:hover{border-color:rgba(12,139,130,.34);box-shadow:0 18px 44px rgba(12,139,130,.11);transform:translateY(-2px)}
+.nw-feat:hover{border-color:rgba(12,139,130,.34);box-shadow:0 18px 44px rgba(11,23,20,0.066);transform:translateY(-2px)}
 .nw-feat-cover{display:block;width:100%;height:100%;min-height:300px;object-fit:cover;background:var(--nw-mist)}
 .nw-feat-body{padding:38px 40px;display:flex;flex-direction:column;justify-content:center}
 .nw-feat h2{margin:0 0 12px;font-size:clamp(22px,2.6vw,30px);font-weight:800;line-height:1.28;
   letter-spacing:-.02em;color:var(--nw-ink);transition:color .2s}
-.nw-feat:hover h2{color:var(--nw-green)}
+.nw-feat:hover h2{color:var(--accent-ink)}
 .nw-feat p{margin:0;font-size:15.5px;line-height:1.65;color:var(--nw-ink-2)}
 .nw-feat-meta{display:flex;align-items:center;gap:8px;margin-top:22px;font-size:13px;color:var(--nw-mut);
   letter-spacing:.03em;font-variant-numeric:tabular-nums}
 .nw-feat-meta .arr{color:var(--nw-faint);transition:transform .2s,color .2s;margin-left:auto}
-.nw-feat:hover .nw-feat-meta .arr{transform:translateX(3px);color:var(--nw-green)}
+.nw-feat:hover .nw-feat-meta .arr{transform:translateX(3px);color:var(--accent-ink)}
 @media(max-width:860px){
   .nw-feat{grid-template-columns:1fr}
   .nw-feat-cover{min-height:0;aspect-ratio:16/9}
@@ -72,22 +71,22 @@
 .nw-item{position:relative;display:grid;grid-template-columns:150px 1fr auto;gap:28px;align-items:center;
   border:1px solid var(--nw-line);border-radius:16px;background:var(--nw-paper);padding:26px 28px;
   transition:border-color .2s,box-shadow .2s,transform .2s}
-.nw-item:hover{border-color:rgba(12,139,130,.34);box-shadow:0 14px 34px rgba(12,139,130,.09);transform:translateY(-2px)}
+.nw-item:hover{border-color:rgba(12,139,130,.34);box-shadow:0 14px 34px rgba(11,23,20,0.054);transform:translateY(-2px)}
 .nw-item.has-cover{grid-template-columns:132px 150px 1fr auto}
 .nw-date{font-size:13px;color:var(--nw-mut);letter-spacing:.03em;font-variant-numeric:tabular-nums}
 .nw-cover{width:150px;height:96px;object-fit:cover;border-radius:11px;
   border:1px solid var(--nw-line);background:var(--nw-mist);display:block}
 .nw-tag{display:inline-block;font-size:11px;font-weight:600;letter-spacing:.08em;
-  color:var(--nw-green);background:rgba(18,185,138,.10);border:1px solid rgba(12,139,130,.20);
+  color:var(--accent-ink);background:rgba(18,185,138,.10);border:1px solid rgba(12,139,130,.20);
   border-radius:999px;padding:4px 11px}
 /* 标题行:分类标签靠行尾右对齐,标题折行时标签对齐首行 */
 .nw-titlerow{display:flex;align-items:flex-start;gap:12px}
 .nw-titlerow .nw-tag{flex:none;margin-left:auto;margin-top:3px}
 .nw-item h3{font-size:21px;font-weight:700;line-height:1.34;letter-spacing:-.015em;color:var(--nw-ink);margin:0 0 8px;transition:color .2s}
-.nw-item:hover h3{color:var(--nw-green)}
+.nw-item:hover h3{color:var(--accent-ink)}
 .nw-item p{font-size:15px;line-height:1.6;color:var(--nw-ink-2);max-width:62ch;margin:0}
 .nw-item .arr{color:var(--nw-faint);flex:none;transition:transform .2s,color .2s}
-.nw-item:hover .arr{transform:translateX(3px);color:var(--nw-green)}
+.nw-item:hover .arr{transform:translateX(3px);color:var(--accent-ink)}
 @media(max-width:720px){
   .nw-item{grid-template-columns:1fr;gap:12px;padding:22px 22px}
   .nw-item.has-cover{grid-template-columns:1fr}

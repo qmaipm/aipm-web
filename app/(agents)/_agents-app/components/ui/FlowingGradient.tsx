@@ -26,16 +26,16 @@ interface FlowingGradientProps {
 const VI_COLORS = {
   blue: '#0070FF',
   green: '#12B98A',
-  gold: '#F59E0B',
-  purple: '#9333EA',
-  pink: '#EC4899',
+  gold: '#BE7A2E',
+  purple: '#0C8B82',
+  pink: '#0058CC',
   blueDark: '#0052CC',
   blueLight: '#3385FF',
   greenDark: '#0D8566',
   greenLight: '#1AB88A',
   goldDark: '#D97706',
   goldLight: '#FBBF24',
-  purpleLight: '#A855F7',
+  purpleLight: '#2BA597',
   pinkLight: '#F472B6',
 };
 

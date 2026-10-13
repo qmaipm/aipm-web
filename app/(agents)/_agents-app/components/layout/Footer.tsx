@@ -128,9 +128,9 @@ export default function Footer() {
             
             {/* 右侧装饰线渐变 - 金→紫 */}
             <linearGradient id="rightGradient" x1="0%" y1="0%" x2="100%" y2="0%">
-              <stop offset="0%" stopColor="#F59E0B" stopOpacity="0.6" />
-              <stop offset="50%" stopColor="#D946EF" stopOpacity="0.8" />
-              <stop offset="100%" stopColor="#9333EA" stopOpacity="0.9" />
+              <stop offset="0%" stopColor="#BE7A2E" stopOpacity="0.6" />
+              <stop offset="50%" stopColor="#2BA597" stopOpacity="0.8" />
+              <stop offset="100%" stopColor="#0C8B82" stopOpacity="0.9" />
             </linearGradient>
           </defs>
           

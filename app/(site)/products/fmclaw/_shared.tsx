@@ -45,7 +45,7 @@ export function FmBreadcrumb({ trail, onDark }: { trail: Crumb[]; onDark?: boole
 
 export type QA = { q: string; a: string };
 
-/** 页面可见 FAQ + FAQPage JSON-LD(与可见内容完全一致) */
+/** 页面可见 FAQ + FAQPage JSON-LD（与可见内容完全一致） */
 export function FmFaq({ items, heading = "常见问题" }: { items: QA[]; heading?: string }) {
   const ld = {
     "@context": "https://schema.org",
@@ -90,7 +90,7 @@ export function FmRelated({ links, updated }: { links: RelLink[]; updated: strin
           ))}
         </ul>
         <p className="fmc-rel-back">
-          <Link href="/products/fmclaw">← 返回 FMClaw™ 产品总览</Link>
+          <Link href="/products/fmclaw">← 返回 AI 物业经理 FMClaw™</Link>
         </p>
         <p className="fmc-updated">最后更新：{updated}</p>
       </div>
@@ -107,7 +107,7 @@ export function techArticleLd(opts: { path: string; headline: string; descriptio
     description: opts.description,
     url: `${SITE_URL}${opts.path}`,
     inLanguage: "zh-CN",
-    isPartOf: { "@type": "WebPage", url: `${SITE_URL}/products/fmclaw`, name: "FMClaw™ 产品总览" },
+    isPartOf: { "@type": "WebPage", url: `${SITE_URL}/products/fmclaw`, name: "AI 物业经理 FMClaw™" },
     author: { "@type": "Organization", name: "启盟科技", url: SITE_URL },
     publisher: { "@type": "Organization", name: "广州启盟科技有限公司", url: SITE_URL },
   };
@@ -120,7 +120,7 @@ export const Arrow = ({ s = 14 }: { s?: number }) => (
   </svg>
 );
 
-/* 链接卡图标（1.5-stroke,与站内插画语言一致） */
+/* 链接卡图标（1.5-stroke，与站内插画语言一致） */
 const ic = (d: ReactNode) => (
   <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">{d}</svg>
 );
@@ -161,7 +161,7 @@ export function LinkCards({ items }: { items: LinkCardItem[] }) {
 export type ScenarioCardItem = { href: string; lab: string; t: string; d: string; img: string; alt: string };
 
 /** 场景/案例插图链接卡（全站场景与案例互链一律用它，禁用纯图标卡）
- *  布局规则：1 张=横向大卡;2 张=一行两列;3 张=一行三列;4 张=两行两列——不允许出现孤儿卡片 */
+ *  布局规则：1 张=横向大卡；2 张=一行两列；3 张=一行三列；4 张=两行两列——不允许出现孤儿卡片 */
 export function ScenarioCards({ items }: { items: ScenarioCardItem[] }) {
   const n = items.length;
   return (
@@ -183,17 +183,29 @@ export function ScenarioCards({ items }: { items: ScenarioCardItem[] }) {
   );
 }
 
-/** 总览页 SoftwareApplication JSON-LD(字段按规格，不加虚构评分/价格) */
+/** 总览页 SoftwareApplication JSON-LD（不加虚构评分；价格与 /pricing 公开价一致） */
 export const FMCLAW_APP_LD = {
   "@context": "https://schema.org",
   "@type": "SoftwareApplication",
-  name: "FMClaw™",
+  name: "AI 物业经理 FMClaw™",
+  alternateName: ["FMClaw", "AI 物业经理"],
   applicationCategory: "BusinessApplication",
   operatingSystem: "Web",
   url: `${SITE_URL}/products/fmclaw`,
   sameAs: [FMCLAW_URL],
   installUrl: FMCLAW_URL,
   description:
-    "FMClaw™ 是面向物业与设施管理的生产级 AI 智能体平台。它以行业数据本体为底座，把企业数据、行业指标、业务工作流、系统工具和组织权限统一起来，让 AI 能够进入核心业务，并在多个项目中稳定、准确、可追溯地完成工作。",
+    "AI 物业经理 FMClaw™ 是面向物业与设施管理的生产级 AI 智能体平台。它的核心是项目大脑：以行业数据本体为底座，自动感知现场、总结问题、调度人和工具，并从结果中持续迭代；关键节点由授权人员确认，全过程可追溯。",
+  offers: [
+    { "@type": "Offer", name: "个人免费版", price: "0", priceCurrency: "CNY", url: `${SITE_URL}/pricing` },
+    { "@type": "Offer", name: "个人专业版", price: "2980", priceCurrency: "CNY", url: `${SITE_URL}/pricing` },
+    {
+      "@type": "Offer",
+      name: "项目团队版",
+      priceCurrency: "CNY",
+      priceSpecification: { "@type": "PriceSpecification", minPrice: "19800", priceCurrency: "CNY" },
+      url: `${SITE_URL}/pricing`,
+    },
+  ],
   provider: { "@type": "Organization", name: "广州启盟科技有限公司", url: SITE_URL },
 };

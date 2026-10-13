@@ -25,7 +25,7 @@
 /* prose:在 scoped 内把强调色从全站暖蓝改为蓝绿 VI */
 .legalx .prose{color:var(--ink-2)}
 .legalx .prose h2{position:relative; padding-bottom:14px; font-weight:800; letter-spacing:-.02em; color:var(--ink)}
-.legalx .prose h2::after{content:""; position:absolute; left:0; bottom:0; width:40px; height:2px; border-radius:2px; background:var(--lg-grad)}
+.legalx .prose h2::after{content:""; position:absolute; left:0; bottom:0; width:40px; height:2px; border-radius:2px; background:var(--blue)}
 .legalx .prose a{color:var(--lg-teal-ink); text-decoration-color:rgba(18,185,138,.4)}
 .legalx .prose a:hover{text-decoration-color:var(--lg-teal)}
 .legalx .prose blockquote{border-left-color:var(--lg-teal)}

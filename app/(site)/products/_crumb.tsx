@@ -5,7 +5,7 @@ import "./crumb.css";
 const SITE_URL = process.env.SITE_URL || "https://www.aipm.cn";
 
 /**
- * 产品扩展页面包屑:产品 → FMClaw → 当前页
+ * 产品扩展页面包屑：产品 → FMClaw → 当前页
  * 可见面包屑 + BreadcrumbList JSON-LD。
  * tone="dark" 用于深色 Hero 背景。
  */
@@ -23,7 +23,7 @@ export default function ProductCrumb({
     "@type": "BreadcrumbList",
     itemListElement: [
       { "@type": "ListItem", position: 1, name: "启盟科技", item: SITE_URL },
-      { "@type": "ListItem", position: 2, name: "FMClaw™ 产品总览", item: `${SITE_URL}/products/fmclaw` },
+      { "@type": "ListItem", position: 2, name: "AI 物业经理 FMClaw™", item: `${SITE_URL}/products/fmclaw` },
       { "@type": "ListItem", position: 3, name, item: `${SITE_URL}${href}` },
     ],
   };

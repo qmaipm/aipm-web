@@ -88,7 +88,7 @@ export default function Page() {
         />
         <p>另一层价值是客户没有被锁住。摄像头是谁家的、以后换不换，都不影响这套判断继续用，因为进来的只是中间池里的图片。</p>
       </CaseSection>
-      <CaseFit
+      <CaseFit slug="campus-cctv-photo-ai-review"
         fit={[
           "摄像头已经装齐，预警量远超值守人力，看不完的部分默认没人处置",
           "已经评估过纯视觉算法，发现瓶颈不在识别，而在识别完之后没人接",

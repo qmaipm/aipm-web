@@ -77,10 +77,10 @@ const productModules = [
     // Stripe风格动画配置：周边小图标是产品套件
     animationConfig: {
       relatedProducts: [
-        { name: '空间管理', href: '/products/space', icon: 'space' as const },
-        { name: '服务配置', href: '/products/service-config', icon: 'serviceConfig' as const },
-        { name: 'API平台', href: '/products/api', icon: 'api' as const },
-        { name: '数据中心', href: '/products/data', icon: 'dashboard' as const },
+        { name: '空间管理', href: '/products/fmclaw/ontology', icon: 'space' as const },
+        { name: '服务配置', href: '/solutions/service-design', icon: 'serviceConfig' as const },
+        { name: 'API平台', href: '/products/fmclaw/connectors', icon: 'api' as const },
+        { name: '数据中心', href: '/products/fmclaw/ontology', icon: 'dashboard' as const },
       ],
     },
     isHero: true,
@@ -96,15 +96,15 @@ const productModules = [
     cta: '开始使用服务设计 Agent',
     ctaLink: '/solutions/service-design',
     relatedProducts: [
-      { name: '空间管理系统', desc: '空间配置与标准生成', href: '/products/space' },
-      { name: '服务配置系统', desc: '服务流程与标准设计', href: '/products/service-config' },
-      { name: 'API 开放平台', desc: '标准数据接口', href: '/products/api' },
+      { name: '空间管理系统', desc: '空间配置与标准生成', href: '/products/fmclaw/ontology' },
+      { name: '服务配置系统', desc: '服务流程与标准设计', href: '/solutions/service-design' },
+      { name: 'API 开放平台', desc: '标准数据接口', href: '/products/fmclaw/connectors' },
     ],
     animationConfig: {
       relatedProducts: [
-        { name: '空间管理系统', href: '/products/space', icon: 'space' as const },
-        { name: '服务配置系统', href: '/products/service-config', icon: 'serviceConfig' as const },
-        { name: 'API 开放平台', href: '/products/api', icon: 'api' as const },
+        { name: '空间管理系统', href: '/products/fmclaw/ontology', icon: 'space' as const },
+        { name: '服务配置系统', href: '/solutions/service-design', icon: 'serviceConfig' as const },
+        { name: 'API 开放平台', href: '/products/fmclaw/connectors', icon: 'api' as const },
       ],
     },
     isHero: false,
@@ -114,20 +114,20 @@ const productModules = [
     id: 'operations',
     name: '运营管理 Agent',
     icon: 'agentOps',
-    color: '#10B981',
+    color: '#0A7A63',
     headline: 'AI 驱动运营调度，实现人机协同闭环',
     description: '7×24 实时感知全域服务状态，确保执行与巡检到位，数据驱动管理决策，让团队专注更具价值的事务。',
     cta: '开始使用运营管理 Agent',
     ctaLink: '/solutions/operations',
     relatedProducts: [
-      { name: 'SSR 服务记录', desc: '无感记录服务全过程', href: '/products/ssr' },
-      { name: '工单调度系统', desc: '数据驱动的任务分配', href: '/products/ticket' },
+      { name: 'SSR 服务记录', desc: '无感记录服务全过程', href: '/solutions/operations' },
+      { name: '工单调度系统', desc: '数据驱动的任务分配', href: '/solutions/operations' },
       { name: '人机协同引擎', desc: '人与机器人协同服务', href: '/products/fmclaw/connectors' },
     ],
     animationConfig: {
       relatedProducts: [
-        { name: 'SSR 服务记录', href: '/products/ssr', icon: 'ssr' as const },
-        { name: '工单调度系统', href: '/products/ticket', icon: 'ticket' as const },
+        { name: 'SSR 服务记录', href: '/solutions/operations', icon: 'ssr' as const },
+        { name: '工单调度系统', href: '/solutions/operations', icon: 'ticket' as const },
         { name: '人机协同引擎', href: '/products/fmclaw/connectors', icon: 'collaboration' as const },
       ],
     },
@@ -138,21 +138,21 @@ const productModules = [
     id: 'quality',
     name: '质量评估 Agent',
     icon: 'agentQuality',
-    color: '#8B5CF6',
+    color: '#0C8B82',
     headline: 'AI 自动审图质检，让质量管理更轻松',
     description: 'AI 替代人工审图，大幅降低审图成本，客观评分消除甲乙方质量评价分歧，留存数据标签助力复盘。',
     cta: '开始使用质量评估 Agent',
     ctaLink: '/solutions/assessment',
     relatedProducts: [
-      { name: '设备管理系统', desc: '人单合一的拍照抄表', href: '/products/device' },
-      { name: '多模态巡检', desc: 'AI视觉 + IoT联合巡检', href: '/products/inspect' },
-      { name: '小智帮手', desc: '一线移动端智能助手', href: '/products/assistant' },
+      { name: '设备管理系统', desc: '人单合一的拍照抄表', href: '/products/iot' },
+      { name: '多模态巡检', desc: 'AI视觉 + IoT联合巡检', href: '/solutions/inspection' },
+      { name: '小智帮手', desc: '一线移动端智能助手', href: '/products/fmclaw' },
     ],
     animationConfig: {
       relatedProducts: [
-        { name: '设备管理系统', href: '/products/device', icon: 'device' as const },
-        { name: '多模态巡检', href: '/products/inspect', icon: 'inspect' as const },
-        { name: '小智帮手', href: '/products/assistant', icon: 'assistant' as const },
+        { name: '设备管理系统', href: '/products/iot', icon: 'device' as const },
+        { name: '多模态巡检', href: '/solutions/inspection', icon: 'inspect' as const },
+        { name: '小智帮手', href: '/products/fmclaw', icon: 'assistant' as const },
       ],
     },
     isHero: false,
@@ -162,21 +162,21 @@ const productModules = [
     id: 'review',
     name: '服务优化 Agent',
     icon: 'agentReview',
-    color: '#F59E0B',
+    color: '#3451C7',
     headline: '业务自动化核算，数据驱动持续优化',
     description: 'AI 自动完成工资、KPI、账单核算，深度分析运营数据生成洞察报告，优化服务标准与成本，展示卓越能力。',
     cta: '开始使用服务优化 Agent',
     ctaLink: '/solutions/optimization',
     relatedProducts: [
-      { name: '计薪系统', desc: '薪酬与KPI自动化核算', href: '/products/salary' },
-      { name: '数据大屏', desc: '展示卓越服务能力', href: '/products/dashboard' },
-      { name: 'API 开放平台', desc: '数据导出与第三方集成', href: '/products/api' },
+      { name: '计薪系统', desc: '薪酬与KPI自动化核算', href: '/solutions/payroll' },
+      { name: '数据大屏', desc: '展示卓越服务能力', href: '/products/fmclaw' },
+      { name: 'API 开放平台', desc: '数据导出与第三方集成', href: '/products/fmclaw/connectors' },
     ],
     animationConfig: {
       relatedProducts: [
-        { name: '计薪系统', href: '/products/salary', icon: 'salary' as const },
-        { name: '数据大屏', href: '/products/dashboard', icon: 'dashboard' as const },
-        { name: 'API 开放平台', href: '/products/api', icon: 'api' as const },
+        { name: '计薪系统', href: '/solutions/payroll', icon: 'salary' as const },
+        { name: '数据大屏', href: '/products/fmclaw', icon: 'dashboard' as const },
+        { name: 'API 开放平台', href: '/products/fmclaw/connectors', icon: 'api' as const },
       ],
     },
     isHero: false,
@@ -186,6 +186,8 @@ const productModules = [
 // ==========================================
 // 主组件
 // ==========================================
+const inkOf = (c: string) => ({ '#0070FF': '#0058CC', '#0C8B82': '#096B73', '#0A7A63': '#0A7A63', '#3451C7': '#3451C7' } as Record<string, string>)[c] ?? c;
+
 export default function AgentShowcase() {
   const [isMobile, setIsMobile] = useState(false);
   const [activeModuleIndex, setActiveModuleIndex] = useState(0);
@@ -260,10 +262,10 @@ export default function AgentShowcase() {
           >
             <div className="module-content">
               <div className="module-header">
-                <span className="module-icon" style={{ color: module.color }}>
+                <span className="module-icon" style={{ color: inkOf(module.color) }}>
                   {Icons[module.icon as keyof typeof Icons]}
                 </span>
-                <span className="module-name" style={{ color: module.color }}>{module.name}</span>
+                <span className="module-name" style={{ color: inkOf(module.color) }}>{module.name}</span>
               </div>
               <h2 className={`module-headline ${module.isHero ? 'module-headline-hero' : ''}`}>
                 {module.headline}
@@ -283,7 +285,7 @@ export default function AgentShowcase() {
                   <div className="module-related-list">
                     {module.relatedProducts.map((product, idx) => (
                       <Link key={idx} href={product.href} className="related-product-link">
-                        <span className="related-product-name" style={{ color: module.color }}>{product.name}</span>
+                        <span className="related-product-name" style={{ color: inkOf(module.color) }}>{product.name}</span>
                         <span className="related-product-desc">{product.desc}</span>
                       </Link>
                     ))}
@@ -336,10 +338,10 @@ export default function AgentShowcase() {
               id={module.id}
             >
               <div className="module-header">
-                <span className="module-icon" style={{ color: module.color }}>
+                <span className="module-icon" style={{ color: inkOf(module.color) }}>
                   {Icons[module.icon as keyof typeof Icons]}
                 </span>
-                <span className="module-name" style={{ color: module.color }}>{module.name}</span>
+                <span className="module-name" style={{ color: inkOf(module.color) }}>{module.name}</span>
               </div>
               <h2 className={`module-headline ${module.isHero ? 'module-headline-hero' : ''}`}>
                 {module.headline}
@@ -359,7 +361,7 @@ export default function AgentShowcase() {
                   <div className="module-related-list">
                     {module.relatedProducts.map((product, idx) => (
                       <Link key={idx} href={product.href} className="related-product-link">
-                        <span className="related-product-name" style={{ color: module.color }}>{product.name}</span>
+                        <span className="related-product-name" style={{ color: inkOf(module.color) }}>{product.name}</span>
                         <span className="related-product-desc">{product.desc}</span>
                       </Link>
                     ))}

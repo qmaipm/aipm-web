@@ -7,16 +7,15 @@
    全部规则收在 .solws 作用域内;单一字族,蓝绿 VI。
    ============================================================ */
 .solws{
-  --ws-ink:#14201C; --ws-ink-2:#46524D; --ws-mut:#7C857F; --ws-faint:#A7AFAB;
-  --ws-line:#E6EAE8; --ws-mist:#ECF3F1; --ws-paper:#FFFFFF; --ws-core:#0B1714;
+  --ws-ink:#14201C; --ws-ink-2:#46524D; --ws-mut:#5F6A65; --ws-faint:#6B7570;
+  --ws-line:#E6EAE8; --ws-mist:#F3F7F6; --ws-paper:#FFFFFF; --ws-core:#0B1714;
   --ws-blue:#0070FF; --ws-green:#12B98A; --ws-grad:linear-gradient(115deg,#0070FF,#12B98A);
   --ws-vi-line:rgba(12,139,130,.16);
   background:var(--ws-paper); color:var(--ws-ink);
 }
 .solws .wrap{max-width:1160px;margin:0 auto;padding:0 32px}
 @media(max-width:600px){.solws .wrap{padding:0 22px}}
-.solws .grad{background:var(--ws-grad);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
-@supports not ((-webkit-background-clip:text) or (background-clip:text)){.solws .grad{color:var(--ws-green);-webkit-text-fill-color:currentColor}}
+.solws .grad{color:var(--vi-blue)}
 
 /* 蓝图网格 */
 .solws .ws-grid{position:absolute;inset:0;z-index:0;pointer-events:none;
@@ -41,7 +40,7 @@
 .solws .ws-kicker{display:inline-flex;align-items:center;flex-wrap:wrap;font-size:12px;font-weight:600;letter-spacing:.14em;
   text-transform:uppercase;color:#9fded0}
 .solws .ws-kicker a{color:#9fded0}.solws .ws-kicker a:hover{color:#fff}
-.solws .ws-kicker i{color:var(--ws-green);font-style:normal;margin:0 9px;font-weight:700}
+.solws .ws-kicker i{color:var(--accent-ink);font-style:normal;margin:0 9px;font-weight:700}
 .solws .ws-h1{margin:22px 0 0;font-weight:800;font-size:clamp(38px,6vw,72px);line-height:1.06;letter-spacing:-.035em;color:#fff;max-width:18ch;
   text-shadow:0 2px 60px rgba(0,112,255,.22)}
 .solws .ws-lead{margin:26px 0 0;font-size:clamp(16px,1.8vw,19px);line-height:1.7;color:#D7E2DD;max-width:54ch;font-weight:400}
@@ -62,8 +61,8 @@
 .solws .ws-band.mist{background:var(--ws-mist)}
 @media(max-width:700px){.solws .ws-band{padding:76px 0}}
 .solws .ws-eyebrow{display:inline-flex;align-items:center;gap:10px;font-size:12px;font-weight:600;letter-spacing:.2em;
-  text-transform:uppercase;color:var(--ws-green)}
-.solws .ws-eyebrow::before{content:"";width:22px;height:2px;border-radius:2px;background:var(--ws-grad)}
+  text-transform:uppercase;color:var(--accent-ink)}
+.solws .ws-eyebrow::before{content:"";width:22px;height:2px;border-radius:2px;background:var(--blue)}
 .solws .ws-eyebrow.on-dark{color:#3fd9b8}
 .solws .ws-h2{margin:18px 0 0;font-weight:800;font-size:clamp(27px,3.5vw,40px);line-height:1.18;letter-spacing:-.03em;color:var(--ws-ink);max-width:none;white-space:nowrap}
 .solws .ws-h2.on-dark{color:#fff}
@@ -95,7 +94,7 @@
 .solws .ws-mbody{max-width:52ch}
 .solws .ws-mhead{display:flex;align-items:center;gap:16px;margin-bottom:18px}
 .solws .ws-mno{font-size:clamp(30px,3.4vw,40px);font-weight:800;line-height:.9;letter-spacing:-.03em;font-variant-numeric:tabular-nums}
-.solws .ws-mtime{font-size:12.5px;font-weight:700;letter-spacing:.05em;color:var(--ws-green);
+.solws .ws-mtime{font-size:12.5px;font-weight:700;letter-spacing:.05em;color:var(--accent-ink);
   border:1px solid rgba(18,185,138,.3);border-radius:999px;padding:5px 13px;white-space:nowrap}
 .solws .ws-mode h3{margin:0 0 12px;font-size:clamp(23px,2.6vw,30px);font-weight:800;letter-spacing:-.025em;color:var(--ws-ink);line-height:1.22}
 .solws .ws-mline{margin:0 0 22px;font-size:clamp(14.5px,1.6vw,16px);line-height:1.72;color:var(--ws-ink-2)}
@@ -125,7 +124,7 @@
 @media(max-width:680px){.solws .ws-premise{grid-template-columns:1fr}}
 .solws .ws-pcard{border:1px solid var(--ws-line);border-radius:16px;background:var(--ws-paper);padding:30px 28px;
   transition:border-color .2s,box-shadow .2s,transform .2s}
-.solws .ws-pcard:hover{border-color:rgba(12,139,130,.34);box-shadow:0 14px 34px rgba(12,139,130,.08);transform:translateY(-2px)}
+.solws .ws-pcard:hover{border-color:rgba(12,139,130,.34);box-shadow:0 14px 34px rgba(11,23,20,0.048);transform:translateY(-2px)}
 .solws .ws-pic{display:grid;place-items:center;width:48px;height:48px;border-radius:13px;background:var(--ws-grad);color:#fff;margin-bottom:18px}
 .solws .ws-pic svg{width:24px;height:24px}
 .solws .ws-pbig{font-size:clamp(20px,2.4vw,24px);font-weight:700;letter-spacing:-.015em;color:var(--ws-ink);margin-bottom:10px;line-height:1.3}
@@ -155,11 +154,11 @@
 @media(max-width:560px){.solws .ws-scenes{grid-template-columns:1fr}}
 .solws .ws-scene{display:flex;flex-direction:column;border:1px solid var(--ws-line);border-radius:16px;background:var(--ws-paper);
   padding:26px 24px;transition:border-color .2s,box-shadow .2s,transform .2s}
-.solws .ws-scene:hover{border-color:rgba(12,139,130,.36);box-shadow:0 14px 34px rgba(12,139,130,.09);transform:translateY(-2px)}
+.solws .ws-scene:hover{border-color:rgba(12,139,130,.36);box-shadow:0 14px 34px rgba(11,23,20,0.054);transform:translateY(-2px)}
 .solws .ws-scene-ic{display:grid;place-items:center;width:46px;height:46px;border-radius:13px;background:var(--ws-grad);color:#fff;margin-bottom:16px}
 .solws .ws-scene h4{margin:0 0 8px;font-size:18px;font-weight:700;letter-spacing:-.01em;color:var(--ws-ink)}
 .solws .ws-scene p{margin:0;font-size:14px;line-height:1.6;color:var(--ws-ink-2);flex:1}
-.solws .ws-go{margin-top:16px;display:inline-flex;align-items:center;gap:7px;font-size:13px;font-weight:600;color:var(--ws-green)}
+.solws .ws-go{margin-top:16px;display:inline-flex;align-items:center;gap:7px;font-size:13px;font-weight:600;color:var(--accent-ink)}
 .solws .ws-scene:hover .ws-go .ar{transform:translateX(3px)}.solws .ws-go .ar{transition:transform .2s}
 
 /* ---------- 你会带走什么 ---------- */
@@ -167,7 +166,7 @@
 @media(max-width:780px){.solws .ws-take{grid-template-columns:1fr}}
 .solws .ws-tcard{border:1px solid var(--ws-line);border-radius:16px;background:var(--ws-paper);padding:28px 26px;
   transition:border-color .2s,box-shadow .2s,transform .2s}
-.solws .ws-tcard:hover{border-color:rgba(12,139,130,.34);box-shadow:0 14px 34px rgba(12,139,130,.08);transform:translateY(-2px)}
+.solws .ws-tcard:hover{border-color:rgba(12,139,130,.34);box-shadow:0 14px 34px rgba(11,23,20,0.048);transform:translateY(-2px)}
 .solws .ws-tno{display:block;font-size:clamp(28px,3.4vw,38px);font-weight:800;line-height:.9;letter-spacing:-.03em;margin-bottom:16px;font-variant-numeric:tabular-nums}
 .solws .ws-tcard h3{margin:0 0 9px;font-size:19px;font-weight:700;letter-spacing:-.01em;color:var(--ws-ink);line-height:1.3}
 .solws .ws-tcard p{margin:0;font-size:14.5px;line-height:1.65;color:var(--ws-ink-2)}
@@ -190,18 +189,18 @@
 @media(max-width:520px){.solws .ws-who{grid-template-columns:1fr}}
 .solws .ws-rcard{min-height:150px;border:1px solid var(--ws-line);border-radius:16px;background:var(--ws-paper);padding:26px 24px;
   display:flex;flex-direction:column;transition:border-color .2s,box-shadow .2s,transform .2s}
-.solws .ws-rcard:hover{border-color:rgba(12,139,130,.34);box-shadow:0 14px 34px rgba(12,139,130,.08);transform:translateY(-2px)}
-.solws .ws-role{font-size:12px;font-weight:700;letter-spacing:.04em;color:var(--ws-green);margin-bottom:14px}
+.solws .ws-rcard:hover{border-color:rgba(12,139,130,.34);box-shadow:0 14px 34px rgba(11,23,20,0.048);transform:translateY(-2px)}
+.solws .ws-role{font-size:12px;font-weight:700;letter-spacing:.04em;color:var(--accent-ink);margin-bottom:14px}
 .solws .ws-rcard p{margin:0;font-size:14.5px;line-height:1.6;color:var(--ws-ink-2)}
 
 /* ---------- 时间与费用 ---------- */
 .solws .ws-fee{margin:24px 0 0;max-width:var(--measure,760px);font-size:clamp(16px,1.9vw,18px);color:var(--ws-ink-2);line-height:1.8}
 
 /* ---------- 预约表单(沿用全局 .form/.field) ---------- */
-.solws .form-err{margin:-6px 0 14px;font-size:13.5px;color:var(--ws-green);line-height:1.55}
+.solws .form-err{margin:-6px 0 14px;font-size:13.5px;color:var(--accent-ink);line-height:1.55}
 .solws .btn[disabled]{opacity:.6;cursor:not-allowed;transform:none}
 .solws .form-done{position:relative;max-width:680px;padding:34px 30px;border:1px solid var(--ws-line);border-radius:16px;background:var(--ws-paper);overflow:hidden}
-.solws .form-done::before{content:"";position:absolute;left:0;right:0;top:0;height:3px;background:var(--ws-grad)}
+.solws .form-done::before{content:"";position:absolute;left:0;right:0;top:0;height:3px;background:var(--ws-grad);display:none}
 .solws .form-done-mark{width:48px;height:48px;border-radius:50%;display:grid;place-items:center;color:#fff;background:var(--ws-grad);margin-bottom:18px}
 .solws .form-done-h{margin:0 0 10px;font-size:22px;font-weight:800;letter-spacing:-.02em;color:var(--ws-ink)}
 .solws .form-done-p{margin:0;font-size:15.5px;line-height:1.7;color:var(--ws-ink-2);max-width:50ch}
@@ -213,7 +212,7 @@
   font-size:clamp(16px,1.8vw,18px);font-weight:600;color:var(--ws-ink);line-height:1.4}
 .solws .ws-faq summary::-webkit-details-marker{display:none}
 .solws .ws-faq summary .ic{flex:none;width:22px;height:22px;transition:transform .25s;color:var(--ws-mut)}
-.solws .ws-faq details[open] summary .ic{transform:rotate(45deg);color:var(--ws-green)}
+.solws .ws-faq details[open] summary .ic{transform:rotate(45deg);color:var(--accent-ink)}
 .solws .ws-faq .ans{padding:0 0 24px;color:var(--ws-ink-2);font-size:16px;line-height:1.75;max-width:60ch}
 
 /* ---------- 可访问性 / 动效降级 ---------- */
@@ -226,12 +225,12 @@
 .solws .ws-read{display:grid;grid-template-columns:150px 1fr;gap:18px;align-items:center;text-decoration:none;
   border:1px solid var(--ws-line);border-radius:16px;background:var(--ws-paper);padding:16px 18px;
   transition:border-color .2s,box-shadow .25s,transform .25s}
-.solws .ws-read:hover{border-color:rgba(12,139,130,.34);box-shadow:0 14px 34px rgba(12,139,130,.08);transform:translateY(-2px)}
+.solws .ws-read:hover{border-color:rgba(12,139,130,.34);box-shadow:0 14px 34px rgba(11,23,20,0.048);transform:translateY(-2px)}
 .solws .ws-read-thumb{display:block;width:150px;height:98px;border-radius:10px;overflow:hidden;background:var(--ws-mist)}
 .solws .ws-read-thumb img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .35s}
 .solws .ws-read:hover .ws-read-thumb img{transform:scale(1.04)}
 .solws .ws-read-body{display:flex;flex-direction:column;gap:4px;min-width:0}
-.solws .ws-read-tag{font-size:11.5px;font-weight:700;letter-spacing:.06em;color:var(--ws-green)}
+.solws .ws-read-tag{font-size:11.5px;font-weight:700;letter-spacing:.06em;color:var(--accent-ink)}
 .solws .ws-read-title{font-size:16px;font-weight:700;line-height:1.35;letter-spacing:-.01em;color:var(--ws-ink)}
 .solws .ws-read-desc{font-size:13.5px;color:var(--ws-ink-2);line-height:1.55;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
 .solws .ws-read-meta{font-size:12px;color:var(--ws-mut);margin-top:2px}

@@ -53,9 +53,10 @@ export default function Page() {
       {/* 收口 CTA */}
       <section className="endcta">
         <div className="wrap">
-          <h2 className="reveal">想在你自己的数据上,跑通这个场景?</h2>
+          <h2 className="reveal">想在你自己的数据上，跑通这个场景？</h2>
           <p className="reveal">带上你的真实数据，来一次 FMClaw™ 加速营，当场把它跑通。</p>
           <div className="cta-row reveal"><Link href="/workshop" className="btn btn-primary">预约 FMClaw™ 加速营 →</Link><Link href="/agents" className="btn btn-ghost">了解 FMClaw 的 Agentic AI 产品套件</Link></div>
+          <p className="alt reveal">集团层面怎么做问数、口径打架怎么办，见 <Link href="/solutions/ask-data">物业智能问数解决方案</Link> · 数据要不要先治理完，见 <Link href="/solutions/data-governance">物业数据治理：边用边治</Link></p>
         </div>
       </section>
     </main>

@@ -246,16 +246,16 @@ export default function GuideLineOverlay() {
           🔍 栅格调试 v2.0 (Ctrl+G 关闭)
         </div>
         <div style={{ color: guides.source === 'dom' ? '#4ade80' : '#fbbf24' }}>
-          数据来源: {guides.source === 'dom' ? '✅ 真实 DOM' : '⚠️ 计算值'}
+          数据来源：{guides.source === 'dom' ? '✅ 真实 DOM' : '⚠️ 计算值'}
         </div>
-        <div>视口宽度: {guides.viewportWidth}px</div>
-        <div>布局宽度: {Math.round(guides.layoutWidth)}px</div>
+        <div>视口宽度：{guides.viewportWidth}px</div>
+        <div>布局宽度：{Math.round(guides.layoutWidth)}px</div>
         <div style={{ marginTop: '8px', borderTop: '1px solid #444', paddingTop: '8px' }}>
-          <div style={{ color: '#60a5fa' }}>G1: {Math.round(guides.G1)}px (左边界)</div>
-          <div style={{ color: '#00BFFF' }}>G2: {Math.round(guides.G2)}px (第1列末)</div>
-          <div style={{ color: '#00FF88' }}>G3: {Math.round(guides.G3)}px (动画区起)</div>
-          <div style={{ color: '#f87171', fontWeight: 'bold' }}>G4: {Math.round(guides.G4)}px (中心线)</div>
-          <div style={{ color: '#60a5fa' }}>G5: {Math.round(guides.G5)}px (右边界)</div>
+          <div style={{ color: '#60a5fa' }}>G1: {Math.round(guides.G1)}px （左边界）</div>
+          <div style={{ color: '#00BFFF' }}>G2: {Math.round(guides.G2)}px （第1列末）</div>
+          <div style={{ color: '#00FF88' }}>G3: {Math.round(guides.G3)}px （动画区起）</div>
+          <div style={{ color: '#f87171', fontWeight: 'bold' }}>G4: {Math.round(guides.G4)}px （中心线）</div>
+          <div style={{ color: '#60a5fa' }}>G5: {Math.round(guides.G5)}px （右边界）</div>
         </div>
         <div style={{ marginTop: '8px', borderTop: '1px solid #444', paddingTop: '8px', fontSize: '9px', color: '#888' }}>
           <div>G4 应穿过白色卡片中心</div>

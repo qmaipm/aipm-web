@@ -28,9 +28,9 @@
  * 
  * 【VI 反差渐变配色】
  * - 服务设计：蓝→绿 (#0070FF → #12B98A) gradient-blue-green
- * - 运营管理：绿→金 (#12B98A → #F59E0B) gradient-green-gold
- * - 质量评估：紫→粉 (#9333EA → #EC4899) gradient-purple-pink
- * - 服务优化：蓝→紫 (#0070FF → #9333EA) gradient-blue-purple
+ * - 运营管理：绿→金 (#12B98A → #BE7A2E) gradient-green-gold
+ * - 质量评估：紫→粉 (#0C8B82 → #0058CC) gradient-purple-pink
+ * - 服务优化：蓝→紫 (#0070FF → #0C8B82) gradient-blue-purple
  * 
  * 【图标视觉规格】
  * - 激活状态：白色背景 + 1px #e5e7eb 边框 + 上浮4px + 阴影
@@ -123,8 +123,8 @@ export const SUITE_CANVAS = {
  * - 列5 右边缘 = 532，与 G5(540) 间距 = 8px ✓
  * 
  * 【列/行中心坐标】
- * - 列0: 41px,  列1: 131px, 列2: 221px
- * - 列3: 311px, 列4: 401px, 列5: 491px
+ * - 列0: 41px,  列1: 131px，列2: 221px
+ * - 列3: 311px，列4: 401px，列5: 491px
  */
 export const GRID = {
   cols: 6,
@@ -269,7 +269,7 @@ export const ANIMATION_CONFIG = {
  * - 图标尺寸 80px（激活时 82px）
  * - 共 15 个图标：1 API + 4 Agent + 10 Product
  * 
- * 【用户确认的布局坐标 (列, 行)】
+ * 【用户确认的布局坐标（列，行）】
  * - (1, 3) - API平台
  * - (2, 2) - A1 服务设计Agent
  * - (0, 2) - P1_space 空间管理系统  
@@ -306,7 +306,7 @@ export const SUITE_ICON_POSITIONS: Record<string, SuiteIconPosition> = {
   // ========================================
   // Agent 1：服务设计套件
   // A1 (2, 2), P1_space (0, 2), P2_config (3, 0)
-  // 路径: A1.R→P2.B, A1.L→P1.R
+  // 路径：A1.R→P2.B, A1.L→P1.R
   // ========================================
   A1: { 
     id: 'A1', 
@@ -337,12 +337,12 @@ export const SUITE_ICON_POSITIONS: Record<string, SuiteIconPosition> = {
   // ========================================
   // Agent 2：运营管理套件
   // A2 (3, 4), P3_ssr (2, 1), P4_ticket (0, 4), P5_collab (5, 5)
-  // 路径: A2.T→P3.R, A2.L→P4.R, A2.R→P5.T
+  // 路径：A2.T→P3.R, A2.L→P4.R, A2.R→P5.T
   // ========================================
   A2: { 
     id: 'A2', 
     x: GRID.colCenter(3),     // 列3
-    y: GRID.rowCenter(4),     // 行4 (从行3移到行4)
+    y: GRID.rowCenter(4),     // 行4 （从行3移到行4）
     name: '运营管理Agent', 
     type: 'agent', 
     icon: 'agentOps',
@@ -376,21 +376,21 @@ export const SUITE_ICON_POSITIONS: Record<string, SuiteIconPosition> = {
   // ========================================
   // Agent 3：质量评估套件
   // A3 (4, 3), P6_device (4, 0), P7_inspect (5, 1), P8_assistant (1, 1)
-  // 路径: A3.T→P7.L (只连P7)
+  // 路径：A3.T→P7.L （只连P7）
   // ========================================
   A3: { 
     id: 'A3', 
     x: GRID.colCenter(4),     // 列4
-    y: GRID.rowCenter(3),     // 行3 (从行2移到行3)
+    y: GRID.rowCenter(3),     // 行3 （从行2移到行3）
     name: '质量评估Agent', 
     type: 'agent', 
     icon: 'agentQuality',
-    color: '#8B5CF6',
+    color: '#0C8B82',
   },
   P6_device: { 
     id: 'P6_device', 
-    x: GRID.colCenter(4),     // 列4 (从列5移到列4)
-    y: GRID.rowCenter(0),     // 行0 (从行3移到行0)
+    x: GRID.colCenter(4),     // 列4 （从列5移到列4）
+    y: GRID.rowCenter(0),     // 行0 （从行3移到行0）
     name: '设备管理系统', 
     type: 'product', 
     icon: 'device',
@@ -415,7 +415,7 @@ export const SUITE_ICON_POSITIONS: Record<string, SuiteIconPosition> = {
   // ========================================
   // Agent 4：服务优化套件
   // A4 (2, 5), P9_salary (2, 3), P10_dashboard (4, 5)
-  // 路径: A4.L→API.B, A4.T→P9.B, A4.R→P10.L
+  // 路径：A4.L→API.B, A4.T→P9.B, A4.R→P10.L
   // ========================================
   A4: { 
     id: 'A4', 
@@ -424,7 +424,7 @@ export const SUITE_ICON_POSITIONS: Record<string, SuiteIconPosition> = {
     name: '服务优化Agent', 
     type: 'agent', 
     icon: 'agentReview',
-    color: '#F59E0B',
+    color: '#BE7A2E',
   },
   P9_salary: { 
     id: 'P9_salary', 
@@ -452,12 +452,12 @@ export const SUITE_ICON_POSITIONS: Record<string, SuiteIconPosition> = {
  * 套件连接定义 - 使用 VI 手册六大核心渐变（有色差的反差渐变）
  * 
  * VI 渐变规则：
- * - gradient-blue-green: 蓝色 #0070FF → 绿色 #12B98A
- * - gradient-blue-purple: 蓝色 #0070FF → 紫色 #9333EA
- * - gradient-purple-pink: 紫色 #9333EA → 粉色 #EC4899
- * - gradient-green-gold: 绿色 #12B98A → 金色 #F59E0B
- * - gradient-pink-gold: 粉色 #EC4899 → 金色 #F59E0B
- * - gradient-blue-gold: 蓝色 #0070FF → 金色 #F59E0B
+ * - gradient-blue-green：蓝色 #0070FF → 绿色 #12B98A
+ * - gradient-blue-purple：蓝色 #0070FF → 紫色 #0C8B82
+ * - gradient-purple-pink：紫色 #0C8B82 → 粉色 #0058CC
+ * - gradient-green-gold：绿色 #12B98A → 金色 #BE7A2E
+ * - gradient-pink-gold：粉色 #0058CC → 金色 #BE7A2E
+ * - gradient-blue-gold：蓝色 #0070FF → 金色 #BE7A2E
  */
 export const SUITE_CONNECTIONS: SuiteConnection[] = [
   {
@@ -472,21 +472,21 @@ export const SUITE_CONNECTIONS: SuiteConnection[] = [
     name: '运营管理套件',
     agentId: 'A2',
     productIds: ['P3_ssr', 'P4_ticket', 'P5_collab'],
-    color: { start: '#12B98A', end: '#F59E0B' },  // 绿→金 (green-gold)
+    color: { start: '#12B98A', end: '#BE7A2E' },  // 绿→金 (green-gold)
   },
   {
     id: 'suite3',
     name: '质量评估套件',
     agentId: 'A3',
     productIds: ['P7_inspect'],  // 只连接 P7，P6 和 P8 不连线
-    color: { start: '#9333EA', end: '#EC4899' },  // 紫→粉 (purple-pink)
+    color: { start: '#0C8B82', end: '#0058CC' },  // 紫→粉 (purple-pink)
   },
   {
     id: 'suite4',
     name: '服务优化套件',
     agentId: 'A4',
     productIds: ['P9_salary', 'P10_dashboard', 'API'],  // 包含 API 开放平台
-    color: { start: '#0070FF', end: '#9333EA' },  // 蓝→紫 (blue-purple)
+    color: { start: '#0070FF', end: '#0C8B82' },  // 蓝→紫 (blue-purple)
   },
 ];
 
@@ -503,10 +503,10 @@ export const SUITE_CONNECTIONS: SuiteConnection[] = [
  * - 避免路径交叉
  * 
  * 【命名规则】
- * - T = Top (顶部中点)
- * - B = Bottom (底部中点)
- * - L = Left (左侧中点)
- * - R = Right (右侧中点)
+ * - T = Top （顶部中点）
+ * - B = Bottom （底部中点）
+ * - L = Left （左侧中点）
+ * - R = Right （右侧中点）
  */
 export const CONNECTION_ROUTES: ConnectionRoute[] = [
   // === Suite 1: 服务设计套件 ===
@@ -526,7 +526,7 @@ export const CONNECTION_ROUTES: ConnectionRoute[] = [
   // === Suite 3: 质量评估套件 ===
   // A3 (4,3) → P7_inspect (5,1): A3.T → P7.L (P7在A3右上方)
   { from: 'A3', fromPort: 'top', to: 'P7_inspect', toPort: 'left' },
-  // 注意: P6_device 和 P8_assistant 不连线
+  // 注意：P6_device 和 P8_assistant 不连线
   
   // === Suite 4: 服务优化套件 ===
   // A4 (2,5) → API (1,3): A4.L → API.B
@@ -991,11 +991,11 @@ export function generateSuiteConnectionPaths(
  */
 export function debugGridLayout(): void {
   console.log('=== 网格布局配置 ===');
-  console.log(`画布: ${SUITE_CANVAS.width}px × ${SUITE_CANVAS.height}px`);
-  console.log(`列数: ${GRID.cols}, 行数: ${GRID.rows}`);
-  console.log(`间距: ${GRID.gap}px`);
-  console.log(`列宽: ${GRID.colWidth.toFixed(2)}px`);
-  console.log(`行高: ${GRID.rowHeight.toFixed(2)}px`);
+  console.log(`画布：${SUITE_CANVAS.width}px × ${SUITE_CANVAS.height}px`);
+  console.log(`列数：${GRID.cols}, 行数：${GRID.rows}`);
+  console.log(`间距：${GRID.gap}px`);
+  console.log(`列宽：${GRID.colWidth.toFixed(2)}px`);
+  console.log(`行高：${GRID.rowHeight.toFixed(2)}px`);
   
   console.log('\n=== 列中心坐标 ===');
   for (let col = 0; col < 6; col++) {
@@ -1003,9 +1003,9 @@ export function debugGridLayout(): void {
   }
   
   console.log('\n=== 基线对齐 ===');
-  console.log(`G3 (列1左边缘): x ≈ 0`);
-  console.log(`G4 (列4中心): x = 270`);
-  console.log(`G5 (列6右边缘): x = 540`);
+  console.log(`G3 （列1左边缘）: x ≈ 0`);
+  console.log(`G4 （列4中心）: x = 270`);
+  console.log(`G5 （列6右边缘）: x = 540`);
   
   console.log('\n=== 图标位置 ===');
   Object.entries(SUITE_ICON_POSITIONS).forEach(([id, pos]) => {

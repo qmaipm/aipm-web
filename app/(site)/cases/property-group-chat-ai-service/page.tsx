@@ -64,7 +64,7 @@ export default function Page() {
         />
         <p>三处变化里最要紧的是第一条。有 Bot 兜底，「在群里说一声就有人管」第一次真正成立，很多本可能升级的矛盾在早期就被接住。</p>
       </CaseSection>
-      <CaseFit
+      <CaseFit slug="property-group-chat-ai-service"
         fit={[
           "员工习惯在协同平台群里报事，群数量多到人盯不过来",
           "总部园区、多楼宇办公场景，接单的人还兼着别的活",
