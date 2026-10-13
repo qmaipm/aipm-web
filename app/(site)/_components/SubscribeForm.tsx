@@ -65,7 +65,7 @@ export default function SubscribeForm({
   if (status === "ok") {
     return (
       <p className="sub-done" role="status" aria-live="polite">
-        订阅成功！谢谢你愿意一直读下去——有新文章，我们会第一时间提醒你。
+        订阅成功！谢谢你愿意一直读下去，有新文章，我们会第一时间提醒你。
       </p>
     );
   }

@@ -46,7 +46,7 @@ export default function Page() {
         heading="关于报修智能客服，你可能想问"
         items={[
           { q: "业主在群里随口一句，Bot 真能听懂是报修吗？", a: "能识别绝大多数口语化表达，听不准时会在群里追问确认，而不是猜着派单。识别后生成的标准化工单会带上原始对话与现场照片，接单人能看到完整上下文。" },
-          { q: "需要业主换 App 或小程序吗？", a: "不需要。业主还在原来的钉钉／飞书／企微群里说话，报修体验没有任何变化，变化发生在物业这一侧——不再需要人盯群。" },
+          { q: "需要业主换 App 或小程序吗？", a: "不需要。业主还在原来的钉钉／飞书／企微群里说话，报修体验没有任何变化，变化发生在物业这一侧：不再需要人盯群。" },
           { q: "夜里三点的报修也能处理吗？", a: "能。Bot 7×24 守群，接单与派单不分时段；夜间派单规则可以单独配置，比如紧急工单直接呼叫值班工程，非紧急工单排到次日早班。" },
         ]}
       />
@@ -54,7 +54,7 @@ export default function Page() {
       {/* 收口 CTA */}
       <section className="endcta">
         <div className="wrap">
-          <h2 className="reveal">想在你自己的数据上,跑通这个场景?</h2>
+          <h2 className="reveal">想在你自己的数据上，跑通这个场景？</h2>
           <p className="reveal">带上你的真实数据，来一次 FMClaw™ 加速营，当场把它跑通。</p>
           <div className="cta-row reveal"><Link href="/workshop" className="btn btn-primary">预约 FMClaw™ 加速营 →</Link><Link href="/agents" className="btn btn-ghost">查看四个行业智能体</Link></div>
         </div>

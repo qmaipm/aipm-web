@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import Image from "next/image";
-import "./page.css";
+import "./cobuild.css";
+import { SolPage, SolHero, SolSection, SolSteps, SolCols, SolMore } from "../solutions/_tpl/Sol";
 import CobuildForm from "./CobuildForm";
 import { FmFaq } from "../products/fmclaw/_shared";
 import { pageMetadata } from "@/lib/pageMetadata";
@@ -12,18 +12,7 @@ export const metadata: Metadata = pageMetadata("/cobuild", {
     "启盟科技设立亿元规模专项基金（2025 年 6 月），带着资金、技术与运营团队，与地方政府共同培育人工智能产业。五年、500 个项目、上千台设备在一线运行；投资规模、产业培育目标与兜底安排写进合作协议。物业，是这个产业落地的第一个场景。",
 });
 
-const Arrow = ({ s = 15 }: { s?: number }) => (
-  <svg className="ar" width={s} height={s} viewBox="0 0 16 16">
-    <path d="M3 8h10M9 4l4 4-4 4" fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round" />
-  </svg>
-);
-const ArrowD = ({ s = 15 }: { s?: number }) => (
-  <svg className="ar" width={s} height={s} viewBox="0 0 16 16">
-    <path d="M8 3v10M4 9l4 4 4-4" fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round" />
-  </svg>
-);
-
-/* ---------- 01 · 政策坐标(产业线 / 场景线，双线交汇) ---------- */
+/* ---------- 01 · 政策坐标（产业线 / 场景线，双线交汇） ---------- */
 const polIndustry = [
   {
     doc: "《关于深入实施「人工智能+」行动的意见》",
@@ -44,12 +33,12 @@ const polScene = [
   },
   {
     doc: "「智慧」是「好房子」的四个特征之一",
-    p: "安全、舒适、绿色、智慧——智慧被明确为服务能力的升级路径。",
+    p: "安全、舒适、绿色、智慧。其中智慧被明确为服务能力的升级路径。",
     src: "住建部《关于提升住房品质的意见》 · 2026 年 1 月",
   },
 ];
 
-/* ---------- 02 · 华东案例(四字段档案；项目级实账) ---------- */
+/* ---------- 02 · 华东案例（四字段档案；项目级实账） ---------- */
 const caseFields = [
   { k: "合作方", v: "华东某经济发达城市。" },
   {
@@ -66,14 +55,14 @@ const caseFields = [
   },
 ];
 
-/* ---------- 02 · 合作期内(账目披露，白描) ---------- */
+/* ---------- 02 · 合作期内（账目披露，白描） ---------- */
 const yields = [
   { side: "政府侧", k: "培育人工智能产业", v: "约 ¥2,300 万" },
   { side: "国企侧", k: "节省智能化采购预算", v: "约 ¥460 万" },
   { side: "国企侧", k: "降低园区运营服务成本", v: "约 ¥340 万" },
 ];
 
-/* ---------- 02 · 为什么敢先投(技术 / 运营 / 资本) ---------- */
+/* ---------- 02 · 为什么敢先投（技术 / 运营 / 资本） ---------- */
 const bases = [
   {
     k: "技术",
@@ -96,7 +85,7 @@ const bases = [
   },
 ];
 
-/* ---------- 03 · 兜底(投入分工) ---------- */
+/* ---------- 03 · 兜底（投入分工） ---------- */
 const inputs = [
   {
     k: "资金",
@@ -115,7 +104,7 @@ const inputs = [
   },
 ];
 
-/* ---------- 03 · 白纸黑字(写进协议的三项) ---------- */
+/* ---------- 03 · 白纸黑字（写进协议的三项） ---------- */
 const pacts = [
   {
     k: "投资承诺",
@@ -123,7 +112,7 @@ const pacts = [
   },
   {
     k: "产业培育承诺",
-    p: "五年目标：一家亿元体量的本地人工智能企业——营收、税收、就业与数据资产归属本地。",
+    p: "五年目标：一家亿元体量的本地人工智能企业，营收、税收、就业与数据资产归属本地。",
   },
   {
     k: "兜底安排",
@@ -169,7 +158,7 @@ const dirs = [
   },
 ];
 
-/* ---------- 05 · 五年之后(共建目标，产业辐射的终局) ---------- */
+/* ---------- 05 · 五年之后（共建目标，产业辐射的终局） ---------- */
 const goals = [
   {
     v: ">1,500 台",
@@ -188,7 +177,7 @@ const goals = [
   },
 ];
 
-/* ---------- FAQ(自包含答案；招商干部原话措辞) ---------- */
+/* ---------- FAQ（自包含答案；招商干部原话措辞） ---------- */
 const faq = [
   {
     q: "企业方承担哪些投入？",
@@ -204,7 +193,7 @@ const faq = [
   },
   {
     q: "产业转化路径是什么？",
-    a: "物业支出归口 K 类「房地产业」。当服务由本地注册的人工智能企业以智能系统与机器人交付，对应营收计入 I 类「信息技术服务业」——企业注册、税收与就业均在本地统计。",
+    a: "物业支出归口 K 类「房地产业」。当服务由本地注册的人工智能企业以智能系统与机器人交付，对应营收计入 I 类「信息技术服务业」，企业注册、税收与就业均在本地统计。",
   },
   {
     q: "首批项目不达预期怎么办？",
@@ -218,284 +207,126 @@ const faq = [
 
 export default function Page() {
   return (
-    <main className="solcb">
-      {/* ===== HERO · 实景暗场 ===== */}
-      <section className="cb-hero">
-        <span className="cb-hero__bg" aria-hidden="true" />
-        <div className="cb-grid dark" aria-hidden="true" />
-        <div className="wrap cb-hero-top">
-          <span className="cb-kicker">
-            <Link href="/">启盟科技</Link>
-            <i>/</i>政企共建
-          </span>
-          <h1 className="cb-h1">
-            与贵区共同培育<br /><span className="grad">人工智能产业</span>
-          </h1>
-          <p className="cb-lead">
-            我们带着资金、技术与运营团队，到贵区投资兴业。<b>物业，是这个产业落地的第一个场景。</b>
-          </p>
-          <div className="cb-cta">
-            <a href="#contact" className="btn btn-primary">预约实地考察 <Arrow /></a>
-            <a href="#frame" className="btn btn-ghost">查看合作框架 <ArrowD /></a>
-          </div>
-          <div className="cb-proof">
-            <span><b>五年</b></span>
-            <span className="sep" />
-            <span><b>500 个项目</b></span>
-            <span className="sep" />
-            <span><b>上千台设备</b>在一线运行</span>
-            <span className="sep" />
-            <span>亿元规模专项基金<b>（2025 年 6 月设立）</b></span>
-          </div>
+    <SolPage>
+      <div className="cbx">
+      <SolHero
+        crumbRoot={{ href: "/", label: "启盟科技" }}
+        crumb="政企共建"
+        title={["与贵区共同培育", "人工智能产业"]}
+        lead={<>我们带着资金、技术与运营团队，到贵区投资兴业。<b>物业，是这个产业落地的第一个场景。</b></>}
+        cta={{ href: "#contact", label: "预约实地考察" }}
+        secondary={{ href: "#frame", label: "查看合作框架" }}
+        proof={["五年", "500 个项目", "上千台设备在一线运行", "亿元规模专项基金（2025 年 6 月设立）"]}
+        image={{ src: "/cobuild/hero.jpg", alt: "城市新区公共建筑群（场景示意）" }}
+      />
+
+      {/* 01 · 政策坐标 */}
+      <SolSection title="两条国家议程，在同一个场景交汇">
+        <div className="cbx-conv">
+          {[{ h: "产业线", rows: polIndustry }, { h: "场景线", rows: polScene }].map((col) => (
+            <div key={col.h}>
+              <h3 className="cbx-conv__h">{col.h}</h3>
+              <ul>
+                {col.rows.map((r) => (
+                  <li key={r.doc}>
+                    <h4>{r.doc}</h4>
+                    <p>{r.p}</p>
+                    <span className="src">{r.src}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          ))}
         </div>
-      </section>
+        <p className="cbx-sum">
+          人工智能产业要场景，「好房子」要智慧。<br />
+          <b>国有物业，正是两项国策的<span className="hl">交汇点</span>。</b>
+        </p>
+        <figure className="spt-figure">
+          <img src="/cobuild/district.jpg" alt="医院、学校与机场等公共建筑集群航拍" loading="lazy" width={1800} height={1208} />
+          <figcaption>办公园区、医院、学校、场馆：公共建筑，是两项议程共同的落点。（图为场景示意）</figcaption>
+        </figure>
+      </SolSection>
 
-      {/* ===== 01 · 政策坐标(双线交汇) ===== */}
-      <section className="cb-band">
-        <div className="wrap">
-          <span className="cb-eyebrow">01 · 政策坐标</span>
-          <h2 className="cb-h2">两条国家议程，在同一个场景交汇</h2>
-
-          <div className="cb-conv">
-            <div className="cb-conv-col">
-              <h3 className="cb-conv-h ind"><i />产业线</h3>
-              {polIndustry.map((r) => (
-                <div className="cb-conv-card" key={r.doc}>
-                  <h4>{r.doc}</h4>
-                  <p>{r.p}</p>
-                  <span>{r.src}</span>
-                </div>
-              ))}
-            </div>
-            <div className="cb-conv-col">
-              <h3 className="cb-conv-h scn"><i />场景线</h3>
-              {polScene.map((r) => (
-                <div className="cb-conv-card" key={r.doc}>
-                  <h4>{r.doc}</h4>
-                  <p>{r.p}</p>
-                  <span>{r.src}</span>
-                </div>
-              ))}
-            </div>
-          </div>
-
-          <div className="cb-conv-merge" aria-hidden="true">
-            <svg viewBox="0 0 1096 96" preserveAspectRatio="none">
-              <defs>
-                <linearGradient id="cbmv" gradientUnits="userSpaceOnUse" x1="548" y1="34" x2="548" y2="92">
-                  <stop offset="0" stopColor="#0070FF" />
-                  <stop offset="1" stopColor="#12B98A" />
-                </linearGradient>
-              </defs>
-              <path d="M274 0 V34 M822 0 V34 M274 34 H822" fill="none" stroke="#C9D3CE" strokeWidth="1" vectorEffect="non-scaling-stroke" />
-              <path d="M548 34 V92" fill="none" stroke="url(#cbmv)" strokeWidth="1.5" vectorEffect="non-scaling-stroke" />
-              <rect x="545" y="31" width="6" height="6" fill="#0B1714" />
-            </svg>
-          </div>
-
-          <p className="cb-conv-sum">
-            人工智能产业要场景，「好房子」要智慧——<br />
-            <b>国有物业，正是两项国策的<span className="grad">交汇点</span>。</b>
-          </p>
-
-          <figure className="cb-photo">
-            <Image src="/cobuild/district.jpg" alt="医院、学校与机场等公共建筑集群航拍" width={1800} height={1208} sizes="(max-width:1160px) 100vw, 1096px" />
-            <figcaption>办公园区、医院、学校、场馆——公共建筑，是两项议程共同的落点。（图为场景示意）</figcaption>
-          </figure>
-        </div>
-      </section>
-
-      {/* ===== 02 · 已经在运行的项目 ===== */}
-      <section className="cb-band mist">
-        <div className="wrap">
-          <span className="cb-eyebrow">02 · 已经在运行的项目</span>
-          <h2 className="cb-h2">先看一个已经发生的项目</h2>
-          <p className="cb-sub">客户信息脱敏；具体合作方与项目资料，可在保密框架内实地核验。</p>
-
-          <div className="cb-case">
-            <div className="cb-case-photo">
-              <Image src="/cobuild/park.jpg" alt="现代科技园区办公楼与连廊" width={1800} height={1208} sizes="(max-width:900px) 100vw, 520px" />
-            </div>
-            <dl className="cb-case-fields">
-              {caseFields.map((f) => (
-                <div className="cb-case-row" key={f.k}>
-                  <dt>{f.k}</dt>
-                  <dd>{f.v}</dd>
-                </div>
-              ))}
-            </dl>
-          </div>
-
-          <div className="cb-yield">
-            <div className="cb-yield-cap">合作期内</div>
-            <div className="cb-yield-grid">
-              {yields.map((y) => (
-                <div className="cb-yield-item" key={y.k}>
-                  <span className="cb-yield-side">{y.side}</span>
-                  <p>{y.k}</p>
-                  <strong className="grad">{y.v}</strong>
-                </div>
-              ))}
-            </div>
-          </div>
-
-          <div className="cb-base">
-            <h3>为什么敢先投</h3>
-            <p>
-              用 AI 工作流重构物业运营，实现提质增效——这是一门技术活。敢先投，是因为三样东西都在我们手里，缺一不可。
-            </p>
-            <div className="cb-bases">
-              {bases.map((b) => (
-                <div className="cb-base-col" key={b.k}>
-                  <span className="cb-base-k grad">{b.k}</span>
-                  <h4>{b.title}</h4>
-                  <p>{b.p}</p>
-                  {b.href && (
-                    <Link className="cb-base-link" href={b.href}>{b.link} <Arrow s={13} /></Link>
-                  )}
-                </div>
-              ))}
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* ===== 03 · 合作框架(兜底) ===== */}
-      <section className="cb-band" id="frame">
-        <div className="wrap">
-          <span className="cb-eyebrow">03 · 合作框架</span>
-          <h2 className="cb-h2">资金、技术、运营，我们兜底</h2>
-          <p className="cb-sub">
-            贵区负责指导方向、给予政策、导入本地资源——不需要财政投入，不新增采购预算。
-          </p>
-
-          <div className="cb-inputs">
-            {inputs.map((it) => (
-              <div className="cb-input" key={it.k}>
-                <span className="cb-input-k grad">{it.k}</span>
-                <div>
-                  <h3>{it.title}</h3>
-                  <p>{it.body}</p>
-                </div>
-              </div>
+      {/* 02 · 已经在运行的项目 */}
+      <SolSection title="先看一个已经发生的项目" tone="mist"
+        sub="客户信息脱敏；具体合作方与项目资料，可在保密框架内实地核验。">
+        <div className="cbx-case">
+          <img src="/cobuild/park.jpg" alt="现代科技园区办公楼与连廊" loading="lazy" width={1800} height={1208} />
+          <dl>
+            {caseFields.map((f) => (
+              <div key={f.k}><dt>{f.k}</dt><dd>{f.v}</dd></div>
             ))}
-            <div className="cb-input gov">
-              <span className="cb-input-k">贵区</span>
-              <div>
-                <h3>指导方向 · 给予政策 · 导入本地资源</h3>
-                <p>方向与节奏由贵区确定；投入与运营由我们承担。</p>
-              </div>
-            </div>
-          </div>
-
-          <div className="cb-pact">
-            <h3>白纸黑字，写进合作协议</h3>
-            <div className="cb-pact-grid">
-              {pacts.map((p) => (
-                <div className="cb-pact-item" key={p.k}>
-                  <span>{p.k}</span>
-                  <p>{p.p}</p>
-                </div>
-              ))}
-            </div>
-          </div>
-          <p className="cb-note">
-            我们从中得到的，是长期运营收益和一个产业发展的机会——这也是我们愿意先投的原因。
-          </p>
+          </dl>
         </div>
-      </section>
+        <h3 className="cbx-h3">合作期内</h3>
+        <dl className="spt-nums cbx-yield">
+          {yields.map((y) => (
+            <div key={y.k}><dt>{y.v}</dt><dd><span className="side">{y.side}</span>{y.k}</dd></div>
+          ))}
+        </dl>
+        <h3 className="cbx-h3">为什么敢先投</h3>
+        <p className="cbx-p">用 AI 工作流重构物业运营，实现提质增效，这是一门技术活。敢先投，是因为三样东西都在我们手里，缺一不可。</p>
+        <SolCols items={bases.map((b) => ({ meta: b.k, title: b.title, body: b.p, href: b.href, linkText: b.link }))} />
+      </SolSection>
 
-      {/* ===== 04 · 推进节奏 ===== */}
-      <section className="cb-band mist" id="path">
+      {/* 03 · 合作框架 */}
+      <SolSection id="frame" title="资金、技术、运营，我们兜底" split
+        sub="贵区负责指导方向、给予政策、导入本地资源，不需要财政投入，不新增采购预算。">
+        <SolSteps items={[
+          ...inputs.map((it) => ({ no: it.k, title: it.title, body: it.body })),
+          { no: "贵区", title: "指导方向 · 给予政策 · 导入本地资源", body: "方向与节奏由贵区确定；投入与运营由我们承担。" },
+        ]} />
+        <h3 className="cbx-h3">白纸黑字，写进合作协议</h3>
+        <dl className="cbx-pact">
+          {pacts.map((p) => (<div key={p.k}><dt>{p.k}</dt><dd>{p.p}</dd></div>))}
+        </dl>
+        <SolMore>我们从中得到的，是长期运营收益和一个产业发展的机会，这也是我们愿意先投的原因。</SolMore>
+      </SolSection>
+
+      {/* 04 · 推进节奏 */}
+      <SolSection id="path" title="三步走，每一步设评估点" tone="mist"
+        sub="上一步走通，才有下一步；是否往下走，由贵区决定。">
+        <SolCols items={steps.map((s) => ({ meta: s.ph, title: s.title, body: s.body }))} />
+        <h3 className="cbx-h3">第三步落成后，贵区同时接住三个政策方向</h3>
+        <ul className="cbx-dirs">
+          {dirs.map((d) => (
+            <li key={d.k}><h4>{d.k}</h4><p>{d.p}</p><span className="src">{d.src}</span></li>
+          ))}
+        </ul>
+        <figure className="spt-figure cbx-gap">
+          <img src="/cobuild/robots.jpg" alt="巡检机器狗、人形机器人与清洁机器人在公共建筑中庭协同作业" loading="lazy" width={1800} height={1208} />
+          <figcaption>巡检、接待、清洁：多种形态的机器人在公共建筑内协同作业。（图为场景示意）</figcaption>
+        </figure>
+        <SolMore>这条路径已在华东进入实施：与某省会城市区级国有资产平台的合作框架定稿，跨国资、招商、财务、审计的专项工作组组建完成，首期园区部署进入排期。</SolMore>
+      </SolSection>
+
+      {/* 05 · 共建目标：本页唯一的深色收尾段 */}
+      <section className="cbx-goal">
+        <img className="cbx-goal__bg" src="/cobuild/dawn.jpg" alt="" aria-hidden="true" loading="lazy" />
         <div className="wrap">
-          <span className="cb-eyebrow">04 · 推进节奏</span>
-          <h2 className="cb-h2">三步走，每一步设评估点</h2>
-          <p className="cb-sub">上一步走通，才有下一步；是否往下走，由贵区决定。</p>
-
-          <div className="cb-steps">
-            {steps.map((s, i) => (
-              <div className="cb-step" key={s.title}>
-                <div className="cb-step-ph"><span className="grad">{s.ph}</span></div>
-                <h3>{s.title}</h3>
-                <p>{s.body}</p>
-                {i < steps.length - 1 && <span className="cb-step-ar" aria-hidden="true">→</span>}
-              </div>
+          <h2 className="spt-h2">五年之后，贵区会有一家什么样的企业</h2>
+          <p className="spt-sub">这是产业辐射的终局，也是写进协议的培育方向。</p>
+          <dl className="cbx-goal__nums">
+            {goals.map((g) => (
+              <div key={g.k}><dt>{g.v}</dt><dd><b>{g.k}</b>{g.p}</dd></div>
             ))}
-          </div>
-
-          <div className="cb-dirs">
-            <h3>第三步落成后，贵区同时接住三个政策方向</h3>
-            <div className="cb-dirs-grid">
-              {dirs.map((d) => (
-                <div className="cb-dir" key={d.k}>
-                  <h4>{d.k}</h4>
-                  <p>{d.p}</p>
-                  <span className="cb-dir-src">{d.src}</span>
-                </div>
-              ))}
-            </div>
-          </div>
-
-          <figure className="cb-photo">
-            <Image src="/cobuild/robots.jpg" alt="巡检机器狗、人形机器人与清洁机器人在公共建筑中庭协同作业" width={1800} height={1208} sizes="(max-width:1160px) 100vw, 1096px" />
-            <figcaption>巡检、接待、清洁——多种形态的机器人在公共建筑内协同作业。（图为场景示意）</figcaption>
-          </figure>
-
-          <p className="cb-note">
-            这条路径已在华东进入实施：与某省会城市区级国有资产平台的合作框架定稿，跨国资、招商、财务、审计的专项工作组组建完成，首期园区部署进入排期。
-          </p>
-        </div>
-      </section>
-
-      {/* ===== 05 · 共建目标 ===== */}
-      <section className="cb-band">
-        <div className="wrap">
-          <span className="cb-eyebrow">05 · 共建目标</span>
-          <h2 className="cb-h2">五年之后，贵区会有一家什么样的企业</h2>
-          <p className="cb-sub">这是产业辐射的终局，也是写进协议的培育方向。</p>
-
-          <div className="cb-goals">
-            {goals.map((g, i) => (
-              <div className="cb-goal" key={g.k}>
-                <span className="cb-goal-n">{String(i + 1).padStart(2, "0")}</span>
-                <strong className="grad">{g.v}</strong>
-                <h3>{g.k}</h3>
-                <p>{g.p}</p>
-              </div>
-            ))}
-          </div>
-
-          <p className="cb-goal-bar">
+          </dl>
+          <p className="cbx-goal__bar">
             覆盖面积 <b>500 万㎡</b>以上；我方投入 <b>1.5–2 亿元</b>；这家企业每年贡献的人工智能产业规模：<b>3–5 亿元</b>。
           </p>
-
-          <figure className="cb-photo">
-            <Image src="/cobuild/dawn.jpg" alt="黎明时分的现代城市新区天际线" width={1800} height={1208} sizes="(max-width:1160px) 100vw, 1096px" />
-            <figcaption>从第一个样板项目，到一家扎根本地的人工智能企业。（图为场景示意）</figcaption>
-          </figure>
-
-          <p className="cb-more">
-            延伸阅读：<Link href="/insights/property-management-second-half-ai-company">《物业行业的下半场》</Link>
-            <span className="dot" />
-            <Link href="/company">关于启盟科技</Link>
-          </p>
+          <p className="cbx-goal__cap">从第一个样板项目，到一家扎根本地的人工智能企业。（图为场景示意）</p>
+          <p className="cbx-goal__more">延伸阅读：<Link href="/insights/property-management-second-half-ai-company">《物业行业的下半场》</Link> · <Link href="/company">关于启盟科技</Link></p>
         </div>
       </section>
 
-      {/* ===== FAQ ===== */}
       <FmFaq items={faq} heading="常见问题" />
 
-      {/* ===== 联系 ===== */}
-      <section className="cb-band" id="contact">
-        <div className="wrap">
-          <span className="cb-eyebrow">联系</span>
-          <h2 className="cb-h2">欢迎实地考察</h2>
-          <p className="cb-sub">
-            华东园区的项目正在运行。留下联系方式，我们安排实地考察，并按贵区实际情况出具合作框架与测算。
-          </p>
-          <CobuildForm />
-        </div>
-      </section>
-    </main>
+      <SolSection id="contact" title="欢迎实地考察" split
+        sub="华东园区的项目正在运行。留下联系方式，我们安排实地考察，并按贵区实际情况出具合作框架与测算。">
+        <CobuildForm />
+      </SolSection>
+      </div>
+    </SolPage>
   );
 }

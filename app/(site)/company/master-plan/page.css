@@ -1,0 +1,34 @@
+/* 启盟的秘密蓝图（.mp 作用域，复用公司页 .solcm 变量与 cm-* 基础样式） */
+.mp-hero{background:var(--cm-core);color:#fff;padding:150px 0 96px}
+.mp-h1{margin:14px 0 0;font-weight:800;font-size:clamp(38px,6vw,72px);line-height:1.08;letter-spacing:-.035em;color:#fff}
+.mp-lead{margin:18px 0 0;font-size:clamp(16px,1.8vw,19px);line-height:1.7;color:#C9D6D1}
+.mp-film{margin-top:44px}
+
+.mp-why{margin:44px 0 0;display:grid;grid-template-columns:repeat(3,1fr);gap:0;border-top:1px solid var(--cm-line)}
+.mp-why>div{padding:26px 28px 0 0}
+.mp-why>div+div{padding-left:28px;border-left:1px solid var(--cm-line)}
+.mp-why dt{font-size:clamp(22px,2.6vw,30px);font-weight:800;letter-spacing:-.02em;color:var(--cm-ink)}
+.mp-why dd{margin:10px 0 0;font-size:14.5px;line-height:1.7;color:var(--cm-ink-2)}
+.mp-thesis{margin:44px 0 0;font-size:clamp(18px,2.1vw,22px);font-weight:700;color:var(--cm-ink)}
+@media(max-width:760px){.mp-why{grid-template-columns:1fr}.mp-why>div,.mp-why>div+div{padding:20px 0;border-left:0;border-bottom:1px solid var(--cm-line)}}
+
+.mp-clip{margin-top:40px}
+.mp-steps{list-style:none;margin:36px 0 0;padding:0;display:grid;grid-template-columns:repeat(2,1fr);gap:0 48px}
+.mp-step{display:grid;grid-template-columns:86px 1fr;gap:18px;padding:28px 0;border-top:1px solid var(--cm-line)}
+.mp-step__no b{display:block;font-size:30px;font-weight:800;letter-spacing:-.02em;color:var(--cm-ink);font-variant-numeric:tabular-nums}
+.mp-step__no span{display:inline-block;margin-top:6px;font-size:12px;font-weight:700;color:var(--cm-mut)}
+.mp-step[data-st="done"] .mp-step__no span{color:var(--accent-ink)}
+.mp-step[data-st="doing"] .mp-step__no span,.mp-step[data-st="started"] .mp-step__no span{color:var(--blue-ink)}
+.mp-step[data-st="future"] .mp-step__no b{color:var(--cm-faint)}
+.mp-step__body h3{margin:4px 0 0;font-size:18px;line-height:1.45;font-weight:800;color:var(--cm-ink)}
+.mp-step__body p{margin:10px 0 0;font-size:14.5px;line-height:1.75;color:var(--cm-ink-2)}
+.mp-step__go{display:inline-flex;align-items:center;gap:6px;margin-top:12px;font-size:14px;font-weight:600;color:var(--blue-ink)}
+@media(max-width:860px){.mp-steps{grid-template-columns:1fr}.mp-step{grid-template-columns:64px 1fr}}
+
+.mp-vision{background:var(--cm-core);color:#fff;padding:120px 0;text-align:center}
+.mp-vision__k{margin:0;font-size:15px;color:#9FB0AA}
+.mp-vision__h{margin:18px auto 0;font-size:clamp(28px,4.4vw,52px);font-weight:800;line-height:1.2;letter-spacing:-.03em;color:#fff}
+.mp-vision__p{margin:20px 0 0;font-size:17px;color:#C9D6D1}
+.mp-vision__cta{margin-top:38px;display:flex;flex-wrap:wrap;justify-content:center;gap:14px}
+.mp-vision .btn-ghost{color:#fff;border-color:rgba(255,255,255,.45)}
+.mp-vision .btn-ghost:hover{border-color:#fff}

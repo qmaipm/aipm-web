@@ -13,7 +13,7 @@ export default function Footer() {
           </div>
           {FOOTER_COLS.map((col) => (
             <div key={col.title}>
-              <h5>{col.title}</h5>
+              <p className="ft-h">{col.title}</p>
               {col.links.map((l) =>
                 l.href.startsWith("http") ? (
                   <a className="fl fl-ext" href={l.href} key={l.label}>{l.label}</a>
@@ -24,7 +24,7 @@ export default function Footer() {
             </div>
           ))}
           <div className="ft-qr">
-            <h5>公众号</h5>
+            <p className="ft-h">公众号</p>
             <Image className="ft-qr-img" src="/images/wx.jpg" alt="启盟科技公众号二维码" width={108} height={108} />
             <p className="ft-qr-cap">微信扫码关注</p>
           </div>

@@ -1,5 +1,6 @@
 // app/(site)/cases/property-group-auto-operation-report/page.tsx
 import CaseShell, { CaseFit, CaseFriction, CaseWins, CaseSection, CaseFlow, CasePoints, CaseCompare, CaseNote, CaseQuote } from "../_CaseShell";
+import Link from "next/link";
 import { getCase } from "../cases";
 import { pageMetadata } from "@/lib/pageMetadata";
 
@@ -68,8 +69,9 @@ export default function Page() {
         <CaseNote>
           口径说明：报告里的数和问出来的数永远一致，因为二者来自同一套指标口径与同一个数据底座。
         </CaseNote>
+        <p>这套做法拆成了两个解决方案。<Link href="/solutions/ask-data">物业智能问数</Link>讲回答怎样带上口径与来源。<Link href="/solutions/data-governance">物业数据治理</Link>讲为什么不必先治理完。</p>
       </CaseSection>
-      <CaseFit
+      <CaseFit slug="property-group-auto-operation-report"
         fit={[
           "在管项目多，项目、区域、总部三级都要看清现场在发生什么",
           "数据散在门禁、停车、能耗、工单十几个系统里，做一份报告要人逐个导数",

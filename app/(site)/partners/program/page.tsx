@@ -16,7 +16,7 @@ export const metadata: Metadata = {
   description:
     "面向系统集成商、建筑智能化企业、物业科技与软件公司。通过Refer、Sell、Deliver、Build四种路径参与FMClaw™行业智能体项目；免费申请，提供商机报备保护、首单联合交付和FMClaw™ FDE能力认证。",
   keywords:
-    "AI智能体伙伴计划,行业智能体合作伙伴,AI智能体代理,智能体交付伙伴,FMClaw合作伙伴,FMClaw FDE,建筑智能化AI,物业AI合作,AI系统集成",
+    "AI智能体伙伴计划，行业智能体合作伙伴，AI智能体代理，智能体交付伙伴，FMClaw合作伙伴，FMClaw FDE，建筑智能化AI，物业AI合作，AI系统集成",
   alternates: { canonical: "/partners/program" },
   openGraph: {
     title: "行业智能体伙伴计划 · 销售、交付与产品集成 | 启盟科技",

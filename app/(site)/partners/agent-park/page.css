@@ -5,16 +5,15 @@
    全部规则收在 .solbd 作用域内。
    ============================================================ */
 .solbd{
-  --bd-ink:#14201C; --bd-ink-2:#46524D; --bd-mut:#7C857F; --bd-faint:#A7AFAB;
-  --bd-line:#E6EAE8; --bd-mist:#ECF3F1; --bd-paper:#FFFFFF; --bd-core:#0B1714;
+  --bd-ink:#14201C; --bd-ink-2:#46524D; --bd-mut:#5F6A65; --bd-faint:#6B7570;
+  --bd-line:#E6EAE8; --bd-mist:#F3F7F6; --bd-paper:#FFFFFF; --bd-core:#0B1714;
   --bd-blue:#0070FF; --bd-green:#12B98A; --bd-grad:linear-gradient(115deg,#0070FF,#12B98A);
   --bd-vi-line:rgba(12,139,130,.16);
   background:var(--bd-paper); color:var(--bd-ink);
 }
 .solbd .wrap{max-width:1160px;margin:0 auto;padding:0 32px}
 @media(max-width:600px){.solbd .wrap{padding:0 22px}}
-.solbd .grad{background:var(--bd-grad);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
-@supports not ((-webkit-background-clip:text) or (background-clip:text)){.solbd .grad{color:var(--bd-green);-webkit-text-fill-color:currentColor}}
+.solbd .grad{color:var(--vi-blue)}
 
 /* 蓝图网格 */
 .solbd .bd-grid{position:absolute;inset:0;z-index:0;pointer-events:none;
@@ -32,15 +31,15 @@
 @media(max-width:960px){.solbd .bd-hero-cols{grid-template-columns:1fr;gap:40px}}
 .solbd .bd-kicker{display:inline-flex;align-items:center;flex-wrap:wrap;font-size:12px;font-weight:600;letter-spacing:.14em;
   text-transform:uppercase;color:var(--bd-mut)}
-.solbd .bd-kicker a{color:var(--bd-mut)}.solbd .bd-kicker a:hover{color:var(--bd-green)}
-.solbd .bd-kicker i{color:var(--bd-green);font-style:normal;margin:0 9px;font-weight:700}
+.solbd .bd-kicker a{color:var(--bd-mut)}.solbd .bd-kicker a:hover{color:var(--accent-ink)}
+.solbd .bd-kicker i{color:var(--accent-ink);font-style:normal;margin:0 9px;font-weight:700}
 .solbd .bd-h1{margin:22px 0 0;font-weight:800;font-size:clamp(33px,4.4vw,54px);line-height:1.08;letter-spacing:-.035em;color:var(--bd-ink);max-width:22ch}
 .solbd .bd-lead{margin:24px 0 0;font-size:clamp(15.5px,1.7vw,18px);line-height:1.62;color:var(--bd-ink-2);max-width:52ch}
 .solbd .bd-lead b{color:var(--bd-ink);font-weight:600}
 .solbd .bd-cta{margin-top:32px;display:flex;flex-wrap:wrap;gap:13px;align-items:center}
 .solbd .bd-hero-art{position:relative}
 .solbd .bd-hero-art img{width:100%;height:auto;display:block;border-radius:20px;
-  border:1px solid var(--bd-line);box-shadow:0 24px 60px rgba(12,139,130,.13)}
+  border:1px solid var(--bd-line);box-shadow:0 24px 60px rgba(11,23,20,0.078)}
 @media(max-width:960px){.solbd .bd-hero-art{max-width:540px}}
 .solbd .bd-chips{position:relative;z-index:2;margin:34px 0 0;padding:0;list-style:none;
   display:grid;grid-template-columns:1fr 1fr;gap:10px 22px}
@@ -54,8 +53,8 @@
 .solbd .bd-band.mist{background:var(--bd-mist)}
 @media(max-width:700px){.solbd .bd-band{padding:76px 0}}
 .solbd .bd-eyebrow{display:inline-flex;align-items:center;gap:10px;font-size:12px;font-weight:600;letter-spacing:.2em;
-  text-transform:uppercase;color:var(--bd-green)}
-.solbd .bd-eyebrow::before{content:"";width:22px;height:2px;border-radius:2px;background:var(--bd-grad)}
+  text-transform:uppercase;color:var(--accent-ink)}
+.solbd .bd-eyebrow::before{content:"";width:22px;height:2px;border-radius:2px;background:var(--blue)}
 .solbd .bd-eyebrow.on-dark{color:#3fd9b8}
 .solbd .bd-h2{margin:18px 0 0;font-weight:800;font-size:clamp(27px,3.5vw,40px);line-height:1.18;letter-spacing:-.03em;color:var(--bd-ink)}
 .solbd .bd-h2.on-dark{color:#fff}
@@ -108,7 +107,7 @@
 @media(max-width:640px){.solbd .bd-rights{grid-template-columns:1fr}}
 .solbd .bd-right{border:1px solid var(--bd-line);border-radius:16px;background:var(--bd-paper);padding:27px 25px;
   display:flex;flex-direction:column;transition:border-color .2s,box-shadow .2s,transform .2s}
-.solbd .bd-right:hover{border-color:rgba(12,139,130,.34);box-shadow:0 14px 34px rgba(12,139,130,.08);transform:translateY(-2px)}
+.solbd .bd-right:hover{border-color:rgba(12,139,130,.34);box-shadow:0 14px 34px rgba(11,23,20,0.048);transform:translateY(-2px)}
 .solbd .bd-rno{font-size:16px;font-weight:800;letter-spacing:.04em;font-variant-numeric:tabular-nums}
 .solbd .bd-right h3{margin:15px 0 0;font-size:clamp(17.5px,2vw,20px);font-weight:700;letter-spacing:-.015em;color:var(--bd-ink)}
 .solbd .bd-right p{margin:10px 0 0;font-size:14.5px;line-height:1.72;color:var(--bd-ink-2)}
@@ -132,7 +131,7 @@
 @media(max-width:760px){.solbd .bd-techs{grid-template-columns:1fr}}
 .solbd .bd-ocard{border:1px solid var(--bd-line);border-radius:16px;background:var(--bd-paper);padding:26px 24px;
   transition:border-color .2s,box-shadow .2s,transform .2s}
-.solbd .bd-ocard:hover{border-color:rgba(12,139,130,.34);box-shadow:0 12px 30px rgba(12,139,130,.08);transform:translateY(-2px)}
+.solbd .bd-ocard:hover{border-color:rgba(12,139,130,.34);box-shadow:0 12px 30px rgba(11,23,20,0.048);transform:translateY(-2px)}
 .solbd .bd-ocard h3{margin:0 0 9px;font-size:clamp(16.5px,1.9vw,18.5px);font-weight:700;letter-spacing:-.015em;color:var(--bd-ink)}
 .solbd .bd-ocard p{margin:0;font-size:14px;line-height:1.68;color:var(--bd-ink-2)}
 .solbd .bd-tech-cta{margin-top:34px;display:flex;flex-wrap:wrap;gap:13px}
@@ -142,9 +141,9 @@
 @media(max-width:980px){.solbd .bd-cases{grid-template-columns:1fr}}
 .solbd .bd-case{display:flex;flex-direction:column;border:1px solid var(--bd-line);border-radius:16px;background:var(--bd-paper);
   padding:26px 24px;color:inherit;text-decoration:none;transition:border-color .2s,box-shadow .2s,transform .2s}
-.solbd .bd-case:hover{border-color:rgba(12,139,130,.34);box-shadow:0 14px 34px rgba(12,139,130,.08);transform:translateY(-2px)}
+.solbd .bd-case:hover{border-color:rgba(12,139,130,.34);box-shadow:0 14px 34px rgba(11,23,20,0.048);transform:translateY(-2px)}
 .solbd .bd-case-head{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
-.solbd .bd-case-tag{font-size:11.5px;font-weight:700;letter-spacing:.06em;color:var(--bd-green);
+.solbd .bd-case-tag{font-size:11.5px;font-weight:700;letter-spacing:.06em;color:var(--accent-ink);
   padding:5px 11px;border-radius:999px;border:1px solid rgba(18,185,138,.32);background:rgba(18,185,138,.06);white-space:nowrap}
 .solbd .bd-case-scale{font-size:13px;font-weight:600;color:var(--bd-mut)}
 .solbd .bd-case-problem{margin:16px 0 0;font-size:14px;line-height:1.68;color:var(--bd-ink-2);flex:1}
@@ -153,12 +152,12 @@
 .solbd .bd-case-metric b{font-size:19px;font-weight:800;letter-spacing:-.02em;white-space:nowrap}
 .solbd .bd-case-metric span{font-size:12.5px;color:var(--bd-mut);line-height:1.4}
 .solbd .bd-case-link{margin-top:18px;display:inline-flex;align-items:center;gap:5px;font-size:14px;font-weight:700;color:var(--bd-ink)}
-.solbd .bd-case:hover .bd-case-link{color:var(--bd-green)}
+.solbd .bd-case:hover .bd-case-link{color:var(--accent-ink)}
 .solbd .bd-disclaim{margin-top:30px;font-size:13px;line-height:1.7;color:var(--bd-mut)}
 .solbd .bd-policy{margin-top:34px;padding:17px 22px;border-radius:13px;background:var(--bd-paper);border:1px solid var(--bd-line);
   font-size:14.5px;line-height:1.7;color:var(--bd-ink-2)}
 .solbd .bd-policy a{display:inline-flex;align-items:center;gap:5px;margin-left:8px;font-weight:700;color:var(--bd-ink)}
-.solbd .bd-policy a:hover{color:var(--bd-green)}
+.solbd .bd-policy a:hover{color:var(--accent-ink)}
 
 /* ---------- 合作流程：四步 ---------- */
 .solbd .bd-steps{margin-top:48px;display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
@@ -166,7 +165,7 @@
 @media(max-width:560px){.solbd .bd-steps{grid-template-columns:1fr}}
 .solbd .bd-step{border:1px solid var(--bd-line);border-radius:15px;background:var(--bd-paper);
   padding:24px 20px 22px;transition:border-color .2s,box-shadow .2s}
-.solbd .bd-step:hover{border-color:rgba(12,139,130,.34);box-shadow:0 12px 30px rgba(12,139,130,.08)}
+.solbd .bd-step:hover{border-color:rgba(12,139,130,.34);box-shadow:0 12px 30px rgba(11,23,20,0.048)}
 .solbd .bd-step-no{display:inline-flex;width:30px;height:30px;border-radius:50%;align-items:center;justify-content:center;
   font-size:14px;font-weight:800;color:#fff;background:var(--bd-grad)}
 .solbd .bd-step h3{margin:14px 0 0;font-size:16.5px;font-weight:700;letter-spacing:-.01em;color:var(--bd-ink)}
@@ -179,7 +178,7 @@
 .solbd .bd-strip{background:var(--bd-paper);border-top:1px solid var(--bd-line);border-bottom:1px solid var(--bd-line);padding:34px 0}
 .solbd .bd-strip-in{display:flex;align-items:center;gap:26px}
 @media(max-width:760px){.solbd .bd-strip-in{flex-direction:column;align-items:flex-start;gap:14px}}
-.solbd .bd-strip-tag{flex:none;font-size:11.5px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--bd-green);
+.solbd .bd-strip-tag{flex:none;font-size:11.5px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--accent-ink);
   padding:7px 14px;border-radius:999px;border:1px solid rgba(18,185,138,.32);background:rgba(18,185,138,.06);white-space:nowrap}
 .solbd .bd-strip-in p{margin:0;font-size:15px;line-height:1.7;color:var(--bd-ink-2)}
 .solbd .bd-strip-in p b{color:var(--bd-ink);font-weight:700}
@@ -189,8 +188,8 @@
 @media(max-width:760px){.solbd .bd-give{grid-template-columns:1fr}}
 .solbd .bd-gcard{border:1px solid var(--bd-line);border-radius:16px;background:var(--bd-paper);padding:28px 26px;
   transition:border-color .2s,box-shadow .2s,transform .2s}
-.solbd .bd-gcard:hover{border-color:rgba(12,139,130,.34);box-shadow:0 14px 34px rgba(12,139,130,.08);transform:translateY(-2px)}
-.solbd .bd-gk{display:block;width:28px;height:3px;border-radius:2px;background:var(--bd-grad);margin-bottom:18px}
+.solbd .bd-gcard:hover{border-color:rgba(12,139,130,.34);box-shadow:0 14px 34px rgba(11,23,20,0.048);transform:translateY(-2px)}
+.solbd .bd-gk{display:block;width:28px;height:3px;border-radius:2px;background:var(--blue);margin-bottom:18px}
 .solbd .bd-gcard h3{margin:0 0 10px;font-size:clamp(18px,2vw,20px);font-weight:700;letter-spacing:-.015em;color:var(--bd-ink)}
 .solbd .bd-gcard p{margin:0;font-size:15px;line-height:1.7;color:var(--bd-ink-2)}
 
@@ -199,8 +198,8 @@
 @media(max-width:860px){.solbd .bd-wp{grid-template-columns:1fr}}
 .solbd .bd-wp-card{position:relative;border:1px solid var(--bd-line);border-radius:16px;background:var(--bd-paper);
   padding:32px 30px;overflow:hidden}
-.solbd .bd-wp-card::before{content:"";position:absolute;left:0;right:0;top:0;height:3px;background:var(--bd-grad)}
-.solbd .bd-wp-tag{font-size:11.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--bd-green);font-weight:700}
+.solbd .bd-wp-card::before{content:"";position:absolute;left:0;right:0;top:0;height:3px;background:var(--bd-grad);display:none}
+.solbd .bd-wp-tag{font-size:11.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--accent-ink);font-weight:700}
 .solbd .bd-wp-card h3{margin:14px 0 0;font-size:clamp(19px,2.2vw,23px);font-weight:800;letter-spacing:-.02em;color:var(--bd-ink);line-height:1.35}
 .solbd .bd-wp-card > p{margin:15px 0 0;font-size:15px;line-height:1.72;color:var(--bd-ink-2)}
 .solbd .bd-wp-list{margin:18px 0 0;padding:0;list-style:none;display:flex;flex-direction:column;gap:10px}
@@ -211,12 +210,12 @@
 .solbd .bd-note{font-size:12.5px;color:var(--bd-mut);margin-top:14px;line-height:1.6}
 
 /* 表单冷调(字段样式继承全站 .form/.field) */
-.solbd .form-err{margin:-6px 0 14px;font-size:13.5px;color:var(--bd-green);line-height:1.55}
+.solbd .form-err{margin:-6px 0 14px;font-size:13.5px;color:var(--accent-ink);line-height:1.55}
 .solbd .field input:focus,.solbd .field textarea:focus,.solbd .field select:focus{border-color:var(--bd-green);box-shadow:0 0 0 3px rgba(18,185,138,.10)}
-.solbd .field label .req{color:var(--bd-green)}
+.solbd .field label .req{color:var(--accent-ink)}
 .solbd .btn[disabled]{opacity:.6;cursor:not-allowed;transform:none}
 .solbd .form-done{position:relative;max-width:680px;padding:34px 30px;border:1px solid var(--bd-line);border-radius:16px;background:var(--bd-paper);overflow:hidden}
-.solbd .form-done::before{content:"";position:absolute;left:0;right:0;top:0;height:3px;background:var(--bd-grad)}
+.solbd .form-done::before{content:"";position:absolute;left:0;right:0;top:0;height:3px;background:var(--bd-grad);display:none}
 .solbd .form-done-mark{width:48px;height:48px;border-radius:50%;display:grid;place-items:center;color:#fff;background:var(--bd-grad);margin-bottom:18px}
 .solbd .form-done-h{margin:0 0 10px;font-size:22px;font-weight:800;letter-spacing:-.02em;color:var(--bd-ink)}
 .solbd .form-done-p{margin:0;font-size:15.5px;line-height:1.7;color:var(--bd-ink-2);max-width:50ch}

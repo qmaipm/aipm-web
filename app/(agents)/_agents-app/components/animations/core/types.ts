@@ -162,11 +162,11 @@ export interface IconConfig {
  */
 export const VI_GRADIENTS = {
   'blue-green': { start: '#0070FF', end: '#12B98A' },
-  'blue-gold': { start: '#0070FF', end: '#F59E0B' },
-  'green-gold': { start: '#12B98A', end: '#F59E0B' },
-  'blue-purple': { start: '#0070FF', end: '#9333EA' },
-  'purple-pink': { start: '#9333EA', end: '#EC4899' },
-  'pink-gold': { start: '#EC4899', end: '#F59E0B' },
+  'blue-gold': { start: '#0070FF', end: '#BE7A2E' },
+  'green-gold': { start: '#12B98A', end: '#BE7A2E' },
+  'blue-purple': { start: '#0070FF', end: '#0C8B82' },
+  'purple-pink': { start: '#0C8B82', end: '#0058CC' },
+  'pink-gold': { start: '#0058CC', end: '#BE7A2E' },
 } as const;
 
 export type GradientType = keyof typeof VI_GRADIENTS;

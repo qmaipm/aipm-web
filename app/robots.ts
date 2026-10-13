@@ -1,24 +1,24 @@
 import type { MetadataRoute } from "next";
 
-// 运行时渲染:SITE_ENV / SITE_URL 由容器环境变量注入(见 docker-compose.yml),
+// 运行时渲染：SITE_ENV / SITE_URL 由容器环境变量注入（见 docker-compose.yml）,
 // 一个镜像即可适配测试/生产。force-dynamic 确保按当前环境而非构建时的值输出。
 export const dynamic = "force-dynamic";
 
-// 仅生产环境允许收录;测试环境(t1816-www)整站 noindex,避免被搜索引擎抓取。
+// 仅生产环境允许收录；测试环境（t1816-www）整站 noindex，避免被搜索引擎抓取。
 const isProd = process.env.SITE_ENV === "production";
 const SITE_URL = process.env.SITE_URL || "https://www.aipm.cn";
 
-// 主流中英文搜索引擎爬虫逐个显式放行(部分站长平台按 UA 精确匹配校验 robots)。
-// AI 引擎爬虫(GEO):显式放行,确保内容可被 ChatGPT/Claude/Perplexity/Gemini 检索与引用。
+// 主流中英文搜索引擎爬虫逐个显式放行（部分站长平台按 UA 精确匹配校验 robots）。
+// AI 引擎爬虫（GEO）:显式放行，确保内容可被 ChatGPT/Claude/Perplexity/Gemini 检索与引用。
 const ALLOWED_BOTS = [
   "Bytespider",
   "Baiduspider",
   "Bingbot",
   "Googlebot",
   "Sogou Spider",
-  "Sogou web spider", // 搜狗站长平台部分校验按此 UA 全称匹配,与上一条并列保留
+  "Sogou web spider", // 搜狗站长平台部分校验按此 UA 全称匹配，与上一条并列保留
   "360Spider",
-  "YisouSpider", // 神马搜索(UC/夸克默认引擎),通义等 AI 平台引用夸克检索结果
+  "YisouSpider", // 神马搜索（UC/夸克默认引擎），通义等 AI 平台引用夸克检索结果
   "GPTBot",
   "OAI-SearchBot",
   "ClaudeBot",

@@ -27,8 +27,8 @@ export default function Navbar() {
     setOpen(false);
   }, [pathname]);
   const solid = scrolled || open;
-  // 深色 hero 页面:顶部未滚动时导航转白字,避免暗底吞掉深色导航
-  const DARK_HERO = ["/partners/delegated-operation", "/agents", "/ai-service", "/ai-service/delegated-operation", "/ai-service/cleaning", "/ai-service/facility", "/ai-service/security", "/ai-service/customer-service", "/company", "/workshop", "/workshop/demo-day", "/workshop/bootcamp", "/workshop/competition", "/workshop/fde", "/company/aipm-validation", "/products/fmclaw/agent-runtime", "/cobuild", "/cases"];
+  // 深色 hero 页面：顶部未滚动时导航转白字，避免暗底吞掉深色导航
+  const DARK_HERO = ["/partners/delegated-operation", "/agents", "/ai-service", "/ai-service/delegated-operation", "/ai-service/cleaning", "/ai-service/facility", "/ai-service/security", "/ai-service/customer-service", "/company", "/workshop", "/workshop/demo-day", "/workshop/bootcamp", "/workshop/competition", "/workshop/fde", "/company/aipm-validation", "/company/master-plan", "/products/fmclaw", "/products/fmclaw/agent-runtime", "/cobuild", "/cases"];
   const onDark = !solid && DARK_HERO.includes(pathname);
 
   return (
@@ -46,10 +46,10 @@ export default function Navbar() {
                 <a>{item.label}<Caret /></a>
               )}
               {item.groups && (
-                <div className="dropdown" style={item.minWidth ? { minWidth: item.minWidth } : undefined}>
+                <div className={`dropdown${item.cols ? " is-cols" : ""}`} style={{ ...(item.minWidth ? { minWidth: item.minWidth } : {}), ...(item.cols ? { ["--cols" as string]: item.cols } : {}) }}>
                   {item.groups.map((g, gi) => (
-                    <div key={gi}>
-                      {gi > 0 && <div className="sep" />}
+                    <div key={gi} className={item.cols ? (gi >= 1 && gi <= item.cols ? "dcol" : "dfoot") : undefined}>
+                      {gi > 0 && !(item.cols && gi >= 1 && gi <= item.cols) && <div className="sep" />}
                       {g.heading && <div className="dh">{g.heading}</div>}
                       {g.items.map((it) =>
                         it.links ? (

@@ -561,7 +561,7 @@ export default function SuiteGridAnimation({ isVisible = true }: SuiteGridAnimat
             borderRadius: '4px',
           }}
         >
-          套件: {currentSuite.name} | 阶段: {state.phase}
+          套件：{currentSuite.name} | 阶段：{state.phase}
         </div>
       )}
     </div>

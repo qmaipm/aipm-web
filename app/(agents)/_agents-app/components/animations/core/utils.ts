@@ -200,7 +200,7 @@ export function getIconActivation(
 /**
  * ease-out 缓动函数
  * @param t 进度 (0-1)
- * @param power 指数 (默认 2.5)
+ * @param power 指数（默认 2.5）
  * @returns 缓动后的进度
  */
 export function easeOut(t: number, power: number = 2.5): number {

@@ -10,6 +10,8 @@ export type MenuItem = {
   href?: string;
   groups?: DropGroup[];
   minWidth?: number;
+  // 多列下拉：首个无标题分组（总览）与末尾分组（查看全部）横跨整行，中间 cols 个分组并排
+  cols?: number;
 };
 
 export const MENU: MenuItem[] = [
@@ -20,7 +22,7 @@ export const MENU: MenuItem[] = [
       {
         heading: "FMClaw™ 智能体平台",
         items: [
-          { label: "FMClaw™ 产品总览", href: "/products/fmclaw", small: "物业与设施管理的生产级 AI 智能体平台" },
+          { label: "AI 物业经理 · FMClaw™", href: "/products/fmclaw", small: "让项目的管理工作自己运转" },
           { label: "行业数据本体", href: "/products/fmclaw/ontology", small: "统一业务对象、指标口径与数据权限" },
           { label: "工作流引擎", href: "/products/fmclaw/workflow-engine", small: "让业务流程稳定、可复制地运行" },
           { label: "工具箱", href: "/products/fmclaw/connectors", small: "把在用的软件接为智能体可调用的工具" },
@@ -34,17 +36,33 @@ export const MENU: MenuItem[] = [
           { label: "机器人与智能装备", href: "/products/robots", small: "把管理指令转化为现场执行" },
         ],
       },
+      {
+        items: [{ label: "价格", href: "/pricing", small: "个人免费 · 项目团队版 19,800 元起" }],
+      },
     ],
   },
   {
     label: "智能体解决方案",
     href: "/agents",
-    minWidth: 320,
+    minWidth: 520,
+    cols: 2,
+    // 2026-10-13：菜单只放搜索与 AI 提问最多的 5 个方案（百度联想 + GEO 监测题排序）+ 4 个智能体；
+    // 其余方案在 /solutions 总览、页脚与方案间互链里承接，不删页。
+    // 2026-10-13：/agents 动画总览保留为菜单根与首项；/solutions 为按业务目标的全量列表。
     groups: [
       {
-        heading: "解决方案总览",
         items: [
-          { label: "物业管理智能体矩阵", href: "/agents", small: "四个智能体，覆盖从服务设计到持续优化的完整管理过程" },
+          { label: "物业管理智能体矩阵（总览）", href: "/agents", small: "四个智能体，覆盖从服务设计到持续优化的完整管理过程" },
+        ],
+      },
+      {
+        heading: "按业务目标",
+        items: [
+          { label: "降本增效与人员成本", href: "/solutions/cost" },
+          { label: "服务品质管理", href: "/solutions/quality" },
+          { label: "设备巡检管理", href: "/solutions/inspection" },
+          { label: "报事报修与投诉", href: "/solutions/customer" },
+          { label: "集团智能问数", href: "/solutions/ask-data" },
         ],
       },
       {
@@ -57,16 +75,8 @@ export const MENU: MenuItem[] = [
         ],
       },
       {
-        heading: "业务解决方案",
         items: [
-          { label: "人员成本优化", href: "/solutions/cost" },
-          { label: "服务质量管理", href: "/solutions/quality" },
-          { label: "客户服务", href: "/solutions/customer" },
-          { label: "服务分包管理", href: "/solutions/subcontract" },
-          { label: "设备巡检管理", href: "/solutions/inspection" },
-          { label: "人员薪酬管理", href: "/solutions/payroll" },
-          { label: "采购管理", href: "/solutions/procurement" },
-          { label: "供应商管理与自动对账", href: "/solutions/vendor" },
+          { label: "查看全部 14 个解决方案 →", href: "/solutions", small: "分包、采购、对账、薪酬、数据治理等" },
         ],
       },
     ],
@@ -148,6 +158,7 @@ export const MENU: MenuItem[] = [
       {
         items: [
           { label: "关于启盟科技", href: "/company" },
+          { label: "启盟的秘密蓝图", href: "/company/master-plan" },
           { label: "团队", href: "/team" },
           { label: "新闻动态", href: "/news" },
           { label: "行业研究", href: "/insights" },
@@ -162,13 +173,14 @@ export const FOOTER_COLS: { title: string; links: DropItem[] }[] = [
   {
     title: "产品",
     links: [
-      { label: "FMClaw™ 产品总览", href: "/products/fmclaw" },
+      { label: "AI 物业经理 FMClaw™", href: "/products/fmclaw" },
       { label: "行业数据本体", href: "/products/fmclaw/ontology" },
       { label: "工作流引擎", href: "/products/fmclaw/workflow-engine" },
       { label: "工具箱", href: "/products/fmclaw/connectors" },
       { label: "控制台", href: "/products/fmclaw/agent-runtime" },
       { label: "IoT 物理世界感知", href: "/products/iot" },
       { label: "机器人与智能装备", href: "/products/robots" },
+      { label: "价格", href: "/pricing" },
       { label: "登录 FMClaw →", href: FMCLAW_URL },
     ],
   },
@@ -184,7 +196,23 @@ export const FOOTER_COLS: { title: string; links: DropItem[] }[] = [
     ],
   },
   {
-    title: "智能体解决方案",
+    title: "解决方案",
+    links: [
+      { label: "全部解决方案", href: "/solutions" },
+      { label: "降本增效与人员成本", href: "/solutions/cost" },
+      { label: "服务品质管理", href: "/solutions/quality" },
+      { label: "设备巡检管理", href: "/solutions/inspection" },
+      { label: "报事报修与投诉", href: "/solutions/customer" },
+      { label: "人员薪酬管理", href: "/solutions/payroll" },
+      { label: "服务分包管理", href: "/solutions/subcontract" },
+      { label: "供应商管理与自动对账", href: "/solutions/vendor" },
+      { label: "采购管理", href: "/solutions/procurement" },
+      { label: "物业智能问数", href: "/solutions/ask-data" },
+      { label: "物业数据治理", href: "/solutions/data-governance" },
+    ],
+  },
+  {
+    title: "智能体",
     links: [
       { label: "物业管理智能体矩阵", href: "/agents" },
       { label: "服务设计智能体", href: "/solutions/service-design" },

@@ -4,619 +4,410 @@ import JsonLd from "@/components/JsonLd";
 import TrackedLink from "@/components/TrackedLink";
 import { pageMetadata } from "@/lib/pageMetadata";
 import { FMCLAW_URL } from "@/lib/nav";
-import { FmBreadcrumb, FmFaq, FMCLAW_APP_LD, Arrow, IC, LinkCards, ScenarioCards } from "./_shared";
-import "./capability.css";
-import "./page.css";
+import { FmFaq, FMCLAW_APP_LD } from "./_shared";
+import { SolPage, SolSection, SolCols, SolVerdict, SolMore, SolNums, Arrow } from "../../solutions/_tpl/Sol";
+import HeroStage, { PlayDemoLink } from "./_HeroStage";
+import { DEMO_SRC } from "./_demo";
+import "./fmv.css";
 
 export const dynamic = "force-dynamic";
 
 const SITE_URL = process.env.SITE_URL || "https://www.aipm.cn";
 
-// description 自然带上买家在 AI 引擎里的品类词「AI 物业管理平台」「物业智能体产品」
-// (2026-08-10 GEO 周报:这两个问题是我们的优势关键词,但官网自己从不认领品类词,第一推荐坐不稳)
-// 2026-08-17 宏观周报:再补两个空档品类词——「智慧物业 AI 平台」(竞对占位中)与
-// 「AI 物业操作系统」(无人占位的差异化词),FAQ 里各自然出现一次,不堆砌。
+/* 2026-10 主力页改版（规划书 v1，结构锁定）：
+   首屏真实产品视频 → logo 墙 → ① 它主动 → ② 不一样在哪 → ③ 它懂现场 → ④ 它管得住 → ⑤ 案例结果 → ⑥ 怎么开始 → FAQ。
+   口径：正文只用公司级数字（PPT 2026-09）；画面里的单项目实时数字只作为画面出现。验收见 docs/FMCLAW-PAGE-ACCEPTANCE.md。 */
 export const metadata: Metadata = pageMetadata("/products/fmclaw", {
-  title: "FMClaw™｜物业与设施管理的生产级 AI 智能体平台",
+  title: "AI 物业经理 FMClaw™｜物业与设施管理的生产级 AI 智能体平台",
   description:
-    "FMClaw™ 是面向物业与设施管理的 AI 物业管理平台与物业智能体产品：以行业数据本体为底座，统一企业数据、指标、业务工作流、系统工具与组织权限，让 AI 稳定进入物业与设施管理的核心工作。",
+    "AI 物业经理 FMClaw™ 是面向物业与设施管理的生产级 AI 智能体平台与 AI 物业管理平台：项目大脑自动感知、总结、调度、迭代，114 条工作流、87 条在线运行，关键节点由人一键确认。个人版免费，项目团队版 19,800 元起。",
 });
+
+const DEFINITION =
+  "AI 物业经理 FMClaw™ 是物业与设施管理的生产级 AI 智能体平台，用项目大脑自动感知、总结、调度和迭代项目管理工作。";
 
 const WEBPAGE_LD = {
   "@context": "https://schema.org",
   "@type": "WebPage",
-  name: "FMClaw™ 产品总览",
+  name: "AI 物业经理 FMClaw™ 产品总览",
   url: `${SITE_URL}/products/fmclaw`,
   inLanguage: "zh-CN",
-  description:
-    "FMClaw™ 是面向物业与设施管理的生产级 AI 智能体平台。它以行业数据本体为底座，把企业数据、行业指标、业务工作流、系统工具和组织权限统一起来，让 AI 能够进入核心业务，并在多个项目中稳定、准确、可追溯地完成工作。",
+  description: DEFINITION,
+  dateModified: "2026-10-12",
 };
+
+const VIDEO_LD = {
+  "@context": "https://schema.org",
+  "@type": "VideoObject",
+  name: "AI 物业经理 FMClaw™ 3 分钟演示",
+  description:
+    "7 个章节：项目的具象化、走进大脑、自动感知、自动总结、自动调度、自动迭代、从零开始。演示 AI 物业经理如何让项目的管理工作自己运转。",
+  thumbnailUrl: [`${SITE_URL}/products/fmclaw/v2/demo-poster.webp`],
+  uploadDate: "2026-10-12",
+  duration: "PT2M49S",
+  contentUrl: DEMO_SRC.startsWith("http") ? DEMO_SRC : `${SITE_URL}${DEMO_SRC}`,
+  inLanguage: "zh-CN",
+  publisher: { "@type": "Organization", name: "广州启盟科技有限公司", url: SITE_URL },
+};
+
+const CRUMB_LD = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  itemListElement: [
+    { "@type": "ListItem", position: 1, name: "启盟科技", item: SITE_URL },
+    { "@type": "ListItem", position: 2, name: "AI 物业经理 FMClaw™", item: `${SITE_URL}/products/fmclaw` },
+  ],
+};
+
+/* 首屏下方 logo 墙（PPT 第 17 页客户；站内已有授权 logo 文件） */
+const LOGOS = [
+  { f: "tencent", alt: "腾讯 Tencent", h: 23 },
+  { f: "tesla", alt: "特斯拉 Tesla", h: 20 },
+  { f: "bytedance", alt: "字节跳动 ByteDance", h: 22 },
+  { f: "siemens", alt: "西门子 Siemens", h: 18 },
+  { f: "sf", alt: "顺丰速运 SF Express", h: 28 },
+  { f: "wework", alt: "WeWork", h: 19 },
+];
+
+/* ① 四个「自动」 */
+const AUTOS = [
+  { title: "自动感知", body: "IoT、业务系统、群消息和现场影像持续进入项目大脑。现场发生了什么，它先知道。" },
+  { title: "自动总结", body: "把散落各处的数据整理成日报、周报和异常清单，口径统一，每个数字都能追到来源。" },
+  { title: "自动调度", body: "发现问题就开单、通知、催办，把任务交给人、机器人或系统工具，跟到关闭为止。" },
+  { title: "自动迭代", body: "每一次执行结果都回到工作流里，薄弱环节被找出来，下一轮做得更好。" },
+];
+
+/* ② 品类对照（不点名竞品） */
+const DIFF = [
+  { k: "谁先动", a: "人录入，人查看", b: "人提问，人发起", c: "它自己发起，按规则持续推进" },
+  { k: "懂不懂物业", a: "记录字段，不理解业务", b: "通用能力，要自己教", c: "内置行业数据本体与 114 条工作流" },
+  { k: "能不能干完", a: "出报表，执行靠人", b: "给建议，或完成一次任务", c: "调用工具执行，结果写回现有系统" },
+  { k: "管不管得住", a: "按菜单分权限", b: "靠使用者自己把关", c: "项目隔离、授权执行、关键节点人确认" },
+];
+
+/* ③ 三个入口 */
+const SENSE = [
+  {
+    img: "/products/fmclaw/v2/photo-see.webp",
+    alt: "设备机房里，一枚无线传感器安装在管道上，指示灯亮着",
+    t: "看见现场",
+    d: "服务、设备、环境、视觉四类感知接入同一平台，自研传感器 30 秒装好一个。",
+    href: "/products/iot",
+    link: "IoT 物理世界感知",
+  },
+  {
+    img: "/products/fmclaw/v2/photo-understand.webp",
+    alt: "傍晚的城市综合体：写字楼、住宅、商业裙楼与园林连成一片",
+    t: "理解业务",
+    d: (
+      <>
+        行业数据本体把项目、空间、设备、工单、合同统一成业务对象和指标口径。管理者一句话就能
+        <Link href="/solutions/ask-data">智能问数</Link>，答案追得到来源。
+      </>
+    ),
+    href: "/products/fmclaw/ontology",
+    link: "行业数据本体",
+  },
+  {
+    img: "/products/fmclaw/v2/photo-act.webp",
+    alt: "明亮的写字楼大堂里，清洁机器人在作业，工程人员走向电梯",
+    t: "调动工具",
+    d: "工具箱把在用的 ERP、工单、钉钉、飞书、企业微信、IoT 平台与机器人，接成智能体可调用的工具。",
+    href: "/products/fmclaw/connectors",
+    link: "工具箱",
+  },
+];
+
+/* ④ 三句边界 */
+const BOUNDS = [
+  { k: "数据本体管看什么", d: "项目之间相互隔离，数据按岗位授权，超出范围的数据读不到。", href: "/products/fmclaw/ontology" },
+  { k: "工具箱管做什么", d: "只调用企业授权的系统，敏感动作先进审批，权限可以随时收回。", href: "/products/fmclaw/connectors" },
+  { k: "控制台管怎么做", d: "每个智能体在做什么、到了哪一步、是否在等人确认，都看得到；可以暂停、驳回或接管。", href: "/products/fmclaw/agent-runtime" },
+];
+
+/* ⑤ 三个案例，各一个大数字（均为已发布案例口径） */
+const CASES = [
+  { v: "35% → 98%", l: "运行班组巡检达标率", who: "头部互联网大厂总部 · 设施设备巡检", href: "/cases/fmclaw-equipment-inspection" },
+  { v: "500+", l: "个项目每天自动收到运营报告，每份约 3 分钟", who: "百强物业集团 · 运营报告", href: "/cases/property-group-auto-operation-report" },
+  { v: "76%", l: "管理环节自动运转，项目扭亏为盈", who: "华南 6 万㎡ 商业综合体 · 全项目运营", href: "/cases/south-china-mixed-use-6-to-1" },
+];
 
 const FAQ = [
   {
-    q: "FMClaw 是什么？",
-    a: "FMClaw 是面向物业与设施管理的生产级 AI 智能体平台，也就是一套智慧物业 AI 平台加一组可直接上岗的物业智能体。它统一企业数据、行业指标、业务工作流、系统工具和组织权限，让 AI 能够进入核心业务并持续完成工作。也可以把它理解为一套 AI 物业操作系统。",
+    q: "AI 物业经理 FMClaw™ 是什么？",
+    a: "AI 物业经理 FMClaw™ 是面向物业与设施管理的生产级 AI 智能体平台，也可以理解为一套智慧物业 AI 平台或 AI 物业操作系统。它的核心是项目大脑：自动感知现场、总结问题、调度人和工具，并从结果中持续迭代；关键决策仍由授权人员一键确认。",
   },
   {
-    q: "FMClaw 与通用 AI 智能体平台有什么不同？",
-    a: "通用平台主要提供模型、智能体和工具的通用能力。FMClaw 进一步提供物业与设施管理的行业数据本体、统一指标、预制业务工作流、行业工具和项目级运行治理能力。",
+    q: "它解决哪些物业管理问题？",
+    a: "它解决的是「事情有没有真的做、做到什么程度」难以及时掌握，以及「管理动作要靠人一项项跟」这两类问题。具体落到五件事：设备巡检与品质评估、群消息报事与自动派单、供应商对账与结算、多项目运营报告、成本与人员配置测算。共同点是流程重复、结果可以用数据复核、过去主要靠人跟进。",
   },
   {
-    q: "行业数据本体在 FMClaw 里起什么作用？",
-    a: "它是平台的理解层：把项目、空间、设备、人员、工单、合同等业务对象及其关系、指标和权限统一描述，让 AI 不只是读取数据，还能理解数据在业务中代表什么。",
+    q: "AI 物业经理和传统物业软件有什么区别？",
+    a: "传统物业软件是记录工具：人把现场录进去，系统出报表，再由人解读、派人、跟进。AI 物业经理是执行者：它自己从 IoT、影像、群消息与业务系统取数，按工作流推进，直接输出工单、通知或待确认材料。它接在现有软件之上，把里面的流程跑起来，而不是再多一处录入。",
   },
   {
-    q: "什么是智能体工作流引擎？",
-    a: "它是让智能体把活干起来的运行层：将数据、行业能力、工具、审批和执行反馈组织成可持续运行的业务流程。一个项目跑通后，可以在更多项目中按统一口径复用。",
+    q: "它和通用 AI 智能体平台有什么不同？",
+    a: "通用平台提供模型、智能体和工具的通用能力，适合帮一个人完成一次任务。AI 物业经理在此之上提供物业与设施管理的行业数据本体、统一指标、114 条行业工作流、行业工具和项目级运行治理，目标是替一个组织把管理工作长期、稳定地干下去。",
   },
   {
-    q: "FMClaw 如何保证关键结果一致？",
-    a: "关键指标、计算结果、报告结构和管理口径用同一套定义。在同一工作流和口径下，同一份数据重复运行，关键业务结果保持一致并可以复核。",
+    q: "能不能接现有系统？需要替换钉钉、飞书或企业微信吗？",
+    a: "能接，而且这是默认方式，不需要替换。ERP 与财务系统继续做账，工单系统继续流转，钉钉、飞书、企业微信继续做员工入口；FMClaw 通过官方接口读取数据，在行业数据本体里统一口径，再通过工具箱把结果写回。海康、大华等视频安防、IoT 与机器人同样接在后面。员工不需要换软件，也不需要二次录入。",
   },
   {
-    q: "FMClaw 是否需要替换钉钉、飞书或企业微信？",
-    a: "不需要。现有协作平台继续承担沟通、审批和组织协同，FMClaw 接入其背后的行业数据与业务流程，补上物业与设施管理的专业环节。",
+    q: "什么是智能问数？",
+    a: "智能问数是管理者用一句自然语言直接问业务数据，例如「上个月哪个项目的工单超时最多」。因为数据已经在行业数据本体里统一了对象和口径，回答会给出数字、出处和计算方式，而不是一段无法复核的文字。",
   },
   {
-    q: "FMClaw 如何处理权限与审计？",
-    a: "智能体在明确的组织身份、项目范围和工具权限下工作。每一次数据读取、工作流运行、工具调用、人工确认和最终结果都会留下记录。",
+    q: "如何保证关键结果一致、可追溯？",
+    a: "关键指标、计算结果、报告结构和管理口径使用同一套定义。在同一工作流和口径下，同一份数据重复运行，关键业务结果保持一致；每一次数据读取、工具调用、人工确认和最终结果都留有记录，可以复核。",
   },
   {
-    q: "如何开始使用 FMClaw？",
-    a: "建议从一个真实业务问题和一份真实数据开始。可以先通过 Demo Day 验证可行性，再通过加速营或 FDE 服务进入系统接入和生产部署。",
-  },
-];
-
-/* 平台能力地图：四层（展示层用短名，规范全称保留在各能力页与 JSON-LD） */
-const LAYERS = [
-  {
-    no: "L1",
-    name: "行业数据本体",
-    en: "ONTOLOGY & METRICS",
-    desc: "把 Excel、PDF、业务系统和 IoT 数据，映射为项目、空间、设备、工单、合同等行业对象，统一指标口径与数据权限。AI 不只是读到数据，还知道它在业务里代表什么。",
-    tags: ["业务对象", "指标口径", "数据权限"],
-    img: "/products/fmclaw/ontology-hero.webp",
-    alt: "行业数据本体插画：项目、空间、设备、工单等业务对象及其关系构成的行业数据底座",
-    href: "/products/fmclaw/ontology",
+    q: "有哪些已经落地的案例？",
+    a: "FMClaw 自 2017 年起在真实项目中运行，目前 100 多家企业在用，系统覆盖面积 3000 万㎡（含客户项目）。已发布案例包括：头部互联网大厂总部巡检达标率从 35% 到 98%；一家百强物业集团 500 多个项目每天自动收到运营报告；华南 6 万㎡ 商业综合体约 76% 管理环节自动运转后扭亏为盈。全部案例见官网「客户案例」。",
   },
   {
-    no: "L2",
-    name: "工作流引擎",
-    en: "AGENTIC WORKFLOW ENGINE",
-    desc: "把一项工作从触发、取数、判断、审批到执行，组织成可持续运行的业务流程。一个项目跑通，更多项目按同一口径复用。",
-    tags: ["预制流程", "事件触发", "人工审批"],
-    img: "/products/fmclaw/workflow-engine-hero.webp",
-    alt: "智能体工作流引擎插画：聊天窗口经过流水线式工作流节点，产出报告、账单与工单",
-    href: "/products/fmclaw/workflow-engine",
+    q: "AI 物业经理怎么收费？",
+    a: "个人免费版每月含 2,000 Credit，适合个人试用；个人专业版 2,980 元/人；项目团队版 19,800 元起；集团版和企业专属版请联系销售报价。只接收报告的人员不计账号。价格详见官网「价格」页。",
   },
   {
-    no: "L3",
-    name: "工具箱",
-    en: "TOOLBOX",
-    desc: "把物业在用的软件封装为智能体可调用的工具：发邮件、打电话、建工单、调收费，智能体在授权范围内执行，而不是停在建议上。",
-    tags: ["物业 ERP", "BA 与 IoT", "机器人"],
-    img: "/products/fmclaw/connectors-hero.png",
-    alt: "工具箱插画：智能体通过工具调用 ERP、IoT、视频与机器人等系统",
-    href: "/products/fmclaw/connectors",
-  },
-  {
-    no: "L4",
-    name: "控制台",
-    en: "CONSOLE",
-    desc: "每个智能体是谁、在哪个项目、能做什么、做了什么，都在这里管理。人可以随时查看、暂停和接管。",
-    tags: ["项目隔离", "运行监控", "审计记录"],
-    img: "/products/fmclaw/agent-runtime-hero.png",
-    alt: "控制台插画：智能体身份、权限、运行状态与审计记录的管理面板",
-    href: "/products/fmclaw/agent-runtime",
-  },
-];
-
-/* 如何完成一项工作（供应商对账）。who: 该环节的承担者 */
-const HOW_STEPS = [
-  { n: "01", t: "数据进入", d: "合同、工作量、服务记录和历史账单进入行业数据本体。", who: "数据本体" },
-  { n: "02", t: "口径统一", d: "使用同一套项目对象、合同字段和指标口径。", who: "数据本体" },
-  { n: "03", t: "工作流运行", d: "自动核量、对比历史、识别异常并生成账单草稿。", who: "AI" },
-  { n: "04", t: "工具执行", d: "查询原有业务系统，发送确认通知，准备写回结果。", who: "AI · 系统" },
-  { n: "05", t: "人工确认", d: "负责人确认、驳回或要求重新核对。", who: "人", human: true },
-  { n: "06", t: "记录与写回", d: "结果写回原系统，数据来源、处理过程和确认记录均可追溯。", who: "系统" },
-];
-
-/* 从一个真实问题开始：三段式路径（时长为 workshop 页已确认口径） */
-const PATHS = [
-  { n: "01", t: "Demo Day", time: "半天 – 1 天", d: "用一份真实数据，当场跑出一个能用的 demo，确认这条路走得通。", href: "/workshop/demo-day" },
-  { n: "02", t: "加速营", time: "2 – 3 天", d: "带一个真问题闭门几天，把一条业务工作流现场跑通，跑通的留给你。", href: "/workshop/bootcamp" },
-  { n: "03", t: "FDE 服务", time: "按阶段", d: "工程师进到业务现场：数据治理、系统接入、试运行与生产验收。", href: "/workshop/fde" },
-];
-
-/* 预制业务工作流（六条，以 chip 形式出现在证据段） */
-const WORKFLOWS = [
-  { t: "运营日报与周报", href: "/cases/property-group-auto-operation-report" },
-  { t: "投诉报事与自动派单", href: "/cases/property-group-chat-ai-service" },
-  { t: "员工绩效与薪酬", href: "/solutions/payroll" },
-  { t: "供应商账单", href: "/scenarios/reconciliation" },
-  { t: "水电费核算", href: "/scenarios/utility-bill" },
-  { t: "现场巡检与质量评估", href: "/cases/fmclaw-equipment-inspection" },
-];
-
-/* 生产级三个主张（左列），与控制台可核对能力清单（右栏） */
-const TRUST_CLAIMS = [
-  { en: "ACCURATE", t: "准确", d: "关键指标使用统一定义，报告里的每个事实和计算结果，都可以复核到数据来源。" },
-  { en: "CONSISTENT", t: "一致", d: "同一份数据在同一口径下，运行一次和一千次，关键业务结果相同。" },
-  { en: "SECURE", t: "安全", d: "智能体在明确的身份、项目范围和授权内工作，关键环节先经人批准。" },
-];
-
-const TRUST_CHECKS = [
-  { b: "项目级数据隔离", d: "每个项目的数据只在自己的范围内使用，不会串项。" },
-  { b: "组织身份与角色权限", d: "每个智能体是谁、替谁工作，一开始就定义清楚。" },
-  { b: "工具调用授权范围", d: "能调用哪些系统、做到哪一步，逐项授权。" },
-  { b: "关键环节人工审批", d: "付款、对外发送等动作，先经人批准再执行。" },
-  { b: "数据读取与执行全程有记录", d: "每一步都可以事后查证，出了问题能定位到具体环节。" },
-  { b: "随时查看、暂停和接管", d: "人始终掌握最终控制权，不依赖对模型的信任。" },
-];
-
-/* 生产案例（三个，数字为已确认口径） */
-const CASES = [
-  {
-    no: "01",
-    tag: "物业集团",
-    img: "/products/fmclaw/case-auto-report.webp",
-    alt: "运营报告自动生成插画：数据从项目底座逐层汇聚，生成结构一致的运营报告",
-    t: "500 多个项目，每天自动生成运营报告",
-    facts: [["每份报告", "约 3 分钟"], ["人工投入", "0"]],
-    href: "/cases/property-group-auto-operation-report",
-  },
-  {
-    no: "02",
-    tag: "物业集团",
-    img: "/products/fmclaw/case-chat-service.webp",
-    alt: "对话式 AI 客服插画：业主消息进入 AI 处理中心，自动生成工单并派发到现场",
-    t: "业主群里的投诉报事，自动成单、派单",
-    facts: [["派单", "不到 1 分钟"], ["运行", "7×24"]],
-    href: "/cases/property-group-chat-ai-service",
-  },
-  {
-    no: "03",
-    tag: "设施设备",
-    img: "/products/fmclaw/case-inspection.webp",
-    alt: "设备巡检插画：巡检路线连接各类设施设备，传感器与核对清单实时反馈状态",
-    t: "设施设备巡检，交给 AI 智能体",
-    facts: [["签到率", "99%"], ["达标率", "35% → 98%"]],
-    href: "/cases/fmclaw-equipment-inspection",
+    q: "如何开始使用？",
+    a: "个人可以先在 fmclaw.cn 免费试用。企业建议从一个真实业务问题和一份真实数据开始：通过 FMClaw™ 加速营在 1–3 天内跑通一条工作流，再进入系统接入和生产部署。",
   },
 ];
 
 export default function Page() {
   return (
-    <main className="fmc fmo">
-      <JsonLd data={[WEBPAGE_LD, FMCLAW_APP_LD]} />
-      <div className="wrap">
-        <FmBreadcrumb trail={[{ name: "FMClaw™ 产品总览", href: "/products/fmclaw" }]} />
-      </div>
+    <SolPage>
+      <div className="fmv">
+        <JsonLd data={[WEBPAGE_LD, FMCLAW_APP_LD, VIDEO_LD, CRUMB_LD]} />
 
-      {/* ===== 01 HERO ===== */}
-      <header className="fmo-hero">
-        <span className="fmc-grid" aria-hidden="true" />
-        <div className="wrap">
-          <div className="fmc-hero-cols">
-            <div>
-              <p className="fmc-kicker">FMClaw™ · 物业与设施管理的生产级 AI 智能体平台</p>
-              <h1>让 AI 进入物业与设施管理的<span className="grad">核心工作</span></h1>
-              <p className="fmo-sub">
-                FMClaw 以<b>行业数据本体</b>为底座，统一数据、工作流、工具和权限，
-                让 AI <b>稳定接手真实业务</b>。
+        {/* ===== 首屏（全页唯一深色段）：真实产品首页视频 ===== */}
+        <section className="fmv-hero">
+          <div className="wrap">
+            <div className="fmv-hero__text">
+              <p className="fmv-kicker">AI 物业经理 · FMClaw™</p>
+              <h1 className="fmv-h1">
+                <span className="nb">让项目的管理工作，</span><span className="nb">自己运转</span>
+              </h1>
+              <p className="fmv-lead">
+                项目大脑 7×24 小时感知现场、总结问题、调度人和工具，并从每一次结果里迭代。
+                需要拍板的事，交给你一键确认。
               </p>
-              {/* 首屏主按钮换成申请演示(2026-08-16 GEO 周报 6.2):产品页访问在涨、
-                  线索在跌,原来首屏两扇门都不通向咨询。锚点降为轻门,意向最强的人
-                  第一眼就有出口;埋点同案例页,事件里可分清来源。 */}
-              <div className="fmo-cta">
-                <TrackedLink
-                  href="/contact?intent=demo&from=products/fmclaw"
-                  action="book-demo"
-                  label="products/fmclaw-hero"
-                  className="btn btn-primary"
-                >
-                  预约演示 Demo <Arrow />
+              <div className="fmv-cta">
+                <TrackedLink href="/contact?intent=demo&from=products/fmclaw" action="book-demo" label="products/fmclaw-hero" className="btn btn-primary">
+                  预约演示 <Arrow />
                 </TrackedLink>
-                <a href={FMCLAW_URL} className="btn btn-ghost">进入 FMClaw <Arrow /></a>
+                <TrackedLink href={FMCLAW_URL} action="start-free" label="products/fmclaw-hero" className="btn btn-outline-d">
+                  免费试用
+                </TrackedLink>
+                <PlayDemoLink />
               </div>
-              <p className="fmo-alt">不熟悉？<a href="#how-it-works">先看 FMClaw 如何工作 →</a></p>
-              <ul className="fmo-facts">
-                <li><b>100+</b>&nbsp;条预制业务工作流</li>
-                <li><b>500</b> 个项目同一平台运行</li>
-                <li>自 <b>2017</b> 年持续在真实现场验证</li>
-              </ul>
             </div>
-            <div className="fmc-hero-art">
-              <img
-                src="/products/fmclaw/overview-hero.png"
-                alt="FMClaw 平台四层架构插画：行业数据本体、智能体工作流引擎、工具箱、控制台"
-                width={1376}
-                height={768}
-              />
-            </div>
+            <HeroStage />
           </div>
+        </section>
 
-          {/* 真实产品界面：物理感知与数据接入面板第一眼可见 */}
-          <figure className="fmo-console fmo-app">
-            <div className="fmo-console-bar">
-              <span className="fmo-dot" /><span className="fmo-dot" /><span className="fmo-dot" />
-              <span className="fmo-console-title">FMClaw™ 智能物业空间 · 真实产品界面（1.0.0）</span>
-            </div>
-            <img
-              src="/products/fmclaw/app-screenshot.webp"
-              alt="FMClaw 智能物业空间真实界面：AI 对话入口与 AI 员工，下方为设备感知、服务感知、环境感知、视觉感知、机器人与数据接入六个物理感知面板"
-              width={3338}
-              height={1650}
-              fetchPriority="high"
-            />
-            <figcaption className="fmo-app-anchors" aria-label="界面关键区域">
-              <span><i aria-hidden="true" />物理感知 ×6 面板</span>
-              <span><i aria-hidden="true" />数据接入</span>
-              <span><i aria-hidden="true" />AI 员工</span>
-              <span><i aria-hidden="true" />AI 对话入口</span>
-            </figcaption>
+        {/* ===== logo 墙 + 背书 ===== */}
+        <section className="fmv-logos" aria-label="客户与规模">
+          <div className="wrap">
+            <p className="fmv-logos__t"><b>100 多家企业</b>在用 · 系统覆盖 <b>3000 万㎡</b> · 办公、园区、医院、轨道交通等业态</p>
+            <ul className="fmv-logos__wall">
+              {LOGOS.map((l) => (
+                <li key={l.f}><img src={`/images/clients/${l.f}.svg`} alt={l.alt} style={{ height: l.h }} loading="lazy" /></li>
+              ))}
+            </ul>
+            <p className="fmv-def">{DEFINITION}</p>
+          </div>
+        </section>
+
+        {/* ===== ① 它主动 ===== */}
+        <SolSection
+          id="proactive"
+          tone="mist"
+          title="它主动：不等你打开，工作已经在推进"
+          sub="它每天自己发起工作：到点出日报，发现考勤异常就开单，把待审批的事整理好放到你面前。"
+        >
+          <figure className="fmv-shot">
+            <picture>
+              <source media="(max-width: 760px)" srcSet="/products/fmclaw/v2/console-workbench-m.webp" />
+              <img
+                src="/products/fmclaw/v2/console-workbench.webp"
+                alt="FMClaw™ 工作台真实界面：待我审批中有一条由智能体发起的供应商结算单；右侧 38 个 Agent 当日运行记录，其中一条现场品质巡检标红失败"
+                width={2080}
+                height={1564}
+                loading="lazy"
+              />
+            </picture>
+            <figcaption>工作台真实界面：<b>智能体发起</b>的审批与 Agent 当日运行记录。人名已打码。</figcaption>
           </figure>
-        </div>
-      </header>
+          <div className="fmv-gap" />
+          <SolCols items={AUTOS} />
+        </SolSection>
 
-      {/* ===== 02 产品差异 ===== */}
-      <section className="fmc-sec mist fmo-after-console" id="why-fmclaw">
-        <div className="wrap">
-          {/* 定义带：正文中可独立引用的一句话定义（GEO），横向大字版式 */}
-          <div className="fmo-defband">
-            <p className="fmo-defband-lab">WHAT IS FMCLAW</p>
-            <p className="fmo-defband-p">
-              FMClaw™ 是面向物业与设施管理的<b>生产级 AI 智能体平台</b>，以行业数据本体为底座，
-              统一企业数据、指标、工作流、工具与权限，让 AI 进入核心业务并稳定运行。
-            </p>
-          </div>
-
-          {/* 为什么是 FMClaw（2026-09-14，GEO 周报 0907-0913 P0）：搜索进来的人先看到「为什么选它」，
-              再看产品介绍。四问四答，每问第一句自含结论；数字只用 §4a 白名单与已发布案例页。 */}
-          <div className="fmo-why" id="why-choose">
-            <div className="fmo-why-head">
-              <p className="fmc-num">WHY FMCLAW</p>
-              <h2>为什么会选 FMClaw</h2>
-              <p className="fmc-p">搜索进来的人最常问的四个问题，先在这里回答。</p>
+        {/* ===== ② 不一样在哪 ===== */}
+        <SolSection
+          id="difference"
+          title="不一样在哪：它不是又一套软件"
+          sub="同样叫「物业 AI」，背后是三类完全不同的东西。"
+        >
+          <div className="fmv-diff" role="table" aria-label="传统物业软件、通用智能体平台与 AI 物业经理的对照">
+            <div className="fmv-diff__row is-head" role="row">
+              <span role="columnheader" />
+              <span role="columnheader">传统物业软件</span>
+              <span role="columnheader">通用智能体平台</span>
+              <span role="columnheader">AI 物业经理</span>
             </div>
-            <ol className="fmo-why-list">
-              <li>
-                <span className="fmo-why-n">01</span>
-                <div>
-                  <h3>它解决哪些物业管理问题？</h3>
-                  <p><b>FMClaw 解决的是「事情有没有真的做、做到什么程度」没人能核，以及「管理动作靠人盯」这两类问题。</b>具体落到五件事：设备巡检与品质核验（到场、读数、影像是否真实）、群消息报事与自动派单、供应商对账与结算、多项目运营报告、成本与人员配置测算。它们的共同点是流程重复、结果可以被数据核验、过去正靠人盯着。</p>
-                </div>
-              </li>
-              <li>
-                <span className="fmo-why-n">02</span>
-                <div>
-                  <h3>为什么不是再上一套软件？</h3>
-                  <p><b>传统物业软件是记录工具：人把现场录进去，系统出报表，再由人去解读、派人、跟进。FMClaw 是执行者：它自己从 IoT、影像、群消息与业务系统取数，按工作流推进，直接输出一张工单、一条通知或一份待确认材料。</b>再上一套软件只会多一处录入、多一张没人看的报表；FMClaw 接在现有软件之上，把它们里面的流程跑起来。区别的完整对照见<Link href="/agents#what-is-property-agent">物业智能体与传统软件的区别</Link>。</p>
-                </div>
-              </li>
-              <li>
-                <span className="fmo-why-n">03</span>
-                <div>
-                  <h3>能不能接现有系统？</h3>
-                  <p><b>能，而且这是默认方式。ERP 与财务系统继续做账，工单系统继续流转，钉钉、飞书、企业微信继续做员工入口；FMClaw 通过官方接口读取它们的数据，在<Link href="/products/fmclaw/ontology">行业数据本体</Link>里统一口径，再通过<Link href="/products/fmclaw/connectors">工具箱</Link>把结果写回。</b>视频安防、IoT 与机器人同样接在后面——海康、大华报出来的预警，由 FMClaw 处理「谁去看、看完谁去、去了有没有做完」。员工不需要换软件，也不需要第二次录入。</p>
-                </div>
-              </li>
-              <li>
-                <span className="fmo-why-n">04</span>
-                <div>
-                  <h3>有哪些已经落地的案例？</h3>
-                  <p><b>FMClaw 自 2017 年起在真实项目中运行，目前服务 100+ 企业客户，系统覆盖 3000 万㎡。</b>已发布的案例包括：<Link href="/cases/fmclaw-equipment-inspection">头部互联网大厂总部</Link>，运行班组巡检达标率从 35% 到 98%；<Link href="/cases/restroom-quality">一家通信设备龙头</Link>，2000 多个卫生间达标率稳定 95% 以上；<Link href="/cases/property-group-auto-operation-report">一家百强物业集团</Link>，500 多个项目的运营报告每天自动送达；<Link href="/cases/south-china-mixed-use-6-to-1">华南 6 万㎡ 商业综合体</Link>，76% 管理环节自动化后项目扭亏为盈。全部案例见<Link href="/cases">客户案例</Link>；按问题找答案见<Link href="/insights/ai-applications-and-solutions-in-property-management">AI 有哪些推荐的应用</Link>、<Link href="/insights/ai-solution-for-low-property-fee-collection">收缴率低怎么办</Link>。</p>
-                </div>
-              </li>
-            </ol>
+            {DIFF.map((r) => (
+              <div className="fmv-diff__row" role="row" key={r.k}>
+                <span className="k" role="rowheader">{r.k}</span>
+                <span className="a" role="cell" data-l="传统物业软件">{r.a}</span>
+                <span className="b" role="cell" data-l="通用智能体平台">{r.b}</span>
+                <span className="c" role="cell" data-l="AI 物业经理">{r.c}</span>
+              </div>
+            ))}
           </div>
+          <SolVerdict>软件记录工作，通用平台帮人完成一次任务；AI 物业经理替组织把管理工作长期干下去。</SolVerdict>
+          <SolMore>
+            延伸阅读：<Link href="/insights/property-agent-vs-traditional-software">物业智能体与传统软件的区别</Link>、
+            <Link href="/insights/general-platform-vs-industry-agent">通用平台与行业智能体怎么选</Link>、
+            <Link href="/insights/ai-property-products-in-china">国内有哪些 AI 物业产品（2026 清单）</Link>、
+            <Link href="/insights/ai-property-management-platforms">AI 物业管理平台推荐</Link>
+          </SolMore>
+        </SolSection>
 
-          <p className="fmc-num">FROM PERSONAL AI TO OPERATIONAL AI</p>
-          <h2>从一个人使用 AI，到一个组织把工作交给 AI</h2>
-          <p className="fmc-p">
-            个人 AI 工具擅长帮人完成一次任务。企业把工作交给 AI，需要的不止这些。
-          </p>
-
-          {/* 双面板对峙：灰调旧世界 vs 高亮 FMClaw */}
-          <div className="fmo-vs">
-            <div className="fmo-vs-col old">
-              <p className="fmo-vs-name">通用 AI 工作台</p>
-              <p className="fmo-vs-sub">帮一个人，完成一次任务</p>
-              <ul>
-                <li><span className="fmo-vs-k">服务对象</span><span className="fmo-vs-v">个人的一次任务</span></li>
-                <li><span className="fmo-vs-k">数据来源</span><span className="fmo-vs-v">用户手动上传文件</span></li>
-                <li><span className="fmo-vs-k">运行方式</span><span className="fmo-vs-v">一次会话，一次结果</span></li>
-                <li><span className="fmo-vs-k">解决的问题</span><span className="fmo-vs-v">人如何用好 AI</span></li>
-              </ul>
-            </div>
-            <div className="fmo-vs-mid" aria-hidden="true"><span>VS</span></div>
-            <div className="fmo-vs-col now">
-              <p className="fmo-vs-name">FMClaw</p>
-              <p className="fmo-vs-sub">替一个组织，把工作长期干下去</p>
-              <ul>
-                <li><span className="fmo-vs-k">服务对象</span><span className="fmo-vs-v"><b>组织的业务流程</b></span></li>
-                <li><span className="fmo-vs-k">数据来源</span><span className="fmo-vs-v">持续连接<b>业务系统与现场数据</b></span></li>
-                <li><span className="fmo-vs-k">运行方式</span><span className="fmo-vs-v">多项目、<b>统一口径</b>、长期运行</span></li>
-                <li><span className="fmo-vs-k">解决的问题</span><span className="fmo-vs-v"><b>企业如何把工作交给 AI</b></span></li>
-              </ul>
-            </div>
-          </div>
-
-          <p className="fmo-verdict">
-            通用平台解决「人如何使用 AI」；FMClaw 解决「企业如何把核心工作交给 AI」。
-          </p>
-          <LinkCards items={[
-            { href: "/insights/demo-vs-system", lab: "延伸阅读", t: "一个 Demo 和生产系统之间，隔着什么", d: "从演示到生产系统，需要补上哪些环节。", icon: IC.doc },
-          ]} />
-        </div>
-      </section>
-
-      {/* ===== 03 平台能力地图（图文交替） ===== */}
-      <section className="fmc-sec" id="platform">
-        <div className="wrap">
-          <p className="fmc-num">ALL IN ONE OPERATING LAYER</p>
-          <h2>一套平台，统一 AI 工作所需的一切</h2>
-          <p className="fmc-p">
-            业务不能靠人在多个 AI 工具之间搬运数据。FMClaw 把数据、工作流、工具和治理，
-            放进同一个运行体系。
-          </p>
-          <div className="fmo-lrows">
-            {LAYERS.map((l, i) => (
-              <div className={`fmo-lrow${i % 2 === 1 ? " flip" : ""}`} key={l.no}>
-                <Link className="fmo-limg" href={l.href} aria-label={l.name}>
-                  <img src={l.img} alt={l.alt} width={1376} height={768} loading="lazy" />
+        {/* ===== ③ 它懂现场 ===== */}
+        <SolSection
+          id="understands"
+          tone="mist"
+          title="它懂现场：看得见，懂业务，调得动"
+          sub="通用 AI 不知道一台水泵、一张保洁合同在物业里意味着什么。它从这三处把现场接进来。"
+        >
+          <ul className="fmv-sense">
+            {SENSE.map((s) => (
+              <li key={s.t}>
+                <Link href={s.href} className="fmv-sense__img" aria-label={s.link}>
+                  <img src={s.img} alt={s.alt} width={1600} height={1073} loading="lazy" />
                 </Link>
-                <div className="fmo-lbody">
-                  <div className="fmo-lhead">
-                    <span className="fmo-lno">{l.no}</span>
-                    <span className="fmo-len">{l.en}</span>
-                  </div>
-                  <h3>{l.name}</h3>
-                  <p className="fmo-ldesc">{l.desc}</p>
-                  <div className="fmo-ltags">
-                    {l.tags.map((t) => <span key={t}>{t}</span>)}
-                  </div>
-                  <Link className="fmo-lgo" href={l.href}>了解{l.name} <Arrow s={13} /></Link>
-                </div>
-              </div>
+                <h3>{s.t}</h3>
+                <p>{s.d}</p>
+                <Link className="spt-inlink" href={s.href}>{s.link} <Arrow s={12} /></Link>
+              </li>
             ))}
-          </div>
-          <p className="fmo-verdict">
-            数据本体提供业务事实，工作流引擎组织工作，工具箱完成动作，控制台管理权限和记录。
-          </p>
+          </ul>
 
-          {/* 生态兼容带：第三方协作平台属于工具箱（L3）的连接范围，不单设产品板块 */}
-          <Link className="fmo-ecoband" href="/products/fmclaw/connectors#platforms">
-            <div className="fmo-ecoband-main">
-              <span className="fmo-ecoband-en">WORKS WITH WHAT YOU ALREADY USE</span>
-              <h3>不替换现有平台，只接入专业业务</h3>
-              <p>钉钉、飞书和企业微信继续作为协作入口，FMClaw 在底层补上物业与设施管理的专业环节。</p>
-              <span className="fmo-ecoband-go">了解三种协同方式 <Arrow s={13} /></span>
-            </div>
-            <div className="fmo-ecoband-side">
+          <figure className="fmv-shot fmv-shot--wf">
+            <picture>
+              <source media="(max-width: 760px)" srcSet="/products/fmclaw/v2/console-workflow-m.webp" />
               <img
-                src="/products/fmclaw/ecosystem-band.webp"
-                alt="第三方协作平台接入插画：三个协作应用窗口的数据流汇入同一个平台底座"
-                width={1376}
-                height={1027}
+                src="/products/fmclaw/v2/console-workflow.webp"
+                alt="FMClaw™ 工作流真实界面：员工管理分类下的员工薪酬工作流，由触发节点、云端 agent 节点和两级审批节点组成"
+                width={2400}
+                height={1018}
                 loading="lazy"
               />
-              <div className="fmo-ecochips" aria-label="已支持的协作平台">
-                <span>钉钉</span><span>飞书</span><span>企业微信</span>
-              </div>
-            </div>
-          </Link>
-        </div>
-      </section>
+            </picture>
+            <figcaption>工作流真实界面：员工薪酬每月 9 号自动触发，两级审批由人确认。人名已打码。</figcaption>
+          </figure>
+          <SolNums
+            items={[
+              { v: "114", l: "条行业工作流" },
+              { v: "87", l: "条在线运行" },
+              { v: "10 万+", l: "台在线设备" },
+              { v: "6 亿条", l: "每天新增数据" },
+            ]}
+            note="设备数量及数据量为启盟科技平台统计。"
+          />
+          <SolMore>
+            以水电费审批为例：审批材料的准备从 5–7 天缩短到约 30 分钟，最终审批仍由授权人员完成。
+            <Link href="/products/fmclaw/workflow-engine">了解工作流引擎 →</Link>
+          </SolMore>
+        </SolSection>
 
-      {/* ===== 04 如何完成一项工作 ===== */}
-      <section className="fmc-sec mist" id="how-it-works">
-        <div className="wrap">
-          <p className="fmc-num">ONE PROCESS, END TO END</p>
-          <h2>不是回答一个问题，而是把一件事接着干完</h2>
-          <div className="fmo-howgrid">
-            <div className="fmo-howside">
-              <p className="fmo-howcase">以一次真实的<b>供应商对账</b>为例。</p>
-              <p className="fmo-verdict">
-                AI 接手核量、比对和起草；付款决定仍由人作出。
-              </p>
-              <p className="fmo-hownote">每一步都在同一个运行体系内完成，不需要人在工具之间搬运数据。</p>
-            </div>
-            <div className="fmo-flow">
-              {HOW_STEPS.map((s) => (
-                <div className={`fmo-fstep${s.human ? " human" : ""}`} key={s.n}>
-                  <span className="fmo-fno">{s.n}</span>
-                  <div className="fmo-fbody">
-                    <div className="fmo-fhead">
-                      <h3>{s.t}</h3>
-                      <span className="fmo-fwho">{s.who}</span>
-                    </div>
-                    <p>{s.d}</p>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-          <ScenarioCards items={[
-            { href: "/scenarios/reconciliation", lab: "场景", t: "供应商自动对账", d: "核量、比对、找异常、起草账单的完整场景。",
-              img: "/products/fmclaw/scenario-reconciliation.webp", alt: "供应商对账场景插图：合同与单据双列比对，差异项等待人工确认" },
-          ]} />
-        </div>
-      </section>
+        {/* ===== ④ 它管得住 ===== */}
+        <SolSection
+          id="control"
+          split
+          title="它管得住：看什么有范围，做什么有授权"
+          sub="规则由人设定，智能体按规则执行。全过程有记录，可以随时查看、暂停和接管。"
+        >
+          <figure className="fmv-photo">
+            <img src="/products/fmclaw/v2/photo-confirm.webp" alt="项目负责人在窗边用手机确认一项待办" width={1600} height={1073} loading="lazy" />
+          </figure>
+          <ol className="fmv-bounds">
+            {BOUNDS.map((b) => (
+              <li key={b.k}>
+                <h3><Link href={b.href}>{b.k}</Link></h3>
+                <p>{b.d}</p>
+              </li>
+            ))}
+          </ol>
+          <SolVerdict>派出去，跟到底。需要拍板的事，交给你一键确认。</SolVerdict>
+        </SolSection>
 
-      {/* ===== 05 生产级信任：主张 + 可核对清单 ===== */}
-      <section className="fmc-sec" id="production">
-        <div className="wrap">
-          <p className="fmc-num">BUILT FOR PRODUCTION</p>
-          <h2>进入核心业务的前提：准确、一致、安全</h2>
-          <p className="fmc-p">
-            生产系统面对的不是一份挑选过的数据，而是不同项目、不同来源、持续变化的真实业务。
-            FMClaw 把这三件事做成<b>平台能力</b>，而不是对使用者的要求。
-          </p>
-          <div className="fmo-trust">
-            <div className="fmo-trust-claims">
-              {TRUST_CLAIMS.map((c) => (
-                <div className="fmo-claim" key={c.en}>
-                  <span className="fmo-claim-en">{c.en}</span>
-                  <h3>{c.t}</h3>
-                  <p>{c.d}</p>
-                </div>
-              ))}
-              <figure className="fmo-trust-art">
-                <img
-                  src="/products/fmclaw/production-trust.webp"
-                  alt="生产级信任插画：隔离的项目数据、统一的指标口径、授权范围与人工审批，汇入同一条可追溯的运行记录"
-                  width={1376}
-                  height={768}
-                  loading="lazy"
-                />
-              </figure>
-            </div>
-            <aside className="fmo-trust-panel" aria-label="可在控制台核对的能力清单">
-              <p className="fmo-trust-panel-lab">VERIFIABLE IN CONSOLE</p>
-              <p className="fmo-trust-panel-t">这些能力，都可以在控制台里当场核对</p>
-              <ul className="fmo-trust-list">
-                {TRUST_CHECKS.map((c) => (
-                  <li key={c.b}>
-                    <span className="fmo-trust-ck" aria-hidden="true">
-                      <svg width="11" height="11" viewBox="0 0 12 12" fill="none"><path d="M2 6.2 4.8 9 10 3.4" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/></svg>
-                    </span>
-                    <span className="fmo-trust-txt"><b>{c.b}</b><i>{c.d}</i></span>
-                  </li>
-                ))}
-              </ul>
-              <Link className="fmo-trust-foot" href="/products/fmclaw/agent-runtime">
-                <img
-                  src="/products/fmclaw/console-identity.jpg"
-                  alt="FMClaw 控制台真实界面：智能体身份、项目范围与工具授权的管理面板"
-                  width={1800}
-                  height={1005}
-                  loading="lazy"
-                />
-                <span className="fmo-trust-foot-txt">
-                  <b>在控制台里看它们怎么被管理</b>
-                  <span>智能体的身份、权限、运行和记录 <Arrow s={12} /></span>
-                </span>
-              </Link>
-            </aside>
-          </div>
-        </div>
-      </section>
-
-      {/* ===== 06 证据：生产案例 + 100+ 预制工作流 ===== */}
-      <section className="fmc-sec mist" id="cases">
-        <div className="wrap">
-          <p className="fmc-num">RUNNING IN PRODUCTION</p>
-          <h2>不是演示。已经在真实项目中运行。</h2>
-          <div className="fmc-cols3">
+        {/* ===== ⑤ 案例结果 ===== */}
+        <SolSection id="cases" tone="mist" title="案例结果：每天都在被业主考核的真实项目">
+          <ul className="fmv-cases">
             {CASES.map((c) => (
-              <Link className="fmc-cell fmo-case" key={c.href} href={c.href}>
-                <span className="fmo-case-media">
-                  <img src={c.img} alt={c.alt} width={1100} height={614} loading="lazy" />
-                  <span className="fmo-case-no">CASE {c.no}</span>
-                  <span className="fmo-case-tag">{c.tag}</span>
-                </span>
-                <span className="fmo-case-body">
-                  <h3>{c.t}</h3>
-                  <dl className="fmo-case-facts">
-                    {c.facts.map(([k, v]) => (
-                      <div key={k}><dt>{k}</dt><dd>{v}</dd></div>
-                    ))}
-                  </dl>
-                  <span className="fmo-wf-go">查看案例 →</span>
-                </span>
-              </Link>
+              <li key={c.href}>
+                <Link href={c.href}>
+                  <span className="fmv-cases__v">{c.v}</span>
+                  <span className="fmv-cases__l">{c.l}</span>
+                  <span className="fmv-cases__w">{c.who}</span>
+                  <span className="spt-inlink">查看案例 <Arrow s={12} /></span>
+                </Link>
+              </li>
             ))}
-          </div>
-          <p className="fmo-more">
-            <Link href="/cases">查看全部客户案例 <Arrow s={13} /></Link>
-          </p>
+          </ul>
+          <SolMore><Link href="/cases">查看全部客户案例 →</Link></SolMore>
+        </SolSection>
 
-          {/* 100+ 预制工作流：一条横向证据带，入口指向工作流引擎子页 */}
-          <div className="fmo-wfband">
-            <div className="fmo-wfband-body">
-              <p className="fmo-wfband-lab">100+ PREBUILT WORKFLOWS</p>
-              <h3>高频工作已做成预制流程，不必从空白画布开始</h3>
-              <p className="fmo-wfband-d">
-                上面的案例都来自同一个工作流库：100 多条物业与设施管理的预制业务工作流，
-                在真实项目中跑通后沉淀下来，接上你的数据就能用。
-              </p>
-              <div className="fmo-wfchips">
-                {WORKFLOWS.map((w) => (
-                  <Link key={w.t} href={w.href}>{w.t}</Link>
-                ))}
-              </div>
-              <Link className="fmo-lgo" href="/products/fmclaw/workflow-engine">了解工作流引擎 <Arrow s={13} /></Link>
+        {/* ===== ⑥ 怎么开始 ===== */}
+        <SolSection id="start" title="怎么开始：从一个真实问题开始" sub="三条路，选一条最接近你现在的。">
+          <ol className="fmv-paths">
+            <li>
+              <span className="spt-meta">个人</span>
+              <h3>免费试用</h3>
+              <p>每月 2,000 Credit，注册就能自己搭一条工作流。</p>
+              <TrackedLink href={FMCLAW_URL} action="start-free" label="products/fmclaw-start" className="spt-inlink">进入 fmclaw.cn <Arrow s={12} /></TrackedLink>
+            </li>
+            <li>
+              <span className="spt-meta">项目与团队</span>
+              <h3>FMClaw™ 加速营</h3>
+              <p>带一个真问题和真实数据，1–3 天现场跑通一条工作流，跑通的留给你。</p>
+              <Link href="/workshop" className="spt-inlink">了解加速营 <Arrow s={12} /></Link>
+            </li>
+            <li>
+              <span className="spt-meta">集团与企业</span>
+              <h3>集团部署与私有化</h3>
+              <p>多项目统一管理、跨项目汇总与专属部署。</p>
+              <TrackedLink href="/contact?intent=demo&from=products/fmclaw-start" action="book-demo" label="products/fmclaw-start" className="spt-inlink">预约演示 <Arrow s={12} /></TrackedLink>
+            </li>
+          </ol>
+          <div className="fmv-price">
+            <p><span>价格</span><b>个人版免费</b><i>·</i><b>项目团队版 19,800 元起</b></p>
+            <TrackedLink href="/pricing" action="view-pricing" label="products/fmclaw-start" className="spt-inlink">查看价格 <Arrow s={12} /></TrackedLink>
+          </div>
+          <SolMore>
+            想把项目直接交给我们运营：<Link href="/ai-service">AI 物业服务</Link>。让智能体参与管理，是<Link href="/company/master-plan">启盟秘密蓝图</Link>的第三步，已经完成。
+          </SolMore>
+        </SolSection>
+
+        {/* ===== FAQ ===== */}
+        <FmFaq items={FAQ} heading="关于 AI 物业经理" />
+        <div className="fmv-end">
+          <div className="wrap">
+            <div className="fmv-end__btns">
+              <TrackedLink href="/contact?intent=demo&from=products/fmclaw" action="book-demo" label="products/fmclaw-end" className="btn btn-primary">
+                预约演示 <Arrow s={16} />
+              </TrackedLink>
+              <TrackedLink href={FMCLAW_URL} action="start-free" label="products/fmclaw-end" className="btn btn-ghost">
+                免费试用
+              </TrackedLink>
             </div>
-            <div className="fmo-wfband-art">
-              <img
-                src="/products/fmclaw/workflow-library.webp"
-                alt="预制工作流库插画：成排的流程蓝图中取出一张，接入一个真实项目开始运行"
-                width={1376}
-                height={768}
-                loading="lazy"
-              />
-            </div>
+            <p className="fmv-upd">最后更新：2026-10-12</p>
           </div>
-        </div>
-      </section>
-
-      {/* ===== 07 开始方式（暗场签名段，只讲一件事） ===== */}
-      <section className="fmc-sec dark" id="start">
-        <div className="wrap">
-          <p className="fmc-num">START WITH ONE REAL PROCESS</p>
-          <h2>从一个真实问题开始</h2>
-          <p className="fmc-p">
-            先用真实数据验证一项业务工作流。确认值得做，再进入数据治理、系统接入和生产部署。
-          </p>
-          <div className="fmo-paths">
-            {PATHS.map((p) => (
-              <Link className="fmo-path" key={p.href} href={p.href}>
-                <span className="fmo-path-head">
-                  <span className="fmo-path-no">{p.n}</span>
-                  <span className="fmo-path-time">{p.time}</span>
-                </span>
-                <h3>{p.t}</h3>
-                <p>{p.d}</p>
-                <span className="fmo-path-go">了解 <Arrow s={13} /></span>
-              </Link>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* ===== 08 FAQ ===== */}
-      <FmFaq items={FAQ} heading="关于 FMClaw" />
-
-      <div className="fmo-upd">
-        <div className="wrap">
-          <p className="fmc-updated">最后更新：2026-07-20</p>
         </div>
       </div>
-
-      {/* ===== 09 收束 CTA ===== */}
-      <section className="endcta">
-        <div className="wrap">
-          <h2>把一件真实的工作，交给 AI 试试</h2>
-          <p>从你这个月最头疼的那个流程开始。</p>
-          <div className="cta-row">
-            <div className="cta-btns">
-              <TrackedLink
-                href="/contact?intent=demo&from=products/fmclaw"
-                action="book-demo"
-                label="products/fmclaw-end"
-                className="btn btn-primary"
-              >
-                预约演示 Demo <Arrow s={16} />
-              </TrackedLink>
-              <a href={FMCLAW_URL} className="btn btn-ghost">
-                进入 FMClaw <Arrow s={16} />
-              </a>
-            </div>
-            <p className="alt">或先看看<Link href="/cases">已经在生产中运行的案例</Link>，或<Link href="/workshop">预约 FMClaw™ 加速营</Link></p>
-          </div>
-        </div>
-      </section>
-    </main>
+    </SolPage>
   );
 }

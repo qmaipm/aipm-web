@@ -1,5 +1,5 @@
-// 新闻中心登记表 — 列表页、正文页外壳与结构化数据(NewsArticle)共用一份数据。
-// 与 insights/articles.ts 同模式;category 先做徽标展示,条目多了再加筛选。
+// 新闻中心登记表 — 列表页、正文页外壳与结构化数据（NewsArticle）共用一份数据。
+// 与 insights/articles.ts 同模式；category 先做徽标展示，条目多了再加筛选。
 
 import type { Metadata } from "next";
 
@@ -11,11 +11,11 @@ export type NewsItem = {
   title: string;
   // 列表卡片上的一句话
   desc: string;
-  // ISO 日期(YYYY-MM-DD),列表按此倒序
+  // ISO 日期（YYYY-MM-DD），列表按此倒序
   date: string;
-  // 封面图(站内绝对路径):列表卡片与 og:image / NewsArticle JSON-LD 共用
+  // 封面图（站内绝对路径）:列表卡片与 og:image / NewsArticle JSON-LD 共用
   cover: string;
-  // 地点(列表与正文元信息行展示,可选)
+  // 地点（列表与正文元信息行展示，可选）
   place?: string;
 };
 
@@ -50,7 +50,7 @@ export const NEWS: NewsItem[] = [
   {
     slug: "agentic-ai-ceo-salon",
     category: "活动",
-    title: "《智能体AI时代》闭门分享会：从认知觉醒到实战落地——与CEO们共赴智能体企业转型之路",
+    title: "《智能体AI时代》闭门分享会：从认知觉醒到实战落地，与CEO们共赴智能体企业转型之路",
     desc: "4月11日，一场关于“智能体AI时代”的深度闭门分享会在广州成功举行，汇聚了物业管理、物流、互联网等十多个行业的数十位CEO和核心管理者。",
     date: "2026-04-11",
     cover: "/news/agentic-ai-ceo-salon-cover.jpg",
@@ -78,22 +78,22 @@ export const NEWS: NewsItem[] = [
 
 export function getNews(slug: string): NewsItem {
   const n = NEWS.find((x) => x.slug === slug);
-  if (!n) throw new Error(`未知新闻: ${slug}`);
+  if (!n) throw new Error(`未知新闻：${slug}`);
   return n;
 }
 
-// 最新在前(登记表本身按倒序维护,这里再排一次以防手误)
+// 最新在前（登记表本身按倒序维护，这里再排一次以防手误）
 export function newsByDate(): NewsItem[] {
   return [...NEWS].sort((a, b) => (a.date < b.date ? 1 : -1));
 }
 
-// 除当前外的最近 n 条,供正文页"更多动态"
+// 除当前外的最近 n 条，供正文页"更多动态"
 export function getMoreNews(slug: string, n = 3): NewsItem[] {
   return newsByDate().filter((x) => x.slug !== slug).slice(0, n);
 }
 
 // 新闻页共享 metadata:canonical 指向自身、og:type=article + 发布时间/栏目。
-// 与 insights 的 articleMetadata 同模式;og:url、canonical 为相对路径,
+// 与 insights 的 articleMetadata 同模式；og:url、canonical 为相对路径，
 // 由根布局 metadataBase 按当前环境解析成绝对地址。
 export function newsMetadata(slug: string): Metadata {
   const n = getNews(slug);

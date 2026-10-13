@@ -5,16 +5,15 @@
    全部规则收在 .solpt 作用域内。
    ============================================================ */
 .solpt{
-  --pt-ink:#14201C; --pt-ink-2:#46524D; --pt-mut:#7C857F; --pt-faint:#A7AFAB;
-  --pt-line:#E6EAE8; --pt-mist:#ECF3F1; --pt-paper:#FFFFFF; --pt-core:#0B1714;
+  --pt-ink:#14201C; --pt-ink-2:#46524D; --pt-mut:#5F6A65; --pt-faint:#6B7570;
+  --pt-line:#E6EAE8; --pt-mist:#F3F7F6; --pt-paper:#FFFFFF; --pt-core:#0B1714;
   --pt-blue:#0070FF; --pt-green:#12B98A; --pt-grad:linear-gradient(115deg,#0070FF,#12B98A);
   --pt-vi-line:rgba(12,139,130,.16);
   background:var(--pt-paper); color:var(--pt-ink);
 }
 .solpt .wrap{max-width:1160px;margin:0 auto;padding:0 32px}
 @media(max-width:600px){.solpt .wrap{padding:0 22px}}
-.solpt .grad{background:var(--pt-grad);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
-@supports not ((-webkit-background-clip:text) or (background-clip:text)){.solpt .grad{color:var(--pt-green);-webkit-text-fill-color:currentColor}}
+.solpt .grad{color:var(--vi-blue)}
 
 /* 蓝图网格 */
 .solpt .pt-grid{position:absolute;inset:0;z-index:0;pointer-events:none;
@@ -30,8 +29,8 @@
 @media(max-width:960px){.solpt .pt-hero-cols{grid-template-columns:1fr;gap:40px}}
 .solpt .pt-kicker{display:inline-flex;align-items:center;flex-wrap:wrap;font-size:12px;font-weight:600;letter-spacing:.14em;
   text-transform:uppercase;color:var(--pt-mut)}
-.solpt .pt-kicker a{color:var(--pt-mut)}.solpt .pt-kicker a:hover{color:var(--pt-green)}
-.solpt .pt-kicker i{color:var(--pt-green);font-style:normal;margin:0 9px;font-weight:700}
+.solpt .pt-kicker a{color:var(--pt-mut)}.solpt .pt-kicker a:hover{color:var(--accent-ink)}
+.solpt .pt-kicker i{color:var(--accent-ink);font-style:normal;margin:0 9px;font-weight:700}
 .solpt .pt-h1{margin:22px 0 0;font-weight:800;font-size:clamp(34px,4.6vw,56px);line-height:1.08;letter-spacing:-.035em;color:var(--pt-ink)}
 .solpt .pt-lead{margin:24px 0 0;font-size:clamp(15.5px,1.7vw,18px);line-height:1.62;color:var(--pt-ink-2);max-width:52ch}
 .solpt .pt-lead b{color:var(--pt-ink);font-weight:600}
@@ -43,7 +42,7 @@
 .solpt .pt-proof .sep{width:5px;height:5px;border-radius:50%;background:var(--pt-faint)}
 .solpt .pt-hero-art{position:relative}
 .solpt .pt-hero-art img{width:100%;height:auto;display:block;border-radius:20px;
-  border:1px solid var(--pt-line);box-shadow:0 24px 60px rgba(12,139,130,.13)}
+  border:1px solid var(--pt-line);box-shadow:0 24px 60px rgba(11,23,20,0.078)}
 @media(max-width:960px){.solpt .pt-hero-art{max-width:560px}}
 
 /* ---------- band ---------- */
@@ -51,8 +50,8 @@
 .solpt .pt-band.mist{background:var(--pt-mist)}
 @media(max-width:700px){.solpt .pt-band{padding:76px 0}}
 .solpt .pt-eyebrow{display:inline-flex;align-items:center;gap:10px;font-size:12px;font-weight:600;letter-spacing:.2em;
-  text-transform:uppercase;color:var(--pt-green)}
-.solpt .pt-eyebrow::before{content:"";width:22px;height:2px;border-radius:2px;background:var(--pt-grad)}
+  text-transform:uppercase;color:var(--accent-ink)}
+.solpt .pt-eyebrow::before{content:"";width:22px;height:2px;border-radius:2px;background:var(--blue)}
 .solpt .pt-h2{margin:18px 0 0;font-weight:800;font-size:clamp(27px,3.5vw,40px);line-height:1.18;letter-spacing:-.03em;color:var(--pt-ink)}
 .solpt .pt-sub{margin:18px 0 0;font-size:clamp(15px,1.65vw,17px);line-height:1.6;color:var(--pt-ink-2);max-width:64ch}
 .solpt .pt-sub b{color:var(--pt-ink);font-weight:600}
@@ -62,13 +61,13 @@
 .solpt .pt-type{display:grid;grid-template-columns:.92fr 1.08fr;gap:0;overflow:hidden;
   border:1px solid var(--pt-line);border-radius:22px;background:var(--pt-paper);
   box-shadow:0 4px 18px rgba(11,23,20,.04);transition:box-shadow .25s,transform .25s}
-.solpt .pt-type:hover{box-shadow:0 22px 52px rgba(12,139,130,.11);transform:translateY(-2px)}
+.solpt .pt-type:hover{box-shadow:0 22px 52px rgba(11,23,20,0.066);transform:translateY(-2px)}
 .solpt .pt-type.flip{grid-template-columns:1.08fr .92fr}
 .solpt .pt-type.flip .pt-type-art{order:2}
 .solpt .pt-type-art{position:relative;display:flex;align-items:center;justify-content:center;
   background:linear-gradient(150deg,#F4FAF8,#EAF4F1);padding:34px 30px;min-height:100%}
 .solpt .pt-type-art img{width:100%;max-width:470px;height:auto;display:block;border-radius:14px;
-  box-shadow:0 16px 40px rgba(12,139,130,.12)}
+  box-shadow:0 16px 40px rgba(11,23,20,0.072)}
 .solpt .pt-type-txt{padding:42px 44px 40px;display:flex;flex-direction:column}
 @media(max-width:960px){
   .solpt .pt-type,.solpt .pt-type.flip{grid-template-columns:1fr}
@@ -78,7 +77,7 @@
 }
 .solpt .pt-type-head{display:flex;align-items:center;gap:14px}
 .solpt .pt-type-no{font-size:15px;font-weight:800;letter-spacing:.05em;font-variant-numeric:tabular-nums}
-.solpt .pt-card-tag{font-size:11.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--pt-green);font-weight:700}
+.solpt .pt-card-tag{font-size:11.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--accent-ink);font-weight:700}
 .solpt .pt-type-txt h3{margin:14px 0 0;font-size:clamp(21px,2.5vw,27px);font-weight:800;letter-spacing:-.02em;color:var(--pt-ink)}
 .solpt .pt-type-txt .who{margin:15px 0 0;padding:13px 16px;border-radius:12px;background:var(--pt-mist);
   font-size:14px;line-height:1.72;color:var(--pt-ink-2)}
@@ -88,9 +87,9 @@
 .solpt .pt-gets .tick{flex:none;margin-top:3px;width:19px;height:19px;border-radius:6px;display:inline-flex;
   align-items:center;justify-content:center;color:#fff;background:var(--pt-grad)}
 .solpt .pt-card-cta{margin-top:26px;display:inline-flex;align-items:center;gap:7px;font-size:15px;font-weight:700;color:var(--pt-ink)}
-.solpt .pt-card-cta:hover{color:var(--pt-green)}
+.solpt .pt-card-cta:hover{color:var(--accent-ink)}
 .solpt .pt-card-cta.soon{color:var(--pt-mut);font-weight:600}
-.solpt .pt-card-cta.soon:hover{color:var(--pt-green)}
+.solpt .pt-card-cta.soon:hover{color:var(--accent-ink)}
 
 /* ---------- 合作流程 ---------- */
 .solpt .pt-steps{margin-top:48px;display:grid;grid-template-columns:repeat(5,1fr);gap:14px}
@@ -98,7 +97,7 @@
 @media(max-width:560px){.solpt .pt-steps{grid-template-columns:1fr}}
 .solpt .pt-step{position:relative;border:1px solid var(--pt-line);border-radius:15px;background:var(--pt-paper);
   padding:24px 20px 22px;transition:border-color .2s,box-shadow .2s}
-.solpt .pt-step:hover{border-color:rgba(12,139,130,.34);box-shadow:0 12px 30px rgba(12,139,130,.08)}
+.solpt .pt-step:hover{border-color:rgba(12,139,130,.34);box-shadow:0 12px 30px rgba(11,23,20,0.048)}
 .solpt .pt-step-no{display:inline-flex;width:30px;height:30px;border-radius:50%;align-items:center;justify-content:center;
   font-size:14px;font-weight:800;color:#fff;background:var(--pt-grad)}
 .solpt .pt-step h3{margin:14px 0 0;font-size:16.5px;font-weight:700;letter-spacing:-.01em;color:var(--pt-ink)}
@@ -106,7 +105,7 @@
 .solpt .pt-policy{margin-top:34px;padding:17px 22px;border-radius:13px;background:var(--pt-mist);
   font-size:14.5px;line-height:1.7;color:var(--pt-ink-2)}
 .solpt .pt-policy a{display:inline-flex;align-items:center;gap:5px;margin-left:8px;font-weight:700;color:var(--pt-ink)}
-.solpt .pt-policy a:hover{color:var(--pt-green)}
+.solpt .pt-policy a:hover{color:var(--accent-ink)}
 
 /* ---------- 为什么是现在 ---------- */
 .solpt .pt-now{margin-top:46px;display:flex;flex-direction:column}
@@ -122,3 +121,10 @@
 /* 可访问性 / 动效降级 */
 .solpt a:focus-visible,.solpt .btn:focus-visible{outline:2px solid var(--pt-green);outline-offset:3px;border-radius:10px}
 @media(prefers-reduced-motion:reduce){.solpt *{transition:none!important}}
+/* 2026-10 插图换实景照片：去掉浅青底衬，图片铺满、细边框 */
+.solpt .pt-hero-art img{aspect-ratio:4/3;object-fit:cover;border-radius:12px;box-shadow:none}
+.solpt .pt-type-art{padding:0;background:none}
+.solpt .pt-type-art img{max-width:none;aspect-ratio:4/3;object-fit:cover;border-radius:0;box-shadow:none;border:0}
+.solpt .pt-type-art{display:block}
+.solpt .pt-type-art img{height:100%;min-height:320px}
+@media(max-width:960px){.solpt .pt-type-art{padding:0}.solpt .pt-type-art img{min-height:0;height:auto}}

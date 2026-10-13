@@ -31,3 +31,6 @@ tmp/
 # 私有项目受理数据，严禁提交
 .project-intake/
 .data/
+
+# 品牌愿景片原片/压制版不进仓库（方案 A：放 R2/对象存储，用 NEXT_PUBLIC_VISION_FILM_URL 指向）
+/public/video/

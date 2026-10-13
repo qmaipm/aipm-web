@@ -11,7 +11,7 @@ export const dynamic = "force-dynamic";
 export const metadata: Metadata = pageMetadata("/products/fmclaw/workflow-engine", {
   title: "智能体工作流引擎｜FMClaw™ 让智能体从会聊天到会干活",
   description:
-    "没有工作流引擎，智能体只是会聊天的顾问；接上它，才是会干活的员工。FMClaw 智能体工作流引擎：100+ 预制行业工作流覆盖日报周报、收费对账、巡检派单，自然语言生成，关键节点人工确认，一个项目跑通后复制到更多项目。",
+    "没有工作流引擎，智能体只是会聊天的顾问；接上它，才是会干活的员工。FMClaw 智能体工作流引擎：114 条行业工作流（87 条在线运行）覆盖日报周报、收费对账、巡检派单，自然语言生成，关键节点人工确认，一个项目跑通后复制到更多项目。",
 });
 
 const TECH_LD = techArticleLd({
@@ -32,7 +32,7 @@ const FAQ = [
   },
   {
     q: "日报周报这类流程，AI 能做到什么程度？",
-    a: "从各业务系统自动取数、按统一口径汇总、生成结构一致的日报周报，人只看结果和异常。这是 100+ 预制工作流里使用最多的一类。",
+    a: "从各业务系统自动取数、按统一口径汇总、生成结构一致的日报周报，人只看结果和异常。这是 114 条工作流里使用最多的一类。",
   },
   {
     q: "为什么一个 Demo 不能直接进入生产？",
@@ -102,7 +102,7 @@ const PAINS = [
   {
     q: "每天的日报周报，还是人在各个系统里扒数",
     t: "重复的活最耗人",
-    d: "日报、周报、月度经营汇总——数据分散在多个系统里，每天人工汇总一遍，格式还不一致。",
+    d: "日报、周报、月度经营汇总，数据分散在多个系统里，每天人工汇总一遍，格式还不一致。",
   },
   {
     q: "演示的时候很惊艳，回到项目上没人用",
@@ -126,7 +126,7 @@ export default function Page() {
       <div className="wrap">
         <FmBreadcrumb
           trail={[
-            { name: "FMClaw™ 产品总览", href: "/products/fmclaw" },
+            { name: "AI 物业经理 FMClaw™", href: "/products/fmclaw" },
             { name: "智能体工作流引擎", href: "/products/fmclaw/workflow-engine" },
           ]}
         />
@@ -274,7 +274,7 @@ export default function Page() {
             ))}
           </div>
           <p className="fmo-verdict">
-            100+ 条，都在真实项目里跑通过——不是模板库，是跑过的路。
+            114 条工作流、87 条在线运行，都来自真实项目：不是模板库，是跑过的路。
           </p>
         </div>
       </section>
@@ -346,7 +346,7 @@ export default function Page() {
           <div className="fmo-howgrid">
             <div className="fmo-howside">
               <p className="fmo-howcase">
-                审批、异常、高风险动作——AI 停在<b>待确认</b>，等人决定。
+                审批、异常、高风险动作：AI 停在<b>待确认</b>，等人决定。
               </p>
               <p className="fmo-verdict">
                 AI 做到待确认，人做最后一步。
@@ -449,7 +449,7 @@ export default function Page() {
             { href: "/products/fmclaw/agent-runtime", lab: "平台能力 · L4", t: "控制台", d: "流程跑得怎么样、谁批准过什么，随时可以查。", icon: IC.shield },
           ]} />
           <p className="fmc-rel-back">
-            <Link href="/products/fmclaw">← 返回 FMClaw™ 产品总览</Link>
+            <Link href="/products/fmclaw">← 返回 AI 物业经理 FMClaw™</Link>
           </p>
         </div>
       </section>

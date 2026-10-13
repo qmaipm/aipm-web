@@ -57,7 +57,7 @@ const ENTRY_ANIMATION_CONFIG = {
   // 颜色配置
   colors: {
     primary: { start: '#0070FF', end: '#12B98A' },
-    secondary: { start: '#9333EA', end: '#EC4899' },
+    secondary: { start: '#0C8B82', end: '#0058CC' },
   },
 };
 
@@ -522,7 +522,7 @@ function SpaceManagementScreen() {
           textAlign: 'center',
           fontSize: '14px',
           fontWeight: 600,
-          boxShadow: '0 4px 16px rgba(0,112,255,0.35)',
+          boxShadow: '0 4px 16px rgba(11,23,20,0.1)',
         }}>
           保存配置
         </div>
@@ -540,7 +540,7 @@ function ServiceConfigScreen() {
       
       {/* Hero 区域 */}
       <div style={{
-        background: 'linear-gradient(135deg, #9333EA 0%, #EC4899 100%)',
+        background: 'linear-gradient(135deg, #0C8B82 0%, #0058CC 100%)',
         padding: '12px 16px 16px',
         borderRadius: '0 0 20px 20px',
         position: 'relative',
@@ -598,7 +598,7 @@ function ServiceConfigScreen() {
               flex: 1,
               padding: '10px 6px',
               background: item.active ? 'white' : 'rgba(255,255,255,0.15)',
-              color: item.active ? '#9333EA' : 'rgba(255,255,255,0.9)',
+              color: item.active ? '#0C8B82' : 'rgba(255,255,255,0.9)',
               borderRadius: '10px',
               textAlign: 'center',
               boxShadow: item.active ? '0 4px 12px rgba(0,0,0,0.15)' : 'none',
@@ -629,10 +629,10 @@ function ServiceConfigScreen() {
             <div style={{ fontSize: '11px', fontWeight: 600, color: '#1e293b' }}>服务点位</div>
             <div style={{ 
               padding: '3px 8px', 
-              backgroundColor: '#faf5ff', 
+              backgroundColor: '#EEF7F6', 
               borderRadius: '6px',
               fontSize: '9px',
-              color: '#9333EA',
+              color: '#0C8B82',
               fontWeight: 500,
             }}>已选择</div>
           </div>
@@ -669,7 +669,7 @@ function ServiceConfigScreen() {
             </svg>
             <div style={{ 
               padding: '6px 10px', 
-              background: 'linear-gradient(135deg, #9333EA 0%, #A855F7 100%)',
+              background: 'linear-gradient(135deg, #0C8B82 0%, #2BA597 100%)',
               color: 'white', 
               borderRadius: '8px',
               fontSize: '10px',
@@ -690,12 +690,12 @@ function ServiceConfigScreen() {
               width: '28px',
               height: '28px',
               borderRadius: '8px',
-              backgroundColor: '#9333EA15',
+              backgroundColor: '#0C8B8215',
               display: 'flex',
               alignItems: 'center',
               justifyContent: 'center',
             }}>
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#9333EA" strokeWidth="2">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#0C8B82" strokeWidth="2">
                 <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/>
                 <circle cx="12" cy="10" r="3"/>
               </svg>
@@ -770,12 +770,12 @@ function ServiceConfigScreen() {
             <span style={{ fontSize: '11px', color: '#64748b' }}>服务频次</span>
             <div style={{ 
               padding: '5px 14px', 
-              background: 'linear-gradient(135deg, #9333EA 0%, #EC4899 100%)',
+              background: 'linear-gradient(135deg, #0C8B82 0%, #0058CC 100%)',
               borderRadius: '14px',
               fontSize: '12px',
               color: 'white',
               fontWeight: 700,
-              boxShadow: '0 2px 8px rgba(147,51,234,0.3)',
+              boxShadow: '0 2px 8px rgba(11,23,20,0.1)',
             }}>
               6次/天
             </div>
@@ -799,16 +799,16 @@ function ServiceConfigScreen() {
             justifyContent: 'space-between',
           }}>
             <span>服务时段</span>
-            <span style={{ fontSize: '10px', color: '#9333EA', fontWeight: 500 }}>共6次</span>
+            <span style={{ fontSize: '10px', color: '#0C8B82', fontWeight: 500 }}>共6次</span>
           </div>
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '8px' }}>
             {['08:00', '10:00', '12:00', '14:00', '16:00', '18:00'].map((time, i) => (
               <div key={i} style={{
                 padding: '10px 8px',
-                background: 'linear-gradient(135deg, #faf5ff 0%, #f3e8ff 100%)',
+                background: 'linear-gradient(135deg, #EEF7F6 0%, #E2F2EF 100%)',
                 borderRadius: '10px',
                 fontSize: '11px',
-                color: '#7c3aed',
+                color: '#096B73',
                 fontWeight: 600,
                 textAlign: 'center',
                 border: '1px solid #e9d5ff',
@@ -824,13 +824,13 @@ function ServiceConfigScreen() {
       <div style={{ padding: '12px 16px 8px', backgroundColor: 'white', borderTop: '1px solid #f1f5f9' }}>
         <div style={{
           padding: '14px',
-          background: 'linear-gradient(135deg, #9333EA 0%, #EC4899 100%)',
+          background: 'linear-gradient(135deg, #0C8B82 0%, #0058CC 100%)',
           color: 'white',
           borderRadius: '14px',
           textAlign: 'center',
           fontSize: '14px',
           fontWeight: 600,
-          boxShadow: '0 4px 16px rgba(147,51,234,0.35)',
+          boxShadow: '0 4px 16px rgba(11,23,20,0.1)',
         }}>
           确认配置
         </div>
@@ -986,7 +986,7 @@ function DataOverviewScreen() {
                 alignItems: 'center',
                 justifyContent: 'center',
                 fontSize: '16px',
-                boxShadow: '0 2px 8px rgba(0,112,255,0.3)',
+                boxShadow: '0 2px 8px rgba(11,23,20,0.1)',
               }}>👤</div>
               <div>
                 <div style={{ fontSize: '10px', color: '#0284c7' }}>人员编制</div>
@@ -1019,7 +1019,7 @@ function DataOverviewScreen() {
                 alignItems: 'center',
                 justifyContent: 'center',
                 fontSize: '16px',
-                boxShadow: '0 2px 8px rgba(18,185,138,0.3)',
+                boxShadow: '0 2px 8px rgba(11,23,20,0.1)',
               }}>🤖</div>
               <div>
                 <div style={{ fontSize: '10px', color: '#15803d' }}>智能机器人</div>
@@ -1034,23 +1034,23 @@ function DataOverviewScreen() {
           {/* 预算 */}
           <div style={{
             padding: '14px',
-            background: 'linear-gradient(135deg, #faf5ff 0%, #f3e8ff 100%)',
+            background: 'linear-gradient(135deg, #EEF7F6 0%, #E2F2EF 100%)',
             borderRadius: '12px',
             border: '1px solid #e9d5ff',
           }}>
-            <div style={{ fontSize: '10px', color: '#7c3aed', marginBottom: '6px' }}>月度预算</div>
+            <div style={{ fontSize: '10px', color: '#096B73', marginBottom: '6px' }}>月度预算</div>
             <div style={{ display: 'flex', alignItems: 'baseline', justifyContent: 'space-between' }}>
               <div>
-                <span style={{ fontSize: '12px', color: '#9333EA' }}>¥</span>
-                <span style={{ fontSize: '24px', fontWeight: 700, color: '#7c3aed' }}>103,200</span>
+                <span style={{ fontSize: '12px', color: '#0C8B82' }}>¥</span>
+                <span style={{ fontSize: '24px', fontWeight: 700, color: '#096B73' }}>103,200</span>
                 <span style={{ fontSize: '10px', color: '#a78bfa', marginLeft: '4px' }}>/月</span>
               </div>
               <div style={{
                 padding: '4px 8px',
-                backgroundColor: '#9333EA15',
+                backgroundColor: '#0C8B8215',
                 borderRadius: '6px',
                 fontSize: '9px',
-                color: '#9333EA',
+                color: '#0C8B82',
                 fontWeight: 500,
               }}>节省 12%</div>
             </div>
@@ -1068,7 +1068,7 @@ function DataOverviewScreen() {
           textAlign: 'center',
           fontSize: '14px',
           fontWeight: 600,
-          boxShadow: '0 4px 16px rgba(0,112,255,0.35)',
+          boxShadow: '0 4px 16px rgba(11,23,20,0.1)',
         }}>
           生成方案报告
         </div>
@@ -1086,7 +1086,7 @@ function DesignResultScreen() {
       
       {/* Hero 区域 */}
       <div style={{
-        background: 'linear-gradient(135deg, #9333EA 0%, #EC4899 100%)',
+        background: 'linear-gradient(135deg, #0C8B82 0%, #0058CC 100%)',
         padding: '14px 16px 20px',
         borderRadius: '0 0 24px 24px',
         position: 'relative',
@@ -1212,7 +1212,7 @@ function DesignResultScreen() {
                 width: '20px',
                 height: '20px',
                 borderRadius: '6px',
-                background: 'linear-gradient(135deg, #faf5ff 0%, #f3e8ff 100%)',
+                background: 'linear-gradient(135deg, #EEF7F6 0%, #E2F2EF 100%)',
                 display: 'flex',
                 alignItems: 'center',
                 justifyContent: 'center',
@@ -1220,7 +1220,7 @@ function DesignResultScreen() {
               }}>🔌</div>
               <span style={{ fontSize: '11px', fontWeight: 600, color: '#1e293b' }}>数据接口</span>
             </div>
-            <span style={{ fontSize: '10px', color: '#9333EA', fontWeight: 500 }}>4个活跃</span>
+            <span style={{ fontSize: '10px', color: '#0C8B82', fontWeight: 500 }}>4个活跃</span>
           </div>
           
           {[
@@ -1244,7 +1244,7 @@ function DesignResultScreen() {
                   ? 'linear-gradient(135deg, #dbeafe 0%, #bfdbfe 100%)' 
                   : api.method === 'POST' 
                     ? 'linear-gradient(135deg, #dcfce7 0%, #bbf7d0 100%)' 
-                    : 'linear-gradient(135deg, #fef3c7 0%, #fde68a 100%)',
+                    : 'linear-gradient(135deg, #F7EBDD 0%, #EBD0AE 100%)',
                 color: api.method === 'GET' ? '#1d4ed8' : api.method === 'POST' ? '#15803d' : '#a16207',
                 borderRadius: '6px',
                 fontSize: '9px',
@@ -1267,7 +1267,7 @@ function DesignResultScreen() {
                     width: '6px',
                     height: '6px',
                     borderRadius: '50%',
-                    backgroundColor: api.status === 'active' ? '#12B98A' : '#F59E0B',
+                    backgroundColor: api.status === 'active' ? '#12B98A' : '#BE7A2E',
                     boxShadow: api.status === 'active' ? '0 0 4px #12B98A' : 'none',
                   }} />
                   <span style={{ fontSize: '8px', color: '#94a3b8' }}>次</span>
@@ -1350,13 +1350,13 @@ function DesignResultScreen() {
       <div style={{ padding: '12px 16px 8px', backgroundColor: 'white', borderTop: '1px solid #f1f5f9' }}>
         <div style={{
           padding: '14px',
-          background: 'linear-gradient(135deg, #9333EA 0%, #EC4899 100%)',
+          background: 'linear-gradient(135deg, #0C8B82 0%, #0058CC 100%)',
           color: 'white',
           borderRadius: '14px',
           textAlign: 'center',
           fontSize: '14px',
           fontWeight: 600,
-          boxShadow: '0 4px 16px rgba(147,51,234,0.35)',
+          boxShadow: '0 4px 16px rgba(11,23,20,0.1)',
         }}>
           查看API文档
         </div>
@@ -1464,8 +1464,8 @@ export default function ServiceDesignAnimation({
       name: '服务配置', 
       x: rightX, 
       y: 230, 
-      startColor: '#9333EA',
-      endColor: '#EC4899',
+      startColor: '#0C8B82',
+      endColor: '#0058CC',
       lineStart: 'bottom' as const,
       lineDirection: 'left' as const,
       screen: <ServiceConfigScreen />,
@@ -1476,8 +1476,8 @@ export default function ServiceDesignAnimation({
       name: 'API平台', 
       x: rightX, 
       y: 430, 
-      startColor: '#9333EA',
-      endColor: '#EC4899',
+      startColor: '#0C8B82',
+      endColor: '#0058CC',
       lineStart: 'top' as const,
       lineDirection: 'left' as const,
       screen: <DesignResultScreen />,
