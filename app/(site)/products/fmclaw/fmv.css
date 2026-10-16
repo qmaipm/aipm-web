@@ -150,3 +150,27 @@
 .fmv-end__btns{display:flex;flex-wrap:wrap;gap:14px}
 .fmv-upd{margin:28px 0 0;font-size:12.5px;color:var(--s-mut)}
 @media(max-width:520px){.fmv-end__btns{flex-direction:column}.fmv-end__btns .btn{width:100%}}
+
+/* ---------- 2026-10-16 不一样在哪：三张产品卡 ---------- */
+.fmv-vs{display:grid;grid-template-columns:1.15fr 1fr 1fr;gap:16px;align-items:stretch}
+.fmv-vs__card{padding:28px 26px 26px;border-radius:18px;background:var(--s-mist,#F4F7F6);color:var(--s-ink,#14201C)}
+.fmv-vs__card.is-us{background:#0058CC;color:#fff}
+.fmv-vs__tag{display:inline-block;padding:4px 10px;border-radius:99px;font-size:12.5px;font-weight:700;background:#fff;color:var(--s-ink-2,#46524D)}
+.fmv-vs__card.is-us .fmv-vs__tag{color:#0058CC}
+.fmv-vs__card h3{margin:16px 0 0;font-size:20px;font-weight:800;line-height:1.4;letter-spacing:-.015em}
+.fmv-vs__card dl{margin:20px 0 0}
+.fmv-vs__card dl>div{padding:14px 0;border-top:1px solid rgba(20,32,28,.08)}
+.fmv-vs__card.is-us dl>div{border-top-color:rgba(255,255,255,.18)}
+.fmv-vs__card dt{font-size:12.5px;font-weight:600;color:#8A948F}
+.fmv-vs__card.is-us dt{color:#BFD6FF}
+.fmv-vs__card dd{margin:4px 0 0;font-size:15px;line-height:1.6;color:var(--s-ink-2,#46524D)}
+.fmv-vs__card.is-us dd{color:#fff;font-weight:600}
+@media(max-width:900px){
+  .fmv-vs{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;gap:12px;margin:0 -22px;padding:0 22px 8px;scrollbar-width:none}
+  .fmv-vs::-webkit-scrollbar{display:none}
+  .fmv-vs__card{flex:0 0 82%;scroll-snap-align:start;padding:22px 20px}
+}
+/* 2026-10-16：案例卡加封面 */
+.fmv-cases li{border-top:none}
+.fmv-cases a{padding-top:0}
+.fmv-cases__i{display:block;width:100%;aspect-ratio:16/9;object-fit:cover;border-radius:14px;margin-bottom:22px;background:#F1F4F8}

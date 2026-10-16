@@ -5,6 +5,7 @@ import JsonLd from "@/components/JsonLd";
 import "./page.css";
 import { pageMetadata } from "@/lib/pageMetadata";
 
+import Scene from "@/components/Scene";
 const SITE_URL = process.env.SITE_URL || "https://www.aipm.cn";
 
 // 用 pageMetadata 保证 canonical 与 og:url 指向页面自身（main 的 SEO 修复机制）；
@@ -248,6 +249,7 @@ export default function Page() {
         <div className="wrap">
           <span className="pt-eyebrow">合作流程</span>
           <h2 className="pt-h2">从申请到首单，五步走完</h2>
+          <Scene src="/scene/pg-launch.webp" alt="项目负责人在现场向合作工程师讲解运行看板" />
           <div className="pt-steps">
             {steps.map((s) => (
               <div className="pt-step" key={s.no}>

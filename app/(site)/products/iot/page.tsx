@@ -6,6 +6,7 @@ import { pageMetadata } from "@/lib/pageMetadata";
 import SeoFaq from "@/components/SeoFaq";
 import ProductCrumb from "../_crumb";
 
+import Scene from "@/components/Scene";
 export const dynamic = "force-dynamic";
 
 export const metadata: Metadata = pageMetadata("/products/iot", {
@@ -45,6 +46,7 @@ export default function Page() {
             <Link href="/workshop" className="btn btn-primary">预约 FMClaw™ 加速营 <Arrow /></Link>
             <Link href="/products/fmclaw" className="btn btn-ghost">看它怎么接进平台 <Arrow /></Link>
           </div>
+          <Scene variant="hero" src="/scene/iot-plant.webp" alt="设备机房里，水泵与管道上装着无线振动和温度传感器" />
         </div>
       </section>
 
@@ -385,6 +387,7 @@ export default function Page() {
           <p className="iot-sub">
             四类感知数据首先服务于今天的日常运营；但它们还有另一层价值：真实场景里、带任务语义的物理世界数据，正是<b>具身智能训练最稀缺的原料</b>。机器人要从演示视频走向真实上岗，需要的不是摄影棚里摆拍的数据，而是真实楼宇里真实任务的过程记录。这正是物业与设施管理每天在大规模产生的东西。
           </p>
+          <Scene src="/scene/robot-calib.webp" alt="工程师在办公走廊里调试服务机器人" />
           <div className="iot-chips">
             <span>第一视角作业视频</span><span>工单自带任务语义</span><span>真实场景实训场</span><span>机器人上岗数据回流</span>
           </div>

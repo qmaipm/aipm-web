@@ -6,6 +6,7 @@ import { pageMetadata } from "@/lib/pageMetadata";
 import SeoFaq from "@/components/SeoFaq";
 import ProductCrumb from "../_crumb";
 
+import Scene from "@/components/Scene";
 export const dynamic = "force-dynamic";
 
 export const metadata: Metadata = pageMetadata("/products/robots", {
@@ -38,6 +39,7 @@ export default function Page() {
             <Link href="/workshop" className="btn btn-primary">预约 FMClaw™ 加速营 <Arrow /></Link>
             <a href="#eq-1" className="btn btn-ghost">看两台装备 <Arrow /></a>
           </div>
+          <Scene variant="hero" src="/scene/rob-mall.webp" alt="商场开门前，小型清洁机器人在中庭地面作业" />
         </div>
       </section>
 

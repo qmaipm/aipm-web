@@ -7,6 +7,7 @@ import "../trade.css";
 import "./page.css";
 import { pageMetadata } from "@/lib/pageMetadata";
 
+import Scene from "@/components/Scene";
 const SITE_URL = process.env.SITE_URL || "https://www.aipm.cn";
 
 export const metadata: Metadata = pageMetadata("/ai-service/security", {
@@ -190,6 +191,7 @@ export default function Page() {
           <p className="av-sub reveal">
             海康、大华这些监控系统本身并不差，问题出在后面：预警报得太多，人看不过来。一个项目一天报上千条，要求值守人员认真看完每一条，从人性上就是做不到的事。
           </p>
+          <Scene src="/scene/sc-cctv.webp" alt="安保值班员在监控中心盯着一整面监控画面" />
           <div className="sec-funnel reveal">
             <div className="sec-funnel__row">
               <div className="sec-funnel__stage">
@@ -229,6 +231,7 @@ export default function Page() {
           <p className="av-sub reveal">
             在中国，消火栓、水泵这些消防巡检大多由安保承担。而它的执行现状，和设备巡检一模一样：巡检本填满了，巡没巡到没人说得清。区别在于，这里漏掉的不是维修成本，是安全责任。
           </p>
+          <Scene src="/scene/sc-fire.webp" alt="安保人员在楼梯间检查消火栓箱并拍照" />
           <div className="sec-redline reveal">
             <div className="sec-redline__bar" aria-hidden="true" />
             <div className="sec-redline__body">
@@ -282,6 +285,7 @@ export default function Page() {
           <p className="av-sub reveal">
             我们不承诺一个笼统的折扣。安保的成本优化来自岗位结构的重排，每一个杠杆都对应具体的岗位与班次，方案里逐岗测算。
           </p>
+          <Scene src="/scene/rt-duty.webp" alt="值班经理在运营中心屏幕前查看预警" />
           <div className="sec-cost">
             <article className="reveal">
               <span className="from">杠杆一 · 出入口</span>
@@ -338,6 +342,7 @@ export default function Page() {
         <div className="wrap">
           <span className="av-eyebrow reveal">谁在为你服务</span>
           <h2 className="av-h2 reveal">先用在自己身上，再对外提供</h2>
+          <Scene src="/company/aw-site.webp" alt="爱物管工程师在配电室操作" />
           <div className="avc-who reveal">
             <div className="avc-who__brand">
               <span className="nm">爱物管</span>

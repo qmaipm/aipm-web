@@ -338,10 +338,31 @@ const TRADE_LINKS: Record<string, { href: string; label: string }[]> = {
   ],
 };
 
+// 案例 → 四个智能体群回链（2026-10-14）：每个案例指向它主要用到的智能体群，承接「怎么做到的」。
+const SD = { href: "/solutions/service-design", label: "服务设计智能体群" };
+const OP = { href: "/solutions/operations", label: "运营管理智能体群" };
+const QA = { href: "/solutions/assessment", label: "质量评估智能体群" };
+const RV = { href: "/solutions/optimization", label: "服务优化智能体群" };
+const AGENT_LINKS: Record<string, { href: string; label: string }[]> = {
+  "intl-hospital-medical-grade-fm": [SD, OP],
+  "metro-3400-rooms-daily-inspection": [OP, QA],
+  "hazardous-area-dual-person-patrol": [OP],
+  "gigafactory-4-vendor-cleaning": [OP, RV],
+  "south-china-mixed-use-6-to-1": [OP, QA],
+  "30w-park-ai-property-manager-robot": [SD, OP],
+  "property-group-chat-ai-service": [OP],
+  "property-group-auto-operation-report": [RV],
+  "coworking-supplier-reconciliation": [SD, RV],
+  "restroom-quality": [OP, QA],
+  "fmclaw-equipment-inspection": [QA, OP],
+  "campus-cctv-photo-ai-review": [QA],
+};
+
 export default function CaseShell({ slug, children }: { slug: string; children: React.ReactNode }) {
   const c = getCase(slug);
   const related = getRelated(slug, 3);
   const trades = TRADE_LINKS[slug] || [];
+  const agents = AGENT_LINKS[slug] || [];
   const pageUrl = `${SITE_URL}/cases/${c.slug}`;
 
   const articleLd = {
@@ -492,6 +513,17 @@ export default function CaseShell({ slug, children }: { slug: string; children: 
                     {t.href.startsWith("/products/fmclaw") && (
                       <> · <a href={FMCLAW_URL}>进入 FMClaw</a></>
                     )}
+                  </span>
+                ))}
+              </span>
+            )}
+            {agents.length > 0 && (
+              <span className="alt">
+                这个项目用到的智能体群：
+                {agents.map((t, i) => (
+                  <span key={t.href}>
+                    {i > 0 && " · "}
+                    <Link href={t.href}>{t.label}</Link>
                   </span>
                 ))}
               </span>

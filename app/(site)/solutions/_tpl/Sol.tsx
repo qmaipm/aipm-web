@@ -4,6 +4,7 @@
 import Link from "next/link";
 import type { ReactNode } from "react";
 import "./sol.css";
+import { ALL_CASES } from "../../cases/cases";
 
 export const Arrow = ({ s = 15 }: { s?: number }) => (
   <svg className="ar" width={s} height={s} viewBox="0 0 16 16" aria-hidden="true">
@@ -17,7 +18,7 @@ export function SolPage({ children }: { children: ReactNode }) {
 
 /** 首屏：左文右图。title 用数组控制断行（每段一个不可拆的短语）。 */
 export function SolHero({
-  crumb, crumbRoot = { href: "/solutions", label: "解决方案" }, title, lead, proof, image, cta = { href: "/workshop", label: "预约 FMClaw™ 加速营" }, secondary,
+  crumb, crumbRoot = { href: "/solutions", label: "解决方案" }, title, lead, proof, image, media, cta = { href: "/workshop", label: "预约 FMClaw™ 加速营" }, secondary,
 }: {
   crumb: string;
   crumbRoot?: { href: string; label: string };
@@ -25,11 +26,13 @@ export function SolHero({
   lead: ReactNode;
   proof?: string[];
   image?: { src: string; alt: string; caption?: string };
+  /** 首屏右侧自定义媒体（循环动效、界面截图等），与 image 二选一。 */
+  media?: { node: ReactNode; caption?: string };
   cta?: { href: string; label: string };
   secondary?: { href: string; label: string };
 }) {
   return (
-    <section className={`spt-hero${image ? "" : " no-img"}`}>
+    <section className={`spt-hero${image || media ? "" : " no-img"}`}>
       <div className="wrap spt-hero__grid">
         <div className="spt-hero__text">
           <nav className="spt-crumb" aria-label="面包屑">
@@ -53,6 +56,12 @@ export function SolHero({
             {image.caption && <figcaption>{image.caption}</figcaption>}
           </figure>
         )}
+        {!image && media && (
+          <figure className="spt-hero__img spt-hero__media">
+            {media.node}
+            {media.caption && <figcaption>{media.caption}</figcaption>}
+          </figure>
+        )}
       </div>
     </section>
   );
@@ -63,13 +72,15 @@ const phrases = (t: string) => t.split(/(?<=，)/);
 
 /** 通用板块外壳：标题 + 可选导语。tone=mist 为浅灰底。 */
 export function SolSection({
-  id, title, sub, tone, children, split,
+  id, title, sub, tone, children, split, img,
 }: {
   id?: string;
   title: string;
   sub?: ReactNode;
   tone?: "mist";
   split?: boolean;
+  /** 场景配图：split 时放在左栏标题下；非 split 时作为标题下方的整宽横幅。 */
+  img?: { src: string; alt: string };
   children: ReactNode;
 }) {
   return (
@@ -78,31 +89,34 @@ export function SolSection({
         <header className="spt-band__head">
           <h2 className="spt-h2">{phrases(title).map((t, i) => <span className="nb" key={i}>{t}</span>)}</h2>
           {sub && <p className="spt-sub">{sub}</p>}
+          {img && split && <figure className="spt-scene is-side"><img src={img.src} alt={img.alt} loading="lazy" width={1800} height={1208} /></figure>}
         </header>
+        {img && !split && <figure className="spt-scene is-wide"><img src={img.src} alt={img.alt} loading="lazy" width={1800} height={1208} /></figure>}
         <div className="spt-band__body">{children}</div>
       </div>
     </section>
   );
 }
 
-/** 过去 / 现在对照：表格，不用卡片与 vs。k 省略时为两栏；labels 可改表头（如「一刀切裁人 / 三阶段降本」）。 */
+/** 对照卡（2026-10-16 改版）：一个维度一张卡；新做法放在浅蓝底块里作为视觉重心，旧做法缩小置灰。
+ *  桌面：维度 | 旧 | 新（新为色块）；手机：维度 → 新（色块）→ 旧。k 省略时为两项对照。 */
 export function SolCompare({ rows, labels = ["过去", "现在"] }: {
   rows: { k?: string; before: ReactNode; after: ReactNode }[];
   labels?: [string, string];
 }) {
   const two = rows.every((r) => !r.k);
   return (
-    <div className={`spt-compare${two ? " is-2" : ""}`} role="table" aria-label={`${labels[0]}与${labels[1]}的对照`}>
-      <div className="spt-compare__row is-head" role="row">
-        {!two && <span role="columnheader" />}
-        <span role="columnheader">{labels[0]}</span>
-        <span role="columnheader">{labels[1]}</span>
+    <div className={`spt-cmp${two ? " is-2" : ""}`} role="table" aria-label={`${labels[0]}与${labels[1]}的对照`}>
+      <div className="spt-cmp__head" role="row" aria-hidden="true">
+        {!two && <span />}
+        <span>{labels[0]}</span>
+        <span className="u">{labels[1]}</span>
       </div>
       {rows.map((r, i) => (
-        <div className="spt-compare__row" role="row" key={r.k ?? i}>
-          {!two && <span className="k" role="rowheader">{r.k}</span>}
-          <span className="b" role="cell" data-l={labels[0]}>{r.before}</span>
-          <span className="a" role="cell" data-l={labels[1]}>{r.after}</span>
+        <div className="spt-cmp__card" role="row" key={r.k ?? i}>
+          {!two && <div className="k" role="rowheader"><span className="no">{String(i + 1).padStart(2, "0")}</span>{r.k}</div>}
+          <div className="b" role="cell"><small>{labels[0]}</small><p>{r.before}</p></div>
+          <div className="a" role="cell"><small>{labels[1]}</small><p>{r.after}</p></div>
         </div>
       ))}
     </div>
@@ -135,7 +149,7 @@ export function SolSteps({ items }: { items: Item[] }) {
 /** 并列栏：2–4 项横排，顶部一条细线，不做卡片。 */
 export function SolCols({ items }: { items: Item[] }) {
   return (
-    <ul className={`spt-cols n${Math.min(items.length, 4)}`}>
+    <ul className={`spt-cols n${Math.min(items.length, 4)}${items.length > 4 ? " many" : ""}`}>
       {items.map((f) => (
         <li key={f.title}>
           {f.meta && <span className="spt-meta">{f.meta}</span>}
@@ -214,10 +228,10 @@ export function SolShots({ items }: { items: { src: string; alt: string; caption
 }
 
 /** 关键数字：一行 2–4 个，来自已发布案例。 */
-export function SolNums({ items, note }: { items: { v: string; l: string }[]; note?: string }) {
+export function SolNums({ items, note, cols }: { items: { v: string; l: string }[]; note?: string; cols?: 2 | 3 }) {
   return (
     <>
-      <dl className="spt-nums">
+      <dl className={`spt-nums${cols ? " c" + cols : ""}`}>
         {items.map((n) => (<div key={n.l}><dt>{n.v}</dt><dd>{n.l}</dd></div>))}
       </dl>
       {note && <p className="spt-note">{note}</p>}
@@ -245,5 +259,128 @@ export function SolEnd({ title, sub, alt, cta = { href: "/workshop", label: "预
         {alt && <p className="alt reveal spt-endalt">{alt}</p>}
       </div>
     </section>
+  );
+}
+
+/* ---------- 2026-10-14 四个智能体群页新增 ---------- */
+
+export const AGENT_GROUPS = [
+  { href: "/solutions/service-design", name: "服务设计智能体群", task: "服务标准 · 人员编制 · 项目预算" },
+  { href: "/solutions/operations", name: "运营管理智能体群", task: "感知 · 审批 · 调度 · 现场管理" },
+  { href: "/solutions/assessment", name: "质量评估智能体群", task: "保洁质检 · 拍照抄表 · 隐患识别 · 设备巡检" },
+  { href: "/solutions/optimization", name: "服务优化智能体群", task: "报告 · 复盘 · 结算" },
+] as const;
+
+/** 定义段：一段可被整段引用的「是什么」。term 加粗，正文大字号。 */
+export function SolDefine({ term, children, foot, current }: { term: string; children: ReactNode; foot?: ReactNode; current?: string }) {
+  return (
+    <section className="spt-define">
+      <div className="wrap">
+        <div className="spt-define__card">
+          <h2 className="spt-define__t">{term.replace(/[：:]\s*$/, "")}</h2>
+          <p className="spt-define__p">{children}</p>
+        </div>
+        {foot && <p className="spt-define__foot">{foot}</p>}
+        {current && <div className="spt-define__nav"><SolGroupNav current={current} /></div>}
+      </div>
+    </section>
+  );
+}
+
+/** 四个智能体群导航：一行四栏，当前页强调色，其余为链接。 */
+export function SolGroupNav({ current }: { current: string }) {
+  return (
+    <nav className="spt-groups" aria-label="四个智能体群">
+      <ol>
+        {AGENT_GROUPS.map((g, i) => {
+          const on = g.href === current;
+          const inner = (<><span className="no">{String(i + 1).padStart(2, "0")}</span><span className="n">{g.name}</span><span className="t">{g.task}</span></>);
+          return (
+            <li key={g.href} className={on ? "is-on" : undefined}>
+              {on ? <span aria-current="page">{inner}</span> : <Link href={g.href}>{inner}</Link>}
+            </li>
+          );
+        })}
+      </ol>
+    </nav>
+  );
+}
+
+/** 案例证据：一行一条，场景 / 结果 / 链接。数字只取已发布案例。 */
+/** 案例封面：从 cases.ts 的 cover 字段里取图片地址（2026-10-16 加缩略图）。 */
+function caseCover(href: string): string | undefined {
+  const m = href.match(/^\/cases\/([^/#?]+)/);
+  if (!m) return undefined;
+  const c = ALL_CASES.find((x) => x.slug === m[1]);
+  const u = c?.cover.match(/url\('([^']+)'\)/);
+  return u?.[1];
+}
+
+export function SolCases({ items }: { items: { scene: string; result: ReactNode; href: string }[] }) {
+  return (
+    <ul className="spt-cases">
+      {items.map((c) => {
+        const cover = caseCover(c.href);
+        return (
+        <li key={c.href + c.scene}>
+          <Link href={c.href} className={cover ? "has-img" : undefined}>
+            {cover && <img className="i" src={cover} alt="" loading="lazy" width={1264} height={711} />}
+            <span className="s">{c.scene}</span>
+            <span className="r">{c.result}</span>
+            <span className="a" aria-hidden="true"><Arrow s={14} /></span>
+          </Link>
+        </li>
+        );
+      })}
+    </ul>
+  );
+}
+
+/** 真实截图占位：写明需要什么截图。不放假界面。 */
+export function SolShotSlot({ label, desc, tall }: { label: string; desc: string; tall?: boolean }) {
+  return (
+    <figure className={`spt-slot${tall ? " is-tall" : ""}`} aria-label={`待补截图：${label}`}>
+      <div className="spt-slot__box">
+        <span className="k">待补真实截图</span>
+        <span className="l">{label}</span>
+        <span className="d">{desc}</span>
+      </div>
+    </figure>
+  );
+}
+
+/** 简表：两到三列的纯文字表格（输入项、标准、数据源等）。 */
+export function SolTable({ head, rows, caption }: { head: string[]; rows: ReactNode[][]; caption?: string }) {
+  return (
+    <div className="spt-table-wrap">
+      <table className="spt-table">
+        {caption && <caption>{caption}</caption>}
+        <thead><tr>{head.map((h) => <th key={h} scope="col">{h}</th>)}</tr></thead>
+        <tbody>
+          {rows.map((r, i) => (
+            <tr key={i}>{r.map((c, j) => j === 0 ? <th scope="row" key={j}>{c}</th> : <td key={j} data-l={head.length > 2 ? head[j] : undefined}>{c}</td>)}</tr>
+          ))}
+        </tbody>
+      </table>
+    </div>
+  );
+}
+
+/** 界面截图组：两栏等宽，点击在新窗口看原图（界面信息密，缩略后需能放大）。 */
+export function SolGallery({ items, note }: { items: { src: string; alt: string; title: string; caption: string; w: number; h: number }[]; note?: string }) {
+  return (
+    <>
+      <div className="spt-gallery">
+        {items.map((x) => (
+          <figure className="spt-figure is-ui" key={x.src}>
+            <a href={x.src} target="_blank" rel="noopener" aria-label={`查看大图：${x.title}`}>
+              <img src={x.src} alt={x.alt} loading="lazy" width={x.w} height={x.h} />
+            </a>
+            <figcaption><b>{x.title}</b>{x.caption}</figcaption>
+          </figure>
+        ))}
+      </div>
+      {note && <p className="spt-note">{note}</p>}
+    </>
   );
 }

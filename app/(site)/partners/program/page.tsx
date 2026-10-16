@@ -4,6 +4,7 @@ import Image from "next/image";
 import JsonLd from "@/components/JsonLd";
 import "./page.css";
 import ProgramForms from "./ProgramForms";
+import Scene from "@/components/Scene";
 import {
   VERSION, UPDATED, heroFacts, paths, split, tiers, flowExample,
   fdeSteps, firstSteps, protections, supports, applySteps, faqs,
@@ -120,6 +121,7 @@ export default function Page() {
           <p className="pg-sub">
             同一家企业可以申请一种或多种合作路径。合作路径说明伙伴参与什么；伙伴等级说明伙伴已经证明了什么。
           </p>
+          <Scene src="/scene/pg-workshop.webp" alt="合作伙伴团队围坐在一起搭建 AI 工作流" />
           <div className="pg-paths">
             {paths.map((p) => (
               <div className="pg-path" key={p.en}>
@@ -176,6 +178,7 @@ export default function Page() {
           <p className="pg-sub">
             伙伴等级依据有效认证人员、生产项目、生产客户和公开案例评定。推荐商机和销售贡献单独记录。
           </p>
+          <Scene src="/home/way-bootcamp.webp" alt="加速营现场，学员分组讨论" />
           <div className="pg-table-scroll">
             <table className="pg-table">
               <thead>
@@ -279,6 +282,7 @@ export default function Page() {
           <p className="pg-sub">
             对符合条件的首个生产项目，启盟提供需求判断、架构评审、实施答疑、上线检查和项目复盘。伙伴需要安排人员全过程参与，逐步建立自身交付能力。
           </p>
+          <Scene src="/scene/pg-launch.webp" alt="项目负责人在现场向合作工程师讲解运行看板" />
           <div className="pg-first-steps">
             {firstSteps.map((s, i) => (
               <div className="pg-first-step" key={s}>
@@ -321,6 +325,7 @@ export default function Page() {
         <div className="wrap">
           <span className="pg-eyebrow">伙伴支持</span>
           <h2 className="pg-h2">从能力建设到生产交付</h2>
+          <Scene src="/home/way-demo-day.webp" alt="项目成果展示会现场" />
           <div className="pg-supports">
             {supports.map((s) => (
               <div className="pg-support" key={s.title}>

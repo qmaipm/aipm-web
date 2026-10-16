@@ -29,7 +29,7 @@ export default function Page() {
         image={{ src: "/solutions/pay-hero.jpg", alt: "保洁员在走廊的人脸识别考勤终端前完成现场打卡（场景示意）" }}
       />
 
-      <SolSection title="从多人协同月底拼账，到 AI 自动算薪" tone="mist" split
+      <SolSection title="从多人协同月底拼账，到 AI 自动算薪" img={{ src: "/scene/pay-hr.webp", alt: "人事专员月底对着排班表和考勤单核对数据" }} tone="mist" split
         sub="过去多人协同、月底拼账，工作量巨大；现在配好规则，AI 算薪。">
         <SolCompare labels={["过去 · 多人协同", "现在 · 配规则 + AI"]} rows={[
           { k: "排班", before: <><b>排班难维护</b>：月头排好的班，员工各种特殊情况调班，多人多天反复调整，往往算薪时才定稿。</>, after: <><b>不用排班</b>：主管只配工作模式，系统自动排班、自动维护。</> },

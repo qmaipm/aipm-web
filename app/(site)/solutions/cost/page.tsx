@@ -15,21 +15,21 @@ export const metadata: Metadata = pageMetadata("/solutions/cost", {
 const stages = [
   {
     phase: "源头降本",
-    agent: "服务设计 Agent",
+    agent: "服务设计智能体群",
     href: "/solutions/service-design",
     title: "项目启动前，做好科学规划",
-    body: "用全 AI 做科学测算，在项目启动前就规划好服务频次、最优的团队与机器人编制，以及物料、工具、设备的配比，确保项目从第一天起就跑在高效模型上。",
+    body: "项目预算决定了一个项目用多少人、花多少钱。按服务点位和服务等级匹配服务标准，用服务频次和人效数据算出团队与机器人编制，再把人工、物料、工具分项汇总成预算，让项目从第一天起就跑在测算好的模型上。",
   },
   {
     phase: "过程降本",
-    agent: "运营管理 Agent",
+    agent: "运营管理智能体群",
     href: "/solutions/operations",
     title: "运营起来，用最精简的管理成本",
     body: "运营过程中，由 Agent 自动完成智能调度、质量评估、工薪结算与账单处理，把日常管理的损耗压到最低，以最精简的管理成本把项目跑起来。",
   },
   {
     phase: "持续降本",
-    agent: "服务优化 Agent",
+    agent: "服务优化智能体群",
     href: "/solutions/optimization",
     title: "每月每季复盘，持续往下抠",
     body: "通过月度或季度复盘，持续审视运营数据，主动寻找可以精简的人员、可以替换成更优性价比的物料：让成本越跑越紧凑。",
@@ -50,7 +50,7 @@ export default function Page() {
         image={{ src: "/insights/ai-cost-reduction-cover.jpg", alt: "项目经理与工程负责人在窗边对着运营数据看板讨论成本（场景示意）" }}
       />
 
-      <SolSection title="降本不是裁人，是把成本拆成三个阶段" tone="mist" split
+      <SolSection title="降本不是裁人，是把成本拆成三个阶段" img={{ src: "/scene/cost-review.webp", alt: "财务经理和项目经理一起核对项目预算" }} tone="mist" split
         sub="同样是降本，方式不同，结果差很远。">
         <SolCompare labels={["一刀切裁人", "三阶段降本"]} rows={[
           { k: "思路", before: "哪里贵砍哪里，按比例减人", after: "对着真实运营数据，分三段优化" },
@@ -59,8 +59,8 @@ export default function Page() {
         ]} />
       </SolSection>
 
-      <SolSection id="stages" title="源头、过程、持续，每一段都有一个 Agent 盯着成本" split
-        sub="三个阶段层层递进，分别由服务设计、运营管理、服务优化三个 Agent 承担。">
+      <SolSection id="stages" title="源头、过程、持续，每一段都有一个智能体群盯着成本" split
+        sub="三个阶段层层递进，分别由服务设计、运营管理、服务优化三个智能体群承担。">
         <SolSteps items={stages.map((s) => ({ meta: `${s.phase} · ${s.agent}`, title: s.title, body: s.body, href: s.href, linkText: `了解 ${s.agent}` }))} />
         <SolVerdict>从第一天的编制，到每个月的复盘，成本一直被盯着</SolVerdict>
       </SolSection>
@@ -94,7 +94,7 @@ export default function Page() {
         </ol>
       </SolSection>
 
-      <SolSection title="不是给你一套软件就走"
+      <SolSection title="不是给你一套软件就走" img={{ src: "/scene/pg-launch.webp", alt: "项目负责人在现场向合作工程师讲解运行看板" }}
         sub={<>这套方案以<b>「产品 + 顾问服务」</b>的形式提供，产品承载能力，顾问服务负责把它落到你的项目里。</>}>
         <SolCols items={[
           { meta: "服务设计 · 运营管理 · 服务优化", title: "产品", body: "三个阶段背后的测算、调度、结算与复盘能力，都由 FMClaw™ Agent 套件承载，可调用、可追溯。" },
@@ -105,7 +105,7 @@ export default function Page() {
       <SolSection title="这套方案，需要你有极大的决心，去推动这场变革" tone="mist" split
         sub={<>把这三个阶段真正落地，会改变你<b>原有的运营方法和组织架构</b>。它不是装一套系统那么简单：需要你有<b>极大的决心</b>，去推动这场变革。</>}>
         <SolLoop nodes={loop} current="all" />
-        <SolMore><Link href="/agents">看四 Agent 闭环总览</Link></SolMore>
+        <SolMore><Link href="/agents">看四个智能体群总览</Link></SolMore>
         <SolMore>
           不想自己扛这场变革？还有一条路：把项目整体委托给我们经营，AI 投入由我们承担，您按月拿保底、再分经营盈余，
           见 <Link href="/ai-service/delegated-operation">物业委托管理（业主保底 · 运营方担 AI 投入）</Link>

@@ -5,6 +5,7 @@ import SeoFaq from "@/components/SeoFaq";
 import "./page.css";
 import { pageMetadata } from "@/lib/pageMetadata";
 
+import Scene from "@/components/Scene";
 const SITE_URL = process.env.SITE_URL || "https://www.aipm.cn";
 
 export const metadata: Metadata = pageMetadata("/company", {
@@ -320,6 +321,7 @@ export default function Page() {
         <div className="wrap">
           <h2 className="cm-h2">自 2017 年，做同一件事</h2>
           <p className="cm-sub">自 2017 年至今，启盟科技始终专注一件事：让智能走进物业与设施管理的真实运营。这条路分为两个阶段：先在一线积累数据与工作流，再让智能体真正承担工作。</p>
+          <Scene src="/scene/city-portfolio.webp" alt="城市里多类物业项目的航拍" />
 
           <div className="cm-chron">
             <div className="cm-chron__phases" aria-hidden="true">
@@ -403,6 +405,7 @@ export default function Page() {
       <section className="cm-band mist">
         <div className="wrap">
           <h2 className="cm-h2">真正难的，不是模型</h2>
+          <Scene src="/scene/op-brief.webp" alt="项目经理在早班会上给一线人员布置工作" />
           <div className="cm-moat">
             <div className="cm-moat__say">
               <p>模型谁都能用上。但要让 AI 在你的项目里真正干活，靠的是另一层东西：物业的每一件工作里，都藏着数据、技能与工具的特定组合。</p>
@@ -427,6 +430,7 @@ export default function Page() {
         <div className="wrap">
           <h2 className="cm-h2">三种商业模式，同一套 AI 能力</h2>
           <p className="cm-sub">AI 智能体交付 · AI 物业服务 · 产业基金共建。按你的角色与目标，选最合适的一条路径。</p>
+          <Scene src="/home/deliver-managed.webp" alt="运营人员在多屏工作台前查看项目运行" />
           <div className="cm-biz">
             {bizModes.map((b) => (
               <div className={`cm-biz__card is-${b.k} reveal`} key={b.k}>

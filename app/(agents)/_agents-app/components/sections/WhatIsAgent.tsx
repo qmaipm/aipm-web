@@ -8,6 +8,7 @@
 // 数字纪律：§4a 白名单与已发布案例页。
 import Link from "next/link";
 
+import Scene from "@/components/Scene";
 const Arrow = () => (
   <svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true">
     <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" />
@@ -106,6 +107,7 @@ export function FourQuestions() {
           <h2 className="section-title">关于物业智能体，先回答四个问题</h2>
           <p className="section-desc">搜「物业智能体」进来的人最常问的，先在这里给出结论；完整回答见页尾 FAQ。</p>
         </div>
+        <Scene src="/scene/home-pm.webp" alt="项目经理走过写字楼大堂，在平板上查看工作进度" />
         <div className="mx-grid-4 wa-q-grid">
           {QA.map((c) => (
             <article className="product-card wa-q-card" key={c.q}>

@@ -3,6 +3,7 @@
 // product-card + card-glow（渐变发光边框） + card-icon（渐变底图标） + card-arrow（悬停圆形箭头）
 import Link from "next/link";
 
+import Scene from "@/components/Scene";
 /* ---------- 内联 SVG 图标（与老代码 AgentShowcase 同语言：1.5 描边线性图标） ---------- */
 const Icons = {
   ontology: (
@@ -179,6 +180,7 @@ export default function MatrixSections() {
               <Link href="/products/fmclaw" className="mx-inline-link">FMClaw 平台</Link>之上。
             </p>
           </div>
+          <Scene src="/products/fmclaw/v2/console-workbench.webp" alt="FMClaw 控制台工作台界面" variant="ui" />
           <div className="mx-grid-4">
             {PLATFORM.map((p) => (
               <Link className="product-card mx-card-link" href={p.href} key={p.href}>
@@ -201,6 +203,7 @@ export default function MatrixSections() {
             <span className="section-eyebrow">START WITH A REAL OPERATION</span>
             <h2 className="section-title">从一个具体问题开始，而不是从一套抽象平台开始</h2>
           </div>
+          <Scene src="/scene/pg-workshop.webp" alt="几位业务人员围坐在一起，用电脑搭建自己的 AI 工作流" />
           <div className="mx-grid-3">
             {SCENARIOS.map((s) => (
               <Link className="product-card mx-card-link" href={s.href} key={s.href}>

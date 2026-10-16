@@ -219,7 +219,7 @@ export default function Page() {
         </div>
       </section>
 
-      <SolSection title="因为换的是人，不是方式" split
+      <SolSection title="因为换的是人，不是方式" img={{ src: "/scene/ais-client.webp", alt: "企业设施负责人在办公区接电话，神情疲惫" }} split
         sub="对服务不满意，最常见的动作是换一家物业公司。但如果考核还是靠印象、过程还是看不见、响应还是等投诉，几个月后，老问题会原样回来。真正该换的，是这五件事的做法。">
         <SolCompare labels={["换一批人", "换一种方式"]} rows={compare.map((r) => ({ k: r.k, before: r.old, after: r.now }))} />
       </SolSection>
@@ -281,7 +281,7 @@ export default function Page() {
         </ol>
       </SolSection>
 
-      <SolSection title="这几个空格，留给你来填" split
+      <SolSection title="这几个空格，留给你来填" img={{ src: "/scene/owner-meet.webp", alt: "业主与物业经理在会议室交流项目需求" }} split
         sub={<>承诺谁都会说，区别在敢不敢签。我们把服务指标直接写进合同。数字由你来约定，我们接受 <b>100% 量化考核</b>：做得到按数据结算，做不到按合同处罚。</>}>
         <div className="ais-pact" aria-label="合同考核约定示例">
           <div className="ais-pact__head">
@@ -314,7 +314,7 @@ export default function Page() {
         <SolMore><Link href="/company/aipm-validation">看爱物管自己的故事</Link> · <Link href="/company">关于启盟科技</Link></SolMore>
       </SolSection>
 
-      <SolSection title="按你的情况，选一种开始">
+      <SolSection title="按你的情况，选一种开始" img={{ src: "/scene/handshake.webp", alt: "业主与运营方在会议室握手达成合作" }}>
         <ul className="ais-modes">
           <li>
             <span className="spt-meta">全委服务</span>

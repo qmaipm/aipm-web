@@ -23,10 +23,10 @@ export const MENU: MenuItem[] = [
         heading: "FMClaw™ 智能体平台",
         items: [
           { label: "AI 物业经理 · FMClaw™", href: "/products/fmclaw", small: "让项目的管理工作自己运转" },
-          { label: "行业数据本体", href: "/products/fmclaw/ontology", small: "统一业务对象、指标口径与数据权限" },
-          { label: "工作流引擎", href: "/products/fmclaw/workflow-engine", small: "让业务流程稳定、可复制地运行" },
-          { label: "工具箱", href: "/products/fmclaw/connectors", small: "把在用的软件接为智能体可调用的工具" },
-          { label: "控制台", href: "/products/fmclaw/agent-runtime", small: "智能体的身份、权限、运行和记录" },
+          { label: "项目大脑", href: "/products/fmclaw/ontology", small: "行业数据本体 · 国内首个物业行业模型" },
+          { label: "工作流引擎", href: "/products/fmclaw/workflow-engine", small: "让项目管理工作自动跑完" },
+          { label: "工具箱", href: "/products/fmclaw/connectors", small: "物业管理系统全套内置，按模块开通" },
+          { label: "控制台", href: "/products/fmclaw/agent-runtime", small: "权限、运行、审计与人工接管" },
         ],
       },
       {
@@ -52,7 +52,7 @@ export const MENU: MenuItem[] = [
     groups: [
       {
         items: [
-          { label: "物业管理智能体矩阵（总览）", href: "/agents", small: "四个智能体，覆盖从服务设计到持续优化的完整管理过程" },
+          { label: "物业管理智能体矩阵（总览）", href: "/agents", small: "四个智能体群，从服务设计、运营管理、质量评估到服务优化" },
         ],
       },
       {
@@ -66,12 +66,12 @@ export const MENU: MenuItem[] = [
         ],
       },
       {
-        heading: "四个行业智能体",
+        heading: "四个智能体群",
         items: [
-          { label: "服务设计智能体", href: "/solutions/service-design" },
-          { label: "运营管理智能体", href: "/solutions/operations" },
-          { label: "质量评估智能体", href: "/solutions/assessment" },
-          { label: "服务优化智能体", href: "/solutions/optimization" },
+          { label: "服务设计智能体群", href: "/solutions/service-design", small: "服务标准 · 人员编制 · 项目预算" },
+          { label: "运营管理智能体群", href: "/solutions/operations", small: "现场感知 · 审批 · 调度派单" },
+          { label: "质量评估智能体群", href: "/solutions/assessment", small: "保洁质检 · 拍照抄表 · 隐患识别" },
+          { label: "服务优化智能体群", href: "/solutions/optimization", small: "报告 · 复盘 · 结算" },
         ],
       },
       {
@@ -174,7 +174,7 @@ export const FOOTER_COLS: { title: string; links: DropItem[] }[] = [
     title: "产品",
     links: [
       { label: "AI 物业经理 FMClaw™", href: "/products/fmclaw" },
-      { label: "行业数据本体", href: "/products/fmclaw/ontology" },
+      { label: "项目大脑", href: "/products/fmclaw/ontology" },
       { label: "工作流引擎", href: "/products/fmclaw/workflow-engine" },
       { label: "工具箱", href: "/products/fmclaw/connectors" },
       { label: "控制台", href: "/products/fmclaw/agent-runtime" },
@@ -215,10 +215,10 @@ export const FOOTER_COLS: { title: string; links: DropItem[] }[] = [
     title: "智能体",
     links: [
       { label: "物业管理智能体矩阵", href: "/agents" },
-      { label: "服务设计智能体", href: "/solutions/service-design" },
-      { label: "运营管理智能体", href: "/solutions/operations" },
-      { label: "质量评估智能体", href: "/solutions/assessment" },
-      { label: "服务优化智能体", href: "/solutions/optimization" },
+      { label: "服务设计智能体群", href: "/solutions/service-design", small: "服务标准 · 人员编制 · 项目预算" },
+      { label: "运营管理智能体群", href: "/solutions/operations", small: "现场感知 · 审批 · 调度派单" },
+      { label: "质量评估智能体群", href: "/solutions/assessment", small: "保洁质检 · 拍照抄表 · 隐患识别" },
+      { label: "服务优化智能体群", href: "/solutions/optimization", small: "报告 · 复盘 · 结算" },
       { label: "客户案例", href: "/cases" },
     ],
   },

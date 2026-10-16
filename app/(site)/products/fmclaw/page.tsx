@@ -80,7 +80,7 @@ const AUTOS = [
 /* ② 品类对照（不点名竞品） */
 const DIFF = [
   { k: "谁先动", a: "人录入，人查看", b: "人提问，人发起", c: "它自己发起，按规则持续推进" },
-  { k: "懂不懂物业", a: "记录字段，不理解业务", b: "通用能力，要自己教", c: "内置行业数据本体与 114 条工作流" },
+  { k: "懂不懂物业", a: "记录字段，不理解业务", b: "通用能力，要自己教", c: "自研行业模型与项目大脑，114 条工作流" },
   { k: "能不能干完", a: "出报表，执行靠人", b: "给建议，或完成一次任务", c: "调用工具执行，结果写回现有系统" },
   { k: "管不管得住", a: "按菜单分权限", b: "靠使用者自己把关", c: "项目隔离、授权执行、关键节点人确认" },
 ];
@@ -101,18 +101,18 @@ const SENSE = [
     t: "理解业务",
     d: (
       <>
-        行业数据本体把项目、空间、设备、工单、合同统一成业务对象和指标口径。管理者一句话就能
+        项目大脑把项目、空间、设备、工单、合同统一成业务事实，由国内首个物业设施管理行业模型做专业判断。管理者一句话就能
         <Link href="/solutions/ask-data">智能问数</Link>，答案追得到来源。
       </>
     ),
     href: "/products/fmclaw/ontology",
-    link: "行业数据本体",
+    link: "项目大脑与行业模型",
   },
   {
     img: "/products/fmclaw/v2/photo-act.webp",
     alt: "明亮的写字楼大堂里，清洁机器人在作业，工程人员走向电梯",
     t: "调动工具",
-    d: "工具箱把在用的 ERP、工单、钉钉、飞书、企业微信、IoT 平台与机器人，接成智能体可调用的工具。",
+    d: "工具箱内置收费、工单、巡检、计薪等物业管理系统，在用的 ERP、钉钉、飞书、企业微信与机器人也原样接入。",
     href: "/products/fmclaw/connectors",
     link: "工具箱",
   },
@@ -120,16 +120,16 @@ const SENSE = [
 
 /* ④ 三句边界 */
 const BOUNDS = [
-  { k: "数据本体管看什么", d: "项目之间相互隔离，数据按岗位授权，超出范围的数据读不到。", href: "/products/fmclaw/ontology" },
+  { k: "项目大脑管看什么", d: "项目之间相互隔离，数据按岗位授权，超出范围的数据读不到。", href: "/products/fmclaw/ontology" },
   { k: "工具箱管做什么", d: "只调用企业授权的系统，敏感动作先进审批，权限可以随时收回。", href: "/products/fmclaw/connectors" },
   { k: "控制台管怎么做", d: "每个智能体在做什么、到了哪一步、是否在等人确认，都看得到；可以暂停、驳回或接管。", href: "/products/fmclaw/agent-runtime" },
 ];
 
 /* ⑤ 三个案例，各一个大数字（均为已发布案例口径） */
 const CASES = [
-  { v: "35% → 98%", l: "运行班组巡检达标率", who: "头部互联网大厂总部 · 设施设备巡检", href: "/cases/fmclaw-equipment-inspection" },
-  { v: "500+", l: "个项目每天自动收到运营报告，每份约 3 分钟", who: "百强物业集团 · 运营报告", href: "/cases/property-group-auto-operation-report" },
-  { v: "76%", l: "管理环节自动运转，项目扭亏为盈", who: "华南 6 万㎡ 商业综合体 · 全项目运营", href: "/cases/south-china-mixed-use-6-to-1" },
+  { v: "35% → 98%", l: "运行班组巡检达标率", who: "头部互联网大厂总部 · 设施设备巡检", href: "/cases/fmclaw-equipment-inspection", img: "/cases/cover-inspection.png" },
+  { v: "500+", l: "个项目每天自动收到运营报告，每份约 3 分钟", who: "百强物业集团 · 运营报告", href: "/cases/property-group-auto-operation-report", img: "/cases/cover-auto-report.png" },
+  { v: "76%", l: "管理环节自动运转，项目扭亏为盈", who: "华南 6 万㎡ 商业综合体 · 全项目运营", href: "/cases/south-china-mixed-use-6-to-1", img: "/cases/cover-mixed-use.png" },
 ];
 
 const FAQ = [
@@ -147,7 +147,7 @@ const FAQ = [
   },
   {
     q: "它和通用 AI 智能体平台有什么不同？",
-    a: "通用平台提供模型、智能体和工具的通用能力，适合帮一个人完成一次任务。AI 物业经理在此之上提供物业与设施管理的行业数据本体、统一指标、114 条行业工作流、行业工具和项目级运行治理，目标是替一个组织把管理工作长期、稳定地干下去。",
+    a: "通用平台提供模型、智能体和工具的通用能力，适合帮一个人完成一次任务。AI 物业经理在此之上提供项目大脑（行业数据本体）、自研的物业设施管理行业模型、统一指标、114 条行业工作流、行业工具和项目级运行治理，目标是替一个组织把管理工作长期、稳定地干下去。",
   },
   {
     q: "能不能接现有系统？需要替换钉钉、飞书或企业微信吗？",
@@ -250,21 +250,23 @@ export default function Page() {
           title="不一样在哪：它不是又一套软件"
           sub="同样叫「物业 AI」，背后是三类完全不同的东西。"
         >
-          <div className="fmv-diff" role="table" aria-label="传统物业软件、通用智能体平台与 AI 物业经理的对照">
-            <div className="fmv-diff__row is-head" role="row">
-              <span role="columnheader" />
-              <span role="columnheader">传统物业软件</span>
-              <span role="columnheader">通用智能体平台</span>
-              <span role="columnheader">AI 物业经理</span>
-            </div>
-            {DIFF.map((r) => (
-              <div className="fmv-diff__row" role="row" key={r.k}>
-                <span className="k" role="rowheader">{r.k}</span>
-                <span className="a" role="cell" data-l="传统物业软件">{r.a}</span>
-                <span className="b" role="cell" data-l="通用智能体平台">{r.b}</span>
-                <span className="c" role="cell" data-l="AI 物业经理">{r.c}</span>
-              </div>
-            ))}
+          {/* 2026-10-16：三张产品卡，AI 物业经理为蓝色实底卡，置于最前；手机端横滑 */}
+          <div className="fmv-vs" role="list" aria-label="传统物业软件、通用智能体平台与 AI 物业经理的对照">
+            <article className="fmv-vs__card is-us" role="listitem">
+              <span className="fmv-vs__tag">AI 物业经理</span>
+              <h3>替组织把管理工作长期干下去</h3>
+              <dl>{DIFF.map((r) => (<div key={r.k}><dt>{r.k}</dt><dd>{r.c}</dd></div>))}</dl>
+            </article>
+            <article className="fmv-vs__card" role="listitem">
+              <span className="fmv-vs__tag">通用智能体平台</span>
+              <h3>帮一个人完成一次任务</h3>
+              <dl>{DIFF.map((r) => (<div key={r.k}><dt>{r.k}</dt><dd>{r.b}</dd></div>))}</dl>
+            </article>
+            <article className="fmv-vs__card" role="listitem">
+              <span className="fmv-vs__tag">传统物业软件</span>
+              <h3>记录工作，执行靠人</h3>
+              <dl>{DIFF.map((r) => (<div key={r.k}><dt>{r.k}</dt><dd>{r.a}</dd></div>))}</dl>
+            </article>
           </div>
           <SolVerdict>软件记录工作，通用平台帮人完成一次任务；AI 物业经理替组织把管理工作长期干下去。</SolVerdict>
           <SolMore>
@@ -350,6 +352,7 @@ export default function Page() {
             {CASES.map((c) => (
               <li key={c.href}>
                 <Link href={c.href}>
+                  <img className="fmv-cases__i" src={c.img} alt="" loading="lazy" width={1264} height={711} />
                   <span className="fmv-cases__v">{c.v}</span>
                   <span className="fmv-cases__l">{c.l}</span>
                   <span className="fmv-cases__w">{c.who}</span>
@@ -362,7 +365,7 @@ export default function Page() {
         </SolSection>
 
         {/* ===== ⑥ 怎么开始 ===== */}
-        <SolSection id="start" title="怎么开始：从一个真实问题开始" sub="三条路，选一条最接近你现在的。">
+        <SolSection id="start" title="怎么开始：从一个真实问题开始" img={{ src: "/scene/pg-workshop.webp", alt: "几位业务人员围坐在一起，用电脑搭建自己的 AI 工作流" }} sub="三条路，选一条最接近你现在的。">
           <ol className="fmv-paths">
             <li>
               <span className="spt-meta">个人</span>

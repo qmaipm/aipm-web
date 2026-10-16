@@ -55,7 +55,7 @@ export default function AskDataPage() {
         image={{ src: "/solutions/ask-data-hero.jpg", alt: "物业集团管理者在办公室用手机提问查数（场景示意）" }}
       />
 
-      <SolSection id="conflicts" title="问数难，难在「数」，不在「问」" tone="mist" split
+      <SolSection id="conflicts" title="问数难，难在「数」，不在「问」" img={{ src: "/scene/exec-tablet.webp", alt: "集团高管在办公室用平板查看经营数据" }} tone="mist" split
         sub={<>把一句话翻译成查询，今天的大模型已经做得很好。物业集团真正卡住的，是下面这三种<b>每家都会遇到的冲突</b>。</>}>
         <SolSteps items={conflicts} />
         <SolVerdict>问数答不准，大多不是模型的问题，是口径没说清、数据没接全</SolVerdict>
@@ -86,7 +86,7 @@ export default function AskDataPage() {
         <SolSteps items={answer} />
       </SolSection>
 
-      <SolSection title="在一家百强物业集团，问数是报告之后长出来的" tone="mist" split
+      <SolSection title="在一家百强物业集团，问数是报告之后长出来的" img={{ src: "/scene/team-review.webp", alt: "三位物业管理人员一起审阅电脑上的报告" }} tone="mist" split
         sub={<>这家集团最初要的是 500 多个项目每天自动送达的运营报告。数据底座扎实之后，领导开始在对话框里直接问：某个项目上月能耗怎么样、哪些项目工单异常。<b>智能问数成了他们最常用的能力</b>，虽然它当初不在需求里。</>}>
         <SolNums
           items={[

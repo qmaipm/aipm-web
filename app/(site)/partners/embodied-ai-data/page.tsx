@@ -6,6 +6,7 @@ import "./page.css";
 import { pageMetadata } from "@/lib/pageMetadata";
 import SeoFaq from "@/components/SeoFaq";
 
+import Scene from "@/components/Scene";
 const SITE_URL = process.env.SITE_URL || "https://www.aipm.cn";
 
 export const metadata: Metadata = pageMetadata("/partners/embodied-ai-data", {
@@ -267,6 +268,7 @@ export default function Page() {
           <p className="ea-sub">
             这类数据的买方不只是机器人公司。训练世界模型的团队在找带环境语义的真实世界视频，数据平台在找可规模化的场景方，<b>三类需求，我们都接得住</b>。
           </p>
+          <Scene src="/scene/robot-calib.webp" alt="工程师在办公走廊里调试服务机器人" />
           <div className="ea-aud">
             {audiences.map((a) => (
               <div className="ea-aud-i" key={a.k}>
@@ -287,6 +289,7 @@ export default function Page() {
           <p className="ea-sub">
             启盟科技做的是<Link href="/insights/what-is-physical-ai">物理 AI</Link>：用 <Link href="/products/iot">IoT 感知</Link>、<Link href="/products/fmclaw">FMClaw™ 平台</Link>与<Link href="/products/robots">机器人装备</Link>接管物业与设施管理的日常运营。这套一线网络，正好就是具身智能需要的数据基础设施。
           </p>
+          <Scene src="/scene/ea-headcam.webp" alt="佩戴头戴相机的保洁员在擦拭洗手台" />
           <div className="ea-supplies">
             {supplies.map((s) => (
               <div className="ea-supply" key={s.h}>
@@ -310,6 +313,7 @@ export default function Page() {
         <div className="wrap">
           <span className="ea-eyebrow">合作方式</span>
           <h2 className="ea-h2">从数据采集到机器人上岗，四种合作</h2>
+          <Scene src="/scene/rob-mall.webp" alt="清洁机器人在商场中庭作业" />
           <div className="ea-offers">
             {offers.map((o) => (
               <div className="ea-offer" key={o.no}>
@@ -330,6 +334,7 @@ export default function Page() {
         <div className="wrap">
           <span className="ea-eyebrow">成本结构</span>
           <h2 className="ea-h2">不是更便宜的采集员，<br />是完全不同的成本结构</h2>
+          <Scene src="/scene/robot-cleaner.webp" alt="清洁机器人与保洁员在办公走廊里同时作业" />
           <p className="ea-sub">
             专职数采要为数据单独付出场地、布景和人工；而在我们这里，<b>工作本来就在发生，采集是作业的副产品</b>。这是「成本最低的数据合作方」这句话的真正含义。
           </p>

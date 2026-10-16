@@ -790,3 +790,34 @@ main h1 .grad, main h1 .vi-text{color:inherit!important;-webkit-text-fill-color:
 .loopclip video,.loopclip__still{display:block;width:100%;height:100%;object-fit:cover}
 .loopclip__still{display:none}
 @media (prefers-reduced-motion: reduce){.loopclip video{display:none}.loopclip__still{display:block}}
+
+/* ---------- 2026-10-16 FAQ 折叠式 ---------- */
+.seo-faq__list{border-top:none;display:flex;flex-direction:column;gap:10px}
+.seo-faq__item{padding:0;border:1px solid #E3E8E6;border-bottom:1px solid #E3E8E6;border-radius:14px;background:#fff;transition:border-color .2s}
+.seo-faq__item[open]{border-color:#C9D7EE;background:#FAFCFF}
+.seo-faq__item summary{list-style:none;cursor:pointer;display:flex;align-items:flex-start;justify-content:space-between;gap:16px;padding:20px 22px;font-size:16.5px;font-weight:700;line-height:1.5;color:#14201C}
+.seo-faq__item summary::-webkit-details-marker{display:none}
+.seo-faq__item summary::after{content:"";flex:0 0 auto;width:22px;height:22px;margin-top:1px;border-radius:50%;background:#EEF4FF url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath d='M4 6l4 4 4-4' fill='none' stroke='%230058CC' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center/14px no-repeat;transition:transform .2s}
+.seo-faq__item[open] summary::after{transform:rotate(180deg)}
+.seo-faq__item summary:hover{color:#0058CC}
+.seo-faq__item>p{margin:0;padding:0 22px 22px;font-size:15.5px;line-height:1.8;color:#46524D}
+@media(max-width:600px){.seo-faq__item summary{padding:18px;font-size:15.5px}.seo-faq__item>p{padding:0 18px 18px;font-size:15px}}
+
+/* ---------- 场景配图（components/Scene.tsx，2026-10-16） ---------- */
+.scene{margin:36px 0 40px;position:relative;z-index:1}
+.scene img{display:block;width:100%;object-fit:cover;border-radius:14px;background:#F1F4F8}
+.scene--wide img{aspect-ratio:21/8}
+.scene--hero{margin:48px 0 0}
+.scene--hero img{aspect-ratio:21/8}
+.scene--half{max-width:720px}
+.scene--half img{aspect-ratio:3/2}
+.scene figcaption{margin-top:10px;font-size:12.5px;color:#5F6A65}
+@media(max-width:900px){
+  .scene{margin:22px 0 26px}
+  .scene--wide img,.scene--hero img{aspect-ratio:3/2}
+  .scene--hero{margin-top:32px}
+}
+.scene--ui{max-width:1080px;margin-left:auto;margin-right:auto}
+.scene--ui img{aspect-ratio:auto;height:auto;object-fit:contain;border:1px solid #E3E8E6;background:#fff}
+/* 手机端：收尾标题里过长的不断行片段允许折行，避免 390px 横向溢出 */
+@media(max-width:480px){.endcta h2 .nb{display:inline;word-break:normal}.endcta h2{word-break:normal}}

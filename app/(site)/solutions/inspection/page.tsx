@@ -29,7 +29,7 @@ export default function Page() {
         image={{ src: "/ai-service/facility-hero.jpg", alt: "工程人员在配电房用手机拍摄仪表读数，由 AI 识别（场景示意）" }}
       />
 
-      <SolSection title="从“巡没巡看不准”，到“数据真、能预防”" tone="mist" split
+      <SolSection title="从“巡没巡看不准”，到“数据真、能预防”" img={{ src: "/scene/fc-cabinet.webp", alt: "设备工程师打开配电柜检查断路器" }} tone="mist" split
         sub="过去靠纸质巡检表或扫二维码，现在由 IoT 验证到场、AI 识别读数。">
         <SolCompare rows={[
           { k: "人到没到", before: "纸质巡检表或扫二维码，没法保证每次巡检员工都在现场检查。", after: "IOT 验证人确实到场才能填单。" },

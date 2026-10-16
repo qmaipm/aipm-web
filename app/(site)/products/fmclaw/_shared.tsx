@@ -195,7 +195,7 @@ export const FMCLAW_APP_LD = {
   sameAs: [FMCLAW_URL],
   installUrl: FMCLAW_URL,
   description:
-    "AI 物业经理 FMClaw™ 是面向物业与设施管理的生产级 AI 智能体平台。它的核心是项目大脑：以行业数据本体为底座，自动感知现场、总结问题、调度人和工具，并从结果中持续迭代；关键节点由授权人员确认，全过程可追溯。",
+    "AI 物业经理 FMClaw™ 是面向物业与设施管理的生产级 AI 智能体平台。它的核心是项目大脑（行业数据本体）与启盟自研的国内首个物业设施管理行业模型：自动感知现场、总结问题、调度人和工具，并从结果中持续迭代；关键节点由授权人员确认，全过程可追溯。",
   offers: [
     { "@type": "Offer", name: "个人免费版", price: "0", priceCurrency: "CNY", url: `${SITE_URL}/pricing` },
     { "@type": "Offer", name: "个人专业版", price: "2980", priceCurrency: "CNY", url: `${SITE_URL}/pricing` },

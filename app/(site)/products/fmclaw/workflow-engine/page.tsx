@@ -1,476 +1,187 @@
 import type { Metadata } from "next";
-import type { CSSProperties } from "react";
 import Link from "next/link";
 import JsonLd from "@/components/JsonLd";
+import SeoFaq from "@/components/SeoFaq";
 import { pageMetadata } from "@/lib/pageMetadata";
-import { FmBreadcrumb, FmFaq, techArticleLd, Arrow, IC, LinkCards, ScenarioCards } from "../_shared";
-import "../capability.css";
+import { techArticleLd } from "../_shared";
+import { BrainMap, FmFoot, MediaRow, PhotoGrid, WideShot } from "../_brain";
+import {
+  SolPage, SolHero, SolDefine, SolSection, SolCols, SolCompare, SolFigure, SolTable, SolCases, SolVerdict, SolMore, SolEnd,
+} from "../../../solutions/_tpl/Sol";
+
+// 2026-10-16 改版：讲清「生产级」——不是聊天机器人，工作流驱动项目现场管理自动化，实现管理替代。
+// 公开尺度：只写 18 / 114 / 87 / 76% 与三大类；不展开各业务域条数、岗位名称、Skill 名称与节点构成。
+const PATH = "/products/fmclaw/workflow-engine";
 
 export const dynamic = "force-dynamic";
 
-export const metadata: Metadata = pageMetadata("/products/fmclaw/workflow-engine", {
-  title: "智能体工作流引擎｜FMClaw™ 让智能体从会聊天到会干活",
+export const metadata: Metadata = pageMetadata(PATH, {
+  title: "物业管理自动化：工作流引擎让项目管理工作自动跑完｜FMClaw™",
   description:
-    "没有工作流引擎，智能体只是会聊天的顾问；接上它，才是会干活的员工。FMClaw 智能体工作流引擎：114 条行业工作流（87 条在线运行）覆盖日报周报、收费对账、巡检派单，自然语言生成，关键节点人工确认，一个项目跑通后复制到更多项目。",
+    "AI 物业经理 FMClaw™ 不是聊天机器人：工作流引擎把物业管理要求变成自动推进的任务，18 条主工作流、114 条子工作流、87 条在线运行，覆盖现场服务、财务供应链与项目治理。水电费审批材料准备从 5—7 天缩短到约 30 分钟，关键决策仍由人确认。",
 });
 
 const TECH_LD = techArticleLd({
-  path: "/products/fmclaw/workflow-engine",
-  headline: "智能体工作流引擎：让智能体从会聊天到会干活",
+  path: PATH,
+  headline: "工作流引擎：生产级 AI 物业经理如何把管理工作自动跑完",
   description:
-    "聊天式 AI 停在建议上；工作流引擎决定一项工作什么时候开始、数据从哪取、哪一步要人确认、结果进入哪个系统。日报周报、收费对账、巡检派单，变成由 AI 按步骤运行的流程。",
+    "聊天式 AI 停在回答问题；工作流引擎决定一项管理工作什么时候开始、用什么数据、调用哪个工具、哪一步交给人确认、结果写回哪里，让智能体持续推进项目现场管理。",
 });
 
-const FAQ = [
-  {
-    q: "智能体和工作流有什么区别？为什么不能让大模型直接干？",
-    a: "大模型能理解和生成，但它不会自己开始、不会自己取数，结果也不会自己进系统。工作流引擎把数据和工具绑定到具体的任务节点上，AI 才从回答问题变成完成工作。",
-  },
-  {
-    q: "AI 工作流会不会出错？出了错谁负责？",
-    a: "人负责。关键节点设人工确认，AI 停在待确认，人核对后才生效；每一步都有记录，可以随时查到是谁、在哪一步、批准了什么。",
-  },
-  {
-    q: "日报周报这类流程，AI 能做到什么程度？",
-    a: "从各业务系统自动取数、按统一口径汇总、生成结构一致的日报周报，人只看结果和异常。这是 114 条工作流里使用最多的一类。",
-  },
-  {
-    q: "为什么一个 Demo 不能直接进入生产？",
-    a: "Demo 展示一次成功；生产要求每天都以同样的口径运行。触发、取数、判断、审批、异常处理和执行记录，是工作流引擎补上的部分。",
-  },
-  {
-    q: "业务人员可以自己搭工作流吗？",
-    a: "可以。用自然语言描述要求，引擎生成可检查、可调整的流程，经检查与试运行后进入日常使用。",
-  },
-  {
-    q: "什么是 multi-agent 协同？",
-    a: "一条流程里可以有多个岗位智能体分工协作，像一个班组：各管一段，交出一份成果。",
-  },
-];
-
-/* 预制工作流按业务域归组（10 条，来自真实项目） */
-const WF_GROUPS = [
-  {
-    no: "GROUP 01",
-    t: "日常运营",
-    goal: "每天都要出、最耗人的活，用得最多的一组。",
-    items: [
-      { b: "运营日报与周报", p: "各系统自动取数，产出结构一致的日报周报。" },
-      { b: "现场巡检", p: "计划、执行、复核一条线。" },
-      { b: "投诉报事", p: "识别、成单、派发、跟踪。" },
-      { b: "智能派单", p: "按技能、位置与负载匹配工单。" },
-    ],
-  },
-  {
-    no: "GROUP 02",
-    t: "收费与对账",
-    goal: "钱的事，口径必须一致，差异必须有人确认。",
-    items: [
-      { b: "水电费核算", p: "抄表、分摊、账单、审批。" },
-      { b: "供应商账单", p: "合同、单据、金额逐项核对。" },
-      { b: "服务报价", p: "按标准与面积测算，生成可复核的报价。" },
-    ],
-  },
-  {
-    no: "GROUP 03",
-    t: "人与经营",
-    goal: "月度要看的数，按统一口径归集。",
-    items: [
-      { b: "员工绩效", p: "按统一口径归集与核算。" },
-      { b: "薪酬核算", p: "出勤、绩效与规则自动核算。" },
-      { b: "能耗分析", p: "逐项目比对，标出异常。" },
-    ],
-  },
-];
-
-/* 一条流程怎么跑（人工节点高亮） */
-const FLOW = [
-  { n: "01", t: "触发", who: "引擎", d: "定时、事件、消息或人工发起。" },
-  { n: "02", t: "取数与判断", who: "智能体", d: "按本体口径取数，按规则判断。" },
-  { n: "03", t: "生成", who: "智能体", d: "产出报告、账单、工单或建议。" },
-  { n: "04", t: "审批", who: "人", human: true, d: "人核对事实与建议，做出决定。" },
-  { n: "05", t: "执行与记录", who: "引擎", d: "决定生效，每一步有记录。" },
-];
-
-/* 顾问与员工：三个来自客户交流的现场 */
-const PAINS = [
-  {
-    q: "问它什么都会答，可活还是人在干",
-    t: "只会回答",
-    d: "聊天式 AI 停在建议上：它说得都对，但日报还是人写，账单还是人核，工单还是人派。",
-  },
-  {
-    q: "每天的日报周报，还是人在各个系统里扒数",
-    t: "重复的活最耗人",
-    d: "日报、周报、月度经营汇总，数据分散在多个系统里，每天人工汇总一遍，格式还不一致。",
-  },
-  {
-    q: "演示的时候很惊艳，回到项目上没人用",
-    t: "落不了地",
-    d: "Demo 靠人喂数据、人来触发；生产要求它自己开始、自己取数、错了有人管。差的正是这一层。",
-  },
-];
-
-const CMP_LABEL = { "--cmp-old-label": '"聊天式 AI · "' } as CSSProperties;
-
-const Check = () => (
-  <svg width="12" height="12" viewBox="0 0 16 16" aria-hidden="true">
-    <path d="M3 8.5l3.2 3.2L13 4.5" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-  </svg>
-);
-
-export default function Page() {
+export default function WorkflowEnginePage() {
   return (
-    <main className="fmc">
+    <SolPage>
       <JsonLd data={TECH_LD} />
-      <div className="wrap">
-        <FmBreadcrumb
-          trail={[
-            { name: "AI 物业经理 FMClaw™", href: "/products/fmclaw" },
-            { name: "智能体工作流引擎", href: "/products/fmclaw/workflow-engine" },
-          ]}
-        />
-      </div>
 
-      {/* ===== HERO ===== */}
-      <header className="fmc-hero">
-        <span className="fmc-grid" aria-hidden="true" />
-        <div className="wrap">
-          <div className="fmc-hero-cols">
-            <div>
-              <p className="fmc-kicker">L2 · Agentic Workflow Engine</p>
-              <h1>智能体不该只会聊天，<span className="grad">它该去干活</span></h1>
-              <p className="fmc-def">
-                没有工作流引擎，智能体只是会聊天的顾问；
-                接上它，才是<b>会干活的员工</b>。
-              </p>
-            </div>
-            <div className="fmc-hero-art">
-              <img
-                src="/products/fmclaw/workflow-engine-hero.webp"
-                alt="智能体工作流引擎插画：左侧闲置的聊天窗口，经过流水线式工作流节点产出报告与账单，人在确认节点做决定"
-                width={1200}
-                height={896}
-              />
-            </div>
-          </div>
+      <SolHero
+        crumbRoot={{ href: "/products/fmclaw", label: "AI 物业经理 FMClaw™" }}
+        crumb="工作流引擎"
+        title={["不是聊天，", "是把活干完"]}
+        lead={<>生产级的 AI 物业经理，靠的是<b>工作流自动化</b>。FMClaw™ 工作流引擎把管理要求变成持续推进的任务：数据自动进来，任务自动衔接，关键节点交给人确认，<b>项目现场管理自己运转</b>。</>}
+        cta={{ href: `/contact?intent=demo&from=${PATH}`, label: "预约演示" }}
+        secondary={{ href: "#example", label: "看一个完整例子" }}
+        proof={["18 条主工作流", "114 条子工作流", "87 条在线运行"]}
+        media={{
+          node: <img className="bm-shot" src="/products/fmclaw/workflow-editor.webp" alt="FMClaw™ 工作流编辑器真实界面：员工薪酬工作流从数据接入、核算到审批的节点" width={2400} height={1185} />,
+          caption: "真实产品界面 · 工作流编辑器",
+        }}
+      />
+
+      <SolDefine
+        term="工作流引擎是什么："
+        foot={<>智能体推进日常执行与结果核验；关键决策、审批和异常处理，仍由人完成。</>}
+      >
+        AI 物业经理 FMClaw™ 让工作自动向前的部分。它决定一项管理工作什么时候开始、用什么数据、调用哪个工具、哪一步交给人确认、结果写回哪里。有了它，智能体不再等人提问，而是按规则把工作推进到结果。
+      </SolDefine>
+
+      <SolSection title="聊天机器人和 AI 物业经理，差在工作流" img={{ src: "/scene/home-pm.webp", alt: "项目经理一边走过大堂一边在平板上查看工作进度" }} tone="mist"
+        sub="问它什么都会答，可日报还是人写、账单还是人核、工单还是人派：这是聊天式 AI 的天花板。">
+        <SolCompare labels={["聊天机器人", "AI 物业经理"]} rows={[
+          { k: "谁先动", before: "人提问，它回答。", after: "它按规则自己发起，定时、事件、消息都能触发。" },
+          { k: "数据从哪来", before: "人把资料喂给它。", after: "自动从业务系统和现场设备取数。" },
+          { k: "做到哪一步", before: "给出建议就结束。", after: "调用工具执行，结果写回现有系统。" },
+          { k: "出了错怎么办", before: "靠使用者自己判断。", after: "关键节点停下等人确认，每一步都有记录。" },
+        ]} />
+      </SolSection>
+
+      <SolSection title="从服务规划到优化策略，一条管理链"
+        sub="工作流贯通物业项目管理的完整过程。每一段的结果，是下一段的依据。">
+        <WideShot src="/products/fmclaw/brain/team.webp" alt="项目经理在大屏前给保洁、安保、工程、客服负责人布置当天工作（场景示意）"
+          caption="工作流把每一段管理要求变成任务，派给人、机器人或系统工具，跟到结果。" />
+        <ol className="bm-chain" style={{ marginTop: 56 }}>
+          <li><b>做服务规划</b><span>按项目需求测算服务频次与人机配置</span></li>
+          <li><b>定服务标准</b><span>服务点位、标准与计划落到每一处</span></li>
+          <li><b>监督服务执行</b><span>任务派发、现场跟进与异常响应</span></li>
+          <li><b>评估服务质量</b><span>按现场记录持续评估，结果可复核</span></li>
+          <li><b>考核服务结果</b><span>按统一口径核算考核、薪资与结算</span></li>
+          <li><b>生成优化策略</b><span>找出薄弱环节，调整下一轮标准</span></li>
+        </ol>
+      </SolSection>
+
+      <SolSection title="已经在运行的工作流" tone="mist"
+        sub="主工作流贯通核心业务，子工作流可按项目需要复用。">
+        <div className="bm-stat">
+          <div><b>18</b><span>条主工作流</span></div>
+          <div><b>114</b><span>条子工作流</span></div>
+          <div><b>87</b><span>条在线运行</span></div>
+          <div><b>76%</b><span>子工作流已在线运行</span></div>
         </div>
-      </header>
-
-      {/* ===== 01 问题：顾问不是员工 ===== */}
-      <section className="fmc-sec mist">
-        <div className="wrap">
-          <p className="fmc-num">01</p>
-          <h2>你现在的 AI，是顾问，不是员工</h2>
-          <p className="fmc-p">
-            这是我们在行业客户那里听得最多的三句话。
-          </p>
-          <div className="fmo-pain">
-            {PAINS.map((p) => (
-              <div className="fmo-painc" key={p.t}>
-                <p className="fmo-pain-q"><span className="qm">「</span>{p.q}<span className="qm">」</span></p>
-                <p className="fmo-pain-t">{p.t}</p>
-                <p>{p.d}</p>
-              </div>
-            ))}
-          </div>
-          <p className="fmo-verdict">
-            差的不是模型，是把活组织起来的那一层。
-          </p>
-        </div>
-      </section>
-
-      {/* ===== 02 定义 + 对比 ===== */}
-      <section className="fmc-sec">
-        <div className="wrap">
-          <p className="fmc-num">02</p>
-          <h2>什么是智能体工作流引擎？</h2>
-          <div className="fmc-defbox">
-            <p className="fmc-deflab">DEFINITION</p>
-            <p>
-              智能体工作流引擎，是让智能体把活干起来的运行层：它决定一项工作什么时候开始（触发）、
-              数据从哪取（取数）、按什么规则判断、哪一步要人确认、结果进入哪个系统。
-              派单制度、对账流程、巡检标准，都能变成一条这样运行的流程。
-            </p>
-          </div>
-          <div className="fmo-cmp" role="table" aria-label="聊天式 AI 与工作流引擎的差别" style={CMP_LABEL}>
-            <div className="fmo-cmp-row fmo-cmp-head" role="row">
-              <div role="columnheader">同一件事</div>
-              <div role="columnheader">聊天式 AI</div>
-              <div className="now" role="columnheader">工作流引擎</div>
-            </div>
-            <div className="fmo-cmp-row" role="row">
-              <div className="fmo-cmp-k" role="cell">谁来开始</div>
-              <div className="fmo-cmp-old" role="cell">人想起来才去问</div>
-              <div className="fmo-cmp-new" role="cell"><b>定时、事件、消息自动触发</b>，该跑的时候自己跑</div>
-            </div>
-            <div className="fmo-cmp-row" role="row">
-              <div className="fmo-cmp-k" role="cell">数据从哪来</div>
-              <div className="fmo-cmp-old" role="cell">人把数据贴进对话框</div>
-              <div className="fmo-cmp-new" role="cell">按统一口径<b>从业务系统自动取数</b></div>
-            </div>
-            <div className="fmo-cmp-row" role="row">
-              <div className="fmo-cmp-k" role="cell">结果去哪</div>
-              <div className="fmo-cmp-old" role="cell">停在聊天窗口里</div>
-              <div className="fmo-cmp-new" role="cell">变成<b>报告、账单、工单</b>，进入业务系统</div>
-            </div>
-            <div className="fmo-cmp-row" role="row">
-              <div className="fmo-cmp-k" role="cell">出了错</div>
-              <div className="fmo-cmp-old" role="cell">没人知道，也没人负责</div>
-              <div className="fmo-cmp-new" role="cell">关键节点<b>人来确认</b>，每一步有记录</div>
-            </div>
-            <div className="fmo-cmp-row" role="row">
-              <div className="fmo-cmp-k" role="cell">明天还一样吗</div>
-              <div className="fmo-cmp-old" role="cell">问法不同，答案就不同</div>
-              <div className="fmo-cmp-new" role="cell">同一条流程、<b>同一个口径</b>，天天一样</div>
-            </div>
-          </div>
-          <p className="fmo-verdict">
-            把聊天变成流程，AI 才从顾问变成员工。
-          </p>
-        </div>
-      </section>
-
-      {/* ===== 03 预制工作流（按业务域归组）+ 真实界面 ===== */}
-      <section className="fmc-sec mist">
-        <div className="wrap">
-          <p className="fmc-num">03</p>
-          <h2>高频管理流程，已经预制好</h2>
-          <p className="fmc-p">
-            用得最多的是每天都要出的日报周报，其次是收费与对账。
-            每一条都可以直接启用，也可以按你的制度调整。
-          </p>
-          <figure className="fmo-console">
-            <div className="fmo-console-bar" aria-hidden="true">
-              <span className="fmo-dot" /><span className="fmo-dot" /><span className="fmo-dot" />
-              <span className="fmo-console-title">FMCLAW™ · WORKFLOW EDITOR</span>
-            </div>
-            <img
-              src="/products/fmclaw-workflow.png"
-              alt="FMClaw™ 工作流编辑器真实界面：节点式流程画布，包含触发、取数、判断与人工审批节点"
-              width={2600}
-              height={1284}
-              loading="lazy"
-            />
-            <figcaption>FMClaw™ 工作流编辑器 · 真实产品界面</figcaption>
-          </figure>
-          <div className="fmo-capgrp">
-            {WF_GROUPS.map((g) => (
-              <div className="fmo-cg" key={g.no}>
-                <div className="fmo-cg-head">
-                  <span className="fmo-cg-no">{g.no}</span>
-                  <h3>{g.t}</h3>
-                  <p className="fmo-cg-goal">{g.goal}</p>
-                </div>
-                <ul className="fmo-cg-list">
-                  {g.items.map((it) => (
-                    <li key={it.b}>
-                      <b>{it.b}</b>
-                      <p>{it.p}</p>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            ))}
-          </div>
-          <p className="fmo-verdict">
-            114 条工作流、87 条在线运行，都来自真实项目：不是模板库，是跑过的路。
-          </p>
-        </div>
-      </section>
-
-      {/* ===== 04 从一句话到一条流程 ===== */}
-      <section className="fmc-sec">
-        <div className="wrap">
-          <p className="fmc-num">04</p>
-          <h2>从一句话，到一条流程</h2>
-          <p className="fmc-p">
-            预制之外的流程，不用等 IT 排期。
-          </p>
-          <div className="fmo-lrows">
-            <div className="fmo-lrow">
-              <span className="fmo-limg">
-                <img
-                  src="/products/fmclaw/workflow-nl.webp"
-                  alt="自然语言生成工作流插画：一句话输入展开为节点式流程平台"
-                  width={1376}
-                  height={768}
-                  loading="lazy"
-                />
-              </span>
-              <div className="fmo-lbody">
-                <ul className="fmo-lsub">
-                  <li>
-                    <span className="fmo-cap-no">01</span>
-                    <div><b>自然语言生成</b><p>一句话描述要求，生成可检查的流程。</p></div>
-                  </li>
-                  <li>
-                    <span className="fmo-cap-no">02</span>
-                    <div><b>多种触发</b><p>定时、事件、消息、人工。该跑的时候自己跑。</p></div>
-                  </li>
-                </ul>
-              </div>
-            </div>
-            <div className="fmo-lrow flip">
-              <span className="fmo-limg">
-                <img
-                  src="/products/fmclaw/workflow-agents.webp"
-                  alt="Multi-agent 协同插画：多个岗位智能体沿流程轨道分工协作，输出一份成果"
-                  width={1376}
-                  height={768}
-                  loading="lazy"
-                />
-              </span>
-              <div className="fmo-lbody">
-                <ul className="fmo-lsub">
-                  <li>
-                    <span className="fmo-cap-no">03</span>
-                    <div><b>节点级配置</b><p>每个节点可配置取数、判断、生成、执行。</p></div>
-                  </li>
-                  <li>
-                    <span className="fmo-cap-no">04</span>
-                    <div><b>Multi-agent 协同</b><p>多个岗位智能体，一个班组，一份成果。</p></div>
-                  </li>
-                </ul>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* ===== 05 人在回路 ===== */}
-      <section className="fmc-sec mist">
-        <div className="wrap">
-          <p className="fmc-num">05</p>
-          <h2>每个节点，都可以设人工确认</h2>
-          <div className="fmo-howgrid">
-            <div className="fmo-howside">
-              <p className="fmo-howcase">
-                审批、异常、高风险动作：AI 停在<b>待确认</b>，等人决定。
-              </p>
-              <p className="fmo-verdict">
-                AI 做到待确认，人做最后一步。
-              </p>
-              <p className="fmo-hownote">
-                人工节点的位置与规则，按企业制度配置。
-              </p>
-            </div>
-            <div className="fmo-flow">
-              {FLOW.map((s) => (
-                <div className={`fmo-fstep${s.human ? " human" : ""}`} key={s.n}>
-                  <span className="fmo-fno">{s.n}</span>
-                  <div className="fmo-fbody">
-                    <div className="fmo-fhead">
-                      <h3>{s.t}</h3>
-                      <span className="fmo-fwho">{s.who}</span>
-                    </div>
-                    <p>{s.d}</p>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* ===== 06 集团复制（暗场） ===== */}
-      <section className="fmc-sec dark">
-        <div className="wrap">
-          <p className="fmc-num">06</p>
-          <h2>一个项目跑通，复制到全集团</h2>
-          <p className="fmc-p">
-            项目间数据隔离，口径统一。
-          </p>
-          <div className="fmo-lrows">
-            <div className="fmo-lrow">
-              <span className="fmo-limg">
-                <img
-                  src="/products/fmclaw/workflow-replicate.webp"
-                  alt="集团复制插画：中心的主工作流向多个项目平台辐射复制"
-                  width={1376}
-                  height={768}
-                  loading="lazy"
-                />
-              </span>
-              <div className="fmo-lbody">
-                <ul className="fmo-checks" style={{ marginTop: 0 }}>
-                  <li>
-                    <span className="ck" aria-hidden="true"><Check /></span>
-                    <span><b>多项目复制</b><span className="d">一条流程验证后，复制到更多项目，不重新搭建。</span></span>
-                  </li>
-                  <li>
-                    <span className="ck" aria-hidden="true"><Check /></span>
-                    <span><b>口径一致</b><span className="d">指标定义与管理要求全集团统一，一处修改，处处生效。</span></span>
-                  </li>
-                  <li>
-                    <span className="ck" aria-hidden="true"><Check /></span>
-                    <span><b>结果确定</b><span className="d">同样的输入，同样的口径，同样的结果。可复核。</span></span>
-                  </li>
-                </ul>
-              </div>
-            </div>
-          </div>
-          <p className="fmo-verdict">
-            500 个项目的周报口径，和 1 个项目一样。
-          </p>
-        </div>
-      </section>
-
-      {/* ===== 07 场景 ===== */}
-      <section className="fmc-sec">
-        <div className="wrap">
-          <p className="fmc-num">07</p>
-          <h2>看这些流程实际怎么跑</h2>
-          <ScenarioCards items={[
-            { href: "/scenarios/reconciliation", lab: "场景", t: "供应商对账", d: "合同、单据、金额逐项核对，差异待人确认。",
-              img: "/products/fmclaw/scenario-reconciliation.webp", alt: "供应商对账场景插图：合同与单据双列比对，差异项等待人工确认" },
-            { href: "/scenarios/utility-bill", lab: "场景", t: "水电费审批", d: "抄表到账单一条线，审批留在人的手里。",
-              img: "/products/fmclaw/scenario-utility-bill.webp", alt: "水电费审批场景插图：从抄表读数到账单生成的一条流水线，中间是人工审批节点" },
-            { href: "/scenarios/repair-bot", lab: "场景", t: "投诉报事", d: "识别、成单、派发、跟踪，全程有记录。",
-              img: "/products/fmclaw/scenario-repair-bot.webp", alt: "投诉报事场景插图：从群消息识别到工单派发跟踪的完整链路" },
-            { href: "/scenarios/dispatch", lab: "场景", t: "智能派单", d: "按技能、位置与负载匹配，派得出也追得回。",
-              img: "/products/fmclaw/scenario-dispatch.webp", alt: "智能派单场景插图：工单按技能、位置与负载匹配到维修人员" },
+        <div style={{ marginTop: 56 }}>
+          <PhotoGrid items={[
+            { src: "/products/fmclaw/v2/photo-act.webp", alt: "写字楼大堂里清洁机器人在作业，工程人员走向电梯", title: "现场服务与团队管理", body: "保洁、设施运维、安全秩序、考勤排班、客户需求响应。" },
+            { src: "/scene/vd-invoice.webp", alt: "财务人员对照供应商账单和电脑核对金额", title: "财务透明与供应链管理", body: "收入、支出、经营分析、物资采购、人员获取与建设。" },
+            { src: "/scene/sc-fire.webp", alt: "安保人员在楼梯间检查消火栓箱并拍照", title: "项目治理与合规管理", body: "项目获取与签约、项目筹建、合规与安全、应急事件处置、装修管理。" },
           ]} />
         </div>
-      </section>
+        <p className="spt-note">注：在线运行数为工作流接入最完整的项目统计。</p>
+      </SolSection>
 
-      <FmFaq items={FAQ} />
-
-      {/* ===== 继续了解 ===== */}
-      <section className="fmc-sec">
-        <div className="wrap">
-          <p className="fmc-num">KEEP EXPLORING</p>
-          <h2>流程之下，是连接与治理</h2>
-          <p className="fmc-p">
-            工作流引擎组织工作，连接层供给工具，运行层保证可控。
-          </p>
-          <LinkCards items={[
-            { href: "/products/fmclaw/connectors", lab: "平台能力 · L3", t: "工具箱", d: "工作流节点要调用的软件工具，从这里接入。", icon: IC.grid },
-            { href: "/products/fmclaw/agent-runtime", lab: "平台能力 · L4", t: "控制台", d: "流程跑得怎么样、谁批准过什么，随时可以查。", icon: IC.shield },
-          ]} />
-          <p className="fmc-rel-back">
-            <Link href="/products/fmclaw">← 返回 AI 物业经理 FMClaw™</Link>
-          </p>
-        </div>
-      </section>
-
-      <div className="fmo-upd">
-        <div className="wrap">
-          <p className="fmc-updated">最后更新：2026-07-21</p>
-        </div>
-      </div>
-
-      {/* ===== 收束 CTA ===== */}
-      <section className="endcta">
-        <div className="wrap">
-          <h2>把一条管理流程，交给 AI 跑一遍</h2>
-          <p>从一条真实的日报流程开始验证。</p>
-          <div className="cta-row">
-            <Link href="/workshop" className="btn btn-primary">预约 FMClaw™ 加速营 <Arrow s={16} /></Link>
-            <p className="alt">或先看看<Link href="/cases">已经在生产中运行的案例</Link></p>
+      <SolSection id="example" title="一个完整例子：水电费审批"
+        sub="从抄表、汇总到提交审批，智能体推进日常执行，异常和最终决策由人处理。">
+        <MediaRow src="/products/fmclaw/brain/meter.webp" alt="工程人员在设备机房用手机拍照抄表（场景示意）">
+          <h3>从一张抄表照片开始</h3>
+          <p>IoT 仪表自动上报，手机 AI 辅助识别读数；缺失项和异常读数自动标记，汇总、核算、环比同比和异常说明一并备齐，再提交给授权人员确认。</p>
+          <div className="bm-stat" style={{ gridTemplateColumns: "repeat(2,minmax(0,1fr))", marginTop: 28 }}>
+            <div><b>5—7 天</b><span>传统方式准备审批材料</span></div>
+            <div><b>约 30 分钟</b><span>FMClaw™ 准备审批材料</span></div>
           </div>
+        </MediaRow>
+        <div style={{ marginTop: 64 }} />
+        <SolTable head={["环节", "传统做法", "FMClaw™"]} rows={[
+          ["数据进入", "工程人员定期抄录、整理读数", "IoT 仪表自动上报，手机 AI 辅助识别读数；缺失和异常自动标记"],
+          ["自动汇总", "工程经理手工整理数据和审批材料", "自动生成标准审批表和异常清单"],
+          ["提交审批", "材料逐级提交，依据不完整", "附历史对照、核算结果和异常说明，提交授权人员确认"],
+        ]} />
+        <SolVerdict>最终审批，仍由授权人员完成。</SolVerdict>
+        <p className="spt-note">注：处理时间为该项目实际运行结果，因项目而异。场景详解见 <Link href="/scenarios/utility-bill">水电费审批</Link>。</p>
+      </SolSection>
+
+      <SolSection title="工作流跑起来，管理就被替代了" tone="mist" split
+        sub="重复的信息收集、任务派发、进度跟踪和结果核验交给智能体，管理者只处理需要判断的事。">
+        <div className="bm-stat" style={{ gridTemplateColumns: "repeat(2,minmax(0,1fr))" }}>
+          <div><b>34 → 16—17</b><span>人，华南 6 万㎡ 综合项目现场团队</span></div>
+          <div><b>6 → 1</b><span>人，专职管理岗</span></div>
         </div>
-      </section>
-    </main>
+        <p className="spt-note">注：单个项目的实际运行结果，来自 AI、IoT 与机器人共同承接部分标准化工作；不同项目因业态、面积、服务标准与组织基础而异。</p>
+        <div style={{ marginTop: 40 }}>
+          <SolCases items={[
+            { scene: "一家全国百强物业集团", result: <><b>500 多个</b>项目的运营报告每天自动送达，人工投入为 <b>0</b>。</>, href: "/cases/property-group-auto-operation-report" },
+            { scene: "头部互联网大厂总部", result: <>运行班组巡检达标率 <b>35% → 98%</b>。</>, href: "/cases/fmclaw-equipment-inspection" },
+          ]} />
+        </div>
+      </SolSection>
+
+      <SolSection title="一个项目跑通，复制到更多项目" img={{ src: "/scene/city-portfolio.webp", alt: "城市里多类物业项目的航拍" }}
+        sub="工作流不是一次性的项目定制。">
+        <SolCols items={[
+          { title: "一句话生成", body: "用自然语言描述要求，生成可检查、可调整的流程，经试运行后进入日常使用。" },
+          { title: "按项目复用", body: "一条流程验证后，复制到更多项目，不重新搭建；数据各归各的，口径是同一套。" },
+          { title: "越跑越好", body: "每一次执行结果都回到项目大脑，薄弱环节被找出来，下一轮做得更好。" },
+        ]} />
+        <SolFigure ui src="/products/fmclaw/v2/console-workflow.webp" alt="FMClaw™ 控制台中的工作流运行视图" w={2400} h={1018}
+          caption="真实产品界面 · 工作流运行视图" />
+      </SolSection>
+
+      <SolSection title="关键节点，由人决定" img={{ src: "/scene/sign-off.webp", alt: "总经理在纸质文件上签字确认" }} tone="mist" split
+        sub="规则由人设定，智能体按规则执行。">
+        <SolTable head={["交给智能体", "留给人"]} rows={[
+          ["取数、汇总、比对、找异常", "涉及安全的决定"],
+          ["起草报告、账单、工单与通知", "奖惩与人员权益"],
+          ["派单、催办、跟进到关闭", "供应商选择与付款"],
+          ["按规则判断，超出规则就停下", "重大成本事项与规则外情况"],
+        ]} />
+        <SolMore>过程怎么被看见、被接管，见 <Link href="/products/fmclaw/agent-runtime">控制台</Link>。</SolMore>
+      </SolSection>
+
+      <SolSection title="它在 FMClaw™ 里的位置"
+        sub="项目大脑读懂业务，工作流引擎推进任务，工具箱执行动作，控制台全程可见。">
+        <BrainMap current="workflow" />
+      </SolSection>
+
+      <SeoFaq
+        heading="关于物业管理自动化与工作流，常被问到的问题"
+        serviceName="FMClaw™ 工作流引擎"
+        serviceDesc="把物业管理要求变成自动推进的任务，18 条主工作流、114 条子工作流、87 条在线运行，关键节点由人确认。"
+        items={[
+          { q: "物业管理工作流程有哪些？", a: "一个物业项目的管理通常可以分为六段：做服务规划、定服务标准、监督服务执行、评估服务质量、考核服务结果、生成优化策略。具体到业务，覆盖保洁、设施运维、安全秩序、考勤排班、客户需求响应、收入与支出、物资采购、项目筹建、合规与安全、应急事件处置等。FMClaw™ 用 18 条主工作流、114 条子工作流覆盖这些环节。" },
+          { q: "AI 物业经理和聊天机器人有什么区别？", a: "聊天机器人等人提问、给出建议就结束；AI 物业经理按规则自己发起工作，自动取数、调用工具执行、把结果写回现有系统，关键节点停下等人确认。区别就在工作流：有了工作流，AI 才从回答问题变成完成工作。" },
+          { q: "物业管理能做到多大程度的自动化？", a: "取决于数据接入的完整程度。在工作流接入最完整的项目中，114 条子工作流有 87 条已在线运行（76%）。日报周报、水电费审批、供应商对账、巡检派单这类规则明确、重复发生的工作最先自动化；涉及安全、奖惩、供应商选择和重大成本的决定仍由人完成。" },
+          { q: "物业人盯人的问题怎么解决？", a: "把现场服务变成可记录的数据，再由工作流持续核验。传感器和现场记录说明服务是否发生、是否到位，工作流自动派发、跟进和核验，管理者只处理异常。华南一个 6 万㎡ 综合项目，现场团队从 34 人优化至 16—17 人，管理岗从 6 人调整至 1 人。" },
+          { q: "工作流出了错谁负责？", a: "人负责。关键节点设人工确认，智能体停在待确认，人核对后才生效；出现冲突、异常或规则外情况时，智能体暂停并提交人工确认。每一步都有记录，可以查到是谁、在哪一步、批准了什么。" },
+          { q: "业务人员能自己搭工作流吗？", a: "可以。用自然语言描述要求，引擎生成可检查、可调整的流程，经检查与试运行后进入日常使用；一个项目跑通后，可以复制到更多项目。" },
+          { q: "为什么演示很好，回到项目上就用不起来？", a: "演示靠人喂数据、人来触发，只证明一次成功；生产要求每天以同样的口径自己开始、自己取数、错了有人管。触发、取数、判断、审批、异常处理和执行记录，正是工作流引擎补上的部分。" },
+          { q: "上线一条工作流要多久？", a: "从一个真实业务问题开始。在数据授权、接口与安全条件具备时，原则上 72 小时内完成必要数据接入；FMClaw™ 加速营通常 1—3 天跑通一个基于真实业务的智能体，形成后续 90 天扩展路径建议。" },
+        ]}
+      />
+
+      <FmFoot updated="2026-10-16" />
+
+      <SolEnd
+        title={["带一条最耗人的流程来，", "看它怎么自己跑完"]}
+        sub="日报周报、水电费审批、供应商对账或巡检派单，选一条先跑通。"
+        cta={{ href: "/workshop", label: "预约 FMClaw™ 加速营" }}
+        alt={<>继续了解：<Link href="/products/fmclaw/ontology">项目大脑</Link> · <Link href="/products/fmclaw/connectors">工具箱</Link> · <Link href="/products/fmclaw/agent-runtime">控制台</Link></>}
+      />
+    </SolPage>
   );
 }

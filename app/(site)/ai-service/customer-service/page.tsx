@@ -7,6 +7,7 @@ import "../trade.css";
 import "./page.css";
 import { pageMetadata } from "@/lib/pageMetadata";
 
+import Scene from "@/components/Scene";
 const SITE_URL = process.env.SITE_URL || "https://www.aipm.cn";
 
 export const metadata: Metadata = pageMetadata("/ai-service/customer-service", {
@@ -190,6 +191,7 @@ export default function Page() {
           <p className="av-sub reveal">
             管家、热线、客服群，传统物业都有。但你问「今天做了什么」「我的报修到哪了」，得到的往往是「帮您问一下」。不全是人的问题：它背后没有数据，而且它的职责里，本来就不包括对你知无不言。
           </p>
+          <Scene src="/scene/cs-desk.webp" alt="前台管家一边接业主电话一边录入" />
           <div className="avc-cmp reveal" role="table" aria-label="传统物业客服与 AI 客服管家对比">
             <div className="avc-row avc-head" role="row">
               <div role="columnheader">维度</div>
@@ -249,6 +251,7 @@ export default function Page() {
           <p className="av-sub reveal">
             「站在你这边」的第一重含义：不是等你催，是替你盯。报修报账这类事，你说出意图，剩下的四步全是它的事：7×24 小时，秒回。
           </p>
+          <Scene src="/scene/cs-lobby.webp" alt="物业管家在大堂迎接提着购物袋的老年业主" />
           <div className="cs-flow" role="list">
             {flow.map((s, i) => (
               <div className={"cs-flow__step reveal" + (s.auto ? " is-auto" : "")} role="listitem" key={s.n}>
@@ -343,6 +346,7 @@ export default function Page() {
         <div className="wrap">
           <span className="av-eyebrow reveal">谁在为你服务</span>
           <h2 className="av-h2 reveal">先用在自己身上，再对外提供</h2>
+          <Scene src="/company/aw-site.webp" alt="爱物管工程师在配电室操作" />
           <div className="avc-who reveal">
             <div className="avc-who__brand">
               <span className="nm">爱物管</span>
