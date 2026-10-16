@@ -7,6 +7,7 @@ import "../trade.css";
 import "./page.css";
 import { pageMetadata } from "@/lib/pageMetadata";
 
+import Scene from "@/components/Scene";
 const SITE_URL = process.env.SITE_URL || "https://www.aipm.cn";
 
 export const metadata: Metadata = pageMetadata("/ai-service/delegated-operation", {
@@ -261,6 +262,7 @@ export default function Page() {
             这不是某一个项目的问题，是整个行业正在穿过的一段路。行业对 AI 的方向早已没有分歧，
             卡住的是<b>谁先付代价</b>：一次性投入、改流程、选型判断、团队培训，四样都得自己扛。
           </p>
+          <Scene src="/scene/do-owner.webp" alt="业主与物业经理在写字楼前庭边走边谈" />
           <div className="avdo-stats reveal">
             {industry.map((s) => (
               <article className="avdo-stat" key={s.n}>
@@ -351,6 +353,7 @@ export default function Page() {
             项目收入进入您指定的账户，独立核算。先扣必要成本，再付您的保底，然后是我们的固定酬金，
             剩下的才是可分配盈余。<b>您的保底排在我们的酬金之前，项目没做好，先减的是我们的钱。</b>
           </p>
+          <Scene src="/scene/owner-meet.webp" alt="业主与物业经理在会议室交流" />
           <div className="avdo-flow reveal" role="table" aria-label="结算顺序">
             {waterfall.map((w) => (
               <div className={`avdo-frow is-${w.tone}`} role="row" key={w.k}>
@@ -462,6 +465,7 @@ export default function Page() {
             管理人员从 69 人到 5 人、经营净利率从 3.4% 做到 14%，
             这本账在<Link href="/company/aipm-validation" className="av-link">自营验证页<Arrow s={13} /></Link>全文公开。
           </p>
+          <Scene src="/company/aw-site.webp" alt="爱物管工程师在配电室操作" />
           <div className="avdo-cred reveal">
             <div><strong>100+</strong><span>企业客户</span></div>
             <div><strong>3000 万㎡</strong><span>系统覆盖面积</span></div>
@@ -483,6 +487,7 @@ export default function Page() {
             不需要先做决定，先把数字摆出来。把项目近 12 个月的收支报表、人员架构与设备清单给我们，
             <b>两周内出一份可以看的测算方案</b>：保底、酬金与盈余分配，三种情景一并给出。
           </p>
+          <Scene src="/scene/handshake.webp" alt="业主与运营方在会议室握手" />
           <div className="avdo-steps reveal">
             {steps.map((s) => (
               <article className="avdo-step" key={s.n}>

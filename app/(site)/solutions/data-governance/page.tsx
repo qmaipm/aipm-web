@@ -44,7 +44,7 @@ export default function DataGovernancePage() {
         image={{ src: "/solutions/data-governance-hero.jpg", alt: "住宅小区车辆出入口，道闸抬杆放行，保安在岗亭旁值守（场景示意）" }}
       />
 
-      <SolSection title="先治理、再应用，为什么常常收不了场" tone="mist" split
+      <SolSection title="先治理、再应用，为什么常常收不了场" img={{ src: "/scene/park-lowvolt.webp", alt: "两位工程师在弱电机房对照系统图纸" }} tone="mist" split
         sub={<>很多物业集团的想法是：先找一个很强的团队把数据治理好，再来做业务。问题在于，治理的对错，<b>只有业务用起来才知道</b>。</>}>
         <SolSteps items={fail} />
       </SolSection>
@@ -64,7 +64,7 @@ export default function DataGovernancePage() {
         <SolVerdict>治理和使用只能同时发生，这才是知行合一</SolVerdict>
       </SolSection>
 
-      <SolSection id="loop" title="4 套停车系统，只有 1 套数据全" tone="mist" split
+      <SolSection id="loop" title="4 套停车系统，只有 1 套数据全" img={{ src: "/scene/dg-parking.webp", alt: "商业综合体地下停车场入口的道闸与岗亭" }} tone="mist" split
         sub={<>一个每家集团都会遇到的例子：集团想知道各项目的抬杆放行率，也就是停车漏收费。下面是边用边治的做法。</>}>
         <SolSteps items={loop} />
       </SolSection>
@@ -83,7 +83,7 @@ export default function DataGovernancePage() {
         />
       </SolSection>
 
-      <SolSection title="边用边治，但这三件事第一天就要定好" tone="mist">
+      <SolSection title="边用边治，但这三件事第一天就要定好" tone="mist" img={{ src: "/scene/dg-analysts.webp", alt: "两位数据分析人员对着屏幕核对指标口径" }}>
         <SolCols items={fixed} />
       </SolSection>
 

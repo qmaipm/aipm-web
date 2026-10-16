@@ -6,6 +6,7 @@ import "../page.css";
 import "../trade.css";
 import { pageMetadata } from "@/lib/pageMetadata";
 
+import Scene from "@/components/Scene";
 const SITE_URL = process.env.SITE_URL || "https://www.aipm.cn";
 
 export const metadata: Metadata = pageMetadata("/ai-service/cleaning", {
@@ -198,6 +199,7 @@ export default function Page() {
           <p className="av-sub reveal">
             传统清洁合同里写的是「派多少人」。人来没来、活干没干、干得怎么样，业主只能靠感觉。我们把这三件事全部变成数据：每一行都写进合同。
           </p>
+          <Scene src="/scene/cl-office.webp" alt="保洁员清晨在办公区擦拭玻璃隔断" />
           <div className="avc-cmp reveal" role="table" aria-label="传统清洁服务与 AI 清洁服务对比">
             <div className="avc-row avc-head" role="row">
               <div role="columnheader">维度</div>
@@ -310,6 +312,7 @@ export default function Page() {
         <div className="wrap">
           <span className="av-eyebrow reveal">谁在为你服务</span>
           <h2 className="av-h2 reveal">先用在自己身上，再对外提供</h2>
+          <Scene src="/company/aw-site.webp" alt="爱物管工程师在配电室操作" />
           <div className="avc-who reveal">
             <div className="avc-who__brand">
               <span className="nm">爱物管</span>

@@ -5,6 +5,7 @@ import JsonLd from "@/components/JsonLd";
 import "./page.css";
 import BuildingForm from "./BuildingForm";
 
+import Scene from "@/components/Scene";
 const SITE_URL = process.env.SITE_URL || "https://www.aipm.cn";
 
 export const metadata: Metadata = {
@@ -252,6 +253,7 @@ export default function Page() {
         <div className="wrap">
           <span className="bd-eyebrow">项目分工</span>
           <h2 className="bd-h2">各自做擅长的部分</h2>
+          <Scene src="/scene/park-lowvolt.webp" alt="两位工程师在弱电机房对照系统图纸" />
           <div className="bd-split">
             <div className="bd-split-col">
               <h3>{split.partner.title}</h3>
@@ -297,6 +299,7 @@ export default function Page() {
         <div className="wrap">
           <span className="bd-eyebrow">合作支持</span>
           <h2 className="bd-h2">从方案到交付，我们提供这些支持</h2>
+          <Scene src="/home/way-fde.webp" alt="工程师在设备机房的监控台前讨论" />
           <div className="bd-rights">
             {supports.map((r, i) => (
               <div className="bd-right" key={r.title}>
@@ -359,6 +362,7 @@ export default function Page() {
         <div className="wrap">
           <span className="bd-eyebrow">项目证明</span>
           <h2 className="bd-h2">已经运行的项目</h2>
+          <Scene src="/cases/cover-tech-park.png" alt="已运行的科技园区项目" />
           <div className="bd-cases">
             {cases.map((c) => (
               <Link className="bd-case" href={c.href} key={c.href}>

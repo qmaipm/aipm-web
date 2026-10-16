@@ -26,7 +26,7 @@ export default function VendorPage() {
         image={{ src: "/insights/obc-impact-1-office.jpg", alt: "双方对着合同与账单逐项核对（场景示意）" }}
       />
 
-      <SolSection title="供应商管理与自动对账" tone="mist"
+      <SolSection title="供应商管理与自动对账" img={{ src: "/scene/vd-invoice.webp", alt: "财务人员对照供应商账单和电脑核对金额" }} tone="mist"
         sub="我们把对账拆成四件能各自核清、又能拼在一起的事：服务做得好不好、到底干了多少、是否合规、最后该付多少。Agent 把前面几步跑完，每一笔都附上算法和理由，人只需要确认或驳回。">
         <SolCols items={pts} />
         <SolVerdict>把几天一版的对账，变成看一眼就能确认。核完之后直接生成账单草稿，每一笔都说得出理由，付款这一步仍然留给人</SolVerdict>

@@ -88,12 +88,12 @@ const productModules = [
   // 第二个模块：服务设计 Agent
   {
     id: 'service-design',
-    name: '服务设计 Agent',
+    name: '服务设计智能体群',
     icon: 'agentDesign',
     color: '#0070FF',
-    headline: '智能生成服务标准，重构服务设计流程',
-    description: 'AI 智能生成服务标准、人员编制和预算方案，用远低于现在的成本，获得更加快速、精准的数字化服务设计能力。',
-    cta: '开始使用服务设计 Agent',
+    headline: '物业项目预算，从每一个服务点位算起',
+    description: '录入服务点位和服务等级，匹配服务标准与服务计划，用服务频次和人效数据算出人员编制与项目预算。降本从项目预算开始。',
+    cta: '了解服务设计智能体群',
     ctaLink: '/solutions/service-design',
     relatedProducts: [
       { name: '空间管理系统', desc: '空间配置与标准生成', href: '/products/fmclaw/ontology' },
@@ -112,12 +112,12 @@ const productModules = [
   // 第三个模块：运营管理 Agent
   {
     id: 'operations',
-    name: '运营管理 Agent',
+    name: '运营管理智能体群',
     icon: 'agentOps',
     color: '#0A7A63',
-    headline: 'AI 驱动运营调度，实现人机协同闭环',
-    description: '7×24 实时感知全域服务状态，确保执行与巡检到位，数据驱动管理决策，让团队专注更具价值的事务。',
-    cta: '开始使用运营管理 Agent',
+    headline: 'IoT 感知现场，替代人盯人的运营调度',
+    description: '用 IoT 传感器感知每一次服务是否真实发生，按服务标准智能审批、调度派单、超时升级，管理者只处理需要拍板的事。',
+    cta: '了解运营管理智能体群',
     ctaLink: '/solutions/operations',
     relatedProducts: [
       { name: 'SSR 服务记录', desc: '无感记录服务全过程', href: '/solutions/operations' },
@@ -136,12 +136,12 @@ const productModules = [
   // 第四个模块：质量评估 Agent
   {
     id: 'quality',
-    name: '质量评估 Agent',
+    name: '质量评估智能体群',
     icon: 'agentQuality',
     color: '#0C8B82',
-    headline: 'AI 自动审图质检，让质量管理更轻松',
-    description: 'AI 替代人工审图，大幅降低审图成本，客观评分消除甲乙方质量评价分歧，留存数据标签助力复盘。',
-    cta: '开始使用质量评估 Agent',
+    headline: '看得见的画面，都能拿来做质检',
+    description: '读取监控摄像头、手机、机器人、无人机拍到的画面，完成保洁质检、拍照抄表、安全隐患识别和设备巡检核验，发现问题直接开工单。',
+    cta: '了解质量评估智能体群',
     ctaLink: '/solutions/assessment',
     relatedProducts: [
       { name: '设备管理系统', desc: '人单合一的拍照抄表', href: '/products/iot' },
@@ -160,12 +160,12 @@ const productModules = [
   // 第五个模块：服务优化 Agent
   {
     id: 'review',
-    name: '服务优化 Agent',
+    name: '服务优化智能体群',
     icon: 'agentReview',
     color: '#3451C7',
-    headline: '业务自动化核算，数据驱动持续优化',
-    description: 'AI 自动完成工资、KPI、账单核算，深度分析运营数据生成洞察报告，优化服务标准与成本，展示卓越能力。',
-    cta: '开始使用服务优化 Agent',
+    headline: '报告、复盘、结算，用同一份运营数据',
+    description: '自动生成日报、周报、月报，按数据给出优化与调整建议，核算供应商账单、员工薪资和团队 KPI。',
+    cta: '了解服务优化智能体群',
     ctaLink: '/solutions/optimization',
     relatedProducts: [
       { name: '计薪系统', desc: '薪酬与KPI自动化核算', href: '/solutions/payroll' },
@@ -279,19 +279,6 @@ export default function AgentShowcase() {
                   {Icons.arrow}
                 </Link>
               )}
-              {module.relatedProducts.length > 0 && (
-                <div className="module-related">
-                  <span className="module-related-label">相关产品</span>
-                  <div className="module-related-list">
-                    {module.relatedProducts.map((product, idx) => (
-                      <Link key={idx} href={product.href} className="related-product-link">
-                        <span className="related-product-name" style={{ color: inkOf(module.color) }}>{product.name}</span>
-                        <span className="related-product-desc">{product.desc}</span>
-                      </Link>
-                    ))}
-                  </div>
-                </div>
-              )}
             </div>
             {/* 移动端动画 - 使用统一的 AnimationSelector */}
             <div className="module-visual">
@@ -354,19 +341,6 @@ export default function AgentShowcase() {
                   {module.cta}
                   {Icons.arrow}
                 </Link>
-              )}
-              {module.relatedProducts.length > 0 && (
-                <div className="module-related">
-                  <span className="module-related-label">相关产品</span>
-                  <div className="module-related-list">
-                    {module.relatedProducts.map((product, idx) => (
-                      <Link key={idx} href={product.href} className="related-product-link">
-                        <span className="related-product-name" style={{ color: inkOf(module.color) }}>{product.name}</span>
-                        <span className="related-product-desc">{product.desc}</span>
-                      </Link>
-                    ))}
-                  </div>
-                </div>
               )}
             </div>
           ))}

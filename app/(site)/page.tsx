@@ -9,6 +9,7 @@ import { pageMetadata } from "@/lib/pageMetadata";
 import { FMCLAW_URL } from "@/lib/nav";
 import SeoFaq from "@/components/SeoFaq";
 
+import Scene from "@/components/Scene";
 // 标题/描述与根布局一致；单独声明是为了首页也有指向自身的 canonical 与 og:url
 export const metadata = pageMetadata("/", {
   title: "启盟科技 · 物业与设施管理的 AI 操作系统｜FMClaw™",
@@ -173,6 +174,7 @@ export default function Home() {
               FMClaw™ 把这些环节放在同一个平台里。
             </p>
           </div>
+          <Scene src="/scene/home-pm.webp" alt="项目经理走过写字楼大堂，在平板上查看工作进度，身后保洁与安保正在作业" />
           <div className="h-prod reveal">
             <div className="h-pc"><div className="pc-k">100+</div><h3>行业工作流</h3>
               <p>覆盖物业与设施管理中的巡检、工单、客服、品质、结算和运营分析。</p></div>
@@ -249,6 +251,7 @@ export default function Home() {
           <div className="h-sechead">
             <h2 className="h-h2  reveal"><span className="nb">不是演示，</span><span className="nb">是已经在运行的项目</span></h2>
           </div>
+          <Scene src="/images/partners/embodied-ai-data.jpg" alt="园区里，保洁员与配送机器人同时在大堂作业" />
 
           {/* 旗舰：爱物管自营验证 */}
           <Link href="/company/aipm-validation" className="h-flag reveal">
@@ -306,6 +309,7 @@ export default function Home() {
             启盟科技 2017 年成立，2019 年自建物业公司「爱物管」，每一项能力先在自营项目里跑通，再对外交付。
             <b>懂行业的人负责把问题问对，工程师负责把它做出来。</b>
           </p>
+          <Scene src="/company/aw-site.webp" alt="爱物管工程师在配电室操作" />
           <MoatStats />
           {/* 数值沿用现有已确认数据，未新造；具体口径说明待业务方核验后补充（TODO 待业务方核验） */}
           <p className="h-moat-note reveal">数据为截至发布时的内部统计，持续更新。</p>
@@ -392,6 +396,7 @@ export default function Home() {
           <div className="h-res">
             {research.map((a) => (
               <Link key={a.slug} href={`/insights/${a.slug}`} className="h-rc reveal">
+                {a.cover && <img className="rc-cover" src={a.cover} alt="" loading="lazy" width={1200} height={675} />}
                 <div className="rc-theme">{a.theme}</div>
                 <h3>{a.title}</h3>
                 <p>{a.desc}</p>

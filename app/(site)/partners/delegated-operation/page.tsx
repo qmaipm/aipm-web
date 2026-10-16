@@ -6,6 +6,7 @@ import { pageMetadata } from "@/lib/pageMetadata";
 import { POLICY, PARTNER_PATH, PROJECT_PATH, GRADES, ROLES, money, percent } from "@/lib/delegated-policy";
 import { Arrow, ScenarioCards } from "../../products/fmclaw/_shared";
 import "./page.css";
+import Scene from "@/components/Scene";
 const SITE = process.env.SITE_URL || "https://www.aipm.cn";
 export const metadata = pageMetadata(PARTNER_PATH, {
   // 面向酒店开发/拓展、选址顾问、商业地产经纪——用他们搜索时的词（酒店开发、项目推荐、业主资源、分润），不用我们的品类名开头。
@@ -52,11 +53,13 @@ export default function Page() {
     <section className="dp-band" id="cooperation"><div className="wrap">
       <span className="dp-eyebrow">01 / 适合谁</span><h2>你的客户关系，可以从这里开始合作</h2>
       <p className="dp-read">我们寻找能够发现项目、引荐决策人并推动合作的伙伴。你不需要独立完成复杂的经营测算，也不需要承担未经约定的运营交付。</p>
+      <Scene src="/scene/owner-meet.webp" alt="业主与物业经理在会议室交流" />
       <div className="dp-portraits">{portraits.map(([n,t,d]) => <article key={n}><span className="dp-number">{n}</span><div><h3>{t}</h3><p>{d}</p></div></article>)}</div>
       <p className="dp-inline"><Link href="/insights/hotel-property-referral-to-ai-operations">做酒店开发的，先看这篇：手上的业主资源怎么变成运营项目 <Arrow /></Link><Link href="/insights/hotel-management-contract-model-beyond-hotels">酒店委托管理为什么四十年没走出酒店行业 <Arrow /></Link></p>
     </div></section>
     <section className="dp-band mist"><div className="wrap">
       <span className="dp-eyebrow">02 / 项目条件</span><h2>找有真实经营基础的物业项目</h2>
+      <Scene src="/scene/do-owner.webp" alt="业主与物业经理在写字楼前庭边走边谈" />
       <div className="dp-split"><div><p>产业园区、写字楼、商业综合体、工厂、企业总部及物流园区。人员规模较大的项目，是 AI 与机器人优化服务预算的重点评估对象。</p><ul className="dp-checks"><li>能接触实际决策人，产权及委托关系清晰</li><li>现有合同可依法调整或即将到期</li><li>愿意提供经营资料，接受数字化管理与考核</li><li>具备经营可行性及成本、效率或品质改善空间</li></ul></div><aside className="dp-note-panel"><h3>面积是维度，不是唯一门槛</h3><p>原则上优先评估 3 万㎡以上项目。面积不足但区位、收入、收入保障或人员规模较好的项目，仍可报备；符合条件的同区域项目可打包评估。</p><p>仅有客户名单、主体争议、合同无法调整或只采购单一设备的项目，不作为标准委托管理项目推进。</p><Link href={PROJECT_PATH}>按五项标准预评项目 <Arrow /></Link></aside></div>
     </div></section>
     <section className="dp-band"><div className="wrap">
@@ -68,6 +71,7 @@ export default function Page() {
     <section className="dp-band mist" id="policy"><div className="wrap">
       <span className="dp-eyebrow">04 / V{POLICY.version} 收益政策</span><h2>一次项目落地，三部分合作收益</h2>
       <p className="dp-read">以下为全程开发型标准。其他角色按系数执行。开业奖励由启盟承担，不因此向业主收取开办费或筹备费。</p>
+      <Scene src="/scene/handshake.webp" alt="业主与运营方在会议室握手" />
       <div className="dp-table-scroll" tabIndex={0} role="region" aria-label="伙伴奖励及分润标准"><table className="dp-table"><caption>项目等级 × 标准政策 × 项目角色系数</caption><thead><tr><th>项目等级</th><th>评分</th><th>开业奖励</th><th>固定酬金分润</th><th>提效酬金分润</th></tr></thead><tbody>{Object.entries(GRADES).map(([key,g]) => <tr key={key}><th scope="row">{g.label}<small>{g.positioning}</small></th><td>{key === "A" ? "80 分及以上" : key === "B" ? "70—79 分" : key === "C" ? "60—69 分" : "60 分以下"}</td><td>{money(g.opening)}</td><td>{percent(g.fixed)}</td><td>{percent(g.efficiency)}</td></tr>)}</tbody></table></div>
       <div className="dp-policy-note"><strong>S 标签额外奖励 {money(POLICY.strategicBonus)}</strong><p>经认定的 A-S、B-S、C-S 项目，在对应等级开业奖励上加奖，再乘角色系数。S 标签不自动改变基础等级，材料及战略价值需专项确认。</p></div>
       <div className="dp-split dp-rules"><div><h3>怎么算，何时付</h3><p>固定酬金按有效合同金额计提；浮动提效酬金达到约定条件，并经客户确认后计提。对应款项部分到账，按回款比例支付。</p><p>不按物业总收入、业主收益、项目总体降本或增收金额计算。采购款、税费及代收代付款不纳入。</p></div><div><h3>期限与结算</h3><p>自正式运营起，持续分润最长连续 {POLICY.maxMonths} 个月。合同不足三年的按有效合同期限执行，未签续约不提前计入。</p><p>按季度核算，季后原则上 10 个工作日内对账，收到合法凭证后原则上 15 个工作日内支付。特殊事项以项目文件为准。</p></div></div>

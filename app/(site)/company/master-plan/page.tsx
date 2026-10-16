@@ -9,6 +9,7 @@ import { pageMetadata } from "@/lib/pageMetadata";
 import VisionFilm from "@/components/VisionFilm";
 import LoopClip from "@/components/LoopClip";
 
+import Scene from "@/components/Scene";
 export const metadata: Metadata = pageMetadata("/company/master-plan", {
   title: "启盟的秘密蓝图：让智能走进物理世界的六步 | 启盟科技",
   description:
@@ -67,6 +68,7 @@ export default function Page() {
             模型越来越聪明，但大部分能力仍停留在屏幕之内；机器人越来越能干，但要长期上岗，还需要清晰、稳定、持续发生的工作任务。
             <b>能力正在成熟，缺的是一个能长期上岗的地方。</b>
           </p>
+          <Scene src="/scene/rob-mall.webp" alt="清洁机器人在商场中庭作业" />
           <dl className="mp-why">
             <div><dt>2.8 万亿元+</dt><dd>2025 年中国物业行业规模，一线岗位 2,400 万人</dd></div>
             <div><dt>每天都在发生</dt><dd>巡检、抽查、算薪、调度：高频、重复、可衡量，适合智能体持续推进</dd></div>

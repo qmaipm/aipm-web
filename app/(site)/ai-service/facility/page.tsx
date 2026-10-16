@@ -7,6 +7,7 @@ import "../trade.css";
 import "./page.css";
 import { pageMetadata } from "@/lib/pageMetadata";
 
+import Scene from "@/components/Scene";
 const SITE_URL = process.env.SITE_URL || "https://www.aipm.cn";
 
 export const metadata: Metadata = pageMetadata("/ai-service/facility", {
@@ -200,6 +201,7 @@ export default function Page() {
           <p className="av-sub reveal">
             设施设备出事，代价远大于地面没拖干净。而传统巡检的真相是：巡检本填满了，没人知道人到底去没去。一条地铁线 3,700 个机房、200 人的巡检团队，漏签、补签、冒签曾经防不胜防：这类场景，我们大量做过。
           </p>
+          <Scene src="/scene/fc-cabinet.webp" alt="设备工程师打开配电柜检查断路器" />
           <div className="avc-cmp reveal" role="table" aria-label="传统设施设备服务与 AI 设施设备服务对比">
             <div className="avc-row avc-head" role="row">
               <div role="columnheader">维度</div>
@@ -293,6 +295,7 @@ export default function Page() {
           <p className="av-sub reveal">
             设施设备该配多少人，大多数项目从来没算过：反正一直是这么配的。系统记录给出了另一种算法：
           </p>
+          <Scene src="/scene/iot-engineer.webp" alt="设施工程师在冷水机组旁查看平板" />
           <div className="fac-math reveal">
             <div className="fac-math__eq">
               <div className="row">
@@ -348,6 +351,7 @@ export default function Page() {
         <div className="wrap">
           <span className="av-eyebrow reveal">谁在为你服务</span>
           <h2 className="av-h2 reveal">先用在自己身上，再对外提供</h2>
+          <Scene src="/company/aw-site.webp" alt="爱物管工程师在配电室操作" />
           <div className="avc-who reveal">
             <div className="avc-who__brand">
               <span className="nm">爱物管</span>

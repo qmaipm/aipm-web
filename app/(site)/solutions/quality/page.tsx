@@ -36,7 +36,7 @@ export default function Page() {
         image={{ src: "/cases/cover-restroom.png", alt: "保洁完成后的洗手台，在场与作业情况由传感器自动记录（场景示意）" }}
       />
 
-      <SolSection title="质量不是抽查出来的，是管出来的" tone="mist" split
+      <SolSection title="质量不是抽查出来的，是管出来的" img={{ src: "/scene/qa-photo.webp", alt: "保洁员用手机拍下清洁完成后的洗手台" }} tone="mist" split
         sub={<>抽查只能发现问题，而且发现时往往已经发生。质量不该是事后打分，而该是一件<b>全程在管</b>的事。</>}>
         <SolCompare labels={["过去 · 抽查", "现在 · 全程在管"]} rows={[
           { before: "抽样、滞后。等发现问题，往往已经发生了。", after: "覆盖全员全程，对着数据评判，问题躲不掉、能追溯、能整改。" },

@@ -46,7 +46,7 @@ export default function Page() {
         image={{ src: "/solutions/pro-hero.jpg", alt: "库管员在物业物料库房用平板核对库存（场景示意）" }}
       />
 
-      <SolSection title="采购的三个老问题" tone="mist"
+      <SolSection title="采购的三个老问题" img={{ src: "/scene/pro-store.webp", alt: "库管员在物料库房清点保洁耗材" }} tone="mist"
         sub="需求拍脑袋、比价凭经验、单据满天飞。这是物业采购最常见的三处卡点。">
         <SolCols items={pains} />
       </SolSection>
@@ -66,7 +66,7 @@ export default function Page() {
         />
       </SolSection>
 
-      <SolSection title="它会动到采购岗和现有习惯" split
+      <SolSection title="它会动到采购岗和现有习惯" img={{ src: "/scene/approve-phone.webp", alt: "区域经理在手机上确认一笔申请" }} split
         sub="采购自动化不止是上系统，落地要面对两件事：把话放在前面。">
         <SolSteps items={challenges} />
       </SolSection>

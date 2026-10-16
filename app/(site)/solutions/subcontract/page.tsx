@@ -38,7 +38,7 @@ export default function Page() {
         image={{ src: "/cases/cover-reconciliation.png", alt: "外包保洁人员在开放办公区作业，过程数据自动计入考核（场景示意）" }}
       />
 
-      <SolSection title="考核与账单，从一堆人手算到系统自动出" tone="mist" split>
+      <SolSection title="考核与账单，从一堆人手算到系统自动出" img={{ src: "/scene/vd-invoice.webp", alt: "财务人员对照供应商账单和电脑核对金额" }} tone="mist" split>
         <SolCompare labels={["过去", "现在 · 系统 + AI"]} rows={[
           {
             before: <><b>考核全靠人算</b>：出勤数据、服务数据、质量考核都要人来做，统计周期长、易出错，得 5–6 个岗位的人协同才干得下来。</>,

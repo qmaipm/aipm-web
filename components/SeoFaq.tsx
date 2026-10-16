@@ -49,14 +49,15 @@ export default function SeoFaq({
             <span key={part} className="nb">{part}</span>
           ))}
         </h2>
-        <dl className="seo-faq__list">
-          {items.map((f) => (
-            <div className="seo-faq__item" key={f.q}>
-              <dt>{f.q}</dt>
-              <dd>{f.a}</dd>
-            </div>
+        {/* 2026-10-16：折叠式问答。答案始终在 DOM 里（details 收起时仍可被抓取），首条默认展开。 */}
+        <div className="seo-faq__list">
+          {items.map((f, i) => (
+            <details className="seo-faq__item" key={f.q} open={i === 0}>
+              <summary>{f.q}</summary>
+              <p>{f.a}</p>
+            </details>
           ))}
-        </dl>
+        </div>
       </div>
     </section>
   );

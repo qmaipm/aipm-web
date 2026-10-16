@@ -8,6 +8,7 @@ import JsonLd from "@/components/JsonLd";
 import { getCase } from "../../cases/cases";
 import { pageMetadata } from "@/lib/pageMetadata";
 
+import Scene from "@/components/Scene";
 const SITE_URL = process.env.SITE_URL || "https://www.aipm.cn";
 
 // 原案例登记数据（自 cases.ts 迁入，本页独立维护）
@@ -192,6 +193,7 @@ export default function Page() {
 
             <h2>被减掉的，是“重复的管理”，不是“服务”</h2>
             <p>设施管理这个行业有个老问题：一个几万平方米的项目，上千个服务点位，每天几千次保洁、巡检、维修。没有任何一个管理团队，能靠人一个个去确认这些服务到底做没做、做得好不好。</p>
+            <Scene src="/scene/team-review.webp" alt="管理人员一起审阅电脑上的内容" />
             <p>传统物业公司解决这个问题的唯一办法，就是<b>多招人</b>：抄表、汇总、对账、派单、跟进、验收、质检、写月报，每一环都得有人盯着。这就是为什么它需要 51 个项目经理、69 人的管理层。这些岗位里的人，大部分时间不是在服务住户，而是在“粘合”这些重复的管理动作。</p>
 
             <figure className="cf-fig av-dg" aria-label="重复的管理动作交给 AI 完成，人只在决策节点出现">
@@ -248,6 +250,7 @@ export default function Page() {
 
             <h2>如果你也想算算自己公司这笔账</h2>
             <p>如果你是一家物业公司的决策者，想知道自己公司有没有同样的空间，最简单的起点不是“该裁哪个岗位”，而是看看你公司里每天在重复发生的那些管理动作（抄表、对账、派单、跟进、质检、写报表），有多少是可以不靠人一遍遍去做的。</p>
+            <Scene src="/scene/cost-review.webp" alt="财务经理和项目经理一起核对项目预算" />
             <p>这些动作越多、越标准，可压缩的管理成本就越大。</p>
             <p>我们把爱物管这条路，做成了可以复制给外部公司的能力。如果你想具体聊聊你公司这笔账怎么算、能省在哪，可以直接<Link href="/contact">联系我们</Link>，我们用你自己的一个真实业务，和你一起跑一遍。</p>
 

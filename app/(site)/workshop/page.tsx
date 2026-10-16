@@ -207,7 +207,7 @@ export default function Page() {
         <SolVerdict>一张 5 万行的 Excel，能撑起一次很好的 Demo Day，但撑不起一个加速营。选对方式，比着急动手更重要。</SolVerdict>
       </SolSection>
 
-      <SolSection title="不管选哪种，前提只有一个" tone="mist">
+      <SolSection title="不管选哪种，前提只有一个" img={{ src: "/scene/pg-workshop.webp", alt: "几位业务人员围坐在一起，用电脑搭建自己的 AI 工作流" }} tone="mist">
         <SolCols items={[
           { title: "一个你真正头疼的业务问题", body: "不是设想出来的题目，是这个月真的让你犯难的那件事。" },
           { title: "这个问题的真实数据", body: "表格、PDF、IoT、聊天记录都行。有数据，AI 才有得想。" },

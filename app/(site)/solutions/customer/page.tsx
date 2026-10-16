@@ -36,7 +36,7 @@ export default function Page() {
         image={{ src: "/ai-service/customer-hero.jpg", alt: "写字楼大堂里，服务人员一边看手机一边走向前台（场景示意）" }}
       />
 
-      <SolSection title="把散在群里的诉求，接成即时接住的服务" tone="mist" split>
+      <SolSection title="把散在群里的诉求，接成即时接住的服务" img={{ src: "/scene/im-chat.webp", alt: "物业主管在走廊里用手机查看工作群消息" }} tone="mist" split>
         <SolCompare labels={["过去", "客服 Claw"]} rows={[
           {
             before: <><b>诉求散在群里</b>：报修、账单疑问、催办散落在各个微信、企微、钉钉、飞书群里，容易遗漏、非标准化，服务质量没办法保障。</>,
@@ -50,7 +50,7 @@ export default function Page() {
         <SolCols items={dims} />
       </SolSection>
 
-      <SolSection id="claw" title="最懂所有业主的人" tone="mist" split
+      <SolSection id="claw" title="最懂所有业主的人" img={{ src: "/scene/cs-lobby.webp", alt: "物业管家在大堂迎接提着购物袋的老年业主" }} tone="mist" split
         sub="7×24 无间断、极速响应，记住业主的所有偏好，还能提供情绪价值：一个真正住在群里的助手。">
         <SolSteps items={feats} />
         <SolVerdict>一个住在群里的助手，7×24 接住每一条诉求</SolVerdict>

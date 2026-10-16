@@ -3,6 +3,7 @@ import Link from "next/link";
 import "./page.css";
 import { pageMetadata } from "@/lib/pageMetadata";
 
+import Scene from "@/components/Scene";
 export const metadata: Metadata = pageMetadata("/team", {
   title: "团队 · 创始人滕一帆与 FDE 工程师团队 | 启盟科技",
   description:
@@ -43,6 +44,7 @@ export default function Page() {
             <span className="sep" />
             <span><b className="grad">蓝驰 · 微光</b> 创投支持</span>
           </div>
+          <Scene variant="hero" src="/company/evt-beyond.webp" alt="启盟团队在 BEYOND 博览会 NVIDIA 初创企业活动现场合影" />
         </div>
       </section>
 
@@ -72,6 +74,7 @@ export default function Page() {
           <span className="tm-eyebrow">核心团队 · FDE</span>
           <h2 className="tm-h2">和你一起搭东西的那群人</h2>
           <p className="tm-sub">FDE,Forward Deployed Engineer，前线部署工程师。</p>
+          <Scene src="/company/evt-build.webp" alt="启盟举办的共建活动现场" />
           <dl className="tm-nums tm-nums--text">
             <div className="reveal"><dt>500+ 个项目落地</dt><dd>核心成员主导过的项目落地，服务数十家大客户</dd></div>
             <div className="reveal"><dt>行业老兵与 AI 工程师</dt><dd>两种人坐在同一张桌子上</dd></div>
