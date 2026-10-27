@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import SeoFaq from "@/components/SeoFaq";
 import { pageMetadata } from "@/lib/pageMetadata";
-import { SolPage, SolHero, SolSection, SolCompare, SolCols, SolSteps, SolVerdict, SolEnd } from "../_tpl/Sol";
+import { SolPage, SolHero, SolSection, SolCompare, SolCols, SolSteps, SolVerdict, SolMore, SolEnd } from "../_tpl/Sol";
 
 export const metadata: Metadata = pageMetadata("/solutions/customer", {
   title: "物业报事报修与投诉 · AI 客服解决方案 | 启盟科技",
@@ -43,6 +43,7 @@ export default function Page() {
             after: <><b>每一条都即时接住</b>：一个住在群里的助手，7×24 即时答复，把对话直接接成可追踪的动作，反馈沉淀成数据。</>,
           },
         ]} />
+        <SolMore>想看系统本身：语音报修、自动建单、超时升级、工单与满意度看板，见 <Link href="/products/fmclaw/connectors/owner">业主小程序与物业工单系统</Link>。</SolMore>
       </SolSection>
 
       <SolSection title="省心、周到、主动、智能，一起提上来"

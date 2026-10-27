@@ -1,0 +1,47 @@
+/* 工具箱 · AI 物业管理系统总页与 5 个系统子页（2026-10-27）。
+   规则：单一强调色 #0058CC；卡片 14px 圆角、无阴影；不用图标方块、渐变字、左侧色条。 */
+
+/* ---------- 总页：5 个核心系统，一行一个（左缩略图，右文字 + 三项 AI 能力） ---------- */
+.sys-list{list-style:none;margin:0;padding:0;border-top:1px solid var(--s-ink)}
+.sys-list>li{border-bottom:1px solid var(--s-line)}
+.sys-list a{display:grid;grid-template-columns:240px minmax(0,1fr) 28px;gap:0 36px;align-items:center;padding:28px 0;color:var(--s-ink)}
+.sys-list img{display:block;width:100%;aspect-ratio:3/2;object-fit:cover;border-radius:14px;background:var(--s-mist)}
+.sys-list .t{min-width:0}
+.sys-list .k{display:block;margin-bottom:6px;font-size:13px;font-weight:600;color:var(--s-mut);font-variant-numeric:tabular-nums}
+.sys-list h3{margin:0;font-size:22px;font-weight:700;letter-spacing:-.01em;line-height:1.35}
+.sys-list .l{margin:8px 0 0;font-size:16px;line-height:1.65;color:var(--s-ink-2)}
+.sys-list ul{list-style:none;margin:14px 0 0;padding:0;display:flex;flex-wrap:wrap;gap:6px 22px;font-size:14px;line-height:1.6;color:var(--s-ink-2)}
+.sys-list ul li{position:relative;padding-left:14px}
+.sys-list ul li::before{content:"";position:absolute;left:0;top:.62em;width:6px;height:6px;border-radius:50%;background:var(--s-blue,#0058CC)}
+.sys-list .go{justify-self:end;color:var(--s-mut);transition:transform .2s,color .2s}
+.sys-list a:hover h3{color:var(--s-blue,#0058CC)}
+.sys-list a:hover .go{color:var(--s-blue,#0058CC);transform:translateX(3px)}
+@media(max-width:860px){
+  .sys-list a{grid-template-columns:150px minmax(0,1fr);gap:0 20px;align-items:start;padding:22px 0}
+  .sys-list .go{display:none}
+  .sys-list h3{font-size:18px}
+  .sys-list .l{font-size:15px}
+}
+@media(max-width:560px){
+  .sys-list a{grid-template-columns:1fr;gap:14px 0}
+  .sys-list ul{flex-direction:column;gap:4px}
+}
+
+/* ---------- 子页底部：工具箱里的其他系统（沿用 .spt-groups，改 5 栏） ---------- */
+.sys-nav ol{grid-template-columns:repeat(5,minmax(0,1fr))}
+@media(max-width:1100px){.sys-nav ol{grid-template-columns:repeat(3,minmax(0,1fr))}}
+@media(max-width:700px){.sys-nav ol{grid-template-columns:1fr}}
+
+/* ---------- 子页：常用功能清单（两栏勾选列表，纯文字） ---------- */
+.sys-base{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0 40px;border-top:1px solid var(--s-ink)}
+.sys-base li{padding:16px 0 16px 26px;border-bottom:1px solid var(--s-line);font-size:16px;line-height:1.6;position:relative}
+.sys-base li::before{content:"";position:absolute;left:2px;top:23px;width:12px;height:7px;border-left:2px solid var(--s-blue);border-bottom:2px solid var(--s-blue);transform:rotate(-45deg)}
+@media(max-width:700px){.sys-base{grid-template-columns:1fr}}
+
+/* ---------- 子页：延伸阅读 ---------- */
+.sys-reads{list-style:none;margin:28px 0 0;padding:0;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0 40px}
+.sys-reads li{border-top:1px solid var(--s-line)}
+.sys-reads a{display:block;padding:16px 0;font-size:16px;font-weight:600;line-height:1.55;color:var(--s-ink)}
+.sys-reads a:hover{color:var(--s-blue,#0058CC)}
+.sys-reads small{display:block;margin-bottom:4px;font-size:12.5px;font-weight:600;color:var(--s-mut)}
+@media(max-width:700px){.sys-reads{grid-template-columns:1fr}}

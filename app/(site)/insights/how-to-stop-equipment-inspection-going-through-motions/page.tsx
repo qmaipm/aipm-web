@@ -127,6 +127,10 @@ export default function Page() {
         两个提醒。第一，第三步「并行跑」的阶段要给班组打好预防针：核验出来的达标率会低，这是基线，不是追责依据；把它当追责依据，一线会想办法对付新系统，走过场换一种形式继续。第二，巡检核验的数据可以直接用于供应商考核：达标率、到岗率进合同，巡检从「成本」变成「管理抓手」，做法见<Link href="/solutions/inspection">设备巡检方案</Link>与<Link href="/solutions/vendor">供应商管理</Link>。
       </p>
 
+      <p>
+        已经装了楼宇自控、但数据没人看的楼，可以先把现有系统的数据接出来，每天同比环比、异常直接报单，见<Link href="/products/fmclaw/connectors/building">楼宇自控与设备能耗管理</Link>和<Link href="/insights/why-building-automation-systems-sit-idle">《楼宇自控系统为什么装了用不起来？》</Link>。
+      </p>
+
       <aside className="isd-source" aria-label="资料依据">
         <h3>资料依据与适用范围</h3>
         <p>案例数据来自启盟科技已发布案例页，口径以案例页为准；企业名称按案例页匿名口径。「五个信号」为启盟在多个项目中的经验总结，不构成对任何具体项目巡检质量的判断。AI 能力边界描述以 FMClaw 当前能力为准。</p>

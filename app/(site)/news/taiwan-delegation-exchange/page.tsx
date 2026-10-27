@@ -30,7 +30,7 @@ export default function Page() {
       <p>
         据介绍，在启盟自营的物业公司“爱物管”的真实运营中，AI 已接管其80%-90%的日常管理动作，全年真实处理住户对话超过 100万条。
       </p>
-      <p>看到 AI 物业经理在真实数据下运转的过程，多位企业家表示，这与他们此前对“智慧物业”的认知不在一个量级。</p>
+      <p>看到 AI 物业经理在真实数据下运转的过程，多位企业家表示，这与他们此前对物业系统的认知不在一个量级。</p>
       <figure className="fig"><img src="/news/taiwan-delegation-exchange-03.jpg" alt="系统实操演示" loading="lazy" /></figure>
 
       <h2>交流热烈，达成初步合作意向</h2>

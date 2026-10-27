@@ -95,6 +95,11 @@ export default function Page() {
         两个常见追问。<b>「我们已经在用钉钉/飞书，还需要行业智能体吗？」</b>：协同平台是入口，行业智能体是入口背后干活的人，不是二选一，见<Link href="/insights/general-platform-vs-industry-agent">《已经在用钉钉、飞书了，还需要行业智能体平台吗》</Link>。<b>「通用 AI 平台不能做吗？」</b>：通用平台帮一个人完成一次任务，行业智能体替一个组织把工作长期干下去，区别见<Link href="/products/fmclaw#why-fmclaw">FMClaw 产品页</Link>。
       </p>
 
+      <h3>AI 物业管理系统和智慧物业系统有什么区别</h3>
+      <p>
+        很多人还把物业软件叫「智慧物业系统」。它把流程搬到了线上：业主在 App 里填表，客服录单，主管催办，月底导数做报表，活还是人在推。<b>AI 物业管理系统由 AI 推进：业主说一句话就生成工单，超时自动升级，设备异常自动派单，日报每天自动发出；系统之间共用一套数据，修完直接出账。</b>FMClaw™ 内置的五个核心系统与逐项对照，见<Link href="/products/fmclaw/connectors">AI 物业管理系统</Link>。
+      </p>
+
       <aside className="isd-source" aria-label="资料依据">
         <h3>资料依据与适用范围</h3>
         <p>本文的「物业智能体」定义与三条判断标准为启盟科技口径，与<Link href="/agents">物业管理智能体矩阵页</Link>一致。案例数据来自已发布案例页，口径以案例页为准。文中对传统物业管理软件的描述指以人工录入为主要数据来源的记录型系统，不针对任何具体厂商。</p>

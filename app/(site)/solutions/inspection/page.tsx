@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import SeoFaq from "@/components/SeoFaq";
 import { pageMetadata } from "@/lib/pageMetadata";
-import { SolPage, SolHero, SolSection, SolCompare, SolSteps, SolVerdict, SolNums, SolEnd } from "../_tpl/Sol";
+import { SolPage, SolHero, SolSection, SolCompare, SolSteps, SolVerdict, SolNums, SolMore, SolEnd } from "../_tpl/Sol";
 
 export const metadata: Metadata = pageMetadata("/solutions/inspection", {
   title: "设备巡检管理 · 智能体解决方案 | 启盟科技",
@@ -36,6 +36,7 @@ export default function Page() {
           { k: "数据准不准", before: "数据质量没保障，价值丧失。", after: "巡检单电子化，AI 识别读数。" },
           { k: "能否预防", before: "做不了预防性维护。", after: "超阈值与趋势异常自动预警。" },
         ]} />
+        <SolMore>已经装了楼宇自控、数据没人看？把现有系统的数据接进来，同比环比、异常直接报单，见 <Link href="/products/fmclaw/connectors/building">楼宇自控与设备能耗管理</Link>。</SolMore>
       </SolSection>
 
       <SolSection id="caps" title="从确保到场，到提前预警" split

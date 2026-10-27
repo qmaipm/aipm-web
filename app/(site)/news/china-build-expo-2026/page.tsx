@@ -45,7 +45,7 @@ export default function Page() {
 
       <h2>四个AI Agent：机器处理流程，人处理情感</h2>
       <p>
-        和市面上多数从客服或安防单点切入的智慧物业方案不同，AI物业经理FMClaw是一套端到端的物业智能体，由四个AI Agent分工协作形成管理闭环：
+        和市面上多数从客服或安防单点切入的物业 AI 方案不同，AI物业经理FMClaw是一套端到端的物业智能体，由四个AI Agent分工协作形成管理闭环：
       </p>
       <ul>
         <li>服务标准设计</li>
