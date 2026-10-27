@@ -238,7 +238,7 @@ section.band.dark .sec-head p.sub{color:#A7B3AE}
 .prose p{margin:0 0 20px}
 .prose ul,.prose ol{margin:0 0 20px; padding-left:22px}
 .prose li{margin:6px 0}
-.prose blockquote{margin:28px 0; padding-left:22px; border-left:3px solid var(--signal);
+.prose blockquote{margin:28px 0; padding-left:0;
   font-family:var(--font-serif); font-size:22px; color:var(--ink); line-height:1.55}
 .prose code{font-family:inherit; font-size:.88em; background:var(--ivory-2); padding:2px 7px; border-radius:6px}
 .prose a{color:var(--blue); text-decoration:underline; text-underline-offset:3px}
@@ -361,7 +361,7 @@ section.band.dark .scenario-quote .sq-detail{color:var(--dark-mut-c)}
 .sol-body p{margin:0 0 18px}
 
 /* 强调句 + 互链 */
-.sol-emph{margin-top:38px; padding:22px 26px; background:var(--ivory-2); border:1px solid var(--line); border-left:3px solid var(--blue); border-radius:0 14px 14px 0; font-family:inherit; font-size:clamp(18px,2.4vw,23px); line-height:1.5; color:var(--ink); max-width:var(--measure)}
+.sol-emph{margin-top:38px; padding:22px 26px; background:var(--ivory-2); border:1px solid var(--line); border-radius:14px; font-family:inherit; font-size:clamp(18px,2.4vw,23px); line-height:1.5; color:var(--ink); max-width:var(--measure)}
 .sol-link{margin-top:30px; font-size:15px; color:var(--mut); max-width:var(--measure); line-height:1.7}
 .sol-link a{color:var(--blue); font-weight:600; text-underline-offset:3px}
 .case{background:var(--dark-2); padding:34px 30px; display:flex; flex-direction:column; min-height:280px; transition:background .25s; color:var(--ivory)}
@@ -684,7 +684,7 @@ a:focus-visible, button:focus-visible, .btn:focus-visible, .t:focus-visible,
 .dc.now .dc-num{color:var(--vi-blue)}
 .dc-sub{display:block; margin-top:11px; font-size:13.5px; color:var(--ink-2); line-height:1.6}
 .dquote{font-family:var(--font-serif); font-size:clamp(18px,2.2vw,21px); line-height:1.55; color:var(--ink);
-  padding-left:18px; border-left:3px solid var(--signal); margin-top:4px}
+  margin-top:4px}
 .dlink{display:inline-flex; align-items:center; gap:7px; font-size:15px; font-weight:600; color:var(--signal)}
 .dlink:hover .ar{transform:translateX(4px)}
 

@@ -11,7 +11,7 @@
 .insight-detail .prose .lede{font-size:21px; line-height:1.7; color:var(--ink); margin-bottom:32px}
 .insight-detail .prose a{color:var(--teal-ink); text-decoration:underline; text-underline-offset:3px; text-decoration-color:var(--vi-line)}
 .insight-detail .prose a:hover{color:var(--teal)}
-.insight-detail .prose blockquote{border-left:3px solid var(--teal)}
+.insight-detail .prose blockquote{border-left:0}
 
 /* 推荐阅读 */
 .insight-detail .rec .card .k.vi-bar{display:block; background:var(--vi-grad)}
