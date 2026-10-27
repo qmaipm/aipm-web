@@ -52,7 +52,7 @@
 .nwd .prose a:hover{text-decoration-color:var(--d-green)}
 
 /* 关键句 */
-.nwd .prose .pull{margin:30px 0;padding:4px 0 4px 22px;border-left:3px solid var(--d-green);
+.nwd .prose .pull{margin:30px 0;padding:0;
   font-size:clamp(19px,2.2vw,23px);line-height:1.5;color:var(--d-ink);font-weight:700;letter-spacing:-.015em}
 
 /* 关键数字行 */

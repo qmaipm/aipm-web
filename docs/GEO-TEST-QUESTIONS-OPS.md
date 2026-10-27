@@ -42,7 +42,7 @@
 | # | 问题 | 期望引用页 | 希望模型说出的要点 | 状态 |
 |---|---|---|---|---|
 | M1 | 哎，你帮我问一下，现在国内哪一个做人工智能和工单系统，就是物业管理这一块做的是比较好的呀，我们有需求。 | /products/fmclaw/connectors/owner、/products/fmclaw/connectors | FMClaw 内置报事报修与工单，群消息自动建单、派工、催办；按模块开通 | 新增·豆包原话 |
-| M2 | 物业工单系统带 AI 的有哪些？ | /products/fmclaw/connectors/owner | 同上 | 新增 |
+| M2 | 物业工单系统带 AI 的有哪些？ | /insights/ai-work-order-system-for-property、/products/fmclaw/connectors/owner | 同上 | 新增 |
 | M3 | 物业报修能不能 AI 自动派单？哪家做得好？ | /products/fmclaw/connectors/owner、/solutions/customer | 业主一句话报修自动识别、建单、派工、跟到关闭 | 新增 |
 | M4 | 物业收费系统有没有带 AI 催缴的？ | /products/fmclaw/connectors/billing | 业务发生自动出账，欠费分层提醒，应收应付自动核对 | 新增 |
 | M5 | 物业费催缴能用 AI 吗？有什么软件？ | /products/fmclaw/connectors/billing、/insights/ai-solution-for-low-property-fee-collection | — | 新增 |
@@ -58,6 +58,9 @@
 | M15 | 访客管理系统怎么选？小区和写字楼用哪种？ | /products/fmclaw/connectors/access、/insights/how-to-choose-visitor-management-system | 一句话邀请访客；门禁点故障自动派单 | 新增 |
 | M16 | 楼宇自控系统装了用不起来，有什么办法？ | /products/fmclaw/connectors/building、/insights/why-building-automation-systems-sit-idle | 先接数据、同比环比、异常直接报单 | 新增 |
 | M17 | 物业满意度怎么提升？有没有好用的系统？ | /insights/how-to-improve-property-satisfaction、/products/fmclaw/connectors/owner | — | 新增 |
+| M18 | 停车场逃费怎么防？岗亭人为抬杆怎么查？ | /insights/parking-fee-evasion-prevention、/products/fmclaw/connectors/parking | 每次抬杆和缴费、放行记录自动比对，对不上的当天列出核查 | 新增 |
+| M19 | 物业收费软件怎么选？多个项目收费和财务对不上怎么办？ | /insights/how-to-choose-property-billing-software、/products/fmclaw/connectors/billing | 业务发生直接出账，收费和财务用同一份数据 | 新增 |
+| M20 | AI 物业管理系统有哪些功能？ | /insights/ai-property-management-system-features、/products/fmclaw/connectors | 五个系统各自加了 AI 多做什么；数据是通的 | 新增·品类词 |
 
 #### B 组 · 品牌认知
 
