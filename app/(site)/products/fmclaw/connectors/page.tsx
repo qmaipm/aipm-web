@@ -4,82 +4,124 @@ import JsonLd from "@/components/JsonLd";
 import SeoFaq from "@/components/SeoFaq";
 import { pageMetadata } from "@/lib/pageMetadata";
 import { techArticleLd } from "../_shared";
-import { BrainMap, FmFoot, MediaRow, PhotoGrid } from "../_brain";
+import { BrainMap, FmFoot, MediaRow } from "../_brain";
 import {
-  SolPage, SolHero, SolDefine, SolSection, SolCols, SolTable, SolGallery, SolVerdict, SolMore, SolEnd,
+  SolPage, SolHero, SolDefine, SolSection, SolCompare, SolSteps, SolCols, SolTable, SolGallery, SolVerdict, SolMore, SolEnd,
 } from "../../../solutions/_tpl/Sol";
+import { SYSTEMS, sysHref } from "./_systems";
+import "./sys.css";
 
-// 2026-10-16 改版：工具箱 = 物业管理系统全套内置 + 在用系统原样接入。
-// 用户裁定：保留 30+ 预制工具、六类目录、钉钉/飞书/企微三种协同；新增内置系统清单、两条路径、按模块开通 + 按用量计费。
-// 公开尺度：不列接入协议（原 MCP/CLI/数据库/设备协议清单已撤），不写具体价格（价格见 /pricing）。
+// 2026-10-27 改版：工具箱 = AI 物业管理系统总页（对齐稿 docs/PRODUCT-SYSTEMS.md）。
+// 品类词用「AI 物业管理系统」（百度联想：有哪些 / 怎么样 / 怎么用）；不用「智慧物业」作自称
+// （已被传统厂家与地方政府平台占住），只在 FAQ 里回答两者区别。
+// 5 个核心系统各有子页（owner / billing / parking / access / building），其余模块在本页列表。
+// 公开尺度：不列接入协议，不写具体价格（见 /pricing）；不写「智能体的工具」「Credit」等内部说法。
 const PATH = "/products/fmclaw/connectors";
 
 export const dynamic = "force-dynamic";
 
 export const metadata: Metadata = pageMetadata(PATH, {
-  title: "物业管理系统全套内置：收费、工单、设备巡检、品质、计薪一站开通｜FMClaw™ 工具箱",
+  title: "AI 物业管理系统：业主小程序、工单、收费、停车、门禁、楼宇自控全套内置｜FMClaw™ 工具箱",
   description:
-    "没有物业管理系统，也不用先花钱买软件：FMClaw™ 工具箱内置收费、报事报修与工单、设备巡检与拍照抄表、品质核查、考勤排班与计薪、供应商结算、数据大屏等物业管理软件，30+ 预制工具持续增加，按模块开通、按用量付费；已有的 ERP、财务、BA、钉钉、飞书、企业微信原样接入。",
+    "AI 物业管理系统有哪些功能：FMClaw™ 工具箱内置业主小程序与工单、物业收费、停车场管理、门禁与访客、楼宇自控与设备能耗，以及品质巡查、考勤薪资、合同采购、报表大屏等模块。和传统智慧物业系统的区别：业主说一句话就能报修，工单自动建好、催办、超时升级；停车日报每天自动发给项目经理；门禁坏了系统先知道；设备异常直接变工单。系统之间数据是通的，按模块开通，已有系统原样接入。",
 });
 
 const TECH_LD = techArticleLd({
   path: PATH,
-  headline: "FMClaw™ 工具箱：内置物业管理系统与在用软件接入",
+  headline: "AI 物业管理系统：FMClaw™ 工具箱",
   description:
-    "工具箱是 AI 物业经理 FMClaw™ 的执行层：平台内置物业管理所需的全套软件，同时把企业在用的系统接为智能体可调用的工具，智能体在授权范围内使用它们完成工作。",
+    "FMClaw™ 工具箱内置物业管理要用的全部系统：业主小程序与工单、收费、停车、门禁与访客、楼宇自控与设备能耗等，系统之间数据互通，由 AI 主动推进日常工作；已有系统原样接入。",
 });
 
-/* 内置物业管理系统：6 组（对标主流物业管理软件的功能模块） */
+const LIST_LD = {
+  "@context": "https://schema.org",
+  "@type": "ItemList",
+  name: "AI 物业管理系统包含的核心系统",
+  itemListElement: SYSTEMS.map((s, i) => ({
+    "@type": "ListItem",
+    position: i + 1,
+    name: s.full,
+    url: `${process.env.SITE_URL || "https://www.aipm.cn"}${sysHref(s.slug)}`,
+  })),
+};
+
+/* 5 个核心系统之外的模块 */
 const MODS = [
-  { h: "收费与财务", p: "钱收得上来，账对得清楚", items: ["物业费、水电费、停车费、租金收费", "欠费提醒与催缴", "收支对账与财务报表", "供应商账单核算与结算"] },
-  { h: "客服与工单", p: "业主的事，件件有着落", items: ["报事报修、投诉建议", "工单派发、催办与回访", "业主群消息自动建单", "访客与客户服务"] },
-  { h: "设备与能耗", p: "设备不带病运行", items: ["设备台账与二维码", "巡检、保养计划与记录", "拍照抄表，读数自动识别", "能耗统计与异常提示"] },
-  { h: "品质与安全", p: "服务做没做、做得好不好", items: ["品质核查与 AI 质检评分", "巡更与安全巡查", "隐患识别与自动派单", "服务过程传感器核验"] },
-  { h: "人员与经营", p: "人、钱、物算得明白", items: ["考勤排班", "薪资与 KPI 核算", "人员编制与项目预算测算", "合同、物资与采购"] },
-  { h: "空间与数据", p: "一个项目的底图", items: ["空间与服务点位清单", "服务标准与服务计划配置", "日报、周报、月报与数据大屏", "开放接口与第三方集成"] },
+  { h: "品质与安全巡查", p: "服务做没做、做得好不好", items: ["品质核查与 AI 质检评分", "巡更与安全巡查", "隐患识别与自动派单", "拍照抄表，读数自动识别"] },
+  { h: "人事考勤与薪资", p: "人算得明白", items: ["考勤排班", "薪资与 KPI 核算", "人员编制测算", "项目预算测算"] },
+  { h: "合同、采购与供应商", p: "钱和物算得明白", items: ["合同管理", "物资与采购", "供应商账单核算", "供应商结算"] },
+  { h: "空间与报表", p: "一个项目的底图", items: ["空间与服务点位清单", "服务标准与服务计划", "日报、周报、月报", "数据大屏"] },
 ];
 
-/* 原有六类在用软件目录（保留） */
+/* 在用软件目录 */
 const CATALOG = [
   ["物业 ERP", "收费、工单、租赁、合同、客户档案"],
   ["财务与人力", "总账、应收应付、考勤、排班、薪酬"],
   ["协同平台", "钉钉、飞书、企业微信的消息、审批与文档"],
-  ["楼宇与 IoT", "BA、暖通、电梯、给排水、能源仪表、消防"],
-  ["视频与安防", "摄像头、门禁、巡更、告警"],
+  ["楼宇与 IoT", "楼宇自控、暖通、电梯、给排水、能源仪表、消防"],
+  ["视频与门禁", "摄像头、门禁、闸机、巡更、告警"],
+  ["停车", "道闸、车牌识别、停车收费系统"],
   ["机器人与装备", "清洁机器人、巡检机器人、无人机"],
 ];
 
 export default function ConnectorsPage() {
   return (
     <SolPage>
-      <JsonLd data={TECH_LD} />
+      <JsonLd data={[TECH_LD, LIST_LD]} />
 
       <SolHero
         crumbRoot={{ href: "/products/fmclaw", label: "AI 物业经理 FMClaw™" }}
-        crumb="工具箱"
-        title={["物业要用的系统，", "平台里都有"]}
-        lead={<>收费、工单、设备巡检、品质、计薪、结算：物业管理要用的软件，<b>FMClaw™ 工具箱全部内置</b>，按模块开通。已经在用的 ERP、财务系统和钉钉、飞书、企业微信，<b>原样接进来</b>。</>}
+        crumb="工具箱 · AI 物业管理系统"
+        title={["AI 物业管理系统，", "全套都在工具箱里"]}
+        lead={<>业主小程序与工单、收费、停车、门禁与访客、楼宇自控：物业要用的系统都在，<b>系统之间数据是通的</b>。不同的是，活不再等人去点，<b>AI 主动把它推进完</b>。</>}
         cta={{ href: `/contact?intent=demo&from=${PATH}`, label: "预约演示" }}
-        secondary={{ href: "#modules", label: "看内置了哪些系统" }}
-        proof={["30+ 预制工具，持续增加", "按模块开通", "按用量付费", "在用系统不替换"]}
-        media={{ node: <img className="bm-shot" src="/images/agents/qa-clean-batch.webp" alt="FMClaw™ 内置品质核查模块真实界面：保洁质检照片批量评分" width={2000} height={987} />, caption: "真实产品界面 · 内置品质核查模块" }}
+        secondary={{ href: "#systems", label: "看有哪些系统" }}
+        proof={["5 个核心系统 + 常用模块", "按模块开通", "已有系统原样接入", "30+ 预制工具，持续增加"]}
+        media={{ node: <img className="bm-shot" src="/images/agents/op-workbench.webp" alt="FMClaw™ 工作台真实界面：待办事项、工单进度与智能体运行状态" width={2000} height={989} />, caption: "真实产品界面 · 工作台" }}
       />
 
       <SolDefine
-        term="工具箱是什么："
-        foot={<>相当于其他智能体平台的插件或连接器；区别在于，工具箱里预置的是物业管理的行业软件。</>}
+        term="AI 物业管理系统是什么"
+        foot={<>工具箱是这些系统在 FMClaw™ 平台里的名字：客户登录后看到的，就是工具箱。</>}
       >
-        AI 物业经理 FMClaw™ 用来干活的软件和设备。智能体建账单、派工单、发通知、读仪表，都通过工具箱里的工具完成：平台内置的物业管理系统是工具，企业在用的软件和现场设备接进来也是工具。
+        物业管理要用的收费、工单、停车、门禁、设备等系统，加上一个会干活的 AI。传统系统负责记录，人去录入、派单、催办、做报表；AI 物业管理系统里，这些事由 AI 自动推进，人负责确认和到场处理。
       </SolDefine>
 
-      <SolSection id="modules" title="内置的物业管理系统" tone="mist"
-        sub="主流物业管理软件有的模块，工具箱里都有。它们不是一套要人去录入的软件，而是智能体每天在用的工具：数据自动进来，事情自动推进。">
-        <PhotoGrid items={[
-          { src: "/products/fmclaw/brain/meter.webp", alt: "工程人员在设备机房用手机拍照抄表（场景示意）", title: "拍一张照片，读数自动进系统", body: "抄表、巡检、隐患上报，现场拍照就完成记录，不用回办公室补录。" },
-          { src: "/products/fmclaw/brain/butler.webp", alt: "物业管家在大堂查看手机上的工单，维修师傅走向电梯（场景示意）", title: "业主的报修，自动派到人", body: "群消息、电话、小程序进来的报修自动建单、派工、催办，跟到关闭。" },
-          { src: "/products/fmclaw/v2/photo-act.webp", alt: "写字楼大堂里清洁机器人在作业，工程人员走向电梯", title: "人和机器人，用同一套工具", body: "清洁、巡检机器人和一线人员接收同一套任务，结果回到同一个系统。" },
+      <SolSection title="和传统智慧物业系统，差在哪" tone="mist"
+        sub="一句话：系统上了，活还是人在干。下面六件事，是差别所在。">
+        <SolCompare labels={["传统智慧物业系统", "AI 物业管理系统"]} rows={[
+          { k: "报修入口", before: "下载 App，找入口、填表", after: "在小程序或业主群里说一句话、发一段语音" },
+          { k: "建单", before: "客服看消息、判断、手工录单", after: "自动识别诉求、自动生成工单，人确认即派" },
+          { k: "跟进", before: "靠人催、靠人记", after: "自动催办，超时自动升级到对应负责人" },
+          { k: "设备与门禁", before: "数据在系统里，要人自己去看", after: "哪个门禁点坏了、哪里漏水，系统先发现、直接派单" },
+          { k: "报表", before: "人去导数、做表、写日报", after: "日报自动写好，每天发给项目经理" },
+          { k: "系统之间", before: "收费、工单、门禁、停车各买各的，数据不通", after: "同一套数据：修完直接出收费单，访客车自动放行" },
         ]} />
-        <div className="bm-mods" style={{ marginTop: 72 }}>
+      </SolSection>
+
+      <SolSection id="systems" title="5 个核心系统"
+        sub="同类产品有的常用功能都有。下面每行列出加了 AI 之后多做的三件事，点进去看详细。">
+        <ul className="sys-list">
+          {SYSTEMS.map((s, i) => (
+            <li key={s.slug}>
+              <Link href={sysHref(s.slug)}>
+                <img src={s.img} alt={s.alt} loading="lazy" width={1800} height={1207} />
+                <div className="t">
+                  <span className="k">{String(i + 1).padStart(2, "0")}</span>
+                  <h3>{s.full}</h3>
+                  <p className="l">{s.line}</p>
+                  <ul>{s.ai.map((x) => <li key={x}>{x}</li>)}</ul>
+                </div>
+                <span className="go" aria-hidden="true">→</span>
+              </Link>
+            </li>
+          ))}
+        </ul>
+      </SolSection>
+
+      <SolSection title="其他常用模块" tone="mist"
+        sub="品质、人事、采购、报表这些模块也都内置，按需要开通。">
+        <div className="bm-mods">
           {MODS.map((m) => (
             <section key={m.h}>
               <h3>{m.h}</h3>
@@ -88,91 +130,98 @@ export default function ConnectorsPage() {
             </section>
           ))}
         </div>
-        <p className="spt-note">30+ 预制工具持续增加，支持按企业需要扩展。模块清单以实际开通为准。</p>
+        <p className="spt-note">30+ 预制工具持续增加，模块清单以实际开通为准。</p>
       </SolSection>
 
-      <SolSection title="真实界面，智能体每天在用的工具"
-        sub="下面是平台内置模块的真实界面，数据经过脱敏。点击可看大图。">
+      <SolSection title="数据通了，一件事能从头办到尾" split img={{ src: "/scene/home-pm.webp", alt: "项目经理在写字楼大堂看平板上的项目情况" }}
+        sub="几个系统用同一套数据，不用人在系统之间来回抄。三个例子：">
+        <SolSteps items={[
+          { title: "语音报修 → 自动派单 → 修完出账", body: "业主发一段语音说厨房漏水，AI 认出房号、生成工单派给师傅；有偿维修办完，收费单直接推给业主。", href: sysHref("owner"), linkText: "业主小程序与工单" },
+          { title: "邀请访客 → 门禁和道闸一起放行", body: "租户在小程序里邀请客人并登记车牌，访客到了扫码进门，车辆自动放行、按规则计费。", href: sysHref("access"), linkText: "门禁与访客系统" },
+          { title: "夜间漏水 → 自动报单 → 写进日报", body: "用水数据异常，系统直接生成工单派给值班工程师；处理结果第二天自动写进项目日报。", href: sysHref("building"), linkText: "楼宇自控与设备能耗" },
+        ]} />
+      </SolSection>
+
+      <SolSection title="真实界面" tone="mist"
+        sub="平台内置模块的真实界面，数据已脱敏。点击可看大图。">
         <SolGallery items={[
+          { src: "/images/agents/qa-hazard-order.webp", w: 2000, h: 990, title: "隐患识别与派单", caption: "现场照片识别出隐患后自动生成工单，派给对应负责人。", alt: "隐患识别派单界面：现场照片、隐患类型与工单信息" },
           { src: "/images/agents/rv-vendor-bill.webp", w: 2000, h: 1322, title: "供应商结算", caption: "按编制工时、实际出勤、加班和缺勤逐日核算账单，含税金额自动算出。", alt: "供应商费用结算界面：账单金额、税费、编制人数与每日账单明细" },
           { src: "/images/agents/rv-payroll.webp", w: 2000, h: 987, title: "薪资与 KPI 核算", caption: "薪酬汇总按审批级次逐级确认，明细列出应发、扣款与加班费。", alt: "保洁薪酬汇总审批界面：审批级次与薪酬明细表" },
-          { src: "/images/agents/qa-hazard-order.webp", w: 2000, h: 990, title: "隐患识别与派单", caption: "现场照片识别出隐患后自动生成工单，派给对应负责人。", alt: "隐患识别派单界面：现场照片、隐患类型与工单信息" },
           { src: "/images/agents/sd-points.webp", w: 2000, h: 989, title: "空间与服务点位", caption: "项目的每一个服务点位、服务标准和频次，都在一张清单里。", alt: "服务点位清单界面：楼层、区域、点位类型与服务频次" },
         ]} />
       </SolSection>
 
-      <SolSection title="有没有系统，都能用" tone="mist"
-        sub="很多中小物业公司和园区自己的物业公司没有系统，上一套物业软件要先花一笔钱；已经有系统的企业，不想推倒重来。">
+      <SolSection title="有没有系统，都能用"
+        sub="没有系统的，不用先花一笔钱买软件；已经有系统的，不用推倒重来。">
         <MediaRow src="/products/fmclaw/brain/toolbox-hero.webp" alt="园区物业服务中心前台，物业人员和项目经理在电脑上处理工作（场景示意）" w={1600} h={1195}>
-          <h3>两条路，都从今天开始</h3>
+          <h3>两种情况，都从一个系统开始</h3>
           <ul>
-            <li><b>还没有系统</b>直接开通需要的模块，不用先采购一套物业软件；从收费、工单、巡检这几个最常用的开始，用到再加。数据由 IoT、手机拍照和业务流程自动进入，少靠人填。</li>
-            <li><b>已经有系统</b>在用的 ERP、财务、BA 原样接入，不替换、不重建；缺什么补什么，例如在已有 ERP 之外补上质检和结算。结果写回现有系统。</li>
+            <li><b>还没有系统</b>直接开通需要的模块，从工单、收费、停车这类最常用的开始，用到再加。</li>
+            <li><b>已经有系统</b>在用的物业 ERP、收费、停车、门禁、楼宇自控原样接入，不替换；缺什么补什么，结果写回现有系统。</li>
           </ul>
         </MediaRow>
       </SolSection>
 
-      <SolSection title="为什么比传统物业软件省钱"
-        sub="传统物业软件按账号、按项目收订阅费，不管用多用少。">
-        <SolCols items={[
-          { meta: "按模块开通", title: "开通费远低于传统软件", body: "工具箱里的软件本质上是智能体的工具，按模块开通，开通和订阅费用远低于传统物业 SaaS。" },
-          { meta: "按用量付费", title: "AI 干了多少活，付多少", body: "智能体调用工具时消耗平台积分（Credit），用量取决于开通了多少条工作流。" },
-          { meta: "随时增减", title: "从一个模块开始", body: "先开最急需的几个模块，跑出效果再扩展，不用一次买齐。" },
-        ]} />
-        <SolMore>具体版本和价格见 <Link href="/pricing">价格</Link>：个人版免费开始，项目团队版按项目与账号容量启用。</SolMore>
-      </SolSection>
-
-      <SolSection title="在用的软件，原样接进来" img={{ src: "/scene/park-lowvolt.webp", alt: "两位工程师在弱电机房对照系统图纸" }} tone="mist"
-        sub="接入后，智能体像人一样使用这些软件：在收费系统建账单，在工单系统派工，在协同平台通知人。">
+      <SolSection title="在用的软件和设备，原样接进来" img={{ src: "/scene/park-lowvolt.webp", alt: "两位工程师在弱电机房对照系统图纸" }} tone="mist"
+        sub="接进来之后，AI 像人一样使用这些系统：在收费系统出账单，在工单系统派工，在协同平台通知人。">
         <SolTable head={["类别", "常见软件与设备"]} rows={CATALOG} />
-        <SolVerdict>你在用的软件，原样接进来就能用。不替换。</SolVerdict>
+        <SolVerdict>你在用的系统和设备，原样接进来就能用，不替换。</SolVerdict>
       </SolSection>
 
       <SolSection title="已经在用钉钉、飞书、企业微信，正好" img={{ src: "/scene/im-chat.webp", alt: "物业主管在走廊里用手机查看工作群消息" }}
-        sub="不用二选一。平台继续负责组织协作，FMClaw™ 补上物业与设施管理的专业业务；三家平台都在官方架构里预留了第三方接入的位置。">
+        sub="员工不换工具、不改习惯，账号与组织架构沿用现有体系。">
         <SolCols items={[
-          { meta: "方式 01 · 机器人消息", title: "群里多一个机器人", body: "业主在群里发一条报修，机器人收进来，FMClaw™ 识别、建单、派工，进度发回群里。" },
-          { meta: "方式 02 · 技能调用", title: "对话入口不变", body: "管理层还在原来的对话框里问「本月哪个项目能耗异常」，答案用行业数据和统一口径算出来。" },
-          { meta: "方式 03 · 表格互通", title: "两边看到同一份数", body: "与多维表、智能表格双向同步，日报、周报、台账在两边是同一份数。" },
+          { meta: "群机器人", title: "群里多一个助手", body: "业主在群里发一条报修，助手收进来、建单、派工，进度发回群里。" },
+          { meta: "对话问数", title: "对话入口不变", body: "管理层还在原来的对话框里问「本月哪个项目能耗异常」，答案按统一口径算出来。" },
+          { meta: "表格互通", title: "两边看到同一份数", body: "与多维表、智能表格双向同步，日报、周报、台账在两边是同一份数。" },
         ]} />
-        <SolMore>员工不换工具、不改习惯；账号与组织架构沿用现有体系；停掉接入，平台照常运行。为什么两者谁也离不开谁，见 <Link href="/insights/general-platform-vs-industry-agent">这篇行业研究</Link>。</SolMore>
+        <SolMore>为什么协同平台和行业系统谁也离不开谁，见 <Link href="/insights/general-platform-vs-industry-agent">这篇行业研究</Link>。</SolMore>
       </SolSection>
 
       <SolSection title="能做什么，有授权" img={{ src: "/scene/approve-phone.webp", alt: "区域经理在手机上确认一笔申请" }} tone="mist"
-        sub="谁能用哪个工具，接入时就定好。智能体拿到的不是整个系统，而是明确授权的几个动作。">
+        sub="AI 拿到的不是整个系统，而是明确授权的几个动作。">
         <SolTable head={["动作类型", "怎么执行", "例子"]} rows={[
-          ["查信息、算数据、写草稿", "智能体直接做", "查某户缴费记录，汇总本月工单，起草一条群通知"],
-          ["发出去、扣到钱、动到设备", "先经人批准再执行", "向业主群发通知，给某户退费，远程停一台设备"],
-          ["收回授权", "立即生效", "工具当场不可用，已有记录保留，可随时复核"],
+          ["查信息、算数据、写草稿", "AI 直接做", "查某户缴费记录，汇总本月工单，起草一条群通知"],
+          ["发出去、扣到钱、动到设备", "先经人批准再执行", "向业主群发通知，给某户退费，远程开门或停一台设备"],
+          ["收回授权", "立即生效", "该动作当场不可用，已有记录保留，可随时复核"],
         ]} />
       </SolSection>
 
-      <SolSection title="它在 FMClaw™ 里的位置"
-        sub="项目大脑决定看什么，工作流引擎决定什么时候用哪个工具，控制台保证用得可控。">
+      <SolSection title="怎么开通，怎么收费">
+        <SolCols items={[
+          { meta: "按模块开通", title: "从一个系统开始", body: "先开最急需的那一个，跑出效果再加别的，不用一次买齐。" },
+          { meta: "按用量计费", title: "用多少，付多少", body: "不按账号数收固定年费；只接收报告的人不计账号。" },
+          { meta: "价格", title: "个人版免费开始", body: <>项目团队版 19,800 元起；上线服务、数据接入与硬件按项目报价，见 <Link href="/pricing">价格</Link>。</> },
+        ]} />
+      </SolSection>
+
+      <SolSection title="它在 FMClaw™ 里的位置" tone="mist"
+        sub="项目大脑决定看什么，工作流引擎决定什么时候用哪个系统，控制台保证用得可控。">
         <BrainMap current="toolbox" />
       </SolSection>
 
       <SeoFaq
-        heading="关于物业管理系统与工具箱，常被问到的问题"
-        serviceName="FMClaw™ 工具箱"
-        serviceDesc="内置收费、工单、设备巡检、品质、计薪、结算等物业管理系统，按模块开通、按用量付费；在用系统原样接入。"
+        heading="关于 AI 物业管理系统，常被问到的问题"
+        serviceName="AI 物业管理系统 · FMClaw™ 工具箱"
+        serviceDesc="内置业主小程序与工单、物业收费、停车场管理、门禁与访客、楼宇自控与设备能耗等系统，系统之间数据互通，由 AI 主动推进日常工作；按模块开通，已有系统原样接入。"
         items={[
-          { q: "物业管理系统有哪些功能？", a: "常见的物业管理系统包括收费管理、客服与报事报修工单、设备台账与巡检保养、品质核查、考勤排班与薪资、合同与采购、数据报表等模块。FMClaw™ 工具箱内置了这些模块，并且由智能体直接使用：数据自动进入，工单自动推进，报告自动生成。" },
-          { q: "物业管理系统多少钱一套？", a: "传统物业软件通常按账号或项目收年费，功能用不用都要付。FMClaw™ 的软件全部包含在平台内，按模块开通，开通和订阅费用远低于传统物业 SaaS；智能体调用工具时按实际用量消耗平台积分，用量取决于开通了多少条工作流。具体版本与价格见价格页，个人版可以免费开始。" },
-          { q: "物业管理软件哪个好用？", a: "看你要解决的问题。只需要记账收费，传统收费软件就够用；如果希望减少人工录入、让工单和巡检自动推进、报告自动生成，就需要能让 AI 直接干活的平台。FMClaw™ 的区别在于软件和智能体是一体的：软件是工具，智能体用它们把事情做完。" },
-          { q: "没有物业管理系统，能直接用 FMClaw 吗？", a: "能。很多中小物业公司和园区自己的物业公司没有系统，可以直接开通需要的模块，不用先采购一套物业软件；建议从收费、工单、巡检这几个最常用的模块开始，用到再加。" },
-          { q: "已经有物业 ERP，还要换系统吗？", a: "不用。已有的物业 ERP、财务、人力、BA、视频安防和机器人原样接入，FMClaw™ 读取现有系统的数据，结果写回现有系统；缺什么模块再补什么。" },
-          { q: "物业收费系统和工单系统能和钉钉、企业微信打通吗？", a: "能。钉钉、飞书、企业微信经官方预留的接口接入，支持群机器人建单、对话框问数和多维表双向同步，员工不换工具、不改习惯。" },
-          { q: "智能体调用这些工具会不会乱操作？", a: "不会。谁能用哪个工具，接入时就定好；查信息、算数据可以直接做，发出去、扣到钱、动到设备的动作，先经人批准；每一次调用都有记录，收回授权立即生效。" },
-          { q: "机器人和 IoT 设备也能接吗？", a: "能。清洁机器人、巡检机器人、无人机，以及 BA、能源仪表、视频安防，都以工具形式接入。工作流发出任务，设备执行并回传结果。" },
+          { q: "AI 物业管理系统有哪些功能？", a: "包括五个核心系统：业主小程序与工单（一句话报修，自动建单、催办、超时升级）、物业收费（业务发生自动出账，欠费自动分析）、停车场管理（停车日报每天自动发给项目经理）、门禁与访客（一句话邀请访客，门禁故障自动派单）、楼宇自控与设备能耗（异常直接变工单）。另有品质巡查、考勤薪资、合同采购、报表大屏等模块。" },
+          { q: "AI 物业管理系统和智慧物业系统有什么区别？", a: "智慧物业系统把物业工作搬到线上，但录入、派单、催办、做报表仍然靠人；AI 物业管理系统把这些事交给 AI 自动推进：业主说一句话就能报修，工单自动生成、催办、超时升级；停车日报自动写好发给项目经理；门禁坏了、设备漏水，系统先发现并派单。另一个区别是数据互通：收费、工单、停车、门禁用同一套数据，一件事能从头办到尾。" },
+          { q: "已经有物业管理系统了，还能用吗？", a: "能。在用的物业 ERP、收费、停车、门禁、楼宇自控和钉钉、飞书、企业微信原样接入，不替换；AI 读取现有数据推进工作，结果写回原系统，缺什么模块再补什么。" },
+          { q: "没有任何系统，能直接用吗？", a: "能。直接开通需要的模块，不用先采购一套物业软件；建议从工单、收费、停车这类最常用的开始。" },
+          { q: "业主要下载 App 吗？", a: "不用。业主可以用小程序，也可以直接在业主微信群里说话报修、查账单、查进度。" },
+          { q: "门禁的人脸数据怎么处理？", a: "人脸只在本人同意后录入，用于本项目的通行；也可以用刷卡、NFC 或二维码。人员进出数据不用于通行以外的用途。" },
+          { q: "AI 会不会乱操作？", a: "不会。查信息、算数据可以直接做；发出去、扣到钱、动到设备的动作，先经人批准；每一次操作都有记录，收回授权立即生效。" },
+          { q: "AI 物业管理系统多少钱？", a: "按模块开通、按用量计费，不按账号收固定年费。个人版免费开始，项目团队版 19,800 元起；上线服务、数据接入与硬件按项目报价，详见价格页。" },
         ]}
       />
 
-      <FmFoot updated="2026-10-16" />
+      <FmFoot updated="2026-10-27" />
 
       <SolEnd
-        title={["从最急需的一个模块开始，", "看智能体怎么用它干活"]}
-        sub="收费、工单、巡检或结算，选一个先跑起来。"
+        title={["从最急需的一个系统开始，", "用你的数据跑一遍"]}
+        sub="工单、收费、停车、门禁或楼宇自控，选一个先跑起来。"
         cta={{ href: `/contact?intent=demo&from=${PATH}`, label: "预约演示" }}
         alt={<>继续了解：<Link href="/products/fmclaw/ontology">项目大脑</Link> · <Link href="/products/fmclaw/workflow-engine">工作流引擎</Link> · <Link href="/products/fmclaw/agent-runtime">控制台</Link> · <Link href="/pricing">价格</Link></>}
       />

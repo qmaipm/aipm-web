@@ -25,7 +25,16 @@ export const MENU: MenuItem[] = [
           { label: "AI 物业经理 · FMClaw™", href: "/products/fmclaw", small: "让项目的管理工作自己运转" },
           { label: "项目大脑", href: "/products/fmclaw/ontology", small: "行业数据本体 · 国内首个物业行业模型" },
           { label: "工作流引擎", href: "/products/fmclaw/workflow-engine", small: "让项目管理工作自动跑完" },
-          { label: "工具箱", href: "/products/fmclaw/connectors", small: "物业管理系统全套内置，按模块开通" },
+          {
+            label: "工具箱 · AI 物业管理系统", href: "/products/fmclaw/connectors",
+            links: [
+              { label: "业主小程序与工单", href: "/products/fmclaw/connectors/owner" },
+              { label: "收费", href: "/products/fmclaw/connectors/billing" },
+              { label: "停车", href: "/products/fmclaw/connectors/parking" },
+              { label: "门禁访客", href: "/products/fmclaw/connectors/access" },
+              { label: "楼宇自控", href: "/products/fmclaw/connectors/building" },
+            ],
+          },
           { label: "控制台", href: "/products/fmclaw/agent-runtime", small: "权限、运行、审计与人工接管" },
         ],
       },
@@ -44,8 +53,8 @@ export const MENU: MenuItem[] = [
   {
     label: "智能体解决方案",
     href: "/agents",
-    minWidth: 520,
-    cols: 2,
+    minWidth: 760,
+    cols: 3,
     // 2026-10-13：菜单只放搜索与 AI 提问最多的 5 个方案（百度联想 + GEO 监测题排序）+ 4 个智能体；
     // 其余方案在 /solutions 总览、页脚与方案间互链里承接，不删页。
     // 2026-10-13：/agents 动画总览保留为菜单根与首项；/solutions 为按业务目标的全量列表。
@@ -53,6 +62,17 @@ export const MENU: MenuItem[] = [
       {
         items: [
           { label: "物业管理智能体矩阵（总览）", href: "/agents", small: "四个智能体群，从服务设计、运营管理、质量评估到服务优化" },
+        ],
+      },
+      {
+        // 2026-10-27：加「按系统找」列（docs/PRODUCT-SYSTEMS.md）：用户先找「要买的系统」，再看「要达成的目标」。
+        heading: "按系统找",
+        items: [
+          { label: "业主小程序与物业工单", href: "/products/fmclaw/connectors/owner" },
+          { label: "物业收费系统", href: "/products/fmclaw/connectors/billing" },
+          { label: "停车场管理系统", href: "/products/fmclaw/connectors/parking" },
+          { label: "门禁与访客管理", href: "/products/fmclaw/connectors/access" },
+          { label: "楼宇自控与设备能耗", href: "/products/fmclaw/connectors/building" },
         ],
       },
       {
@@ -176,7 +196,12 @@ export const FOOTER_COLS: { title: string; links: DropItem[] }[] = [
       { label: "AI 物业经理 FMClaw™", href: "/products/fmclaw" },
       { label: "项目大脑", href: "/products/fmclaw/ontology" },
       { label: "工作流引擎", href: "/products/fmclaw/workflow-engine" },
-      { label: "工具箱", href: "/products/fmclaw/connectors" },
+      { label: "AI 物业管理系统（工具箱）", href: "/products/fmclaw/connectors" },
+      { label: "业主小程序与工单", href: "/products/fmclaw/connectors/owner" },
+      { label: "物业收费系统", href: "/products/fmclaw/connectors/billing" },
+      { label: "停车场管理系统", href: "/products/fmclaw/connectors/parking" },
+      { label: "门禁与访客管理", href: "/products/fmclaw/connectors/access" },
+      { label: "楼宇自控与设备", href: "/products/fmclaw/connectors/building" },
       { label: "控制台", href: "/products/fmclaw/agent-runtime" },
       { label: "IoT 物理世界感知", href: "/products/iot" },
       { label: "机器人与智能装备", href: "/products/robots" },

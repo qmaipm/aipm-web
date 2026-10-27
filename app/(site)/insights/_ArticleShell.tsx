@@ -212,6 +212,56 @@ const OWNER_CTA = {
   label: "申请业主项目诊断",
 };
 const ARTICLE_CTA: Record<string, typeof OWNER_CTA> = {
+  // 2026-10-27 系统页第二批文章
+  "ai-property-management-system-features": {
+    title: "看五个系统加了 AI 之后多做什么",
+    description: "业主工单、收费、停车、门禁、楼宇自控，同类功能都有，每个系统多做的三件事一页看完。",
+    href: "/products/fmclaw/connectors",
+    label: "看 AI 物业管理系统",
+  },
+  "ai-work-order-system-for-property": {
+    title: "业主说一句话，工单自己建好、跟到办完",
+    description: "自动建单派单、超时催办升级、完成后回访，反复报修自动标出来。",
+    href: "/products/fmclaw/connectors/owner",
+    label: "看业主小程序与工单系统",
+  },
+  "how-to-choose-property-billing-software": {
+    title: "修完直接出账，欠费和应收应付自动分析",
+    description: "维修、抄表、停车直接生成账单，收费和财务用同一份数据。",
+    href: "/products/fmclaw/connectors/billing",
+    label: "看物业收费系统",
+  },
+  "parking-fee-evasion-prevention": {
+    title: "违规抬杆每天自动列出来",
+    description: "每次抬杆和缴费、放行记录自动比对，对不上的写进每天的停车日报。",
+    href: "/products/fmclaw/connectors/parking",
+    label: "看停车场管理系统",
+  },
+  // 2026-10-27 系统页第一批文章：文末 CTA 指向对应系统子页
+  "why-building-automation-systems-sit-idle": {
+    title: "把你的楼宇自控数据接进来，先看一周",
+    description: "不改原有控制，先接数据、做比对和告警分诊，看看真正要处理的异常有哪些。",
+    href: "/products/fmclaw/connectors/building",
+    label: "看楼宇自控与设备能耗",
+  },
+  "parking-daily-report-template": {
+    title: "让停车日报每天自动送到项目经理手机上",
+    description: "收费、流量、在场车辆、长时间停放、违规抬杆，五项每天自动写好。",
+    href: "/products/fmclaw/connectors/parking",
+    label: "看停车场管理系统",
+  },
+  "how-to-improve-property-satisfaction": {
+    title: "业主说一句话，工单自己建好、跟到办完",
+    description: "小程序和业主群都能报修，自动建单、催办、超时升级，满意度自动统计。",
+    href: "/products/fmclaw/connectors/owner",
+    label: "看业主小程序与工单",
+  },
+  "how-to-choose-visitor-management-system": {
+    title: "访客一句话邀请，哪个门禁点坏了系统先知道",
+    description: "小区、园区、写字楼、道闸、会议室都能用，访客车和人一起放行。",
+    href: "/products/fmclaw/connectors/access",
+    label: "看门禁与访客系统",
+  },
   "ai-property-products-in-china": {
     title: "拿你的一条流程，看 AI 物业经理怎么跑",
     description: "巡检、报事、对账、日报任选一条，用你的真实数据演示从发现到复核需要几次人工介入。",

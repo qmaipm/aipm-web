@@ -92,6 +92,9 @@ export default function Page() {
       <p>
         模式的完整机制：分工边界、结算顺序、考核指标与进场步骤，见<Link href="/ai-service/delegated-operation">物业委托管理服务页</Link>。如果你现在更关心的是具体动作（AI 在收缴率问题里到底能接哪几段工作、什么项目适合先做）见<Link href="/insights/ai-solution-for-low-property-fee-collection">《物业费收缴率低，有什么 AI 解决方案？》</Link>。
       </p>
+      <p>
+        如果只是想先把收费这一段理顺，可以从系统做起：账单从业务里直接生成，欠费每天自动分析，见<Link href="/products/fmclaw/connectors/billing">物业收费系统</Link>。
+      </p>
     </ArticleShell>
   );
 }
