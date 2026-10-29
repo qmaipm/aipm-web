@@ -8,22 +8,22 @@ import { BrainMap, FmFoot, MediaRow } from "../_brain";
 import {
   SolPage, SolHero, SolDefine, SolSection, SolCompare, SolSteps, SolCols, SolTable, SolGallery, SolVerdict, SolMore, SolEnd,
 } from "../../../solutions/_tpl/Sol";
-import { SYSTEMS, sysHref } from "./_systems";
+import { GROUPS, SYSTEMS, sysHref } from "./_systems";
 import "./sys.css";
 
 // 2026-10-27 改版：工具箱 = AI 物业管理系统总页（对齐稿 docs/PRODUCT-SYSTEMS.md）。
 // 品类词用「AI 物业管理系统」（百度联想：有哪些 / 怎么样 / 怎么用）；不用「智慧物业」作自称
 // （已被传统厂家与地方政府平台占住），只在 FAQ 里回答两者区别。
-// 5 个核心系统各有子页（owner / billing / parking / access / building），其余模块在本页列表。
+// 2026-10-28 分三组：核心系统 5 / 现场管理 5（共用一套服务感知）/ 经营管理（报表大屏成页，其余链到解决方案页）。docs/MGMT-SYSTEMS-PLAN.md
 // 公开尺度：不列接入协议，不写具体价格（见 /pricing）；不写「智能体的工具」「Credit」等内部说法。
 const PATH = "/products/fmclaw/connectors";
 
 export const dynamic = "force-dynamic";
 
 export const metadata: Metadata = pageMetadata(PATH, {
-  title: "AI 物业管理系统：业主小程序、工单、收费、停车、门禁、楼宇自控全套内置｜FMClaw™ 工具箱",
+  title: "AI 物业管理系统：工单、收费、停车、门禁、巡更、消防巡查、考勤工时全套内置｜FMClaw™ 工具箱",
   description:
-    "AI 物业管理系统有哪些功能：FMClaw™ 工具箱内置业主小程序与工单、物业收费、停车场管理、门禁与访客、楼宇自控与设备能耗，以及品质巡查、考勤薪资、合同采购、报表大屏等模块。和传统智慧物业系统的区别：业主说一句话就能报修，工单自动建好、催办、超时升级；停车日报每天自动发给项目经理；门禁坏了系统先知道；设备异常直接变工单。系统之间数据是通的，按模块开通，已有系统原样接入。",
+    "AI 物业管理系统有哪些功能：FMClaw™ 工具箱分三组。核心系统：业主小程序与工单、物业收费、停车场管理、门禁与访客、楼宇自控与设备能耗；现场管理：服务感知（人员轨迹管理）、安保巡更、消防巡查、品质巡查与飞行检查、工时管理与考勤排班，一套点位传感器加智能工牌所有工种共用；经营管理：报表与数据大屏、采购库存、合同与供应商结算、空间与服务标准。和传统智慧物业系统的区别：业主说一句话就能报修，工单自动建好、催办、超时升级；停车日报每天自动发给项目经理；门禁坏了系统先知道；设备异常直接变工单。系统之间数据是通的，按模块开通，已有系统原样接入。",
 });
 
 const TECH_LD = techArticleLd({
@@ -45,14 +45,6 @@ const LIST_LD = {
   })),
 };
 
-/* 5 个核心系统之外的模块 */
-const MODS = [
-  { h: "品质与安全巡查", p: "服务做没做、做得好不好", items: ["品质核查与 AI 质检评分", "巡更与安全巡查", "隐患识别与自动派单", "拍照抄表，读数自动识别"] },
-  { h: "人事考勤与薪资", p: "人算得明白", items: ["考勤排班", "薪资与 KPI 核算", "人员编制测算", "项目预算测算"] },
-  { h: "合同、采购与供应商", p: "钱和物算得明白", items: ["合同管理", "物资与采购", "供应商账单核算", "供应商结算"] },
-  { h: "空间与报表", p: "一个项目的底图", items: ["空间与服务点位清单", "服务标准与服务计划", "日报、周报、月报", "数据大屏"] },
-];
-
 /* 在用软件目录 */
 const CATALOG = [
   ["物业 ERP", "收费、工单、租赁、合同、客户档案"],
@@ -73,10 +65,10 @@ export default function ConnectorsPage() {
         crumbRoot={{ href: "/products/fmclaw", label: "AI 物业经理 FMClaw™" }}
         crumb="工具箱 · AI 物业管理系统"
         title={["AI 物业管理系统，", "全套都在工具箱里"]}
-        lead={<>业主小程序与工单、收费、停车、门禁与访客、楼宇自控：物业要用的系统都在，<b>系统之间数据是通的</b>。不同的是，活不再等人去点，<b>AI 主动把它推进完</b>。</>}
+        lead={<>工单、收费、停车、门禁、巡更、消防巡查、考勤工时、报表：物业要用的系统都在，<b>系统之间数据是通的</b>。不同的是，活不再等人去点，<b>AI 主动把它推进完</b>。</>}
         cta={{ href: `/contact?intent=demo&from=${PATH}`, label: "预约演示" }}
         secondary={{ href: "#systems", label: "看有哪些系统" }}
-        proof={["5 个核心系统 + 常用模块", "按模块开通", "已有系统原样接入", "30+ 预制工具，持续增加"]}
+        proof={["14 个系统，分三组", "按模块开通", "已有系统原样接入", "现场管理共用一套感知"]}
         media={{ node: <img className="bm-shot" src="/images/agents/op-workbench.webp" alt="FMClaw™ 工作台真实界面：待办事项、工单进度与智能体运行状态" width={2000} height={989} />, caption: "真实产品界面 · 工作台" }}
       />
 
@@ -99,38 +91,34 @@ export default function ConnectorsPage() {
         ]} />
       </SolSection>
 
-      <SolSection id="systems" title="5 个核心系统"
-        sub="同类产品有的常用功能都有。下面每行列出加了 AI 之后多做的三件事，点进去看详细。">
-        <ul className="sys-list">
-          {SYSTEMS.map((s, i) => (
-            <li key={s.slug}>
-              <Link href={sysHref(s.slug)}>
-                <img src={s.img} alt={s.alt} loading="lazy" width={1800} height={1207} />
-                <div className="t">
-                  <span className="k">{String(i + 1).padStart(2, "0")}</span>
-                  <h3>{s.full}</h3>
-                  <p className="l">{s.line}</p>
-                  <ul>{s.ai.map((x) => <li key={x}>{x}</li>)}</ul>
-                </div>
-                <span className="go" aria-hidden="true">→</span>
-              </Link>
-            </li>
-          ))}
-        </ul>
-      </SolSection>
-
-      <SolSection title="其他常用模块" tone="mist"
-        sub="品质、人事、采购、报表这些模块也都内置，按需要开通。">
-        <div className="bm-mods">
-          {MODS.map((m) => (
-            <section key={m.h}>
-              <h3>{m.h}</h3>
-              <p>{m.p}</p>
-              <ul>{m.items.map((x) => <li key={x}>{x}</li>)}</ul>
+      <SolSection id="systems" title="有哪些系统"
+        sub="同类产品有的常用功能都有。每行列出加了 AI 之后多做的三件事，点进去看详细。">
+        {GROUPS.map((g) => {
+          const list = SYSTEMS.filter((s) => s.group === g.id);
+          return (
+            <section className="sys-grp" key={g.id} aria-label={g.title}>
+              <h3>{g.title}</h3>
+              <p>{g.sub}</p>
+              <ul className="sys-list">
+                {list.map((s, i) => (
+                  <li key={s.slug}>
+                    <Link href={sysHref(s.slug)}>
+                      <img src={s.img} alt={s.alt} loading="lazy" width={1800} height={1207} />
+                      <div className="t">
+                        <span className="k">{String(i + 1).padStart(2, "0")}</span>
+                        <h4 className="h">{s.full}</h4>
+                        <p className="l">{s.line}</p>
+                        <ul>{s.ai.map((x) => <li key={x}>{x}</li>)}</ul>
+                      </div>
+                      <span className="go" aria-hidden="true">→</span>
+                    </Link>
+                  </li>
+                ))}
+              </ul>
             </section>
-          ))}
-        </div>
-        <p className="spt-note">30+ 预制工具持续增加，模块清单以实际开通为准。</p>
+          );
+        })}
+        <p className="spt-note">模块清单以实际开通为准。设备巡检与拍照抄表见<Link href="/solutions/inspection">设备巡检管理</Link>。</p>
       </SolSection>
 
       <SolSection title="数据通了，一件事能从头办到尾" split img={{ src: "/scene/home-pm.webp", alt: "项目经理在写字楼大堂看平板上的项目情况" }}
@@ -204,9 +192,10 @@ export default function ConnectorsPage() {
       <SeoFaq
         heading="关于 AI 物业管理系统，常被问到的问题"
         serviceName="AI 物业管理系统 · FMClaw™ 工具箱"
-        serviceDesc="内置业主小程序与工单、物业收费、停车场管理、门禁与访客、楼宇自控与设备能耗等系统，系统之间数据互通，由 AI 主动推进日常工作；按模块开通，已有系统原样接入。"
+        serviceDesc="内置业主小程序与工单、物业收费、停车场管理、门禁与访客、楼宇自控、服务感知、安保巡更、消防巡查、品质巡查、工时考勤、报表大屏等系统，系统之间数据互通，由 AI 主动推进日常工作；按模块开通，已有系统原样接入。"
         items={[
-          { q: "AI 物业管理系统有哪些功能？", a: "包括五个核心系统：业主小程序与工单（一句话报修，自动建单、催办、超时升级）、物业收费（业务发生自动出账，欠费自动分析）、停车场管理（停车日报每天自动发给项目经理）、门禁与访客（一句话邀请访客，门禁故障自动派单）、楼宇自控与设备能耗（异常直接变工单）。另有品质巡查、考勤薪资、合同采购、报表大屏等模块。" },
+          { q: "AI 物业管理系统有哪些功能？", a: "分三组。核心系统：业主小程序与工单（一句话报修，自动建单、催办、超时升级）、物业收费（业务发生自动出账）、停车场管理（停车日报每天自动发给项目经理）、门禁与访客（门禁故障自动派单）、楼宇自控与设备能耗（异常直接变工单）。现场管理：服务感知、安保巡更、消防巡查、品质巡查与飞行检查、工时管理与考勤排班，共用一套点位传感器和智能工牌。经营管理：报表与数据大屏、采购库存、合同与供应商结算、空间与服务标准。" },
+          { q: "巡更、保洁、工程要各装一套感知设备吗？", a: "不用。点位传感器装一次，保洁、工程、安保共用，每人戴一张智能工牌；已经给保洁布了点位的项目，安保加工牌就能做巡更和消防巡查。系统只记录每个服务点位谁来过、停留多久，用来证明服务做了、核算工时。" },
           { q: "AI 物业管理系统和智慧物业系统有什么区别？", a: "智慧物业系统把物业工作搬到线上，但录入、派单、催办、做报表仍然靠人；AI 物业管理系统把这些事交给 AI 自动推进：业主说一句话就能报修，工单自动生成、催办、超时升级；停车日报自动写好发给项目经理；门禁坏了、设备漏水，系统先发现并派单。另一个区别是数据互通：收费、工单、停车、门禁用同一套数据，一件事能从头办到尾。" },
           { q: "已经有物业管理系统了，还能用吗？", a: "能。在用的物业 ERP、收费、停车、门禁、楼宇自控和钉钉、飞书、企业微信原样接入，不替换；AI 读取现有数据推进工作，结果写回原系统，缺什么模块再补什么。" },
           { q: "没有任何系统，能直接用吗？", a: "能。直接开通需要的模块，不用先采购一套物业软件；建议从工单、收费、停车这类最常用的开始。" },
@@ -217,11 +206,11 @@ export default function ConnectorsPage() {
         ]}
       />
 
-      <FmFoot updated="2026-10-27" />
+      <FmFoot updated="2026-10-28" />
 
       <SolEnd
         title={["从最急需的一个系统开始，", "用你的数据跑一遍"]}
-        sub="工单、收费、停车、门禁或楼宇自控，选一个先跑起来。"
+        sub="工单、收费、停车、巡更或考勤工时，选一个先跑起来。"
         cta={{ href: `/contact?intent=demo&from=${PATH}`, label: "预约演示" }}
         alt={<>继续了解：<Link href="/products/fmclaw/ontology">项目大脑</Link> · <Link href="/products/fmclaw/workflow-engine">工作流引擎</Link> · <Link href="/products/fmclaw/agent-runtime">控制台</Link> · <Link href="/pricing">价格</Link></>}
       />

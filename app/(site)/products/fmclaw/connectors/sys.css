@@ -8,18 +8,18 @@
 .sys-list img{display:block;width:100%;aspect-ratio:3/2;object-fit:cover;border-radius:14px;background:var(--s-mist)}
 .sys-list .t{min-width:0}
 .sys-list .k{display:block;margin-bottom:6px;font-size:13px;font-weight:600;color:var(--s-mut);font-variant-numeric:tabular-nums}
-.sys-list h3{margin:0;font-size:22px;font-weight:700;letter-spacing:-.01em;line-height:1.35}
+.sys-list h3,.sys-list .h{margin:0;font-size:22px;font-weight:700;letter-spacing:-.01em;line-height:1.35}
 .sys-list .l{margin:8px 0 0;font-size:16px;line-height:1.65;color:var(--s-ink-2)}
 .sys-list ul{list-style:none;margin:14px 0 0;padding:0;display:flex;flex-wrap:wrap;gap:6px 22px;font-size:14px;line-height:1.6;color:var(--s-ink-2)}
 .sys-list ul li{position:relative;padding-left:14px}
 .sys-list ul li::before{content:"";position:absolute;left:0;top:.62em;width:6px;height:6px;border-radius:50%;background:var(--s-blue,#0058CC)}
 .sys-list .go{justify-self:end;color:var(--s-mut);transition:transform .2s,color .2s}
-.sys-list a:hover h3{color:var(--s-blue,#0058CC)}
+.sys-list a:hover .h,.sys-list a:hover h3{color:var(--s-blue,#0058CC)}
 .sys-list a:hover .go{color:var(--s-blue,#0058CC);transform:translateX(3px)}
 @media(max-width:860px){
   .sys-list a{grid-template-columns:150px minmax(0,1fr);gap:0 20px;align-items:start;padding:22px 0}
   .sys-list .go{display:none}
-  .sys-list h3{font-size:18px}
+  .sys-list h3,.sys-list .h{font-size:18px}
   .sys-list .l{font-size:15px}
 }
 @media(max-width:560px){
@@ -27,10 +27,31 @@
   .sys-list ul{flex-direction:column;gap:4px}
 }
 
-/* ---------- 子页底部：工具箱里的其他系统（沿用 .spt-groups，改 5 栏） ---------- */
-.sys-nav ol{grid-template-columns:repeat(5,minmax(0,1fr))}
-@media(max-width:1100px){.sys-nav ol{grid-template-columns:repeat(3,minmax(0,1fr))}}
-@media(max-width:700px){.sys-nav ol{grid-template-columns:1fr}}
+/* ---------- 子页底部：工具箱里的其他系统（按组列文字链接） ---------- */
+.sys-nav2{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:24px 40px;border-top:1px solid var(--s-ink);padding-top:22px}
+.sys-nav2 .h{margin:0 0 10px;font-size:13px;font-weight:700;color:var(--s-mut)}
+.sys-nav2 ul{list-style:none;margin:0;padding:0}
+.sys-nav2 li{border-bottom:1px solid var(--s-line)}
+.sys-nav2 a{display:block;padding:11px 0;font-size:15.5px;font-weight:600;line-height:1.5;color:var(--s-ink)}
+.sys-nav2 a:hover{color:var(--s-blue,#0058CC)}
+@media(max-width:900px){.sys-nav2{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:560px){.sys-nav2{grid-template-columns:1fr}}
+
+/* ---------- 总页：分组标题 ---------- */
+.sys-grp{margin:56px 0 0}
+.sys-grp:first-child{margin-top:0}
+.sys-grp>h3{margin:0;font-size:24px;font-weight:700;letter-spacing:-.01em}
+.sys-grp>p{margin:8px 0 18px;font-size:16px;line-height:1.7;color:var(--s-ink-2);max-width:760px}
+
+/* ---------- 工时四层（示意条，无数字） ---------- */
+.sys-funnel{list-style:none;margin:0 0 28px;padding:0;display:grid;gap:10px}
+.sys-funnel li{display:grid;grid-template-columns:120px minmax(0,1fr);gap:16px;align-items:center}
+.sys-funnel b{font-size:15px}
+.sys-funnel span{display:block;height:34px;border-radius:8px;background:#E8F0FB;position:relative}
+.sys-funnel span i{position:absolute;inset:0 auto 0 0;border-radius:8px;background:#0058CC;opacity:.85}
+.sys-funnel em{display:block;grid-column:2;margin-top:-4px;font-style:normal;font-size:13.5px;color:var(--s-mut)}
+.sys-funnel-note{font-size:13px;color:var(--s-mut);margin:-14px 0 24px}
+@media(max-width:560px){.sys-funnel li{grid-template-columns:84px minmax(0,1fr);gap:10px}}
 
 /* ---------- 子页：常用功能清单（两栏勾选列表，纯文字） ---------- */
 .sys-base{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0 40px;border-top:1px solid var(--s-ink)}
@@ -45,3 +66,5 @@
 .sys-reads a:hover{color:var(--s-blue,#0058CC)}
 .sys-reads small{display:block;margin-bottom:4px;font-size:12.5px;font-weight:600;color:var(--s-mut)}
 @media(max-width:700px){.sys-reads{grid-template-columns:1fr}}
+
+/* 总页经营管理组：未成页模块 */
