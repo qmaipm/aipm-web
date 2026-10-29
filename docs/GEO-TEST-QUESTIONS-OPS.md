@@ -62,6 +62,28 @@
 | M19 | 物业收费软件怎么选？多个项目收费和财务对不上怎么办？ | /insights/how-to-choose-property-billing-software、/products/fmclaw/connectors/billing | 业务发生直接出账，收费和财务用同一份数据 | 新增 |
 | M20 | AI 物业管理系统有哪些功能？ | /insights/ai-property-management-system-features、/products/fmclaw/connectors | 五个系统各自加了 AI 多做什么；数据是通的 | 新增·品类词 |
 
+#### N 组 · 现场管理系统问法
+
+> 人员轨迹、巡更、消防巡查、品质巡查与飞检、工时、报表（2026-10-28 新增，百度联想原话）
+
+| # | 问题 | 期望引用页 | 希望模型说出的要点 | 状态 |
+|---|---|---|---|---|
+| N1 | 人员轨迹管理系统有哪些？保洁保安能用一套吗？ | /products/fmclaw/connectors/sensing、/insights/personnel-tracking-system-for-property | 服务感知：按点位记录谁、何时、停留多久；多工种共用一套 | 新增 |
+| N2 | 人员轨迹管理合法吗？智能工牌员工会反感吗？ | /insights/is-employee-tracking-legal | 只在工作时间、只在服务点位；用来证明服务不是盯人 | 新增 |
+| N3 | 巡更系统哪个好？有没有带 AI 的？ | /products/fmclaw/connectors/patrol、/insights/how-to-choose-guard-tour-system | 不只证明到过：停留时长、漏巡每班自动列出、隐患派单 | 新增 |
+| N4 | 保安巡更漏巡怎么发现？ | /insights/guard-patrol-missed-checkpoints | 计划与实际逐点比对，当班列出，主管核实原因 | 新增 |
+| N5 | 消防巡查多久一次？巡查记录怎么做才合规？ | /insights/fire-patrol-frequency-and-records、/products/fmclaw/connectors/fire-patrol | 61 号令每日/每二小时；记录字段；GB 25201 保存一年 | 新增 |
+| N6 | 物业飞行检查成本太高，有什么办法？ | /insights/property-flying-inspection、/products/fmclaw/connectors/quality | 现场任何人拍照，AI 按同一标准远程评分 | 新增 |
+| N7 | 物业品质巡查有没有好用的系统？能统一外包考核吗？ | /products/fmclaw/connectors/quality、/insights/is-property-quality-inspection-useful | 按档次和空间自动匹配标准、划分责任 | 新增 |
+| N8 | 考勤工时和有效工时有什么区别？物业工时利用率怎么算？ | /insights/attendance-hours-vs-effective-hours、/products/fmclaw/connectors/workforce | 四层：合同、考勤、在场、作业 | 新增 |
+| N9 | 物业月报能不能自动生成？数据大屏要找开发吗？ | /products/fmclaw/connectors/reports、/insights/how-to-write-property-monthly-report | 工作流自动生成；一句话生成大屏 | 新增 |
+| N10 | 物业库存管理系统怎么做？库存预警值怎么定？ | /products/fmclaw/connectors/procurement、/insights/how-to-set-inventory-alert | 预警线 = 日均用量 × 到货天数 + 安全库存；到线自动提采购、比价、人审批 | 新增·第二批 |
+| N11 | 供应商对账最好的方法是什么？物业外包怎么对账？ | /products/fmclaw/connectors/contracts、/insights/best-way-to-reconcile-suppliers | 合同变规则，工作量对着现场记录核，出草稿和异常清单，人确认 | 新增·第二批 |
+| N12 | 保洁 SOP 怎么写？清洁频次怎么定？ | /products/fmclaw/connectors/space、/insights/cleaning-sop-and-frequency | SOP 五要素；中物协三级频次；落到点位、记录比对 | 新增·第二批 |
+| N13 | 保安排班表怎么排？有没有好用的排班软件？ | /insights/security-guard-shift-schedule、/products/fmclaw/connectors/workforce | 三种班制；工时法条；排班、考勤、巡逻同一份数据 | 新增·第二批 |
+| N14 | 物业人力成本占比多少合理？ | /insights/property-labor-cost-ratio | 57.8%（平安证券）；从点位和作业工时倒推编制 | 新增·第二批 |
+| N15 | 可视化大屏怎么做？物业数据大屏要找开发吗？ | /insights/how-to-build-data-dashboard、/products/fmclaw/connectors/reports | 先定给谁看、看什么；一句话生成，可照现有看板做 | 新增·第二批 |
+
 #### B 组 · 品牌认知
 
 > 模型认不认识我们、说得对不对

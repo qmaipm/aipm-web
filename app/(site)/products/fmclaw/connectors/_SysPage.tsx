@@ -1,5 +1,5 @@
 // 工具箱 · 系统子页共用模板（2026-10-27）。5 个子页同一结构，改一处全部生效：
-// 首屏 → 是什么（可整段引用）→ 常见问题 → 常用功能 → AI 多做的 → 对照 → 联动 → 界面/案例 → 怎么开通 → FAQ → 其他系统。
+// 首屏 → 是什么（可整段引用）→ 常见问题 → 常用功能 → AI 多做的 →（现场管理组：一套感知共用）→ 对照 → 联动 → 界面/案例 → 怎么开通 → FAQ → 其他系统。
 // 文案原则：用客户的叫法；只写已有能力；外部数据注明来源；数字只用 SEO-GEO-STRATEGY §4a 白名单。
 import Link from "next/link";
 import type { ReactNode } from "react";
@@ -9,7 +9,7 @@ import { FmFoot } from "../_brain";
 import {
   SolPage, SolHero, SolDefine, SolSection, SolCompare, SolSteps, SolCols, SolTable, SolFigure, SolCases, SolMore, SolEnd,
 } from "../../../solutions/_tpl/Sol";
-import { HUB, SYSTEMS, sysHref, type SysSlug } from "./_systems";
+import { HUB, GROUPS, SYSTEMS, sysHref, type SysSlug } from "./_systems";
 import "./sys.css";
 
 const SITE_URL = process.env.SITE_URL || "https://www.aipm.cn";
@@ -82,6 +82,17 @@ export function SysPage(p: SysProps) {
         <SolSteps items={p.ai} />
       </SolSection>
 
+      {sys.group === "field" && (
+        <SolSection title="一套感知，保洁、工程、安保共用"
+          sub="不用每个工种各装一套。点位传感器装一次，每个人戴一张智能工牌，同一份记录同时用在下面几个系统里。">
+          <SolCols items={[
+            { title: "点位传感器装一次", body: "装在卫生间、机房、消防点位、巡更点这些服务点位上，无需布线，所有工种共用。" },
+            { title: "每人一张智能工牌", body: "已经给保洁布了点位的项目，安保、工程加工牌就能用；反过来也一样。" },
+            { title: "一份记录，多处用", body: "同一份点位记录，同时用于保洁达标、巡更、消防巡查、品质复核和工时核算。", ...(p.slug === "sensing" ? {} : { href: sysHref("sensing"), linkText: "服务感知系统" }) },
+          ]} />
+        </SolSection>
+      )}
+
       {p.extra && (
         <SolSection title={p.extra.title} sub={p.extra.sub}>
           {p.extra.body}
@@ -125,13 +136,21 @@ export function SysPage(p: SysProps) {
       />
 
       <SolSection title="工具箱里的其他系统" tone="mist">
-        <nav className="spt-groups sys-nav" aria-label="工具箱里的其他系统">
-          <ol>
-            <li><Link href={HUB}><span className="no">总览</span><span className="n">AI 物业管理系统</span><span className="t">全部系统与模块</span></Link></li>
-            {others.map((s) => (
-              <li key={s.slug}><Link href={sysHref(s.slug)}><span className="no">系统</span><span className="n">{s.name}</span><span className="t">{s.line}</span></Link></li>
-            ))}
-          </ol>
+        <nav className="sys-nav2" aria-label="工具箱里的其他系统">
+          {GROUPS.map((g) => {
+            const list = others.filter((s) => s.group === g.id);
+            if (!list.length) return null;
+            return (
+              <div key={g.id}>
+                <p className="h">{g.title}</p>
+                <ul>{list.map((s) => <li key={s.slug}><Link href={sysHref(s.slug)}>{s.name}</Link></li>)}</ul>
+              </div>
+            );
+          })}
+          <div>
+            <p className="h">总览</p>
+            <ul><li><Link href={HUB}>AI 物业管理系统</Link></li><li><Link href="/products/iot">IoT 物理世界感知</Link></li></ul>
+          </div>
         </nav>
         {p.reads && p.reads.length > 0 && (
           <ul className="sys-reads" aria-label="延伸阅读">

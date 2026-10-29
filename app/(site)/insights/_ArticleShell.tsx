@@ -212,6 +212,98 @@ const OWNER_CTA = {
   label: "申请业主项目诊断",
 };
 const ARTICLE_CTA: Record<string, typeof OWNER_CTA> = {
+  // 2026-10-29 经营管理系统第二批文章
+  "how-to-set-inventory-alert": {
+    title: "库存到线自动提采购，比完价再给你批",
+    description: "预警线按每个项目的实际用量和到货时间自动算，多平台比价后由人审批。",
+    href: "/products/fmclaw/connectors/procurement",
+    label: "看采购与库存系统",
+  },
+  "best-way-to-reconcile-suppliers": {
+    title: "合同变成核算规则，账单对着现场记录核",
+    description: "工作量和质量从现场记录自动核出来，生成账单草稿和异常清单，人确认后付款。",
+    href: "/products/fmclaw/connectors/contracts",
+    label: "看合同与供应商结算",
+  },
+  "cleaning-sop-and-frequency": {
+    title: "每个点位做什么、几次，做没做够自动核",
+    description: "标准和频次落到每个服务点位，点位记录和计划逐点比对。",
+    href: "/products/fmclaw/connectors/space",
+    label: "看空间与服务标准",
+  },
+  "security-guard-shift-schedule": {
+    title: "排班、考勤、巡逻用同一份数据",
+    description: "不只看来没来，还看在不在岗、巡没巡；替班调班留记录，工时自动算。",
+    href: "/products/fmclaw/connectors/workforce",
+    label: "看工时管理与考勤排班",
+  },
+  "property-labor-cost-ratio": {
+    title: "从点位和频次算编制，用作业工时看人效",
+    description: "合同、考勤、在场、作业四层工时自动对齐，人力成本花在哪里看得见。",
+    href: "/products/fmclaw/connectors/workforce",
+    label: "看工时管理与考勤排班",
+  },
+  "how-to-build-data-dashboard": {
+    title: "大屏一句话做出来，不用找开发",
+    description: "数据接进来口径统一，说一句话出看板，也可以照公司现有看板做。",
+    href: "/products/fmclaw/connectors/reports",
+    label: "看报表与数据大屏",
+  },
+  // 2026-10-28 现场管理系统第一批文章
+  "personnel-tracking-system-for-property": {
+    title: "不盯人在哪，只看服务做没做",
+    description: "按服务点位记录谁来过、停留多久；保洁、工程、安保共用一套。",
+    href: "/products/fmclaw/connectors/sensing",
+    label: "看服务感知系统",
+  },
+  "is-employee-tracking-legal": {
+    title: "只在服务点位、只在工作时间记录",
+    description: "智能工牌只做蓝牙广播，用来证明服务做了、核算工时。",
+    href: "/products/fmclaw/connectors/sensing",
+    label: "看服务感知系统",
+  },
+  "how-to-choose-guard-tour-system": {
+    title: "巡更不只证明到过，还看停了多久",
+    description: "漏巡、停留过短每班自动列出，隐患拍照直接派单。",
+    href: "/products/fmclaw/connectors/patrol",
+    label: "看安保巡更系统",
+  },
+  "guard-patrol-missed-checkpoints": {
+    title: "漏巡每班自动列出来",
+    description: "计划和实际逐点比对，漏巡和停留过短的点当班就知道。",
+    href: "/products/fmclaw/connectors/patrol",
+    label: "看安保巡更系统",
+  },
+  "fire-patrol-frequency-and-records": {
+    title: "防火巡查记录自动生成",
+    description: "按法规字段生成巡查记录，主管确认存档；隐患拍照直接派单。",
+    href: "/products/fmclaw/connectors/fire-patrol",
+    label: "看消防巡查系统",
+  },
+  "property-flying-inspection": {
+    title: "飞行检查，拍照就能做",
+    description: "现场任何人拍照，AI 按同一标准评分、划分责任。",
+    href: "/products/fmclaw/connectors/quality",
+    label: "看品质巡查与飞行检查",
+  },
+  "is-property-quality-inspection-useful": {
+    title: "AI 按同一把尺子打分",
+    description: "按档次和空间自动匹配标准，问题自动划分责任，重要的直接派单。",
+    href: "/products/fmclaw/connectors/quality",
+    label: "看品质巡查与飞行检查",
+  },
+  "attendance-hours-vs-effective-hours": {
+    title: "不只看来没来，还看干了多少",
+    description: "合同、考勤、在场、作业四层工时自动对齐，人效和编制算得清。",
+    href: "/products/fmclaw/connectors/workforce",
+    label: "看工时管理与考勤排班",
+  },
+  "how-to-write-property-monthly-report": {
+    title: "月报自动写好，按时送到",
+    description: "日报、周报、月报由工作流自动生成，列出疑点和建议。",
+    href: "/products/fmclaw/connectors/reports",
+    label: "看报表与数据大屏",
+  },
   // 2026-10-27 系统页第二批文章
   "ai-property-management-system-features": {
     title: "看五个系统加了 AI 之后多做什么",
