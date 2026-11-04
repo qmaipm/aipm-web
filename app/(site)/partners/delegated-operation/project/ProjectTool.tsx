@@ -1,5 +1,5 @@
 "use client";
-import { useRef, useState, type FormEvent } from "react";
+import { useEffect, useRef, useState, type FormEvent } from "react";
 import Link from "next/link";
 import { CHOICES, EMPTY_ASSESSMENT, POLICY, PARTNER_PATH, PROPERTY_TYPES, CONTACT_STAGES, ROLES, scoreProject, estimateReturns, validateAssessment, money, percent, type Assessment, type Role } from "@/lib/delegated-policy";
 
@@ -26,6 +26,28 @@ export default function ProjectTool({enabled,analyticsEnabled=false}:{enabled:bo
  const [receipt,setReceipt]=useState<{receipt:string;notification:string}|null>(null);
  const request=useRef<{snapshot:string;id:string}|null>(null);
  const panel=useRef<HTMLDivElement>(null); const started=useRef(false);
+ // 测算通知（2026-10-29）：访客不点报备，也把填写内容和测算结果发给受理人。同一份内容只发一次。
+ const [sid]=useState(()=>Array.from({length:8},()=>"ABCDEFGHJKLMNPQRSTUVWXYZ23456789"[Math.floor(Math.random()*32)]).join(""));
+ const sentSnap=useRef("");
+ const latest=useRef<()=>void>(()=>{});
+ function notify(trigger:"view"|"report_start"|"contact"|"leave"){
+  if(Object.values(assessment).every(v=>v===null))return;
+  const payload={assessment,role,strategic,fixed:fixed===""?null:Number(fixed),efficiency:efficiency===""?null:Number(efficiency),months:Number(months)};
+  const snap=JSON.stringify(payload);
+  if(snap===sentSnap.current)return;
+  sentSnap.current=snap;
+  const device=typeof window!=="undefined"&&window.matchMedia("(max-width: 768px)").matches?"mobile":"desktop";
+  fetch("/api/delegated-assessment",{method:"POST",keepalive:true,headers:{"Content-Type":"application/json"},body:JSON.stringify({...payload,sid,trigger,device})}).catch(()=>{});
+ }
+ latest.current=()=>{ if(!receipt) notify("leave"); };
+ useEffect(()=>{
+  const onHide=()=>{ if(document.visibilityState==="hidden") latest.current(); };
+  const onLeave=()=>latest.current();
+  document.addEventListener("visibilitychange",onHide);
+  window.addEventListener("pagehide",onLeave);
+  return ()=>{document.removeEventListener("visibilitychange",onHide);window.removeEventListener("pagehide",onLeave);};
+ },[]);
+ const contactHref=`/contact?type=delegated-owner&from=project-tool-${sid}`;
  const scoreError=validateAssessment(assessment);
  const result=scoreProject(scoreError?EMPTY_ASSESSMENT:assessment);
  const direction=result.grade?COOPERATION_DIRECTIONS[result.grade]:null;
@@ -42,7 +64,8 @@ export default function ProjectTool({enabled,analyticsEnabled=false}:{enabled:bo
   if(scoreError){setError(scoreError);return;}
   setError("");setStep(next);setReview(false);
   if(next===1&&result.grade)track("assessment_complete");
-  if(next===2)track("report_start");
+  if(next===1)notify("view");
+  if(next===2){track("report_start");notify("report_start");}
   window.setTimeout(()=>{panel.current?.focus();panel.current?.scrollIntoView({block:"start",behavior:"auto"});},0);
  }
  function update(key:keyof Assessment,value:string){
@@ -88,7 +111,7 @@ export default function ProjectTool({enabled,analyticsEnabled=false}:{enabled:bo
    <div className="dp-form-panel" ref={panel} tabIndex={-1}>
     {error&&<p className="dp-message" role="alert">{error}</p>}
     {receipt?<div className="dp-review" role="status"><span className="dp-eyebrow">资料已保存 / 待人工核验</span><h2>已收到你的项目资料</h2><p>请保留受理编号，便于后续联系。</p><p className="dp-receipt">{receipt.receipt}</p><p>回执不代表项目报备已通过，也不启动保护期。受理人核验资料、查重后，将通过你提供的联系方式反馈。</p>{receipt.notification==="pending"&&<p className="dp-message">资料已保存，通知受理人的邮件暂未送达。无需重复报备，也可致电并提供受理编号。</p>}<p><a href="tel:02089853580">020-8985 3580</a></p><Link href={PARTNER_PATH}>返回发展伙伴计划</Link></div>:<>
-    {step===0&&<><h2 className="dp-step-title">填写你已经了解的项目情况</h2><p className="dp-small">按实际情况填写，不清楚就跳过。提交报备前，资料只在当前页面使用；刷新后会清除。</p>
+    {step===0&&<><h2 className="dp-step-title">填写你已经了解的项目情况</h2><p className="dp-small">按实际情况填写，不清楚就跳过。填写的项目情况和测算结果会发送给启盟受理人，用于了解项目；不需要留联系方式。</p>
      <fieldset><legend>01 位置与配套</legend>{choice("location")}{choice("transport")}{choice("amenities")}{choice("strategy")}</fieldset>
      <fieldset><legend>02 面积与现有收入</legend>{numeric("area","实际管理面积（㎡）","只填实际管理范围。统一委托、可共同运营的项目可合并。",1e9)}{numeric("revenue","现有物业年收入（万元／年）","如年收入 300 万，填 300。只计当前可确认收入，不含预测增收或启盟酬金。",1e8)}</fieldset>
      <fieldset><legend>03 入住率与收入保障</legend>{numeric("occupancy","实际入住率（%）","如已入住约八成，填 80。",100)}{choice("guarantee")}</fieldset>
@@ -96,7 +119,7 @@ export default function ProjectTool({enabled,analyticsEnabled=false}:{enabled:bo
      {scoreError&&<p className="dp-message" role="alert">{scoreError}</p>}
      <div className="dp-actions"><button className="btn btn-primary" type="button" onClick={()=>go(1)}>查看合作方向</button><button className="btn btn-ghost" type="button" onClick={()=>go(2)}>先报备，后补资料</button></div>
     </>}
-    {step===1&&<><span className="dp-eyebrow">合作方向参考</span><h2 className="dp-step-title">{direction?direction.label:"一起了解合作方向"}</h2><p className="dp-direction-copy">{direction?direction.description:"资料尚未填全，可以先补充，也可以直接报备。"}</p><p className="dp-small">根据当前填写信息形成，不评价物业品质，也不代表合作准入或收益承诺。</p><div className="dp-actions dp-owner-action"><Link className="btn btn-primary" href="/contact?type=delegated-owner&from=project-tool">沟通合作需求</Link></div><details className="dp-disclosure dp-earnings"><summary>伙伴收益情景（选看）</summary><p className="dp-small">推荐项目的伙伴可展开查看报酬情景。业主无需填写。</p>{roleInput}<label className="dp-checkbox"><input type="checkbox" checked={strategic} onChange={e=>setStrategic(e.target.checked)}/><span>拟申请 S 战略标签<small style={{display:"block"}}>需提供正式证明材料并经专项确认。勾选只用于比较情景，不代表标签已获批。</small></span></label>
+    {step===1&&<><span className="dp-eyebrow">合作方向参考</span><h2 className="dp-step-title">{direction?direction.label:"一起了解合作方向"}</h2><p className="dp-direction-copy">{direction?direction.description:"资料尚未填全，可以先补充，也可以直接报备。"}</p><p className="dp-small">根据当前填写信息形成，不评价物业品质，也不代表合作准入或收益承诺。</p><div className="dp-actions dp-owner-action"><Link className="btn btn-primary" href={contactHref} onClick={()=>notify("contact")}>沟通合作需求</Link></div><details className="dp-disclosure dp-earnings"><summary>伙伴收益情景（选看）</summary><p className="dp-small">推荐项目的伙伴可展开查看报酬情景。业主无需填写。</p>{roleInput}<label className="dp-checkbox"><input type="checkbox" checked={strategic} onChange={e=>setStrategic(e.target.checked)}/><span>拟申请 S 战略标签<small style={{display:"block"}}>需提供正式证明材料并经专项确认。勾选只用于比较情景，不代表标签已获批。</small></span></label>
      {!result.grade?<p className="dp-message">资料尚未填全，暂不能形成合作方向或收益情景。可返回补充，也可直接报备。</p>:result.grade==="reserve"?<p className="dp-message">当前信息尚不适用标准奖励与分润测算。可先沟通合作需求，具体条件与报酬另行书面确认。</p>:<>
       <h3>{ROLES[role].label} · 政策参考</h3>
       <dl className="dp-money-list"><div><dt>不含 S 标签的开业奖励</dt><dd>{money(estimateReturns(result.grade,role,false,0,0,12).opening)}</dd></div>{strategic&&<div><dt>S 标签获批情景的开业奖励</dt><dd>{money(policyEstimate!.opening)}</dd></div>}<div><dt>固定酬金分润比例</dt><dd>{percent(policyEstimate!.fixedRate)}</dd></div><div><dt>提效酬金分润比例</dt><dd>{percent(policyEstimate!.efficiencyRate)}</dd></div></dl>
@@ -137,7 +160,7 @@ export default function ProjectTool({enabled,analyticsEnabled=false}:{enabled:bo
     </div>
     <dl className="dp-progress-list">{sections.map(section=><div key={section.label}><dt>{section.label}</dt><dd>{section.complete?"已填写":"待补充"}</dd></div>)}</dl>
     {step===0&&direction&&<button className="btn btn-primary" type="button" onClick={()=>go(1)}>查看合作方向</button>}
-    {step!==0&&<p><Link className="dp-result-link" href="/contact?type=delegated-owner&from=project-tool">沟通合作需求 →</Link></p>}
+    {step!==0&&<p><Link className="dp-result-link" href={contactHref} onClick={()=>notify("contact")}>沟通合作需求 →</Link></p>}
     {step!==0&&<p>根据当前填写信息形成，不评价物业品质，也不代表合作准入或收益承诺。</p>}
     {strategic&&<p>S 标签：拟申请，待专项认定。</p>}
     <p><a href="#scoring-rules">了解资料口径</a></p>
