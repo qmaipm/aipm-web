@@ -1,13 +1,16 @@
 "use client";
 // 品牌愿景片《让智能，走进物理世界》（5:15，中英字幕）。
 // 点击播放，不自动播放、不静音循环（片子有旁白、叙事性强）。
-// 视频地址：优先取 NEXT_PUBLIC_VISION_FILM_URL（部署时指向 R2 / 对象存储），
-// 未配置时使用站内 /video/vision-film.mp4：720p 网页压制版（约 20MB，faststart），随仓库发布。
-// 原片：AI Drive「启盟科技_让智能走进物理世界_品牌愿景片v4_中文版_中英字幕.mp4」（1080p，275MB）。
+// 视频地址：优先取 NEXT_PUBLIC_VISION_FILM_URL；未配置时用阿里云 OSS 上的 720p 网页压制版
+// （v5.3，H.264+AAC，faststart，约 33MB）。视频不进仓库——Gitea 前置 nginx 限制单次推送体积。
+// 原片：stalliance_vision_v5_3_1080p_master.mp4（1080p 母版，不进仓库）。
 import { useRef, useState } from "react";
 
+const VISION_FILM_OSS_URL =
+  "https://qm-web-static.oss-cn-hangzhou.aliyuncs.com/public/vision-film.mp4";
+
 export const VISION_FILM_SRC =
-  process.env.NEXT_PUBLIC_VISION_FILM_URL || "/video/vision-film.mp4";
+  process.env.NEXT_PUBLIC_VISION_FILM_URL || VISION_FILM_OSS_URL;
 export const VISION_FILM_POSTER = "/master-plan/film-poster.webp";
 
 export default function VisionFilm({ className = "" }: { className?: string }) {
