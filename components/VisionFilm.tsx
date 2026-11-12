@@ -7,7 +7,7 @@
 import { useRef, useState } from "react";
 
 const VISION_FILM_OSS_URL =
-  "https://qm-web-static.oss-cn-hangzhou.aliyuncs.com/public/vision-film.mp4";
+  "https://qm-web-static.oss-cn-hangzhou.aliyuncs.com/public/vision-film02.mp4";
 
 export const VISION_FILM_SRC =
   process.env.NEXT_PUBLIC_VISION_FILM_URL || VISION_FILM_OSS_URL;
