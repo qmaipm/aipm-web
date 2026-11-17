@@ -38,7 +38,7 @@ export default function Page() {
               <div className="ct-card">
                 <div className="ct-card-h">联系方式</div>
                 <dl className="ct-list">
-                  <div><dt>总部地址</dt><dd>广州市黄埔区开泰大道30号之一801房</dd></div>
+                  <div><dt>总部地址</dt><dd>广州市黄埔区开泰大道32号1号楼503房</dd></div>
                   <div><dt>总部电话</dt><dd><a href="tel:02089853580">020-89853580</a></dd></div>
                   <div><dt>市场合作</dt><dd><a href="mailto:liuziwen@aipm.cn">liuziwen@aipm.cn</a></dd></div>
                   <div><dt>融资洽谈</dt><dd><a href="mailto:linbaona@aipm.cn">linbaona@aipm.cn</a></dd></div>

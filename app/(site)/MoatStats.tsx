@@ -86,11 +86,11 @@ function CountStat({ inView, target, suffix, label, plus }: { inView: boolean; t
   );
 }
 
-const MOAT_MAX = 400_000_000; // 最大值 4 亿条，封顶后保持
+const MOAT_MAX = 600_000_000; // 最大值 6 亿条，封顶后保持
 
 function LiveStat({ inView, label }: { inView: boolean; label: string }) {
-  const [val, setVal] = useState(360_000_000); // 起步 3.6 亿
-  const cur = useRef(360_000_000);
+  const [val, setVal] = useState(560_000_000); // 起步 5.6 亿
+  const cur = useRef(560_000_000);
 
   useEffect(() => {
     if (!inView) return;
@@ -103,7 +103,7 @@ function LiveStat({ inView, label }: { inView: boolean; label: string }) {
     const tick = (now: number) => {
       if (now - last > 130) {
         last = now;
-        // 持续累加 ~25–45 万条/次，直到封顶 4 亿
+        // 持续累加 ~25–45 万条/次，直到封顶 6 亿
         cur.current = Math.min(cur.current + Math.floor(Math.random() * 200_000 + 250_000), MOAT_MAX);
         setVal(cur.current);
         if (cur.current >= MOAT_MAX) return; // 到顶即停
